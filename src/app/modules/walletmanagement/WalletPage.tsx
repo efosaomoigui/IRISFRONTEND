@@ -4,45 +4,45 @@ import {PageLink, PageTitle} from '../../../_iris/layout/core'
 import { ViewPermissions } from './components/settings/permissions/ViewPermissions'
 import { ViewRoles } from './components/settings/roles/ViewRoles'
 import {ViewUsers} from './components/settings/users/ViewUsers'
-import {UserHeader} from './UserHeader'
+import { WalletHeader } from './WalletHeader'
 
 const userBreadCrumbs: Array<PageLink> = [
   {
-    title: 'Roles',
+    title: 'Add Wallet',
     path: 'Roles',
     isSeparator: false,
     isActive: false,
   },
   {
     title: 'Permissions',
-    path: '',
+    path: 'permissions',
     isSeparator: false,
     isActive: false,
-  },
+  }
 ]
 
-const UserPage: React.FC = () => {
+const WalletPage: React.FC = () => {
   return (
     <>
-      <UserHeader />
+      <WalletHeader />
       <Switch>
-        <Route path='/usermanagement/users'>
-          <PageTitle breadcrumbs={userBreadCrumbs}>Users</PageTitle>
+        <Route path='/walletmanagement/users'>
+          <PageTitle breadcrumbs={userBreadCrumbs}>Wallets</PageTitle>
           <ViewUsers />
         </Route>
-        <Route path='/usermanagement/roles'>
+        <Route path='/walletmanagement/roles'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Roles</PageTitle>
           <ViewRoles />
         </Route>
-        <Route path='/usermanagement/roles'>
+        <Route path='/walletmanagement/permissions'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Permissions</PageTitle>
           <ViewPermissions />
         </Route>
-        <Redirect from='/usermanagement/' exact={true} to='/usermanagement/users' />
-        <Redirect to='/usermanagement/users' />
+        <Redirect from='/walletmanagement/' exact={true} to='/walletmanagement/users' />
+        <Redirect to='/walletmanagement/users' />
       </Switch>
     </>
   )
 }
 
-export default UserPage
+export default WalletPage

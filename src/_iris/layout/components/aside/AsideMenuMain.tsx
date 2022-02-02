@@ -36,11 +36,11 @@ export function AsideMenuMain() {
         fontIcon='bi-layers'
       >
         <AsideMenuItem to='/usermanagement/Users' title='Users' hasBullet={true} />
-        <AsideMenuItem to='/usermanagement/Wallets' title='Wallets' hasBullet={true} />
+        <AsideMenuItem to='/walletmanagement/Users' title='Wallets' hasBullet={true} />
       </AsideMenuItemWithSub>
        
 
-      {/* OPTIONS AND SETTINGS */}
+      {/* SETTINGS */}
       <div className='menu-item'>
         <div className='menu-content pt-8 pb-2'>
           <span className='menu-section text-muted text-uppercase fs-8 ls-1'>Settings</span>
