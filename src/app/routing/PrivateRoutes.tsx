@@ -17,6 +17,8 @@ export function PrivateRoutes() {
   const ShipmentPage = lazy(() => import('../modules/shipmentmanagement/ShipmentPage'))
   const PaymentPage = lazy(() => import('../modules/payment/PaymentPage'))
   const MonitorPage = lazy(() => import('../modules/monitoring/MonitorPage'))
+  const FulfillmentPage = lazy(() => import('../modules/fulfillment/FulfillmentPage'))
+
 
   return (
     <Suspense fallback={<FallbackView />}>
@@ -44,6 +46,10 @@ export function PrivateRoutes() {
 
         {/* monitor module routes */}
         <Route path='/monitor/' component={MonitorPage} />
+        {/* end payment module routes */}
+
+        {/* fulfillment module routes */}
+        <Route path='/fulfillment/' component={FulfillmentPage} />
         {/* end payment module routes */}
 
 
