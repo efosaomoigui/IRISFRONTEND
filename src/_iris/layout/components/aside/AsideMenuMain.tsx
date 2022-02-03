@@ -1,7 +1,5 @@
 /* eslint-disable react/jsx-no-target-blank */
-import React from 'react'
 import {useIntl} from 'react-intl'
-import {KTSVG} from '../../../helpers'
 import {AsideMenuItemWithSub} from './AsideMenuItemWithSub'
 import {AsideMenuItem} from './AsideMenuItem'
 
@@ -31,7 +29,7 @@ export function AsideMenuMain() {
       </div>
       <AsideMenuItemWithSub
         to='/admin'
-        icon='/media/icons/duotune/general/gen0 19.svg'
+        icon='/media/icons/duotune/art/art002.svg'
         title='User Management'
         fontIcon='bi-layers'
       >
@@ -62,7 +60,7 @@ export function AsideMenuMain() {
         <AsideMenuItem to='/settings/Price' title='Price' hasBullet={true} /> */}
       </AsideMenuItemWithSub>
 
-      {/* DOMESTIC SHIPMENT */}
+      {/* SHIPMENT modules */}
       <div className='menu-item'>
         <div className='menu-content pt-8 pb-2'>
           <span className='menu-section text-muted text-uppercase fs-8 ls-1'>Shipment Management</span>
@@ -76,13 +74,6 @@ export function AsideMenuMain() {
       >
         <AsideMenuItem to='/shipment/CaptureDomesticShipment' title='Capture Domestic Shipment' hasBullet={true} />
         <AsideMenuItem to='/shipment/CaptureFreightShipment' title='Capture Freight Shipment' hasBullet={true} />
-        {/* <AsideMenuItem to='/shipment/viewfleet' title='Shipment' hasBullet={true} />
-        <AsideMenuItem to='/shipment/viewfleet' title='Shipment' hasBullet={true} />
-        <AsideMenuItem to='/shipment/viewfleet' title='Shipment' hasBullet={true} />
-        <AsideMenuItem to='/shipment/viewfleet' title='Shipment' hasBullet={true} />
-        <AsideMenuItem to='/shipment/viewfleet' title='Shipment' hasBullet={true} /> */}
-        {/* <AsideMenuItem to='/shipment/CaptureShipment' title='capture shipment' hasBullet={true} />
-        <AsideMenuItem to='/shipment/Shipment' title='Shipment' hasBullet={true} /> */}
       </AsideMenuItemWithSub>
       <AsideMenuItemWithSub
         to='/shipment'
@@ -93,9 +84,6 @@ export function AsideMenuMain() {
         <AsideMenuItem to='/shipment/Dispatch' title='Dispatch' hasBullet={true} />
         <AsideMenuItem to='/shipment/Manifest' title='Manifest' hasBullet={true} />
         <AsideMenuItem to='/shipment/SortShipment' title='Sort Shipment' hasBullet={true} />
-        {/* <AsideMenuItem to='/shipment/PackagingOptions' title='Packaging Options' hasBullet={true} />
-        <AsideMenuItem to='/shipment/GroupPackagingShipment' title='Group & Package Shipment' hasBullet={true} />
-        <AsideMenuItem to='/shipment/Manifest' title='Manifest' hasBullet={true} /> */}
       </AsideMenuItemWithSub>
 
       <AsideMenuItemWithSub
@@ -118,28 +106,27 @@ export function AsideMenuMain() {
         <AsideMenuItem to='/shipment/fleet' title='Add Fleet' hasBullet={true} />
         <AsideMenuItem to='/shipment/viewfleet' title='View Fleets' hasBullet={true} />
         <AsideMenuItem to='/shipment/pricesettings' title='Price Settings' hasBullet={true} />
-        {/* <AsideMenuItem to='/shipment/ShipmentTracking' title='Shipment Tracking' hasBullet={true} /> */}
       </AsideMenuItemWithSub>
       
-      {/* FINANCE AND ACCOUNTING */}
+      {/* PAYMENT MODULE */}
       <div className='menu-item'>
         <div className='menu-content pt-8 pb-2'>
-          <span className='menu-section text-muted text-uppercase fs-8 ls-1'>Finance & Accounting</span>
+          <span className='menu-section text-muted text-uppercase fs-8 ls-1'>PAYMENT</span>
         </div>
       </div>
       <AsideMenuItemWithSub
-        to='/finance-and-accounting'
-        icon='/media/icons/duotune/general/gen019.svg'
-        title='Wallet Management'
+        to='/payment/'
+        icon='/media/icons/duotune/communication/com006.svg'
+        title='Operations'
         fontIcon='bi-layers'
       >
-        <AsideMenuItem to='/finance-and-accounting/Wallet' title='Wallets' hasBullet={true} />
-        <AsideMenuItem to='/finance-and-accounting/Debits' title='Debits' hasBullet={true} />
-        <AsideMenuItem to='/finance-and-accounting/Credit' title='Credit' hasBullet={true} />
-        <AsideMenuItem to='/finance-and-accounting/ViewTransaction' title='View transaction' hasBullet={true} />
+        <AsideMenuItem to='/payment/wallet' title='Wallets' hasBullet={true} />
+        <AsideMenuItem to='/payment/transaction' title='Transaction' hasBullet={true} />
+        <AsideMenuItem to='/payment/LogPayment' title='Log Payment' hasBullet={true} />
+        <AsideMenuItem to='/payment/PaymentHistory' title='Payment History' hasBullet={true} />
       </AsideMenuItemWithSub>
 
-      <AsideMenuItemWithSub
+      {/* <AsideMenuItemWithSub
         to='/finance-and-accounting'
         icon='/media/icons/duotune/general/gen019.svg'
         title='Invoice'
@@ -155,30 +142,33 @@ export function AsideMenuMain() {
         fontIcon='bi-layers'
       >
         <AsideMenuItem to='/finance-and-accounting/PaymentsLogs' title='Payments Logs' hasBullet={true} />
-      </AsideMenuItemWithSub>
+      </AsideMenuItemWithSub> */}
       
-      {/* REPORTING */}
+      {/* MONITORING */}
       <div className='menu-item'>
         <div className='menu-content pt-8 pb-2'>
-          <span className='menu-section text-muted text-uppercase fs-8 ls-1'>Reporting</span>
+          <span className='menu-section text-muted text-uppercase fs-8 ls-1'>MONITORING</span>
         </div>
       </div>
       <AsideMenuItemWithSub
-        to='/reporting'
-        icon='/media/icons/duotune/general/gen019.svg'
-        title='Shipment'
+        to='/monitor/trips'
+        icon='/media/icons/duotune/general/gen025.svg'
+        title='Operations'
         fontIcon='bi-layers'
       >
-        <AsideMenuItem to='/reporting/Shipments' title='Shipment' hasBullet={true} />
+        <AsideMenuItem to='/monitor/trips' title='Trips' hasBullet={true} />
+        <AsideMenuItem to='/monitor/addtrack' title='Add Track' hasBullet={true} />
+        <AsideMenuItem to='/monitor/trackhistory' title='Track History' hasBullet={true} />
+        <AsideMenuItem to='/monitor/searchtrip' title='Search Trip' hasBullet={true} />
       </AsideMenuItemWithSub>
-      <AsideMenuItemWithSub
+      {/* <AsideMenuItemWithSub
         to='/reporting'
         icon='/media/icons/duotune/general/gen019.svg'
         title='Wallet'
         fontIcon='bi-layers'
       >
         <AsideMenuItem to='/reporting/WalletReporting' title='Wallet reporting' hasBullet={true} />
-      </AsideMenuItemWithSub>
+      </AsideMenuItemWithSub> */}
       {/* <AsideMenuItem
         to='/settings/Routes'
         icon='/media/icons/duotune/general/gen019.svg'
@@ -197,6 +187,22 @@ export function AsideMenuMain() {
         title='Price'
         fontIcon='bi-layers'
       /> */}
+
+      <div className='menu-item'>
+        <div className='menu-content pt-8 pb-2'>
+          <span className='menu-section text-muted text-uppercase fs-8 ls-1'>FULFILLMENT</span>
+        </div>
+      </div>
+      <AsideMenuItemWithSub
+        to='/fulfillment/delivershipment'
+        icon='/media/icons/duotune/general/gen022.svg'
+        title='Operations'
+        fontIcon='bi-layers'
+      >
+        <AsideMenuItem to='/fulfillment/delivershipment' title='Deliver Shipment' hasBullet={true} />
+      </AsideMenuItemWithSub>
+
+
       <div className='menu-item'>
         <div className='menu-content pt-8 pb-2'>
           <span className='menu-section text-muted text-uppercase fs-8 ls-1'>Crafted</span>
