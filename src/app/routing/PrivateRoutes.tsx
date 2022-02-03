@@ -16,6 +16,7 @@ export function PrivateRoutes() {
   const WalletPage = lazy(() => import('../modules/walletmanagement/WalletPage'))
   const ShipmentPage = lazy(() => import('../modules/shipmentmanagement/ShipmentPage'))
   const PaymentPage = lazy(() => import('../modules/payment/PaymentPage'))
+  const MonitorPage = lazy(() => import('../modules/monitoring/MonitorPage'))
 
   return (
     <Suspense fallback={<FallbackView />}>
@@ -40,6 +41,11 @@ export function PrivateRoutes() {
         {/* payment module routes */}
         <Route path='/payment/' component={PaymentPage} />
         {/* end payment module routes */}
+
+        {/* monitor module routes */}
+        <Route path='/monitor/' component={MonitorPage} />
+        {/* end payment module routes */}
+
 
         <Route path='/crafted/widgets' component={WidgetsPage} />
         <Route path='/crafted/account' component={AccountPage} />

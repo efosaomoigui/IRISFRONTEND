@@ -11,17 +11,29 @@ import { PaymentHeader } from './PaymentHeader'
 
 const userBreadCrumbs: Array<PageLink> = [
   {
-    title: 'Roles',
-    path: '/admin/roles',
+    title: 'Wallet',
+    path: '/payment/wallet',
     isSeparator: false,
     isActive: false,
   },
   {
-    title: 'Permissions',
-    path: '/admin/permissions',
+    title: 'Transaction',
+    path: '/payment/transaction',
     isSeparator: false,
     isActive: false,
   },
+  {
+    title: 'Log Payment',
+    path: '/payment/LogPayment',
+    isSeparator: false,
+    isActive: false,
+  },
+  {
+    title: 'Payment History',
+    path: '/payment/PaymentHistory',
+    isSeparator: false,
+    isActive: false,
+  }
 ]
 
 const UserPage: React.FC = () => {
