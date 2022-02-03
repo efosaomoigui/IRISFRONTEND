@@ -1,21 +1,27 @@
 import React from 'react'
 import {Redirect, Route, Switch} from 'react-router-dom'
 import {PageLink, PageTitle} from '../../../_iris/layout/core'
-import { ViewPermissions } from './components/settings/permissions/ViewPermissions'
-import { ViewRoles } from './components/settings/roles/ViewRoles'
-import {ViewUsers} from './components/settings/users/ViewUsers'
 import { WalletHeader } from './WalletHeader'
+import { WalletTransaction } from './components/settings/WalletTransaction'
+import { AddWallet } from './components/settings/AddWallet'
+import { ViewWallet } from './components/settings/ViewWallet'
 
 const userBreadCrumbs: Array<PageLink> = [
   {
-    title: 'Add Wallet',
-    path: 'Roles',
+    title: 'View Wallet',
+    path: '/wallet/wallets',
     isSeparator: false,
     isActive: false,
   },
   {
-    title: 'Permissions',
-    path: 'permissions',
+    title: 'Add Wallet',
+    path: '/wallet/addwallet',
+    isSeparator: false,
+    isActive: false,
+  },
+  {
+    title: 'Wallet Transaction',
+    path: '/wallet/transactions',
     isSeparator: false,
     isActive: false,
   }
@@ -26,20 +32,20 @@ const WalletPage: React.FC = () => {
     <>
       <WalletHeader />
       <Switch>
-        <Route path='/walletmanagement/users'>
+        <Route path='/wallet/wallets'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Wallets</PageTitle>
-          <ViewUsers />
+          <ViewWallet />
         </Route>
-        <Route path='/walletmanagement/roles'>
-          <PageTitle breadcrumbs={userBreadCrumbs}>Roles</PageTitle>
-          <ViewRoles />
+        <Route path='/wallet/addwallet'>
+          <PageTitle breadcrumbs={userBreadCrumbs}>Add Wallet</PageTitle>
+          <AddWallet />
         </Route>
-        <Route path='/walletmanagement/permissions'>
-          <PageTitle breadcrumbs={userBreadCrumbs}>Permissions</PageTitle>
-          <ViewPermissions />
+        <Route path='/wallet/transactions'>
+          <PageTitle breadcrumbs={userBreadCrumbs}>Wallet Transactions</PageTitle>
+          <WalletTransaction />
         </Route>
-        <Redirect from='/walletmanagement/' exact={true} to='/walletmanagement/users' />
-        <Redirect to='/walletmanagement/users' />
+        <Redirect from='/wallet/' exact={true} to='/wallet/wallets' />
+        <Redirect to='/wallet/wallets' />
       </Switch>
     </>
   )

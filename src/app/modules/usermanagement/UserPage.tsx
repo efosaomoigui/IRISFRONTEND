@@ -9,13 +9,13 @@ import {UserHeader} from './UserHeader'
 const userBreadCrumbs: Array<PageLink> = [
   {
     title: 'Roles',
-    path: 'Roles',
+    path: '/admin/roles',
     isSeparator: false,
     isActive: false,
   },
   {
     title: 'Permissions',
-    path: '',
+    path: '/admin/permissions',
     isSeparator: false,
     isActive: false,
   },
@@ -26,20 +26,20 @@ const UserPage: React.FC = () => {
     <>
       <UserHeader />
       <Switch>
-        <Route path='/usermanagement/users'>
+        <Route path='/admin/users'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Users</PageTitle>
           <ViewUsers />
         </Route>
-        <Route path='/usermanagement/roles'>
+        <Route path='/admin/roles'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Roles</PageTitle>
           <ViewRoles />
         </Route>
-        <Route path='/usermanagement/roles'>
+        <Route path='/admin/permissions'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Permissions</PageTitle>
           <ViewPermissions />
         </Route>
-        <Redirect from='/usermanagement/' exact={true} to='/usermanagement/users' />
-        <Redirect to='/usermanagement/users' />
+        <Redirect from='/admin/' exact={true} to='/admin/users' />
+        <Redirect to='/admin/users' />
       </Switch>
     </>
   )

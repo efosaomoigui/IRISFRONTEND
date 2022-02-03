@@ -35,9 +35,9 @@ export function AsideMenuMain() {
         title='Admin'
         fontIcon='bi-layers'
       >
-        <AsideMenuItem to='/usermanagement/Users' title='Users' hasBullet={true} />
-        <AsideMenuItem to='/walletmanagement/Users' title='Wallets' hasBullet={true} />
-        <AsideMenuItem to='/shipmentmanagement/Users' title='Shipment' hasBullet={true} />
+        <AsideMenuItem to='/admin/Users' title='Users' hasBullet={true} />
+        <AsideMenuItem to='/wallet/Users' title='Wallets' hasBullet={true} />
+        <AsideMenuItem to='/shipment/Users' title='Shipment' hasBullet={true} />
       </AsideMenuItemWithSub>
        
 
