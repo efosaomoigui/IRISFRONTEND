@@ -2,7 +2,7 @@ import {Action} from '@reduxjs/toolkit'
 import {persistReducer} from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 import {put, takeLatest, select} from 'redux-saga/effects'
-import {UserModel} from '../models/UserModel'
+import {IUserModel} from '../models/AuthInterfaces'
 import {getUserByToken} from "./AuthCRUD";
 
 export interface ActionWithPayload<T> extends Action {
@@ -24,7 +24,7 @@ const initialAuthState: IAuthState = {
 }
 
 export interface IAuthState {
-  user?: UserModel
+  user?: IUserModel
   accessToken?: string
 }
 
@@ -72,8 +72,8 @@ export const actions = {
   requestUser: () => ({
     type: actionTypes.UserRequested,
   }),
-  fulfillUser: (user: UserModel) => ({type: actionTypes.UserLoaded, payload: {user}}),
-  setUser: (user: UserModel) => ({type: actionTypes.SetUser, payload: {user}}),
+  fulfillUser: (user: IUserModel) => ({type: actionTypes.UserLoaded, payload: {user}}),
+  setUser: (user: IUserModel) => ({type: actionTypes.SetUser, payload: {user}}),
   store: () => ({type: "def"}),
 }
 

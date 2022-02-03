@@ -2,7 +2,7 @@
 import {FC} from 'react'
 import {shallowEqual, useSelector} from 'react-redux'
 import {Link} from 'react-router-dom'
-import {UserModel} from '../../../../app/modules/auth/models/UserModel'
+import {IUserModel} from '../../../../app/modules/auth/models/AuthInterfaces'
 import {RootState} from '../../../../setup'
 import {Languages} from './Languages'
 import * as auth from '../../../../app/modules/auth/redux/AuthRedux'
@@ -10,7 +10,7 @@ import {useDispatch} from 'react-redux'
 import {toAbsoluteUrl} from '../../../helpers'
 
 const HeaderUserMenu: FC = () => {
-  const user: UserModel = useSelector<RootState>(({auth}) => auth.user, shallowEqual) as UserModel
+  const user: IUserModel = useSelector<RootState>(({auth}) => auth.user, shallowEqual) as IUserModel
 
   const dispatch = useDispatch()
   const logout = () => {

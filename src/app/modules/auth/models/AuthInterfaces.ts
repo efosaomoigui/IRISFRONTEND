@@ -4,7 +4,7 @@ import {UserCommunicationModel} from './UserCommunicationModel'
 import {UserEmailSettingsModel} from './UserEmailSettingsModel'
 import {UserSocialNetworksModel} from './UserSocialNetworksModel'
 
-export interface UserModel {
+export interface IUserModel {
   userId: string
   firstName: string
   lastName: string
@@ -24,4 +24,16 @@ export interface UserModel {
   passwordExpireDate: string
   identificationImage: string
   walletNumber: string 
+}
+
+export interface IRoleModel {
+  id: string
+  name: string
+}
+
+export interface IPermissionModel {
+  id: string
+  roleId: string
+  claimType: string
+  claimValue: string
 }

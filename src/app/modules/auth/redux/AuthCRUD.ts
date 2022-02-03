@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {UserModel} from '../models/UserModel'
+import {IUserModel} from '../models/AuthInterfaces'
 
 const API_URL = process.env.REACT_APP_API_URL
 
@@ -35,7 +35,7 @@ export function requestPassword(email: string) {
 }
 
 export function getUserByToken(token:string) {
-  return axios.post<UserModel>(GET_USER_BY_ACCESSTOKEN_URL, {
+  return axios.post<IUserModel>(GET_USER_BY_ACCESSTOKEN_URL, {
     api_token:token
   })
 }
