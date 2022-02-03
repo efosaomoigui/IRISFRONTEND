@@ -37,6 +37,7 @@ export function AsideMenuMain() {
       >
         <AsideMenuItem to='/usermanagement/Users' title='Users' hasBullet={true} />
         <AsideMenuItem to='/walletmanagement/Users' title='Wallets' hasBullet={true} />
+        <AsideMenuItem to='/shipmentmanagement/Users' title='Shipment' hasBullet={true} />
       </AsideMenuItemWithSub>
        
 
