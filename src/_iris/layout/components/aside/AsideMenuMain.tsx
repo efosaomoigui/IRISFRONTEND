@@ -26,81 +26,99 @@ export function AsideMenuMain() {
       {/* ADMIN PANEL */}
       <div className='menu-item'>
         <div className='menu-content pt-8 pb-2'>
-          <span className='menu-section text-muted text-uppercase fs-8 ls-1'>Administration</span>
+          <span className='menu-section text-muted text-uppercase fs-8 ls-1'>USER MANAGEMENT</span>
         </div>
       </div>
       <AsideMenuItemWithSub
         to='/admin'
         icon='/media/icons/duotune/general/gen0 19.svg'
-        title='Admin'
+        title='User Management'
         fontIcon='bi-layers'
       >
         <AsideMenuItem to='/admin/Users' title='Users' hasBullet={true} />
-        <AsideMenuItem to='/wallet/Users' title='Wallets' hasBullet={true} />
-        <AsideMenuItem to='/shipment/Users' title='Shipment' hasBullet={true} />
+        <AsideMenuItem to='/admin/roles' title='Roles' hasBullet={true} />
+        <AsideMenuItem to='/admin/permissions' title='Permissions' hasBullet={true} />
       </AsideMenuItemWithSub>
        
 
       {/* SETTINGS */}
       <div className='menu-item'>
         <div className='menu-content pt-8 pb-2'>
-          <span className='menu-section text-muted text-uppercase fs-8 ls-1'>Settings</span>
+          <span className='menu-section text-muted text-uppercase fs-8 ls-1'>WALLET MANAGEMENT</span>
         </div>
       </div>
       <AsideMenuItemWithSub
-        to='/settings'
+        to='/wallet'
         icon='/media/icons/duotune/general/gen019.svg'
-        title='Settings'
+        title='Wallet Management'
         fontIcon='bi-layers'
        >
-        <AsideMenuItem to='/settings/Fleets' title='Fleets' hasBullet={true} />
+        <AsideMenuItem to='/wallet/Users' title='Wallets' hasBullet={true} />
+        <AsideMenuItem to='/wallet/addwallet' title='Add Wallets' hasBullet={true} />
+        <AsideMenuItem to='/wallet/transactions' title='Wallets Transactions' hasBullet={true} />
+        {/* <AsideMenuItem to='/settings/Fleets' title='Fleets' hasBullet={true} />
         <AsideMenuItem to='/settings/Routes' title='Routes' hasBullet={true} />
         <AsideMenuItem to='/settings/Tripsanddispatch' title='Trips & Dispatch' hasBullet={true} />
-        <AsideMenuItem to='/settings/Price' title='Price' hasBullet={true} />
+        <AsideMenuItem to='/settings/Price' title='Price' hasBullet={true} /> */}
       </AsideMenuItemWithSub>
 
       {/* DOMESTIC SHIPMENT */}
       <div className='menu-item'>
         <div className='menu-content pt-8 pb-2'>
-          <span className='menu-section text-muted text-uppercase fs-8 ls-1'>Domestic Shipment</span>
+          <span className='menu-section text-muted text-uppercase fs-8 ls-1'>Shipment Management</span>
         </div>
       </div>
       <AsideMenuItemWithSub
-        to='/shipment'
+        to='/shipment/CaptureDomesticShipment'
         icon='/media/icons/duotune/general/gen019.svg'
-        title='Domestic Shipment'
+        title='Capture'
         fontIcon='bi-layers'
       >
-        <AsideMenuItem to='/shipment/CaptureShipment' title='capture shipment' hasBullet={true} />
-        <AsideMenuItem to='/shipment/Shipment' title='Shipment' hasBullet={true} />
+        <AsideMenuItem to='/shipment/CaptureDomesticShipment' title='Capture Domestic Shipment' hasBullet={true} />
+        <AsideMenuItem to='/shipment/CaptureFreightShipment' title='Capture Freight Shipment' hasBullet={true} />
+        {/* <AsideMenuItem to='/shipment/viewfleet' title='Shipment' hasBullet={true} />
+        <AsideMenuItem to='/shipment/viewfleet' title='Shipment' hasBullet={true} />
+        <AsideMenuItem to='/shipment/viewfleet' title='Shipment' hasBullet={true} />
+        <AsideMenuItem to='/shipment/viewfleet' title='Shipment' hasBullet={true} />
+        <AsideMenuItem to='/shipment/viewfleet' title='Shipment' hasBullet={true} /> */}
+        {/* <AsideMenuItem to='/shipment/CaptureShipment' title='capture shipment' hasBullet={true} />
+        <AsideMenuItem to='/shipment/Shipment' title='Shipment' hasBullet={true} /> */}
       </AsideMenuItemWithSub>
       <AsideMenuItemWithSub
         to='/shipment'
         icon='/media/icons/duotune/general/gen019.svg'
-        title='Process & Packaging'
-        fontIcon='bi-layers'
-      >
-        <AsideMenuItem to='/shipment/PackagingOptions' title='Packaging Options' hasBullet={true} />
-        <AsideMenuItem to='/shipment/GroupPackagingShipment' title='Group & Package Shipment' hasBullet={true} />
-        <AsideMenuItem to='/shipment/Manifest' title='Manifest' hasBullet={true} />
-      </AsideMenuItemWithSub>
-
-      <AsideMenuItemWithSub
-        to='/shipment'
-        icon='/media/icons/duotune/general/gen019.svg'
-        title='Dispatch'
+        title='Processing & Packaging'
         fontIcon='bi-layers'
       >
         <AsideMenuItem to='/shipment/Dispatch' title='Dispatch' hasBullet={true} />
+        <AsideMenuItem to='/shipment/Manifest' title='Manifest' hasBullet={true} />
+        <AsideMenuItem to='/shipment/SortShipment' title='Sort Shipment' hasBullet={true} />
+        {/* <AsideMenuItem to='/shipment/PackagingOptions' title='Packaging Options' hasBullet={true} />
+        <AsideMenuItem to='/shipment/GroupPackagingShipment' title='Group & Package Shipment' hasBullet={true} />
+        <AsideMenuItem to='/shipment/Manifest' title='Manifest' hasBullet={true} /> */}
       </AsideMenuItemWithSub>
 
       <AsideMenuItemWithSub
         to='/shipment'
         icon='/media/icons/duotune/general/gen019.svg'
-        title='Tracking & Monitoring'
+        title='Search'
         fontIcon='bi-layers'
       >
-        <AsideMenuItem to='/shipment/ShipmentTracking' title='Shipment Tracking' hasBullet={true} />
+        <AsideMenuItem to='/shipment/SearchShipment' title='Search Shipment' hasBullet={true} />
+      </AsideMenuItemWithSub>
+
+      <AsideMenuItemWithSub
+        to='/shipment'
+        icon='/media/icons/duotune/general/gen019.svg'
+        title='Settings'
+        fontIcon='bi-layers'
+      >
+        <AsideMenuItem to='/shipment/routes' title='Routes' hasBullet={true} />
+        <AsideMenuItem to='/shipment/addroutes' title='Add Routes' hasBullet={true} />
+        <AsideMenuItem to='/shipment/fleet' title='Add Fleet' hasBullet={true} />
+        <AsideMenuItem to='/shipment/viewfleet' title='View Fleets' hasBullet={true} />
+        <AsideMenuItem to='/shipment/pricesettings' title='Price Settings' hasBullet={true} />
+        {/* <AsideMenuItem to='/shipment/ShipmentTracking' title='Shipment Tracking' hasBullet={true} /> */}
       </AsideMenuItemWithSub>
       
       {/* FINANCE AND ACCOUNTING */}
