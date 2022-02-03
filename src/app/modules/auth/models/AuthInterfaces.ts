@@ -1,8 +1,3 @@
-import {AuthModel} from './AuthModel'
-import {UserAddressModel} from './UserAddressModel'
-import {UserCommunicationModel} from './UserCommunicationModel'
-import {UserEmailSettingsModel} from './UserEmailSettingsModel'
-import {UserSocialNetworksModel} from './UserSocialNetworksModel'
 
 export interface IUserModel {
   userId: string
@@ -37,3 +32,12 @@ export interface IPermissionModel {
   claimType: string
   claimValue: string
 }
+
+export interface IWalletModel {
+  firstName: string
+  lastName: string
+  walletNumber: string
+  walletBalance:string
+}
+
+

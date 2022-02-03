@@ -1,4 +1,3 @@
-import { IUserModel } from '../../../../auth/models/AuthInterfaces'
 import { usersmodel } from '../../../Models/UserModel'
 import { TablesWidgetUser } from './TablesWidgetUser'
 
