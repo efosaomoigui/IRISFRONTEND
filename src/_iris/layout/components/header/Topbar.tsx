@@ -19,19 +19,6 @@ const Topbar: FC = () => {
         <Search />
       </div>
       {/* Activities */}
-      <div className={clsx('d-flex align-items-center', toolbarButtonMarginClass)}>
-        {/* begin::Drawer toggle */}
-        <div
-          className={clsx('btn btn-icon btn-active-light-primary btn-custom', toolbarButtonHeightClass)}
-          id='kt_activities_toggle'
-        >
-          <KTSVG
-            path='/media/icons/duotune/general/gen032.svg'
-            className={toolbarButtonIconSizeClass}
-          />
-        </div>
-        {/* end::Drawer toggle */}
-      </div>
 
         {/* NOTIFICATIONS */}
         <div className={clsx('d-flex align-items-center', toolbarButtonMarginClass)}>
@@ -51,29 +38,9 @@ const Topbar: FC = () => {
                     className={toolbarButtonIconSizeClass}
                 />
             </div>
-            <HeaderNotificationsMenu />
+            {/* <HeaderNotificationsMenu /> */}
             {/* end::Menu wrapper */}
         </div>
-
-      {/* CHAT */}
-      <div className={clsx('d-flex align-items-center', toolbarButtonMarginClass)}>
-        {/* begin::Menu wrapper */}
-        <div
-          className={clsx(
-            'btn btn-icon btn-active-light-primary btn-custom position-relative',
-            toolbarButtonHeightClass
-          )}
-          id='kt_drawer_chat_toggle'
-        >
-          <KTSVG
-            path='/media/icons/duotune/communication/com012.svg'
-            className={toolbarButtonIconSizeClass}
-          />
-
-          <span className='bullet bullet-dot bg-success h-6px w-6px position-absolute translate-middle top-0 start-50 animation-blink'></span>
-        </div>
-        {/* end::Menu wrapper */}
-      </div>
 
         {/* Quick links */}
         <div className={clsx('d-flex align-items-center', toolbarButtonMarginClass)}>
@@ -115,7 +82,7 @@ const Topbar: FC = () => {
       {/* end::User */}
 
       {/* begin::Aside Toggler */}
-      {config.header.left === 'menu' && (
+      {/* {config.header.left === 'menu' && (
         <div className='d-flex align-items-center d-lg-none ms-2 me-n3' title='Show header menu'>
           <div
             className='btn btn-icon btn-active-light-primary w-30px h-30px w-md-40px h-md-40px'
@@ -124,7 +91,7 @@ const Topbar: FC = () => {
             <KTSVG path='/media/icons/duotune/text/txt001.svg' className='svg-icon-1' />
           </div>
         </div>
-      )}
+      )} */}
     </div>
   )
 }

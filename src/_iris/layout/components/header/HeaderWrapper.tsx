@@ -65,7 +65,7 @@ export function HeaderWrapper() {
 
           {header.left === 'page-title' && (
             <div className='d-flex align-items-center' id='kt_header_nav'>
-              <DefaultTitle />
+              {/* <DefaultTitle /> */}
             </div>
           )}
 

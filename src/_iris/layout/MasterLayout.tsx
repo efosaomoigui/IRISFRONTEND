@@ -49,15 +49,15 @@ const MasterLayout: React.FC = ({children}) => {
       </div>
 
       {/* begin:: Drawers */}
-      <ActivityDrawer />
-        <RightToolbar/>
-      <DrawerMessenger />
+      {/* <ActivityDrawer /> */}
+        {/* <RightToolbar/> */}
+      {/* <DrawerMessenger /> */}
       {/* end:: Drawers */}
 
       {/* begin:: Modals */}
       <Main />
       <InviteUsers />
-      <UpgradePlan />
+      {/* <UpgradePlan /> */}
       {/* end:: Modals */}
       <ScrollTop />
     </PageDataProvider>
