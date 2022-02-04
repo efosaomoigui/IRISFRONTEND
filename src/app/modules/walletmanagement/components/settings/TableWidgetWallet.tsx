@@ -1,21 +1,14 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
 import { KTSVG, toAbsoluteUrl } from '../../../../../_iris/helpers'
-
-import { IWalletModel } from '../../../auth/models/AuthInterfaces'
-
+import { IWalletModel } from '../../Models/WalletInterfaces'
 
 type Props = {
-    className: string,
-    roles?: IWalletModel[]
-    walletNumber: IWalletModel[],
-    firstName: IWalletModel[],
-    lastName: IWalletModel[],
-    walletBalance: IWalletModel[],
-    walletmodel: IWalletModel[]
-  }
+    className: string
+    wallets: IWalletModel[]
+}
   
-  const TablesWidgetWallet: React.FC<Props> = ({roles,className,walletNumber,walletBalance,walletmodel,firstName,lastName}) => {
+const TablesWidgetWallet: React.FC<Props> = ({ wallets,className}) => {
     return (
     <div className={`card ${className}`}>
       {/* begin::Header */}
@@ -75,8 +68,8 @@ type Props = {
             {/* end::Table head */}
             {/* begin::Table body */}
             <tbody>
-              {walletmodel.map((walletmodel) => (
-                <tr key={walletmodel.firstName}>
+                {wallets.map((wallet) => (
+                <tr key={wallet.WalletId}>
                   <td>
                     <div className='form-check form-check-sm form-check-custom form-check-solid'>
                       <input
@@ -93,12 +86,12 @@ type Props = {
                       </div>
                       <div className='d-flex justify-content-start flex-column'>
                         <a href='#' className='text-dark fw-bolder text-hover-primary fs-6'>
-                          {walletmodel.firstName} {walletmodel.lastName}
+                            {wallet.firstName} {wallet.lastName}
                           {/* Fleet Manager */}
                         </a>
                         <span className='text-muted fw-bold text-muted d-block fs-7'>
                           {/* HTML, JS, ReactJS */}
-                          {walletmodel.firstName}
+                            {wallet.firstName}
                         </span>
                       </div>
                     </div>
@@ -109,7 +102,7 @@ type Props = {
                     </a>
                     <span className='text-muted fw-bold text-muted d-block fs-7'>
                       {/* Web, UI/UX Design */}
-                      {walletmodel.firstName}
+                        {wallet.firstName}
                     </span>
                   </td>
                   <td>
@@ -118,7 +111,7 @@ type Props = {
                     </a>
                     <span className='text-muted fw-bold text-muted d-block fs-7'>
                       {/* Web, UI/UX Design */}
-                      {walletmodel.firstName}
+                        {wallet.firstName}
                     </span>
                   </td>
                   <td className='text-end'>

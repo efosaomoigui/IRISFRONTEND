@@ -34,11 +34,4 @@ export interface IPermissionModel {
   claimValue: string
 }
 
-export interface IWalletModel {
-  firstName: string
-  lastName: string
-  walletNumber: string
-  walletBalance:string
-}
-
 

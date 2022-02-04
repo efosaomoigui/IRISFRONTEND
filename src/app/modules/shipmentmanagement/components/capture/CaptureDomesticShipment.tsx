@@ -4,9 +4,9 @@ import { FeedsWidget6, TablesWidget2 } from '../../../../../_iris/partials/widge
 export function CaptureDomesticShipment() {
   return (
     <div className='row g-5 g-xxl-8'>
-      <div className='col-xl-6'>
-        {/* <TablesWidget2 className='mb-5 mb-xxl-8' /> */}
-        <FeedsWidget6 className='mb-5 mb-xxl-8' />
+      <div className='col-xl-12'>
+        <TablesWidget2 className='mb-5 mb-xxl-8' />
+        {/* <FeedsWidget6 className='mb-5 mb-xxl-8' /> */}
       </div>
     </div>
   )

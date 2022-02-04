@@ -1,24 +1,22 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
-import { IPermissionModel } from '../../../../app/modules/auth/models/AuthInterfaces'
-import { permissionmodel } from '../../../../app/modules/usermanagement/Models/PermissionModel'
-import { rolemodel } from '../../../../app/modules/usermanagement/Models/RoleModel'
-import {toAbsoluteUrl} from '../../../helpers'
-import {KTSVG} from '../../../helpers'
-import {Dropdown1} from '../../content/dropdown/Dropdown1'
+import { KTSVG, toAbsoluteUrl } from '../../../../../_iris/helpers'
+import { IRouteModel } from '../../ShipmentModels/ShipmentInterfaces'
+
+
 
 type Props = {
-  className: string,
-  permission?: IPermissionModel[]
+    className: string
+    route: IRouteModel[]
 }
-
-const TablesWidgetPermission: React.FC<Props> = ({permission,className}) => {
-  return (
+  
+const TablesWidgetRoute: React.FC<Props> = ({ route,className}) => {
+    return (
     <div className={`card ${className}`}>
       {/* begin::Header */}
       <div className='card-header border-0 pt-5'>
         <h3 className='card-title align-items-start flex-column'>
-          <span className='card-label fw-bolder fs-3 mb-1'>User Profiles</span>
+          <span className='card-label fw-bolder fs-3 mb-1'>Route</span>
           <span className='text-muted mt-1 fw-bold fs-7'>Over 500 Users</span>
         </h3>
         <div
@@ -35,7 +33,7 @@ const TablesWidgetPermission: React.FC<Props> = ({permission,className}) => {
             data-bs-target='#kt_modal_adduser'
           >
             <KTSVG path='/media/icons/duotune/arrows/arr075.svg' className='svg-icon-3' />
-            New Users
+            Add Route
           </a>
         </div>
       </div>
@@ -61,16 +59,19 @@ const TablesWidgetPermission: React.FC<Props> = ({permission,className}) => {
                     />
                   </div>
                 </th>
-                <th className='min-w-150px'>Roles</th>
-                <th className='min-w-140px'>Permission</th>
+                <th className='min-w-150px'>Code Name</th>
+                <th className='min-w-150px'>Depature</th>
+                <th className='min-w-150px'>Distance</th>
+                {/* <th className='min-w-140px'>Company</th> */}
+                <th className='min-w-120px'>Destination</th>
                 <th className='min-w-100px text-end'>Actions</th>
               </tr>
             </thead>
             {/* end::Table head */}
             {/* begin::Table body */}
             <tbody>
-              {permissionmodel.map((permission) => (
-                <tr key={permission.id}>
+                {route.map((route) => (
+                <tr key={route.RouteId}>
                   <td>
                     <div className='form-check form-check-sm form-check-custom form-check-solid'>
                       <input
@@ -87,31 +88,43 @@ const TablesWidgetPermission: React.FC<Props> = ({permission,className}) => {
                       </div>
                       <div className='d-flex justify-content-start flex-column'>
                         <a href='#' className='text-dark fw-bolder text-hover-primary fs-6'>
-                          {permission.roleId}
+                            {route.CodeName} 
                           {/* Fleet Manager */}
                         </a>
                         <span className='text-muted fw-bold text-muted d-block fs-7'>
                           {/* HTML, JS, ReactJS */}
+                            {route.Departure}
                         </span>
                       </div>
                     </div>
                   </td>
                   <td>
-                    <div className='d-flex align-items-center'>
-                      {/* <div className='symbol symbol-45px me-5'>
-                        <img src={toAbsoluteUrl('/media/avatars/150-11.jpg')} alt='' />
-                      </div> */}
-                      <div className='d-flex justify-content-start flex-column'>
-                        <a href='#' className='text-dark fw-bolder text-hover-primary fs-6'>
-                          {permission.claimType}
-                          {/* Fleet Manager */}
-                        </a>
-                        <span className='text-muted fw-bold text-muted d-block fs-7'>
-                          {/* HTML, JS, ReactJS */}
-                        </span>
-                      </div>
-                    </div>
+                    <a href='#' className='text-dark fw-bolder text-hover-primary d-block fs-6'>
+                      {/* Intertico */}
+                    </a>
+                    <span className='text-muted fw-bold text-muted d-block fs-7'>
+                      {/* Web, UI/UX Design */}
+                        {route.Departure}
+                    </span>
                   </td>
+                  <td>
+                    <a href='#' className='text-dark fw-bolder text-hover-primary d-block fs-6'>
+                      {/* Intertico */}
+                    </a>
+                    <span className='text-muted fw-bold text-muted d-block fs-7'>
+                      {/* Web, UI/UX Design */}
+                        {route.Distance}
+                    </span>
+                  </td>
+                    <td>
+                      <a href='#' className='text-dark fw-bolder text-hover-primary d-block fs-6'>
+                        {/* Intertico */}
+                      </a>
+                      <span className='text-muted fw-bold text-muted d-block fs-7'>
+                        {/* Web, UI/UX Design */}
+                        {route.Destination}
+                      </span>
+                    </td>
                   <td>
                     <div className='d-flex justify-content-end flex-shrink-0'>
                       <a
@@ -193,4 +206,4 @@ const TablesWidgetPermission: React.FC<Props> = ({permission,className}) => {
   )
 }
 
-export { TablesWidgetPermission}
+export { TablesWidgetRoute}
