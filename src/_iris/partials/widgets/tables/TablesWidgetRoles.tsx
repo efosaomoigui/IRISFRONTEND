@@ -17,7 +17,7 @@ const TablesWidgetRoles: React.FC<Props> = ({roles,className}) => {
       {/* begin::Header */}
       <div className='card-header border-0 pt-5'>
         <h3 className='card-title align-items-start flex-column'>
-          <span className='card-label fw-bolder fs-3 mb-1'>User Profiles</span>
+          <span className='card-label fw-bolder fs-3 mb-1'>Roles</span>
           <span className='text-muted mt-1 fw-bold fs-7'>Over 500 Users</span>
         </h3>
         <div
@@ -34,7 +34,7 @@ const TablesWidgetRoles: React.FC<Props> = ({roles,className}) => {
             data-bs-target='#kt_modal_adduser'
           >
             <KTSVG path='/media/icons/duotune/arrows/arr075.svg' className='svg-icon-3' />
-            New Users
+            Add Role
           </a>
         </div>
       </div>

@@ -15,5 +15,12 @@ export const walletmodels: IWalletModel[] = [
         firstName: "Obinna",
         lastName: "Anyaegbu",
         walletBalance: "$50,000"
+    },
+    {
+        WalletId: "3",
+        walletNumber: "CE-WA-040",
+        firstName: "Amaka",
+        lastName: "Uzuegbu",
+        walletBalance: "$100,000"
     }
 ]
