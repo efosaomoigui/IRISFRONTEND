@@ -7,6 +7,7 @@
 $white:    											#ffffff !default;
 $black:    											#000000 !default;
 $gray-100: 										    if(isDarkMode(), #1b1b29, #F5F8FA) !default;
+$iris-gray-100: 									if(isDarkMode(), #1b1b29, #F0F0F6) !default;
 $gray-200: 										    if(isDarkMode(), #2B2B40, #EFF2F5) !default;
 $gray-300: 										    if(isDarkMode(), #323248, #E4E6EF) !default;
 $gray-400: 										    if(isDarkMode(), #474761, #B5B5C3) !default;

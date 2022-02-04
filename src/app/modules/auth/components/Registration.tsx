@@ -99,19 +99,19 @@ export function Registration() {
       {/* end::Heading */}
 
       {/* begin::Action */}
-      <button type='button' className='btn btn-light-primary fw-bolder w-100 mb-10'>
+      {/* <button type='button' className='btn btn-light-primary fw-bolder w-100 mb-10'>
         <img
           alt='Logo'
           src={toAbsoluteUrl('/media/svg/brand-logos/google-icon.svg')}
           className='h-20px me-3'
         />
         Sign in with Google
-      </button>
+      </button> */}
       {/* end::Action */}
 
       <div className='d-flex align-items-center mb-10'>
         <div className='border-bottom border-gray-300 mw-50 w-100'></div>
-        <span className='fw-bold text-gray-400 fs-7 mx-2'>OR</span>
+        {/* <span className='fw-bold text-gray-400 fs-7 mx-2'>OR</span> */}
         <div className='border-bottom border-gray-300 mw-50 w-100'></div>
       </div>
 
