@@ -62,7 +62,7 @@ const TablesWidgetPermission: React.FC<Props> = ({permission,className}) => {
                   </div>
                 </th>
                 <th className='min-w-150px'>Roles</th>
-                {/* <th className='min-w-140px'>Company</th> */}
+                <th className='min-w-140px'>Permission</th>
                 <th className='min-w-100px text-end'>Actions</th>
               </tr>
             </thead>
@@ -88,6 +88,22 @@ const TablesWidgetPermission: React.FC<Props> = ({permission,className}) => {
                       <div className='d-flex justify-content-start flex-column'>
                         <a href='#' className='text-dark fw-bolder text-hover-primary fs-6'>
                           {permission.roleId}
+                          {/* Fleet Manager */}
+                        </a>
+                        <span className='text-muted fw-bold text-muted d-block fs-7'>
+                          {/* HTML, JS, ReactJS */}
+                        </span>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div className='d-flex align-items-center'>
+                      <div className='symbol symbol-45px me-5'>
+                        <img src={toAbsoluteUrl('/media/avatars/150-11.jpg')} alt='' />
+                      </div>
+                      <div className='d-flex justify-content-start flex-column'>
+                        <a href='#' className='text-dark fw-bolder text-hover-primary fs-6'>
+                          {permission.claimType}
                           {/* Fleet Manager */}
                         </a>
                         <span className='text-muted fw-bold text-muted d-block fs-7'>
