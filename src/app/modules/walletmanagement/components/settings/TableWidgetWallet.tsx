@@ -14,7 +14,7 @@ const TablesWidgetWallet: React.FC<Props> = ({ wallets,className}) => {
       {/* begin::Header */}
       <div className='card-header border-0 pt-5'>
         <h3 className='card-title align-items-start flex-column'>
-          <span className='card-label fw-bolder fs-3 mb-1'>User Profiles</span>
+          <span className='card-label fw-bolder fs-3 mb-1'>Wallet</span>
           <span className='text-muted mt-1 fw-bold fs-7'>Over 500 Users</span>
         </h3>
         <div
@@ -31,7 +31,7 @@ const TablesWidgetWallet: React.FC<Props> = ({ wallets,className}) => {
             data-bs-target='#kt_modal_adduser'
           >
             <KTSVG path='/media/icons/duotune/arrows/arr075.svg' className='svg-icon-3' />
-            New Users
+            Add Wallet
           </a>
         </div>
       </div>
@@ -58,8 +58,8 @@ const TablesWidgetWallet: React.FC<Props> = ({ wallets,className}) => {
                   </div>
                 </th>
                 <th className='min-w-150px'>Users</th>
-                <th className='min-w-150px'>Email</th>
-                <th className='min-w-150px'>Date Joined</th>
+                <th className='min-w-150px'>Wallet Number</th>
+                <th className='min-w-150px'>Wallet Balance</th>
                 {/* <th className='min-w-140px'>Company</th> */}
                 <th className='min-w-120px'>Progress</th>
                 <th className='min-w-100px text-end'>Actions</th>
@@ -91,7 +91,7 @@ const TablesWidgetWallet: React.FC<Props> = ({ wallets,className}) => {
                         </a>
                         <span className='text-muted fw-bold text-muted d-block fs-7'>
                           {/* HTML, JS, ReactJS */}
-                            {wallet.firstName}
+                            {wallet.walletNumber}
                         </span>
                       </div>
                     </div>
@@ -102,7 +102,7 @@ const TablesWidgetWallet: React.FC<Props> = ({ wallets,className}) => {
                     </a>
                     <span className='text-muted fw-bold text-muted d-block fs-7'>
                       {/* Web, UI/UX Design */}
-                        {wallet.firstName}
+                        {wallet.walletNumber}
                     </span>
                   </td>
                   <td>
@@ -111,7 +111,7 @@ const TablesWidgetWallet: React.FC<Props> = ({ wallets,className}) => {
                     </a>
                     <span className='text-muted fw-bold text-muted d-block fs-7'>
                       {/* Web, UI/UX Design */}
-                        {wallet.firstName}
+                        {wallet.walletBalance}
                     </span>
                   </td>
                   <td className='text-end'>

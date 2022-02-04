@@ -1,9 +1,9 @@
 
 export interface IWalletModel {
     WalletId: string
+    walletNumber: string
     firstName: string
     lastName: string
-    walletNumber: string
     walletBalance: string
 }
 
