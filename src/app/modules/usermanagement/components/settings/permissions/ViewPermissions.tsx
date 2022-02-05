@@ -1,7 +1,7 @@
-import React from 'react'
-import { FeedsWidget6, TablesWidget2 } from '../../../../../../_iris/partials/widgets'
-import { TablesWidgetPermission } from '../../../../../../_iris/partials/widgets/tables/TablesWidgetPermission'
-import { permissionmodel } from '../../../Models/PermissionModel'
+import React from 'react';
+
+import { TablesWidgetPermission } from '../../../../../../_iris/partials/widgets/tables/TablesWidgetPermission';
+import { permissionmodel } from '../../../Models/PermissionModel';
 
 export function ViewPermissions() {
   return (

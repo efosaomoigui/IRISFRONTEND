@@ -1,6 +1,4 @@
-import React from 'react'
-import { FeedsWidget6, TablesWidget2 } from '../../../../../_iris/partials/widgets'
-import { HorizontalShipmentCapture } from './HorizontalShipmentCapture'
+import { HorizontalShipmentCapture } from './HorizontalShipmentCapture';
 
 export function CaptureDomesticShipment() {
   return (

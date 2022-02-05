@@ -1,4 +1,3 @@
-import React from 'react'
 import { FeedsWidget6, TablesWidget2 } from '../../../../../_iris/partials/widgets'
 
 export function AddFleets() {

@@ -1,14 +1,14 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, {useState, useEffect } from 'react'
-import {useDispatch} from 'react-redux'
-import {useFormik} from 'formik'
-import * as Yup from 'yup'
-import clsx from 'clsx'
-import * as auth from '../redux/AuthRedux'
-import {register} from '../redux/AuthCRUD'
-import {Link} from 'react-router-dom'
-import {toAbsoluteUrl} from '../../../../_iris/helpers'
-import { PasswordMeterComponent } from "../../../../_iris/assets/ts/components";
+import clsx from 'clsx';
+import { useFormik } from 'formik';
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+import * as Yup from 'yup';
+
+import { PasswordMeterComponent } from '../../../../_iris/assets/ts/components';
+import { register } from '../redux/AuthCRUD';
+import * as auth from '../redux/AuthRedux';
 
 const initialValues = {
   firstname: '',

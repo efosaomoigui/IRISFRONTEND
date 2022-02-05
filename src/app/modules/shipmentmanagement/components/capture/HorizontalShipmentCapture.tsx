@@ -1,4 +1,4 @@
-import React, {FC, useEffect, useRef, useState} from 'react'
+import {FC, useEffect, useRef, useState} from 'react'
 
 import {KTSVG} from '../../../../../_iris/helpers'
 import {StepperComponent} from '../../../../../_iris/assets/ts/components'

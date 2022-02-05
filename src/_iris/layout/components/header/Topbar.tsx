@@ -1,8 +1,8 @@
-import clsx from 'clsx'
-import React, {FC} from 'react'
-import {KTSVG, toAbsoluteUrl} from '../../../helpers'
-import {HeaderNotificationsMenu, HeaderUserMenu, QuickLinks, Search} from '../../../partials'
-import {useLayout} from '../../core'
+import clsx from 'clsx';
+import React, { FC } from 'react';
+
+import { KTSVG, toAbsoluteUrl } from '../../../helpers';
+import { HeaderUserMenu, QuickLinks, Search } from '../../../partials';
 
 const toolbarButtonMarginClass = 'ms-1 ms-lg-3',
   toolbarButtonHeightClass = 'w-30px h-30px w-md-40px h-md-40px',
@@ -10,7 +10,7 @@ const toolbarButtonMarginClass = 'ms-1 ms-lg-3',
   toolbarButtonIconSizeClass = 'svg-icon-1'
 
 const Topbar: FC = () => {
-  const {config} = useLayout()
+  // const {config} = useLayout()
 
   return (
     <div className='d-flex align-items-stretch flex-shrink-0'>

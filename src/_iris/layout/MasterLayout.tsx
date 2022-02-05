@@ -1,21 +1,15 @@
-import React, {useEffect} from 'react'
-import {AsideDefault} from './components/aside/AsideDefault'
-import {Footer} from './components/Footer'
-import {HeaderWrapper} from './components/header/HeaderWrapper'
-import {Toolbar} from './components/toolbar/Toolbar'
-import {RightToolbar} from '../partials/layout/RightToolbar'
-import {ScrollTop} from './components/ScrollTop'
-import {Content} from './components/Content'
-import {PageDataProvider} from './core'
-import {useLocation} from 'react-router-dom'
-import {
-  DrawerMessenger,
-  ActivityDrawer,
-  Main,
-  InviteUsers,
-  UpgradePlan,
-} from '../partials'
-import {MenuComponent} from '../assets/ts/components'
+import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+
+import { MenuComponent } from '../assets/ts/components';
+import { InviteUsers, Main } from '../partials';
+import { AsideDefault } from './components/aside/AsideDefault';
+import { Content } from './components/Content';
+import { Footer } from './components/Footer';
+import { HeaderWrapper } from './components/header/HeaderWrapper';
+import { ScrollTop } from './components/ScrollTop';
+import { Toolbar } from './components/toolbar/Toolbar';
+import { PageDataProvider } from './core';
 
 const MasterLayout: React.FC = ({children}) => {
   const location = useLocation()

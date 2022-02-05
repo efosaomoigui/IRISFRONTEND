@@ -1,13 +1,13 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, {useState} from 'react'
-import {useDispatch} from 'react-redux'
-import * as Yup from 'yup'
-import clsx from 'clsx'
-import {Link} from 'react-router-dom'
-import {useFormik} from 'formik'
-import * as auth from '../redux/AuthRedux'
-import {login} from '../redux/AuthCRUD'
-import {toAbsoluteUrl} from '../../../../_iris/helpers'
+import clsx from 'clsx';
+import { useFormik } from 'formik';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+import * as Yup from 'yup';
+
+import { login } from '../redux/AuthCRUD';
+import * as auth from '../redux/AuthRedux';
 
 const loginSchema = Yup.object().shape({
   email: Yup.string()
