@@ -3,15 +3,15 @@ import {IUserModel} from '../models/AuthInterfaces'
 
 const API_URL = process.env.REACT_APP_API_URL
 
-export const GET_USER_BY_ACCESSTOKEN_URL = `${API_URL}/verify_token`
-export const LOGIN_URL = `${API_URL}/login`
-export const REGISTER_URL = `${API_URL}/register`
-export const REQUEST_PASSWORD_URL = `${API_URL}/forgot_password`
+export const GET_USER_BY_ACCESSTOKEN_URL = `${API_URL}/UserManagement/GetUser`
+export const LOGIN_URL = `${API_URL}/UserManagement/login`
+export const REGISTER_URL = `${API_URL}/UserManagement/register`
+export const REQUEST_PASSWORD_URL = `${API_URL}/UserManagement/forgot_password`
 
 // Server should return AuthModel
-export function login(email: string, password: string) {
+export function login(userName: string, password: string) {
   return axios.post(LOGIN_URL, {
-    email,
+    userName,
     password,
   })
 }
@@ -35,7 +35,9 @@ export function requestPassword(email: string) {
 }
 
 export function getUserByToken(token:string) {
-  return axios.post<IUserModel>(GET_USER_BY_ACCESSTOKEN_URL, {
-    api_token:token
-  })
+  return axios.get<IUserModel>(GET_USER_BY_ACCESSTOKEN_URL)
+  // return axios.post<IUserModel>(GET_USER_BY_ACCESSTOKEN_URL, {
+  //   accessToken:token
+  // })
 }
+

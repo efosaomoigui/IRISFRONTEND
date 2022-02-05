@@ -22,8 +22,8 @@ const loginSchema = Yup.object().shape({
 })
 
 const initialValues = {
-  email: 'admin@demo.com',
-  password: 'demo',
+  email: '',
+  password: '',
 }
 
 /*
@@ -35,6 +35,7 @@ const initialValues = {
 export function Login() {
   const [loading, setLoading] = useState(false)
   const dispatch = useDispatch()
+
   const formik = useFormik({
     initialValues,
     validationSchema: loginSchema,
@@ -42,9 +43,10 @@ export function Login() {
       setLoading(true)
       setTimeout(() => {
         login(values.email, values.password)
-          .then(({data: {api_token}}) => {
+          .then(({data: {accessToken}}) => {
+            console.log("The Man Token2 : ", accessToken);
             setLoading(false)
-            dispatch(auth.actions.login(api_token))
+            dispatch(auth.actions.login(accessToken))
           })
           .catch(() => {
             setLoading(false)
