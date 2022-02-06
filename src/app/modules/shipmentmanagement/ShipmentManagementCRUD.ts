@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { IUserModel } from '../auth/models/AuthInterfaces'
 import { IFleetModel, IRouteModel } from './ShipmentModels/ShipmentInterfaces'
 
 
