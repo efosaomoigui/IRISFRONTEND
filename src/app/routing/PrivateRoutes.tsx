@@ -29,7 +29,7 @@ export function PrivateRoutes() {
         <Route path='/crafted/pages/wizards' component={WizardsPage} />
 
         {/* Users module routes */}
-        <Route path='/admin/user' component={UserPage} />
+        <Route path='/admin/' component={UserPage} />
         {/*  EndUsers module routes */}
 
         {/* Wallet module routes */}
