@@ -117,7 +117,7 @@ export function AsideMenuMain() {
       <AsideMenuItemWithSub
         to='/payment/'
         icon='/media/icons/duotune/communication/com006.svg'
-        title='Operations'
+        title='Payment'
         fontIcon='bi-layers'
       >
         <AsideMenuItem to='/payment/wallet' title='Wallets' hasBullet={true} />
@@ -153,7 +153,7 @@ export function AsideMenuMain() {
       <AsideMenuItemWithSub
         to='/monitor/trips'
         icon='/media/icons/duotune/general/gen025.svg'
-        title='Operations'
+        title='Monitoring'
         fontIcon='bi-layers'
       >
         <AsideMenuItem to='/monitor/trips' title='Trips' hasBullet={true} />
@@ -196,7 +196,7 @@ export function AsideMenuMain() {
       <AsideMenuItemWithSub
         to='/fulfillment/delivershipment'
         icon='/media/icons/duotune/general/gen022.svg'
-        title='Operations'
+        title='Fulfillment'
         fontIcon='bi-layers'
       >
         <AsideMenuItem to='/fulfillment/delivershipment' title='Deliver Shipment' hasBullet={true} />
