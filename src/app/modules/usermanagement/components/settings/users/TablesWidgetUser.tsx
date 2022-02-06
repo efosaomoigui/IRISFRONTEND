@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
+import { Header } from 'semantic-ui-react'
 import { KTSVG, toAbsoluteUrl } from '../../../../../../_iris/helpers'
 import { IUserModel } from '../../../../auth/models/AuthInterfaces'
 
@@ -204,6 +205,8 @@ const TablesWidgetUser: React.FC<Props> = ({className, users}) => {
           <a href='../../demo1/dist/index.html' className='d-lg-none'>
             <img alt='Logo' src='assets/media/logos/logo-2.svg' className='h-30px' />
           </a>
+        </div>
+        <div>
         </div>
       </div>
     </div>

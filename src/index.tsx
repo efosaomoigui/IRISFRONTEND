@@ -22,6 +22,7 @@ import {MetronicI18nProvider} from './_iris/i18n/Metronici18n'
  *
  * import './_iris/assets/css/style.rtl.css'
  **/
+import 'semantic-ui-css/semantic.min.css'
 import './_iris/assets/sass/style.scss'
 import './_iris/assets/sass/style.react.scss'
 /**

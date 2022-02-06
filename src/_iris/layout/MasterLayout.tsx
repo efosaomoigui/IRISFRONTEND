@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 
 import { MenuComponent } from '../assets/ts/components';
 import { InviteUsers, Main } from '../partials';
+import { AddUserModal } from '../../app/modules/usermanagement/modals/AddUserModal';
 import { AsideDefault } from './components/aside/AsideDefault';
 import { Content } from './components/Content';
 import { Footer } from './components/Footer';
@@ -51,6 +52,21 @@ const MasterLayout: React.FC = ({children}) => {
       {/* begin:: Modals */}
       <Main />
       <InviteUsers />
+
+      {/* custom modals for iris */}
+      <AddUserModal />
+{/* 
+          <AddFleetModal />
+
+          <AddRouteModal />
+
+          <AddPriceModal />
+
+          <AddTripModal />
+
+          <AddWalletModal /> */}
+    {/* end custom modals for iris */}
+
       {/* <UpgradePlan /> */}
       {/* end:: Modals */}
       <ScrollTop />

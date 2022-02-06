@@ -1,9 +1,10 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import clsx from 'clsx';
-import { useFormik } from 'formik';
+import { Form, useFormik } from 'formik';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { Segment } from 'semantic-ui-react';
 import * as Yup from 'yup';
 
 import { login } from '../redux/AuthCRUD';
@@ -58,6 +59,7 @@ export function Login() {
   })
 
   return (
+    <>
     <form
       className='form w-100'
       onSubmit={formik.handleSubmit}
@@ -212,5 +214,6 @@ export function Login() {
       </div>
       {/* end::Action */}
     </form>
+    </>
   )
 }
