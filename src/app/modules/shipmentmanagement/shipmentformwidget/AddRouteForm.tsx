@@ -1,35 +1,36 @@
 import React from 'react'
 import {Form, Row, Col, Button} from 'react-bootstrap-v5'
 
-const AddUserForm: React.FC = () => {
+const AddRouteForm: React.FC = () => {
   return (
     <>
       <Form>
         <Row>
           <Form.Group as={Col} controlId='formGridEmail'>
-            <Form.Label>Email</Form.Label>
-            <Form.Control type='email' placeholder='Enter email' />
+            <Form.Label>RouteId</Form.Label>
+            <Form.Control placeholder='RouteId'/>
           </Form.Group>
 
           <Form.Group as={Col} controlId='formGridPassword'>
-            <Form.Label>Password</Form.Label>
-            <Form.Control type='password' placeholder='Password' />
+            <Form.Label>Waybill</Form.Label>
+            <Form.Control placeholder='Waybill No.' />
           </Form.Group>
         </Row>
 
         <Form.Group controlId='formGridAddress1'>
-          <Form.Label>Address</Form.Label>
-          <Form.Control placeholder='1234 Main St' />
+          <Form.Label>FirstName</Form.Label>
+          <Form.Control placeholder='FirstName' />
         </Form.Group>
 
         <Form.Group controlId='formGridAddress2'>
-          <Form.Label>Phone No.</Form.Label>
-          <Form.Control placeholder='Enter Phone Number' />
+          <Form.Label>Address</Form.Label>
+          <Form.Control placeholder='Apartment, studio, or floor' />
         </Form.Group>
 
         <Row>
+
           <Form.Group as={Col} controlId='formGridState'>
-            <Form.Label>City</Form.Label>
+            <Form.Label>Departure</Form.Label>
             <Form.Control as='select'>
               <option>Choose...</option>
               <option>...</option>
@@ -37,16 +38,11 @@ const AddUserForm: React.FC = () => {
           </Form.Group>
 
           <Form.Group as={Col} controlId='formGridState'>
-            <Form.Label>State</Form.Label>
+            <Form.Label>Destination</Form.Label>
             <Form.Control as='select'>
               <option>Choose...</option>
               <option>...</option>
             </Form.Control>
-          </Form.Group>
-
-          <Form.Group as={Col} controlId='formGridZip'>
-            <Form.Label>Zip</Form.Label>
-            <Form.Control />
           </Form.Group>
         </Row>
 
@@ -60,4 +56,4 @@ const AddUserForm: React.FC = () => {
   )
 }
 
-export {AddUserForm}
+export { AddRouteForm}

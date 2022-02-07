@@ -12,6 +12,10 @@ import { ScrollTop } from './components/ScrollTop';
 import { Toolbar } from './components/toolbar/Toolbar';
 import { PageDataProvider } from './core';
 
+import { AddFleetModal } from '../../app/modules/shipmentmanagement/modals/AddFleetModal';
+import { AddRouteModal } from '../../app/modules/shipmentmanagement/modals/AddRouteModal';
+import { AddWalletModal } from '../../app/modules/walletmanagement/modals/AddWalletModal';
+
 const MasterLayout: React.FC = ({children}) => {
   const location = useLocation()
   useEffect(() => {
@@ -55,8 +59,11 @@ const MasterLayout: React.FC = ({children}) => {
 
       {/* custom modals for iris */}
       <AddUserModal />
+      <AddWalletModal />
+      <AddFleetModal />
+      <AddRouteModal />
 {/* 
-          <AddFleetModal />
+          
 
           <AddRouteModal />
 

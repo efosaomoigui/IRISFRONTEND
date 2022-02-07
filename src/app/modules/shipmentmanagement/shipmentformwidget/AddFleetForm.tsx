@@ -1,53 +1,51 @@
 import React from 'react'
 import {Form, Row, Col, Button} from 'react-bootstrap-v5'
 
-const AddUserForm: React.FC = () => {
+const AddFleetForm: React.FC = () => {
   return (
     <>
       <Form>
         <Row>
           <Form.Group as={Col} controlId='formGridEmail'>
-            <Form.Label>Email</Form.Label>
-            <Form.Control type='email' placeholder='Enter email' />
+            <Form.Label>Fleet Name</Form.Label>
+            <Form.Control placeholder='Enter Name of Fleet' />
           </Form.Group>
 
           <Form.Group as={Col} controlId='formGridPassword'>
-            <Form.Label>Password</Form.Label>
-            <Form.Control type='password' placeholder='Password' />
+            <Form.Label>Registration number</Form.Label>
+            <Form.Control placeholder='Enter your reg Number' />
           </Form.Group>
         </Row>
 
-        <Form.Group controlId='formGridAddress1'>
-          <Form.Label>Address</Form.Label>
-          <Form.Control placeholder='1234 Main St' />
-        </Form.Group>
-
-        <Form.Group controlId='formGridAddress2'>
-          <Form.Label>Phone No.</Form.Label>
-          <Form.Control placeholder='Enter Phone Number' />
+        <Form.Group as={Col} controlId='formGridState'>
+          <Form.Label>Fleet Model</Form.Label>
+          <Form.Control as='select'>
+            <option>Choose...</option>
+            <option>Chevrolet</option>
+            <option>Merecedes</option>
+          </Form.Control>
         </Form.Group>
 
         <Row>
+
           <Form.Group as={Col} controlId='formGridState'>
-            <Form.Label>City</Form.Label>
+            <Form.Label>Fleet Type</Form.Label>
             <Form.Control as='select'>
               <option>Choose...</option>
-              <option>...</option>
+              <option>Truck</option>
+              <option>Motorcycle</option>
             </Form.Control>
           </Form.Group>
 
           <Form.Group as={Col} controlId='formGridState'>
-            <Form.Label>State</Form.Label>
+            <Form.Label>Fleet Make</Form.Label>
             <Form.Control as='select'>
               <option>Choose...</option>
-              <option>...</option>
+              <option>Chevrolet</option>
+              <option>Mercedes</option>
             </Form.Control>
           </Form.Group>
 
-          <Form.Group as={Col} controlId='formGridZip'>
-            <Form.Label>Zip</Form.Label>
-            <Form.Control />
-          </Form.Group>
         </Row>
 
         <Form.Group id='formGridCheckbox'>
@@ -60,4 +58,4 @@ const AddUserForm: React.FC = () => {
   )
 }
 
-export {AddUserForm}
+export { AddFleetForm}
