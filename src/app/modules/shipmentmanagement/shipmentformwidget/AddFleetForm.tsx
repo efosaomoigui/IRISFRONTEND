@@ -7,49 +7,78 @@ const AddFleetForm: React.FC = () => {
       <Form>
         <Row>
           <Form.Group as={Col} controlId='formGridEmail'>
-            <Form.Label>Fleet Name</Form.Label>
-            <Form.Control placeholder='Enter Name of Fleet' />
+            <Form.Label>Fleet Id</Form.Label>
+            <Form.Control placeholder='Enter Fleet Id' />
           </Form.Group>
 
           <Form.Group as={Col} controlId='formGridPassword'>
-            <Form.Label>Registration number</Form.Label>
-            <Form.Control placeholder='Enter your reg Number' />
+            <Form.Label>Waybill Number</Form.Label>
+            <Form.Control placeholder='Enter Waybill Number' />
+          </Form.Group>
+        </Row>
+
+        <Row>
+          <Form.Group as={Col} controlId='formGridEmail'>
+            <Form.Label>firstName</Form.Label>
+            <Form.Control placeholder='Enter First Name' />
+          </Form.Group>
+
+          <Form.Group as={Col} controlId='formGridPassword'>
+            <Form.Label>registrationNumber</Form.Label>
+            <Form.Control placeholder='Enter registration Number' />
+          </Form.Group>
+        </Row>
+
+        <Row>
+          <Form.Group as={Col} controlId='formGridEmail'>
+            <Form.Label>chassisNumber</Form.Label>
+            <Form.Control placeholder='Enter Chasis Number' />
+          </Form.Group>
+
+          <Form.Group as={Col} controlId='formGridPassword'>
+            <Form.Label>engineNumber</Form.Label>
+            <Form.Control placeholder='Enter registration Number' />
+          </Form.Group>
+        </Row>
+
+        <Row>
+          <Form.Group as={Col} controlId='formGridEmail'>
+            <Form.Label>fleetType</Form.Label>
+            <Form.Control placeholder='Enter Fleet type' />
+          </Form.Group>
+
+          <Form.Group as={Col} controlId='formGridPassword'>
+            <Form.Label>capacity</Form.Label>
+            <Form.Control placeholder='Enter Capacity' />
+          </Form.Group>
+        </Row>
+
+        <Row>
+          <Form.Group as={Col} controlId='formGridEmail'>
+            <Form.Label>fleetModel</Form.Label>
+            <Form.Control placeholder='Enter Fleet model' />
+          </Form.Group>
+
+          <Form.Group as={Col} controlId='formGridPassword'>
+            <Form.Label>FleetMake</Form.Label>
+            <Form.Control placeholder='Enter Fleet Make' />
+          </Form.Group>
+
+          <Form.Group as={Col} controlId='formGridPassword'>
+            <Form.Label>description</Form.Label>
+            <Form.Control placeholder='describe the type of fleet' />
           </Form.Group>
         </Row>
 
         <Form.Group as={Col} controlId='formGridState'>
-          <Form.Label>Fleet Model</Form.Label>
+          <Form.Label>ownerId</Form.Label>
           <Form.Control as='select'>
             <option>Choose...</option>
-            <option>Chevrolet</option>
-            <option>Merecedes</option>
           </Form.Control>
         </Form.Group>
 
-        <Row>
-
-          <Form.Group as={Col} controlId='formGridState'>
-            <Form.Label>Fleet Type</Form.Label>
-            <Form.Control as='select'>
-              <option>Choose...</option>
-              <option>Truck</option>
-              <option>Motorcycle</option>
-            </Form.Control>
-          </Form.Group>
-
-          <Form.Group as={Col} controlId='formGridState'>
-            <Form.Label>Fleet Make</Form.Label>
-            <Form.Control as='select'>
-              <option>Choose...</option>
-              <option>Chevrolet</option>
-              <option>Mercedes</option>
-            </Form.Control>
-          </Form.Group>
-
-        </Row>
-
         <Form.Group id='formGridCheckbox'>
-          <Form.Check type='checkbox' label='Check me out' />
+          <Form.Check type='checkbox' label='status' />
         </Form.Group>
 
         <Button variant='primary' type='submit'>Submit</Button>

@@ -12,25 +12,43 @@ const AddRouteForm: React.FC = () => {
           </Form.Group>
 
           <Form.Group as={Col} controlId='formGridPassword'>
-            <Form.Label>Waybill</Form.Label>
+            <Form.Label>routeName</Form.Label>
             <Form.Control placeholder='Waybill No.' />
           </Form.Group>
         </Row>
 
-        <Form.Group controlId='formGridAddress1'>
-          <Form.Label>FirstName</Form.Label>
+        <Row>
+          <Form.Group as={Col} controlId='formGridState'>
+          <Form.Label>departureCentreId</Form.Label>
           <Form.Control placeholder='FirstName' />
         </Form.Group>
 
-        <Form.Group controlId='formGridAddress2'>
-          <Form.Label>Address</Form.Label>
+          <Form.Group as={Col} controlId='formGridState'>
+            <Form.Label>destinationCentreId</Form.Label>
           <Form.Control placeholder='Apartment, studio, or floor' />
         </Form.Group>
+        </Row>
 
         <Row>
+          <Form.Group as={Col} controlId='formGridState'>
+            <Form.Label>dispatchFee</Form.Label>
+            <Form.Control placeholder='Enter Dispatch Fee' />
+          </Form.Group>
 
           <Form.Group as={Col} controlId='formGridState'>
-            <Form.Label>Departure</Form.Label>
+            <Form.Label>loaderFee</Form.Label>
+            <Form.Control placeholder='Enter Loader Fee' />
+          </Form.Group>
+        </Row>
+
+        <Row>
+          <Form.Group as={Col} controlId='formGridState'>
+            <Form.Label>captainFee</Form.Label>
+            <Form.Control placeholder='Enter Captain Fee' />
+          </Form.Group>
+
+          <Form.Group as={Col} controlId='formGridState'>
+            <Form.Label>mainRouteId</Form.Label>
             <Form.Control as='select'>
               <option>Choose...</option>
               <option>...</option>
@@ -38,7 +56,7 @@ const AddRouteForm: React.FC = () => {
           </Form.Group>
 
           <Form.Group as={Col} controlId='formGridState'>
-            <Form.Label>Destination</Form.Label>
+            <Form.Label>routeType</Form.Label>
             <Form.Control as='select'>
               <option>Choose...</option>
               <option>...</option>
@@ -46,9 +64,17 @@ const AddRouteForm: React.FC = () => {
           </Form.Group>
         </Row>
 
-        <Form.Group id='formGridCheckbox'>
-          <Form.Check type='checkbox' label='Check me out' />
-        </Form.Group>
+        <Row>
+          <Form.Group as={Col} id='formGridCheckbox'>
+            <Form.Check type='checkbox' label='isSubRoute' />
+          </Form.Group>
+          <Form.Group as={Col} id='formGridCheckbox'>
+            <Form.Check type='checkbox' label='availableAtTerminal' />
+          </Form.Group>
+          <Form.Group as={Col} id='formGridCheckbox'>
+            <Form.Check type='checkbox' label='availableOnline' />
+          </Form.Group>
+        </Row>
 
         <Button variant='primary' type='submit'>Submit</Button>
       </Form>
