@@ -10,7 +10,7 @@ export interface IFleetModel {
 export interface IRouteModel {
     RouteId: string
     CodeName: string
-    Departure: string
-    Destination: string
+    departureCentreId: string
+    destinationCentreId: string
     Distance: string
-}
+} 

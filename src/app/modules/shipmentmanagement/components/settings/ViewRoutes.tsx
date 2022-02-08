@@ -6,7 +6,7 @@ import { TablesWidgetRoute } from "./TableWidgetRoute";
 
 
 export function ViewRoutes() {
-    const [routemodel1, setRouteModel] = useState<IRouteModel[]>([]);
+    const [routemodels1, setRouteModel] = useState<IRouteModel[]>([]);
 
     // //USE EFFECT HOOK
     useEffect(() => {
@@ -28,7 +28,7 @@ export function ViewRoutes() {
     return (
         <div className='row g-5 g-xxl-8'>
             <div className='col-xl-12'>
-                <TablesWidgetRoute className='mb-5 mb-xxl-8' route={routemodel1} />
+                <TablesWidgetRoute className='mb-5 mb-xxl-8' route={routemodels1} />
             </div>
         </div>
     )
