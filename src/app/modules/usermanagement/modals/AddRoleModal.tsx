@@ -1,9 +1,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { FC } from 'react'
-import { KTSVG, toAbsoluteUrl } from '../../../../_iris/helpers'
-import { AddRouteForm } from '../shipmentformwidget/AddRouteForm'
+import React, {FC} from 'react'
+import {KTSVG, toAbsoluteUrl} from '../../../../_iris/helpers'
+import { AddRoleForm } from '../userformwidget/AddRoleForm'
 
-const AddRouteModal: FC = () => {
+const AddRoleModal: FC = () => {
   const users = [
     {
       avatar: '/media/avatars/150-1.jpg',
@@ -20,7 +20,7 @@ const AddRouteModal: FC = () => {
   ]
 
   return (
-    <div className='modal fade' id='kt_modal_addroute' aria-hidden='true'>
+    <div className='modal fade' id='kt_modal_addrole' aria-hidden='true'>
       <div className='modal-dialog mw-650px'>
         <div className='modal-content'>
           <div className='modal-header pb-0 border-0 justify-content-end'>
@@ -31,17 +31,17 @@ const AddRouteModal: FC = () => {
 
           <div className='modal-body scroll-y mx-5 mx-xl-18 pt-0 pb-15'>
             <div className='text-center mb-13'>
-              <h1 className='mb-3'>Add Route</h1>
+              <h1 className='mb-3'>Add Role</h1>
             </div>
 
-            {/* form starts from here */}
+          {/* form starts from here */}
             <div className='separator d-flex flex-center mb-8'>
               <span className='text-uppercase bg-body fs-7 fw-bold text-muted px-3'></span>
             </div>
 
-            {/* start form */}
-            <AddRouteForm />
-            {/* end form */}
+          {/* start form */}
+          <AddRoleForm />
+          {/* end form */}
           </div>
         </div>
       </div>
@@ -49,4 +49,4 @@ const AddRouteModal: FC = () => {
   )
 }
 
-export { AddRouteModal }
+export { AddRoleModal}

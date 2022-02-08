@@ -3,7 +3,6 @@ import {Redirect, Route, Switch} from 'react-router-dom'
 import {PageLink, PageTitle} from '../../../_iris/layout/core'
 import { WalletHeader } from './WalletHeader'
 import { WalletTransaction } from './components/settings/WalletTransaction'
-import { AddWallet } from './components/settings/AddWallet'
 import { ViewWallet } from './components/settings/ViewWallet'
 
 const userBreadCrumbs: Array<PageLink> = [
@@ -38,7 +37,6 @@ const WalletPage: React.FC = () => {
         </Route>
         <Route path='/wallet/addwallet'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Add Wallet</PageTitle>
-          <AddWallet />
         </Route>
         <Route path='/wallet/transactions'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Wallet Transactions</PageTitle>

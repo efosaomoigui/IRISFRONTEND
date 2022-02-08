@@ -53,8 +53,7 @@ export function AsideMenuMain() {
         fontIcon='bi-layers'
       >
         <AsideMenuItem to='/wallet/Users' title='Wallets' hasBullet={true} />
-        <AsideMenuItem to='/wallet/addwallet' title='Add Wallets' hasBullet={true} />
-        <AsideMenuItem to='/wallet/transactions' title='Wallets Transactions' hasBullet={true} />
+        <AsideMenuItem to='/wallet/transactions' title='Wallet Transactions' hasBullet={true} />
         {/* <AsideMenuItem to='/settings/Fleets' title='Fleets' hasBullet={true} />
         <AsideMenuItem to='/settings/Routes' title='Routes' hasBullet={true} />
         <AsideMenuItem to='/settings/Tripsanddispatch' title='Trips & Dispatch' hasBullet={true} />
@@ -119,8 +118,6 @@ export function AsideMenuMain() {
         fontIcon='bi-layers'
       >
         <AsideMenuItem to='/shipment/routes' title='Routes' hasBullet={true} />
-        <AsideMenuItem to='/shipment/addroutes' title='Add Routes' hasBullet={true} />
-        <AsideMenuItem to='/shipment/fleet' title='Add Fleet' hasBullet={true} />
         <AsideMenuItem to='/shipment/viewfleet' title='View Fleets' hasBullet={true} />
         <AsideMenuItem to='/shipment/pricesettings' title='Price Settings' hasBullet={true} />
       </AsideMenuItemWithSub>

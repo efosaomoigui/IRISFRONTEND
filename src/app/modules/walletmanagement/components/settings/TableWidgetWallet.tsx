@@ -28,7 +28,7 @@ const TablesWidgetWallet: React.FC<Props> = ({ wallets,className}) => {
             href='#'
             className='btn btn-sm btn-light-primary'
             data-bs-toggle='modal'
-            data-bs-target='#kt_modal_adduser'
+            data-bs-target='#kt_modal_addwallet'
           >
             <KTSVG path='/media/icons/duotune/arrows/arr075.svg' className='svg-icon-3' />
             Add Wallet

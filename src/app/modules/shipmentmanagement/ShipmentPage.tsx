@@ -3,7 +3,6 @@ import {Redirect, Route, Switch} from 'react-router-dom'
 import {PageLink, PageTitle} from '../../../_iris/layout/core'
 import {ShipmentHeader} from './ShipmentHeader'
 import { ViewRoutes } from './components/settings/ViewRoutes'
-import { AddFleets } from './components/settings/AddFleets'
 import { ViewFleets } from './components/settings/ViewFleets'
 import { PriceSettings } from './components/settings/PriceSettings'
 import { CaptureDomesticShipment } from './components/capture/CaptureDomesticShipment'
@@ -39,7 +38,6 @@ const ShipmentPage: React.FC = () => {
         </Route>
         <Route path='/shipment/fleet'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Add Fleet</PageTitle>
-          <AddFleets />
         </Route>
         <Route path='/shipment/viewfleet'>
           <PageTitle breadcrumbs={userBreadCrumbs}>View Fleets</PageTitle>
