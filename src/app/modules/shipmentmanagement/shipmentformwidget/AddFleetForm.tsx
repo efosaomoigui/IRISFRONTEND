@@ -17,16 +17,24 @@ const AddFleetForm: React.FC = () => {
           </Form.Group>
         </Row>
 
-        <Row>
+        <Row className='mb-5'>
           <Form.Group as={Col} controlId='formGridEmail'>
             <Form.Label>firstName</Form.Label>
             <Form.Control placeholder='Enter First Name' />
+            <Form.Control as='select'>
+              <option>Choose...</option>
+              <option>...</option>
+            </Form.Control>
           </Form.Group>
 
           <Form.Group as={Col} controlId='formGridPassword'>
             <Form.Label>registrationNumber</Form.Label>
             <Form.Control placeholder='Enter registration Number' />
           </Form.Group>
+          <Form.Control as='select'>
+              <option>Choose...</option>
+              <option>...</option>
+            </Form.Control>
         </Row>
 
         <Row>
