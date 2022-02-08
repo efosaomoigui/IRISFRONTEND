@@ -1,15 +1,15 @@
-import {useFormik} from 'formik'
-import React, {useState} from 'react'
-import {Form, Row, Col, Button} from 'react-bootstrap-v5'
-import {useDispatch} from 'react-redux'
+import { useFormik } from 'formik'
+import React, { useState } from 'react'
+import { Form, Row, Col, Button } from 'react-bootstrap-v5'
+import { useDispatch } from 'react-redux'
 import agent from '../../../../setup/axios/AxiosAgent'
-import {IUserModel} from '../../auth/models/AuthInterfaces'
+import { IUserModel } from '../../auth/models/AuthInterfaces'
 import * as Yup from 'yup';
 import clsx from 'clsx'
 
 const initialValues: IUserModel = {
   userId: '',
-  password: '', 
+  password: '',
   firstName: '',
   lastName: '',
   email: '',
@@ -30,32 +30,32 @@ const initialValues: IUserModel = {
   walletNumber: '',
 }
 
-// const registrationSchema = Yup.object().shape({
-//   firstname: Yup.string()
-//     .min(3, 'Minimum 3 symbols')
-//     .max(50, 'Maximum 50 symbols')
-//     .required('First name is required'),
-//   email: Yup.string()
-//     .email('Wrong email format')
-//     .min(3, 'Minimum 3 symbols')
-//     .max(50, 'Maximum 50 symbols')
-//     .required('Email is required'),
-//   lastname: Yup.string()
-//     .min(3, 'Minimum 3 symbols')
-//     .max(50, 'Maximum 50 symbols')
-//     .required('Last name is required'),
-//   password: Yup.string()
-//     .min(3, 'Minimum 3 symbols')
-//     .max(50, 'Maximum 50 symbols')
-//     .required('Password is required'),
-//   changepassword: Yup.string()
-//     .required('Password confirmation is required')
-//     .when('password', {
-//       is: (val: string) => (val && val.length > 0 ? true : false),
-//       then: Yup.string().oneOf([Yup.ref('password')], "Password and Confirm Password didn't match"),
-//     }),
-//   acceptTerms: Yup.bool().required('You must accept the terms and conditions'),
-// })
+const registrationSchema = Yup.object().shape({
+  firstname: Yup.string()
+    .min(3, 'Minimum 3 symbols')
+    .max(50, 'Maximum 50 symbols')
+    .required('First name is required'),
+  email: Yup.string()
+    .email('Wrong email format')
+    .min(3, 'Minimum 3 symbols')
+    .max(50, 'Maximum 50 symbols')
+    .required('Email is required'),
+  lastname: Yup.string()
+    .min(3, 'Minimum 3 symbols')
+    .max(50, 'Maximum 50 symbols')
+    .required('Last name is required'),
+  password: Yup.string()
+    .min(3, 'Minimum 3 symbols')
+    .max(50, 'Maximum 50 symbols')
+    .required('Password is required'),
+  changepassword: Yup.string()
+    .required('Password confirmation is required')
+    .when('password', {
+      is: (val: string) => (val && val.length > 0 ? true : false),
+      then: Yup.string().oneOf([Yup.ref('password')], "Password and Confirm Password didn't match"),
+    }),
+  acceptTerms: Yup.bool().required('You must accept the terms and conditions'),
+})
 
 //form starts here
 const AddUserForm: React.FC = () => {
@@ -66,7 +66,7 @@ const AddUserForm: React.FC = () => {
   const formik = useFormik({
     initialValues,
     validationSchema: registrationSchema,
-    onSubmit: (values, {setStatus, setSubmitting}) => {
+    onSubmit: (values, { setStatus, setSubmitting }) => {
       setLoading(true)
       setTimeout(() => {
         agent.Users.create(values)
@@ -164,41 +164,40 @@ const AddUserForm: React.FC = () => {
           </Form.Group>
         </Row>
 
-//         <Row className='mb-5'>
-//           <Form.Group as={Col} controlId='formGridState'>
-//             <Form.Label>City</Form.Label>
-//             <Form.Control as='select'>
-//               <option>Choose...</option>
-//               <option>...</option>
-//             </Form.Control>
-//           </Form.Group>
+        <Row className='mb-5'>
+          <Form.Group as={Col} controlId='formGridState'>
+            <Form.Label>City</Form.Label>
+            <Form.Control as='select'>
+              <option>Choose...</option>
+              <option>...</option>
+            </Form.Control>
+          </Form.Group>
 
-//           <Form.Group as={Col} controlId='formGridState'>
-//             <Form.Label>State</Form.Label>
-//             <Form.Control as='select'>
-//               <option>Choose...</option>
-//               <option>...</option>
-//             </Form.Control>
-//           </Form.Group>
+          <Form.Group as={Col} controlId='formGridState'>
+            <Form.Label>State</Form.Label>
+            <Form.Control as='select'>
+              <option>Choose...</option>
+              <option>...</option>
+            </Form.Control>
+          </Form.Group>
 
-//           <Form.Group as={Col} controlId='formGridZip'>
-//             <Form.Label>Zip</Form.Label>
-//             <Form.Control />
-//           </Form.Group>
-//         </Row>
-//         <Row className='mb-5'>
-//           <Form.Group id='formGridCheckbox'>
-//             <Form.Check type='checkbox' label='Check me out' />
-//           </Form.Group>
-//         </Row>
+          <Form.Group as={Col} controlId='formGridZip'>
+            <Form.Label>Zip</Form.Label>
+            <Form.Control />
+          </Form.Group>
+        </Row>
+        <Row className='mb-5'>
+          <Form.Group id='formGridCheckbox'>
+            <Form.Check type='checkbox' label='Check me out' />
+          </Form.Group>
+        </Row>
 
-//         <Button variant='primary' type='submit'>
-//           Submit
-//         </Button>
-//       </Form>
-//     </>
-//   )
-// }
+        <Button variant='primary' type='submit'>
+          Submit
+        </Button>
+      </Form>
+    </>
+  )
+}
 
-// export {AddUserForm}
-
+export { AddUserForm }

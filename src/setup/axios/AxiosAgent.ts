@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
-import { IUserModel } from '../../app/modules/auth/models/AuthInterfaces';
+import { IPermissionModel, IRoleModel, IUserModel } from '../../app/modules/auth/models/AuthInterfaces';
 import { ShipmentModel } from '../../app/modules/shipmentmanagement/ShipmentModels/ShipmentModel';
 import { IFleetModel, IRouteModel } from '../../app/modules/shipmentmanagement/ShipmentModels/ShipmentInterfaces';
 import { IconUserModel } from '../../app/modules/profile/ProfileModels';
@@ -44,6 +44,20 @@ const  Users = {
   create: (users:IUserModel) => requests.post<IUserModel>(`${API_URL}/UserManagement/Register`, users), 
   update: (users:IUserModel) => requests.put<IUserModel>(`${API_URL}/UserManagement/GetUser/${users.userId}`, {}), 
   delete: (id:string) => requests.del<void>(`${API_URL}/UserManagement/GetUser${id}`), 
+}
+const Roles = {
+  list: () => requests.get<IRoleModel[]>(`${API_URL}/UserManagement/GetRoles`),
+  details: (roleid: string) => requests.get<IRoleModel>(`${API_URL}/UserManagement/GetRoles/${roleid}`),
+  create: (roles: IRoleModel) => requests.post<IRoleModel>(`${API_URL}/UserManagement/AddRole`, roles),
+  update: (roles: IRoleModel) => requests.put<IRoleModel>(`${API_URL}/UserManagement/GetUser/${roles.id}`, {}),
+  delete: (id: string) => requests.del<void>(`${API_URL}/UserManagement/GetUser${id}`),
+}
+const Permissions = {
+  list: () => requests.get<IPermissionModel[]>(`${API_URL}/UserManagement/GetPermission`),
+  details: (permissionid: string) => requests.get<IPermissionModel>(`${API_URL}/UserManagement/GetPermission/${permissionid}`),
+  create: (permission: IPermissionModel) => requests.post<IPermissionModel>(`${API_URL}/UserManagement/AddPermissionToRole`, permission),
+  update: (permission: IPermissionModel) => requests.put<IPermissionModel>(`${API_URL}/UserManagement/GetUser/${permission.id}`, {}),
+  delete: (id: string) => requests.del<void>(`${API_URL}/UserManagement/GetUser${id}`),
 }
 
 // wallet Starts here
@@ -103,7 +117,9 @@ const  Monitoring = {
 
 const agent = {
   Users,
+  Roles,
   Route,
+  Permissions,
   Fleet,
   Wallet,
   WalletTransaction,

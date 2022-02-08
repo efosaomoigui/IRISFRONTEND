@@ -67,7 +67,7 @@ const TablesWidgetRoles: React.FC<Props> = ({roles,className}) => {
             {/* end::Table head */}
             {/* begin::Table body */}
             <tbody>
-              {rolemodel.map((role) => (
+              {roles?.map((role) => (
                 <tr key={role.id}>
                   <td>
                     <div className='form-check form-check-sm form-check-custom form-check-solid'>

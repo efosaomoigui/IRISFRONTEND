@@ -67,7 +67,7 @@ const TablesWidgetPermission: React.FC<Props> = ({permission,className}) => {
             {/* end::Table head */}
             {/* begin::Table body */}
             <tbody>
-              {permissionmodel.map((permission) => (
+              {permission?.map((permission) => (
                 <tr key={permission.id}>
                   <td>
                     <div className='form-check form-check-sm form-check-custom form-check-solid'>
