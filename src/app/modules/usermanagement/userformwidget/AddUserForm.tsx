@@ -136,7 +136,7 @@ const AddUserForm: React.FC = () => {
                 'is-invalid': formik.touched.password && formik.errors.password,
               },
               {
-                'is-valid': formik.touched.password && !formik.errors.pa,
+                'is-valid': formik.touched.password && !formik.errors.password,
               }
             )}
           >
