@@ -5,7 +5,7 @@ const AddUserForm: React.FC = () => {
   return (
     <>
       <Form>
-        <Row>
+        <Row className='mb-5'>
           <Form.Group as={Col} controlId='formGridEmail'>
             <Form.Label>Email</Form.Label>
             <Form.Control type='email' placeholder='Enter email' />
@@ -16,18 +16,20 @@ const AddUserForm: React.FC = () => {
             <Form.Control type='password' placeholder='Password' />
           </Form.Group>
         </Row>
-
+        <Row className='mb-5'>
         <Form.Group controlId='formGridAddress1'>
           <Form.Label>Address</Form.Label>
           <Form.Control placeholder='1234 Main St' />
         </Form.Group>
-
+        </Row>
+        <Row className='mb-5'>
         <Form.Group controlId='formGridAddress2'>
           <Form.Label>Phone No.</Form.Label>
           <Form.Control placeholder='Enter Phone Number' />
         </Form.Group>
+        </Row>
 
-        <Row>
+        <Row className='mb-5'>
           <Form.Group as={Col} controlId='formGridState'>
             <Form.Label>City</Form.Label>
             <Form.Control as='select'>
@@ -49,12 +51,15 @@ const AddUserForm: React.FC = () => {
             <Form.Control />
           </Form.Group>
         </Row>
+        <Row className='mb-5'>
+          <Form.Group id='formGridCheckbox'>
+            <Form.Check type='checkbox' label='Check me out' />
+          </Form.Group>
+        </Row>
 
-        <Form.Group id='formGridCheckbox'>
-          <Form.Check type='checkbox' label='Check me out' />
-        </Form.Group>
-
-        <Button variant='primary' type='submit'>Submit</Button>
+        <Button variant='primary' type='submit'>
+          Submit
+        </Button>
       </Form>
     </>
   )
