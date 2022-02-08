@@ -5,6 +5,7 @@ import { IFleetModel, IRouteModel } from '../../app/modules/shipmentmanagement/S
 import { IconUserModel } from '../../app/modules/profile/ProfileModels';
 import { resolve } from 'path';
 import { IPaymentModel } from '../../app/modules/payment/PaymentModels/PaymentModel';
+import { IWalletModel, IWalletTransactionModel } from '../../app/modules/walletmanagement/Models/WalletInterfaces';
 // import { ILogPaymentModel } from '../../app/modules/payment/PaymentModels/LogPaymentModel';
 
 const responseBody =<T>(response : AxiosResponse<T>) => response.data;
@@ -46,12 +47,21 @@ const  Users = {
 }
 
 // wallet Starts here
-const  Shipment = {
-  list: () => requests.get<IUserModel[]>(`${API_URL}/api/Shipment/all`),
-  details: (shipmentid: string) => requests.get<ShipmentModel>(`${API_URL}/Shipment/GetUser/${shipmentid}`), 
-  create: (shipment: ShipmentModel) => requests.post<ShipmentModel>(`${API_URL}/Shipment`, shipment), 
-  update: (shipment: ShipmentModel) => requests.put<ShipmentModel>(`${API_URL}/Shipment/GetUser/${shipment.id}`, {}), 
+const  Wallet = {
+  list: () => requests.get<IWalletModel[]>(`${API_URL}/Wallet/WalletNumber/all`),
+  details: (walletid: string) => requests.get<IWalletModel>(`${API_URL}/Wallet/WalletNumber/all/${walletid}`), 
+  create: (wallet: IWalletModel) => requests.post<IWalletModel>(`${API_URL}/Wallet/WalletNumber/`, wallet), 
+  update: (wallet: IWalletModel) => requests.put<IWalletModel>(`${API_URL}/Shipment/GetUser/${wallet.WalletId}`, {}), 
   delete: (id: string) => requests.del<void>(`${API_URL}/Shipment/GetUser${id}`), 
+}
+
+// wallet transaction Starts here
+const WalletTransaction = {
+  list: () => requests.get<IWalletTransactionModel[]>(`${API_URL}/Wallet/WalletTransaction/all`),
+  details: (walletid: string) => requests.get<IWalletTransactionModel>(`${API_URL}/Wallet/WalletTransaction/all/${walletid}`),
+  create: (wallet: IWalletTransactionModel) => requests.post<IWalletTransactionModel>(`${API_URL}/Wallet/WalletTransaction/`, wallet),
+  update: (wallet: IWalletTransactionModel) => requests.put<IWalletTransactionModel>(`${API_URL}/Shipment/GetUser/${wallet.WalletId}`, {}),
+  delete: (id: string) => requests.del<void>(`${API_URL}/Shipment/GetUser${id}`),
 }
 
 // Route Request Starts
@@ -95,7 +105,8 @@ const agent = {
   Users,
   Route,
   Fleet,
-  Shipment,
+  Wallet,
+  WalletTransaction,
   PaymentLog,
   Monitoring
 }
