@@ -13,7 +13,6 @@ export function ViewUsers() {
 
   // //USE EFFECT HOOK
   useEffect(() => {
-    // requestUser();
     agent.Users.list().then((response) => {
       setUsersModel(response)
       setLoading(false)
