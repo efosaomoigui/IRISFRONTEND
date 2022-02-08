@@ -1,28 +1,24 @@
 import { useEffect, useState } from "react";
+import agent from "../../../../../setup/axios/AxiosAgent";
+import LoadingComponent from "../../../../LoadingComponent";
 import { getFleet } from "../../ShipmentManagementCRUD";
 import { IFleetModel } from "../../ShipmentModels/ShipmentInterfaces";
 import { TablesWidgetFleet } from "./TableWidgetFleet";
 
 
 export function ViewFleets() {
+  const [loading, setLoading] = useState(true)
   const [fleetmodel, setFleetModel] = useState<IFleetModel[]>([]);
 
-  // //USE EFFECT HOOK
   useEffect(() => {
-    const requestFleet = async () => {
-      await getFleet()
-        .then(({ data }) => {
-          setFleetModel(data);
+    agent.Fleet.list().then((response) => {
+      setFleetModel(response)
+      setLoading(false)
+    })
+  }, [])
 
-        }).
-        then(() => {
-          console.log("ERROR: ", "This was unable to return any data");
-        });
-    }
-
-    requestFleet();
-
-  }, []);
+  if (loading) return <LoadingComponent content='Loading...' />
+  
   return (
     <div className='row g-5 g-xxl-8'>
       <div className='col-xl-12'>
@@ -31,3 +27,11 @@ export function ViewFleets() {
     </div>
   )
 }
+function setRouteModel(response: any) {
+  throw new Error("Function not implemented.");
+}
+
+function setLoading(arg0: boolean) {
+  throw new Error("Function not implemented.");
+}
+

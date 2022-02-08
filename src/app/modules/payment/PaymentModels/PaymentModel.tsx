@@ -4,7 +4,8 @@ import { UserCommunicationModel } from "../../auth/models/UserCommunicationModel
 import { UserEmailSettingsModel } from "../../auth/models/UserEmailSettingsModel";
 import { UserSocialNetworksModel } from "../../auth/models/UserSocialNetworksModel";
 
-export interface IPaymentHistoryModel {
+export interface IPaymentModel {
+  PaymentId: any;
   id: number
   username: string
   password: string | undefined

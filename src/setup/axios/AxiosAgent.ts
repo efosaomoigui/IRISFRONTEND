@@ -4,6 +4,7 @@ import { ShipmentModel } from '../../app/modules/shipmentmanagement/ShipmentMode
 import { IFleetModel, IRouteModel } from '../../app/modules/shipmentmanagement/ShipmentModels/ShipmentInterfaces';
 import { IconUserModel } from '../../app/modules/profile/ProfileModels';
 import { resolve } from 'path';
+import { IPaymentModel } from '../../app/modules/payment/PaymentModels/PaymentModel';
 // import { ILogPaymentModel } from '../../app/modules/payment/PaymentModels/LogPaymentModel';
 
 const responseBody =<T>(response : AxiosResponse<T>) => response.data;
@@ -38,55 +39,55 @@ const requests = {
 // Users Request Starts
 const  Users = {
   list: () => requests.get<IUserModel[]>(`${API_URL}/UserManagement/GetUsers`),
-  details: (userid:string) => requests.get<ShipmentModel>(`API_URL}/UserManagement/GetUser/${userid}`), 
-  create: (users:IUserModel) => requests.post<IUserModel>(`API_URL}/UserManagement/GetUsers`, users), 
-  update: (users:IUserModel) => requests.put<IUserModel>(`API_URL}/UserManagement/GetUser${users.userId}`, {}), 
-  delete: (id:string) => requests.del<void>(`API_URL}/UserManagement/GetUser${id}`), 
+  details: (userid: string) => requests.get<IUserModel>(`${API_URL}/UserManagement/GetUser/${userid}`), 
+  create: (users:IUserModel) => requests.post<IUserModel>(`${API_URL}/UserManagement/Register`, users), 
+  update: (users:IUserModel) => requests.put<IUserModel>(`${API_URL}/UserManagement/GetUser/${users.userId}`, {}), 
+  delete: (id:string) => requests.del<void>(`${API_URL}/UserManagement/GetUser${id}`), 
 }
 
 // Users Request Starts
 const  Shipment = {
-  list: () => requests.get<IUserModel[]>(`${API_URL}/UserManagement/GetUsers`),
-  details: (userid:string) => requests.get<ShipmentModel>(`API_URL}/UserManagement/GetUser/${userid}`), 
-  create: (users:IUserModel) => requests.post<IUserModel>(`API_URL}/UserManagement/GetUsers`, users), 
-  update: (users:IUserModel) => requests.put<IUserModel>(`API_URL}/UserManagement/GetUser${users.userId}`, {}), 
-  delete: (id:string) => requests.del<void>(`API_URL}/UserManagement/GetUser${id}`), 
+  list: () => requests.get<IUserModel[]>(`${API_URL}/api/Shipment/all`),
+  details: (shipmentid: string) => requests.get<ShipmentModel>(`${API_URL}/Shipment/GetUser/${shipmentid}`), 
+  create: (shipment: ShipmentModel) => requests.post<ShipmentModel>(`${API_URL}/Shipment`, shipment), 
+  update: (shipment: ShipmentModel) => requests.put<ShipmentModel>(`${API_URL}/Shipment/GetUser/${shipment.id}`, {}), 
+  delete: (id: string) => requests.del<void>(`${API_URL}/Shipment/GetUser${id}`), 
 }
 
 // Route Request Starts
 const  Route = {
-  list: () => requests.get<IUserModel[]>(`${API_URL}/UserManagement/GetUsers`),
-  details: (userid:string) => requests.get<ShipmentModel>(`API_URL}/UserManagement/GetUser/${userid}`), 
-  create: (users:IUserModel) => requests.post<IUserModel>(`API_URL}/UserManagement/GetUsers`, users), 
-  update: (users:IUserModel) => requests.put<IUserModel>(`API_URL}/UserManagement/GetUser${users.userId}`, {}), 
-  delete: (id:string) => requests.del<void>(`API_URL}/UserManagement/GetUser${id}`), 
+  list: () => requests.get<IRouteModel[]>(`${API_URL}/ShipmentSettings/Route/all`),
+  details: (routeid: string) => requests.get<IRouteModel>(`${API_URL}/ShipmentSettings/Route/GetRouteById/${routeid}`), 
+  create: (route: IRouteModel) => requests.post<IRouteModel>(`${API_URL}/ShipmentSettings/Route`, route), 
+  update: (route: IRouteModel) => requests.put<IRouteModel>(`${API_URL}/ShipmentSettings/Route/${route.RouteId}`, {}), 
+  delete: (id: string) => requests.del<void>(`${API_URL}/ShipmentSettings/Route/${id}`), 
 }
 
 // Fleet Request Starts
 const  Fleet = {
-  list: () => requests.get<IUserModel[]>(`${API_URL}/UserManagement/GetUsers`),
-  details: (userid:string) => requests.get<ShipmentModel>(`API_URL}/UserManagement/GetUser/${userid}`), 
-  create: (users:IUserModel) => requests.post<IUserModel>(`API_URL}/UserManagement/GetUsers`, users), 
-  update: (users:IUserModel) => requests.put<IUserModel>(`API_URL}/UserManagement/GetUser${users.userId}`, {}), 
-  delete: (id:string) => requests.del<void>(`API_URL}/UserManagement/GetUser${id}`),  
+  list: () => requests.get<IFleetModel[]>(`${API_URL}/ShipmentSettings/Fleet/all`),
+  details: (fleetid: string) => requests.get<IFleetModel>(`${API_URL}/ShipmentSettings/Route/GetFleetById/${fleetid}`), 
+  create: (fleet: IFleetModel) => requests.post<IFleetModel>(`${API_URL}/ShipmentSettings/Fleet`, fleet), 
+  update: (fleet: IFleetModel) => requests.put<IFleetModel>(`${API_URL}/ShipmentSettings/Fleet/${fleet.FleetId}`, {}), 
+  delete: (id: string) => requests.del<void>(`${API_URL}/ShipmentSettings/Fleet${id}`),  
 }
 
 // Payment Request Starts
 const  PaymentLog = {
-  list: () => requests.get<IUserModel[]>(`${API_URL}/UserManagement/GetUsers`),
-  details: (userid:string) => requests.get<ShipmentModel>(`API_URL}/UserManagement/GetUser/${userid}`), 
-  create: (users:IUserModel) => requests.post<IUserModel>(`API_URL}/UserManagement/GetUsers`, users), 
-  update: (users:IUserModel) => requests.put<IUserModel>(`API_URL}/UserManagement/GetUser${users.userId}`, {}), 
-  delete: (id:string) => requests.del<void>(`API_URL}/UserManagement/GetUser${id}`), 
+  list: () => requests.get<IPaymentModel[]>(`${API_URL}/UserManagement/GetUsers`),
+  details: (paymentid: string) => requests.get<IPaymentModel>(`${API_URL}/UserManagement/GetUser/${paymentid}`), 
+  create: (payment: IPaymentModel) => requests.post<IPaymentModel>(`${API_URL}/UserManagement/GetUsers`, payment), 
+  update: (payment: IPaymentModel) => requests.put<IPaymentModel>(`${API_URL}/UserManagement/GetUser${payment.PaymentId}`, {}), 
+  delete: (id:string) => requests.del<void>(`${API_URL}/UserManagement/GetUser${id}`), 
 }
 
 // Monitoring Request Starts
 const  Monitoring = {
   list: () => requests.get<IUserModel[]>(`${API_URL}/UserManagement/GetUsers`),
-  details: (userid:string) => requests.get<ShipmentModel>(`API_URL}/UserManagement/GetUser/${userid}`), 
-  create: (users:IUserModel) => requests.post<IUserModel>(`API_URL}/UserManagement/GetUsers`, users), 
-  update: (users:IUserModel) => requests.put<IUserModel>(`API_URL}/UserManagement/GetUser${users.userId}`, {}), 
-  delete: (id:string) => requests.del<void>(`API_URL}/UserManagement/GetUser${id}`), 
+  details: (userid:string) => requests.get<ShipmentModel>(`${API_URL}/UserManagement/GetUser/${userid}`), 
+  create: (users:IUserModel) => requests.post<IUserModel>(`${API_URL}/UserManagement/GetUsers`, users), 
+  update: (users:IUserModel) => requests.put<IUserModel>(`${API_URL}/UserManagement/GetUser${users.userId}`, {}), 
+  delete: (id:string) => requests.del<void>(`${API_URL}/UserManagement/GetUser${id}`), 
 }
 
 
@@ -94,6 +95,7 @@ const agent = {
   Users,
   Route,
   Fleet,
+  Shipment,
   PaymentLog,
   Monitoring
 }
