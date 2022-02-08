@@ -1,6 +1,7 @@
 
 export interface IUserModel {
   userId: string
+  passsword?: string
   firstName: string
   lastName: string
   email: string

@@ -1,7 +1,88 @@
+import { useFormik } from 'formik'
 import React from 'react'
 import {Form, Row, Col, Button} from 'react-bootstrap-v5'
+import { useDispatch } from 'react-redux'
+import { IUserModel } from '../../auth/models/AuthInterfaces'
 
+const initialValues : IUserModel = {
+  userId: "",
+  password:'',
+  firstName: "",
+  lastName: "",
+  email: "",
+  age: "",
+  designation: "",
+  department: "IT",
+  pictureUrl: "",
+  isActive: "",
+  organisation: "",
+  status: "",
+  dateCreated: "",
+  dateModified: "",
+  isDeleted: "",
+  systemUserId: "",
+  systemUserRole: "",
+  passwordExpireDate: "",
+  identificationImage: "",
+  walletNumber: "",
+}
+
+const registrationSchema = Yup.object().shape({
+  firstname: Yup.string()
+    .min(3, 'Minimum 3 symbols')
+    .max(50, 'Maximum 50 symbols')
+    .required('First name is required'),
+  email: Yup.string()
+    .email('Wrong email format')
+    .min(3, 'Minimum 3 symbols')
+    .max(50, 'Maximum 50 symbols')
+    .required('Email is required'),
+  lastname: Yup.string()
+    .min(3, 'Minimum 3 symbols')
+    .max(50, 'Maximum 50 symbols')
+    .required('Last name is required'),
+  password: Yup.string()
+    .min(3, 'Minimum 3 symbols')
+    .max(50, 'Maximum 50 symbols')
+    .required('Password is required'),
+  changepassword: Yup.string()
+    .required('Password confirmation is required')
+    .when('password', {
+      is: (val: string) => (val && val.length > 0 ? true : false),
+      then: Yup.string().oneOf([Yup.ref('password')], "Password and Confirm Password didn't match"),
+    }),
+  acceptTerms: Yup.bool().required('You must accept the terms and conditions'),
+})
+
+//form starts here
 const AddUserForm: React.FC = () => {
+
+  const [loading, setLoading] = useState(false)
+  const dispatch = useDispatch()
+  const formik = useFormik({
+    initialValues,
+    validationSchema: registrationSchema,
+    onSubmit: (values, {setStatus, setSubmitting}) => {
+      setLoading(true)
+      setTimeout(() => {
+
+        
+
+        register(values.email, values.firstName, values.lastName, values.password)
+          .then(({data: {api_token}}) => {
+            setLoading(false)
+            console.log(api_token);
+            dispatch(auth.actions.register(api_token))
+          })
+          .catch(() => {
+            setLoading(false)
+            setSubmitting(false)
+            setStatus('Registration process has broken')
+          })
+      }, 1000)
+    },
+  })
+
   return (
     <>
       <Form>
