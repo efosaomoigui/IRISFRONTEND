@@ -1,30 +1,33 @@
-import { useFormik } from 'formik'
-import React from 'react'
+import {useFormik} from 'formik'
+import React, {useState} from 'react'
 import {Form, Row, Col, Button} from 'react-bootstrap-v5'
-import { useDispatch } from 'react-redux'
-import { IUserModel } from '../../auth/models/AuthInterfaces'
+import {useDispatch} from 'react-redux'
+import agent from '../../../../setup/axios/AxiosAgent'
+import {IUserModel} from '../../auth/models/AuthInterfaces'
+import * as Yup from 'yup';
+import clsx from 'clsx'
 
-const initialValues : IUserModel = {
-  userId: "",
-  password:'',
-  firstName: "",
-  lastName: "",
-  email: "",
-  age: "",
-  designation: "",
-  department: "IT",
-  pictureUrl: "",
-  isActive: "",
-  organisation: "",
-  status: "",
-  dateCreated: "",
-  dateModified: "",
-  isDeleted: "",
-  systemUserId: "",
-  systemUserRole: "",
-  passwordExpireDate: "",
-  identificationImage: "",
-  walletNumber: "",
+const initialValues: IUserModel = {
+  userId: '',
+  password: '', 
+  firstName: '',
+  lastName: '',
+  email: '',
+  age: '',
+  designation: '',
+  department: 'IT',
+  pictureUrl: '',
+  isActive: '',
+  organisation: '',
+  status: '',
+  dateCreated: '',
+  dateModified: '',
+  isDeleted: '',
+  systemUserId: '',
+  systemUserRole: '',
+  passwordExpireDate: '',
+  identificationImage: '',
+  walletNumber: '',
 }
 
 const registrationSchema = Yup.object().shape({
@@ -56,8 +59,9 @@ const registrationSchema = Yup.object().shape({
 
 //form starts here
 const AddUserForm: React.FC = () => {
-
   const [loading, setLoading] = useState(false)
+  const [usersmodel, setUsersModel] = useState({})
+
   const dispatch = useDispatch()
   const formik = useFormik({
     initialValues,
@@ -65,14 +69,10 @@ const AddUserForm: React.FC = () => {
     onSubmit: (values, {setStatus, setSubmitting}) => {
       setLoading(true)
       setTimeout(() => {
-
-        
-
-        register(values.email, values.firstName, values.lastName, values.password)
-          .then(({data: {api_token}}) => {
+        agent.Users.create(values)
+          .then((response) => {
+            // setUsersModel(response)
             setLoading(false)
-            console.log(api_token);
-            dispatch(auth.actions.register(api_token))
           })
           .catch(() => {
             setLoading(false)
@@ -85,29 +85,83 @@ const AddUserForm: React.FC = () => {
 
   return (
     <>
-      <Form>
+      <Form
+        className='form w-100 fv-plugins-bootstrap5 fv-plugins-framework'
+        id='kt_login_signup_form'
+        onSubmit={formik.handleSubmit}
+      >
+        {formik.status && (
+          <div className='mb-lg-15 alert alert-danger'>
+            <div className='alert-text font-weight-bold'>{formik.status}</div>
+          </div>
+        )}
+
         <Row className='mb-5'>
           <Form.Group as={Col} controlId='formGridEmail'>
             <Form.Label>Email</Form.Label>
-            <Form.Control type='email' placeholder='Enter email' />
+            <Form.Control
+              type='text'
+              placeholder='First name'
+              autoComplete='off'
+              {...formik.getFieldProps('firstName')}
+              className={clsx(
+                'form-control form-control-lg form-control-solid',
+                {
+                  'is-invalid': formik.touched.firstName && formik.errors.firstName,
+                },
+                {
+                  'is-valid': formik.touched.firstName && !formik.errors.firstName,
+                }
+              )}
+            />
+            {formik.touched.firstName && formik.errors.firstName && (
+              <div className='fv-plugins-message-container'>
+                <div className='fv-help-block'>
+                  <span role='alert'>{formik.errors.firstName}</span>
+                </div>
+              </div>
+            )}
           </Form.Group>
 
-          <Form.Group as={Col} controlId='formGridPassword'>
+          <Form.Group
+            as={Col}
+            controlId='formGridPassword'
+            type='password'
+            placeholder='First name'
+            autoComplete='off'
+            {...formik.getFieldProps('firstName')}
+            className={clsx(
+              'form-control form-control-lg form-control-solid',
+              {
+                'is-invalid': formik.touched.password && formik.errors.password,
+              },
+              {
+                'is-valid': formik.touched.password && !formik.errors.pa,
+              }
+            )}
+          >
             <Form.Label>Password</Form.Label>
             <Form.Control type='password' placeholder='Password' />
+            {formik.touched.firstName && formik.errors.firstName && (
+              <div className='fv-plugins-message-container'>
+                <div className='fv-help-block'>
+                  <span role='alert'>{formik.errors.firstName}</span>
+                </div>
+              </div>
+            )}
           </Form.Group>
         </Row>
         <Row className='mb-5'>
-        <Form.Group controlId='formGridAddress1'>
-          <Form.Label>Address</Form.Label>
-          <Form.Control placeholder='1234 Main St' />
-        </Form.Group>
+          <Form.Group controlId='formGridAddress1'>
+            <Form.Label>Address</Form.Label>
+            <Form.Control placeholder='1234 Main St' />
+          </Form.Group>
         </Row>
         <Row className='mb-5'>
-        <Form.Group controlId='formGridAddress2'>
-          <Form.Label>Phone No.</Form.Label>
-          <Form.Control placeholder='Enter Phone Number' />
-        </Form.Group>
+          <Form.Group controlId='formGridAddress2'>
+            <Form.Label>Phone No.</Form.Label>
+            <Form.Control placeholder='Enter Phone Number' />
+          </Form.Group>
         </Row>
 
         <Row className='mb-5'>
