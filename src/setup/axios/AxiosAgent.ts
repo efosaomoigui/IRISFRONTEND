@@ -45,7 +45,7 @@ const  Users = {
   delete: (id:string) => requests.del<void>(`${API_URL}/UserManagement/GetUser${id}`), 
 }
 
-// Users Request Starts
+// wallet Starts here
 const  Shipment = {
   list: () => requests.get<IUserModel[]>(`${API_URL}/api/Shipment/all`),
   details: (shipmentid: string) => requests.get<ShipmentModel>(`${API_URL}/Shipment/GetUser/${shipmentid}`), 

@@ -17,7 +17,7 @@ const AddPermissionForm: React.FC = () => {
           </Form.Group>
       
 
-        <Row>
+        <Row className='mb-5'>
           <Form.Group as={Col} controlId='formGridState'>
             <Form.Label>Claim type</Form.Label>
             <Form.Control as='select'>
