@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { getRoute } from "../../ShipmentManagementCRUD";
-import { routemodels } from "../../ShipmentModels/RouteModel";
 import { IRouteModel } from "../../ShipmentModels/ShipmentInterfaces";
 import { TablesWidgetRoute } from "./TableWidgetRoute";
 
@@ -14,7 +13,6 @@ export function ViewRoutes() {
             await getRoute()
                 .then(({ data }) => {
                     setRouteModel(data);
-
                 }).
                 then(() => {
                     console.log("ERROR: ", "This was unable to return any data");
