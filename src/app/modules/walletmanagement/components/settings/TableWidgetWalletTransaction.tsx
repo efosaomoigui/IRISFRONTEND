@@ -5,8 +5,8 @@ import { IWalletTransactionModel } from '../../Models/WalletInterfaces'
 
 
 type Props = {
-    className: string
-    transaction: IWalletTransactionModel[]
+  className: string
+  transaction: IWalletTransactionModel[]
 }
   
 const TablesWidgetWalletTransaction: React.FC<Props> = ({ transaction,className}) => {
@@ -69,8 +69,8 @@ const TablesWidgetWalletTransaction: React.FC<Props> = ({ transaction,className}
             {/* end::Table head */}
             {/* begin::Table body */}
             <tbody>
-                {transaction.map((transaction) => (
-                <tr key={transaction.WalletId}>
+                {transaction.map((transactions) => (
+                  <tr key={transactions.walletNumberId}>
                   <td>
                     <div className='form-check form-check-sm form-check-custom form-check-solid'>
                       <input
@@ -87,12 +87,12 @@ const TablesWidgetWalletTransaction: React.FC<Props> = ({ transaction,className}
                       </div>
                       <div className='d-flex justify-content-start flex-column'>
                         <a href='#' className='text-dark fw-bolder text-hover-primary fs-6'>
-                            {transaction.TransactionType} 
+                            {transactions.number} 
                           {/* Fleet Manager */}
                         </a>
                         <span className='text-muted fw-bold text-muted d-block fs-7'>
                           {/* HTML, JS, ReactJS */}
-                            {transaction.Amount}
+                            {transactions.userId}
                         </span>
                       </div>
                     </div>
@@ -103,7 +103,7 @@ const TablesWidgetWalletTransaction: React.FC<Props> = ({ transaction,className}
                     </a>
                     <span className='text-muted fw-bold text-muted d-block fs-7'>
                       {/* Web, UI/UX Design */}
-                        {transaction.Amount}
+                        {transactions.number}
                     </span>
                   </td>
                   <td>
@@ -112,7 +112,7 @@ const TablesWidgetWalletTransaction: React.FC<Props> = ({ transaction,className}
                     </a>
                     <span className='text-muted fw-bold text-muted d-block fs-7'>
                       {/* Web, UI/UX Design */}
-                        {transaction.Date}
+                        {transactions.userId}
                     </span>
                   </td>
                   <td className='text-end'>

@@ -69,7 +69,7 @@ const TablesWidgetWallet: React.FC<Props> = ({ wallets,className}) => {
             {/* begin::Table body */}
             <tbody>
                 {wallets.map((wallet) => (
-                <tr key={wallet.WalletId}>
+                  <tr key={wallet.walletNumberId}>
                   <td>
                     <div className='form-check form-check-sm form-check-custom form-check-solid'>
                       <input
@@ -86,12 +86,12 @@ const TablesWidgetWallet: React.FC<Props> = ({ wallets,className}) => {
                       </div>
                       <div className='d-flex justify-content-start flex-column'>
                         <a href='#' className='text-dark fw-bolder text-hover-primary fs-6'>
-                            {wallet.firstName} {wallet.lastName}
+                            {wallet.number} {wallet.userId}
                           {/* Fleet Manager */}
                         </a>
                         <span className='text-muted fw-bold text-muted d-block fs-7'>
                           {/* HTML, JS, ReactJS */}
-                            {wallet.walletNumber}
+                            {wallet.number}
                         </span>
                       </div>
                     </div>
@@ -102,7 +102,7 @@ const TablesWidgetWallet: React.FC<Props> = ({ wallets,className}) => {
                     </a>
                     <span className='text-muted fw-bold text-muted d-block fs-7'>
                       {/* Web, UI/UX Design */}
-                        {wallet.walletNumber}
+                        {wallet.number}
                     </span>
                   </td>
                   <td>
@@ -111,7 +111,7 @@ const TablesWidgetWallet: React.FC<Props> = ({ wallets,className}) => {
                     </a>
                     <span className='text-muted fw-bold text-muted d-block fs-7'>
                       {/* Web, UI/UX Design */}
-                        {wallet.walletBalance}
+                        {wallet.userId}
                     </span>
                   </td>
                   <td className='text-end'>

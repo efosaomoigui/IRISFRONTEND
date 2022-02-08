@@ -1,12 +1,12 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
-import {KTSVG, toAbsoluteUrl} from '../../../helpers'
+import { KTSVG, toAbsoluteUrl } from '../../../helpers'
 
 type Props = {
   className: string
 }
 
-const TablesWidget10: React.FC<Props> = ({className}) => {
+const TablesWidget10: React.FC<Props> = ({ className }) => {
   return (
     <div className={`card ${className}`}>
       {/* begin::Header */}
@@ -25,8 +25,8 @@ const TablesWidget10: React.FC<Props> = ({className}) => {
           <a
             href='#'
             className='btn btn-sm btn-light-primary'
-            // data-bs-toggle='modal'
-            // data-bs-target='#kt_modal_invite_friends'
+          // data-bs-toggle='modal'
+          // data-bs-target='#kt_modal_invite_friends'
           >
             <KTSVG path='media/icons/duotune/arrows/arr075.svg' className='svg-icon-3' />
             New Member
@@ -71,9 +71,6 @@ const TablesWidget10: React.FC<Props> = ({className}) => {
                 </td>
                 <td>
                   <div className='d-flex align-items-center'>
-                    <div className='symbol symbol-45px me-5'>
-                      <img src={toAbsoluteUrl('/media/avatars/300-14.jpg')} alt='' />
-                    </div>
                     <div className='d-flex justify-content-start flex-column'>
                       <a href='#' className='text-dark fw-bolder text-hover-primary fs-6'>
                         Ana Simmons
@@ -101,7 +98,7 @@ const TablesWidget10: React.FC<Props> = ({className}) => {
                       <div
                         className='progress-bar bg-primary'
                         role='progressbar'
-                        style={{width: '50%'}}
+                        style={{ width: '50%' }}
                       ></div>
                     </div>
                   </div>
@@ -143,9 +140,6 @@ const TablesWidget10: React.FC<Props> = ({className}) => {
                 </td>
                 <td>
                   <div className='d-flex align-items-center'>
-                    <div className='symbol symbol-45px me-5'>
-                      <img src={toAbsoluteUrl('/media/avatars/300-2.jpg')} alt='' />
-                    </div>
                     <div className='d-flex justify-content-start flex-column'>
                       <a href='#' className='text-dark fw-bolder text-hover-primary fs-6'>
                         Jessie Clarcson
@@ -173,7 +167,7 @@ const TablesWidget10: React.FC<Props> = ({className}) => {
                       <div
                         className='progress-bar bg-danger'
                         role='progressbar'
-                        style={{width: '70%'}}
+                        style={{ width: '70%' }}
                       ></div>
                     </div>
                   </div>
@@ -215,9 +209,6 @@ const TablesWidget10: React.FC<Props> = ({className}) => {
                 </td>
                 <td>
                   <div className='d-flex align-items-center'>
-                    <div className='symbol symbol-45px me-5'>
-                      <img src={toAbsoluteUrl('/media/avatars/300-5.jpg')} alt='' />
-                    </div>
                     <div className='d-flex justify-content-start flex-column'>
                       <a href='#' className='text-dark fw-bolder text-hover-primary fs-6'>
                         Lebron Wayde
@@ -243,7 +234,7 @@ const TablesWidget10: React.FC<Props> = ({className}) => {
                       <div
                         className='progress-bar bg-success'
                         role='progressbar'
-                        style={{width: '60%'}}
+                        style={{ width: '60%' }}
                       ></div>
                     </div>
                   </div>
@@ -285,9 +276,6 @@ const TablesWidget10: React.FC<Props> = ({className}) => {
                 </td>
                 <td>
                   <div className='d-flex align-items-center'>
-                    <div className='symbol symbol-45px me-5'>
-                      <img src={toAbsoluteUrl('/media/avatars/300-20.jpg')} alt='' />
-                    </div>
                     <div className='d-flex justify-content-start flex-column'>
                       <a href='#' className='text-dark fw-bolder text-hover-primary fs-6'>
                         Natali Goodwin
@@ -313,7 +301,7 @@ const TablesWidget10: React.FC<Props> = ({className}) => {
                       <div
                         className='progress-bar bg-warning'
                         role='progressbar'
-                        style={{width: '50%'}}
+                        style={{ width: '50%' }}
                       ></div>
                     </div>
                   </div>
@@ -355,9 +343,6 @@ const TablesWidget10: React.FC<Props> = ({className}) => {
                 </td>
                 <td>
                   <div className='d-flex align-items-center'>
-                    <div className='symbol symbol-45px me-5'>
-                      <img src={toAbsoluteUrl('/media/avatars/300-23.jpg')} alt='' />
-                    </div>
                     <div className='d-flex justify-content-start flex-column'>
                       <a href='#' className='text-dark fw-bolder text-hover-primary fs-6'>
                         Kevin Leonard
@@ -383,7 +368,7 @@ const TablesWidget10: React.FC<Props> = ({className}) => {
                       <div
                         className='progress-bar bg-info'
                         role='progressbar'
-                        style={{width: '90%'}}
+                        style={{ width: '90%' }}
                       ></div>
                     </div>
                   </div>
@@ -429,4 +414,4 @@ const TablesWidget10: React.FC<Props> = ({className}) => {
   )
 }
 
-export {TablesWidget10}
+export { TablesWidget10 }

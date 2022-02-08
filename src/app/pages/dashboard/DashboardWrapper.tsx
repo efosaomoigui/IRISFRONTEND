@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, {FC} from 'react'
-import {useIntl} from 'react-intl'
-import {PageTitle} from '../../../_iris/layout/core'
+import React, { FC } from 'react'
+import { useIntl } from 'react-intl'
+import { PageTitle } from '../../../_iris/layout/core'
 import {
   MixedWidget2,
   MixedWidget10,
@@ -58,14 +58,11 @@ const DashboardPage: FC = () => (
     {/* end::Row */}
 
     {/* begin::Row */}
-    <div className='row gy-5 g-xl-8'>
-      <div className='col-xl-4'>
-        <ListsWidget2 className='card-xl-stretch mb-xl-8' />
-      </div>
-      <div className='col-xl-4'>
+    <div className='row gy-5 g-xl-12'>
+      <div className='col-xl-6'>
         <ListsWidget6 className='card-xl-stretch mb-xl-8' />
       </div>
-      <div className='col-xl-4'>
+      <div className='col-xl-6'>
         <ListsWidget4 className='card-xl-stretch mb-5 mb-xl-8' items={5} />
         {/* partials/widgets/lists/_widget-4', 'class' => 'card-xl-stretch mb-5 mb-xl-8', 'items' => '5' */}
       </div>
@@ -91,10 +88,10 @@ const DashboardWrapper: FC = () => {
   const intl = useIntl()
   return (
     <>
-      <PageTitle breadcrumbs={[]}>{intl.formatMessage({id: 'MENU.DASHBOARD'})}</PageTitle>
+      <PageTitle breadcrumbs={[]}>{intl.formatMessage({ id: 'MENU.DASHBOARD' })}</PageTitle>
       <DashboardPage />
     </>
   )
 }
 
-export {DashboardWrapper}
+export { DashboardWrapper }
