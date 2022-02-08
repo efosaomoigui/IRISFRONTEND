@@ -1,5 +1,6 @@
 import axios from 'axios'
-import { IUserModel } from '../auth/models/AuthInterfaces'
+import { IPermissionModel, IRoleModel, IUserModel } from '../auth/models/AuthInterfaces'
+import { IWalletModel, IWalletTransactionModel } from '../walletmanagement/Models/WalletInterfaces'
 
 
 const API_URL = process.env.REACT_APP_API_URL
