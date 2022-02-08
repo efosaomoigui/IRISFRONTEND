@@ -93,7 +93,7 @@ const TablesWidgetRoute: React.FC<Props> = ({ route,className}) => {
                         </a>
                         <span className='text-muted fw-bold text-muted d-block fs-7'>
                           {/* HTML, JS, ReactJS */}
-                            {route.Departure}
+                            {route.departureCentreId}
                         </span>
                       </div>
                     </div>
@@ -104,7 +104,7 @@ const TablesWidgetRoute: React.FC<Props> = ({ route,className}) => {
                     </a>
                     <span className='text-muted fw-bold text-muted d-block fs-7'>
                       {/* Web, UI/UX Design */}
-                        {route.Departure}
+                        {route.destinationCentreId}
                     </span>
                   </td>
                   <td>
@@ -122,7 +122,7 @@ const TablesWidgetRoute: React.FC<Props> = ({ route,className}) => {
                       </a>
                       <span className='text-muted fw-bold text-muted d-block fs-7'>
                         {/* Web, UI/UX Design */}
-                        {route.Destination}
+                        {route.departureCentreId}
                       </span>
                     </td>
                   <td>
@@ -205,5 +205,19 @@ const TablesWidgetRoute: React.FC<Props> = ({ route,className}) => {
     </div>
   )
 }
+
+// {
+//   "routeName": "Aba=>Enugun",
+//     "departureCentreId": 1,
+//       "destinationCentreId": 2,
+//         "isSubRoute": true,
+//           "dispatchFee": 1000,
+//             "loaderFee": 1000,
+//               "captainFee": 1000,
+//                 "mainRouteId": 1000,
+//                   "availableAtTerminal": true,
+//                     "availableOnline": true,
+//                       "routeType": 1
+// }
 
 export { TablesWidgetRoute}
