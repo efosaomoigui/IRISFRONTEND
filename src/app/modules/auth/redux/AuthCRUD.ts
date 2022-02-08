@@ -22,7 +22,7 @@ export function register(email: string, firstname: string, lastname: string, pas
     email,
     first_name: firstname,
     last_name: lastname,
-    password,
+    password, 
     password_confirmation
   })
 }

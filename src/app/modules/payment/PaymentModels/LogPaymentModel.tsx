@@ -4,7 +4,7 @@ import { UserCommunicationModel } from "../../auth/models/UserCommunicationModel
 import { UserEmailSettingsModel } from "../../auth/models/UserEmailSettingsModel";
 import { UserSocialNetworksModel } from "../../auth/models/UserSocialNetworksModel";
 
-export interface RoleModel {
+export interface ILogPaymentModel {
     id: number
     username: string
     password: string | undefined

@@ -45,7 +45,7 @@ export function Login() {
       setTimeout(() => {
         login(values.email, values.password)
           .then(({data: {accessToken}}) => {
-            console.log("The Man Token2 : ", accessToken);
+            // console.log("The Man Token2 : ", accessToken);
             setLoading(false)
             dispatch(auth.actions.login(accessToken))
           })
