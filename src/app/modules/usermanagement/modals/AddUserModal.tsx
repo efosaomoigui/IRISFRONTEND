@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, {FC} from 'react'
-import {KTSVG, toAbsoluteUrl} from '../../../../_iris/helpers'
+import React, { FC } from 'react'
+import { KTSVG } from '../../../../_iris/helpers'
 import { AddUserForm } from '../userformwidget/AddUserForm'
 
 const AddUserModal: FC = () => {
@@ -49,4 +49,5 @@ const AddUserModal: FC = () => {
   )
 }
 
-export { AddUserModal}
+export { AddUserModal }
+

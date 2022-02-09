@@ -1,11 +1,12 @@
+import clsx from 'clsx'
 import { useFormik } from 'formik'
 import React, { useState } from 'react'
-import { Form, Row, Col, Button } from 'react-bootstrap-v5'
+import { Button, Col, Form, Row } from 'react-bootstrap-v5'
 import { useDispatch } from 'react-redux'
+import * as Yup from 'yup'
 import agent from '../../../../setup/axios/AxiosAgent'
+import LoadingComponent from '../../../LoadingComponent'
 import { IUserModel } from '../../auth/models/AuthInterfaces'
-import * as Yup from 'yup';
-import clsx from 'clsx'
 
 const initialValues: IUserModel = {
   userId: '',
@@ -82,7 +83,7 @@ const AddUserForm: React.FC = () => {
       }, 1000)
     },
   })
-
+  if (loading) return <LoadingComponent content='Loading...' />
   return (
     <>
       <Form
@@ -201,3 +202,4 @@ const AddUserForm: React.FC = () => {
 }
 
 export { AddUserForm }
+

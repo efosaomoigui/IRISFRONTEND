@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { FC } from 'react'
-import { KTSVG, toAbsoluteUrl } from '../../../../_iris/helpers'
+import { KTSVG } from '../../../../_iris/helpers'
 import { AddFleetForm } from '../shipmentformwidget/AddFleetForm'
 
 
@@ -51,3 +51,4 @@ const AddFleetModal: FC = () => {
 }
 
 export { AddFleetModal }
+

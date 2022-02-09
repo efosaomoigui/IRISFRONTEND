@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { FC } from 'react'
-import { KTSVG, toAbsoluteUrl } from '../../../../_iris/helpers'
+import { KTSVG } from '../../../../_iris/helpers'
 import { AddRouteForm } from '../shipmentformwidget/AddRouteForm'
 
 const AddRouteModal: FC = () => {
@@ -50,3 +50,4 @@ const AddRouteModal: FC = () => {
 }
 
 export { AddRouteModal }
+

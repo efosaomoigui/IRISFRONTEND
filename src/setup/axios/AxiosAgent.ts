@@ -1,11 +1,10 @@
 import axios, { AxiosResponse } from 'axios';
 import { IPermissionModel, IRoleModel, IUserModel } from '../../app/modules/auth/models/AuthInterfaces';
-import { ShipmentModel } from '../../app/modules/shipmentmanagement/ShipmentModels/ShipmentModel';
-import { IFleetModel, IRouteModel } from '../../app/modules/shipmentmanagement/ShipmentModels/ShipmentInterfaces';
-import { IconUserModel } from '../../app/modules/profile/ProfileModels';
-import { resolve } from 'path';
 import { IPaymentModel } from '../../app/modules/payment/PaymentModels/PaymentModel';
+import { IFleetModel, IRouteModel } from '../../app/modules/shipmentmanagement/ShipmentModels/ShipmentInterfaces';
+import { ShipmentModel } from '../../app/modules/shipmentmanagement/ShipmentModels/ShipmentModel';
 import { IWalletModel, IWalletTransactionModel } from '../../app/modules/walletmanagement/Models/WalletInterfaces';
+
 // import { ILogPaymentModel } from '../../app/modules/payment/PaymentModels/LogPaymentModel';
 
 const responseBody =<T>(response : AxiosResponse<T>) => response.data;

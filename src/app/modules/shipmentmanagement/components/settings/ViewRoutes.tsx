@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import agent from "../../../../../setup/axios/AxiosAgent";
 import LoadingComponent from "../../../../LoadingComponent";
-import { getRoute } from "../../ShipmentManagementCRUD";
 import { IRouteModel } from "../../ShipmentModels/ShipmentInterfaces";
 import { TablesWidgetRoute } from "./TableWidgetRoute";
 

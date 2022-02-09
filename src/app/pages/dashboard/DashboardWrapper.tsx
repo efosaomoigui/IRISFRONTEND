@@ -3,17 +3,11 @@ import React, { FC } from 'react'
 import { useIntl } from 'react-intl'
 import { PageTitle } from '../../../_iris/layout/core'
 import {
-  MixedWidget2,
-  MixedWidget10,
-  MixedWidget11,
-  ListsWidget2,
   ListsWidget3,
   ListsWidget4,
   ListsWidget5,
-  ListsWidget6,
-  TablesWidget5,
-  TablesWidget10,
-  MixedWidget8,
+  ListsWidget6, MixedWidget10,
+  MixedWidget11, MixedWidget2, MixedWidget8, TablesWidget10, TablesWidget5
 } from '../../../_iris/partials/widgets'
 
 const DashboardPage: FC = () => (
@@ -95,3 +89,4 @@ const DashboardWrapper: FC = () => {
 }
 
 export { DashboardWrapper }
+
