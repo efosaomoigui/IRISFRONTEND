@@ -4,20 +4,20 @@ import { KTSVG } from '../../../../_iris/helpers'
 import { AddRoleForm } from '../userformwidget/AddRoleForm'
 
 const AddRoleModal: FC = () => {
-  const users = [
-    {
-      avatar: '/media/avatars/150-1.jpg',
-      name: 'Emma Smith',
-      email: 'e.smith@kpmg.com.au',
-      access: '1',
-    },
-    {
-      state: 'danger',
-      name: 'Melody Macy',
-      email: 'melody@altbox.com',
-      access: '1',
-    },
-  ]
+  // const users = [
+  //   {
+  //     avatar: '/media/avatars/150-1.jpg',
+  //     name: 'Emma Smith',
+  //     email: 'e.smith@kpmg.com.au',
+  //     access: '1',
+  //   },
+  //   {
+  //     state: 'danger',
+  //     name: 'Melody Macy',
+  //     email: 'melody@altbox.com',
+  //     access: '1',
+  //   },
+  // ]
 
   return (
     <div className='modal fade' id='kt_modal_addrole' aria-hidden='true'>

@@ -2,7 +2,6 @@ import clsx from 'clsx'
 import { useFormik } from 'formik'
 import React, { useState } from 'react'
 import { Button, Col, Form, Row } from 'react-bootstrap-v5'
-import { useDispatch } from 'react-redux'
 import * as Yup from 'yup'
 import agent from '../../../../setup/axios/AxiosAgent'
 import LoadingComponent from '../../../LoadingComponent'
@@ -61,9 +60,9 @@ const registrationSchema = Yup.object().shape({
 //form starts here
 const AddUserForm: React.FC = () => {
   const [loading, setLoading] = useState(false)
-  const [usersmodel, setUsersModel] = useState({})
+  // const [usersmodel, setUsersModel] = useState({})
 
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch()
   const formik = useFormik({
     initialValues,
     validationSchema: registrationSchema,
