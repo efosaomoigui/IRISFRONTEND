@@ -23,9 +23,5 @@ const AddUserModal: React.FC = () => {
   )
 }
 
-<<<<<<< HEAD
 export {AddUserModal}
-=======
-export { AddUserModal }
->>>>>>> 5d9201172a00d9238c38f41895bcf992cf1a4762
 
