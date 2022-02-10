@@ -22,7 +22,7 @@ const AddWalletForm: React.FC = () => {
           <Form.Control placeholder='Enter WalletId' />
         </Form.Group>
 
-        <Row>
+        <Row className='mb-5'>
           <Form.Group as={Col} controlId='formGridCity'>
             <Form.Label>City</Form.Label>
             <Form.Control />
