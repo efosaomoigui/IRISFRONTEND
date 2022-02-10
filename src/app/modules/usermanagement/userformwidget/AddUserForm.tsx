@@ -1,203 +1,107 @@
-import { useFormik } from 'formik'
-import React, { useState } from 'react'
-import { Form, Row, Col, Button } from 'react-bootstrap-v5'
-import { useDispatch } from 'react-redux'
-import agent from '../../../../setup/axios/AxiosAgent'
-import { IUserModel } from '../../auth/models/AuthInterfaces'
-import * as Yup from 'yup';
+import React from 'react'
 import clsx from 'clsx'
+import {makeStyles} from '@material-ui/core/styles'
+import MenuItem from '@material-ui/core/MenuItem'
+import TextField from '@material-ui/core/TextField'
+import {Button, Form} from 'react-bootstrap-v5'
 
-const initialValues: IUserModel = {
-  userId: '',
-  password: '',
-  firstName: '',
-  lastName: '',
-  email: '',
-  age: '',
-  designation: '',
-  department: 'IT',
-  pictureUrl: '',
-  isActive: '',
-  organisation: '',
-  status: '',
-  dateCreated: '',
-  dateModified: '',
-  isDeleted: '',
-  systemUserId: '',
-  systemUserRole: '',
-  passwordExpireDate: '',
-  identificationImage: '',
-  walletNumber: '',
-}
+const useStyles = makeStyles((theme) => ({
+  container: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  textField: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
+    width: 200,
+  },
+  dense: {
+    marginTop: 19,
+  },
+  menu: {
+    width: 200,
+  },
+}))
 
-const registrationSchema = Yup.object().shape({
-  firstname: Yup.string()
-    .min(3, 'Minimum 3 symbols')
-    .max(50, 'Maximum 50 symbols')
-    .required('First name is required'),
-  email: Yup.string()
-    .email('Wrong email format')
-    .min(3, 'Minimum 3 symbols')
-    .max(50, 'Maximum 50 symbols')
-    .required('Email is required'),
-  lastname: Yup.string()
-    .min(3, 'Minimum 3 symbols')
-    .max(50, 'Maximum 50 symbols')
-    .required('Last name is required'),
-  password: Yup.string()
-    .min(3, 'Minimum 3 symbols')
-    .max(50, 'Maximum 50 symbols')
-    .required('Password is required'),
-  changepassword: Yup.string()
-    .required('Password confirmation is required')
-    .when('password', {
-      is: (val: string) => (val && val.length > 0 ? true : false),
-      then: Yup.string().oneOf([Yup.ref('password')], "Password and Confirm Password didn't match"),
-    }),
-  acceptTerms: Yup.bool().required('You must accept the terms and conditions'),
-})
+const currencies = [
+  {
+    value: 'USD',
+    label: '$',
+  },
+  {
+    value: 'EUR',
+    label: '€',
+  },
+  {
+    value: 'BTC',
+    label: '฿',
+  },
+  {
+    value: 'JPY',
+    label: '¥',
+  },
+]
 
-//form starts here
-const AddUserForm: React.FC = () => {
-  const [loading, setLoading] = useState(false)
-  const [usersmodel, setUsersModel] = useState({})
-
-  const dispatch = useDispatch()
-  const formik = useFormik({
-    initialValues,
-    validationSchema: registrationSchema,
-    onSubmit: (values, { setStatus, setSubmitting }) => {
-      setLoading(true)
-      setTimeout(() => {
-        agent.Users.create(values)
-          .then((response) => {
-            // setUsersModel(response)
-            setLoading(false)
-          })
-          .catch(() => {
-            setLoading(false)
-            setSubmitting(false)
-            setStatus('Registration process has broken')
-          })
-      }, 1000)
-    },
+function AddUserForm() {
+  const classes = useStyles()
+  const [values, setValues] = React.useState({
+    name: 'Cat in the Hat',
+    age: '',
+    multiline: 'Controlled',
+    currency: 'EUR',
   })
+
+  const handleChange = (name: string) => (event: {target: {value: any}}) => {
+    setValues({...values, [name]: event.target.value})
+  }
 
   return (
     <>
-      <Form
-        className='form w-100 fv-plugins-bootstrap5 fv-plugins-framework'
-        id='kt_login_signup_form'
-        onSubmit={formik.handleSubmit}
-      >
-        {formik.status && (
-          <div className='mb-lg-15 alert alert-danger'>
-            <div className='alert-text font-weight-bold'>{formik.status}</div>
+      <Form>
+        <div className='container'>
+          <div className='row gy-5 g-xl-12'>
+            <div className='col-xl-6'>
+              <Form.Group controlId='formBasicEmail'>
+                <Form.Label>Email address</Form.Label>
+                <Form.Control type='email' placeholder='Enter email' />
+                <Form.Text className='text-muted'>
+                  We'll never share your email with anyone else.
+                </Form.Text>
+              </Form.Group>
+
+              <Form.Group controlId='formBasicPassword'>
+                <Form.Label>Password</Form.Label>
+                <Form.Control type='password' placeholder='Password' />
+              </Form.Group>
+            </div>
+            <div className='col-xl-6'>
+              <Form.Group controlId='formBasicEmail'>
+                <Form.Label>Email address</Form.Label>
+                <Form.Control type='email' placeholder='Enter email' />
+                <Form.Text className='text-muted'>
+                  We'll never share your email with anyone else.
+                </Form.Text>
+              </Form.Group>
+
+              <Form.Group controlId='formBasicPassword'>
+                <Form.Label>Password</Form.Label>
+                <Form.Control type='password' placeholder='Password' />
+              </Form.Group>
+            </div>
           </div>
-        )}
+        </div>
+{/* 
+        <Form.Group controlId='formBasicEmail'>
+          <Form.Label>Email address</Form.Label>
+          <Form.Control type='email' placeholder='Enter email' />
+          <Form.Text className='text-muted'>
+            We'll never share your email with anyone else.
+          </Form.Text>
+        </Form.Group> */}
 
-        <Row className='mb-5'>
-          <Form.Group as={Col} controlId='formGridEmail'>
-            <Form.Label>Email</Form.Label>
-            <Form.Control
-              type='text'
-              placeholder='First name'
-              autoComplete='off'
-              {...formik.getFieldProps('firstName')}
-              className={clsx(
-                'form-control form-control-lg form-control-solid',
-                {
-                  'is-invalid': formik.touched.firstName && formik.errors.firstName,
-                },
-                {
-                  'is-valid': formik.touched.firstName && !formik.errors.firstName,
-                }
-              )}
-            />
-            {formik.touched.firstName && formik.errors.firstName && (
-              <div className='fv-plugins-message-container'>
-                <div className='fv-help-block'>
-                  <span role='alert'>{formik.errors.firstName}</span>
-                </div>
-              </div>
-            )}
-          </Form.Group>
-
-          <Form.Group
-            as={Col}
-            controlId='formGridPassword'
-            type='password'
-            placeholder='First name'
-            autoComplete='off'
-            {...formik.getFieldProps('firstName')}
-            className={clsx(
-              'form-control form-control-lg form-control-solid',
-              {
-                'is-invalid': formik.touched.password && formik.errors.password,
-              },
-              {
-                'is-valid': formik.touched.password && !formik.errors.password,
-              }
-            )}
-          >
-            <Form.Label>Password</Form.Label>
-            <Form.Control type='password' placeholder='Password' />
-            {formik.touched.firstName && formik.errors.firstName && (
-              <div className='fv-plugins-message-container'>
-                <div className='fv-help-block'>
-                  <span role='alert'>{formik.errors.firstName}</span>
-                </div>
-              </div>
-            )}
-          </Form.Group>
-        </Row>
-        <Row className='mb-5'>
-          <Form.Group controlId='formGridAddress1'>
-            <Form.Label>Address</Form.Label>
-            <Form.Control placeholder='1234 Main St' />
-          </Form.Group>
-        </Row>
-        <Row className='mb-5'>
-          <Form.Group controlId='formGridAddress2'>
-            <Form.Label>Phone No.</Form.Label>
-            <Form.Control placeholder='Enter Phone Number' />
-          </Form.Group>
-        </Row>
-
-        <Row className='mb-5'>
-          <Form.Group as={Col} controlId='formGridState'>
-            <Form.Label>City</Form.Label>
-            <Form.Control as='select'>
-              <option>Choose...</option>
-              <option>...</option>
-            </Form.Control>
-          </Form.Group>
-
-          <Form.Group as={Col} controlId='formGridState'>
-            <Form.Label>State</Form.Label>
-            <Form.Control as='select'>
-              <option>Choose...</option>
-              <option>...</option>
-            </Form.Control>
-          </Form.Group>
-
-          <Form.Group as={Col} controlId='formGridZip'>
-            <Form.Label>Zip</Form.Label>
-            <Form.Control />
-          </Form.Group>
-        </Row>
-        <Row className='mb-5'>
-          <Form.Group id='formGridCheckbox'>
-            <Form.Check type='checkbox' label='Check me out' />
-          </Form.Group>
-        </Row>
-
-        <Button variant='primary' type='submit'>
-          Submit
-        </Button>
       </Form>
     </>
   )
 }
 
-export { AddUserForm }
+export {AddUserForm}

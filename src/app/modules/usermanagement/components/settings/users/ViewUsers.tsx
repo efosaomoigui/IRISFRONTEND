@@ -1,6 +1,5 @@
 import {useEffect, useState} from 'react'
 import agent from '../../../../../../setup/axios/AxiosAgent'
-import LoadingComponent from '../../../../../LoadingComponent'
 import {IUserModel} from '../../../../auth/models/AuthInterfaces'
 import {TablesWidgetUser} from './TablesWidgetUser'
 
@@ -16,7 +15,6 @@ export function ViewUsers() {
     })
   }, [])
 
-  if(loading) return <LoadingComponent content='Loading...' />
 
   return (
     <div className='row g-5 g-xxl-8'>
