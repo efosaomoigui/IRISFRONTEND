@@ -1,22 +1,22 @@
-import React, { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import React, {useEffect} from 'react'
+import {useLocation} from 'react-router-dom'
 
-import { MenuComponent } from '../assets/ts/components';
-import { InviteUsers, Main } from '../partials';
-import { AddUserModal } from '../../app/modules/usermanagement/modals/AddUserModal';
-import { AsideDefault } from './components/aside/AsideDefault';
-import { Content } from './components/Content';
-import { Footer } from './components/Footer';
-import { HeaderWrapper } from './components/header/HeaderWrapper';
-import { ScrollTop } from './components/ScrollTop';
-import { Toolbar } from './components/toolbar/Toolbar';
-import { PageDataProvider } from './core';
+import {MenuComponent} from '../assets/ts/components'
+import {InviteUsers, Main} from '../partials'
+import {AddUserModal} from '../../app/modules/usermanagement/modals/AddUserModal'
+import {AsideDefault} from './components/aside/AsideDefault'
+import {Content} from './components/Content'
+import {Footer} from './components/Footer'
+import {HeaderWrapper} from './components/header/HeaderWrapper'
+import {ScrollTop} from './components/ScrollTop'
+import {Toolbar} from './components/toolbar/Toolbar'
+import {PageDataProvider} from './core'
 
-import { AddFleetModal } from '../../app/modules/shipmentmanagement/modals/AddFleetModal';
-import { AddRouteModal } from '../../app/modules/shipmentmanagement/modals/AddRouteModal';
-import { AddWalletModal } from '../../app/modules/walletmanagement/modals/AddWalletModal';
-import { AddRoleModal } from '../../app/modules/usermanagement/modals/AddRoleModal';
-import { AddPermissionModal } from '../../app/modules/usermanagement/modals/AddPermissionModal';
+import {AddFleetModal} from '../../app/modules/shipmentmanagement/modals/AddFleetModal'
+import {AddRouteModal} from '../../app/modules/shipmentmanagement/modals/AddRouteModal'
+import {AddWalletModal} from '../../app/modules/walletmanagement/modals/AddWalletModal'
+import {AddRoleModal} from '../../app/modules/usermanagement/modals/AddRoleModal'
+import {AddPermissionModal} from '../../app/modules/usermanagement/modals/AddPermissionModal'
 
 const MasterLayout: React.FC = ({children}) => {
   const location = useLocation()
@@ -37,23 +37,21 @@ const MasterLayout: React.FC = ({children}) => {
       <div className='page d-flex flex-row flex-column-fluid'>
         <AsideDefault />
         <div className='wrapper d-flex flex-column flex-row-fluid' id='kt_wrapper'>
+          {/* the header  */}
           <HeaderWrapper />
 
           <div id='kt_content' className='content d-flex flex-column flex-column-fluid'>
+          {/* the toolbar with breadcrumbs */}
             <Toolbar />
+
             <div className='post d-flex flex-column-fluid' id='kt_post'>
+              {/* all otehr contents are inject here */}
               <Content>{children}</Content>
             </div>
           </div>
           <Footer />
         </div>
       </div>
-
-      {/* begin:: Drawers */}
-      {/* <ActivityDrawer /> */}
-        {/* <RightToolbar/> */}
-      {/* <DrawerMessenger /> */}
-      {/* end:: Drawers */}
 
       {/* begin:: Modals */}
       <Main />
@@ -66,20 +64,8 @@ const MasterLayout: React.FC = ({children}) => {
       <AddRouteModal />
       <AddPermissionModal />
       <AddRoleModal />
-{/* 
-          
 
-          <AddRouteModal />
-
-          <AddPriceModal />
-
-          <AddTripModal />
-
-          <AddWalletModal /> */}
-    {/* end custom modals for iris */}
-
-      {/* <UpgradePlan /> */}
-      {/* end:: Modals */}
+      {/* scrolltop */}
       <ScrollTop />
     </PageDataProvider>
   )

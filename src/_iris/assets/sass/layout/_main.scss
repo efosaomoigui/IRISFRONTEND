@@ -13,6 +13,10 @@ body {
 	color: $page-bg;
 }
 
+.react-datepicker.wrapper{
+	width: 100%;
+}
+
 // Desktop Mode
 @include media-breakpoint-up(lg) {
 	// Containers
