@@ -2,6 +2,7 @@ import clsx from 'clsx'
 import { useFormik } from 'formik'
 import React, { useState } from 'react'
 import { Col, Form, Row } from 'react-bootstrap-v5'
+import * as Yup from 'yup'
 import { useDispatch } from 'react-redux'
 import agent from '../../../../setup/axios/AxiosAgent'
 import LoadingComponent from '../../../LoadingComponent'
@@ -60,7 +61,7 @@ const registrationSchema = Yup.object().shape({
 //form starts here
 const AddUserForm: React.FC = () => {
   const [loading, setLoading] = useState(false)
-  const [usersmodel, setUsersModel] = useState({})
+  // const [usersmodel, setUsersModel] = useState({})
 
   const dispatch = useDispatch()
   const formik = useFormik({
@@ -122,14 +123,15 @@ const AddUserForm: React.FC = () => {
               </div>
             )}
           </Form.Group>
+          </Row>
 
               <Form.Group controlId='formBasicPassword'>
                 <Form.Label>Password</Form.Label>
                 <Form.Control type='password' placeholder='Password' />
               </Form.Group>
-            </div>
+            {/* </div>
           </div>
-        </div>
+        </div> */}
         {/* 
         <Form.Group controlId='formBasicEmail'>
           <Form.Label>Email address</Form.Label>
