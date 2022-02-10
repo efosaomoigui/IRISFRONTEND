@@ -1,9 +1,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
-
 import { IRoleModel } from '../../../../app/modules/auth/models/AuthInterfaces';
-import { rolemodel } from '../../../../app/modules/usermanagement/Models/RoleModel';
 import { KTSVG, toAbsoluteUrl } from '../../../helpers';
+
 
 type Props = {
   className: string,
@@ -175,4 +174,5 @@ const TablesWidgetRoles: React.FC<Props> = ({roles,className}) => {
   )
 }
 
-export { TablesWidgetRoles}
+export { TablesWidgetRoles };
+

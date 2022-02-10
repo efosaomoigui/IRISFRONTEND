@@ -1,24 +1,24 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { FC } from 'react'
-import { KTSVG, toAbsoluteUrl } from '../../../../_iris/helpers'
+import { KTSVG } from '../../../../_iris/helpers'
 import { AddFleetForm } from '../shipmentformwidget/AddFleetForm'
 
 
 const AddFleetModal: FC = () => {
-  const users = [
-    {
-      avatar: '/media/avatars/150-1.jpg',
-      name: 'Emma Smith',
-      email: 'e.smith@kpmg.com.au',
-      access: '1',
-    },
-    {
-      state: 'danger',
-      name: 'Melody Macy',
-      email: 'melody@altbox.com',
-      access: '1',
-    },
-  ]
+  // const users = [
+  //   {
+  //     avatar: '/media/avatars/150-1.jpg',
+  //     name: 'Emma Smith',
+  //     email: 'e.smith@kpmg.com.au',
+  //     access: '1',
+  //   },
+  //   {
+  //     state: 'danger',
+  //     name: 'Melody Macy',
+  //     email: 'melody@altbox.com',
+  //     access: '1',
+  //   },
+  // ]
 
   return (
     <div className='modal fade' id='kt_modal_addfleet' aria-hidden='true'>
@@ -51,3 +51,4 @@ const AddFleetModal: FC = () => {
 }
 
 export { AddFleetModal }
+

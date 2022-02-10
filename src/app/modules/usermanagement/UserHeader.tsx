@@ -1,17 +1,17 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
-import { shallowEqual, useDispatch, useSelector } from 'react-redux';
+import { shallowEqual, useSelector } from 'react-redux';
 import { RootState } from '../../../setup';
-
 import { KTSVG } from '../../../_iris/helpers';
 import { IUserModel } from '../auth/models/AuthInterfaces';
+
 
 const UserHeader: React.FC = () => {
   // const location = useLocation()
 
   const user: IUserModel = useSelector<RootState>(({auth}) => auth.user, shallowEqual) as IUserModel
 
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch()
 
   return (
     <div className='card mb-5 mb-xl-10'>
@@ -88,4 +88,5 @@ const UserHeader: React.FC = () => {
   )
 }
 
-export {UserHeader}
+export { UserHeader };
+

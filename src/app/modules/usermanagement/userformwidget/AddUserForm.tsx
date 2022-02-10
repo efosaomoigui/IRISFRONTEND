@@ -1,9 +1,20 @@
+<<<<<<< HEAD
 import React from 'react'
 import clsx from 'clsx'
 import {makeStyles} from '@material-ui/core/styles'
 import MenuItem from '@material-ui/core/MenuItem'
 import TextField from '@material-ui/core/TextField'
 import {Button, Form} from 'react-bootstrap-v5'
+=======
+import clsx from 'clsx'
+import { useFormik } from 'formik'
+import React, { useState } from 'react'
+import { Button, Col, Form, Row } from 'react-bootstrap-v5'
+import * as Yup from 'yup'
+import agent from '../../../../setup/axios/AxiosAgent'
+import LoadingComponent from '../../../LoadingComponent'
+import { IUserModel } from '../../auth/models/AuthInterfaces'
+>>>>>>> 5d9201172a00d9238c38f41895bcf992cf1a4762
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -104,4 +115,9 @@ function AddUserForm() {
   )
 }
 
+<<<<<<< HEAD
 export {AddUserForm}
+=======
+export { AddUserForm }
+
+>>>>>>> 5d9201172a00d9238c38f41895bcf992cf1a4762

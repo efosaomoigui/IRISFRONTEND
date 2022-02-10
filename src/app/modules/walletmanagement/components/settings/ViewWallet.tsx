@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import agent from '../../../../../setup/axios/AxiosAgent'
 import LoadingComponent from '../../../../LoadingComponent'
 import { IWalletModel } from '../../Models/WalletInterfaces'
-import { walletmodels } from '../../Models/WalletModel'
 import { TablesWidgetWallet } from './TableWidgetWallet'
 
 export function ViewWallet() {

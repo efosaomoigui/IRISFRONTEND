@@ -1,9 +1,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
-
 import { IPermissionModel } from '../../../../app/modules/auth/models/AuthInterfaces';
-import { permissionmodel } from '../../../../app/modules/usermanagement/Models/PermissionModel';
 import { KTSVG, toAbsoluteUrl } from '../../../helpers';
+
 
 type Props = {
   className: string,
@@ -191,4 +190,5 @@ const TablesWidgetPermission: React.FC<Props> = ({permission,className}) => {
   )
 }
 
-export { TablesWidgetPermission}
+export { TablesWidgetPermission };
+
