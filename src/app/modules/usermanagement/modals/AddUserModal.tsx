@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import { useState } from 'react';
 import {IUserModel} from '../../auth/models/AuthInterfaces'
 import GenericForm from '../../layout/forms/GenericForm'
@@ -23,5 +22,5 @@ const AddUserModal: React.FC = () => {
   )
 }
 
-export {AddUserModal}
+export { AddUserModal }
 
