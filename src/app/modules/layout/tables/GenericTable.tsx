@@ -1,14 +1,7 @@
-<<<<<<< HEAD
-import React, {useMemo} from 'react'
-import MOCK_DATA from './MOCK_DATA.json'
-import './CustomTable.css'
-import { useSortBy, useTable } from 'react-table'
-=======
 import React, { useMemo } from 'react'
 import { useSortBy, useTable } from 'react-table'
 import './CustomTable.css'
 import MOCK_DATA from './MOCK_DATA.json'
->>>>>>> cab25d4d0d33a82388d8200acf0ffbe82cd56fb8
 
 const GenericTable = () => {
 
