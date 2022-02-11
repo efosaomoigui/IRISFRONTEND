@@ -4,7 +4,6 @@ import { Button } from 'semantic-ui-react'
 import * as Yup from 'yup'
 import { KTSVG } from '../../../../_iris/helpers'
 import { IRoleModel } from '../../auth/models/AuthInterfaces'
-import IrisSelectInput from '../../layout/forms/IrisSelectInput'
 import IrisTextInput from '../../layout/forms/IrisTextInput'
 
 
@@ -19,12 +18,12 @@ interface Props<Values> {
   isSubmitting: boolean
 }
 
-const options = [
-  { text: 'one', value: 'Bag' },
-  { text: 'two', value: 'Serial' },
-  { text: 'three', value: 'Turkey' },
-  { text: 'four', value: 'Afganistan' },
-]
+// const options = [
+//   { text: 'one', value: 'Bag' },
+//   { text: 'two', value: 'Serial' },
+//   { text: 'three', value: 'Turkey' },
+//   { text: 'four', value: 'Afganistan' },
+// ]
 
 export default function AddRoleForm(props: Props<IRoleModel>) {
   const initialFormValue: IRoleModel = {
@@ -33,12 +32,7 @@ export default function AddRoleForm(props: Props<IRoleModel>) {
   }
 
   const validationSchema = Yup.object({
-    userName: Yup.string().required(),
-    firstName: Yup.string().required(),
-    password: Yup.string().required(),
-    lastName: Yup.string().required(),
-    email: Yup.string().required(),
-    phonenumber: Yup.string().required(),
+    name: Yup.string().required(),
   })
 
   return (
@@ -88,12 +82,12 @@ export default function AddRoleForm(props: Props<IRoleModel>) {
                   label='Email'
                 /> */}
 
-                {/* <IrisTextInput
-                  type='number'
-                  placeholder='Phone Number='
-                  name='phonenumber'
-                  label='Phone Number'
-                /> */}
+                <IrisTextInput
+                  type='text'
+                  placeholder='Role Name'
+                  name='name'
+                  label='Role Name'
+                />
 
                 {/* <IrisDatePicker
                   placeholderText='Date'
@@ -110,12 +104,12 @@ export default function AddRoleForm(props: Props<IRoleModel>) {
                   label='Password'
                 /> */}
 
-                <IrisSelectInput
+                {/* <IrisSelectInput
                   options={options}
                   placeholder='Role name'
-                  name='Role name'
+                  name='name'
                   label='Role name'
-                />
+                /> */}
 
               </div>
 

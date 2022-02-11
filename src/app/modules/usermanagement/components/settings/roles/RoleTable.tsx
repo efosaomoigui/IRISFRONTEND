@@ -1,20 +1,24 @@
-import React, {useMemo} from 'react'
-import Role_Data from './Role_Data.json'
-import {useTable, useSortBy} from 'react-table'
+import React, { useMemo } from 'react'
+import { useSortBy, useTable } from 'react-table'
+import { IRoleModel } from '../../../../auth/models/AuthInterfaces'
 import './CustomTable.css'
 
-const RoleTable = () => {
+interface Props{
+  roleData: IRoleModel | any ;
+}
+
+const RoleTable = ({roleData}: Props) => {
 
   const tableInstance = useTable({
     columns : useMemo(
       () => [
         {
           Header: 'Role Id',
-          accessor: 'RoleId',
+          accessor: 'id',
         },
         {
           Header: 'User Name',
-          accessor: 'RoleName',
+          accessor: 'name',
         },
         // {
         //   Header: 'First Name',
@@ -35,7 +39,7 @@ const RoleTable = () => {
       ],
       []
     ),
-    data : useMemo(() => Role_Data, []),
+    data: useMemo(() => roleData, [roleData]),
   }, useSortBy)
 
   const {getTableProps, getTableBodyProps, headerGroups, rows, prepareRow} = tableInstance
@@ -69,4 +73,4 @@ const RoleTable = () => {
   )
 }
 
-export { RoleTable };
+export { RoleTable }

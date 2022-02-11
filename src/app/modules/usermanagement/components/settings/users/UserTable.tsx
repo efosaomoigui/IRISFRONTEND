@@ -2,8 +2,13 @@ import React, {useMemo} from 'react'
 import User_Data from './User_Data.json'
 import {useTable, useSortBy} from 'react-table'
 import './CustomTable.css'
+import { IUserModel } from '../../../../auth/models/AuthInterfaces'
 
-const UserTable = () => {
+interface Props{
+  userData:IUserModel | any ;
+}
+
+const UserTable = ({userData} : Props) => {
 
   const tableInstance = useTable({
     columns : useMemo(
@@ -35,7 +40,7 @@ const UserTable = () => {
       ],
       []
     ),
-    data : useMemo(() => User_Data, []),
+    data: useMemo(() => User_Data, []),
   }, useSortBy)
 
   const {getTableProps, getTableBodyProps, headerGroups, rows, prepareRow} = tableInstance

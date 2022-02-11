@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { v4 as uuid } from 'uuid';
+import agent from '../../../../setup/axios/AxiosAgent';
 import { IRoleModel } from '../../auth/models/AuthInterfaces';
 import AddRoleForm from '../userformwidget/AddRoleForm';
 
@@ -12,7 +13,8 @@ const AddRoleModal: React.FC = () => {
   const onSubmit = (values: IRoleModel) => {
     setIsSubmitting(true);
     values.id = uuid();
-    console.log("TT: ", values);
+    agent.Roles.create(values).then((response)=>console.log(response));
+    console.log("RR: ", values);
   };
 
   return (

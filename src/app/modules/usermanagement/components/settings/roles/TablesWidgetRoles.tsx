@@ -45,7 +45,7 @@ const TablesWidgetRoles: React.FC<Props> = ({roles, className}) => {
         {/* begin::Table container */}
         <div className='table-responsive'>
           {/* begin::Table */}
-          <RoleTable />
+          <RoleTable roleData={roles} />
           {/* end::Table */}
         </div>
         {/* end::Table container */}

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { v4 as uuid } from 'uuid';
+import agent from '../../../../setup/axios/AxiosAgent';
 import { IUserModel } from '../../auth/models/AuthInterfaces';
 import AddUserForm from '../userformwidget/AddUserForm';
 
@@ -11,6 +12,7 @@ const AddUserModal: React.FC = () => {
   const onSubmit = (values: IUserModel) => {
     setIsSubmitting(true);
     values.userId = uuid();
+    agent.Users.create(values).then((response) =>{ console.log(response)});
     console.log("TT: ", values);
   };
 

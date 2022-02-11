@@ -93,7 +93,7 @@ export default function AddUserForm(props: Props<IUserModel>) {
                 />
 
                 <IrisTextInput
-                  type='number'
+                  type='text'
                   placeholder='Phone Number='
                   name='phonenumber'
                   label='Phone Number'

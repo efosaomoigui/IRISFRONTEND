@@ -44,7 +44,7 @@ const TablesWidgetUser: React.FC<Props> = ({users, className}) => {
         {/* begin::Table container */}
         <div className='table-responsive'>
           {/* begin::Table */}
-          <UserTable />
+          <UserTable userData={users} />
           {/* end::Table */}
         </div>
         {/* end::Table container */}
