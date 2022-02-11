@@ -1,9 +1,10 @@
-import {Modal} from 'react-bootstrap-v5'
-import {Button} from 'semantic-ui-react'
-import {KTSVG} from '../../../../_iris/helpers'
-import {IUserModel} from '../../auth/models/AuthInterfaces'
-import {Formik, Form, FormikHelpers} from 'formik'
+import { Form, Formik, FormikHelpers } from 'formik'
+import { Modal } from 'react-bootstrap-v5'
+import { Button } from 'semantic-ui-react'
 import * as Yup from 'yup'
+import { KTSVG } from '../../../../_iris/helpers'
+import { IRoleModel } from '../../auth/models/AuthInterfaces'
+import IrisSelectInput from '../../layout/forms/IrisSelectInput'
 import IrisTextInput from '../../layout/forms/IrisTextInput'
 
 
@@ -18,15 +19,17 @@ interface Props<Values> {
   isSubmitting: boolean
 }
 
+const options = [
+  { text: 'one', value: 'Bag' },
+  { text: 'two', value: 'Serial' },
+  { text: 'three', value: 'Turkey' },
+  { text: 'four', value: 'Afganistan' },
+]
 
-export default function AddRoleForm(props: Props<IUserModel>) {
-  const initialFormValue: IUserModel = {
-    userId: '',
-    userName: '',
-    firstName: '',
-    lastName: '',
-    email: '',
-    phonenumber: '',
+export default function AddRoleForm(props: Props<IRoleModel>) {
+  const initialFormValue: IRoleModel = {
+    id: '',
+    name: ''
   }
 
   const validationSchema = Yup.object({
@@ -50,7 +53,7 @@ export default function AddRoleForm(props: Props<IUserModel>) {
           <div className='modal-dialog modal-dialog-centered mw-900px'>
             <div className='modal-content'>
               <div className='modal-header'>
-                <h2>Create Role</h2>
+                <h2>Add Permission</h2>
                 <div
                   className='btn btn-sm btn-icon btn-active-color-primary'
                   data-bs-dismiss='modal'
@@ -62,16 +65,58 @@ export default function AddRoleForm(props: Props<IUserModel>) {
               <div className='modal-body py-lg-10 px-lg-10'>
                 <IrisTextInput
                   type='text'
-                  name='roleId'
-                  placeholder='Role Id'
-                  label='Role Id'
+                  name='RoleId'
+                  placeholder='RoleId'
+                  label='RoleId'
+                />
+                {/* <IrisTextInput
+                  type='text'
+                  placeholder='FirstName'
+                  name='firstName'
+                  label='First Name'
+                /> */}
+                {/* <IrisTextInput
+                  type='text'
+                  placeholder='Last Name'
+                  name='lastName'
+                  label='Last Name'
                 />
                 <IrisTextInput
-                  type='text'
-                  placeholder='RoleName'
-                  name='rolename'
-                  label='Role Name'
+                  type='email'
+                  placeholder='Email'
+                  name='email'
+                  label='Email'
+                /> */}
+
+                {/* <IrisTextInput
+                  type='number'
+                  placeholder='Phone Number='
+                  name='phonenumber'
+                  label='Phone Number'
+                /> */}
+
+                {/* <IrisDatePicker
+                  placeholderText='Date'
+                  name='date'
+                  showTimeSelect
+                  timeCaption='time'
+                  dateFormat='MMM d, yyyy h:mm: aa'
+                /> */}
+
+                {/* <IrisTextInput
+                  type='password'
+                  placeholder='Password'
+                  name='password'
+                  label='Password'
+                /> */}
+
+                <IrisSelectInput
+                  options={options}
+                  placeholder='Role name'
+                  name='Role name'
+                  label='Role name'
                 />
+
               </div>
 
               <Modal.Footer>

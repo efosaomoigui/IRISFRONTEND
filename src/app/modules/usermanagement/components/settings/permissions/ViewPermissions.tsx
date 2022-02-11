@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import agent from '../../../../../../setup/axios/AxiosAgent';
-import { TablesWidgetPermission } from '../../../../../../_iris/partials/widgets/tables/TablesWidgetPermission';
-import LoadingComponent from '../../../../../LoadingComponent';
 import { IPermissionModel } from '../../../../auth/models/AuthInterfaces';
+import { TablesWidgetPermission } from './TablesWidgetPermission';
 
 
 export function ViewPermissions() {
-  const [loading, setLoading] = useState(true)
+  const [, setLoading] = useState(true)
   const [permissionmodel1, setPermissionModel] = useState<IPermissionModel[]>()
 
   // //USE EFFECT HOOK
@@ -16,7 +15,7 @@ export function ViewPermissions() {
       setLoading(false)
     })
   }, [])
-  if (loading) return <LoadingComponent content='Loading...' />
+  // if (loading) return <LoadingComponent content='Loading...' />
 
   return (
     <div className='row g-5 g-xxl-8'>

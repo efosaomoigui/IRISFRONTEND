@@ -1,48 +1,41 @@
-<<<<<<< HEAD
 import React, {useMemo} from 'react'
-import MOCK_DATA from './MOCK_DATA.json'
+import Permission_Data from './Permission_Data.json'
+import {useTable, useSortBy} from 'react-table'
 import './CustomTable.css'
-import { useSortBy, useTable } from 'react-table'
-=======
-import React, { useMemo } from 'react'
-import { useSortBy, useTable } from 'react-table'
-import './CustomTable.css'
-import MOCK_DATA from './MOCK_DATA.json'
->>>>>>> cab25d4d0d33a82388d8200acf0ffbe82cd56fb8
 
-const GenericTable = () => {
+const PermissionTable = () => {
 
   const tableInstance = useTable({
     columns : useMemo(
       () => [
         {
-          Header: 'User Id',
-          accessor: 'userId',
+          Header: 'Permission Id',
+          accessor: 'PermissionId',
         },
         {
-          Header: 'User Name',
-          accessor: 'userName',
+          Header: 'Role Id',
+          accessor: 'roleId',
         },
         {
-          Header: 'First Name',
-          accessor: 'firstName',
+          Header: 'Claim Type',
+          accessor: 'claimType',
         },
         {
-          Header: 'Last Name',
-          accessor: 'lastName',
+          Header: 'Claim Value',
+          accessor: 'claimValue',
         },
-        {
-          Header: 'Email',
-          accessor: 'email',
-        },
-        {
-          Header: 'Phone Number',
-          accessor: 'phoneNumber',
-        },
+        // {
+        //   Header: 'Email',
+        //   accessor: 'email',
+        // },
+        // {
+        //   Header: 'Phone Number',
+        //   accessor: 'phoneNumber',
+        // },
       ],
       []
     ),
-    data : useMemo(() => MOCK_DATA, []),
+    data : useMemo(() => Permission_Data, []),
   }, useSortBy)
 
   const {getTableProps, getTableBodyProps, headerGroups, rows, prepareRow} = tableInstance
@@ -76,5 +69,4 @@ const GenericTable = () => {
   )
 }
 
-export { GenericTable }
-
+export { PermissionTable };

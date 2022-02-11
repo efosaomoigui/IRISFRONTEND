@@ -1,21 +1,22 @@
-import React, {useEffect} from 'react'
-import {useLocation} from 'react-router-dom'
-import {MenuComponent} from '../assets/ts/components'
-import {Main} from '../partials'
-import {AddUserModal} from '../../app/modules/usermanagement/modals/AddUserModal'
-import {AsideDefault} from './components/aside/AsideDefault'
-import {Content} from './components/Content'
-import {Footer} from './components/Footer'
-import {HeaderWrapper} from './components/header/HeaderWrapper'
-import {ScrollTop} from './components/ScrollTop'
-import {Toolbar} from './components/toolbar/Toolbar'
-import {PageDataProvider} from './core'
+import React, { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
+import { AddFleetModal } from '../../app/modules/shipmentmanagement/modals/AddFleetModal'
+import { AddRouteModal } from '../../app/modules/shipmentmanagement/modals/AddRouteModal'
+import { AddPermissionModal } from '../../app/modules/usermanagement/modals/AddPermissionModal'
+import { AddRoleModal } from '../../app/modules/usermanagement/modals/AddRoleModal'
+import { AddUserModal } from '../../app/modules/usermanagement/modals/AddUserModal'
+import { AddWalletModal } from '../../app/modules/walletmanagement/modals/AddWalletModal'
+import { MenuComponent } from '../assets/ts/components'
+import { Main } from '../partials'
+import { AsideDefault } from './components/aside/AsideDefault'
+import { Content } from './components/Content'
+import { Footer } from './components/Footer'
+import { HeaderWrapper } from './components/header/HeaderWrapper'
+import { ScrollTop } from './components/ScrollTop'
+import { Toolbar } from './components/toolbar/Toolbar'
+import { PageDataProvider } from './core'
 
-import {AddFleetModal} from '../../app/modules/shipmentmanagement/modals/AddFleetModal'
-import {AddRouteModal} from '../../app/modules/shipmentmanagement/modals/AddRouteModal'
-import {AddWalletModal} from '../../app/modules/walletmanagement/modals/AddWalletModal'
-import {AddRoleModal} from '../../app/modules/usermanagement/modals/AddRoleModal'
-import {AddPermissionModal} from '../../app/modules/usermanagement/modals/AddPermissionModal'
+
 
 const MasterLayout: React.FC = ({children}) => {
   const location = useLocation()
@@ -70,4 +71,5 @@ const MasterLayout: React.FC = ({children}) => {
   )
 }
 
-export {MasterLayout}
+export { MasterLayout }
+

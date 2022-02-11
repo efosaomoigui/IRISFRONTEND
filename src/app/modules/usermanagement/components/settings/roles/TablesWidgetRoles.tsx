@@ -1,8 +1,16 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
+<<<<<<< HEAD:src/_iris/partials/widgets/tables/TablesWidgetRoles.tsx
 import {IRoleModel} from '../../../../app/modules/auth/models/AuthInterfaces'
 import {GenericTable} from '../../../../app/modules/layout/tables/GenericTable'
 import {KTSVG} from '../../../helpers'
+=======
+import { KTSVG } from '../../../../../../_iris/helpers'
+import { IRoleModel } from '../../../../auth/models/AuthInterfaces'
+import { RoleTable } from './RoleTable'
+
+
+>>>>>>> cab25d4d0d33a82388d8200acf0ffbe82cd56fb8:src/app/modules/usermanagement/components/settings/roles/TablesWidgetRoles.tsx
 
 type Props = {
   className: string
@@ -43,7 +51,7 @@ const TablesWidgetRoles: React.FC<Props> = ({roles, className}) => {
         {/* begin::Table container */}
         <div className='table-responsive'>
           {/* begin::Table */}
-          <GenericTable />
+          <RoleTable />
           {/* end::Table */}
         </div>
         {/* end::Table container */}
@@ -92,4 +100,5 @@ const TablesWidgetRoles: React.FC<Props> = ({roles, className}) => {
   )
 }
 
-export {TablesWidgetRoles}
+export { TablesWidgetRoles }
+

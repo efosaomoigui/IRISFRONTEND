@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import agent from '../../../../../../setup/axios/AxiosAgent';
-import { TablesWidgetRoles } from '../../../../../../_iris/partials/widgets/tables/TablesWidgetRoles';
 import LoadingComponent from '../../../../../LoadingComponent';
 import { IRoleModel } from '../../../../auth/models/AuthInterfaces';
+import { TablesWidgetRoles } from './TablesWidgetRoles';
 
 
 export function ViewRoles() {

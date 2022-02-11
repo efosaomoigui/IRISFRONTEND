@@ -1,8 +1,13 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
+<<<<<<< HEAD
 import {KTSVG} from '../../../../../../_iris/helpers'
 import { IUserModel } from '../../../../auth/models/AuthInterfaces'
 
+=======
+import { KTSVG } from '../../../../../../_iris/helpers'
+import { IUserModel } from '../../../../auth/models/AuthInterfaces'
+>>>>>>> cab25d4d0d33a82388d8200acf0ffbe82cd56fb8
 import { UserTable } from './UserTable'
 // import {KTSVG, toAbsoluteUrl} from '../../../helpers'
 
@@ -94,4 +99,5 @@ const TablesWidgetUser: React.FC<Props> = ({users, className}) => {
   )
 }
 
-export {TablesWidgetUser}
+export { TablesWidgetUser }
+
