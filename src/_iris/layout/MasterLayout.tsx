@@ -1,8 +1,7 @@
 import React, {useEffect} from 'react'
 import {useLocation} from 'react-router-dom'
-
 import {MenuComponent} from '../assets/ts/components'
-import {InviteUsers, Main} from '../partials'
+import {Main} from '../partials'
 import {AddUserModal} from '../../app/modules/usermanagement/modals/AddUserModal'
 import {AsideDefault} from './components/aside/AsideDefault'
 import {Content} from './components/Content'
@@ -55,7 +54,7 @@ const MasterLayout: React.FC = ({children}) => {
 
       {/* begin:: Modals */}
       <Main />
-      <InviteUsers />
+      {/* <InviteUsers /> */}
 
       {/* custom modals for iris */}
       <AddUserModal />
