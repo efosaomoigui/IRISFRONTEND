@@ -15,8 +15,8 @@ import {PageDataProvider} from './core'
 import {AddFleetModal} from '../../app/modules/shipmentmanagement/modals/AddFleetModal'
 import {AddRouteModal} from '../../app/modules/shipmentmanagement/modals/AddRouteModal'
 import {AddWalletModal} from '../../app/modules/walletmanagement/modals/AddWalletModal'
-import {AddRoleModal} from '../../app/modules/usermanagement/modals/AddRoleModal'
 import {AddPermissionModal} from '../../app/modules/usermanagement/modals/AddPermissionModal'
+import { AddRoleModal } from '../../app/modules/usermanagement/modals/AddRoleModal'
 
 const MasterLayout: React.FC = ({children}) => {
   const location = useLocation()
