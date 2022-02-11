@@ -69,7 +69,7 @@ export default function GenericForm(props: Props<IUserModel>) {
                   type='text'
                   name='userName'
                   placeholder='User Name'
-                  label='User Name'
+                  label='User name'
                 />
                 <IrisTextInput
                   type='text'

@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import {IUserModel} from '../../auth/models/AuthInterfaces'
-import GenericForm from '../../layout/forms/GenericForm'
-import {v4 as uuid} from 'uuid'
+import { v4 as uuid } from 'uuid';
+import { IUserModel } from '../../auth/models/AuthInterfaces';
+import AddUserForm from '../userformwidget/AddUserForm';
+
 
 const AddUserModal: React.FC = () => {
 
@@ -16,11 +17,11 @@ const AddUserModal: React.FC = () => {
   return (
     <>
       <div className='modal fade' id='kt_modal_adduser' aria-hidden='true'>
-        <GenericForm isSubmitting={isSubmitting} onSubmit={onSubmit}  />
+        <AddUserForm isSubmitting={isSubmitting} onSubmit={onSubmit}  />
       </div>
     </>
   )
 }
 
-export { AddUserModal }
+export { AddUserModal };
 
