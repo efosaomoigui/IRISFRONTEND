@@ -55,7 +55,7 @@ const MasterLayout: React.FC = ({children}) => {
 
       {/* begin:: Modals */}
       <Main />
-      <InviteUsers />
+      {/* <InviteUsers /> */}
 
       {/* custom modals for iris */}
       <AddUserModal />
