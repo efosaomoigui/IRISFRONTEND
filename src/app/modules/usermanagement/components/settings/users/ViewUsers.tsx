@@ -2,9 +2,6 @@ import {useEffect, useState} from 'react'
 import agent from '../../../../../../setup/axios/AxiosAgent'
 import LoadingComponent from '../../../../../LoadingComponent'
 import {IUserModel} from '../../../../auth/models/AuthInterfaces'
-import { AddUserForm } from '../../../userformwidget/AddUserForm'
-// import { usersmodel } from '../../../Models/UserModel'
-import {getUsers} from '../../../UserManagementCRUD'
 import {TablesWidgetUser} from './TablesWidgetUser'
 
 export function ViewUsers() {

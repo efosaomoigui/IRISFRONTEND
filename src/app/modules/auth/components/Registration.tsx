@@ -47,7 +47,6 @@ const registrationSchema = Yup.object().shape({
 })
 
 export function Registration() {
-  
   const [loading, setLoading] = useState(false)
   const dispatch = useDispatch()
   const formik = useFormik({
