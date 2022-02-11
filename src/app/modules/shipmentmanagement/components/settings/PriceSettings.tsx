@@ -1,4 +1,4 @@
-import { FeedsWidget6, TablesWidget2 } from '../../../../../_iris/partials/widgets'
+import { TablesWidget2 } from '../../../../../_iris/partials/widgets'
 
 export function PriceSettings() {
   return (

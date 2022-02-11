@@ -1,19 +1,13 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, {FC} from 'react'
-import {useIntl} from 'react-intl'
-import {PageTitle} from '../../../_iris/layout/core'
+import React, { FC } from 'react'
+import { useIntl } from 'react-intl'
+import { PageTitle } from '../../../_iris/layout/core'
 import {
-  MixedWidget2,
-  MixedWidget10,
-  MixedWidget11,
-  ListsWidget2,
   ListsWidget3,
   ListsWidget4,
   ListsWidget5,
-  ListsWidget6,
-  TablesWidget5,
-  TablesWidget10,
-  MixedWidget8,
+  ListsWidget6, MixedWidget10,
+  MixedWidget11, MixedWidget2, MixedWidget8, TablesWidget10, TablesWidget5
 } from '../../../_iris/partials/widgets'
 
 const DashboardPage: FC = () => (
@@ -58,14 +52,11 @@ const DashboardPage: FC = () => (
     {/* end::Row */}
 
     {/* begin::Row */}
-    <div className='row gy-5 g-xl-8'>
-      <div className='col-xl-4'>
-        <ListsWidget2 className='card-xl-stretch mb-xl-8' />
-      </div>
-      <div className='col-xl-4'>
+    <div className='row gy-5 g-xl-12'>
+      <div className='col-xl-6'>
         <ListsWidget6 className='card-xl-stretch mb-xl-8' />
       </div>
-      <div className='col-xl-4'>
+      <div className='col-xl-6'>
         <ListsWidget4 className='card-xl-stretch mb-5 mb-xl-8' items={5} />
         {/* partials/widgets/lists/_widget-4', 'class' => 'card-xl-stretch mb-5 mb-xl-8', 'items' => '5' */}
       </div>
@@ -91,10 +82,11 @@ const DashboardWrapper: FC = () => {
   const intl = useIntl()
   return (
     <>
-      <PageTitle breadcrumbs={[]}>{intl.formatMessage({id: 'MENU.DASHBOARD'})}</PageTitle>
+      <PageTitle breadcrumbs={[]}>{intl.formatMessage({ id: 'MENU.DASHBOARD' })}</PageTitle>
       <DashboardPage />
     </>
   )
 }
 
-export {DashboardWrapper}
+export { DashboardWrapper }
+

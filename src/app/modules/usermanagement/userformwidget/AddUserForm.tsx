@@ -1,11 +1,13 @@
+import clsx from 'clsx'
 import { useFormik } from 'formik'
 import React, { useState } from 'react'
-import { Form, Row, Col, Button } from 'react-bootstrap-v5'
-import { useDispatch } from 'react-redux'
+import { Col, Form, Row } from 'react-bootstrap-v5'
+// import { useDispatch } from 'react-redux'
+import * as Yup from 'yup'
+
 import agent from '../../../../setup/axios/AxiosAgent'
+import LoadingComponent from '../../../LoadingComponent'
 import { IUserModel } from '../../auth/models/AuthInterfaces'
-import * as Yup from 'yup';
-import clsx from 'clsx'
 
 const initialValues: IUserModel = {
   userId: '',
@@ -17,9 +19,9 @@ const initialValues: IUserModel = {
   designation: '',
   department: 'IT',
   pictureUrl: '',
-  isActive: '',
+  isActive: true,
   organisation: '',
-  status: '',
+  status: 1,
   dateCreated: '',
   dateModified: '',
   isDeleted: '',
@@ -60,9 +62,9 @@ const registrationSchema = Yup.object().shape({
 //form starts here
 const AddUserForm: React.FC = () => {
   const [loading, setLoading] = useState(false)
-  const [usersmodel, setUsersModel] = useState({})
+  // const [usersmodel, setUsersModel] = useState({})
 
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch()
   const formik = useFormik({
     initialValues,
     validationSchema: registrationSchema,
@@ -82,7 +84,7 @@ const AddUserForm: React.FC = () => {
       }, 1000)
     },
   })
-
+  if (loading) return <LoadingComponent content='Loading...' />
   return (
     <>
       <Form
@@ -122,82 +124,27 @@ const AddUserForm: React.FC = () => {
               </div>
             )}
           </Form.Group>
+          </Row>
 
-          <Form.Group
-            as={Col}
-            controlId='formGridPassword'
-            type='password'
-            placeholder='First name'
-            autoComplete='off'
-            {...formik.getFieldProps('firstName')}
-            className={clsx(
-              'form-control form-control-lg form-control-solid',
-              {
-                'is-invalid': formik.touched.password && formik.errors.password,
-              },
-              {
-                'is-valid': formik.touched.password && !formik.errors.password,
-              }
-            )}
-          >
-            <Form.Label>Password</Form.Label>
-            <Form.Control type='password' placeholder='Password' />
-            {formik.touched.firstName && formik.errors.firstName && (
-              <div className='fv-plugins-message-container'>
-                <div className='fv-help-block'>
-                  <span role='alert'>{formik.errors.firstName}</span>
-                </div>
-              </div>
-            )}
-          </Form.Group>
-        </Row>
-        <Row className='mb-5'>
-          <Form.Group controlId='formGridAddress1'>
-            <Form.Label>Address</Form.Label>
-            <Form.Control placeholder='1234 Main St' />
-          </Form.Group>
-        </Row>
-        <Row className='mb-5'>
-          <Form.Group controlId='formGridAddress2'>
-            <Form.Label>Phone No.</Form.Label>
-            <Form.Control placeholder='Enter Phone Number' />
-          </Form.Group>
-        </Row>
-
-        <Row className='mb-5'>
-          <Form.Group as={Col} controlId='formGridState'>
-            <Form.Label>City</Form.Label>
-            <Form.Control as='select'>
-              <option>Choose...</option>
-              <option>...</option>
-            </Form.Control>
-          </Form.Group>
-
-          <Form.Group as={Col} controlId='formGridState'>
-            <Form.Label>State</Form.Label>
-            <Form.Control as='select'>
-              <option>Choose...</option>
-              <option>...</option>
-            </Form.Control>
-          </Form.Group>
-
-          <Form.Group as={Col} controlId='formGridZip'>
-            <Form.Label>Zip</Form.Label>
-            <Form.Control />
-          </Form.Group>
-        </Row>
-        <Row className='mb-5'>
-          <Form.Group id='formGridCheckbox'>
-            <Form.Check type='checkbox' label='Check me out' />
-          </Form.Group>
-        </Row>
-
-        <Button variant='primary' type='submit'>
-          Submit
-        </Button>
+              <Form.Group controlId='formBasicPassword'>
+                <Form.Label>Password</Form.Label>
+                <Form.Control type='password' placeholder='Password' />
+              </Form.Group>
+            {/* </div>
+          </div>
+        </div> */}
+        {/* 
+        <Form.Group controlId='formBasicEmail'>
+          <Form.Label>Email address</Form.Label>
+          <Form.Control type='email' placeholder='Enter email' />
+          <Form.Text className='text-muted'>
+            We'll never share your email with anyone else.
+          </Form.Text>
+        </Form.Group> */}
       </Form>
     </>
   )
 }
 
 export { AddUserForm }
+

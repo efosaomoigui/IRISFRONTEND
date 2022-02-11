@@ -16,7 +16,8 @@ export function ViewUsers() {
     })
   }, [])
 
-  if(loading) return <LoadingComponent content='Loading...' />
+
+  if (loading) return <LoadingComponent content='Loading...' />
 
   return (
     <div className='row g-5 g-xxl-8'>
