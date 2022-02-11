@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import agent from '../../../../../../setup/axios/AxiosAgent';
-import { TablesWidgetPermission } from '../../../../../../_iris/partials/widgets/tables/TablesWidgetPermission';
 import { IPermissionModel } from '../../../../auth/models/AuthInterfaces';
+import { TablesWidgetPermission } from './TablesWidgetPermission';
 
 
 export function ViewPermissions() {

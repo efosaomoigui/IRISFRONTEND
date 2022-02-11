@@ -1,7 +1,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
-import { IPermissionModel } from '../../../../app/modules/auth/models/AuthInterfaces';
-import { KTSVG, toAbsoluteUrl } from '../../../helpers';
+import { KTSVG, toAbsoluteUrl } from '../../../../../../_iris/helpers';
+import { IPermissionModel } from '../../../../auth/models/AuthInterfaces';
+import { PermissionTable } from './PermissionTable';
+
 
 
 type Props = {
@@ -43,6 +45,8 @@ const TablesWidgetPermission: React.FC<Props> = ({permission,className}) => {
         {/* begin::Table container */}
         <div className='table-responsive'>
           {/* begin::Table */}
+          <PermissionTable />
+          {/* end::Table */}
           <table className='table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4'>
             {/* begin::Table head */}
             <thead>
