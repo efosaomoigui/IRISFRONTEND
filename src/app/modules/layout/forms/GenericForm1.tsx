@@ -62,7 +62,7 @@ export default function GenericForm1({userVal}: Props) {
             <div className='modal-dialog modal-dialog-centered mw-900px'>
               <div className='modal-content'>
                 <div className='modal-header'>
-                  <h2>Create User</h2>
+                  <h2>Create Role</h2>
 
                   <div
                     className='btn btn-sm btn-icon btn-active-color-primary'

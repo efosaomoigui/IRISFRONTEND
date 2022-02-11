@@ -1,106 +1,143 @@
-import React from 'react'
-import clsx from 'clsx'
-import {makeStyles} from '@material-ui/core/styles'
-import MenuItem from '@material-ui/core/MenuItem'
-import TextField from '@material-ui/core/TextField'
-import {Button, Form} from 'react-bootstrap-v5'
+import { Modal } from 'react-bootstrap-v5'
+import { Button } from 'semantic-ui-react'
+import { Formik, Form, FormikHelpers } from 'formik'
+import * as Yup from 'yup'
+import { IUserModel } from '../../auth/models/AuthInterfaces'
+import { KTSVG } from '../../../../_iris/helpers'
+import IrisTextInput from '../../layout/forms/IrisTextInput'
+import IrisSelectInput from '../../layout/forms/IrisSelectInput'
 
-const useStyles = makeStyles((theme) => ({
-  container: {
-    display: 'flex',
-    flexWrap: 'wrap',
-  },
-  textField: {
-    marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1),
-    width: 200,
-  },
-  dense: {
-    marginTop: 19,
-  },
-  menu: {
-    width: 200,
-  },
-}))
 
-const currencies = [
-  {
-    value: 'USD',
-    label: '$',
-  },
-  {
-    value: 'EUR',
-    label: '€',
-  },
-  {
-    value: 'BTC',
-    label: '฿',
-  },
-  {
-    value: 'JPY',
-    label: '¥',
-  },
+
+
+// interface Props {
+//   userVal: IUserModel
+// }
+
+interface Props<Values> {
+  onSubmit: (values: Values, formikHelpers: FormikHelpers<Values>) => void | Promise<any>
+  isSubmitting: boolean
+}
+
+const options = [
+  { text: 'one', value: 'Bag' },
+  { text: 'two', value: 'Serial' },
+  { text: 'three', value: 'Turkey' },
+  { text: 'four', value: 'Afganistan' },
 ]
 
-function AddUserForm() {
-  const classes = useStyles()
-  const [values, setValues] = React.useState({
-    name: 'Cat in the Hat',
-    age: '',
-    multiline: 'Controlled',
-    currency: 'EUR',
-  })
-
-  const handleChange = (name: string) => (event: {target: {value: any}}) => {
-    setValues({...values, [name]: event.target.value})
+export default function AddUserForm(props: Props<IUserModel>) {
+  const initialFormValue: IUserModel = {
+    userId: '',
+    userName: '',
+    firstName: '',
+    lastName: '',
+    email: '',
+    phonenumber: '',
   }
+
+  const validationSchema = Yup.object({
+    userName: Yup.string().required(),
+    firstName: Yup.string().required(),
+    password: Yup.string().required(),
+    lastName: Yup.string().required(),
+    email: Yup.string().required(),
+    phonenumber: Yup.string().required(),
+  })
 
   return (
     <>
-      <Form>
-        <div className='container'>
-          <div className='row gy-5 g-xl-12'>
-            <div className='col-xl-6'>
-              <Form.Group controlId='formBasicEmail'>
-                <Form.Label>Email address</Form.Label>
-                <Form.Control type='email' placeholder='Enter email' />
-                <Form.Text className='text-muted'>
-                  We'll never share your email with anyone else.
-                </Form.Text>
-              </Form.Group>
+      <Formik
+        validationSchema={validationSchema}
+        initialValues={initialFormValue}
+        enableReinitialize
+        onSubmit={props.onSubmit}
+      >
+        <Form className='ui form' autoComplete='off'>
+          <div className='modal-dialog modal-dialog-centered mw-900px'>
+            <div className='modal-content'>
+              <div className='modal-header'>
+                <h2>Create User</h2>
+                <div
+                  className='btn btn-sm btn-icon btn-active-color-primary'
+                  data-bs-dismiss='modal'
+                >
+                  <KTSVG path='/media/icons/duotune/arrows/arr061.svg' className='svg-icon-1' />
+                </div>
+              </div>
 
-              <Form.Group controlId='formBasicPassword'>
-                <Form.Label>Password</Form.Label>
-                <Form.Control type='password' placeholder='Password' />
-              </Form.Group>
-            </div>
-            <div className='col-xl-6'>
-              <Form.Group controlId='formBasicEmail'>
-                <Form.Label>Email address</Form.Label>
-                <Form.Control type='email' placeholder='Enter email' />
-                <Form.Text className='text-muted'>
-                  We'll never share your email with anyone else.
-                </Form.Text>
-              </Form.Group>
+              <div className='modal-body py-lg-10 px-lg-10'>
+                <IrisTextInput
+                  type='text'
+                  name='userName'
+                  placeholder='User Name'
+                  label='User name'
+                />
+                <IrisTextInput
+                  type='text'
+                  placeholder='FirstName'
+                  name='firstName'
+                  label='First Name'
+                />
+                <IrisTextInput
+                  type='text'
+                  placeholder='Last Name'
+                  name='lastName'
+                  label='Last Name'
+                />
+                <IrisTextInput
+                  type='email'
+                  placeholder='Email'
+                  name='email'
+                  label='Email'
+                />
 
-              <Form.Group controlId='formBasicPassword'>
-                <Form.Label>Password</Form.Label>
-                <Form.Control type='password' placeholder='Password' />
-              </Form.Group>
+                <IrisTextInput
+                  type='number'
+                  placeholder='Phone Number='
+                  name='phonenumber'
+                  label='Phone Number'
+                />
+
+                {/* <IrisDatePicker
+                  placeholderText='Date'
+                  name='date'
+                  showTimeSelect
+                  timeCaption='time'
+                  dateFormat='MMM d, yyyy h:mm: aa'
+                /> */}
+
+                <IrisTextInput
+                  type='password'
+                  placeholder='Password'
+                  name='password'
+                  label='Password'
+                />
+
+                <IrisSelectInput
+                  options={options}
+                  placeholder='category'
+                  name='category'
+                  label='Category'
+                />
+
+              </div>
+
+              <Modal.Footer>
+                <Button
+                  floated='right'
+                  positive
+                  type='submit'
+                  variant='secondary'
+                  loading={props.isSubmitting}
+                  content='Submit'
+                ></Button>
+                <Button floated='right' positive type='button' content='Cancel'></Button>
+              </Modal.Footer>
             </div>
           </div>
-        </div>
-        {/* 
-        <Form.Group controlId='formBasicEmail'>
-          <Form.Label>Email address</Form.Label>
-          <Form.Control type='email' placeholder='Enter email' />
-          <Form.Text className='text-muted'>
-            We'll never share your email with anyone else.
-          </Form.Text>
-        </Form.Group> */}
-      </Form>
+        </Form>
+      </Formik>
     </>
   )
 }
-
-export {AddUserForm}
