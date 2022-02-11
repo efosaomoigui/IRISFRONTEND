@@ -1,5 +1,6 @@
 import React from 'react'
-import {Dimmer, Loader} from 'semantic-ui-react'
+import { Dimmer, Loader } from 'semantic-ui-react';
+
 import { Content } from '../_iris/layout/components/Content';
 
 interface Props {

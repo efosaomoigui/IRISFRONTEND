@@ -2,6 +2,7 @@
 import React from 'react'
 import { KTSVG, toAbsoluteUrl } from '../../../../../_iris/helpers'
 import { IFleetModel } from '../../ShipmentModels/ShipmentInterfaces'
+import { FleetTable } from './FleetTable'
 
 
 type Props = {
@@ -34,6 +35,7 @@ const TablesWidgetFleet: React.FC<Props> = ({ fleet,className}) => {
             <KTSVG path='/media/icons/duotune/arrows/arr075.svg' className='svg-icon-3' />
             Add Fleet
           </a>
+          <FleetTable/>
         </div>
       </div>
       {/* end::Header */}

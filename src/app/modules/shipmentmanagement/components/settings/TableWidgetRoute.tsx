@@ -2,6 +2,7 @@
 import React from 'react'
 import { KTSVG, toAbsoluteUrl } from '../../../../../_iris/helpers'
 import { IRouteModel } from '../../ShipmentModels/ShipmentInterfaces'
+import { RouteTable } from './RouteTable'
 
 
 
@@ -35,6 +36,7 @@ const TablesWidgetRoute: React.FC<Props> = ({ route,className}) => {
             <KTSVG path='/media/icons/duotune/arrows/arr075.svg' className='svg-icon-3' />
             Add Route
           </a>
+          <RouteTable/>
         </div>
       </div>
       {/* end::Header */}
