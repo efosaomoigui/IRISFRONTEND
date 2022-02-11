@@ -1,6 +1,7 @@
 import {useField} from 'formik'
 import React from 'react'
 import {Form, Label} from 'semantic-ui-react'
+import IrisTextInput from './IrisTextInput'
 
 interface Props {
   placeholder: string
