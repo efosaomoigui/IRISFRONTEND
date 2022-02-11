@@ -1,8 +1,7 @@
-import React, {useMemo} from 'react'
-import MOCK_DATA from './MOCK_DATA.json'
-import {useTable, useSortBy} from 'react-table'
-import {KTSVG, toAbsoluteUrl} from '../../../../_iris/helpers'
+import React, { useMemo } from 'react'
+import { useSortBy, useTable } from 'react-table'
 import './CustomTable.css'
+import MOCK_DATA from './MOCK_DATA.json'
 
 const GenericTable = () => {
 
@@ -70,4 +69,5 @@ const GenericTable = () => {
   )
 }
 
-export { GenericTable };
+export { GenericTable }
+
