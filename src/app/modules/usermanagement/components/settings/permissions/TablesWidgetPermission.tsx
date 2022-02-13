@@ -17,7 +17,7 @@ const TablesWidgetPermission: React.FC<Props> = ({ permission, className }) => {
       {/* begin::Header */}
       <div className='card-header border-0 pt-5'>
         <h3 className='card-title align-items-start flex-column'>
-          <span className='card-label fw-bolder fs-3 mb-1'>Roles</span>
+          <span className='card-label fw-bolder fs-3 mb-1'>Permissions</span>
           <span className='text-muted mt-1 fw-bold fs-7'>Over 500 Users</span>
         </h3>
         <div
@@ -25,16 +25,16 @@ const TablesWidgetPermission: React.FC<Props> = ({ permission, className }) => {
           data-bs-toggle='tooltip'
           data-bs-placement='top'
           data-bs-trigger='hover'
-          title='Click to add a user'
+          title='Click to add permission'
         >
           <a
             href='#'
             className='btn btn-sm btn-light-primary'
             data-bs-toggle='modal'
-            data-bs-target='#kt_modal_addrole'
+            data-bs-target='#kt_modal_addpermission'
           >
             <KTSVG path='/media/icons/duotune/arrows/arr075.svg' className='svg-icon-3' />
-            Add Role
+            Add Permission
           </a>
         </div>
       </div>

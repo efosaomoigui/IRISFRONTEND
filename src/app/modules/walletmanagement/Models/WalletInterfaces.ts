@@ -17,10 +17,8 @@ export interface IWalletTransactionModel {
 }
 
 export interface IAddWalletModel {
-    WalletId: string
-    firstName: string
-    lastName: string
-    Date: string
-    Amount: string
-    TransactionType: string
+    walletNumberId: string
+    number: string
+    isActive: true,
+    userId: string
 }

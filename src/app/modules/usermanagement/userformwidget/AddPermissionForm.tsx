@@ -51,7 +51,7 @@ export default function AddPermissionForm(props: Props<IPermissionModel>) {
           <div className='modal-dialog modal-dialog-centered mw-900px'>
             <div className='modal-content'>
               <div className='modal-header'>
-                <h2>Create User</h2>
+                <h2>Add Permission</h2>
                 <div
                   className='btn btn-sm btn-icon btn-active-color-primary'
                   data-bs-dismiss='modal'
