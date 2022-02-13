@@ -2,15 +2,22 @@ import React, {useMemo} from 'react'
 import Permission_Data from './Permission_Data.json'
 import {useTable, useSortBy} from 'react-table'
 import './CustomTable.css'
+import { IPermissionModel } from '../../../../auth/models/AuthInterfaces'
 
-const PermissionTable = () => {
+
+interface Props {
+  permissionData:IPermissionModel | any ;
+}
+
+
+const PermissionTable = ({ permissionData }: Props) => {
 
   const tableInstance = useTable({
     columns : useMemo(
       () => [
         {
           Header: 'Permission Id',
-          accessor: 'PermissionId',
+          accessor: 'id',
         },
         {
           Header: 'Role Id',
@@ -69,4 +76,6 @@ const PermissionTable = () => {
   )
 }
 
-export { PermissionTable };
+
+  export { PermissionTable };
+

@@ -34,12 +34,9 @@ export default function AddPermissionForm(props: Props<IPermissionModel>) {
   }
 
   const validationSchema = Yup.object({
-    userName: Yup.string().required(),
-    firstName: Yup.string().required(),
-    password: Yup.string().required(),
-    lastName: Yup.string().required(),
-    email: Yup.string().required(),
-    phonenumber: Yup.string().required(),
+    roleId: Yup.string().required(),
+    claimType: Yup.string().required(),
+    claimValue: Yup.string().required(),
   })
 
   return (

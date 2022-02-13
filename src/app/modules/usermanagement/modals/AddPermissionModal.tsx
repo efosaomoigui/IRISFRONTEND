@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { v4 as uuid } from 'uuid';
+import agent from '../../../../setup/axios/AxiosAgent';
 import { IPermissionModel } from '../../auth/models/AuthInterfaces';
 import AddPermissionForm from '../userformwidget/AddPermissionForm';
 
@@ -11,7 +12,8 @@ const AddPermissionModal: React.FC = () => {
   const onSubmit = (values: IPermissionModel) => {
     setIsSubmitting(true);
     values.id = uuid();
-    console.log("TT: ", values);
+    agent.Permissions.create(values).then((response) => console.log(response));
+    console.log("PP: ", values);
   };
 
   return (
