@@ -2,8 +2,13 @@ import React, {useMemo} from 'react'
 import FleetData from '../../FleetData.json'
 import './CustomTable.css'
 import { useSortBy, useTable } from 'react-table'
+import { IFleetModel } from '../../ShipmentModels/ShipmentInterfaces'
 
-const FleetTable = () => {
+interface Props{
+  fleetData:IFleetModel | any ;
+}
+
+const FleetTable = ({fleetData} : Props) => {
 
   const tableInstance = useTable({
     columns : useMemo(

@@ -35,7 +35,7 @@ const TablesWidgetFleet: React.FC<Props> = ({ fleet,className}) => {
             <KTSVG path='/media/icons/duotune/arrows/arr075.svg' className='svg-icon-3' />
             Add Fleet
           </a>
-          <FleetTable/>
+          <FleetTable fleetData={undefined}/>
         </div>
       </div>
       {/* end::Header */}

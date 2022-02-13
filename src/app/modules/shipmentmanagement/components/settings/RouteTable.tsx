@@ -2,8 +2,13 @@ import React, {useMemo} from 'react'
 import RouteData from '../../RouteData.json'
 import './CustomTable.css'
 import { useSortBy, useTable } from 'react-table'
+import { IRouteModel } from '../../ShipmentModels/ShipmentInterfaces'
 
-const RouteTable = () => {
+interface Props{
+  routeData:IRouteModel | any ;
+}
+
+const RouteTable = ({routeData} : Props) => {
 
   const tableInstance = useTable({
     columns : useMemo(

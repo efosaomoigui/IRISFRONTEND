@@ -36,7 +36,7 @@ const TablesWidgetRoute: React.FC<Props> = ({ route,className}) => {
             <KTSVG path='/media/icons/duotune/arrows/arr075.svg' className='svg-icon-3' />
             Add Route
           </a>
-          <RouteTable/>
+          <RouteTable routeData={undefined}/>
         </div>
       </div>
       {/* end::Header */}
