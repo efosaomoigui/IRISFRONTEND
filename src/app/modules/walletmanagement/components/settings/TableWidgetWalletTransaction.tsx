@@ -1,21 +1,23 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
-import { KTSVG, toAbsoluteUrl } from '../../../../../_iris/helpers'
+import { KTSVG } from '../../../../../_iris/helpers'
 import { IWalletTransactionModel } from '../../Models/WalletInterfaces'
+import { WalletTransactionTable } from './WalletTransactionTable '
 
+// import {KTSVG, toAbsoluteUrl} from '../../../helpers'
 
 type Props = {
   className: string
-  transaction: IWalletTransactionModel[]
+  walletTransaction?: IWalletTransactionModel[]
 }
-  
-const TablesWidgetWalletTransaction: React.FC<Props> = ({ transaction,className}) => {
-    return (
+
+const TableWidgetWalletTransaction: React.FC<Props> = ({ walletTransaction, className }) => {
+  return (
     <div className={`card ${className}`}>
       {/* begin::Header */}
       <div className='card-header border-0 pt-5'>
         <h3 className='card-title align-items-start flex-column'>
-          <span className='card-label fw-bolder fs-3 mb-1'>Transaction Wallet</span>
+          <span className='card-label fw-bolder fs-3 mb-1'>Wallet Transaction</span>
           <span className='text-muted mt-1 fw-bold fs-7'>Over 500 Users</span>
         </h3>
         <div
@@ -29,10 +31,10 @@ const TablesWidgetWalletTransaction: React.FC<Props> = ({ transaction,className}
             href='#'
             className='btn btn-sm btn-light-primary'
             data-bs-toggle='modal'
-            data-bs-target='#kt_modal_adduser'
+            data-bs-target='#kt_modal_addwallettransaction'
           >
             <KTSVG path='/media/icons/duotune/arrows/arr075.svg' className='svg-icon-3' />
-            New Transaction
+            Add Wallet Transaction
           </a>
         </div>
       </div>
@@ -43,125 +45,7 @@ const TablesWidgetWalletTransaction: React.FC<Props> = ({ transaction,className}
         {/* begin::Table container */}
         <div className='table-responsive'>
           {/* begin::Table */}
-          <table className='table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4'>
-            {/* begin::Table head */}
-            <thead>
-              <tr className='fw-bolder text-muted'>
-                <th className='w-25px'>
-                  <div className='form-check form-check-sm form-check-custom form-check-solid'>
-                    <input
-                      className='form-check-input'
-                      type='checkbox'
-                      value='1'
-                      data-kt-check='true'
-                      data-kt-check-target='.widget-9-check'
-                    />
-                  </div>
-                </th>
-                <th className='min-w-150px'>Transaction</th>
-                <th className='min-w-150px'>Amount</th>
-                <th className='min-w-150px'>Date Joined</th>
-                {/* <th className='min-w-140px'>Company</th> */}
-                <th className='min-w-120px'>Progress</th>
-                <th className='min-w-100px text-end'>Actions</th>
-              </tr>
-            </thead>
-            {/* end::Table head */}
-            {/* begin::Table body */}
-            <tbody>
-                {transaction.map((transactions) => (
-                  <tr key={transactions.walletNumberId}>
-                  <td>
-                    <div className='form-check form-check-sm form-check-custom form-check-solid'>
-                      <input
-                        className='form-check-input widget-9-check'
-                        type='checkbox'
-                        value='1'
-                      />
-                    </div>
-                  </td>
-                  <td>
-                    <div className='d-flex align-items-center'>
-                      <div className='symbol symbol-45px me-5'>
-                        <img src={toAbsoluteUrl('/media/avatars/150-11.jpg')} alt='' />
-                      </div>
-                      <div className='d-flex justify-content-start flex-column'>
-                        <a href='#' className='text-dark fw-bolder text-hover-primary fs-6'>
-                            {transactions.number} 
-                          {/* Fleet Manager */}
-                        </a>
-                        <span className='text-muted fw-bold text-muted d-block fs-7'>
-                          {/* HTML, JS, ReactJS */}
-                            {transactions.userId}
-                        </span>
-                      </div>
-                    </div>
-                  </td>
-                  <td>
-                    <a href='#' className='text-dark fw-bolder text-hover-primary d-block fs-6'>
-                      {/* Intertico */}
-                    </a>
-                    <span className='text-muted fw-bold text-muted d-block fs-7'>
-                      {/* Web, UI/UX Design */}
-                        {transactions.number}
-                    </span>
-                  </td>
-                  <td>
-                    <a href='#' className='text-dark fw-bolder text-hover-primary d-block fs-6'>
-                      {/* Intertico */}
-                    </a>
-                    <span className='text-muted fw-bold text-muted d-block fs-7'>
-                      {/* Web, UI/UX Design */}
-                        {transactions.userId}
-                    </span>
-                  </td>
-                  <td className='text-end'>
-                    <div className='d-flex flex-column w-100 me-2'>
-                      <div className='d-flex flex-stack mb-2'>
-                        <span className='text-muted me-2 fs-7 fw-bold'>50%</span>
-                      </div>
-                      <div className='progress h-6px w-100'>
-                        <div
-                          className='progress-bar bg-primary'
-                          role='progressbar'
-                          style={{width: '50%'}}
-                        ></div>
-                      </div>
-                    </div>
-                  </td>
-                  <td>
-                    <div className='d-flex justify-content-end flex-shrink-0'>
-                      <a
-                        href='#'
-                        className='btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1'
-                      >
-                        <KTSVG
-                          path='/media/icons/duotune/general/gen019.svg'
-                          className='svg-icon-3'
-                        />
-                      </a>
-                      <a
-                        href='#'
-                        className='btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1'
-                      >
-                        <KTSVG path='/media/icons/duotune/art/art005.svg' className='svg-icon-3' />
-                      </a>
-                      <a
-                        href='#'
-                        className='btn btn-icon btn-bg-light btn-active-color-primary btn-sm'
-                      >
-                        <KTSVG
-                          path='/media/icons/duotune/general/gen027.svg'
-                          className='svg-icon-3'
-                        />
-                      </a>
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-            {/* end::Table body */}
-          </table>
+          <WalletTransactionTable walletTransactionData={walletTransaction} />
           {/* end::Table */}
         </div>
         {/* end::Table container */}
@@ -210,4 +94,5 @@ const TablesWidgetWalletTransaction: React.FC<Props> = ({ transaction,className}
   )
 }
 
-export {TablesWidgetWalletTransaction}
+export { TableWidgetWalletTransaction }
+

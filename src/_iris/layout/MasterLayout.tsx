@@ -6,6 +6,7 @@ import { AddPermissionModal } from '../../app/modules/usermanagement/modals/AddP
 import { AddRoleModal } from '../../app/modules/usermanagement/modals/AddRoleModal'
 import { AddUserModal } from '../../app/modules/usermanagement/modals/AddUserModal'
 import { AddWalletModal } from '../../app/modules/walletmanagement/modals/AddWalletModal'
+import { AddWalletTransactionModal } from '../../app/modules/walletmanagement/modals/AddWalletTransactionModal'
 import { MenuComponent } from '../assets/ts/components'
 import { Main } from '../partials'
 import { AsideDefault } from './components/aside/AsideDefault'
@@ -60,6 +61,7 @@ const MasterLayout: React.FC = ({children}) => {
       {/* custom modals for iris */}
       <AddUserModal />
       <AddWalletModal />
+      <AddWalletTransactionModal />
       <AddFleetModal />
       <AddRouteModal />
       <AddPermissionModal />
