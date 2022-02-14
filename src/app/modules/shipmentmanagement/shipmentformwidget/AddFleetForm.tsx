@@ -33,11 +33,24 @@ export default function AddFleetForm(props: Props<IFleetModel>) {
   }
 
   const validationSchema = Yup.object({
+<<<<<<< HEAD
     FleetId: Yup.string().required(),
     FleetName: Yup.string().required(),
     FleetModel: Yup.string().required(),
     FleetMake: Yup.string().required(),
     FleetType: Yup.string().required(),
+=======
+    id: Yup.string().required(),
+    registrationNumber: Yup.string().required(),
+    chasisNumber: Yup.string().required(),
+    engineNumber: Yup.string().required(),
+    fleetType: Yup.string().required(),
+    capacity: Yup.string().required(),
+    description: Yup.string().required(),
+    fleetModel: Yup.string().required(),
+    fleetMake: Yup.string().required(),
+    ownerId: Yup.string().required(),
+>>>>>>> fb9692c182b3b94fe6d78ae8c4e2243e80f464d7
   })
 
   return (
@@ -64,29 +77,35 @@ export default function AddFleetForm(props: Props<IFleetModel>) {
               <div className='modal-body py-lg-10 px-lg-10'>
                 <IrisTextInput
                   type='text'
-                  name='userName'
-                  placeholder='User Name'
-                  label='User name'
+                  name='id'
+                  placeholder='Id'
+                  label='Id'
                 />
                 <IrisTextInput
-                  type='text'
-                  placeholder='FirstName'
-                  name='firstName'
-                  label='First Name'
+                  type='number'
+                  placeholder='Registration Number'
+                  name='registrationNumber'
+                  label='Registration Number'
                 />
                 <IrisTextInput
-                  type='text'
-                  placeholder='Last Name'
-                  name='lastName'
-                  label='Last Name'
+                  type='number'
+                  placeholder='Chasis Number'
+                  name='chasisNumber'
+                  label='Chasis Number'
                 />
                 <IrisTextInput type='email' placeholder='Email' name='email' label='Email' />
 
                 <IrisTextInput
-                  type='number'
-                  placeholder='Phone Number='
-                  name='phonenumber'
-                  label='Phone Number'
+                  type='text'
+                  placeholder='Fleet Type'
+                  name='fleetType'
+                  label='Fleet Type'
+                />
+                 <IrisTextInput
+                  type='text'
+                  placeholder='Capacity'
+                  name='capacity'
+                  label='Capacity'
                 />
 
                 {/* <IrisDatePicker
@@ -98,10 +117,31 @@ export default function AddFleetForm(props: Props<IFleetModel>) {
                 /> */}
 
                 <IrisTextInput
-                  type='password'
-                  placeholder='Password'
-                  name='password'
-                  label='Password'
+                  type='text'
+                  placeholder='Description'
+                  name='description'
+                  label='Description'
+                />
+
+                <IrisTextInput
+                  type='text'
+                  placeholder='Fleet Model'
+                  name='fleetModel'
+                  label='Fleet Model'
+                />
+
+                <IrisTextInput
+                  type='text'
+                  placeholder='Fleet Make'
+                  name='fleetMake'
+                  label='Fleet Make'
+                />
+
+                <IrisTextInput
+                  type='number'
+                  placeholder='Owner Id'
+                  name='ownerId'
+                  label='Owner Id'
                 />
 
                 <IrisSelectInput

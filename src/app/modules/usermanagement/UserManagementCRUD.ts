@@ -50,6 +50,6 @@ export function getPermission() {
   return axios.get<IPermissionModel[]>(GET_PERMISSION_URL)
 }
 
-export function getPermissionById(permissionid: string) {
+export function getPermissionById(id: string) {
   return axios.get<IPermissionModel[]>(GET_PERMISSION_URL)
 }

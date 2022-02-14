@@ -34,12 +34,9 @@ export default function AddPermissionForm(props: Props<IPermissionModel>) {
   }
 
   const validationSchema = Yup.object({
-    userName: Yup.string().required(),
-    firstName: Yup.string().required(),
-    password: Yup.string().required(),
-    lastName: Yup.string().required(),
-    email: Yup.string().required(),
-    phonenumber: Yup.string().required(),
+    roleId: Yup.string().required(),
+    claimType: Yup.string().required(),
+    claimValue: Yup.string().required(),
   })
 
   return (
@@ -54,7 +51,7 @@ export default function AddPermissionForm(props: Props<IPermissionModel>) {
           <div className='modal-dialog modal-dialog-centered mw-900px'>
             <div className='modal-content'>
               <div className='modal-header'>
-                <h2>Create User</h2>
+                <h2>Add Permission</h2>
                 <div
                   className='btn btn-sm btn-icon btn-active-color-primary'
                   data-bs-dismiss='modal'

@@ -1,17 +1,17 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react';
-import { KTSVG, toAbsoluteUrl } from '../../../../../../_iris/helpers';
-import { IPermissionModel } from '../../../../auth/models/AuthInterfaces';
-import { PermissionTable } from './PermissionTable';
+import React from 'react'
+import { KTSVG } from '../../../../../../_iris/helpers'
+import { IPermissionModel } from '../../../../auth/models/AuthInterfaces'
+import { PermissionTable } from './PermissionTable'
 
 
 
 type Props = {
-  className: string,
+  className: string
   permission?: IPermissionModel[]
 }
 
-const TablesWidgetPermission: React.FC<Props> = ({permission,className}) => {
+const TablesWidgetPermission: React.FC<Props> = ({ permission, className }) => {
   return (
     <div className={`card ${className}`}>
       {/* begin::Header */}
@@ -25,7 +25,7 @@ const TablesWidgetPermission: React.FC<Props> = ({permission,className}) => {
           data-bs-toggle='tooltip'
           data-bs-placement='top'
           data-bs-trigger='hover'
-          title='Click to add a user'
+          title='Click to add permission'
         >
           <a
             href='#'
@@ -34,7 +34,7 @@ const TablesWidgetPermission: React.FC<Props> = ({permission,className}) => {
             data-bs-target='#kt_modal_addpermission'
           >
             <KTSVG path='/media/icons/duotune/arrows/arr075.svg' className='svg-icon-3' />
-            Add Permissions
+            Add Permission
           </a>
         </div>
       </div>
@@ -45,107 +45,7 @@ const TablesWidgetPermission: React.FC<Props> = ({permission,className}) => {
         {/* begin::Table container */}
         <div className='table-responsive'>
           {/* begin::Table */}
-          <PermissionTable />
-          {/* end::Table */}
-          <table className='table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4'>
-            {/* begin::Table head */}
-            <thead>
-              <tr className='fw-bolder text-muted'>
-                <th className='w-25px'>
-                  <div className='form-check form-check-sm form-check-custom form-check-solid'>
-                    <input
-                      className='form-check-input'
-                      type='checkbox'
-                      value='1'
-                      data-kt-check='true'
-                      data-kt-check-target='.widget-9-check'
-                    />
-                  </div>
-                </th>
-                <th className='min-w-150px'>Roles</th>
-                <th className='min-w-140px'>Permission</th>
-                <th className='min-w-100px text-end'>Actions</th>
-              </tr>
-            </thead>
-            {/* end::Table head */}
-            {/* begin::Table body */}
-            <tbody>
-              {permission?.map((permission) => (
-                <tr key={permission.id}>
-                  <td>
-                    <div className='form-check form-check-sm form-check-custom form-check-solid'>
-                      <input
-                        className='form-check-input widget-9-check'
-                        type='checkbox'
-                        value='1'
-                      />
-                    </div>
-                  </td>
-                  <td>
-                    <div className='d-flex align-items-center'>
-                      <div className='symbol symbol-45px me-5'>
-                        <img src={toAbsoluteUrl('/media/avatars/150-11.jpg')} alt='' />
-                      </div>
-                      <div className='d-flex justify-content-start flex-column'>
-                        <a href='#' className='text-dark fw-bolder text-hover-primary fs-6'>
-                          {permission.roleId}
-                          {/* Fleet Manager */}
-                        </a>
-                        <span className='text-muted fw-bold text-muted d-block fs-7'>
-                          {/* HTML, JS, ReactJS */}
-                        </span>
-                      </div>
-                    </div>
-                  </td>
-                  <td>
-                    <div className='d-flex align-items-center'>
-                      {/* <div className='symbol symbol-45px me-5'>
-                        <img src={toAbsoluteUrl('/media/avatars/150-11.jpg')} alt='' />
-                      </div> */}
-                      <div className='d-flex justify-content-start flex-column'>
-                        <a href='#' className='text-dark fw-bolder text-hover-primary fs-6'>
-                          {permission.claimType}
-                          {/* Fleet Manager */}
-                        </a>
-                        <span className='text-muted fw-bold text-muted d-block fs-7'>
-                          {/* HTML, JS, ReactJS */}
-                        </span>
-                      </div>
-                    </div>
-                  </td>
-                  <td>
-                    <div className='d-flex justify-content-end flex-shrink-0'>
-                      <a
-                        href='#'
-                        className='btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1'
-                      >
-                        <KTSVG
-                          path='/media/icons/duotune/general/gen019.svg'
-                          className='svg-icon-3'
-                        />
-                      </a>
-                      <a
-                        href='#'
-                        className='btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1'
-                      >
-                        <KTSVG path='/media/icons/duotune/art/art005.svg' className='svg-icon-3' />
-                      </a>
-                      <a
-                        href='#'
-                        className='btn btn-icon btn-bg-light btn-active-color-primary btn-sm'
-                      >
-                        <KTSVG
-                          path='/media/icons/duotune/general/gen027.svg'
-                          className='svg-icon-3'
-                        />
-                      </a>
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-            {/* end::Table body */}
-          </table>
+          <PermissionTable permissionData={permission} />
           {/* end::Table */}
         </div>
         {/* end::Table container */}
@@ -194,5 +94,5 @@ const TablesWidgetPermission: React.FC<Props> = ({permission,className}) => {
   )
 }
 
-export { TablesWidgetPermission };
+export { TablesWidgetPermission }
 

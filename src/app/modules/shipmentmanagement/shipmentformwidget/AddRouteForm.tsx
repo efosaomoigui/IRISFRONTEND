@@ -35,12 +35,18 @@ export default function AddRouteForm(props: Props<IRouteModel>) {
   }
 
   const validationSchema = Yup.object({
-    userName: Yup.string().required(),
-    firstName: Yup.string().required(),
-    password: Yup.string().required(),
-    lastName: Yup.string().required(),
-    email: Yup.string().required(),
-    phonenumber: Yup.string().required(),
+    routId: Yup.string().required(),
+    routeName: Yup.string().required(),
+    depature: Yup.string().required(),
+    destination: Yup.string().required(),
+    isSubRoute: Yup.string().required(),
+    dispatchFee: Yup.string().required(),
+    loaderFee: Yup.string().required(),
+    captainFee: Yup.string().required(),
+    main_Route_Id: Yup.string().required(),
+    availabale_At_Terminal: Yup.string().required(),
+    availabale_Online: Yup.string().required(),
+    route_Type: Yup.string().required(),
   })
 
   return (
@@ -67,34 +73,41 @@ export default function AddRouteForm(props: Props<IRouteModel>) {
               <div className='modal-body py-lg-10 px-lg-10'>
                 <IrisTextInput
                   type='text'
-                  name='userName'
-                  placeholder='User Name'
-                  label='User name'
+                  name='routId'
+                  placeholder='Route Id'
+                  label='Route Id'
                 />
                 <IrisTextInput
                   type='text'
-                  placeholder='FirstName'
-                  name='firstName'
-                  label='First Name'
+                  placeholder='Route Name'
+                  name='routeName'
+                  label='Route Name'
                 />
                 <IrisTextInput
                   type='text'
-                  placeholder='Last Name'
-                  name='lastName'
-                  label='Last Name'
+                  placeholder='Depature'
+                  name='depature'
+                  label='Depature'
                 />
-                                <IrisTextInput
-                  type='email'
-                  placeholder='Email'
-                  name='email'
-                  label='Email'
+                <IrisTextInput
+                  type='text'
+                  placeholder='Destination'
+                  name='destination'
+                  label='Destination'
                 />
                 
                 <IrisTextInput
-                  type='number'
-                  placeholder='Phone Number='
-                  name='phonenumber'
-                  label='Phone Number'
+                  type='text'
+                  placeholder='Is_Sub_Route'
+                  name='isSubRoute'
+                  label='Is_Sub_Route'
+                />
+
+                <IrisTextInput
+                  type='text'
+                  placeholder='Dispatch Fee'
+                  name='dispatchFee'
+                  label='Dispatch Fee'
                 />
 
                 {/* <IrisDatePicker
@@ -106,10 +119,45 @@ export default function AddRouteForm(props: Props<IRouteModel>) {
                 /> */}
 
                 <IrisTextInput
-                  type='password'
-                  placeholder='Password'
-                  name='password'
-                  label='Password'
+                  type='text'
+                  placeholder='Loader Fee'
+                  name='loaderFee'
+                  label='Loader Fee'
+                />
+
+                <IrisTextInput
+                  type='text'
+                  placeholder='Captain Fee'
+                  name='captainFee'
+                  label='Captain Fee'
+                />
+
+                <IrisTextInput
+                  type='text'
+                  placeholder='Main_Route_Id'
+                  name='main_Route_Id'
+                  label='Main_Route_Id'
+                />
+
+                <IrisTextInput
+                  type='text'
+                  placeholder='Availabale_At_Terminal'
+                  name='availabale_At_Terminal'
+                  label='Availabale_At_Terminal'
+                />
+
+                <IrisTextInput
+                  type='text'
+                  placeholder='Availabale_Online'
+                  name='availabale_Online'
+                  label='Availabale_Online'
+                />
+
+                <IrisTextInput
+                  type='text'
+                  placeholder='Route_Type'
+                  name='route_Type'
+                  label='Route_Type'
                 />
 
                 <IrisSelectInput

@@ -5,7 +5,7 @@ import * as Yup from 'yup'
 import { KTSVG } from '../../../../_iris/helpers'
 import IrisSelectInput from '../../layout/forms/IrisSelectInput'
 import IrisTextInput from '../../layout/forms/IrisTextInput'
-import { IWalletModel } from '../Models/WalletInterfaces'
+import { IWalletTransactionModel } from '../Models/WalletInterfaces'
 
 
 
@@ -20,12 +20,12 @@ interface Props<Values> {
 }
 
 const options = [
-  { text: 'true', value: 'true' },
-  { text: 'false', value: 'false' }
+  { text: 'true', value: true },
+  { text: 'false', value: false }
 ]
 
-export default function AddWalletForm(props: Props<IWalletModel>) {
-  const initialFormValue: IWalletModel = {
+export default function AddWalletTransactionForm(props: Props<IWalletTransactionModel>) {
+  const initialFormValue: IWalletTransactionModel = {
     walletNumberId: '',
     number: '',
     isActive: true,
@@ -51,7 +51,7 @@ export default function AddWalletForm(props: Props<IWalletModel>) {
           <div className='modal-dialog modal-dialog-centered mw-900px'>
             <div className='modal-content'>
               <div className='modal-header'>
-                <h2>Add Wallet</h2>
+                <h2>Add Wallet Transaction</h2>
                 <div
                   className='btn btn-sm btn-icon btn-active-color-primary'
                   data-bs-dismiss='modal'
@@ -75,7 +75,7 @@ export default function AddWalletForm(props: Props<IWalletModel>) {
                 />
                 <IrisSelectInput
                   options={options}
-                  placeholder=''
+                  placeholder='true'
                   name='isActive'
                   label='Active'
                 />

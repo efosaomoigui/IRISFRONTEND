@@ -1,35 +1,33 @@
 import React, {useMemo} from 'react'
-import Permission_Data from './Permission_Data.json'
+import Wallet_Data from './Wallet_Data.json'
 import {useTable, useSortBy} from 'react-table'
 import './CustomTable.css'
-import { IPermissionModel } from '../../../../auth/models/AuthInterfaces'
+import { IWalletModel } from '../../Models/WalletInterfaces'
 
-
-interface Props {
-  permissionData:IPermissionModel | any ;
+interface Props{
+  walletData:IWalletModel | any ;
 }
 
-
-const PermissionTable = ({ permissionData }: Props) => {
+const WalletTable = ({walletData} : Props) => {
 
   const tableInstance = useTable({
     columns : useMemo(
       () => [
         {
-          Header: 'Permission Id',
-          accessor: 'id',
+          Header: 'Wallet Number',
+          accessor: 'walletNumberId',
         },
         {
-          Header: 'Role Id',
-          accessor: 'roleId',
+          Header: 'Active',
+          accessor: 'isActive',
         },
+        // {
+        //   Header: 'First Name',
+        //   accessor: 'firstName',
+        // },
         {
-          Header: 'Claim Type',
-          accessor: 'claimType',
-        },
-        {
-          Header: 'Claim Value',
-          accessor: 'claimValue',
+          Header: 'User Id',
+          accessor: 'userId',
         },
         // {
         //   Header: 'Email',
@@ -42,7 +40,7 @@ const PermissionTable = ({ permissionData }: Props) => {
       ],
       []
     ),
-    data : useMemo(() => Permission_Data, []),
+    data: useMemo(() => Wallet_Data, []),
   }, useSortBy)
 
   const {getTableProps, getTableBodyProps, headerGroups, rows, prepareRow} = tableInstance
@@ -76,6 +74,4 @@ const PermissionTable = ({ permissionData }: Props) => {
   )
 }
 
-
-  export { PermissionTable };
-
+export { WalletTable };
