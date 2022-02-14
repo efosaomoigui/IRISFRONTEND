@@ -33,24 +33,11 @@ export default function AddFleetForm(props: Props<IFleetModel>) {
   }
 
   const validationSchema = Yup.object({
-<<<<<<< HEAD
     FleetId: Yup.string().required(),
     FleetName: Yup.string().required(),
     FleetModel: Yup.string().required(),
     FleetMake: Yup.string().required(),
     FleetType: Yup.string().required(),
-=======
-    id: Yup.string().required(),
-    registrationNumber: Yup.string().required(),
-    chasisNumber: Yup.string().required(),
-    engineNumber: Yup.string().required(),
-    fleetType: Yup.string().required(),
-    capacity: Yup.string().required(),
-    description: Yup.string().required(),
-    fleetModel: Yup.string().required(),
-    fleetMake: Yup.string().required(),
-    ownerId: Yup.string().required(),
->>>>>>> fb9692c182b3b94fe6d78ae8c4e2243e80f464d7
   })
 
   return (
