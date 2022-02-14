@@ -8,6 +8,10 @@ import {
   ListsWidget5,
   TablesWidget5,
 } from '../../../../_iris/partials/widgets'
+import FleetSummary from '../../walletmanagement/components/summary/FleetSummary'
+import InvoiceSummary from '../../walletmanagement/components/summary/InvoiceSummary'
+import KYCSummary from '../../walletmanagement/components/summary/KYCSummary'
+import WalletTransactionSummary from '../../walletmanagement/components/summary/WalletTransactionSummary'
 
 export function Overview() {
   return (
@@ -18,7 +22,7 @@ export function Overview() {
             <h3 className='fw-bolder m-0'>Profile Details</h3>
           </div>
 
-          <Link to='/crafted/account/settings' className='btn btn-primary align-self-center'>
+          <Link to='/adminSettings/settings' className='btn btn-primary align-self-center'>
             Edit Profile
           </Link>
         </div>
@@ -28,7 +32,7 @@ export function Overview() {
             <label className='col-lg-4 fw-bold text-muted'>Full Name</label>
 
             <div className='col-lg-8'>
-              <span className='fw-bolder fs-6 text-dark'>Max Smith</span>
+              <span className='fw-bolder fs-6 text-dark'>Omoigui Efosa Abel</span>
             </div>
           </div>
 
@@ -36,7 +40,7 @@ export function Overview() {
             <label className='col-lg-4 fw-bold text-muted'>Company</label>
 
             <div className='col-lg-8 fv-row'>
-              <span className='fw-bold fs-6'>Keenthemes</span>
+              <span className='fw-bold fs-6'>Chisco Express Ltd</span>
             </div>
           </div>
 
@@ -51,7 +55,7 @@ export function Overview() {
             </label>
 
             <div className='col-lg-8 d-flex align-items-center'>
-              <span className='fw-bolder fs-6 me-2'>044 3276 454 935</span>
+              <span className='fw-bolder fs-6 me-2'>(070) 639 65528</span>
 
               <span className='badge badge-success'>Verified</span>
             </div>
@@ -62,7 +66,7 @@ export function Overview() {
 
             <div className='col-lg-8'>
               <a href='#' className='fw-bold fs-6 text-dark text-hover-primary'>
-                keenthemes.com
+                http://chiscoexpress.com
               </a>
             </div>
           </div>
@@ -78,7 +82,7 @@ export function Overview() {
             </label>
 
             <div className='col-lg-8'>
-              <span className='fw-bolder fs-6 text-dark'>Germany</span>
+              <span className='fw-bolder fs-6 text-dark'>Nigeria</span>
             </div>
           </div>
 
@@ -98,7 +102,7 @@ export function Overview() {
             </div>
           </div>
 
-          <div className='notice d-flex bg-light-warning rounded border-warning border border-dashed p-6'>
+          {/* <div className='notice d-flex bg-light-warning rounded border-warning border border-dashed p-6'>
             <KTSVG
               path='icons/duotune/general/gen044.svg'
               className='svg-icon-2tx svg-icon-warning me-4'
@@ -116,27 +120,27 @@ export function Overview() {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
 
       <div className='row gy-10 gx-xl-10'>
-        <div className='col-xl-6'>
-          <ChartsWidget1 className='card-xxl-stretch mb-5 mb-xl-10' />
+      <div className='col-xl-6'>
+          <WalletTransactionSummary className='card-xxl-stretch mb-5 mb-xl-10' />
         </div>
 
         <div className='col-xl-6'>
-          <TablesWidget1 className='card-xxl-stretch mb-5 mb-xl-10' />
+          <FleetSummary className='card-xxl-stretch mb-5 mb-xl-10' />
         </div>
       </div>
 
       <div className='row gy-10 gx-xl-10'>
-        <div className='col-xl-6'>
-          <ListsWidget5 className='card-xxl-stretch mb-5 mb-xl-10' />
+      <div className='col-xl-6'>
+          <InvoiceSummary className='card-xxl-stretch mb-5 mb-xl-10' />
         </div>
 
         <div className='col-xl-6'>
-          <TablesWidget5 className='card-xxl-stretch mb-5 mb-xl-10' />
+          <KYCSummary className='card-xxl-stretch mb-5 mb-xl-10' />
         </div>
       </div>
     </>

@@ -1,73 +1,145 @@
-import React, { useMemo } from 'react'
-import { useSortBy, useTable } from 'react-table'
+import React, {useMemo} from 'react'
+import {useTable, useSortBy, useGlobalFilter, usePagination, useRowSelect} from 'react-table'
+import {IUserModel} from '../../auth/models/AuthInterfaces'
 import './CustomTable.css'
-import MOCK_DATA from './MOCK_DATA.json'
+// import 'bootstrap/dist/css/bootstrap.min.css';
+import GlobalFilter from './GlobalFilter'
+import TableActionLinks from './TableActionLinks'
 
-const GenericTable = () => {
+interface colAcc {
+  Header: string
+  accessor: string
+}
 
-  const tableInstance = useTable({
-    columns : useMemo(
-      () => [
-        {
-          Header: 'User Id',
-          accessor: 'userId',
-        },
-        {
-          Header: 'User Name',
-          accessor: 'userName',
-        },
-        {
-          Header: 'First Name',
-          accessor: 'firstName',
-        },
-        {
-          Header: 'Last Name',
-          accessor: 'lastName',
-        },
-        {
-          Header: 'Email',
-          accessor: 'email',
-        },
-        {
-          Header: 'Phone Number',
-          accessor: 'phoneNumber',
-        },
-      ],
-      []
-    ),
-    data : useMemo(() => MOCK_DATA, []),
-  }, useSortBy)
+interface Props {
+  irisData: IUserModel | any
+  columnsMap: colAcc[]
+  DetailsPath: string
+  EditPath: string
+  DeletePath: string
+}
 
-  const {getTableProps, getTableBodyProps, headerGroups, rows, prepareRow} = tableInstance
+const GenericTable = ({irisData, columnsMap, DetailsPath, EditPath, DeletePath}: Props) => {
+  const tableInstance = useTable(
+    {
+      columns: useMemo(() => columnsMap, []),
+      data: useMemo(() => irisData, []),
+    },
+    useGlobalFilter,
+    useSortBy,
+    usePagination,
+    useRowSelect
+  )
+
+  // console.log(":: ",userData);
+
+  const {
+    getTableProps,
+    getTableBodyProps,
+    headerGroups,
+    page,
+    nextPage,
+    previousPage,
+    canNextPage,
+    canPreviousPage,
+    pageOptions,
+    gotoPage,
+    pageCount,
+    setPageSize,
+    prepareRow,
+    selectedFlatRows,
+    state,
+    setGlobalFilter,
+  } = tableInstance
+  const {globalFilter, pageIndex, pageSize} = state
 
   return (
     <div>
+      <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
       <table {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup) => (
             <tr {...headerGroup.getFooterGroupProps()}>
               {headerGroup.headers.map((column) => (
-                <th {...column.getHeaderProps()}>{column.render('Header')}</th>
+                <th {...column.getHeaderProps(column.getSortByToggleProps())}>
+                  {column.render('Header')}
+                  {/* Add a sort direction indicator */}
+                  <span>{column.isSorted ? (column.isSortedDesc ? ' 🔽' : ' 🔼') : ''}</span>
+                </th>
               ))}
+              <th className='min-w-100px text-end'>Actions</th>
             </tr>
           ))}
         </thead>
         <tbody {...getTableBodyProps()}>
-        {rows.map((row, i) => {
-          prepareRow(row)
-          return (
-            <tr {...row.getRowProps()}>
-              {row.cells.map(cell => {
-                return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
-              })}
-            </tr>
-          )
-        })}
-      </tbody>
+          {page.map((row, i) => {
+            prepareRow(row)
+            // {console.log("Row: ",row.index, row.cells[0])}
+            return (
+              <tr {...row.getRowProps()}>
+                {row.cells.map((cell) => {
+                  return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                })}
+
+                <td>
+                  <TableActionLinks
+                    DetailsPath={`${DetailsPath+row.cells[0].value}`}
+                    EditPath={'#'}
+                    DeletePath={'#'}
+                  />
+                </td>
+              </tr>
+            )
+          })}
+        </tbody>
       </table>
+      <br />
+      <div>
+        <span>
+          Page{' '}
+          <strong>
+            {pageIndex + 1} of {pageOptions.length}
+          </strong>{' '}
+        </span>
+        <span>
+          | Go to page:{' '}
+          <input
+            type='number'
+            defaultValue={pageIndex + 1}
+            onChange={(e) => {
+              const pagenumber = e.target.value ? Number(e.target.value) - 1 : 0
+              gotoPage(pagenumber)
+            }}
+            style={{width: '50px'}}
+            // className='form-control'
+          />
+        </span>
+        <select value={pageSize} onChange={(e) => setPageSize(Number(e.target.value))}>
+          {[10, 25, 50, 100].map((pageSize) => (
+            <option key={pageSize} value={pageSize}>
+              Show {pageSize}
+            </option>
+          ))}
+        </select>
+        <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
+          {'<<'}
+        </button>
+        <button
+          className=''
+          onClick={() => previousPage()}
+          disabled={!canPreviousPage}
+        >
+          Previous
+        </button>{' '}
+        <button className='' onClick={() => nextPage()} disabled={!canNextPage}>
+          Next
+        </button>
+        <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
+          {'>>'}
+        </button>
+      </div>
     </div>
   )
 }
 
-export { GenericTable }
-
+export {GenericTable}

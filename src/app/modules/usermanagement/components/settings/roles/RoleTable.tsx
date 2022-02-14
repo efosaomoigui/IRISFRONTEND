@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react'
 import { useSortBy, useTable } from 'react-table'
 import { IRoleModel } from '../../../../auth/models/AuthInterfaces'
+import TableActionLinks from '../../../../layout/tables/TableActionLinks'
 import './CustomTable.css'
 
 interface Props{
@@ -53,6 +54,7 @@ const RoleTable = ({roleData}: Props) => {
               {headerGroup.headers.map((column) => (
                 <th {...column.getHeaderProps()}>{column.render('Header')}</th>
               ))}
+              <th className='min-w-100px text-end'>Actions</th>
             </tr>
           ))}
         </thead>
@@ -64,6 +66,7 @@ const RoleTable = ({roleData}: Props) => {
               {row.cells.map(cell => {
                 return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
               })}
+              <TableActionLinks DetailsPath={'#'} EditPath={'#'} DeletePath={'#'} />
             </tr>
           )
         })}

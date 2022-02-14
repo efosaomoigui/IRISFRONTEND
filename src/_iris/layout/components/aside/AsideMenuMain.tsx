@@ -36,6 +36,7 @@ export function AsideMenuMain() {
         <AsideMenuItem to='/admin/Users' title='Users' hasBullet={true} />
         <AsideMenuItem to='/admin/roles' title='Roles' hasBullet={true} />
         <AsideMenuItem to='/admin/permissions' title='Permissions' hasBullet={true} />
+        <AsideMenuItem to='/adminSettings/userDetails' title='User Profile' hasBullet={true} />
       </AsideMenuItemWithSub>
 
       {/* SETTINGS */}
@@ -91,37 +92,36 @@ export function AsideMenuMain() {
             hasBullet={true}
           />
         </AsideMenuItemWithSub>
-      <AsideMenuItemWithSub
-        to='/shipment'
-        icon='/media/icons/duotune/general/gen019.svg'
-        title='Processing Center'
-        fontIcon='bi-layers'
-      >
-        <AsideMenuItem to='/shipment/SortShipment' title='Sort Shipment' hasBullet={true} />
-        <AsideMenuItem to='/shipment/Manifest' title='Manifest' hasBullet={true} />
-        <AsideMenuItem to='/shipment/Dispatch' title='Dispatch' hasBullet={true} />
-      </AsideMenuItemWithSub>
+        <AsideMenuItemWithSub
+          to='/shipment'
+          icon='/media/icons/duotune/general/gen019.svg'
+          title='Processing Center'
+          fontIcon='bi-layers'
+        >
+          <AsideMenuItem to='/shipment/SortShipment' title='Sort Shipment' hasBullet={true} />
+          <AsideMenuItem to='/shipment/Manifest' title='Manifest' hasBullet={true} />
+          <AsideMenuItem to='/shipment/Dispatch' title='Dispatch' hasBullet={true} />
+        </AsideMenuItemWithSub>
 
-      <AsideMenuItemWithSub
-        to='/shipment'
-        icon='/media/icons/duotune/general/gen019.svg'
-        title='Search'
-        fontIcon='bi-layers'
-      >
-        <AsideMenuItem to='/shipment/SearchShipment' title='Search Shipment' hasBullet={true} />
-      </AsideMenuItemWithSub>
+        <AsideMenuItemWithSub
+          to='/shipment'
+          icon='/media/icons/duotune/general/gen019.svg'
+          title='Search'
+          fontIcon='bi-layers'
+        >
+          <AsideMenuItem to='/shipment/SearchShipment' title='Search Shipment' hasBullet={true} />
+        </AsideMenuItemWithSub>
 
-      <AsideMenuItemWithSub
-        to='/shipment'
-        icon='/media/icons/duotune/general/gen019.svg'
-        title='Settings'
-        fontIcon='bi-layers'
-      >
-        <AsideMenuItem to='/shipment/routes' title='Routes' hasBullet={true} />
-        <AsideMenuItem to='/shipment/viewfleet' title='View Fleets' hasBullet={true} />
-        <AsideMenuItem to='/shipment/pricesettings' title='Price Settings' hasBullet={true} />
-      </AsideMenuItemWithSub>
-
+        <AsideMenuItemWithSub
+          to='/shipment'
+          icon='/media/icons/duotune/general/gen019.svg'
+          title='Settings'
+          fontIcon='bi-layers'
+        >
+          <AsideMenuItem to='/shipment/routes' title='Routes' hasBullet={true} />
+          <AsideMenuItem to='/shipment/viewfleet' title='View Fleets' hasBullet={true} />
+          <AsideMenuItem to='/shipment/pricesettings' title='Price Settings' hasBullet={true} />
+        </AsideMenuItemWithSub>
       </AsideMenuItemWithSub>
 
       {/* PAYMENT MODULE */}

@@ -54,7 +54,7 @@ export function PrivateRoutes() {
 
 
         <Route path='/crafted/widgets' component={WidgetsPage} />
-        <Route path='/crafted/account' component={AccountPage} />
+        <Route path='/adminSettings/' component={AccountPage} />
         <Route path='/apps/chat' component={ChatPage} />
         <Route path='/menu-test' component={MenuTestPage} />
         <Redirect from='/auth' to='/dashboard' />

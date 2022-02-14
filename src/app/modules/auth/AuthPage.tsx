@@ -18,7 +18,7 @@ export function AuthPage() {
     <div
       className='d-flex flex-column flex-column-fluid bgi-position-y-bottom position-x-center bgi-no-repeat bgi-size-contain bgi-attachment-fixed'
       style={{
-        backgroundImage: `url(${toAbsoluteUrl('/media/illustrations/sketchy-1/background.jpg')})`,
+        // backgroundImage: `url(${toAbsoluteUrl('/media/illustrations/sketchy-1/background.jpg')})`,
         backgroundColor: `#eeeeee`
       }}
     >

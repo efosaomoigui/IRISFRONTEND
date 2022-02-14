@@ -7,8 +7,8 @@ import {AccountHeader} from './AccountHeader'
 
 const accountBreadCrumbs: Array<PageLink> = [
   {
-    title: 'Account',
-    path: '/crafted/account/overview',
+    title: 'User Details',
+    path: '/adminSettings/userDetails',
     isSeparator: false,
     isActive: false,
   },
@@ -25,17 +25,18 @@ const AccountPage: React.FC = () => {
     <>
       <AccountHeader />
       <Switch>
-        <Route path='/crafted/account/overview'>
-          <PageTitle breadcrumbs={accountBreadCrumbs}>Overview</PageTitle>
+        <Route path='/adminSettings/userDetails'>
+          <PageTitle breadcrumbs={accountBreadCrumbs}>User Details</PageTitle>
           <Overview />
         </Route>
-        <Route path='/crafted/account/settings'>
+
+        <Route path='/adminSettings/settings'>
           <PageTitle breadcrumbs={accountBreadCrumbs}>Settings</PageTitle>
           <Settings />
         </Route>
 
-        <Redirect from='/crafted/account' exact={true} to='/crafted/account/overview' />
-        <Redirect to='/crafted/account/overview' />
+        <Redirect from='/adminSettings' exact={true} to='/adminSettings/overview' />
+        <Redirect to='/adminSettings/overview' />
       </Switch>
     </>
   )

@@ -1,12 +1,11 @@
-
 export interface IUserModel {
   userId: string
-  userName?:string
+  userName?: string
   password?: string
   firstName: string
   lastName: string
   email: string
-  phonenumber?:string
+  phonenumber?: string
   age?: string
   designation?: string
   department?: string
@@ -21,7 +20,7 @@ export interface IUserModel {
   systemUserRole?: string
   passwordExpireDate?: string
   identificationImage?: string
-  walletNumber?: string 
+  walletNumber?: string
 }
 
 export interface IRoleModel {
@@ -30,11 +29,8 @@ export interface IRoleModel {
 }
 
 export interface IPermissionModel {
-  
   id: string
   roleId: string
   claimType: string
   claimValue: string
 }
-
-

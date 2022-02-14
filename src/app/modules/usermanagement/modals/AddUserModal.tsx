@@ -13,7 +13,7 @@ const AddUserModal: React.FC = () => {
     setIsSubmitting(true);
     values.userId = uuid();
     agent.Users.create(values).then((response) =>{ console.log(response)});
-    console.log("TT: ", values);
+    // console.log("TT: ", values);
   };
 
   return (

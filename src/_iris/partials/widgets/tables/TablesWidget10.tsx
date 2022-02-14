@@ -105,29 +105,16 @@ const TablesWidget10: React.FC<Props> = ({ className }) => {
                 </td>
                 <td>
                   <div className='d-flex justify-content-end flex-shrink-0'>
-                    <a
-                      href='#'
-                      className='btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1'
-                    >
-                      <KTSVG
-                        path='/media/icons/duotune/general/gen019.svg'
-                        className='svg-icon-3'
-                      />
+                    <a href='#' className='btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1' >
+                      <KTSVG path='/media/icons/duotune/general/gen019.svg' className='svg-icon-3' />
                     </a>
-                    <a
-                      href='#'
-                      className='btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1'
-                    >
+
+                    <a href='#' className='btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1' >
                       <KTSVG path='/media/icons/duotune/art/art005.svg' className='svg-icon-3' />
                     </a>
-                    <a
-                      href='#'
-                      className='btn btn-icon btn-bg-light btn-active-color-primary btn-sm'
-                    >
-                      <KTSVG
-                        path='/media/icons/duotune/general/gen027.svg'
-                        className='svg-icon-3'
-                      />
+
+                    <a href='#' className='btn btn-icon btn-bg-light btn-active-color-primary btn-sm' >
+                      <KTSVG path='/media/icons/duotune/general/gen027.svg' className='svg-icon-3' />
                     </a>
                   </div>
                 </td>

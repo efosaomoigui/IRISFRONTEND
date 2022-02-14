@@ -5,9 +5,7 @@ import {Formik, Form, FormikHelpers} from 'formik'
 import * as Yup from 'yup'
 import IrisTextInput from '../../layout/forms/IrisTextInput'
 import IrisSelectInput from '../../layout/forms/IrisSelectInput'
-import { IFleetModel } from '../ShipmentModels/ShipmentInterfaces'
-
-
+import {IFleetModel} from '../ShipmentModels/ShipmentInterfaces'
 
 // interface Props {
 //   userVal: IUserModel
@@ -35,12 +33,11 @@ export default function AddFleetForm(props: Props<IFleetModel>) {
   }
 
   const validationSchema = Yup.object({
-    userName: Yup.string().required(),
-    firstName: Yup.string().required(),
-    password: Yup.string().required(),
-    lastName: Yup.string().required(),
-    email: Yup.string().required(),
-    phonenumber: Yup.string().required(),
+    FleetId: Yup.string().required(),
+    FleetName: Yup.string().required(),
+    FleetModel: Yup.string().required(),
+    FleetMake: Yup.string().required(),
+    FleetType: Yup.string().required(),
   })
 
   return (
@@ -83,13 +80,8 @@ export default function AddFleetForm(props: Props<IFleetModel>) {
                   name='lastName'
                   label='Last Name'
                 />
-                                <IrisTextInput
-                  type='email'
-                  placeholder='Email'
-                  name='email'
-                  label='Email'
-                />
-                
+                <IrisTextInput type='email' placeholder='Email' name='email' label='Email' />
+
                 <IrisTextInput
                   type='number'
                   placeholder='Phone Number='
@@ -118,7 +110,6 @@ export default function AddFleetForm(props: Props<IFleetModel>) {
                   name='category'
                   label='Category'
                 />
-
               </div>
 
               <Modal.Footer>

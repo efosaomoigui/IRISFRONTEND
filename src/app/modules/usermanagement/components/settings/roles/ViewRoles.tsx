@@ -1,29 +1,68 @@
-import React, { useEffect, useState } from 'react';
-import agent from '../../../../../../setup/axios/AxiosAgent';
-import LoadingComponent from '../../../../../LoadingComponent';
-import { IRoleModel } from '../../../../auth/models/AuthInterfaces';
-import { TablesWidgetRoles } from './TablesWidgetRoles';
-
+import {useEffect, useState} from 'react'
+import agent from '../../../../../../setup/axios/AxiosAgent'
+import {IRoleModel, IUserModel} from '../../../../auth/models/AuthInterfaces'
+import { IrisTablesWidget } from '../../../../layout/tables/IrisTablesWidget'
+import { madalprops } from '../../../../layout/tables/IrisTableTitle'
+import Role_Data from './Role_Data.json'
 
 export function ViewRoles() {
-  const [loading, setLoading] = useState(true)
-  const [rolemodel1, setRoleModel] = useState<IRoleModel[]>()
+  const [modalTarger, setModalTarget] = useState<madalprops[]>([]);
+    const [loading, setLoading] = useState(true)
+  const [rolemodel, setRoleModel] = useState<IRoleModel[]>()
+
+  const tableProvider = {
+    columns: [
+        {
+          Header: 'Role Id',
+          accessor: 'RoleId',
+        },
+        {
+          Header: 'Role Name',
+          accessor: 'RoleName',
+        },
+    ],
+    DetailsPath: '',
+    EditPath: '',
+    DeletePath: '',
+    FakeData: Role_Data,
+  }
+
+  const ModalTarget = [
+    {
+      linkTitle:'Add Role',
+      linkTarget : '#kt_modal_addrole'
+    }
+  ]
 
   // //USE EFFECT HOOK
   useEffect(() => {
     agent.Roles.list().then((response) => {
       setRoleModel(response)
+      setModalTarget(ModalTarget);
       setLoading(false)
     })
   }, [])
-    if (loading) return <LoadingComponent content='Loading...' />
+
 
   return (
     <div className='row g-5 g-xxl-8'>
       <div className='col-xl-12'>
-        <TablesWidgetRoles roles={rolemodel1} className='mb-5 mb-xl-8' />
+        <IrisTablesWidget
+          tableData={rolemodel}
+          className='mb-5 mb-xl-8'
+          columnsMap={tableProvider.columns}
+          DetailsPath={tableProvider.DetailsPath}
+          EditPath={tableProvider.EditPath}
+          DeletePath={tableProvider.DeletePath}
+          UseFakeData={true}
+          FakeData={tableProvider.FakeData}
+          TableTitle={'Roles'}
+          Count={'Over 300 Users'}
+          ModalTarget={
+            modalTarger
+          }
+        />
       </div>
     </div>
   )
 }
-

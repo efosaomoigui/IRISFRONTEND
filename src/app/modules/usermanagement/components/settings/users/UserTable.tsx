@@ -3,6 +3,8 @@ import User_Data from './User_Data.json'
 import {useTable, useSortBy} from 'react-table'
 import './CustomTable.css'
 import { IUserModel } from '../../../../auth/models/AuthInterfaces'
+import { KTSVG } from '../../../../../../_iris/helpers'
+import TableActionLinks from '../../../../layout/tables/TableActionLinks'
 
 interface Props{
   userData:IUserModel | any ;
@@ -54,6 +56,7 @@ const UserTable = ({userData} : Props) => {
               {headerGroup.headers.map((column) => (
                 <th {...column.getHeaderProps()}>{column.render('Header')}</th>
               ))}
+              <th className='min-w-100px text-end'>Actions</th>
             </tr>
           ))}
         </thead>
@@ -65,6 +68,9 @@ const UserTable = ({userData} : Props) => {
               {row.cells.map(cell => {
                 return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
               })}
+              <td>
+                <TableActionLinks DetailsPath={'/adminSettings/userDetails'} EditPath={'#'} DeletePath={'#'} />
+              </td>
             </tr>
           )
         })}

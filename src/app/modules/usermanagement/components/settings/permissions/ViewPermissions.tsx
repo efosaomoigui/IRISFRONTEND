@@ -1,26 +1,78 @@
-import React, { useEffect, useState } from 'react';
-import agent from '../../../../../../setup/axios/AxiosAgent';
-import { IPermissionModel } from '../../../../auth/models/AuthInterfaces';
-import { TablesWidgetPermission } from './TablesWidgetPermission';
+import {useEffect, useState} from 'react'
+import agent from '../../../../../../setup/axios/AxiosAgent'
+import {IPermissionModel, IRoleModel, IUserModel} from '../../../../auth/models/AuthInterfaces'
+import { IrisTablesWidget } from '../../../../layout/tables/IrisTablesWidget'
+import { madalprops } from '../../../../layout/tables/IrisTableTitle'
 
+import Permission_Data from './Permission_Data.json'
 
 export function ViewPermissions() {
-  const [, setLoading] = useState(true)
-  const [permissionmodel1, setPermissionModel] = useState<IPermissionModel[]>()
+  const [modalTarger, setModalTarget] = useState<madalprops[]>([]);
+    const [loading, setLoading] = useState(true)
+  const [permissionmodel, setPermissionModel] = useState<IPermissionModel[]>()
+
+
+  // "PermissionId": "3d282193-8ffa-4484-87d4-a32f1a85c003",
+  // "roleId": "6334",
+  // "claimType": "51308",
+  // "claimValue": "31727253-703c-4817-a961-2b4a5b3c318a"
+  
+  const tableProvider = {
+    columns: [
+        {
+          Header: 'Permission Id',
+          accessor: 'PermissionId',
+        },
+        {
+          Header: 'Role Id',
+          accessor: 'roleId',
+        },
+        {
+          Header: 'Permission',
+          accessor: 'claimValue',
+        },
+    ],
+    DetailsPath: '',
+    EditPath: '',
+    DeletePath: '',
+    FakeData: Permission_Data,
+  }
+
+  const ModalTarget = [
+    {
+      linkTitle:'Add Role',
+      linkTarget : '#kt_modal_addrole'
+    }
+  ]
 
   // //USE EFFECT HOOK
   useEffect(() => {
     agent.Permissions.list().then((response) => {
       setPermissionModel(response)
+      setModalTarget(ModalTarget);
       setLoading(false)
     })
   }, [])
-  // if (loading) return <LoadingComponent content='Loading...' />
+
 
   return (
     <div className='row g-5 g-xxl-8'>
       <div className='col-xl-12'>
-        <TablesWidgetPermission permission={permissionmodel1} className='mb-5 mb-xxl-8' />
+        <IrisTablesWidget
+          tableData={permissionmodel}
+          className='mb-5 mb-xl-8'
+          columnsMap={tableProvider.columns}
+          DetailsPath={tableProvider.DetailsPath}
+          EditPath={tableProvider.EditPath}
+          DeletePath={tableProvider.DeletePath}
+          UseFakeData={true}
+          FakeData={tableProvider.FakeData}
+          TableTitle={'Roles'}
+          Count={'Over 300 Users'}
+          ModalTarget={
+            modalTarger
+          }
+        />
       </div>
     </div>
   )

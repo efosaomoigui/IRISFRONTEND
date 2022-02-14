@@ -30,6 +30,7 @@ export default function AddUserForm(props: Props<IUserModel>) {
   const initialFormValue: IUserModel = {
     userId: '',
     userName: '',
+    password: '',
     firstName: '',
     lastName: '',
     email: '',

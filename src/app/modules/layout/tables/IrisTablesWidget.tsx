@@ -1,12 +1,7 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
-import {KTSVG} from '../../../../../../_iris/helpers'
-import {IUserModel} from '../../../../auth/models/AuthInterfaces'
-import {GenericTable} from '../../../../layout/tables/GenericTable'
-import IrisTableHeading, {madalprops} from '../../../../layout/tables/IrisTableTitle'
-import IrisTableTitle from '../../../../layout/tables/IrisTableTitle'
-import {UserTable} from './UserTable'
-// import {KTSVG, toAbsoluteUrl} from '../../../helpers'
+import {KTSVG} from '../../../../_iris/helpers'
+import {GenericTable} from './GenericTable'
+import IrisTableHeading, {madalprops} from './IrisTableTitle'
 
 interface colAcc {
   Header: string
@@ -27,7 +22,7 @@ type Props = {
   ModalTarget: madalprops[]
 }
 
-const TablesWidgetUser: React.FC<Props> = ({
+const IrisTablesWidget: React.FC<Props> = ({
   tableData,
   className,
   columnsMap,
@@ -41,6 +36,8 @@ const TablesWidgetUser: React.FC<Props> = ({
   ModalTarget,
 }) => {
   const tabledata = UseFakeData ? FakeData : tableData
+
+  console.log('==>', tableData)
 
   return (
     <div className={`card ${className}`}>
@@ -108,4 +105,4 @@ const TablesWidgetUser: React.FC<Props> = ({
   )
 }
 
-export {TablesWidgetUser}
+export {IrisTablesWidget}

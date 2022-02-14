@@ -26,12 +26,12 @@ const options = [
 
 export default function GenericForm(props: Props<IUserModel>) {
   const initialFormValue: IUserModel = {
-    userId: '',
-    userName: '',
-    firstName: '',
-    lastName: '',
-    email: '',
-    phonenumber: '',
+    userId: '2',
+    userName: 'hh',
+    firstName: 'hgg',
+    lastName: 'jj',
+    email: 'kkk@h.com',
+    phonenumber: '55657757',
   }
 
   const validationSchema = Yup.object({

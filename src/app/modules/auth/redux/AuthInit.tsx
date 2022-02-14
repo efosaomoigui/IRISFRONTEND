@@ -24,7 +24,6 @@ const AuthInit: FC<PropsFromRedux> = (props) => {
           dispatch(props.fulfillUser(user))
         }
       } catch (error) {
-        console.error(error)
         if (!didRequest.current) {
           dispatch(props.logout())
         }
