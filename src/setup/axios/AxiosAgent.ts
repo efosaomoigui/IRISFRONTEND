@@ -1,7 +1,9 @@
 import axios, { AxiosResponse } from 'axios';
 import { IPermissionModel, IRoleModel, IUserModel } from '../../app/modules/auth/models/AuthInterfaces';
 import { IFulfilmentModel } from '../../app/modules/fulfillment/models/FulfilmentInterface';
-import { ISearchTripModel } from '../../app/modules/monitoring/Monitor models/MonitorInterface';
+import { ITrackHistoryModel, ITripModel } from '../../app/modules/monitoring/Monitor models/MonitorInterface';
+
+
 import { IPaymentModel } from '../../app/modules/payment/PaymentModels/PaymentModel';
 import { IFleetModel, IPriceModel, IRouteModel, IShipmentModel } from '../../app/modules/shipmentmanagement/ShipmentModels/ShipmentInterfaces';
 import { ShipmentModel } from '../../app/modules/shipmentmanagement/ShipmentModels/ShipmentModel';
@@ -125,14 +127,21 @@ const  PaymentLog = {
 }
 
 // Monitoring Request Starts
-const  Monitoring = {
-  list: () => request.get<ISearchTripModel[]>(`${API_URL}/UserManagement/GetUsers`),
-  details: (searchtripid: string) => request.get<ShipmentModel>(`${API_URL}/UserManagement/GetUser/${searchtripid}`), 
-  create: (users: ISearchTripModel) => request.post<ISearchTripModel>(`${API_URL}/UserManagement/GetUsers`, users), 
-  update: (users: ISearchTripModel) => request.put<ISearchTripModel>(`${API_URL}/UserManagement/GetUser${users.userId}`, {}), 
-  delete: (id:string) => request.del<void>(`${API_URL}/UserManagement/GetUser${id}`), 
+const  Trip = {
+  list: () => request.get<ITripModel[]>(`${API_URL}/UserManagement/GetUsers`),
+  details: (tripid: string) => request.get<ITripModel>(`${API_URL}/UserManagement/GetUser/${tripid}`), 
+  create: (trip: ITripModel) => request.post<ITripModel>(`${API_URL}/UserManagement/GetUsers`, trip), 
+  update: (trip: ITripModel) => request.put<ITripModel>(`${API_URL}/UserManagement/GetUser${trip.id}`, {}), 
+  delete: (id: string) => request.del<void>(`${API_URL}/UserManagement/GetUser${id}`), 
 }
 
+const TrackHistory = {
+  list: () => request.get<ITrackHistoryModel[]>(`${API_URL}/Monitoring/GetUsers`),
+  details: (trackhistoryid: string) => request.get<ITrackHistoryModel>(`${API_URL}/Monitoring/GetUser/${trackhistoryid}`),
+  create: (trackhistory: ITrackHistoryModel) => request.post<ITrackHistoryModel>(`${API_URL}/Monitoring/GetUsers`, trackhistory),
+  update: (trackhistory: ITrackHistoryModel) => request.put<ITrackHistoryModel>(`${API_URL}/Monitoring/GetUser${trackhistory.id}`, {}),
+  delete: (id: string) => request.del<void>(`${API_URL}/Monitoring/GetUser${id}`),
+}
 // Fulfilment Request Starts
 const Fulfilment = {
   list: () => request.get<IFulfilmentModel[]>(`${API_URL}/UserManagement/GetUsers`),
@@ -154,8 +163,9 @@ const agent = {
   WalletTransaction,
   Price,
   PaymentLog,
-  Monitoring,
-  Fulfilment
+  Trip,
+  Fulfilment,
+  TrackHistory
 }
 
 export default agent;

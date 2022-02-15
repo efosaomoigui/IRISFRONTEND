@@ -1,47 +1,83 @@
 import React, {useMemo} from 'react'
-import SearchTrip_Data from './SearchTrip_Data.json'
+import ViewTrips_Data from './ViewTrips_Data.json'
 import {useTable, useSortBy} from 'react-table'
 import './CustomTable.css'
 import TableActionLinks from '../../../../layout/tables/TableActionLinks'
-import { ISearchTripModel } from '../../../Monitor models/MonitorInterface'
+import { ITripModel } from '../../../Monitor models/MonitorInterface'
 
 interface Props{
-  searchTripData: ISearchTripModel | any ;
+  TripData: ITripModel | any ;
 }
 
-const SearchTripTable = ({ searchTripData} : Props) => {
+const ViewTripsTable = ({ TripData} : Props) => {
 
   const tableInstance = useTable({
     columns : useMemo(
       () => [
         {
-          Header: 'User Id',
-          accessor: 'userId',
+          Header: 'Trip Reference',
+          accessor: 'TripReference',
         },
         {
-          Header: 'User Name',
-          accessor: 'userName',
+          Header: 'Route Code',
+          accessor: 'RouteCode',
         },
         {
-          Header: 'First Name',
-          accessor: 'firstName',
+          Header: 'Fleet Id',
+          accessor: 'fleetid',
         },
         {
-          Header: 'Last Name',
-          accessor: 'lastName',
+          Header: 'Fleet',
+          accessor: 'fleet',
         },
         {
-          Header: 'Email',
-          accessor: 'email',
+          Header: 'Manifest Id',
+          accessor: 'ManifestId',
         },
         {
-          Header: 'Phone Number',
-          accessor: 'phoneNumber',
+          Header: 'Manifest',
+          accessor: 'manifest',
+        },
+        {
+          Header: 'Driver',
+          accessor: 'Driver',
+        },
+        {
+          Header: 'Dispatcher',
+          accessor: 'Dispatcher',
+        },
+        {
+          Header: 'Driver Dispatch Fee ',
+          accessor: 'DriverDispatchFee',
+        },
+        {
+          Header: 'Miscelleneous',
+          accessor: 'Miscelleneous',
+        },
+        {
+          Header: 'FuelCosts',
+          accessor: 'FuelCosts',
+        },
+        {
+          Header: 'Fuel Used',
+          accessor: 'FuelUsed',
+        },
+        {
+          Header: 'FuelCosts',
+          accessor: 'StartTime',
+        },
+        {
+          Header: 'FuelCosts',
+          accessor: 'EndTime',
+        },
+        {
+          Header: 'FuelCosts',
+          accessor: 'status',
         },
       ],
       []
     ),
-    data: useMemo(() => SearchTrip_Data, []),
+    data: useMemo(() => ViewTrips_Data, []),
   }, useSortBy)
 
   const {getTableProps, getTableBodyProps, headerGroups, rows, prepareRow} = tableInstance
@@ -79,4 +115,4 @@ const SearchTripTable = ({ searchTripData} : Props) => {
   )
 }
 
-export { SearchTripTable };
+export { ViewTripsTable };

@@ -1,45 +1,53 @@
 import { useEffect, useState } from 'react'
 import agent from '../../../../../../setup/axios/AxiosAgent'
-import { IUserModel } from '../../../../auth/models/AuthInterfaces'
 import { IrisTablesWidget } from '../../../../layout/tables/IrisTablesWidget'
 import { madalprops } from '../../../../layout/tables/IrisTableTitle'
-import { IAddTrackModel } from '../../../Monitor models/MonitorInterface'
+import { ITripModel } from '../../../Monitor models/MonitorInterface'
 import ViewTrips_Data from './ViewTrips_Data.json'
 // import {format} from 'date-fns' 
 
 export function ViewTrips() {
   const [loading, setLoading] = useState(true)
   const [modalTarger, setModalTarget] = useState<madalprops[]>([]);
-  const [usersmodel, setUsersModel] = useState<IUserModel[]>([])
+  const [tripmodel, setUsersModel] = useState<ITripModel[]>([])
 
   //all the data for the table
   const tableProvider = {
     columns: [
       {
-        Header: 'User Id',
-        accessor: 'userId',
-        // cell:({ value }) => {return format(new Date(value), 'dd/MM/YYYY')}
+        Header: 'Trip Reference',
+        accessor: 'TripReference',
       },
       {
-        Header: 'User Name',
-        accessor: 'userName',
+        Header: 'Route Code',
+        accessor: 'RouteCode ',
       },
       {
-        Header: 'First Name',
-        accessor: 'firstName',
+        Header: 'Fleet Id',
+        accessor: 'fleetid ',
       },
       {
-        Header: 'Last Name',
-        accessor: 'lastName',
+        Header: 'Fleet',
+        accessor: 'fleet ',
       },
       {
-        Header: 'Email',
-        accessor: 'email',
+        Header: 'Manifest Id',
+        accessor: 'ManifestId ',
       },
       {
-        Header: 'Phone Number',
-        accessor: 'phoneNumber',
+        Header: 'Manifest',
+        accessor: 'manifest  ',
       },
+      {
+        Header: 'Driver',
+        accessor: 'Driver  ',
+      },
+      {
+        Header: 'Dispatcher',
+        accessor: 'Dispatcher  ',
+      },
+     
+    
     ],
     DetailsPath: '/adminSettings/userDetails/',
     EditPath: '/adminSettings/userDetails/',
@@ -52,12 +60,12 @@ export function ViewTrips() {
     {
       linkTitle: 'Add Trip',
       linkTarget: '#kt_modal_addtrip'
-    }
+    },
   ]
 
   // //USE EFFECT HOOK
   useEffect(() => {
-    agent.Users.list().then((response) => {
+    agent.Trip.list().then((response) => {
       setUsersModel(response)
       setModalTarget(ModalTarget);
       setLoading(false)
@@ -70,9 +78,9 @@ export function ViewTrips() {
 
   return (
     <div className='row g-5 g-xxl-8'>
-      <div className='col-xl-12'>
+      <div className='col-xl-24'>
         <IrisTablesWidget
-          tableData={usersmodel}
+          tableData={tripmodel}
           className='mb-5 mb-xl-8'
           columnsMap={tableProvider.columns}
           DetailsPath={tableProvider.DetailsPath}
