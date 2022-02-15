@@ -25,6 +25,7 @@ import {MetronicI18nProvider} from './_iris/i18n/Metronici18n'
 // import 'semantic-ui-css/semantic.min.css'
 import './_iris/assets/sass/style.scss'
 import './_iris/assets/sass/style.react.scss'
+import "react-toastify/dist/ReactToastify.min.css"
 /**
  * Base URL of the website.
  *

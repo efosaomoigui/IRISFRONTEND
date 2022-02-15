@@ -2,7 +2,7 @@
 import React, {FC} from 'react'
 import {KTSVG, toAbsoluteUrl} from '../../../helpers'
 
-const AddTripModal: FC = () => {
+const AddTripsModal: FC = () => {
   const users = [
     {
       avatar: '/media/avatars/150-1.jpg',
@@ -151,4 +151,4 @@ const AddTripModal: FC = () => {
   )
 }
 
-export { AddTripModal}
+export { AddTripsModal}

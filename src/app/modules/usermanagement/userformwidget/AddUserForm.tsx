@@ -133,7 +133,7 @@ export default function AddUserForm(props: Props<IUserModel>) {
                   loading={props.isSubmitting}
                   content='Submit'
                 ></Button>
-                <Button floated='right' positive type='button' content='Cancel'></Button>
+                <Button floated='right' positive type='reset' data-bs-dismiss="modal" content='Cancel'></Button>
               </Modal.Footer>
             </div>
           </div>

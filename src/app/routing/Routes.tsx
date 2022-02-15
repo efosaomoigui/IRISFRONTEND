@@ -14,12 +14,14 @@ import {Logout, AuthPage} from '../modules/auth'
 import {ErrorsPage} from '../modules/errors/ErrorsPage'
 import {RootState} from '../../setup'
 import {MasterInit} from '../../_iris/layout/MasterInit'
+import {ToastContainer} from 'react-toastify'
 
 const Routes: FC = () => {
   const isAuthorized = useSelector<RootState>(({auth}) => auth.user, shallowEqual)
 
   return (
     <>
+    <ToastContainer position='top-right' style={{width:'300px'}} hideProgressBar />
       <Switch>
         {!isAuthorized ? (
           /*Render auth page when user at `/auth` and not authorized.*/

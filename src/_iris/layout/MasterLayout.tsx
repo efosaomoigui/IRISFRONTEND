@@ -1,5 +1,8 @@
 import React, { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
+import { AddSearchTripModal } from '../../app/modules/monitoring/monitor modal/AddSearchTripModal'
+import { AddTrackModal } from '../../app/modules/monitoring/monitor modal/AddTrackModal'
+import { AddTripModal } from '../../app/modules/monitoring/monitor modal/AddTripModal'
 import { AddFleetModal } from '../../app/modules/shipmentmanagement/modals/AddFleetModal'
 import { AddRouteModal } from '../../app/modules/shipmentmanagement/modals/AddRouteModal'
 import { AddPermissionModal } from '../../app/modules/usermanagement/modals/AddPermissionModal'
@@ -66,6 +69,9 @@ const MasterLayout: React.FC = ({children}) => {
       <AddRouteModal />
       <AddPermissionModal />
       <AddRoleModal />
+      <AddSearchTripModal />
+      <AddTrackModal />
+      <AddTripModal />
 
       {/* scrolltop */}
       <ScrollTop />
