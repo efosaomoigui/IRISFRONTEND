@@ -10,8 +10,8 @@ import { SortShipment } from './components/processingandpackaging/SortShipment'
 import { Manifest } from './components/processingandpackaging/Manifest'
 import { Dispatch } from './components/processingandpackaging/Dispatch'
 import { SearchShipment } from './components/search/SearchShipment'
-import { PriceSettings } from './components/settings/TableWidgetPrice'
 import { ViewShipments } from './components/settings/ViewShipments'
+import { ViewPriceSettings } from './components/settings/ViewPriceSettings'
 
 const userBreadCrumbs: Array<PageLink> = [
   {
@@ -45,9 +45,9 @@ const ShipmentPage: React.FC = () => {
           <ViewFleets />
         </Route>
 
-        <Route path='/shipment/pricesettings'>
+        <Route path='/shipment/ViewPriceSettings'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Price Settings</PageTitle>
-          <PriceSettings/>
+          <ViewPriceSettings/>
         </Route>
 
         <Route path='/shipment/viewshipments'>
@@ -79,8 +79,6 @@ const ShipmentPage: React.FC = () => {
           <SearchShipment />
         </Route>
 
-
-        
         <Redirect from='/shipment/' exact={true} to='/shipment/users' />
         <Redirect to='/shipment/users' />
       </Switch>

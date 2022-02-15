@@ -120,7 +120,7 @@ export function AsideMenuMain() {
         >
           <AsideMenuItem to='/shipment/routes' title='Routes' hasBullet={true} />
           <AsideMenuItem to='/shipment/viewfleet' title='View Fleets' hasBullet={true} />
-          <AsideMenuItem to='/shipment/pricesettings' title='Price Settings' hasBullet={true} />
+          <AsideMenuItem to='/shipment/ViewPriceSettings' title='Price Settings' hasBullet={true} />
         </AsideMenuItemWithSub>
       </AsideMenuItemWithSub>
 

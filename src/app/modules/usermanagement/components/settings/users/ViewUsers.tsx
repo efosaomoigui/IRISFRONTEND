@@ -51,10 +51,6 @@ export function ViewUsers() {
     {
       linkTitle: 'Add User',
       linkTarget: '#kt_modal_adduser'
-    },
-    {
-      linkTitle: 'View User',
-      linkTarget: '#kt_modal_adduser'
     }
   ]
 
