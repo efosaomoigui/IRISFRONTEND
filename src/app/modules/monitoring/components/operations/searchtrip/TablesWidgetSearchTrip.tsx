@@ -1,70 +1,57 @@
-
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
 import { KTSVG } from '../../../../../../_iris/helpers'
-import { IUserModel } from '../../../../auth/models/AuthInterfaces'
-import { GenericTable } from '../../../../layout/tables/GenericTable'
-import IrisTableHeading, { madalprops } from '../../../../layout/tables/IrisTableTitle'
-import IrisTableTitle from '../../../../layout/tables/IrisTableTitle'
+import { ISearchTripModel } from '../../../Monitor models/MonitorInterface'
+import { SearchTripTable } from './SearchTripTable'
 
-// import {KTSVG, toAbsoluteUrl} from '../../../helpers'
 
-interface colAcc {
-  Header: string
-  accessor: string
-}
+
 
 type Props = {
   className: string
-  tableData?: any[]
-  columnsMap: colAcc[]
-  DetailsPath: string
-  EditPath: string
-  DeletePath: string
-  UseFakeData: boolean
-  FakeData: any[]
-  TableTitle: string
-  Count: string
-  ModalTarget: madalprops[]
+  searchTrip?: ISearchTripModel[]
 }
 
-const TablesWidgetUser: React.FC<Props> = ({
-  tableData,
-  className,
-  columnsMap,
-  DetailsPath,
-  EditPath,
-  DeletePath,
-  UseFakeData,
-  FakeData,
-  TableTitle,
-  Count,
-  ModalTarget,
-}) => {
-  const tabledata = UseFakeData ? FakeData : tableData
-
+const TablesWidgetSearchTrip: React.FC<Props> = ({ searchTrip, className }) => {
   return (
     <div className={`card ${className}`}>
-      {/* {/ begin::Header /} */}
-      <IrisTableHeading tableTitle={TableTitle} count={Count} modelTarget={ModalTarget} />
-      {/* {/ end::Header /} */}
-
-      {/* {/ begin::Body /} */}
-      <div className='card-body py-3'>
-        {/* {/ begin::Table container /} */}
-        <div className='table-responsive'>
-          {/* {/ begin::Table /} */}
-          <GenericTable
-            irisData={tabledata}
-            columnsMap={columnsMap}
-            DetailsPath={DetailsPath}
-            EditPath={EditPath}
-            DeletePath={DeletePath}
-          />
-          {/* {/ end::Table /} */}
+      {/* begin::Header */}
+      <div className='card-header border-0 pt-5'>
+        <h3 className='card-title align-items-start flex-column'>
+          <span className='card-label fw-bolder fs-3 mb-1'>Trips</span>
+          <span className='text-muted mt-1 fw-bold fs-7'>Over 500 Users</span>
+        </h3>
+        <div
+          className='card-toolbar'
+          data-bs-toggle='tooltip'
+          data-bs-placement='top'
+          data-bs-trigger='hover'
+          title='Click to add a user'
+        >
+          <a
+            href='#'
+            className='btn btn-sm btn-light-primary'
+            data-bs-toggle='modal'
+            data-bs-target='#kt_modal_searchtrip'
+          >
+            <KTSVG path='/media/icons/duotune/arrows/arr075.svg' className='svg-icon-3' />
+            Add Trip
+          </a>
         </div>
-        {/* {/ end::Table container /} */}
       </div>
-      {/* {/ begin::Body /} */}
+      {/* end::Header */}
+
+      {/* begin::Body */}
+      <div className='card-body py-3'>
+        {/* begin::Table container */}
+        <div className='table-responsive'>
+          {/* begin::Table */}
+          <SearchTripTable searchTripData={searchTrip} />
+          {/* end::Table */}
+        </div>
+        {/* end::Table container */}
+      </div>
+      {/* begin::Body */}
 
       <div className='container-fluid d-flex align-items-stretch justify-content-between'>
         {/*begin::Aside mobile toggle*/}
@@ -108,4 +95,5 @@ const TablesWidgetUser: React.FC<Props> = ({
   )
 }
 
-export { TablesWidgetUser }
+export { TablesWidgetSearchTrip }
+

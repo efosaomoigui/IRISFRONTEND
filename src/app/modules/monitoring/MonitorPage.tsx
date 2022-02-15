@@ -1,10 +1,10 @@
 import React from 'react'
 import {Redirect, Route, Switch} from 'react-router-dom'
 import {PageLink, PageTitle} from '../../../_iris/layout/core'
-import { AddTrack } from './components/operations/AddTrack'
-import { SearchTrip } from './components/operations/SearchTrip'
-import { TrackHistory } from './components/operations/TrackHistory'
-import { ViewTrips } from './components/operations/ViewTrips'
+import { ViewSearchTrip } from './components/operations/searchtrip/ViewSearchTrip'
+import { ViewTrack } from './components/operations/track/ViewTrack'
+import { ViewTrackHistory } from './components/operations/trackhistory/ViewTrackHistory'
+import { ViewTrips } from './components/operations/trips/ViewTrips'
 import { MonitorHeader } from './MonitorHeader'
 
 
@@ -46,15 +46,15 @@ const UserPage: React.FC = () => {
         </Route>
         <Route path='/monitor/addtrack'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Add Track</PageTitle>
-          <AddTrack />
+          <ViewTrack />
         </Route>
         <Route path='/monitor/trackhistory'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Track History</PageTitle>
-          <TrackHistory />
+          <ViewTrackHistory />
         </Route>
         <Route path='/monitor/searchtrip'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Search Trip</PageTitle>
-          <SearchTrip />
+          <ViewSearchTrip />
         </Route>
         <Redirect from='/monitor/' exact={true} to='/monitor/trips' />
         <Redirect to='/monitor/trips' />

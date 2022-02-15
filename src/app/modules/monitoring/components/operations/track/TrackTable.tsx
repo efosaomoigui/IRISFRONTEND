@@ -1,13 +1,12 @@
 import React, {useMemo} from 'react'
-import User_Data from './User_Data.json'
+import Track_Data from './Track_Data.json'
 import {useTable, useSortBy} from 'react-table'
 import './CustomTable.css'
-import { IUserModel } from '../../../../auth/models/AuthInterfaces'
-import { KTSVG } from '../../../../../../_iris/helpers'
 import TableActionLinks from '../../../../layout/tables/TableActionLinks'
+import { ISearchTripModel } from '../../../Monitor models/MonitorInterface'
 
 interface Props{
-  searchTripData:IUserModel | any ;
+  searchTripData: ISearchTripModel | any ;
 }
 
 const SearchTripTable = ({ searchTripData} : Props) => {
@@ -42,7 +41,7 @@ const SearchTripTable = ({ searchTripData} : Props) => {
       ],
       []
     ),
-    data: useMemo(() => User_Data, []),
+    data: useMemo(() => Track_Data, []),
   }, useSortBy)
 
   const {getTableProps, getTableBodyProps, headerGroups, rows, prepareRow} = tableInstance

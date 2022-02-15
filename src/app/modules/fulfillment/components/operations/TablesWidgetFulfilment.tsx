@@ -1,10 +1,8 @@
-
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
-import { KTSVG } from '../../../../../../_iris/helpers'
-import { IUserModel } from '../../../../auth/models/AuthInterfaces'
-import { GenericTable } from '../../../../layout/tables/GenericTable'
-import IrisTableHeading, { madalprops } from '../../../../layout/tables/IrisTableTitle'
-import IrisTableTitle from '../../../../layout/tables/IrisTableTitle'
+import { GenericTable } from '../../../layout/tables/GenericTable'
+import IrisTableHeading, { madalprops } from '../../../layout/tables/IrisTableTitle'
+
 
 // import {KTSVG, toAbsoluteUrl} from '../../../helpers'
 
@@ -27,7 +25,7 @@ type Props = {
   ModalTarget: madalprops[]
 }
 
-const TablesWidgetUser: React.FC<Props> = ({
+const TablesWidgetFulfilment: React.FC<Props> = ({
   tableData,
   className,
   columnsMap,
@@ -44,15 +42,15 @@ const TablesWidgetUser: React.FC<Props> = ({
 
   return (
     <div className={`card ${className}`}>
-      {/* {/ begin::Header /} */}
+      {/* begin::Header */}
       <IrisTableHeading tableTitle={TableTitle} count={Count} modelTarget={ModalTarget} />
-      {/* {/ end::Header /} */}
+      {/* end::Header */}
 
-      {/* {/ begin::Body /} */}
+      {/* begin::Body */}
       <div className='card-body py-3'>
-        {/* {/ begin::Table container /} */}
+        {/* begin::Table container */}
         <div className='table-responsive'>
-          {/* {/ begin::Table /} */}
+          {/* begin::Table */}
           <GenericTable
             irisData={tabledata}
             columnsMap={columnsMap}
@@ -60,11 +58,11 @@ const TablesWidgetUser: React.FC<Props> = ({
             EditPath={EditPath}
             DeletePath={DeletePath}
           />
-          {/* {/ end::Table /} */}
+          {/* end::Table */}
         </div>
-        {/* {/ end::Table container /} */}
+        {/* end::Table container */}
       </div>
-      {/* {/ begin::Body /} */}
+      {/* begin::Body */}
 
       <div className='container-fluid d-flex align-items-stretch justify-content-between'>
         {/*begin::Aside mobile toggle*/}
@@ -108,4 +106,4 @@ const TablesWidgetUser: React.FC<Props> = ({
   )
 }
 
-export { TablesWidgetUser }
+export {TablesWidgetFulfilment}

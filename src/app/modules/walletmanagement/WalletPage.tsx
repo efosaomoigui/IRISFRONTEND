@@ -2,8 +2,9 @@ import React from 'react'
 import {Redirect, Route, Switch} from 'react-router-dom'
 import {PageLink, PageTitle} from '../../../_iris/layout/core'
 import { WalletHeader } from './WalletHeader'
-import { WalletTransaction } from './components/settings/WalletTransaction'
 import { ViewWallet } from './components/settings/ViewWallet'
+import { WalletTransaction } from './components/settings/WalletTransaction'
+
 
 const userBreadCrumbs: Array<PageLink> = [
   {

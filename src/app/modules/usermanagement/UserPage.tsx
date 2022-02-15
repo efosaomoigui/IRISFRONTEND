@@ -3,9 +3,9 @@ import {Redirect, Route, Switch} from 'react-router-dom'
 import {PageLink, PageTitle} from '../../../_iris/layout/core'
 import { ViewPermissions } from './components/settings/permissions/ViewPermissions'
 import { ViewRoles } from './components/settings/roles/ViewRoles'
-import RoleUserManagement from './components/settings/users/RoleUserManagement'
-import {ViewUsers} from './components/settings/users/ViewUsers'
 import {UserHeader} from './UserHeader'
+import { ViewUsers } from './components/settings/users/ViewUsers'
+import RoleUserManagement from './components/settings/users/RoleUserManagement'
 
 const userBreadCrumbs: Array<PageLink> = [
   {
