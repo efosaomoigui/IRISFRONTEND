@@ -173,7 +173,7 @@ export function AsideMenuMain() {
         fontIcon='bi-layers'
       >
         <AsideMenuItem to='/monitor/trips' title='Trips' hasBullet={true} />
-        <AsideMenuItem to='/monitor/addtrack' title='Add Track' hasBullet={true} />
+        {/* <AsideMenuItem to='/monitor/addtrack' title='Add Track' hasBullet={true} /> */}
         <AsideMenuItem to='/monitor/trackhistory' title='Track History' hasBullet={true} />
         <AsideMenuItem to='/monitor/searchtrip' title='Search Trip' hasBullet={true} />
       </AsideMenuItemWithSub>

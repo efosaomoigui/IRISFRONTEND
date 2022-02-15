@@ -51,7 +51,7 @@ export function ViewTrips() {
   const ModalTarget = [
     {
       linkTitle: 'Add Trip',
-      linkTarget: '#kt_modal_adduser'
+      linkTarget: '#kt_modal_addtrip'
     }
   ]
 
@@ -80,7 +80,7 @@ export function ViewTrips() {
           DeletePath={tableProvider.DeletePath}
           UseFakeData={true}
           FakeData={tableProvider.FakeData}
-          TableTitle={'User Profile'}
+          TableTitle={'Trips'}
           Count={'Over 300 Users'}
           ModalTarget={
             modalTarger

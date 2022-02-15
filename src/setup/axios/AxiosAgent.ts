@@ -1,6 +1,7 @@
 import axios, { AxiosResponse } from 'axios';
 import { IPermissionModel, IRoleModel, IUserModel } from '../../app/modules/auth/models/AuthInterfaces';
 import { IFulfilmentModel } from '../../app/modules/fulfillment/models/FulfilmentInterface';
+import { ISearchTripModel } from '../../app/modules/monitoring/Monitor models/MonitorInterface';
 import { IPaymentModel } from '../../app/modules/payment/PaymentModels/PaymentModel';
 import { IFleetModel, IRouteModel } from '../../app/modules/shipmentmanagement/ShipmentModels/ShipmentInterfaces';
 import { ShipmentModel } from '../../app/modules/shipmentmanagement/ShipmentModels/ShipmentModel';
@@ -107,10 +108,10 @@ const  PaymentLog = {
 
 // Monitoring Request Starts
 const  Monitoring = {
-  list: () => request.get<IUserModel[]>(`${API_URL}/UserManagement/GetUsers`),
-  details: (userid:string) => request.get<ShipmentModel>(`${API_URL}/UserManagement/GetUser/${userid}`), 
-  create: (users:IUserModel) => request.post<IUserModel>(`${API_URL}/UserManagement/GetUsers`, users), 
-  update: (users:IUserModel) => request.put<IUserModel>(`${API_URL}/UserManagement/GetUser${users.userId}`, {}), 
+  list: () => request.get<ISearchTripModel[]>(`${API_URL}/UserManagement/GetUsers`),
+  details: (searchtripid: string) => request.get<ShipmentModel>(`${API_URL}/UserManagement/GetUser/${searchtripid}`), 
+  create: (users: ISearchTripModel) => request.post<ISearchTripModel>(`${API_URL}/UserManagement/GetUsers`, users), 
+  update: (users: ISearchTripModel) => request.put<ISearchTripModel>(`${API_URL}/UserManagement/GetUser${users.userId}`, {}), 
   delete: (id:string) => request.del<void>(`${API_URL}/UserManagement/GetUser${id}`), 
 }
 

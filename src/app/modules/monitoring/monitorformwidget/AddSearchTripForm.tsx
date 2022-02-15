@@ -26,7 +26,7 @@ const options = [
     { text: 'four', value: 'Afganistan' },
 ]
 
-export default function AddTripForm(props: Props<ISearchTripModel>) {
+export default function AddSearchTripForm(props: Props<ISearchTripModel>) {
     const initialFormValue: ISearchTripModel = {
         userId: '',
         userName: '',
@@ -58,7 +58,7 @@ export default function AddTripForm(props: Props<ISearchTripModel>) {
                     <div className='modal-dialog modal-dialog-centered mw-900px'>
                         <div className='modal-content'>
                             <div className='modal-header'>
-                                <h2>Add Trip</h2>
+                                <h2>Create Trip</h2>
                                 <div
                                     className='btn btn-sm btn-icon btn-active-color-primary'
                                     data-bs-dismiss='modal'

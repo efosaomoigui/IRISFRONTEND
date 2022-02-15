@@ -3,14 +3,14 @@ import agent from '../../../../../../setup/axios/AxiosAgent'
 import { IUserModel } from '../../../../auth/models/AuthInterfaces'
 import { IrisTablesWidget } from '../../../../layout/tables/IrisTablesWidget'
 import { madalprops } from '../../../../layout/tables/IrisTableTitle'
-import { IAddTrackModel } from '../../../Monitor models/MonitorInterface'
+import { IAddTrackModel, ISearchTripModel } from '../../../Monitor models/MonitorInterface'
 import TrackHistory_Data from './TrackHistory_Data.json'
 // import {format} from 'date-fns' 
 
 export function ViewTrackHistory() {
   const [loading, setLoading] = useState(true)
   const [modalTarger, setModalTarget] = useState<madalprops[]>([]);
-  const [usersmodel, setUsersModel] = useState<IUserModel[]>([])
+  const [usersmodel, setUsersModel] = useState<ISearchTripModel[]>([])
 
   //all the data for the table
   const tableProvider = {
@@ -50,8 +50,8 @@ export function ViewTrackHistory() {
   //Buttons on the table page
   const ModalTarget = [
     {
-      linkTitle: 'Add User',
-      linkTarget: '#kt_modal_adduser'
+      linkTitle: 'Add Track',
+      linkTarget: '#kt_modal_addtrack'
     }
   ]
 
@@ -80,7 +80,7 @@ export function ViewTrackHistory() {
           DeletePath={tableProvider.DeletePath}
           UseFakeData={true}
           FakeData={tableProvider.FakeData}
-          TableTitle={'User Profile'}
+          TableTitle={'Track History'}
           Count={'Over 300 Users'}
           ModalTarget={
             modalTarger
