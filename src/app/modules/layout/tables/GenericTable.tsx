@@ -31,7 +31,9 @@ const GenericTable = ({irisData, columnsMap, DetailsPath, EditPath, DeletePath}:
     useRowSelect
   )
 
-  // console.log(":: ",userData);
+  // const selectedTableData = ()=>{
+  //   irisData.find(s => s.);
+  // }
 
   const {
     getTableProps,

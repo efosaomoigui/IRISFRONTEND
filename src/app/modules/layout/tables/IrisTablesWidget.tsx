@@ -41,7 +41,7 @@ const IrisTablesWidget: React.FC<Props> = ({
 
   return (
     <div className={`card ${className}`}>
-      {/* begin::Header */}
+      {/* begin::Header */} 
       <IrisTableHeading tableTitle={TableTitle} count={Count} modelTarget={ModalTarget} />
       {/* end::Header */}
 
