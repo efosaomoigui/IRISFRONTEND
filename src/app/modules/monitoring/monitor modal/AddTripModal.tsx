@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { v4 as uuid } from 'uuid';
 import agent from '../../../../setup/axios/AxiosAgent';
-import { ISearchTripModel } from '../Monitor models/MonitorInterface';
-import AddSearchTripForm from '../monitorformwidget/AddSearchTripForm';
+import { ITripModel } from '../Monitor models/MonitorInterface';
 import AddTripForm from '../monitorformwidget/AddTripForm';
 
 
@@ -11,10 +10,10 @@ const AddTripModal: React.FC = () => {
 
     const [isSubmitting, setIsSubmitting] = useState(false);
 
-    const onSubmit = (values: ISearchTripModel) => {
+    const onSubmit = (values: ITripModel) => {
         setIsSubmitting(true);
-        values.userId = uuid();
-        agent.Monitoring.create(values).then((response) => { console.log(response) });
+        values.id = uuid();
+        agent.Trip.create(values).then((response) => { console.log(response) });
         console.log("WW: ", values);
     };
 
