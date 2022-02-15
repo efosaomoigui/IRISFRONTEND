@@ -1,5 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
 import { IPermissionModel, IRoleModel, IUserModel } from '../../app/modules/auth/models/AuthInterfaces';
+import { IFulfilmentModel } from '../../app/modules/fulfillment/models/FulfilmentInterface';
 import { IPaymentModel } from '../../app/modules/payment/PaymentModels/PaymentModel';
 import { IFleetModel, IRouteModel } from '../../app/modules/shipmentmanagement/ShipmentModels/ShipmentInterfaces';
 import { ShipmentModel } from '../../app/modules/shipmentmanagement/ShipmentModels/ShipmentModel';
@@ -113,6 +114,15 @@ const  Monitoring = {
   delete: (id:string) => request.del<void>(`${API_URL}/UserManagement/GetUser${id}`), 
 }
 
+// Fulfilment Request Starts
+const Fulfilment = {
+  list: () => request.get<IFulfilmentModel[]>(`${API_URL}/UserManagement/GetUsers`),
+  details: (fulfilmentid: string) => request.get<ShipmentModel>(`${API_URL}/UserManagement/GetUser/${fulfilmentid}`),
+  create: (fulfilment: IFulfilmentModel) => request.post<IFulfilmentModel>(`${API_URL}/UserManagement/GetUsers`, fulfilment),
+  update: (fulfilment: IFulfilmentModel) => request.put<IFulfilmentModel>(`${API_URL}/UserManagement/GetUser${fulfilment.userId}`, {}),
+  delete: (id: string) => request.del<void>(`${API_URL}/UserManagement/GetUser${id}`),
+}
+
 
 const agent = {
   Users,
@@ -123,7 +133,8 @@ const agent = {
   Wallet,
   WalletTransaction,
   PaymentLog,
-  Monitoring
+  Monitoring,
+  Fulfilment
 }
 
 export default agent;

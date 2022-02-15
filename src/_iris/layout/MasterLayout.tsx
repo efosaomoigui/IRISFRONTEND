@@ -9,6 +9,7 @@ import { AddWalletModal } from '../../app/modules/walletmanagement/modals/AddWal
 import { AddWalletTransactionModal } from '../../app/modules/walletmanagement/modals/AddWalletTransactionModal'
 import { MenuComponent } from '../assets/ts/components'
 import { Main } from '../partials'
+import { AddTripModal } from '../partials/modals/trip/AddTripModal'
 import { AsideDefault } from './components/aside/AsideDefault'
 import { Content } from './components/Content'
 import { Footer } from './components/Footer'
@@ -66,6 +67,7 @@ const MasterLayout: React.FC = ({children}) => {
       <AddRouteModal />
       <AddPermissionModal />
       <AddRoleModal />
+      <AddTripModal />
 
       {/* scrolltop */}
       <ScrollTop />

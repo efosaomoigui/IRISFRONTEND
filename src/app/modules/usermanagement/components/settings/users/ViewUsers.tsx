@@ -1,6 +1,6 @@
-import {useEffect, useState} from 'react'
+import { useEffect, useState } from 'react'
 import agent from '../../../../../../setup/axios/AxiosAgent'
-import {IUserModel} from '../../../../auth/models/AuthInterfaces'
+import { IUserModel } from '../../../../auth/models/AuthInterfaces'
 import { IrisTablesWidget } from '../../../../layout/tables/IrisTablesWidget'
 import { madalprops } from '../../../../layout/tables/IrisTableTitle'
 import User_Data from './User_Data.json'
@@ -49,12 +49,12 @@ export function ViewUsers() {
   //Buttons on the table page
   const ModalTarget = [
     {
-      linkTitle:'Add User',
-      linkTarget : '#kt_modal_adduser'
+      linkTitle: 'Add User',
+      linkTarget: '#kt_modal_adduser'
     },
     {
-      linkTitle:'View User',
-      linkTarget : '#kt_modal_adduser'
+      linkTitle: 'View User',
+      linkTarget: '#kt_modal_adduser'
     }
   ]
 
@@ -63,7 +63,7 @@ export function ViewUsers() {
     agent.Users.list().then((response) => {
       setUsersModel(response)
       setModalTarget(ModalTarget);
-      setLoading(false) 
+      setLoading(false)
     })
   }, [])
 

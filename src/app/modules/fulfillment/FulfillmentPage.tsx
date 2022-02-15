@@ -1,7 +1,7 @@
 import React from 'react'
 import {Redirect, Route, Switch} from 'react-router-dom'
 import {PageLink, PageTitle} from '../../../_iris/layout/core'
-import { DeliverShipment } from './components/operations/DeliverShipment'
+import { DeliverShipment } from './components/operations/ViewDeliverShipment'
 import { FulfillmentHeader } from './FulfillmentHeader'
 
 
