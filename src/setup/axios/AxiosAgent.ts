@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from 'axios';
 import { IPermissionModel, IRoleModel, IUserModel } from '../../app/modules/auth/models/AuthInterfaces';
 import { IPaymentModel } from '../../app/modules/payment/PaymentModels/PaymentModel';
-import { IFleetModel, IRouteModel } from '../../app/modules/shipmentmanagement/ShipmentModels/ShipmentInterfaces';
+import { IFleetModel, IPriceModel, IRouteModel, IShipmentModel } from '../../app/modules/shipmentmanagement/ShipmentModels/ShipmentInterfaces';
 import { ShipmentModel } from '../../app/modules/shipmentmanagement/ShipmentModels/ShipmentModel';
 import { IWalletModel, IWalletTransactionModel } from '../../app/modules/walletmanagement/Models/WalletInterfaces';
 
@@ -86,12 +86,30 @@ const  Route = {
   delete: (id: string) => request.del<void>(`${API_URL}/ShipmentSettings/Route/${id}`), 
 }
 
+// Shipment Request Starts
+const  Shipment = {
+  list: () => request.get<IShipmentModel[]>(`${API_URL}/Shipment/Shipment/all`),
+  details: (shipmentid: string) => request.get<IShipmentModel>(`${API_URL}/Shipment/Shipment/GetShipmentById/${shipmentid}`), 
+  create: (shipment: IShipmentModel) => request.post<IShipmentModel>(`${API_URL}/Shipment/Shipment`, shipment), 
+  update: (shipment: IShipmentModel) => request.put<IRouteModel>(`${API_URL}/Shipment/Shipment/${shipment.ShipmentId}`, {}), 
+  delete: (id: string) => request.del<void>(`${API_URL}/Shipment/Shipment/${id}`), 
+}
+
 // Fleet Request Starts
 const  Fleet = {
   list: () => request.get<IFleetModel[]>(`${API_URL}/ShipmentSettings/Fleet/all`),
   details: (fleetid: string) => request.get<IFleetModel>(`${API_URL}/ShipmentSettings/Route/GetFleetById/${fleetid}`), 
   create: (fleet: IFleetModel) => request.post<IFleetModel>(`${API_URL}/ShipmentSettings/Fleet`, fleet), 
   update: (fleet: IFleetModel) => request.put<IFleetModel>(`${API_URL}/ShipmentSettings/Fleet/${fleet.FleetId}`, {}), 
+  delete: (id: string) => request.del<void>(`${API_URL}/ShipmentSettings/Fleet${id}`),  
+}
+
+// Fleet Request Starts
+const  Price = {
+  list: () => request.get<IPriceModel[]>(`${API_URL}/ShipmentSettings/Fleet/all`),
+  details: (id: string) => request.get<IPriceModel>(`${API_URL}/ShipmentSettings/Route/GetFleetById/${id}`), 
+  create: (price: IPriceModel) => request.post<IPriceModel>(`${API_URL}/ShipmentSettings/Fleet`, price), 
+  update: (price: IPriceModel) => request.put<IPriceModel>(`${API_URL}/ShipmentSettings/Fleet/${price.Id}`, {}), 
   delete: (id: string) => request.del<void>(`${API_URL}/ShipmentSettings/Fleet${id}`),  
 }
 
@@ -118,10 +136,12 @@ const agent = {
   Users,
   Roles,
   Route,
+  Shipment,
   Permissions,
   Fleet,
   Wallet,
   WalletTransaction,
+  Price,
   PaymentLog,
   Monitoring
 }

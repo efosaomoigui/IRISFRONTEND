@@ -3,14 +3,15 @@ import {Redirect, Route, Switch} from 'react-router-dom'
 import {PageLink, PageTitle} from '../../../_iris/layout/core'
 import {ShipmentHeader} from './ShipmentHeader'
 import { ViewRoutes } from './components/settings/ViewRoutes'
-import { ViewFleets } from './components/settings/ViewFleets'
-import { PriceSettings } from './components/settings/PriceSettings'
+import { ViewFleets} from './components/settings/ViewFleets'
 import { CaptureDomesticShipment } from './components/capture/CaptureDomesticShipment'
 import { CaptureFreightShipment } from './components/capture/CaptureFreightShipment'
 import { SortShipment } from './components/processingandpackaging/SortShipment'
 import { Manifest } from './components/processingandpackaging/Manifest'
 import { Dispatch } from './components/processingandpackaging/Dispatch'
 import { SearchShipment } from './components/search/SearchShipment'
+import { PriceSettings } from './components/settings/TableWidgetPrice'
+import { ViewShipments } from './components/settings/ViewShipments'
 
 const userBreadCrumbs: Array<PageLink> = [
   {
@@ -46,8 +47,14 @@ const ShipmentPage: React.FC = () => {
 
         <Route path='/shipment/pricesettings'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Price Settings</PageTitle>
-          <PriceSettings />
+          <PriceSettings/>
         </Route>
+
+        <Route path='/shipment/viewshipments'>
+          <PageTitle breadcrumbs={userBreadCrumbs}>View Shipments</PageTitle>
+          <ViewShipments/>
+        </Route>
+
         <Route path='/shipment/CaptureDomesticShipment'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Capture Domestic Shipment</PageTitle>
           <CaptureDomesticShipment />

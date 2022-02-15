@@ -2,85 +2,55 @@ import {useEffect, useState} from 'react'
 import agent from '../../../../../setup/axios/AxiosAgent'
 import { IrisTablesWidget } from '../../../layout/tables/IrisTablesWidget'
 import { madalprops } from '../../../layout/tables/IrisTableTitle'
-import RouteData from '../../RouteData.json'
-import { IRouteModel } from '../../ShipmentModels/ShipmentInterfaces'
+import ShipmentData from '../../ShipmentData.json'
+import { IShipmentModel } from '../../ShipmentModels/ShipmentInterfaces'
 // import {format} from 'date-fns' 
 
-export function ViewRoutes() {
+export function ViewShipments() {
   const [loading, setLoading] = useState(true)
   const [modalTarger, setModalTarget] = useState<madalprops[]>([]);
-  const [routemodel, setRouteModel] = useState<IRouteModel[]>([])
+  const [shipmentmodel, setShipmentModel] = useState<IShipmentModel[]>([])
 
   //all the data for the table
   const tableProvider = {
     columns: [
         {
-            Header: 'route Id',
-            accessor: 'route_Id',
+            Header: 'Id',
+            accessor: 'Id',
           },
           {
-            Header: 'route Name',
-            accessor: 'route_Name',
+            Header: 'First Name',
+            accessor: 'First Name',
           },
           {
-            Header: 'depature',
-            accessor: 'depature',
+            Header: 'Last Name',
+            accessor: 'LastName',
           },
           {
-            Header: 'destination',
-            accessor: 'destination',
+            Header: 'WayBill Number',
+            accessor: 'WayBillNumber',
           },
-          {
-            Header: 'is Sub Route',
-            accessor: 'is_Sub_Route',
-          },
-          {
-            Header: 'dispatch Fee',
-            accessor: 'dispatchFee',
-          },
-          {
-              Header: 'loader Fee',
-              accessor: 'loaderFee',
-          },
-          {
-              Header: 'captain Fee',
-              accessor: 'captainFee',
-          },
-          {
-              Header: 'main Route Id',
-              accessor: 'main_Route_Id',
-          },
-          {
-              Header: 'available At Terminal',
-              accessor: 'availabale_At_Terminal',
-          },
-          {
-              Header: 'available Online',
-              accessor: 'availabale_Online',
-          },
-          {
-              Header: 'Route Type',
-              accessor: 'route_Type',
-          },
+          
+          
         ],
     DetailsPath: '/adminSettings/userDetails/',
     EditPath: '/adminSettings/userDetails/',
     DeletePath: '/adminSettings/userDetails/',
-    FakeData: RouteData,
+    FakeData: ShipmentData,
   }
 
   //Buttons on the table page
   const ModalTarget = [
     {
-      linkTitle:'Add Route',
+      linkTitle:'Add Shipment',
       linkTarget : '#kt_modal_addroute'
     }
   ]
 
   // //USE EFFECT HOOK
   useEffect(() => {
-    agent.Route.list().then((response) => {
-      setRouteModel(response)
+    agent.Shipment.list().then((response) => {
+      setShipmentModel(response)
       setModalTarget(ModalTarget);
       setLoading(false) 
     })
@@ -94,7 +64,7 @@ export function ViewRoutes() {
     <div className='row g-5 g-xxl-8'>
       <div className='col-xl-12'>
         <IrisTablesWidget
-          tableData={routemodel}
+          tableData={shipmentmodel}
           className='mb-5 mb-xl-8'
           columnsMap={tableProvider.columns}
           DetailsPath={tableProvider.DetailsPath}
@@ -102,7 +72,7 @@ export function ViewRoutes() {
           DeletePath={tableProvider.DeletePath}
           UseFakeData={true}
           FakeData={tableProvider.FakeData}
-          TableTitle={'Route Profile'}
+          TableTitle={'Shipment Profile'}
           Count={'Over 300 Users'}
           ModalTarget={
             modalTarger

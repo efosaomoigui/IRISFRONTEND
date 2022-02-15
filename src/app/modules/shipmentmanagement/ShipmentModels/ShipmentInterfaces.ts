@@ -14,3 +14,16 @@ export interface IRouteModel {
     destinationCentreId: string
     Distance: string
 } 
+
+export interface IShipmentModel {
+    ShipmentId: string
+    WayBillNumber: string
+    FirstName: string
+    LastName: string
+} 
+export interface IPriceModel {
+    Id: string
+    WayBillPrice: string
+    RoutePrice: string
+    Currency: string
+} 
