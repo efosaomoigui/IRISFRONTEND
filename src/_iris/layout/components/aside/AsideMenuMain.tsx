@@ -98,18 +98,9 @@ export function AsideMenuMain() {
           title='Processing Center'
           fontIcon='bi-layers'
         >
-          <AsideMenuItem to='/shipment/SortShipment' title='Sort Shipment' hasBullet={true} />
+          {/* <AsideMenuItem to='/shipment/SortShipment' title='Sort Shipment' hasBullet={true} /> */}
           <AsideMenuItem to='/shipment/Manifest' title='Manifest' hasBullet={true} />
-          <AsideMenuItem to='/shipment/Dispatch' title='Dispatch' hasBullet={true} />
-        </AsideMenuItemWithSub>
-
-        <AsideMenuItemWithSub
-          to='/shipment'
-          icon='/media/icons/duotune/general/gen019.svg'
-          title='Search'
-          fontIcon='bi-layers'
-        >
-          <AsideMenuItem to='/shipment/SearchShipment' title='Search Shipment' hasBullet={true} />
+          {/* <AsideMenuItem to='/shipment/Dispatch' title='Dispatch' hasBullet={true} /> */}
         </AsideMenuItemWithSub>
 
         <AsideMenuItemWithSub

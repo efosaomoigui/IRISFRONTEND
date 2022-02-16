@@ -6,10 +6,7 @@ import { ViewRoutes } from './components/settings/ViewRoutes'
 import { ViewFleets} from './components/settings/ViewFleets'
 import { CaptureDomesticShipment } from './components/capture/CaptureDomesticShipment'
 import { CaptureFreightShipment } from './components/capture/CaptureFreightShipment'
-import { SortShipment } from './components/processingandpackaging/SortShipment'
 import { Manifest } from './components/processingandpackaging/Manifest'
-import { Dispatch } from './components/processingandpackaging/Dispatch'
-import { SearchShipment } from './components/search/SearchShipment'
 import { ViewShipments } from './components/settings/ViewShipments'
 import { ViewPriceSettings } from './components/settings/ViewPriceSettings'
 
@@ -62,22 +59,12 @@ const ShipmentPage: React.FC = () => {
         <Route path='/shipment/CaptureFreightShipment'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Capture Freight Shipment</PageTitle>
           <CaptureFreightShipment />
-        </Route><Route path='/shipment/SortShipment'>
-          <PageTitle breadcrumbs={userBreadCrumbs}>Sort Shipment</PageTitle>
-          <SortShipment />
         </Route>
         <Route path='/shipment/Manifest'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Manifest</PageTitle>
           <Manifest />
         </Route>
-        <Route path='/shipment/Dispatch'>
-          <PageTitle breadcrumbs={userBreadCrumbs}>Dispatch</PageTitle>
-          <Dispatch />
-        </Route>
-        <Route path='/shipment/SearchShipment'>
-          <PageTitle breadcrumbs={userBreadCrumbs}>Search Shipment</PageTitle>
-          <SearchShipment />
-        </Route>
+        
 
         <Redirect from='/shipment/' exact={true} to='/shipment/users' />
         <Redirect to='/shipment/users' />
