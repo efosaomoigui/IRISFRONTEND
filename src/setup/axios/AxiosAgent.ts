@@ -143,11 +143,11 @@ const TrackHistory = {
   delete: (id: string) => request.del<void>(`${API_URL}/Monitoring/GetUser${id}`),
 }
 // Fulfilment Request Starts
-const Fulfilment = {
+const CollectionCenter = {
   list: () => request.get<IFulfilmentModel[]>(`${API_URL}/UserManagement/GetUsers`),
-  details: (fulfilmentid: string) => request.get<ShipmentModel>(`${API_URL}/UserManagement/GetUser/${fulfilmentid}`),
-  create: (fulfilment: IFulfilmentModel) => request.post<IFulfilmentModel>(`${API_URL}/UserManagement/GetUsers`, fulfilment),
-  update: (fulfilment: IFulfilmentModel) => request.put<IFulfilmentModel>(`${API_URL}/UserManagement/GetUser${fulfilment.userId}`, {}),
+  details: (CollectionCenterid: string) => request.get<ShipmentModel>(`${API_URL}/UserManagement/GetUser/${CollectionCenterid}`),
+  create: (CollectionCenter: IFulfilmentModel) => request.post<IFulfilmentModel>(`${API_URL}/UserManagement/GetUsers`, CollectionCenter),
+  update: (CollectionCenter: IFulfilmentModel) => request.put<IFulfilmentModel>(`${API_URL}/UserManagement/GetUser${CollectionCenter.Id}`, {}),
   delete: (id: string) => request.del<void>(`${API_URL}/UserManagement/GetUser${id}`),
 }
 
@@ -164,7 +164,7 @@ const agent = {
   Price,
   PaymentLog,
   Trip,
-  Fulfilment,
+  CollectionCenter,
   TrackHistory
 }
 

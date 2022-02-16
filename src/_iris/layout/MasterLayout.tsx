@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
+import { AddCollectionCenterModal } from '../../app/modules/fulfillment/modals/AddCollectionCenterModal'
 import { AddTripModal } from '../../app/modules/monitoring/monitor modal/AddTripModal'
 import { AddFleetModal } from '../../app/modules/shipmentmanagement/modals/AddFleetModal'
 import { AddRouteModal } from '../../app/modules/shipmentmanagement/modals/AddRouteModal'
@@ -10,7 +11,7 @@ import { AddWalletModal } from '../../app/modules/walletmanagement/modals/AddWal
 import { AddWalletTransactionModal } from '../../app/modules/walletmanagement/modals/AddWalletTransactionModal'
 import { MenuComponent } from '../assets/ts/components'
 import { Main } from '../partials'
-import { AddPriceModal } from '../../app/modules/shipmentmanagement/modals/AddPriceModal'
+import { AddPriceModal } from '../partials/modals/prices/AddPriceModal'
 import { AsideDefault } from './components/aside/AsideDefault'
 import { Content } from './components/Content'
 import { Footer } from './components/Footer'
@@ -70,6 +71,7 @@ const MasterLayout: React.FC = ({children}) => {
       <AddRoleModal />
       <AddTripModal />
       <AddPriceModal />
+      <AddCollectionCenterModal />
 
       {/* scrolltop */}
       <ScrollTop />

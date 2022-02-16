@@ -1,5 +1,5 @@
 import React, {useMemo} from 'react'
-import Fulfilment_Data from './Fulfilment_Data.json'
+import CollectionCenter_Data from './CollectionCenter_Data.json'
 import {useTable, useSortBy} from 'react-table'
 import './CustomTable.css'
 import { IUserModel } from '../../../auth/models/AuthInterfaces'
@@ -8,34 +8,38 @@ import TableActionLinks from '../../../layout/tables/TableActionLinks'
 
 
 interface Props{
-  fulfilmentData:IFulfilmentModel | any ;
+  collectionCenterData:IFulfilmentModel | any ;
 }
 
-const FulfilmentTable = ({ fulfilmentData} : Props) => {
+const CollectionCenterTable = ({ collectionCenterData} : Props) => {
 
   const tableInstance = useTable({
     columns : useMemo(
       () => [
         {
-          Header: 'Wallet Number Id',
-          accessor: 'walletNumberId',
+          Header: 'Id',
+          accessor: 'Id',
         },
         {
-          Header: 'Number',
-          accessor: 'number',
+          Header: 'ShipmentId',
+          accessor: 'ShipmentId',
         },
         {
-          Header: 'Active',
-          accessor: 'isActive',
+          Header: 'Shipment',
+          accessor: 'Shipment',
         },
         {
-          Header: 'User Id',
-          accessor: 'userId',
+          Header: 'Collection Status',
+          accessor: 'CollectionStatus',
+        },
+        {
+          Header: 'UserId',
+          accessor: 'UserId',
         }
       ],
       []
     ),
-    data: useMemo(() => Fulfilment_Data, []),
+    data: useMemo(() => CollectionCenter_Data, []),
   }, useSortBy)
 
   const {getTableProps, getTableBodyProps, headerGroups, rows, prepareRow} = tableInstance
@@ -73,4 +77,4 @@ const FulfilmentTable = ({ fulfilmentData} : Props) => {
   )
 }
 
-export { FulfilmentTable };
+export { CollectionCenterTable };

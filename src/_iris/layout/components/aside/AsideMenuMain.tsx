@@ -210,14 +210,14 @@ export function AsideMenuMain() {
         </div>
       </div>
       <AsideMenuItemWithSub
-        to='/fulfillment/delivershipment'
+        to='/fulfillment/collectioncenter'
         icon='/media/icons/duotune/general/gen022.svg'
         title='Fulfillment'
         fontIcon='bi-layers'
       >
         <AsideMenuItem
-          to='/fulfillment/delivershipment'
-          title='Deliver Shipment'
+          to='/fulfillment/collectioncenter'
+          title='Collection Center'
           hasBullet={true}
         />
       </AsideMenuItemWithSub>
