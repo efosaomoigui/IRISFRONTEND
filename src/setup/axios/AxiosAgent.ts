@@ -5,7 +5,7 @@ import { ITrackHistoryModel, ITripModel } from '../../app/modules/monitoring/Mon
 
 
 import { IPaymentModel } from '../../app/modules/payment/PaymentModels/PaymentModel';
-import { IFleetModel, IPriceModel, IRouteModel, IShipmentModel } from '../../app/modules/shipmentmanagement/ShipmentModels/ShipmentInterfaces';
+import { IFleetModel, IManifestModel, IPriceModel, IRouteModel, IShipmentModel } from '../../app/modules/shipmentmanagement/ShipmentModels/ShipmentInterfaces';
 import { ShipmentModel } from '../../app/modules/shipmentmanagement/ShipmentModels/ShipmentModel';
 import { IWalletModel, IWalletTransactionModel } from '../../app/modules/walletmanagement/Models/WalletInterfaces';
 
@@ -92,11 +92,18 @@ const  Route = {
 
 // Shipment Request Starts
 const  Shipment = {
-  list: () => request.get<IShipmentModel[]>(`${API_URL}/Shipment/Shipment/all`),
-  details: (shipmentid: string) => request.get<IShipmentModel>(`${API_URL}/Shipment/Shipment/GetShipmentById/${shipmentid}`), 
-  create: (shipment: IShipmentModel) => request.post<IShipmentModel>(`${API_URL}/Shipment/Shipment`, shipment), 
-  update: (shipment: IShipmentModel) => request.put<IRouteModel>(`${API_URL}/Shipment/Shipment/${shipment.ShipmentId}`, {}), 
-  delete: (id: string) => request.del<void>(`${API_URL}/Shipment/Shipment/${id}`), 
+  list: () => request.get<IShipmentModel[]>(`${API_URL}/ShipmentSettings/Route/all`),
+  details: (shipmentid: string) => request.get<IShipmentModel>(`${API_URL}/ShipmentSettings/Route/GetRouteById/${shipmentid}`), 
+  create: (shipment: IShipmentModel) => request.post<IShipmentModel>(`${API_URL}/ShipmentSettings/Route`, shipment), 
+  update: (shipment: IShipmentModel) => request.put<IRouteModel>(`${API_URL}/ShipmentSettings/Route/${shipment.ShipmentId}`, {}), 
+  delete: (id: string) => request.del<void>(`${API_URL}/ShipmentSettings/Route/${id}`), 
+}
+const Manifest = {
+  list: () => request.get<IManifestModel[]>(`${API_URL}/Shipment/Shipment/all`),
+  details: (manifestid: string) => request.get<IManifestModel>(`${API_URL}/Shipment/Shipment/GetShipmentById/${manifestid}`),
+  create: (manifest: IManifestModel) => request.post<IManifestModel>(`${API_URL}/Shipment/Shipment`, manifest),
+  update: (manifest: IManifestModel) => request.put<IManifestModel>(`${API_URL}/Shipment/Shipment/${manifest.Id}`, {}),
+  delete: (id: string) => request.del<void>(`${API_URL}/Shipment/Shipment/${id}`),
 }
 
 // Fleet Request Starts
@@ -165,7 +172,8 @@ const agent = {
   PaymentLog,
   Trip,
   CollectionCenter,
-  TrackHistory
+  TrackHistory,
+  Manifest
 }
 
 export default agent;

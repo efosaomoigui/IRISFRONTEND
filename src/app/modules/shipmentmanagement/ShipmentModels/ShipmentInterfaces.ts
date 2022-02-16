@@ -29,3 +29,10 @@ export interface IPriceModel {
     UnitWeight: number;
     PricePErUnit: string;
 } 
+export interface IManifestModel {
+    Id: string;
+    ManifestCode: string;
+    GroupWayBillId: string;
+    GroupWayBill: string;
+    UserId: string;
+} 

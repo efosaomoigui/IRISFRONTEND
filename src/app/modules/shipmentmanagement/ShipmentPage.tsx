@@ -6,9 +6,10 @@ import { ViewRoutes } from './components/settings/ViewRoutes'
 import { ViewFleets} from './components/settings/ViewFleets'
 import { CaptureDomesticShipment } from './components/capture/CaptureDomesticShipment'
 import { CaptureFreightShipment } from './components/capture/CaptureFreightShipment'
-import { Manifest } from './components/processingandpackaging/Manifest'
+
 import { ViewShipments } from './components/settings/ViewShipments'
 import { ViewPriceSettings } from './components/settings/ViewPriceSettings'
+import { Manifest } from './components/processingandpackaging/Manifest'
 
 const userBreadCrumbs: Array<PageLink> = [
   {
