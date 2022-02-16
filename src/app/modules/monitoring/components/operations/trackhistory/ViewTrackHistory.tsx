@@ -3,42 +3,45 @@ import agent from '../../../../../../setup/axios/AxiosAgent'
 import { IUserModel } from '../../../../auth/models/AuthInterfaces'
 import { IrisTablesWidget } from '../../../../layout/tables/IrisTablesWidget'
 import { madalprops } from '../../../../layout/tables/IrisTableTitle'
-import { IAddTrackModel, ISearchTripModel } from '../../../Monitor models/MonitorInterface'
+import { ITrackHistoryModel, ITripModel } from '../../../Monitor models/MonitorInterface'
 import TrackHistory_Data from './TrackHistory_Data.json'
 // import {format} from 'date-fns' 
 
 export function ViewTrackHistory() {
   const [loading, setLoading] = useState(true)
   const [modalTarger, setModalTarget] = useState<madalprops[]>([]);
-  const [usersmodel, setUsersModel] = useState<ISearchTripModel[]>([])
+  const [trackhistorymodel, setUsersModel] = useState<ITrackHistoryModel[]>([])
 
   //all the data for the table
   const tableProvider = {
     columns: [
       {
-        Header: 'User Id',
-        accessor: 'userId',
-        // cell:({ value }) => {return format(new Date(value), 'dd/MM/YYYY')}
+        Header: 'Id',
+        accessor: 'id',
       },
       {
-        Header: 'User Name',
-        accessor: 'userName',
+        Header: 'TripId',
+        accessor: 'TripId',
       },
       {
-        Header: 'First Name',
-        accessor: 'firstName',
+        Header: 'Trip',
+        accessor: 'Trip',
       },
       {
-        Header: 'Last Name',
-        accessor: 'lastName',
+        Header: 'Action',
+        accessor: 'Action',
       },
       {
-        Header: 'Email',
-        accessor: 'email',
+        Header: 'Locaton',
+        accessor: 'Locaton',
       },
       {
-        Header: 'Phone Number',
-        accessor: 'phoneNumber',
+        Header: 'TimeStamp',
+        accessor: 'TimeStamp',
+      },
+      {
+        Header: 'Status',
+        accessor: 'Status',
       },
     ],
     DetailsPath: '/adminSettings/userDetails/',
@@ -57,10 +60,10 @@ export function ViewTrackHistory() {
 
   // //USE EFFECT HOOK
   useEffect(() => {
-    agent.Users.list().then((response) => {
+    agent.TrackHistory.list().then((response) => {
       setUsersModel(response)
       setModalTarget(ModalTarget);
-      setLoading(false)
+      setLoading(true)
     })
   }, [])
 
@@ -72,7 +75,7 @@ export function ViewTrackHistory() {
     <div className='row g-5 g-xxl-8'>
       <div className='col-xl-12'>
         <IrisTablesWidget
-          tableData={usersmodel}
+          tableData={trackhistorymodel}
           className='mb-5 mb-xl-8'
           columnsMap={tableProvider.columns}
           DetailsPath={tableProvider.DetailsPath}

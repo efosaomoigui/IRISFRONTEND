@@ -5,7 +5,8 @@ import * as Yup from 'yup'
 import { KTSVG } from '../../../../_iris/helpers'
 import IrisTextInput from '../../layout/forms/IrisTextInput'
 import IrisSelectInput from '../../layout/forms/IrisSelectInput'
-import { ISearchTripModel } from '../Monitor models/MonitorInterface'
+import { ITripModel } from '../Monitor models/MonitorInterface'
+
 
 
 
@@ -26,24 +27,36 @@ const options = [
     { text: 'four', value: 'Afganistan' },
 ]
 
-export default function AddTripForm(props: Props<ISearchTripModel>) {
-    const initialFormValue: ISearchTripModel = {
-        userId: '',
-        userName: '',
-        password: '',
-        firstName: '',
-        lastName: '',
-        email: '',
-        phonenumber: '',
+export default function AddTripForm(props: Props<ITripModel>) {
+    const initialFormValue: ITripModel = {
+        id: '',
+        TripReference: '',
+        RouteCode: '',
+        fleetid: '',
+        fleet: '',
+        ManifestId: '',
+        manifest: '',
+        Driver: '',
+        Dispatcher: '',
+        DriverDispatchFee: '',
+        Miscelleneous: '',
+        FuelCosts: '',
+        FuelUsed: '',
+        StartTime: '',
+        EndTime: '',
+        status: '',
     }
 
     const validationSchema = Yup.object({
-        userName: Yup.string().required(),
-        firstName: Yup.string().required(),
-        password: Yup.string().required(),
-        lastName: Yup.string().required(),
-        email: Yup.string().required(),
-        phonenumber: Yup.string().required(),
+        TripReference: Yup.string().required(),
+        RouteCode: Yup.string().required(),
+        fleetid: Yup.string().required(),
+        ManifestId: Yup.string().required(),
+        Driver: Yup.string().required(),
+        Dispatcher: Yup.string().required(),
+        DriverDispatchFee: Yup.string().required(),
+        StartTime: Yup.string().required(),
+        EndTime: Yup.string().required(),
     })
 
     return (
@@ -70,34 +83,34 @@ export default function AddTripForm(props: Props<ISearchTripModel>) {
                             <div className='modal-body py-lg-10 px-lg-10'>
                                 <IrisTextInput
                                     type='text'
-                                    name='userName'
-                                    placeholder='User Name'
-                                    label='User name'
+                                    name='TripReference'
+                                    placeholder='Trip Reference'
+                                    label='Trip Reference'
                                 />
                                 <IrisTextInput
                                     type='text'
-                                    placeholder='FirstName'
-                                    name='firstName'
-                                    label='First Name'
+                                    placeholder='fleetid'
+                                    name='fleetid'
+                                    label='fleetid'
                                 />
                                 <IrisTextInput
                                     type='text'
-                                    placeholder='Last Name'
-                                    name='lastName'
-                                    label='Last Name'
+                                    placeholder='Driver'
+                                    name='Driver'
+                                    label='Driver'
                                 />
                                 <IrisTextInput
-                                    type='email'
-                                    placeholder='Email'
-                                    name='email'
-                                    label='Email'
+                                    type='text'
+                                    placeholder='FuelCosts'
+                                    name='FuelCosts'
+                                    label='FuelCosts'
                                 />
 
                                 <IrisTextInput
                                     type='text'
-                                    placeholder='Phone Number='
-                                    name='phonenumber'
-                                    label='Phone Number'
+                                    placeholder='Dispatcher'
+                                    name='Dispatcher'
+                                    label='Dispatcher'
                                 />
 
                                 {/* <IrisDatePicker
@@ -108,7 +121,7 @@ export default function AddTripForm(props: Props<ISearchTripModel>) {
                   dateFormat='MMM d, yyyy h:mm: aa'
                 /> */}
 
-                                <IrisTextInput
+                                {/* <IrisTextInput
                                     type='password'
                                     placeholder='Password'
                                     name='password'
@@ -120,7 +133,7 @@ export default function AddTripForm(props: Props<ISearchTripModel>) {
                                     placeholder='category'
                                     name='category'
                                     label='Category'
-                                />
+                                /> */}
 
                             </div>
 

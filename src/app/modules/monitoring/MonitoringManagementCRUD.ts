@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { IPermissionModel, IRoleModel } from '../auth/models/AuthInterfaces'
-import { ISearchTripModel } from './Monitor models/MonitorInterface'
+import { ITripModel } from './Monitor models/MonitorInterface'
 
 
 const API_URL = process.env.REACT_APP_API_URL
@@ -12,17 +12,17 @@ export const GET_PERMISSION_URL = `${API_URL}/UserManagement/AddPermissionToRole
 
 
 export function getUserByToken(token:string) {
-  return axios.post<ISearchTripModel>(GET_SEARCHTRIP_URL, {
+  return axios.post<ITripModel>(GET_SEARCHTRIP_URL, {
     api_token:token
   })
 }
 
 export function getUsers() {
-  return axios.get<ISearchTripModel[]>(GET_SEARCHTRIP_URL)
+  return axios.get<ITripModel[]>(GET_SEARCHTRIP_URL)
 }
 
 export function getUserById(userid : string) {
-  return axios.get<ISearchTripModel[]>(GET_SEARCHTRIP_URL)
+  return axios.get<ITripModel[]>(GET_SEARCHTRIP_URL)
 }
 
 
