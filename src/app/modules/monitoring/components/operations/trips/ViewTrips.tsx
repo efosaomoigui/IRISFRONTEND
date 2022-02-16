@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import agent from '../../../../../../setup/axios/AxiosAgent'
+import LoadingComponent from '../../../../../LoadingComponent'
 import { IrisTablesWidget } from '../../../../layout/tables/IrisTablesWidget'
 import { madalprops } from '../../../../layout/tables/IrisTableTitle'
 import { ITripModel } from '../../../Monitor models/MonitorInterface'
@@ -15,36 +16,45 @@ export function ViewTrips() {
   const tableProvider = {
     columns: [
       {
+        Header: 'Trip Id',
+        accessor: 'id',
+      },
+      {
         Header: 'Trip Reference',
         accessor: 'TripReference',
       },
       {
         Header: 'Route Code',
-        accessor: 'RouteCode ',
+        accessor: 'RouteCode',
       },
       {
         Header: 'Fleet Id',
-        accessor: 'fleetid ',
-      },
-      {
-        Header: 'Fleet',
-        accessor: 'fleet ',
+        accessor: 'fleetid',
       },
       {
         Header: 'Manifest Id',
-        accessor: 'ManifestId ',
-      },
-      {
-        Header: 'Manifest',
-        accessor: 'manifest  ',
+        accessor: 'ManifestId',
       },
       {
         Header: 'Driver',
-        accessor: 'Driver  ',
+        accessor: 'Driver',
       },
       {
         Header: 'Dispatcher',
-        accessor: 'Dispatcher  ',
+        accessor: 'Dispatcher',
+      },
+      {
+        Header: 'Driver Dispatch Fee ',
+        accessor: 'DriverDispatchFee',
+      },
+
+      {
+        Header: 'Start Time',
+        accessor: 'StartTime',
+      },
+      {
+        Header: 'End Time',
+        accessor: 'EndTime',
       },
      
     
@@ -74,7 +84,7 @@ export function ViewTrips() {
 
   // console.log(usersmodel);
 
-  // if (loading) return <LoadingComponent content='Loading...' />
+  if (loading) return <LoadingComponent content='Loading...' />
 
   return (
     <div className='row g-5 g-xxl-8'>

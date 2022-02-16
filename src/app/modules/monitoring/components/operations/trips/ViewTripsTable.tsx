@@ -15,6 +15,10 @@ const ViewTripsTable = ({ TripData} : Props) => {
     columns : useMemo(
       () => [
         {
+          Header: 'Trip Id',
+          accessor: 'id',
+        },
+        {
           Header: 'Trip Reference',
           accessor: 'TripReference',
         },
@@ -27,16 +31,8 @@ const ViewTripsTable = ({ TripData} : Props) => {
           accessor: 'fleetid',
         },
         {
-          Header: 'Fleet',
-          accessor: 'fleet',
-        },
-        {
           Header: 'Manifest Id',
           accessor: 'ManifestId',
-        },
-        {
-          Header: 'Manifest',
-          accessor: 'manifest',
         },
         {
           Header: 'Driver',
@@ -50,29 +46,14 @@ const ViewTripsTable = ({ TripData} : Props) => {
           Header: 'Driver Dispatch Fee ',
           accessor: 'DriverDispatchFee',
         },
+       
         {
-          Header: 'Miscelleneous',
-          accessor: 'Miscelleneous',
-        },
-        {
-          Header: 'FuelCosts',
-          accessor: 'FuelCosts',
-        },
-        {
-          Header: 'Fuel Used',
-          accessor: 'FuelUsed',
-        },
-        {
-          Header: 'FuelCosts',
+          Header: 'Start Time',
           accessor: 'StartTime',
         },
         {
-          Header: 'FuelCosts',
+          Header: 'End Time',
           accessor: 'EndTime',
-        },
-        {
-          Header: 'FuelCosts',
-          accessor: 'status',
         },
       ],
       []

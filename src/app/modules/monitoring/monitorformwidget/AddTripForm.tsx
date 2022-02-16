@@ -48,12 +48,15 @@ export default function AddTripForm(props: Props<ITripModel>) {
     }
 
     const validationSchema = Yup.object({
-        userName: Yup.string().required(),
-        firstName: Yup.string().required(),
-        password: Yup.string().required(),
-        lastName: Yup.string().required(),
-        email: Yup.string().required(),
-        phonenumber: Yup.string().required(),
+        TripReference: Yup.string().required(),
+        RouteCode: Yup.string().required(),
+        fleetid: Yup.string().required(),
+        ManifestId: Yup.string().required(),
+        Driver: Yup.string().required(),
+        Dispatcher: Yup.string().required(),
+        DriverDispatchFee: Yup.string().required(),
+        StartTime: Yup.string().required(),
+        EndTime: Yup.string().required(),
     })
 
     return (
