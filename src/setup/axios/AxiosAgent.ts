@@ -113,7 +113,7 @@ const  Price = {
   list: () => request.get<IPriceModel[]>(`${API_URL}/ShipmentSettings/Fleet/all`),
   details: (id: string) => request.get<IPriceModel>(`${API_URL}/ShipmentSettings/Route/GetFleetById/${id}`), 
   create: (price: IPriceModel) => request.post<IPriceModel>(`${API_URL}/ShipmentSettings/Fleet`, price), 
-  update: (price: IPriceModel) => request.put<IPriceModel>(`${API_URL}/ShipmentSettings/Fleet/${price.Id}`, {}), 
+  update: (price: IPriceModel) => request.put<IPriceModel>(`${API_URL}/ShipmentSettings/Fleet/${price.id}`, {}), 
   delete: (id: string) => request.del<void>(`${API_URL}/ShipmentSettings/Fleet${id}`),  
 }
 

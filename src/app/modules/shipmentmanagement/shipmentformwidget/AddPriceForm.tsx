@@ -25,17 +25,21 @@ const options = [
 
 export default function AddPriceForm(props: Props<IPriceModel>) {
   const initialFormValue: IPriceModel = {
-    Id: '',
-    WayBillPrice: '',
-    RoutePrice: '',
-    Currency: '',
+    id: '',
+    Category: '',
+    RouteId: '',
+    Route: '',
+    UnitWeight: 3,
+    PricePErUnit: ''
   }
 
   const validationSchema = Yup.object({
-    Id: Yup.string().required(),
-    WayBillPrice: Yup.string().required(),
-    RoutePrice: Yup.string().required(),
-    Currency: Yup.string().required(),
+    id: Yup.string().required(),
+    Category: Yup.string().required(),
+    RouteId: Yup.string().required(),
+    Route: Yup.string().required(),
+    UnitWeight: Yup.number().required(),
+    PricePErUnit: Yup.string().required(),
   })
 
   return (
@@ -66,25 +70,32 @@ export default function AddPriceForm(props: Props<IPriceModel>) {
                   placeholder='Id'
                   label='Id'
                 />
+                {/* <IrisTextInput
+                  type='text'
+                  placeholder='Category'
+                  name='Category'
+                  // label='Category'
+                /> */}
                 <IrisTextInput
                   type='number'
-                  placeholder='WayBillPrice'
-                  name='wayBill Price'
-                  label='WayBillPrice'
+                  placeholder='RouteId'
+                  name='RouteId'
+                  label='RouteId'
                 />
-                <IrisTextInput
-                  type='number'
-                  placeholder='Route Price'
-                  name='routePrice'
-                  label='Route Price'
-                />
-                <IrisTextInput type='email' placeholder='Email' name='email' label='Email' />
+                <IrisTextInput type='text' placeholder='Route' name='Route' label='Route' />
 
                 <IrisTextInput
-                  type='text'
-                  placeholder='Currency'
-                  name='currency'
-                  label='Currency'
+                  type='number'
+                  placeholder='UnitWeight'
+                  name='UnitWeight'
+                  label='UnitWeight'
+                />
+
+                <IrisTextInput
+                  type='number'
+                  placeholder='PricePErUnit'
+                  name='PricePErUnit'
+                  label='PricePErUnit'
                 />
 
                 {/* <IrisDatePicker

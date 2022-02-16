@@ -19,16 +19,24 @@ export function ViewPriceSettings() {
         accessor: 'id',
       },
       {
-        Header: 'WayBill Price',
-        accessor: 'Way_Bill_Price',
+        Header: 'Category List',
+        accessor: 'Category ',
       },
       {
-        Header: 'Route Price',
-        accessor: 'Route_Price',
+        Header: 'Route Identification',
+        accessor: 'RouteId ',
       },
       {
-        Header: 'Currency',
-        accessor: 'Currency',
+        Header: 'Route',
+        accessor: 'Route',
+      },
+      {
+        Header: 'Unit Weight',
+        accessor: 'UnitWeight',
+      },
+      {
+        Header: 'Price Per-Unit',
+        accessor: 'PricePErUnit',
       },
     ],
     DetailsPath: '/adminSettings/userDetails/',
