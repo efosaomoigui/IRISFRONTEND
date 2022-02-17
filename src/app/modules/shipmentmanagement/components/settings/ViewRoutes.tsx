@@ -30,10 +30,10 @@ export function ViewRoutes() {
             Header: 'destination',
             accessor: 'destination',
           },
-          {
-            Header: 'is Sub Route',
-            accessor: 'is_Sub_Route',
-          },
+          // {
+          //   Header: 'is Sub Route',
+          //   accessor: 'is_Sub_Route',
+          // },
           {
             Header: 'dispatch Fee',
             accessor: 'dispatchFee',
@@ -50,18 +50,18 @@ export function ViewRoutes() {
               Header: 'main Route Id',
               accessor: 'main_Route_Id',
           },
-          {
-              Header: 'available At Terminal',
-              accessor: 'availabale_At_Terminal',
-          },
-          {
-              Header: 'available Online',
-              accessor: 'availabale_Online',
-          },
-          {
-              Header: 'Route Type',
-              accessor: 'route_Type',
-          },
+          // {
+          //     Header: 'available At Terminal',
+          //     accessor: 'availabale_At_Terminal',
+          // },
+          // {
+          //     Header: 'available Online',
+          //     accessor: 'availabale_Online',
+          // },
+          // {
+          //     Header: 'Route Type',
+          //     accessor: 'route_Type',
+          // },
         ],
     DetailsPath: '/adminSettings/userDetails/',
     EditPath: '/adminSettings/userDetails/',

@@ -1,19 +1,21 @@
 
-export interface IWalletModel {
-   
-    
-    walletNumberId: string
-    number: string
-    isActive: true
-    userId: string
+export interface IWalletModel { 
+    WalletTransactionId: string
+    Amount: string
+    TransactionType: string
+    Description: string
+    WalletNumber: string
+    DateCreated: string
     
 }
 
 export interface IWalletTransactionModel {
-    walletNumberId: string
-    number: string
-    isActive: true
-    userId: string
+    WalletTransactionId: string
+    Amount: string
+    TransactionType: string
+    Description: string
+    WalletNumber: string
+    DateCreated: string
 }
 
 export interface IAddWalletModel {

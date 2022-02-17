@@ -2,33 +2,41 @@ import { useEffect, useState } from 'react'
 import agent from '../../../../../setup/axios/AxiosAgent';
 import { IrisTablesWidget } from '../../../layout/tables/IrisTablesWidget';
 import { madalprops } from '../../../layout/tables/IrisTableTitle';
-import { IWalletTransactionModel } from '../../Models/WalletInterfaces'
-import WalletTransaction_Data from './Wallet_Data.json'
+import { IWalletModel, IWalletTransactionModel } from '../../Models/WalletInterfaces'
+import WalletTransaction_Data from './WalletTransaction_Data.json'
 // import {format} from 'date-fns' 
 
 export function WalletTransaction() {
   const [loading, setLoading] = useState(true)
   const [modalTarger, setModalTarget] = useState<madalprops[]>([]);
-  const [wallettransactionmodel, setUsersModel] = useState<IWalletTransactionModel[]>([])
+  const [walletmodel, setUsersModel] = useState<IWalletTransactionModel[]>([])
 
   //all the data for the table
   const tableProvider = {
     columns: [
       {
+        Header: 'WalletTransaction Id',
+        accessor: 'WalletTransactionId',
+      },
+      {
+        Header: 'Amount',
+        accessor: 'Amount',
+      },
+      {
+        Header: 'Transaction Type',
+        accessor: 'TransactionType',
+      },
+      {
+        Header: 'Description',
+        accessor: 'Description',
+      },
+      {
         Header: 'Wallet Number',
-        accessor: 'walletNumberId',
+        accessor: 'WalletNumber',
       },
       {
-        Header: 'Active',
-        accessor: 'isActive',
-      },
-      // {
-      //   Header: 'First Name',
-      //   accessor: 'firstName',
-      // },
-      {
-        Header: 'User Id',
-        accessor: 'userId',
+        Header: 'Date Created',
+        accessor: 'DateCreated',
       },
     ],
     DetailsPath: '/adminSettings/userDetails/',
@@ -40,7 +48,7 @@ export function WalletTransaction() {
   //Buttons on the table page
   const ModalTarget = [
     {
-      linkTitle: 'Add Wallet transaction',
+      linkTitle: 'Add Wallet Transaction',
       linkTarget: '#kt_modal_addwallettransaction'
     }
 
@@ -63,7 +71,7 @@ export function WalletTransaction() {
     <div className='row g-5 g-xxl-8'>
       <div className='col-xl-12'>
         <IrisTablesWidget
-          tableData={wallettransactionmodel}
+          tableData={walletmodel}
           className='mb-5 mb-xl-8'
           columnsMap={tableProvider.columns}
           DetailsPath={tableProvider.DetailsPath}

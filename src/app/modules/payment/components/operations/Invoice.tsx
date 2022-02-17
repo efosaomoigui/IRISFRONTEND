@@ -2,61 +2,54 @@ import { useEffect, useState } from 'react'
 import agent from '../../../../../setup/axios/AxiosAgent';
 import { IrisTablesWidget } from '../../../layout/tables/IrisTablesWidget';
 import { madalprops } from '../../../layout/tables/IrisTableTitle';
-import { IWalletModel } from '../../Models/WalletInterfaces'
-import Wallet_Data from './Wallet_Data.json'
+import { IInvoiceModel } from '../../PaymentModels/PaymentmentInterfaces';
+
+import Invoice_Data from './Invoice_Data.json'
 // import {format} from 'date-fns' 
 
-export function ViewWallet() {
+export function Invoice() {
   const [loading, setLoading] = useState(true)
   const [modalTarger, setModalTarget] = useState<madalprops[]>([]);
-  const [walletmodel, setUsersModel] = useState<IWalletModel[]>([])
+  const [invoicemodel, setUsersModel] = useState<IInvoiceModel[]>([])
 
   //all the data for the table
   const tableProvider = {
     columns: [
       {
-        Header: 'WalletTransaction Id',
-        accessor: 'WalletTransactionId',
+        Header: 'Invoice Code',
+        accessor: 'InvoiceCode',
+        // cell:({ value }) => {return format(new Date(value), 'dd/MM/YYYY')}
       },
       {
-        Header: 'Amount',
-        accessor: 'Amount',
+        Header: 'Shipment Id ',
+        accessor: 'ShipmentId ',
       },
       {
-        Header: 'Transaction Type',
-        accessor: 'TransactionType',
+        Header: 'Shipment',
+        accessor: 'Shipment',
       },
       {
-        Header: 'Description',
-        accessor: 'Description',
-      },
-      {
-        Header: 'Wallet Number',
-        accessor: 'WalletNumber',
-      },
-      {
-        Header: 'Date Created',
-        accessor: 'DateCreated',
+        Header: 'PaymentMethod',
+        accessor: 'PaymentMethod',
       },
     ],
     DetailsPath: '/adminSettings/userDetails/',
     EditPath: '/adminSettings/userDetails/',
     DeletePath: '/adminSettings/userDetails/',
-    FakeData: Wallet_Data,
+    FakeData: Invoice_Data,
   }
 
   //Buttons on the table page
   const ModalTarget = [
     {
-      linkTitle: 'Add Wallet',
-      linkTarget: '#kt_modal_addwallet'
-    }
-    
+      linkTitle: 'Add Invoice',
+      linkTarget: '#kt_modal_addinvoice'
+    },
   ]
 
   // //USE EFFECT HOOK
   useEffect(() => {
-    agent.Wallet.list().then((response) => {
+    agent.Invoice.list().then((response) => {
       setUsersModel(response)
       setModalTarget(ModalTarget);
       setLoading(false)
@@ -71,7 +64,7 @@ export function ViewWallet() {
     <div className='row g-5 g-xxl-8'>
       <div className='col-xl-12'>
         <IrisTablesWidget
-          tableData={walletmodel}
+          tableData={invoicemodel}
           className='mb-5 mb-xl-8'
           columnsMap={tableProvider.columns}
           DetailsPath={tableProvider.DetailsPath}
@@ -79,7 +72,7 @@ export function ViewWallet() {
           DeletePath={tableProvider.DeletePath}
           UseFakeData={true}
           FakeData={tableProvider.FakeData}
-          TableTitle={'Wallet'}
+          TableTitle={'Invoice'}
           Count={'Over 300 Users'}
           ModalTarget={
             modalTarger

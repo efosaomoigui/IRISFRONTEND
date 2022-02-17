@@ -3,6 +3,7 @@ import { Modal } from 'react-bootstrap-v5'
 import { Button } from 'semantic-ui-react'
 import * as Yup from 'yup'
 import { KTSVG } from '../../../../_iris/helpers'
+import IrisDatePicker from '../../layout/forms/IrisDatePicker'
 import IrisSelectInput from '../../layout/forms/IrisSelectInput'
 import IrisTextInput from '../../layout/forms/IrisTextInput'
 import { IWalletModel } from '../Models/WalletInterfaces'
@@ -26,17 +27,21 @@ const options = [
 
 export default function AddWalletForm(props: Props<IWalletModel>) {
   const initialFormValue: IWalletModel = {
-    walletNumberId: '',
-    number: '',
-    isActive: true,
-    userId: ''
+    WalletTransactionId: '',
+    Amount: '',
+    TransactionType: '',
+    Description: '',
+    WalletNumber: '',
+    DateCreated: ''
   }
 
   const validationSchema = Yup.object({
-    walletNumberId: Yup.string().required(),
-    number: Yup.string().required(),
-    userId: Yup.string().required(),
-    isActive: Yup.string().required()
+    WalletTransactionId: Yup.string().required(),
+    Amount: Yup.string().required(),
+    TransactionType: Yup.string().required(),
+    Description: Yup.string().required(),
+    WalletNumber: Yup.string().required(),
+    DateCreated: Yup.string().required()
   })
 
   return (
@@ -63,49 +68,49 @@ export default function AddWalletForm(props: Props<IWalletModel>) {
               <div className='modal-body py-lg-10 px-lg-10'>
                 <IrisTextInput
                   type='text'
-                  name='walletNumberId'
-                  placeholder='Wallet Number Id'
-                  label='Wallet Number Id'
+                  name='WalletTransactionId'
+                  placeholder='WalletTransaction Id'
+                  label='WalletTransaction Id'
                 />
                 <IrisTextInput
                   type='text'
-                  placeholder='Number'
-                  name='number'
-                  label='number'
+                  placeholder='Amount'
+                  name='Amount'
+                  label='Amount'
                 />
-                <IrisSelectInput
+                {/* <IrisSelectInput
                   options={options}
                   placeholder=''
                   name='isActive'
                   label='Active'
-                />
-                <IrisTextInput
-                  type='text'
-                  placeholder='User Id'
-                  name='userId'
-                  label='User Id'
-                />
-                {/* <IrisTextInput
-                  type='email'
-                  placeholder='Email'
-                  name='email'
-                  label='Email'
-                />
-
-                <IrisTextInput
-                  type='text'
-                  placeholder='Phone Number='
-                  name='phonenumber'
-                  label='Phone Number'
                 /> */}
+                <IrisTextInput
+                  type='text'
+                  placeholder='Transaction Type'
+                  name='TransactionType'
+                  label='Transaction Type'
+                />
+                <IrisTextInput
+                  type='text'
+                  placeholder='Description'
+                  name='Description'
+                  label='Description'
+                />
 
-                {/* <IrisDatePicker
+                <IrisTextInput
+                  type='text'
+                  placeholder='WalletNumber'
+                  name='WalletNumber'
+                  label='WalletNumber'
+                />
+
+                <IrisDatePicker
                   placeholderText='Date'
-                  name='date'
+                  name='DateCreated'
                   showTimeSelect
-                  timeCaption='time'
+                  timeCaption='DateCreated'
                   dateFormat='MMM d, yyyy h:mm: aa'
-                /> */}
+                />
 
                 {/* <IrisTextInput
                   type='password'

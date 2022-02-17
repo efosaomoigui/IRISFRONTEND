@@ -20,16 +20,20 @@ export function ViewPermissions() {
   const tableProvider = {
     columns: [
         {
-          Header: 'Permission Id',
-          accessor: 'PermissionId',
-        },
-        {
           Header: 'Role Id',
           accessor: 'roleId',
         },
+      {
+        Header: 'Permission id',
+        accessor: 'PermissionId',
+      },
+        {
+          Header: 'Permission Type',
+          accessor: 'PermissionType',
+        },
         {
           Header: 'Permission',
-          accessor: 'claimValue',
+          accessor: 'Permission',
         },
     ],
     DetailsPath: '',
@@ -40,8 +44,8 @@ export function ViewPermissions() {
 
   const ModalTarget = [
     {
-      linkTitle:'Add Role',
-      linkTarget : '#kt_modal_addrole'
+      linkTitle:'Add Role To Permission',
+      linkTarget : '#kt_modal_addpermission'
     }
   ]
 
@@ -67,7 +71,7 @@ export function ViewPermissions() {
           DeletePath={tableProvider.DeletePath}
           UseFakeData={true}
           FakeData={tableProvider.FakeData}
-          TableTitle={'Roles'}
+          TableTitle={'Permission'}
           Count={'Over 300 Users'}
           ModalTarget={
             modalTarger

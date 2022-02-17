@@ -2,9 +2,7 @@ import axios, { AxiosResponse } from 'axios';
 import { IPermissionModel, IRoleModel, IUserModel } from '../../app/modules/auth/models/AuthInterfaces';
 import { IFulfilmentModel } from '../../app/modules/fulfillment/models/FulfilmentInterface';
 import { ITrackHistoryModel, ITripModel } from '../../app/modules/monitoring/Monitor models/MonitorInterface';
-
-
-import { IPaymentModel } from '../../app/modules/payment/PaymentModels/PaymentModel';
+import { IInvoiceModel, IPaymentLogModel } from '../../app/modules/payment/PaymentModels/PaymentmentInterfaces';
 import { IFleetModel, IManifestModel, IPriceModel, IRouteModel, IShipmentModel } from '../../app/modules/shipmentmanagement/ShipmentModels/ShipmentInterfaces';
 import { ShipmentModel } from '../../app/modules/shipmentmanagement/ShipmentModels/ShipmentModel';
 import { IWalletModel, IWalletTransactionModel } from '../../app/modules/walletmanagement/Models/WalletInterfaces';
@@ -56,8 +54,8 @@ const Roles = {
   delete: (id: string) => request.del<void>(`${API_URL}/UserManagement/GetUser${id}`),
 }
 const Permissions = {
-  list: () => request.get<IPermissionModel[]>(`${API_URL}/UserManagement/GetPermission`),
-  details: (permissionid: string) => request.get<IPermissionModel>(`${API_URL}/UserManagement/GetPermission/${permissionid}`),
+  list: () => request.get<IPermissionModel[]>(`${API_URL}/UserManagement/GetUser`),
+  details: (permissionid: string) => request.get<IPermissionModel>(`${API_URL}/UserManagement/GetUser/${permissionid}`),
   create: (permission: IPermissionModel) => request.post<IPermissionModel>(`${API_URL}/UserManagement/AddPermissionToRole`, permission),
   update: (permission: IPermissionModel) => request.put<IPermissionModel>(`${API_URL}/UserManagement/GetUser/${permission.id}`, {}),
   delete: (id: string) => request.del<void>(`${API_URL}/UserManagement/GetUser${id}`),
@@ -68,16 +66,16 @@ const  Wallet = {
   list: () => request.get<IWalletModel[]>(`${API_URL}/Wallet/WalletNumber/all`),
   details: (walletid: string) => request.get<IWalletModel>(`${API_URL}/Wallet/WalletNumber/all/${walletid}`), 
   create: (wallet: IWalletModel) => request.post<IWalletModel>(`${API_URL}/Wallet/WalletNumber`, wallet), 
-  update: (wallet: IWalletModel) => request.put<IWalletModel>(`${API_URL}/Wallet/WalletNumber/${wallet.walletNumberId}`, {}), 
+  update: (wallet: IWalletModel) => request.put<IWalletModel>(`${API_URL}/Wallet/WalletNumber/${wallet.WalletTransactionId}`, {}), 
   delete: (id: string) => request.del<void>(`${API_URL}/Wallet/WalletNumber${id}`), 
 }
 
 // wallet transaction Starts here
 const WalletTransaction = {
   list: () => request.get<IWalletTransactionModel[]>(`${API_URL}/Wallet/WalletTransaction/all`),
-  details: (walletid: string) => request.get<IWalletTransactionModel>(`${API_URL}/Wallet/WalletTransaction/all/${walletid}`),
-  create: (wallet: IWalletTransactionModel) => request.post<IWalletTransactionModel>(`${API_URL}/Wallet/WalletTransaction`, wallet),
-  update: (wallet: IWalletTransactionModel) => request.put<IWalletTransactionModel>(`${API_URL}/Wallet/WalletTransaction/${wallet.walletNumberId}`, {}),
+  details: (wallettransactionid: string) => request.get<IWalletTransactionModel>(`${API_URL}/Wallet/WalletTransaction/all/${wallettransactionid}`),
+  create: (wallettransaction: IWalletTransactionModel) => request.post<IWalletTransactionModel>(`${API_URL}/Wallet/WalletTransaction`, wallettransaction),
+  update: (wallettransaction: IWalletTransactionModel) => request.put<IWalletTransactionModel>(`${API_URL}/Wallet/WalletTransaction/${wallettransaction.WalletTransactionId}`, {}),
   delete: (id: string) => request.del<void>(`${API_URL}/Shipment/GetUser${id}`),
 }
 
@@ -126,11 +124,19 @@ const  Price = {
 
 // Payment Request Starts
 const  PaymentLog = {
-  list: () => request.get<IPaymentModel[]>(`${API_URL}/UserManagement/GetUsers`),
-  details: (paymentid: string) => request.get<IPaymentModel>(`${API_URL}/UserManagement/GetUser/${paymentid}`), 
-  create: (payment: IPaymentModel) => request.post<IPaymentModel>(`${API_URL}/UserManagement/GetUsers`, payment), 
-  update: (payment: IPaymentModel) => request.put<IPaymentModel>(`${API_URL}/UserManagement/GetUser/${payment.PaymentId}`, {}), 
+  list: () => request.get<IPaymentLogModel[]>(`${API_URL}/UserManagement/GetUsers`),
+  details: (paymentid: string) => request.get<IPaymentLogModel>(`${API_URL}/UserManagement/GetUser/${paymentid}`), 
+  create: (payment: IPaymentLogModel) => request.post<IPaymentLogModel>(`${API_URL}/UserManagement/GetUsers`, payment), 
+  update: (payment: IPaymentLogModel) => request.put<IPaymentLogModel>(`${API_URL}/UserManagement/GetUser/${payment.PaymentId}`, {}), 
   delete: (id:string) => request.del<void>(`${API_URL}/UserManagement/GetUser${id}`), 
+}
+
+const Invoice = {
+  list: () => request.get<IInvoiceModel[]>(`${API_URL}/UserManagement/GetRoles`),
+  details: (invoiceid: string) => request.get<IInvoiceModel>(`${API_URL}/UserManagement/GetRoles/${invoiceid}`),
+  create: (invoice: IInvoiceModel) => request.post<IInvoiceModel>(`${API_URL}/UserManagement/AddRole`, invoice),
+  update: (invoice: IInvoiceModel) => request.put<IInvoiceModel>(`${API_URL}/UserManagement/GetUser/${invoice.Id}`, {}),
+  delete: (id: string) => request.del<void>(`${API_URL}/UserManagement/GetUser${id}`),
 }
 
 // Monitoring Request Starts
@@ -173,7 +179,8 @@ const agent = {
   Trip,
   CollectionCenter,
   TrackHistory,
-  Manifest
+  Manifest,
+  Invoice
 }
 
 export default agent;

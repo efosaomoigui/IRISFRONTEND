@@ -1,5 +1,5 @@
 import React, {useMemo} from 'react'
-import WalletTransaction_Data from './Wallet_Data.json'
+import WalletTransaction_Data from './WalletTransaction_Data.json'
 import {useTable, useSortBy} from 'react-table'
 import './CustomTable.css'
 import { IWalletTransactionModel } from '../../Models/WalletInterfaces'
@@ -15,29 +15,29 @@ const WalletTransactionTable = ({walletTransactionData} : Props) => {
     columns : useMemo(
       () => [
         {
+          Header: 'WalletTransaction Id',
+          accessor: 'WalletTransactionId',
+        },
+        {
+          Header: 'Amount',
+          accessor: 'Amount',
+        },
+        {
+          Header: 'Transaction Type',
+          accessor: 'TransactionType',
+        },
+        {
+          Header: 'Description',
+          accessor: 'Description',
+        },
+        {
           Header: 'Wallet Number',
-          accessor: 'walletNumberId',
+          accessor: 'WalletNumber',
         },
         {
-          Header: 'Active',
-          accessor: 'isActive',
-        },
-        // {
-        //   Header: 'First Name',
-        //   accessor: 'firstName',
-        // },
-        {
-          Header: 'User Id',
-          accessor: 'userId',
-        },
-        // {
-        //   Header: 'Email',
-        //   accessor: 'email',
-        // },
-        // {
-        //   Header: 'Phone Number',
-        //   accessor: 'phoneNumber',
-        // },
+          Header: 'Date Created',
+          accessor: 'DateCreated',
+        }
       ],
       []
     ),

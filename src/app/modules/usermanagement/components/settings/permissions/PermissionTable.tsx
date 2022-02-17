@@ -16,21 +16,22 @@ const PermissionTable = ({ permissionData }: Props) => {
     columns : useMemo(
       () => [
         {
-          Header: 'Permission Id',
-          accessor: 'id',
-        },
-        {
           Header: 'Role Id',
           accessor: 'roleId',
         },
         {
-          Header: 'Claim Type',
-          accessor: 'claimType',
+          Header: 'Permission Id',
+          accessor: 'PermissionId',
         },
         {
-          Header: 'Claim Value',
-          accessor: 'claimValue',
+          Header: 'Permission Type',
+          accessor: 'PermissionType',
         },
+        {
+          Header: 'Permission',
+          accessor: 'Permission',
+        },
+        
         // {
         //   Header: 'Email',
         //   accessor: 'email',
