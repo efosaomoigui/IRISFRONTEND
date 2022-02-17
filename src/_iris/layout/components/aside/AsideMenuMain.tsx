@@ -83,14 +83,14 @@ export function AsideMenuMain() {
         >
           <AsideMenuItem
             to='/shipment/CaptureDomesticShipment'
-            title='Domestic Shipment'
+            title='Capture Shipment'
             hasBullet={true}
           />
-          <AsideMenuItem
+          {/* <AsideMenuItem
             to='/shipment/CaptureFreightShipment'
             title='Freight Shipment'
             hasBullet={true}
-          />
+          /> */}
         </AsideMenuItemWithSub>
         <AsideMenuItemWithSub
           to='/shipment'
@@ -127,10 +127,10 @@ export function AsideMenuMain() {
         title='Payment'
         fontIcon='bi-layers'
       >
-        <AsideMenuItem to='/payment/wallet' title='Wallets' hasBullet={true} />
-        <AsideMenuItem to='/payment/transaction' title='Transaction' hasBullet={true} />
-        <AsideMenuItem to='/payment/LogPayment' title='Log Payment' hasBullet={true} />
-        <AsideMenuItem to='/payment/PaymentHistory' title='Payment History' hasBullet={true} />
+        {/* <AsideMenuItem to='/payment/wallet' title='Wallets' hasBullet={true} />
+        <AsideMenuItem to='/payment/transaction' title='Transaction' hasBullet={true} /> */}
+        <AsideMenuItem to='/payment/paymentlog' title='Payment Log' hasBullet={true} />
+        <AsideMenuItem to='/payment/invoice' title='Invoice' hasBullet={true} />
       </AsideMenuItemWithSub>
 
       {/* <AsideMenuItemWithSub
