@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 import { v4 as uuid } from 'uuid';
 import agent from '../../../../setup/axios/AxiosAgent';
 import { IWalletTransactionModel } from '../Models/WalletInterfaces';
@@ -8,14 +9,17 @@ import AddWalletTransactionForm from '../walletformwidget/AddWalletTransactionFo
 
 const AddWalletTransactionModal: React.FC = () => {
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const onSubmit = (values: IWalletTransactionModel) => {
-    setIsSubmitting(true);
-    values.walletNumberId = uuid();
-    agent.WalletTransaction.create(values).then((response) => { console.log(response) });
-    console.log("WT: ", values);
-  };
+    setIsSubmitting(true)
+    values.WalletTransactionId = uuid()
+    agent.WalletTransaction.create(values).then((response) => {
+      toast.success("Wallet Transaction Creation Was Successful!");
+      // console.log(response)
+      setIsSubmitting(false)
+    })
+  }
 
   return (
     <>
