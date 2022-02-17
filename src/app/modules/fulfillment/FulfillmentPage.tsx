@@ -1,14 +1,14 @@
 import React from 'react'
 import {Redirect, Route, Switch} from 'react-router-dom'
 import {PageLink, PageTitle} from '../../../_iris/layout/core'
-import { DeliverShipment } from './components/operations/ViewDeliverShipment'
+import { CollectionCenter } from './components/operations/ViewCollectionCenter'
 import { FulfillmentHeader } from './FulfillmentHeader'
 
 
 const userBreadCrumbs: Array<PageLink> = [
   {
-    title: 'Deliver Shipment',
-    path: '/fulfillment/delivershipment',
+    title: 'Collection Center',
+    path: '/fulfillment/collectioncenter',
     isSeparator: false,
     isActive: false,
   }
@@ -20,13 +20,13 @@ const FulfillmentPage: React.FC = () => {
     <>
       <FulfillmentHeader />
       <Switch>
-        <Route path='/fulfillment/delivershipment'>
-          <PageTitle breadcrumbs={userBreadCrumbs}>Deliver Shipment</PageTitle>
-          <DeliverShipment />
+        <Route path='/fulfillment/collectioncenter'>
+          <PageTitle breadcrumbs={userBreadCrumbs}>Collection Center</PageTitle>
+          <CollectionCenter />
         </Route>
        
-        <Redirect from='/fulfillment/' exact={true} to='/fulfillment/delivershipment' />
-        <Redirect to='/fulfillment/delivershipment' />
+        <Redirect from='/fulfillment/' exact={true} to='/fulfillment/collectioncenter' />
+        <Redirect to='/fulfillment/collectioncenter' />
       </Switch>
     </>
   )

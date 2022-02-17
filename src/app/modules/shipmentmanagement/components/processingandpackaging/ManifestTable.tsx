@@ -1,41 +1,44 @@
 import React, {useMemo} from 'react'
-import Fulfilment_Data from './Fulfilment_Data.json'
+import Manifest_Data from './Manifest_Data.json'
 import {useTable, useSortBy} from 'react-table'
 import './CustomTable.css'
-import { IUserModel } from '../../../auth/models/AuthInterfaces'
-import { IFulfilmentModel } from '../../models/FulfilmentInterface'
+import { IManifestModel } from '../../ShipmentModels/ShipmentInterfaces'
 import TableActionLinks from '../../../layout/tables/TableActionLinks'
 
-
 interface Props{
-  fulfilmentData:IFulfilmentModel | any ;
+  manifestData:IManifestModel | any ;
 }
 
-const FulfilmentTable = ({ fulfilmentData} : Props) => {
+const ManifestTable = ({ manifestData} : Props) => {
 
   const tableInstance = useTable({
     columns : useMemo(
       () => [
         {
-          Header: 'Wallet Number Id',
-          accessor: 'walletNumberId',
+          Header: 'Id',
+          accessor: 'Id',
+          // cell:({ value }) => {return format(new Date(value), 'dd/MM/YYYY')}
         },
         {
-          Header: 'Number',
-          accessor: 'number',
+          Header: 'Manifest Code',
+          accessor: 'ManifestCode',
         },
         {
-          Header: 'Active',
-          accessor: 'isActive',
+          Header: 'Group WayBillId',
+          accessor: 'GroupWayBillId',
         },
         {
-          Header: 'User Id',
-          accessor: 'userId',
-        }
+          Header: 'Group WayBill',
+          accessor: 'GroupWayBill',
+        },
+        {
+          Header: 'UserId',
+          accessor: 'UserId',
+        },
       ],
       []
     ),
-    data: useMemo(() => Fulfilment_Data, []),
+    data: useMemo(() => Manifest_Data, []),
   }, useSortBy)
 
   const {getTableProps, getTableBodyProps, headerGroups, rows, prepareRow} = tableInstance
@@ -73,4 +76,4 @@ const FulfilmentTable = ({ fulfilmentData} : Props) => {
   )
 }
 
-export { FulfilmentTable };
+export { ManifestTable };

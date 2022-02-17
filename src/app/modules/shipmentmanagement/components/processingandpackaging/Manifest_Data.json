@@ -1,0 +1,1052 @@
+[
+    {
+        "Id": "9ebf9929-6a19-4fa7-98b8-a9a3260c24a7",
+        "ManifestCode": "76049-001",
+        "GroupWayBillId": "cb49cc08-4157-45e0-832b-0d8a4896d36c",
+        "GroupWayBill": "Black-fronted bulbul",
+        "UserId": "e5334f82-60ef-4d15-ae9b-11036a3f6bf9"
+    },
+    {
+        "Id": "b9efd43e-0569-4259-9201-8b9d18664bf7",
+        "ManifestCode": "59779-063",
+        "GroupWayBillId": "fb07fe85-f2f2-42a9-9c57-1b1d28afdf17",
+        "GroupWayBill": "Falcon, prairie",
+        "UserId": "c804b4a6-ed7a-427f-9ac9-000f77477e5d"
+    },
+    {
+        "Id": "15677dae-b021-4810-ad6b-fb5f4b99d703",
+        "ManifestCode": "0713-0109",
+        "GroupWayBillId": "ea368b39-9f35-428b-bec8-e6f3ea9e4c65",
+        "GroupWayBill": "Eagle, white-bellied sea",
+        "UserId": "313a1c78-0afa-4b6e-8366-a44036ee3372"
+    },
+    {
+        "Id": "e9cee748-2da2-47be-a202-ee520a9c2aea",
+        "ManifestCode": "57955-6058",
+        "GroupWayBillId": "6fb0ce71-f9bc-4e53-9c74-ddd89ac4a4c4",
+        "GroupWayBill": "Pygmy possum",
+        "UserId": "f8828fa2-9ed6-4dd2-8ca6-9d93ca26e24e"
+    },
+    {
+        "Id": "8876d555-1231-49da-8e44-7698c8b577b6",
+        "ManifestCode": "0409-3385",
+        "GroupWayBillId": "dd304ba1-d4fa-439b-9d85-f22b925036d2",
+        "GroupWayBill": "Cockatoo, red-breasted",
+        "UserId": "c91a160c-4c42-43e4-b235-f46fd2ad8f8c"
+    },
+    {
+        "Id": "1478ac67-f19c-4997-8432-13e480ca5816",
+        "ManifestCode": "53808-0237",
+        "GroupWayBillId": "21eb496c-eeba-4902-b983-285d519d22f1",
+        "GroupWayBill": "Owl, madagascar hawk",
+        "UserId": "c45b3e6c-fd5e-470e-bb91-cfee22acee90"
+    },
+    {
+        "Id": "86a0c98d-6d17-4acf-8c80-59d776b6bfae",
+        "ManifestCode": "49967-105",
+        "GroupWayBillId": "16ec9283-213c-4590-84d9-2b1786e71c74",
+        "GroupWayBill": "Uinta ground squirrel",
+        "UserId": "f23468b6-6a98-415b-a10b-2036b67829dd"
+    },
+    {
+        "Id": "328d89ef-b692-41e7-ae15-446d5a69dd2c",
+        "ManifestCode": "0430-0535",
+        "GroupWayBillId": "e7bb0d95-29aa-4bbe-8d3a-7cb92b631a6a",
+        "GroupWayBill": "North American river otter",
+        "UserId": "a7ca9883-af76-4aa1-bcd8-9c0af42a844b"
+    },
+    {
+        "Id": "117dee1d-fcbd-4406-bdf7-63fd796ec2db",
+        "ManifestCode": "46672-641",
+        "GroupWayBillId": "1f79113e-6eb1-4347-8ab8-e0c68c2f275e",
+        "GroupWayBill": "Elephant, african",
+        "UserId": "2a90b433-24ff-40c9-8d53-a42ea3567496"
+    },
+    {
+        "Id": "3a34c906-435b-4318-be23-5bb670a8a5aa",
+        "ManifestCode": "0264-7578",
+        "GroupWayBillId": "b723511c-7ae5-4a18-8562-8149c10970b2",
+        "GroupWayBill": "Lesser masked weaver",
+        "UserId": "9cdd8b4c-9d44-4a8f-b7cc-6fa3c2c449a9"
+    },
+    {
+        "Id": "86f45d31-710c-4dc4-ae93-e35e027bc23b",
+        "ManifestCode": "0268-0625",
+        "GroupWayBillId": "7f4268c4-b8c4-4b34-b13d-f6d1bf489c89",
+        "GroupWayBill": "Trumpeter, dark-winged",
+        "UserId": "aca418c7-ca2e-45c9-9706-ab92f0e1595c"
+    },
+    {
+        "Id": "8b1fa68a-9066-4fcc-953a-2a11bee86b10",
+        "ManifestCode": "28691-4000",
+        "GroupWayBillId": "ecb28bc7-c51b-46d2-a01b-a708ce5b3468",
+        "GroupWayBill": "Coqui partridge",
+        "UserId": "695ae478-9506-4487-8ac7-4d24ef256537"
+    },
+    {
+        "Id": "8066f1d0-5d33-4353-9b46-23fc53b8afd1",
+        "ManifestCode": "49349-078",
+        "GroupWayBillId": "f46eb3f6-e5b7-48e0-b839-7f1dce1edd11",
+        "GroupWayBill": "Hornbill, leadbeateri's ground",
+        "UserId": "65081634-338e-4f45-ab24-b4da761d594f"
+    },
+    {
+        "Id": "5b209de9-55a1-4f9c-9ceb-631803d61c3c",
+        "ManifestCode": "0409-7879",
+        "GroupWayBillId": "47875f8d-1530-48b0-964a-dbfc70877a77",
+        "GroupWayBill": "Leopard",
+        "UserId": "06e6a5e1-e804-43f9-9a60-0890c76c9b61"
+    },
+    {
+        "Id": "78922b06-635b-49b0-8744-65aded896c0c",
+        "ManifestCode": "36000-001",
+        "GroupWayBillId": "9fb5d108-e2c1-4314-a3c8-cdb3db3da2fc",
+        "GroupWayBill": "African fish eagle",
+        "UserId": "76142881-f941-440c-88e0-cec5ce5091ab"
+    },
+    {
+        "Id": "8edb826f-dd36-44fd-b9af-cf8372179aaf",
+        "ManifestCode": "55154-2725",
+        "GroupWayBillId": "50166aa0-c33e-4fe7-a0af-431c7b942d33",
+        "GroupWayBill": "Lemur, brown",
+        "UserId": "9dfbc7ab-bd40-41cb-a173-983b455870b6"
+    },
+    {
+        "Id": "257c998b-e963-423f-81f4-8b427f7aa78a",
+        "ManifestCode": "61727-324",
+        "GroupWayBillId": "61189747-31b1-432a-ba16-6a41747de4b6",
+        "GroupWayBill": "Southern elephant seal",
+        "UserId": "7ae8e39b-bba5-4929-ba17-c99f2855e10e"
+    },
+    {
+        "Id": "53e3d5c8-195f-4663-864f-32d07b88e441",
+        "ManifestCode": "41520-187",
+        "GroupWayBillId": "0e06b872-dd55-4f62-8941-c717e7d07d64",
+        "GroupWayBill": "Spotted deer",
+        "UserId": "87de6862-f76d-4cba-bafb-0624509e4554"
+    },
+    {
+        "Id": "e912186b-7c7c-4d84-942d-7b3f336a9a91",
+        "ManifestCode": "0781-5386",
+        "GroupWayBillId": "0ade6803-5e56-49eb-8823-80c643495043",
+        "GroupWayBill": "Gecko, bent-toed",
+        "UserId": "5c3ce7a8-84fa-431d-8a8c-cb3d9a91c6fd"
+    },
+    {
+        "Id": "8dfc321f-c646-4354-890f-7e007da4aa98",
+        "ManifestCode": "76519-1009",
+        "GroupWayBillId": "90ee3b96-32e8-4e0a-9d25-18bdea6d5d1b",
+        "GroupWayBill": "Carmine bee-eater",
+        "UserId": "dd6553f7-9185-4370-b236-dd502351da93"
+    },
+    {
+        "Id": "e602a7f6-efb7-4605-a87c-99955491ea18",
+        "ManifestCode": "13537-532",
+        "GroupWayBillId": "3ab876e6-9703-43b5-b4bd-2824f301412e",
+        "GroupWayBill": "Deer, mule",
+        "UserId": "fa2fecd1-0088-4bfa-8ace-1800f57cea2a"
+    },
+    {
+        "Id": "a3b3af6f-11e9-404e-9a0e-fdaec06a4653",
+        "ManifestCode": "16590-889",
+        "GroupWayBillId": "f59aa6f3-10ab-4176-9bb8-db362ff34423",
+        "GroupWayBill": "Goose, egyptian",
+        "UserId": "174265bb-86ad-4641-8b06-7f2a63b3d7fd"
+    },
+    {
+        "Id": "93ebe7c6-a80e-4e89-b5c0-2896805cb1eb",
+        "ManifestCode": "41163-165",
+        "GroupWayBillId": "633a530e-f284-4ffa-8087-1fa385de5a73",
+        "GroupWayBill": "Cat, native",
+        "UserId": "241937d3-bdf5-4c32-a3cd-b9f22e29e3e7"
+    },
+    {
+        "Id": "f1167a9d-7545-422f-bf96-9db69218f7f1",
+        "ManifestCode": "49349-030",
+        "GroupWayBillId": "544db9e4-d708-445b-ad99-6c832865a59a",
+        "GroupWayBill": "Lizard, mexican beaded",
+        "UserId": "0dc85eb8-d7ec-4180-8896-82df71fa083d"
+    },
+    {
+        "Id": "3b9257db-509d-4821-8207-44f720fb1d4a",
+        "ManifestCode": "42291-212",
+        "GroupWayBillId": "8741a828-276d-4596-8f67-93ad38b28d5f",
+        "GroupWayBill": "Common palm civet",
+        "UserId": "336e7f3d-ebf6-4671-9f27-28299f9325c8"
+    },
+    {
+        "Id": "3f655817-1b32-4584-9f9d-32796a267fc3",
+        "ManifestCode": "49288-0108",
+        "GroupWayBillId": "0fee11a4-abad-4e6e-bcf7-f1c91d146193",
+        "GroupWayBill": "Tawny eagle",
+        "UserId": "c87f76a0-2a87-4747-ab61-364113b67ee0"
+    },
+    {
+        "Id": "5d4b2e0b-a472-4d26-9603-fce2d13a0440",
+        "ManifestCode": "75997-028",
+        "GroupWayBillId": "f454453b-1d6a-4461-b170-2eeaa717b405",
+        "GroupWayBill": "Cat, civet",
+        "UserId": "0ad7315f-bbbd-4127-9aab-83aca19e944c"
+    },
+    {
+        "Id": "e6ff2ad0-9f86-4edd-940a-829d68bfb6c5",
+        "ManifestCode": "0268-6719",
+        "GroupWayBillId": "a3192fd3-6882-4d14-ab40-b52e01f55f90",
+        "GroupWayBill": "Harbor seal",
+        "UserId": "47f64640-f8ce-4a80-91ad-2abb51cd484f"
+    },
+    {
+        "Id": "3ecae3d6-1bd3-44eb-9a19-e2215bcb97c0",
+        "ManifestCode": "52686-237",
+        "GroupWayBillId": "5b8692a3-ce68-4842-89f8-bc9d56b378da",
+        "GroupWayBill": "Eurasian hoopoe",
+        "UserId": "9dab6ccd-b303-4b6e-b511-309a9bf4b43b"
+    },
+    {
+        "Id": "9fe38db2-f828-4dd7-946b-fb82a1ccb148",
+        "ManifestCode": "54868-5511",
+        "GroupWayBillId": "6f240130-6b39-43d5-bc40-b8726659a358",
+        "GroupWayBill": "Owl, australian masked",
+        "UserId": "1dbaf1cb-559a-4a49-a798-00467da7d76d"
+    },
+    {
+        "Id": "02d7373b-1f31-4782-99c7-cc59422d8f01",
+        "ManifestCode": "53808-0635",
+        "GroupWayBillId": "feca0c41-a76f-4cfc-b56e-4b6042a4ab0c",
+        "GroupWayBill": "Puku",
+        "UserId": "f7776977-29f2-40cb-99e7-95311a25a7f9"
+    },
+    {
+        "Id": "1194365f-c235-4f05-82e5-bd8babc85fef",
+        "ManifestCode": "68382-793",
+        "GroupWayBillId": "7c74f1ac-df4e-46e9-974a-f569e8cb1ceb",
+        "GroupWayBill": "Black vulture",
+        "UserId": "23060ee4-4e03-4ff2-816f-e58751afaefc"
+    },
+    {
+        "Id": "9f43d624-8f47-498e-83ef-4887287e6c72",
+        "ManifestCode": "42361-014",
+        "GroupWayBillId": "9d8453a3-54c5-4801-bc72-1f06195bc657",
+        "GroupWayBill": "Black-tailed deer",
+        "UserId": "8ff2e26a-b60e-43b0-8ddb-d5cf5382fef9"
+    },
+    {
+        "Id": "aaf36d5b-158e-40b0-9b69-180776b831e6",
+        "ManifestCode": "62646-798",
+        "GroupWayBillId": "595b116d-0242-4a47-82b6-76f6d17730a7",
+        "GroupWayBill": "Deer, spotted",
+        "UserId": "aac61d89-1ab7-442d-a02c-83208aecc1ae"
+    },
+    {
+        "Id": "0c0c63fc-ddb6-41cc-b7a3-cb9268ca024a",
+        "ManifestCode": "51801-006",
+        "GroupWayBillId": "1a99e34a-e3ab-4c64-a599-21cbfb5bf469",
+        "GroupWayBill": "Magpie, australian",
+        "UserId": "b7a1758a-f01b-44ac-a702-bb73abd4f404"
+    },
+    {
+        "Id": "28c433fe-e49f-4f69-9e18-2f3818b820e6",
+        "ManifestCode": "43063-413",
+        "GroupWayBillId": "5501ee17-9413-49b0-b751-1e8975ce9852",
+        "GroupWayBill": "Seven-banded armadillo",
+        "UserId": "fa4d9fd6-bfd4-4c72-821a-b3857f179d68"
+    },
+    {
+        "Id": "855f27b3-d7e2-4389-af47-21b9778057e4",
+        "ManifestCode": "55319-322",
+        "GroupWayBillId": "65020d63-1020-4f40-8653-353322432777",
+        "GroupWayBill": "Tortoise, asian foreset",
+        "UserId": "f2f98dfa-4913-4f10-9601-87c77302c733"
+    },
+    {
+        "Id": "b2794d19-c5cc-4f61-b495-47832ecce26c",
+        "ManifestCode": "64117-985",
+        "GroupWayBillId": "0677032c-4dae-45a1-bb1e-152ccc34b4c6",
+        "GroupWayBill": "Goose, egyptian",
+        "UserId": "50a5ad48-bf7f-4d42-98b5-837fc29dd743"
+    },
+    {
+        "Id": "feceb442-a0a7-414e-9087-05dbef097eaf",
+        "ManifestCode": "53329-043",
+        "GroupWayBillId": "3b1a3ff0-a9ff-4296-a44e-5e54a7ac8ab2",
+        "GroupWayBill": "Red-billed hornbill",
+        "UserId": "42fc1fb0-a8c4-4f3e-87be-b1400ecff59f"
+    },
+    {
+        "Id": "db844a5c-4971-4967-8631-5b9daf746af2",
+        "ManifestCode": "57520-0224",
+        "GroupWayBillId": "1e807f24-9bfb-4240-873e-0bf0fff58e7f",
+        "GroupWayBill": "Brown brocket",
+        "UserId": "7cbe74c5-1017-4968-aa1b-ccfa3eb61a6e"
+    },
+    {
+        "Id": "e1d95f2e-d1ec-4288-8a0e-ce3a1f7de35e",
+        "ManifestCode": "0093-2274",
+        "GroupWayBillId": "1307f903-81c2-4ef5-bcce-44952d4966c8",
+        "GroupWayBill": "Black curlew",
+        "UserId": "ba8325b0-7d00-4999-9d66-3e90ea4322fe"
+    },
+    {
+        "Id": "f2c5c1eb-2c41-4faf-81de-a0ff72ff9aa8",
+        "ManifestCode": "60760-035",
+        "GroupWayBillId": "2ca32643-c535-4c19-b629-019b42abf7b9",
+        "GroupWayBill": "Southern black-backed gull",
+        "UserId": "efeb69b9-aaf9-4cbc-9b55-966185d0da84"
+    },
+    {
+        "Id": "0b72c9cb-dbf8-47e2-b8ac-8bed8654f547",
+        "ManifestCode": "43547-248",
+        "GroupWayBillId": "7ed4a22c-4142-471a-8b23-58c5b57cad3d",
+        "GroupWayBill": "Yellow mongoose",
+        "UserId": "6e045535-b293-42f2-b0ea-30237eade682"
+    },
+    {
+        "Id": "a2767b5e-d8a6-422d-9134-22a2153fcb12",
+        "ManifestCode": "51815-300",
+        "GroupWayBillId": "8b1b54da-af12-48f9-8277-ae01bdef1eb3",
+        "GroupWayBill": "Barrows goldeneye",
+        "UserId": "abee333a-8388-4613-ba3e-2c238d9d892f"
+    },
+    {
+        "Id": "835083a9-fc43-4443-a1e8-307550002b73",
+        "ManifestCode": "36987-1947",
+        "GroupWayBillId": "7e981f6b-5dd1-442e-8eb8-0bc4310ba775",
+        "GroupWayBill": "Indian peacock",
+        "UserId": "43eef4b0-66e6-4c80-99cf-8af1d578a4a6"
+    },
+    {
+        "Id": "59a36184-6eaa-4c13-960c-4ba2a3b669ae",
+        "ManifestCode": "0067-4000",
+        "GroupWayBillId": "68421936-12a9-4a11-aed6-0198f0db60a4",
+        "GroupWayBill": "King vulture",
+        "UserId": "c474c054-d982-4213-bfa1-927f894daee8"
+    },
+    {
+        "Id": "a73370ba-07e1-48ad-8d33-7faefd7c9beb",
+        "ManifestCode": "55670-150",
+        "GroupWayBillId": "306feaba-fa06-47a2-aafb-5825ca9c3cad",
+        "GroupWayBill": "Two-toed tree sloth",
+        "UserId": "7855a5f3-9e6c-4d42-826c-3213d7bfeddf"
+    },
+    {
+        "Id": "4a935c9a-3845-4019-96a9-6011da07e2be",
+        "ManifestCode": "0053-7631",
+        "GroupWayBillId": "877c6574-1cdf-43bf-98f9-37b1d6b11b0f",
+        "GroupWayBill": "Shark, blue",
+        "UserId": "e067cb15-b855-4bd2-81cb-a5eaf43042da"
+    },
+    {
+        "Id": "e5095812-a180-4333-b143-68ce3bcc17bd",
+        "ManifestCode": "63323-145",
+        "GroupWayBillId": "62cd644c-79f3-48ae-bb83-94e63e2647d3",
+        "GroupWayBill": "Capuchin, black-capped",
+        "UserId": "e23b789c-e860-4ad6-9cf4-e1acb2755f93"
+    },
+    {
+        "Id": "a1f7dbf3-b82f-4e4d-943c-50c543b73976",
+        "ManifestCode": "55154-6265",
+        "GroupWayBillId": "6ad6b25a-1a5c-4148-a0a2-010b01fa01dc",
+        "GroupWayBill": "Sun gazer",
+        "UserId": "bfde12ed-1d5f-4df6-85e3-631ccbd0cde9"
+    },
+    {
+        "Id": "eb7d8ff8-a616-4e71-a64e-81efe519cac8",
+        "ManifestCode": "45802-129",
+        "GroupWayBillId": "4f1fa4f1-e97a-4160-a399-f005c90c284e",
+        "GroupWayBill": "Common wallaroo",
+        "UserId": "48245028-4bdb-419f-8b20-4312b50a9478"
+    },
+    {
+        "Id": "63ab6e0f-574c-4432-a214-1b044f8221f4",
+        "ManifestCode": "13107-068",
+        "GroupWayBillId": "4b4e9fd5-fd97-44a9-ba59-037df3cda807",
+        "GroupWayBill": "Eurasian red squirrel",
+        "UserId": "647bdab3-8944-41ae-9c57-5039e45c8ba1"
+    },
+    {
+        "Id": "18d4f362-6d10-416f-aa46-6f8d023844eb",
+        "ManifestCode": "58118-0518",
+        "GroupWayBillId": "9ab4df57-effd-459b-a22a-b20da31b3f7b",
+        "GroupWayBill": "Harbor seal",
+        "UserId": "4f2cc2c0-4012-4e68-b0fe-abbb2e2f6e18"
+    },
+    {
+        "Id": "9d95a4df-44ea-4f21-a3e6-d4ddca1fa024",
+        "ManifestCode": "30142-809",
+        "GroupWayBillId": "c272e041-b75d-40bf-96f9-3a8d34a7083d",
+        "GroupWayBill": "Red-knobbed coot",
+        "UserId": "3a579812-c5b9-47d7-b570-e8cbcdf0585e"
+    },
+    {
+        "Id": "d631e3a6-6c8f-4f13-9e30-dc1575243f2c",
+        "ManifestCode": "54473-215",
+        "GroupWayBillId": "76f37c07-18bd-4913-8db6-9d34227da5df",
+        "GroupWayBill": "Kudu, greater",
+        "UserId": "1af81635-7aaf-4b77-b38a-4da40f20f5cd"
+    },
+    {
+        "Id": "02182021-e8d0-444c-a1fc-efa074f9b69b",
+        "ManifestCode": "24286-5292",
+        "GroupWayBillId": "b30b793a-a70a-4bef-9205-9e4c439602c4",
+        "GroupWayBill": "Spotted deer",
+        "UserId": "8af381bb-75ac-47bc-9686-6ab18546cee5"
+    },
+    {
+        "Id": "57ff07c2-dfaf-4742-8859-0a4690118204",
+        "ManifestCode": "67046-643",
+        "GroupWayBillId": "436a2bac-52ec-4e8c-996d-5bccf1e477cb",
+        "GroupWayBill": "Great cormorant",
+        "UserId": "87607515-d6bd-4a9f-9d29-fbfe5c0f58e3"
+    },
+    {
+        "Id": "18a6a84d-4bb2-492c-83db-919db6e335fc",
+        "ManifestCode": "63868-255",
+        "GroupWayBillId": "7e88f32c-3f7f-4aff-84d3-38de210650e3",
+        "GroupWayBill": "Baboon, olive",
+        "UserId": "247ffd0c-a96f-4511-901d-a37de473fd9d"
+    },
+    {
+        "Id": "af95ba35-d29a-4bfa-8fbc-4e5c446006e0",
+        "ManifestCode": "43419-858",
+        "GroupWayBillId": "af082297-482b-4497-a72b-a66a790193d4",
+        "GroupWayBill": "Raven, white-necked",
+        "UserId": "567a2ae2-ac64-4c60-b8ad-8682e3d9f2dd"
+    },
+    {
+        "Id": "9e683ff6-9ad3-463b-9be7-c0b862e7e9f1",
+        "ManifestCode": "52343-038",
+        "GroupWayBillId": "4516004f-90de-408f-8835-59e4dba3daf2",
+        "GroupWayBill": "Starling, superb",
+        "UserId": "347c9983-ac8a-4d41-b93a-3f0feb55e563"
+    },
+    {
+        "Id": "fcfb8c35-4bdc-4921-a911-59041251e03c",
+        "ManifestCode": "21695-314",
+        "GroupWayBillId": "263818e5-8179-4309-911b-63ef84a17d78",
+        "GroupWayBill": "Tropical buckeye butterfly",
+        "UserId": "3fd99144-f7a5-498e-9b51-6f42aa82600e"
+    },
+    {
+        "Id": "28506ba4-6db2-4cb7-93b0-2d660d24077a",
+        "ManifestCode": "0049-3440",
+        "GroupWayBillId": "711d2c6c-e91a-4202-9949-d389548b84ac",
+        "GroupWayBill": "Mexican wolf",
+        "UserId": "62151555-b5f0-4282-822e-d35628146bfe"
+    },
+    {
+        "Id": "ae26edd0-b548-4cff-910b-8f115ed95ce6",
+        "ManifestCode": "59779-901",
+        "GroupWayBillId": "cc87a2a8-ede6-4760-a3ea-96d0204821dc",
+        "GroupWayBill": "Blue-faced booby",
+        "UserId": "73d37b1a-c2e2-44c6-84dc-c9731ffdf209"
+    },
+    {
+        "Id": "e025f665-2a99-4d61-aaa6-ee9f8990cac3",
+        "ManifestCode": "68001-249",
+        "GroupWayBillId": "6785c707-19ff-4124-9dd6-398c078f1ef3",
+        "GroupWayBill": "Dromedary camel",
+        "UserId": "39a60a8b-0993-4906-a782-a22cb21df353"
+    },
+    {
+        "Id": "63ea3fa7-38d6-4967-8074-0d78c0d6128f",
+        "ManifestCode": "68788-9527",
+        "GroupWayBillId": "d2b690fd-80a9-49b2-a696-664087215942",
+        "GroupWayBill": "Starling, superb",
+        "UserId": "644c11d3-cbc2-4a24-abf7-bc9e64690469"
+    },
+    {
+        "Id": "57da651a-91b8-4237-abce-92945b7d5c5a",
+        "ManifestCode": "42507-998",
+        "GroupWayBillId": "25d8ea97-6c9e-4fef-b036-1fc8cdbedd73",
+        "GroupWayBill": "Wood pigeon",
+        "UserId": "a1b5a861-3a9c-4592-ad7d-b139a9d64709"
+    },
+    {
+        "Id": "82df3d51-6cf6-4f6e-a744-b88b399f13e1",
+        "ManifestCode": "68983-001",
+        "GroupWayBillId": "815c70d1-9b1f-45ba-b026-bc59e2924313",
+        "GroupWayBill": "Robin, kalahari scrub",
+        "UserId": "5e8a522c-c824-4770-b2b8-bd0b17730ee9"
+    },
+    {
+        "Id": "acbbe7b4-c8b3-4a50-96ed-909ac07fb179",
+        "ManifestCode": "64191-515",
+        "GroupWayBillId": "0faa368d-fc99-4bd9-86a0-c767d3f027f7",
+        "GroupWayBill": "Galapagos albatross",
+        "UserId": "27ec4d3b-a537-4951-ad90-2c93dabb6801"
+    },
+    {
+        "Id": "2a85d95f-6e3e-4cfd-bb15-0fcfa9b5af7a",
+        "ManifestCode": "0228-2898",
+        "GroupWayBillId": "1c625162-29f8-4d96-a17b-79270281ec17",
+        "GroupWayBill": "Common brushtail possum",
+        "UserId": "d51e3eef-090b-4ec1-a93b-9a54cf95220c"
+    },
+    {
+        "Id": "0e975bb2-7235-494c-a9bd-c36d83ac7bf7",
+        "ManifestCode": "51706-400",
+        "GroupWayBillId": "d7962505-d92a-470e-8986-3f6254db632b",
+        "GroupWayBill": "Mynah, common",
+        "UserId": "424daad8-9848-48ba-b4a2-d57b7a44664f"
+    },
+    {
+        "Id": "a7939e02-cbf3-42d1-b59b-15ebdc0cd9c7",
+        "ManifestCode": "52125-939",
+        "GroupWayBillId": "0ab7a6f0-4cdd-4879-ab1c-852ae401771f",
+        "GroupWayBill": "Wolf spider",
+        "UserId": "a5394410-606b-4805-bfe1-9bed584b2483"
+    },
+    {
+        "Id": "370ffe4e-7bf6-4e23-a34a-88124bf6d391",
+        "ManifestCode": "66078-035",
+        "GroupWayBillId": "a17f7fd0-e6c0-423b-86bc-42b70be098d0",
+        "GroupWayBill": "White-throated toucan",
+        "UserId": "7398e07e-e004-473d-a1cf-a32355d502c6"
+    },
+    {
+        "Id": "bf0261f0-2401-4d20-ad3b-320a9c77ef6f",
+        "ManifestCode": "65028-001",
+        "GroupWayBillId": "786e55b7-b2ec-423d-80ba-d70988126372",
+        "GroupWayBill": "Silver-backed fox",
+        "UserId": "85a2d8a4-fc55-439d-a7ef-c2a07b4291c4"
+    },
+    {
+        "Id": "d261df90-e02a-4652-aa4e-1872a61aa74a",
+        "ManifestCode": "65342-2101",
+        "GroupWayBillId": "08cefd09-eb76-4177-a991-f1190ac3c4eb",
+        "GroupWayBill": "Otter, north american river",
+        "UserId": "d1d45d80-c90f-40ce-ba99-0ff24d58faf9"
+    },
+    {
+        "Id": "f4a3ebf5-1e5a-4ce9-a876-6fe5cff27817",
+        "ManifestCode": "57469-055",
+        "GroupWayBillId": "67220e1e-f986-4317-b027-4c6426047da2",
+        "GroupWayBill": "Cormorant, large",
+        "UserId": "36a9d793-290b-40e3-a870-fd31eb028c74"
+    },
+    {
+        "Id": "3e9fc1ab-e9ff-484f-8b8a-67ab03997713",
+        "ManifestCode": "62699-1112",
+        "GroupWayBillId": "47e73c73-01fa-44c0-9040-10379794c2f2",
+        "GroupWayBill": "White-throated robin",
+        "UserId": "26d5830f-183c-4b52-a263-8cc9f4ff3d5d"
+    },
+    {
+        "Id": "1de8f454-79b1-4720-b0ec-f6e03e8b2472",
+        "ManifestCode": "0264-2203",
+        "GroupWayBillId": "1d6818f6-878d-485c-89e8-c41f3d414a9a",
+        "GroupWayBill": "Crimson-breasted shrike",
+        "UserId": "99483f29-da11-45b6-979c-205763717f38"
+    },
+    {
+        "Id": "c086471d-f099-4202-b0b7-3914c7b92e45",
+        "ManifestCode": "36800-358",
+        "GroupWayBillId": "7b6c0bb2-4f86-47b8-9a0a-16893fbd0053",
+        "GroupWayBill": "Zorro, azara's",
+        "UserId": "655ca8e2-4649-4dd3-b981-dc947fa9d918"
+    },
+    {
+        "Id": "159c319f-b54d-4de4-87b7-b2814436dd15",
+        "ManifestCode": "63323-731",
+        "GroupWayBillId": "c7e4db4c-7a93-4ace-a354-fc5ce4652515",
+        "GroupWayBill": "Wombat, southern hairy-nosed",
+        "UserId": "9505dc0e-2170-456e-827e-7a9ebd7c015e"
+    },
+    {
+        "Id": "ac5099fe-92ec-48e0-850e-e082205ba998",
+        "ManifestCode": "0113-0110",
+        "GroupWayBillId": "bc81f349-eebe-4504-b515-94cc8b1f98cc",
+        "GroupWayBill": "Radiated tortoise",
+        "UserId": "bc85f2d5-3aab-41fe-b492-29195042a13b"
+    },
+    {
+        "Id": "b3266715-a627-4492-a695-0cee72906356",
+        "ManifestCode": "0093-7182",
+        "GroupWayBillId": "2af63d3a-fa1f-4e4f-890c-6627c16ed7e9",
+        "GroupWayBill": "Dog, raccoon",
+        "UserId": "26484844-f977-4e60-b77f-e68730bc1402"
+    },
+    {
+        "Id": "f3931b7b-fc8d-4300-bd53-7ad7315cd908",
+        "ManifestCode": "10139-070",
+        "GroupWayBillId": "99b99958-b830-4297-8113-84258d33c2ac",
+        "GroupWayBill": "Francolin, coqui",
+        "UserId": "5e4405ba-af7d-4911-8b32-1ece03f3c908"
+    },
+    {
+        "Id": "c4f1f830-1b71-4c0d-b037-de7dc1b53d38",
+        "ManifestCode": "67046-210",
+        "GroupWayBillId": "f60ddc6a-2926-4076-8617-e3c427be2e28",
+        "GroupWayBill": "Plains zebra",
+        "UserId": "3bcadf9b-4e93-4c7b-8c41-d934afe5ee11"
+    },
+    {
+        "Id": "d4a19924-c103-4f11-8903-0993b462c233",
+        "ManifestCode": "36800-016",
+        "GroupWayBillId": "ad4ec9cb-77a7-4675-be8b-91c75dec809c",
+        "GroupWayBill": "Kite, black",
+        "UserId": "715375da-16a6-4cd4-a956-4d04b04e8cdc"
+    },
+    {
+        "Id": "71c8198b-49e4-47cf-bd91-b5867624352a",
+        "ManifestCode": "0115-8211",
+        "GroupWayBillId": "2a2d375c-5972-407c-940b-9181acd85df8",
+        "GroupWayBill": "Snake, tiger",
+        "UserId": "7f85225d-a299-4a72-937c-e8dc05f82f68"
+    },
+    {
+        "Id": "f4972b7b-3f7e-426a-8bad-2287c1f1cb02",
+        "ManifestCode": "68382-054",
+        "GroupWayBillId": "5c000a6f-9124-4de9-a415-a9d3fcb3a2b0",
+        "GroupWayBill": "Galapagos albatross",
+        "UserId": "f7ca3807-323e-41f5-9a5f-ae9551348113"
+    },
+    {
+        "Id": "9df4f150-fb22-47f2-8884-83361f836ca1",
+        "ManifestCode": "0781-2076",
+        "GroupWayBillId": "b9c88c52-4ebd-40f0-8d8a-6f9c7d53c9d1",
+        "GroupWayBill": "Squirrel glider",
+        "UserId": "3ba7704d-0cc4-4f7e-b7a2-f6b26d3036b9"
+    },
+    {
+        "Id": "13286261-49a2-4d74-bc81-7bbec30d58f8",
+        "ManifestCode": "0074-6633",
+        "GroupWayBillId": "26740cb3-ae64-4122-b99e-771a196ecac5",
+        "GroupWayBill": "Snowy egret",
+        "UserId": "527c7c3a-401c-436d-acb2-da3fbb0a3670"
+    },
+    {
+        "Id": "c09b6ef0-f3b2-4fca-9f34-1932490f97dc",
+        "ManifestCode": "0574-0412",
+        "GroupWayBillId": "31bc69ec-5e40-4e40-a160-7660bcdb7e3d",
+        "GroupWayBill": "Turaco, violet-crested",
+        "UserId": "e03538f7-b2f2-417a-8d62-e6566f62a071"
+    },
+    {
+        "Id": "e841b7ba-de21-4d15-9aba-f26ea5e6d1f9",
+        "ManifestCode": "13537-064",
+        "GroupWayBillId": "3f2a64c0-35f7-41a6-b4e1-c5b26ff3b142",
+        "GroupWayBill": "Stork, openbill",
+        "UserId": "4fcbac7b-b9e9-4efa-a2d0-893011ff77b3"
+    },
+    {
+        "Id": "8f68e85f-54c8-458c-b7aa-c76b3eb7e890",
+        "ManifestCode": "51442-545",
+        "GroupWayBillId": "a51a02fc-9c52-4e6b-bc7f-121e53fe2953",
+        "GroupWayBill": "Squirrel, eastern fox",
+        "UserId": "29d40afd-88e9-45fc-b7de-d639224441c9"
+    },
+    {
+        "Id": "138518f0-ec88-43d2-a0e2-0aaf43cda650",
+        "ManifestCode": "55154-8375",
+        "GroupWayBillId": "b8a901f7-fac7-4b9c-90a7-eb9c0bae6113",
+        "GroupWayBill": "Greater flamingo",
+        "UserId": "f1def38c-dadc-47fc-a0ce-25de7bc660f1"
+    },
+    {
+        "Id": "a20d326c-83fd-4f96-baa2-2d82143652c8",
+        "ManifestCode": "63304-562",
+        "GroupWayBillId": "9709c0db-de31-4e16-a0c6-a05dded8db4d",
+        "GroupWayBill": "Brocket, brown",
+        "UserId": "b887de73-fec4-476a-8154-8d2bffeaf515"
+    },
+    {
+        "Id": "9da32b7a-e266-4ebc-a773-c538a22ce2f9",
+        "ManifestCode": "36987-1640",
+        "GroupWayBillId": "230ada5f-5aab-4b86-9dd9-0b5aa1add8f4",
+        "GroupWayBill": "Long-billed corella",
+        "UserId": "4cc53b0a-c498-4f43-b27d-1589b283db5c"
+    },
+    {
+        "Id": "ca9fcd52-fa87-4e9b-b50e-924e851911ae",
+        "ManifestCode": "60429-783",
+        "GroupWayBillId": "5fd9ee0f-7ca1-41d7-b38f-ae354d4b3a92",
+        "GroupWayBill": "Wallaby, dama",
+        "UserId": "472618fb-c73f-4085-a409-30924b61d400"
+    },
+    {
+        "Id": "4b9ed143-7786-4c99-8b9b-ea9c59bfde9b",
+        "ManifestCode": "42254-162",
+        "GroupWayBillId": "b5fbd84e-8dc4-4114-9bf4-8813941f091d",
+        "GroupWayBill": "Langur, common",
+        "UserId": "83e9d72c-238e-4eb9-8100-8ac0f17abc16"
+    },
+    {
+        "Id": "7aaba5e0-71fe-4bd1-bff8-e86e0602e935",
+        "ManifestCode": "16714-621",
+        "GroupWayBillId": "3336e73b-47fa-428a-a059-1240ac5a6e38",
+        "GroupWayBill": "Bare-faced go away bird",
+        "UserId": "736a352d-0e6a-4741-8f82-4f339c1bdc0d"
+    },
+    {
+        "Id": "ea3e761b-468c-46b5-9a9e-781750a4fdad",
+        "ManifestCode": "43353-690",
+        "GroupWayBillId": "92c8169b-18f5-4451-ad39-189e63270ae1",
+        "GroupWayBill": "Common duiker",
+        "UserId": "64cfd0bb-4bb9-4107-8bf1-73bab19855ca"
+    },
+    {
+        "Id": "d960541b-18c7-43cb-a6fb-f520b67b65bf",
+        "ManifestCode": "58411-131",
+        "GroupWayBillId": "0769b9b8-c45b-4a90-a0c0-75b6487bea1d",
+        "GroupWayBill": "Galapagos mockingbird",
+        "UserId": "cd7b94ca-a458-49bb-ba0f-50828b99a6ba"
+    },
+    {
+        "Id": "d9a403dc-1bc1-480b-bd66-6a22a918ff1e",
+        "ManifestCode": "64764-158",
+        "GroupWayBillId": "f05b6120-a1bc-4a1f-af99-3d662029c070",
+        "GroupWayBill": "Cat, european wild",
+        "UserId": "72801a3e-5b29-46cf-bb8d-aae006c6dc7c"
+    },
+    {
+        "Id": "81327e3c-fc82-4ac3-9b59-cef095d9ed0f",
+        "ManifestCode": "25021-670",
+        "GroupWayBillId": "681acc2f-20e4-49dd-9085-6739cc5ff0db",
+        "GroupWayBill": "Sociable weaver",
+        "UserId": "8ed095b9-b622-4ceb-8e9b-21069e90fc49"
+    },
+    {
+        "Id": "49bb145c-a3ff-47ef-aeb7-722cabbfaa93",
+        "ManifestCode": "47682-213",
+        "GroupWayBillId": "9c3e0b8c-7625-42be-ba21-f60f3d8661bc",
+        "GroupWayBill": "African skink",
+        "UserId": "5c38ca45-18da-44d9-b897-5f242918f4e3"
+    },
+    {
+        "Id": "a1712f53-57e6-45f6-b7d6-934ec5f9a62e",
+        "ManifestCode": "49288-0109",
+        "GroupWayBillId": "ca416611-6665-4a3d-aede-1635f3a02c31",
+        "GroupWayBill": "Four-spotted skimmer",
+        "UserId": "408576f6-fd9f-4f2d-9421-1dde44e0a742"
+    },
+    {
+        "Id": "0b3425a1-b72e-42b7-8101-7391bcf36429",
+        "ManifestCode": "0168-0007",
+        "GroupWayBillId": "68958da5-f86c-4031-9ae1-d21fc2598428",
+        "GroupWayBill": "Heron, green-backed",
+        "UserId": "985cc55e-1568-4b94-ab82-654c651536b3"
+    },
+    {
+        "Id": "21389df0-7e7d-4c93-89ff-d8bbf2db56c1",
+        "ManifestCode": "68788-9425",
+        "GroupWayBillId": "baca3d51-a0b0-4b36-a04c-e882ff96fc97",
+        "GroupWayBill": "Curlew, black",
+        "UserId": "2da7dc5d-13b6-4e01-92e3-1421f6146323"
+    },
+    {
+        "Id": "6d8da5e5-78f1-42f8-ba6d-d7459c4de101",
+        "ManifestCode": "60681-1803",
+        "GroupWayBillId": "f5eadeb2-2a7f-456c-9f0d-269945332525",
+        "GroupWayBill": "Owl, great horned",
+        "UserId": "e0778ace-643a-4286-8223-420330b133e6"
+    },
+    {
+        "Id": "29fffdb3-880e-48cd-b1f3-adc9d0eae1e7",
+        "ManifestCode": "57520-0398",
+        "GroupWayBillId": "4be4cecd-09a7-4151-8e74-d398cc8e7a52",
+        "GroupWayBill": "Rattlesnake, dusky",
+        "UserId": "aac4a794-5684-453b-9267-400c70afc472"
+    },
+    {
+        "Id": "3c19741b-da1e-4350-8a50-970d705d87b2",
+        "ManifestCode": "66414-001",
+        "GroupWayBillId": "7c11e7a6-1627-4ad2-8c36-8e658ec9fc08",
+        "GroupWayBill": "Dragon, frilled",
+        "UserId": "33c412c6-4b46-47c4-afd9-59ed9372c92d"
+    },
+    {
+        "Id": "09cc4adc-5ac5-47ab-8405-50a0dd5d5a0a",
+        "ManifestCode": "59427-001",
+        "GroupWayBillId": "a62d96db-9ed2-4363-990d-f295bfc3b0e1",
+        "GroupWayBill": "Beaver, north american",
+        "UserId": "7773a33a-a0d2-4afa-961e-ed544be7860b"
+    },
+    {
+        "Id": "4046dcdc-1f6d-41a3-9f47-a86a6f53d242",
+        "ManifestCode": "0944-2620",
+        "GroupWayBillId": "70e149cb-291b-4979-8bea-4c057671e39d",
+        "GroupWayBill": "Baboon, chacma",
+        "UserId": "c5795920-8535-471e-9722-fc278150bb7a"
+    },
+    {
+        "Id": "3735bcea-4f56-4a70-ab04-12f5062e0aac",
+        "ManifestCode": "61096-0004",
+        "GroupWayBillId": "3cb3b744-686f-4e07-8795-f56fae2e8f28",
+        "GroupWayBill": "Grey lourie",
+        "UserId": "b369a7c4-33e1-4eac-a506-b04912c86769"
+    },
+    {
+        "Id": "562020d6-eed1-4ebb-bfa6-6c2c808748b3",
+        "ManifestCode": "46122-224",
+        "GroupWayBillId": "c363aa57-deba-4e08-be25-16dfc06568d3",
+        "GroupWayBill": "Grey phalarope",
+        "UserId": "832c9e79-f82a-45df-8df5-3621d83af309"
+    },
+    {
+        "Id": "e428e0b1-05e7-4fe1-a3a4-0c4e37e5fe2f",
+        "ManifestCode": "59779-298",
+        "GroupWayBillId": "80055482-ac5e-44cc-8db1-c35242fbd3ab",
+        "GroupWayBill": "Lilac-breasted roller",
+        "UserId": "27f9785a-d4bc-4165-94d1-6e37322d4551"
+    },
+    {
+        "Id": "56ce58a1-dca8-40f6-81f0-391c4665c545",
+        "ManifestCode": "98132-188",
+        "GroupWayBillId": "176104f8-4fe5-47b4-8df6-9114cadaf1f6",
+        "GroupWayBill": "Bat-eared fox",
+        "UserId": "276a63a9-2452-4f97-86b9-cc60fc7e83c5"
+    },
+    {
+        "Id": "6d9fe14e-09c8-41a2-8ff5-639e1e108341",
+        "ManifestCode": "60429-142",
+        "GroupWayBillId": "0d2e8457-6ce5-495d-bba0-a9f870d18c3a",
+        "GroupWayBill": "Japanese macaque",
+        "UserId": "2a4c8f42-95a9-4cfd-90a0-cb3bdbba7af5"
+    },
+    {
+        "Id": "e0539cae-fb8d-46d1-89bc-31ef1173d5f5",
+        "ManifestCode": "55289-337",
+        "GroupWayBillId": "28afd449-5d79-4493-8366-338e09545835",
+        "GroupWayBill": "Frilled dragon",
+        "UserId": "0c7dd8ad-1982-4704-b3c1-b619baec9bf1"
+    },
+    {
+        "Id": "9f49cf54-b95a-4d69-bf01-4ce69fb33c30",
+        "ManifestCode": "30698-452",
+        "GroupWayBillId": "ded96bd0-6842-4373-8081-7329fb5a1a4a",
+        "GroupWayBill": "White-fronted bee-eater",
+        "UserId": "f1472b27-045a-42ba-be21-e39ed8f3f56d"
+    },
+    {
+        "Id": "ff728ded-3dd3-4128-9bfa-303e5312241b",
+        "ManifestCode": "59972-0106",
+        "GroupWayBillId": "31af4189-e01f-49ba-ad29-23236125fd9e",
+        "GroupWayBill": "Large-eared bushbaby",
+        "UserId": "16b167df-06d3-4d48-8179-59719a3cd83d"
+    },
+    {
+        "Id": "ac0b17a5-f1a3-453b-93ac-255c655224b2",
+        "ManifestCode": "35356-712",
+        "GroupWayBillId": "fed1b586-b194-43ab-adba-efe8b9cefe43",
+        "GroupWayBill": "Hornbill, leadbeateri's ground",
+        "UserId": "892a7eae-7609-4b9a-a202-2eb97a485692"
+    },
+    {
+        "Id": "a14e12bd-b3c8-44cb-98cc-f941c6c23609",
+        "ManifestCode": "58411-207",
+        "GroupWayBillId": "1b2c9e77-dae2-4751-80b3-1a1d5be1fcb8",
+        "GroupWayBill": "Rabbit, eastern cottontail",
+        "UserId": "3016d74a-455f-4eac-aeca-3d5dd7514f9a"
+    },
+    {
+        "Id": "5594e793-0e94-414a-868c-6dc1d6e62eb0",
+        "ManifestCode": "46414-3333",
+        "GroupWayBillId": "a8351e3c-fc27-4151-9c1e-240f76634cf3",
+        "GroupWayBill": "Cat, long-tailed spotted",
+        "UserId": "c3fb0df1-9d40-40cb-8e72-88f4476f18ba"
+    },
+    {
+        "Id": "78995af3-3921-4f05-b152-603a64462420",
+        "ManifestCode": "13533-635",
+        "GroupWayBillId": "9a0a7116-8f61-408c-85d9-2d6db7bf42e5",
+        "GroupWayBill": "Flamingo, chilean",
+        "UserId": "a562a10c-2831-4171-b1b5-9a090151b75a"
+    },
+    {
+        "Id": "356b441b-7ac1-4709-af8c-ea5206cf1e48",
+        "ManifestCode": "0378-0761",
+        "GroupWayBillId": "5f852b80-02e0-4dc2-a666-8394d1778ba1",
+        "GroupWayBill": "Yellow-billed hornbill",
+        "UserId": "bb73d0b7-4498-4d88-ae4e-768ad7914a7d"
+    },
+    {
+        "Id": "f262f739-d783-4465-b87a-144f80b63fe9",
+        "ManifestCode": "52125-612",
+        "GroupWayBillId": "9284efbf-c643-4841-a3e3-8bf2ded70ea8",
+        "GroupWayBill": "Frog (unidentified)",
+        "UserId": "0be6b756-399c-4643-8a3d-0cdf2084b9ca"
+    },
+    {
+        "Id": "9d68c5f5-51d2-4b6d-9a83-7d8586a5fd1d",
+        "ManifestCode": "43742-0069",
+        "GroupWayBillId": "e11b6b29-9ba1-44a4-9f10-5e880993ade6",
+        "GroupWayBill": "Mara",
+        "UserId": "0031de5e-b059-4b17-a1cb-98a2d9673e44"
+    },
+    {
+        "Id": "923021f7-b7a9-49c4-a350-a46f433005ef",
+        "ManifestCode": "15408-002",
+        "GroupWayBillId": "937e1818-1754-4fd9-a0fd-2d9e83cf7497",
+        "GroupWayBill": "Quoll, eastern",
+        "UserId": "056f2a3b-ff8a-496b-a5c2-0aec7893a6bb"
+    },
+    {
+        "Id": "6310833a-e189-4b1f-b501-051508b1366d",
+        "ManifestCode": "42291-640",
+        "GroupWayBillId": "6654ad0f-a25c-4017-8427-a3cab692d983",
+        "GroupWayBill": "Violet-crested turaco",
+        "UserId": "2eac67ca-2de4-4bb5-8b1b-50e5cbafcc4f"
+    },
+    {
+        "Id": "db2ef14b-e0d1-424d-a782-196f54172c63",
+        "ManifestCode": "62584-734",
+        "GroupWayBillId": "95f55542-057f-4951-a053-a3f8583a81b1",
+        "GroupWayBill": "Spider, wolf",
+        "UserId": "8ef30443-b639-4a24-8f95-2fd3f2550af5"
+    },
+    {
+        "Id": "8da50e6f-a495-431a-aa21-ca06da20157f",
+        "ManifestCode": "41163-375",
+        "GroupWayBillId": "8c709faa-ed8c-4948-985a-b553946c01bd",
+        "GroupWayBill": "Wildebeest, blue",
+        "UserId": "55a75837-c824-4416-9258-791931e41b4d"
+    },
+    {
+        "Id": "703a31b4-88a1-48c3-b625-5e54d3e2538d",
+        "ManifestCode": "21695-147",
+        "GroupWayBillId": "f199802c-a134-4ea6-a057-6ca36c117f30",
+        "GroupWayBill": "Cormorant, javanese",
+        "UserId": "63ada138-ac05-4ee5-ac55-0f74791460a2"
+    },
+    {
+        "Id": "0aa4f355-814a-4edc-970b-377eefea1835",
+        "ManifestCode": "44183-880",
+        "GroupWayBillId": "e92135a0-e858-42b1-8484-df58cd008c3c",
+        "GroupWayBill": "Slender-billed cockatoo",
+        "UserId": "f94cd2a3-bd34-4136-98ef-2456fd44a897"
+    },
+    {
+        "Id": "8b0be293-d937-4ee8-8da4-c91a5cf6ed87",
+        "ManifestCode": "68026-502",
+        "GroupWayBillId": "e3561678-9df2-4fdf-91a2-421e00ea8f06",
+        "GroupWayBill": "Ring-tailed gecko",
+        "UserId": "81ba1576-96e0-471b-9126-b75fd69075d7"
+    },
+    {
+        "Id": "344a07d4-16f2-4316-83ba-4e3db3f23826",
+        "ManifestCode": "55154-5376",
+        "GroupWayBillId": "9b064a27-75e0-4137-8b6b-ff76b535be33",
+        "GroupWayBill": "Western pygmy possum",
+        "UserId": "84634936-62f5-4349-93d6-cb4f60f1f17f"
+    },
+    {
+        "Id": "350f7dbf-9cc8-4890-8297-f4bd53dd2723",
+        "ManifestCode": "55154-9425",
+        "GroupWayBillId": "00e43039-85dc-44cf-9572-a97187a76605",
+        "GroupWayBill": "Blue-faced booby",
+        "UserId": "4ce5ae1b-7dfd-4593-b14b-da9b99f58ae6"
+    },
+    {
+        "Id": "b8e443e6-9da1-4e44-b7eb-946a26cda673",
+        "ManifestCode": "0363-7220",
+        "GroupWayBillId": "7173991d-230e-4801-8191-dd4249dbefab",
+        "GroupWayBill": "Goat, mountain",
+        "UserId": "43250706-a907-4ffe-b0b3-764ae04d77e8"
+    },
+    {
+        "Id": "f04822a4-df8c-4644-86c3-463561bfa011",
+        "ManifestCode": "0268-6312",
+        "GroupWayBillId": "1a028aca-f6db-4853-95ad-cf9889eebb70",
+        "GroupWayBill": "Red sheep",
+        "UserId": "9a51b4e3-6a12-4a6c-a941-f732fad81ecc"
+    },
+    {
+        "Id": "9c9da7db-da52-4499-b5f8-fe638bab7a22",
+        "ManifestCode": "0006-0568",
+        "GroupWayBillId": "c33cdc26-fd28-43f1-a7c7-bc6c4f760147",
+        "GroupWayBill": "Partridge, coqui",
+        "UserId": "86177583-7ed0-4b0f-aa2d-231d32321b8a"
+    },
+    {
+        "Id": "9d84e479-b619-4a60-abfd-99684e72e4c3",
+        "ManifestCode": "66336-028",
+        "GroupWayBillId": "38caa154-198d-43b5-8fc9-06823adad0db",
+        "GroupWayBill": "Robin, kalahari scrub",
+        "UserId": "81727d57-cbc5-4884-a9df-042c24f29c61"
+    },
+    {
+        "Id": "039eb7d9-c1b2-472f-a3b7-3195d721e38b",
+        "ManifestCode": "50111-395",
+        "GroupWayBillId": "d875dc2d-4cbd-47dd-b30a-907a74603940",
+        "GroupWayBill": "Starling, greater blue-eared",
+        "UserId": "8b88ca96-3989-4cd9-98f9-42a6dc1b9ac5"
+    },
+    {
+        "Id": "3a2507cc-9fd1-404d-9ee1-6739b7283e5e",
+        "ManifestCode": "59427-704",
+        "GroupWayBillId": "3ab46d07-cc4a-4e92-8e34-1be8d2c4de38",
+        "GroupWayBill": "Coqui francolin",
+        "UserId": "d85bcea3-c6a1-45cf-beb5-c251d8d5c6e7"
+    },
+    {
+        "Id": "49fe3ac8-343c-42d5-9b83-49244ae905f4",
+        "ManifestCode": "0280-0935",
+        "GroupWayBillId": "258a582f-e8ba-47cc-a42e-505d8b6a6450",
+        "GroupWayBill": "Pie, indian tree",
+        "UserId": "b11960af-a469-4e58-b9ec-b318345e50e2"
+    },
+    {
+        "Id": "dea8adf8-8eb0-480e-8680-c68862e91411",
+        "ManifestCode": "62011-0212",
+        "GroupWayBillId": "5220572b-77bc-440d-be63-efd0a2c06dd7",
+        "GroupWayBill": "Waterbuck, defassa",
+        "UserId": "acbbe5b6-7d9c-44b2-9a28-58fbed9e4df6"
+    },
+    {
+        "Id": "c229f0b8-59b2-4ba0-8008-9584b0aa87ff",
+        "ManifestCode": "0574-0018",
+        "GroupWayBillId": "f4bda1e0-56d2-44cd-8886-60056fcd22e6",
+        "GroupWayBill": "Brown lemur",
+        "UserId": "1e7d523a-f1a7-410a-9dda-b2b819eb759c"
+    },
+    {
+        "Id": "6be5759b-65d5-42c3-87ef-547d7a980a94",
+        "ManifestCode": "54384-1072",
+        "GroupWayBillId": "af713269-b9b8-4102-a14a-09e85ece41a8",
+        "GroupWayBill": "Little heron",
+        "UserId": "18f186a9-1f6c-44c6-ad08-d4c494d09bcb"
+    },
+    {
+        "Id": "f949d75a-1491-4158-be40-b5dda83f6653",
+        "ManifestCode": "76335-006",
+        "GroupWayBillId": "3a60ccae-dd04-42cd-a79b-e1a6e2be65c5",
+        "GroupWayBill": "Gerbil (unidentified)",
+        "UserId": "d07896ee-ca54-4782-8a17-ee2eed9e9aed"
+    },
+    {
+        "Id": "ad98acc8-8e5f-4706-ad54-3dad90264172",
+        "ManifestCode": "52125-611",
+        "GroupWayBillId": "73e6ce74-3662-419b-ad75-894a7aa555ec",
+        "GroupWayBill": "White-rumped vulture",
+        "UserId": "ce39b6d2-e7a3-4809-9828-9acf448c6e24"
+    },
+    {
+        "Id": "03cf0773-11fe-44f4-9076-21b0dcf20316",
+        "ManifestCode": "42192-341",
+        "GroupWayBillId": "7054dfa9-f5f5-496a-ad69-6090c0d58d87",
+        "GroupWayBill": "Turaco, violet-crested",
+        "UserId": "399d973c-e438-4070-b704-7e0225907356"
+    },
+    {
+        "Id": "0978476f-0190-410a-8e48-01800c961c24",
+        "ManifestCode": "0699-5743",
+        "GroupWayBillId": "00ffd2c5-c676-4634-a5b8-9e382799c3b3",
+        "GroupWayBill": "Gecko (unidentified)",
+        "UserId": "0878dfe0-6955-4b61-b519-0c2eb4edb680"
+    },
+    {
+        "Id": "ded0194f-e05b-4dc3-95e3-6a39a76a3423",
+        "ManifestCode": "61995-2387",
+        "GroupWayBillId": "7015fda6-0d9a-45b4-9d6c-3aef325b62f1",
+        "GroupWayBill": "Arctic hare",
+        "UserId": "dcef588c-613b-4f33-8f06-ab0e5f3f8b30"
+    },
+    {
+        "Id": "5b7aee14-a3c3-4f68-be15-ee5e7a8af704",
+        "ManifestCode": "41250-371",
+        "GroupWayBillId": "8d8d162f-f078-4b25-8de7-8638f9e6a130",
+        "GroupWayBill": "Grey heron",
+        "UserId": "326c6546-90b6-4dfc-a597-8f547a6d7a7e"
+    }
+]

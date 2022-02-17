@@ -22,8 +22,17 @@ export interface IShipmentModel {
     LastName: string
 } 
 export interface IPriceModel {
-    Id: string
-    WayBillPrice: string
-    RoutePrice: string
-    Currency: string
+    id: string;
+    Category: string;
+    RouteId: string;
+    Route: string;
+    UnitWeight: number;
+    PricePErUnit: string;
+} 
+export interface IManifestModel {
+    Id: string;
+    ManifestCode: string;
+    GroupWayBillId: string;
+    GroupWayBill: string;
+    UserId: string;
 } 

@@ -98,18 +98,9 @@ export function AsideMenuMain() {
           title='Processing Center'
           fontIcon='bi-layers'
         >
-          <AsideMenuItem to='/shipment/SortShipment' title='Sort Shipment' hasBullet={true} />
+          {/* <AsideMenuItem to='/shipment/SortShipment' title='Sort Shipment' hasBullet={true} /> */}
           <AsideMenuItem to='/shipment/Manifest' title='Manifest' hasBullet={true} />
-          <AsideMenuItem to='/shipment/Dispatch' title='Dispatch' hasBullet={true} />
-        </AsideMenuItemWithSub>
-
-        <AsideMenuItemWithSub
-          to='/shipment'
-          icon='/media/icons/duotune/general/gen019.svg'
-          title='Search'
-          fontIcon='bi-layers'
-        >
-          <AsideMenuItem to='/shipment/SearchShipment' title='Search Shipment' hasBullet={true} />
+          {/* <AsideMenuItem to='/shipment/Dispatch' title='Dispatch' hasBullet={true} /> */}
         </AsideMenuItemWithSub>
 
         <AsideMenuItemWithSub
@@ -210,14 +201,14 @@ export function AsideMenuMain() {
         </div>
       </div>
       <AsideMenuItemWithSub
-        to='/fulfillment/delivershipment'
+        to='/fulfillment/collectioncenter'
         icon='/media/icons/duotune/general/gen022.svg'
         title='Fulfillment'
         fontIcon='bi-layers'
       >
         <AsideMenuItem
-          to='/fulfillment/delivershipment'
-          title='Deliver Shipment'
+          to='/fulfillment/collectioncenter'
+          title='Collection Center'
           hasBullet={true}
         />
       </AsideMenuItemWithSub>

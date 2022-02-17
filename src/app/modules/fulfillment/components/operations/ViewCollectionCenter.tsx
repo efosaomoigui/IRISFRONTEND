@@ -3,51 +3,55 @@ import agent from '../../../../../setup/axios/AxiosAgent'
 import { IrisTablesWidget } from '../../../layout/tables/IrisTablesWidget'
 import { madalprops } from '../../../layout/tables/IrisTableTitle'
 import { IFulfilmentModel } from '../../models/FulfilmentInterface'
-import Fulfilment_Data from './Fulfilment_Data.json'
+import CollectionCenter_Data from './CollectionCenter_Data.json'
 // import {format} from 'date-fns' 
 
-export function DeliverShipment() {
+export function CollectionCenter() {
   const [loading, setLoading] = useState(true)
   const [modalTarger, setModalTarget] = useState<madalprops[]>([]);
-  const [usersmodel, setUsersModel] = useState<IFulfilmentModel[]>([])
+  const [collectionmodel, setUsersModel] = useState<IFulfilmentModel[]>([])
 
   //all the data for the table
   const tableProvider = {
     columns: [
       {
-        Header: 'Wallet Number Id',
-        accessor: 'walletNumberId',
+        Header: 'Id',
+        accessor: 'Id',
       },
       {
-        Header: 'Number',
-        accessor: 'number',
+        Header: 'ShipmentId',
+        accessor: 'ShipmentId',
       },
       {
-        Header: 'Active',
-        accessor: 'isActive',
+        Header: 'Shipment',
+        accessor: 'Shipment',
       },
       {
-        Header: 'User Id',
-        accessor: 'userId',
+        Header: 'Collection Status',
+        accessor: 'CollectionStatus',
+      },
+      {
+        Header: 'UserId',
+        accessor: 'UserId',
       }
     ],
     DetailsPath: '/adminSettings/userDetails/',
     EditPath: '/adminSettings/userDetails/',
     DeletePath: '/adminSettings/userDetails/',
-    FakeData: Fulfilment_Data,
+    FakeData: CollectionCenter_Data,
   }
 
   //Buttons on the table page
   const ModalTarget = [
     {
-      linkTitle:'Add User',
-      linkTarget : '#kt_modal_adduser'
+      linkTitle:'Collection status',
+      linkTarget : '#kt_modal_addcollectioncenter'
     }
   ]
 
   // //USE EFFECT HOOK
   useEffect(() => {
-    agent.Fulfilment.list().then((response) => {
+    agent.CollectionCenter.list().then((response) => {
       setUsersModel(response)
       setModalTarget(ModalTarget);
       setLoading(false) 
@@ -62,7 +66,7 @@ export function DeliverShipment() {
     <div className='row g-5 g-xxl-8'>
       <div className='col-xl-12'>
         <IrisTablesWidget
-          tableData={usersmodel}
+          tableData={collectionmodel}
           className='mb-5 mb-xl-8'
           columnsMap={tableProvider.columns}
           DetailsPath={tableProvider.DetailsPath}
@@ -70,7 +74,7 @@ export function DeliverShipment() {
           DeletePath={tableProvider.DeletePath}
           UseFakeData={true}
           FakeData={tableProvider.FakeData}
-          TableTitle={'User Profile'}
+          TableTitle={'Collection Center'}
           Count={'Over 300 Users'}
           ModalTarget={
             modalTarger

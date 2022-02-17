@@ -25,7 +25,7 @@ type Props = {
   ModalTarget: madalprops[]
 }
 
-const TablesWidgetFulfilment: React.FC<Props> = ({
+const TablesWidgetCollectionCenter: React.FC<Props> = ({
   tableData,
   className,
   columnsMap,
@@ -106,4 +106,4 @@ const TablesWidgetFulfilment: React.FC<Props> = ({
   )
 }
 
-export {TablesWidgetFulfilment}
+export {TablesWidgetCollectionCenter}
