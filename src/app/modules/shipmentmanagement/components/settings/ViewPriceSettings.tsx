@@ -20,11 +20,11 @@ export function ViewPriceSettings() {
       },
       {
         Header: 'Category List',
-        accessor: 'Category ',
+        accessor: 'Category',
       },
       {
         Header: 'Route Identification',
-        accessor: 'RouteId ',
+        accessor: 'RouteId',
       },
       {
         Header: 'Route',
@@ -61,9 +61,6 @@ export function ViewPriceSettings() {
       setLoading(false)
     })
   }, [])
-
-  console.log("PP: ", pricemodel);
-  alert();
 
   // if (loading) return <LoadingComponent content='Loading...' />
 

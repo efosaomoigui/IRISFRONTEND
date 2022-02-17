@@ -5,13 +5,15 @@ export const permissionmodel: IPermissionModel[] =
 {
   id: '',
   roleId: "chairman",
-  claimType: "claiming",
-  claimValue: "string"
+  PermissionId: "claiming",
+  PermissionType: "string",
+  Permission: "string",
 },
     {
       id: '',
       roleId: "chairman",
-      claimType: "claiming",
-      claimValue: "string"
+      PermissionId: "claiming",
+      PermissionType: "string",
+      Permission: "string",
     }
 ]

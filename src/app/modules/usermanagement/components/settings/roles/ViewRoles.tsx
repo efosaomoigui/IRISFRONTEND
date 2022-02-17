@@ -14,11 +14,11 @@ export function ViewRoles() {
     columns: [
         {
           Header: 'Role Id',
-          accessor: 'RoleId',
+          accessor: 'id',
         },
         {
           Header: 'Role Name',
-          accessor: 'RoleName',
+          accessor: 'name',
         },
     ],
     DetailsPath: '',

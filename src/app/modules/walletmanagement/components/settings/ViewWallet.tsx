@@ -15,20 +15,28 @@ export function ViewWallet() {
   const tableProvider = {
     columns: [
       {
+        Header: 'WalletTransaction Id',
+        accessor: 'WalletTransactionId',
+      },
+      {
+        Header: 'Amount',
+        accessor: 'Amount',
+      },
+      {
+        Header: 'Transaction Type',
+        accessor: 'TransactionType',
+      },
+      {
+        Header: 'Description',
+        accessor: 'Description',
+      },
+      {
         Header: 'Wallet Number',
-        accessor: 'walletNumberId',
+        accessor: 'WalletNumber',
       },
       {
-        Header: 'Active',
-        accessor: 'isActive',
-      },
-      // {
-      //   Header: 'First Name',
-      //   accessor: 'firstName',
-      // },
-      {
-        Header: 'User Id',
-        accessor: 'userId',
+        Header: 'Date Created',
+        accessor: 'DateCreated',
       },
     ],
     DetailsPath: '/adminSettings/userDetails/',

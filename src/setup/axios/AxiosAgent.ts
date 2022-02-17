@@ -54,8 +54,8 @@ const Roles = {
   delete: (id: string) => request.del<void>(`${API_URL}/UserManagement/GetUser${id}`),
 }
 const Permissions = {
-  list: () => request.get<IPermissionModel[]>(`${API_URL}/UserManagement/GetPermission`),
-  details: (permissionid: string) => request.get<IPermissionModel>(`${API_URL}/UserManagement/GetPermission/${permissionid}`),
+  list: () => request.get<IPermissionModel[]>(`${API_URL}/UserManagement/GetUser`),
+  details: (permissionid: string) => request.get<IPermissionModel>(`${API_URL}/UserManagement/GetUser/${permissionid}`),
   create: (permission: IPermissionModel) => request.post<IPermissionModel>(`${API_URL}/UserManagement/AddPermissionToRole`, permission),
   update: (permission: IPermissionModel) => request.put<IPermissionModel>(`${API_URL}/UserManagement/GetUser/${permission.id}`, {}),
   delete: (id: string) => request.del<void>(`${API_URL}/UserManagement/GetUser${id}`),
@@ -66,16 +66,16 @@ const  Wallet = {
   list: () => request.get<IWalletModel[]>(`${API_URL}/Wallet/WalletNumber/all`),
   details: (walletid: string) => request.get<IWalletModel>(`${API_URL}/Wallet/WalletNumber/all/${walletid}`), 
   create: (wallet: IWalletModel) => request.post<IWalletModel>(`${API_URL}/Wallet/WalletNumber`, wallet), 
-  update: (wallet: IWalletModel) => request.put<IWalletModel>(`${API_URL}/Wallet/WalletNumber/${wallet.walletNumberId}`, {}), 
+  update: (wallet: IWalletModel) => request.put<IWalletModel>(`${API_URL}/Wallet/WalletNumber/${wallet.WalletTransactionId}`, {}), 
   delete: (id: string) => request.del<void>(`${API_URL}/Wallet/WalletNumber${id}`), 
 }
 
 // wallet transaction Starts here
 const WalletTransaction = {
   list: () => request.get<IWalletTransactionModel[]>(`${API_URL}/Wallet/WalletTransaction/all`),
-  details: (walletid: string) => request.get<IWalletTransactionModel>(`${API_URL}/Wallet/WalletTransaction/all/${walletid}`),
-  create: (wallet: IWalletTransactionModel) => request.post<IWalletTransactionModel>(`${API_URL}/Wallet/WalletTransaction`, wallet),
-  update: (wallet: IWalletTransactionModel) => request.put<IWalletTransactionModel>(`${API_URL}/Wallet/WalletTransaction/${wallet.walletNumberId}`, {}),
+  details: (wallettransactionid: string) => request.get<IWalletTransactionModel>(`${API_URL}/Wallet/WalletTransaction/all/${wallettransactionid}`),
+  create: (wallettransaction: IWalletTransactionModel) => request.post<IWalletTransactionModel>(`${API_URL}/Wallet/WalletTransaction`, wallettransaction),
+  update: (wallettransaction: IWalletTransactionModel) => request.put<IWalletTransactionModel>(`${API_URL}/Wallet/WalletTransaction/${wallettransaction.WalletTransactionId}`, {}),
   delete: (id: string) => request.del<void>(`${API_URL}/Shipment/GetUser${id}`),
 }
 

@@ -5,6 +5,7 @@ import * as Yup from 'yup'
 import { KTSVG } from '../../../../_iris/helpers'
 import { IPermissionModel } from '../../auth/models/AuthInterfaces'
 import IrisSelectInput from '../../layout/forms/IrisSelectInput'
+import IrisTextInput from '../../layout/forms/IrisTextInput'
 
 
 
@@ -27,16 +28,18 @@ const options = [
 
 export default function AddPermissionForm(props: Props<IPermissionModel>) {
   const initialFormValue: IPermissionModel = {
-    id: '',
-    roleId: '',
-    claimType: '',
-    claimValue: ''
+  id: '',
+  roleId: '',
+  PermissionId: '',
+  PermissionType: '',
+  Permission: ''
   }
 
   const validationSchema = Yup.object({
     roleId: Yup.string().required(),
-    claimType: Yup.string().required(),
-    claimValue: Yup.string().required(),
+    PermissionId: Yup.string().required(),
+    PermissionType: Yup.string().required(),
+    Permission: Yup.string().required(),
   })
 
   return (
@@ -61,30 +64,30 @@ export default function AddPermissionForm(props: Props<IPermissionModel>) {
               </div>
 
               <div className='modal-body py-lg-10 px-lg-10'>
-                {/* <IrisTextInput
+                <IrisTextInput
                   type='text'
-                  name='userName'
-                  placeholder='User Name'
-                  label='User name'
-                /> */}
-                {/* <IrisTextInput
+                  name='RoleId'
+                  placeholder='RoleId'
+                  label='RoleId'
+                />
+                <IrisTextInput
                   type='text'
-                  placeholder='FirstName'
-                  name='firstName'
-                  label='First Name'
-                /> */}
-                {/* <IrisTextInput
+                  placeholder='PermissionId'
+                  name='PermissionId'
+                  label='PermissionId'
+                />
+                <IrisTextInput
                   type='text'
-                  placeholder='Last Name'
-                  name='lastName'
-                  label='Last Name'
-                /> */}
-                {/* <IrisTextInput
-                  type='email'
-                  placeholder='Email'
-                  name='email'
-                  label='Email'
-                /> */}
+                  placeholder='PermissionType'
+                  name='PermissionType'
+                  label='PermissionType'
+                />
+                <IrisTextInput
+                  type='text'
+                  placeholder='Permission'
+                  name='Permission'
+                  label='Permission'
+                />
 
                 {/* <IrisTextInput
                   type='number'
@@ -109,26 +112,26 @@ export default function AddPermissionForm(props: Props<IPermissionModel>) {
                   label='Password'
                 /> */}
 
-                <IrisSelectInput
+                {/* <IrisSelectInput
                   options={options}
                   placeholder='RoleId'
                   name='RoleId'
                   label='RoleId'
-                />
+                /> */}
 
-                <IrisSelectInput
+                {/* <IrisSelectInput
                   options={options}
                   placeholder='Claim Type'
                   name='Claim Type'
                   label='Claim Type'
-                />
+                /> */}
 
-                <IrisSelectInput
+                {/* <IrisSelectInput
                   options={options}
                   placeholder='Claim Value'
                   name='Claim Value'
                   label='Claim Value'
-                />
+                /> */}
 
               </div>
 
