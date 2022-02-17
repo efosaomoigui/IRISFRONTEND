@@ -51,7 +51,7 @@ export default function AddFleetForm(props: Props<IManifestModel>) {
                     <div className='modal-dialog modal-dialog-centered mw-900px'>
                         <div className='modal-content'>
                             <div className='modal-header'>
-                                <h2>Create Fleet</h2>
+                                <h2>Add Manifest</h2>
                                 <div
                                     className='btn btn-sm btn-icon btn-active-color-primary'
                                     data-bs-dismiss='modal'

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import agent from '../../../../../setup/axios/AxiosAgent';
+import LoadingComponent from '../../../../LoadingComponent';
 import { IrisTablesWidget } from '../../../layout/tables/IrisTablesWidget';
 import { madalprops } from '../../../layout/tables/IrisTableTitle';
 import { IManifestModel } from '../../ShipmentModels/ShipmentInterfaces';
@@ -62,7 +63,7 @@ export function Manifest() {
 
   // console.log(usersmodel);
 
-  // if (loading) return <LoadingComponent content='Loading...' />
+  if (loading) return <LoadingComponent content='Loading...' />
 
   return (
     <div className='row g-5 g-xxl-8'>
