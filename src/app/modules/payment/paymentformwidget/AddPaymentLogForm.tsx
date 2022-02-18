@@ -31,14 +31,18 @@ const options = [
 export default function AddPaymentlLogForm(props: Props<IPaymentLogModel>) {
     const initialFormValue: IPaymentLogModel = {
         PaymentId: '',
-        PaymentName: '',
-        PaymentModel: ''
+        Amount: '',
+        PaymentMethod: '',
+        User: '',
+        TransactionId: ''
     }
 
     const validationSchema = Yup.object({
         PaymentId: Yup.string().required(),
-        PaymentName: Yup.string().required(),
-        PaymentModel: Yup.string().required(),
+        Amount: Yup.string().required(),
+        PaymentMethod: Yup.string().required(),
+        User: Yup.string().required(),
+        TransactionId: Yup.string().required(),
     })
 
     return (
@@ -65,35 +69,35 @@ export default function AddPaymentlLogForm(props: Props<IPaymentLogModel>) {
                             <div className='modal-body py-lg-10 px-lg-10'>
                                 <IrisTextInput
                                     type='text'
-                                    name='PaymentName'
-                                    placeholder='Payment Name'
-                                    label='Payment Name'
+                                    name='PaymentId'
+                                    placeholder='PaymentId'
+                                    label='PaymentId'
                                 />
                                 <IrisTextInput
                                     type='text'
-                                    placeholder='PaymentModel'
-                                    name='PaymentModel'
-                                    label='PaymentModel'
-                                />
-                                {/* <IrisTextInput
-                                    type='text'
-                                    placeholder='Shipment'
-                                    name='Shipment'
-                                    label='Shipment'
+                                    placeholder='Amount'
+                                    name='Amount'
+                                    label='Amount'
                                 />
                                 <IrisTextInput
                                     type='text'
-                                    placeholder='Payment Method'
+                                    placeholder='PaymentMethod'
                                     name='PaymentMethod'
-                                    label='Payment Method'
-                                /> */}
-
-                                {/* <IrisTextInput
+                                    label='PaymentMethod'
+                                />
+                                <IrisTextInput
                                     type='text'
-                                    placeholder='Dispatcher'
-                                    name='Dispatcher'
-                                    label='Dispatcher'
-                                /> */}
+                                    placeholder='User'
+                                    name='User'
+                                    label='User'
+                                />
+
+                                <IrisTextInput
+                                    type='text'
+                                    placeholder='TransactionId'
+                                    name='TransactionId'
+                                    label='TransactionId'
+                                />
 
                                 {/* <IrisDatePicker
                   placeholderText='Date'
@@ -128,7 +132,7 @@ export default function AddPaymentlLogForm(props: Props<IPaymentLogModel>) {
                                     loading={props.isSubmitting}
                                     content='Submit'
                                 ></Button>
-                                <Button floated='right' positive type='button' content='Cancel'></Button>
+                                <Button floated='right' positive type='button' data-bs-dismiss="modal" content='Cancel'></Button>
                             </Modal.Footer>
                         </div>
                     </div>

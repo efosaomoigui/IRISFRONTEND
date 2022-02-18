@@ -124,11 +124,11 @@ const  Price = {
 
 // Payment Request Starts
 const  PaymentLog = {
-  list: () => request.get<IPaymentLogModel[]>(`${API_URL}/UserManagement/GetUsers`),
-  details: (paymentid: string) => request.get<IPaymentLogModel>(`${API_URL}/UserManagement/GetUser/${paymentid}`), 
-  create: (payment: IPaymentLogModel) => request.post<IPaymentLogModel>(`${API_URL}/UserManagement/GetUsers`, payment), 
-  update: (payment: IPaymentLogModel) => request.put<IPaymentLogModel>(`${API_URL}/UserManagement/GetUser/${payment.PaymentId}`, {}), 
-  delete: (id:string) => request.del<void>(`${API_URL}/UserManagement/GetUser${id}`), 
+  list: () => request.get<IPaymentLogModel[]>(`${API_URL}/Payment/Payment/all`),
+  details: (paymentid: string) => request.get<IPaymentLogModel>(`${API_URL}/Payment/Payment/all/${paymentid}`), 
+  create: (payment: IPaymentLogModel) => request.post<IPaymentLogModel>(`${API_URL}/Payment/Payment`, payment), 
+  update: (payment: IPaymentLogModel) => request.put<IPaymentLogModel>(`${API_URL}/Payment/Payment/edit/${payment.PaymentId}`, {}), 
+  delete: (id: string) => request.del<void>(`${API_URL}/Payment/Payment/delete${id}`), 
 }
 
 const Invoice = {

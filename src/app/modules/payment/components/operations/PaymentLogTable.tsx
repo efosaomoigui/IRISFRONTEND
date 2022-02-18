@@ -1,48 +1,40 @@
 import React, {useMemo} from 'react'
-import User_Data from './User_Data.json'
+import PaymentLog_Data from './PaymentLog_Data.json'
 import {useTable, useSortBy} from 'react-table'
 import './CustomTable.css'
-import { IUserModel } from '../../../../auth/models/AuthInterfaces'
-import { KTSVG } from '../../../../../../_iris/helpers'
-import TableActionLinks from '../../../../layout/tables/TableActionLinks'
+import { IPaymentLogModel } from '../../PaymentModels/PaymentmentInterfaces'
+import TableActionLinks from '../../../layout/tables/TableActionLinks'
+
 
 interface Props{
-  usersData:IUserModel | any ;
+  usersData:IPaymentLogModel | any ;
 }
 
-const UserTable = ({ usersData} : Props) => {
+const PaymentLogTable = ({ usersData} : Props) => {
 
   const tableInstance = useTable({
     columns : useMemo(
       () => [
         {
-          Header: 'User Id',
-          accessor: 'userId',
+          Header: 'Amount',
+          accessor: 'Amount',
         },
         {
-          Header: 'User Name',
-          accessor: 'userName',
+          Header: 'Payment Method',
+          accessor: 'PaymentMethod',
         },
         {
-          Header: 'First Name',
-          accessor: 'firstName',
+          Header: 'User',
+          accessor: 'User',
         },
         {
-          Header: 'Last Name',
-          accessor: 'lastName',
-        },
-        {
-          Header: 'Email',
-          accessor: 'email',
-        },
-        {
-          Header: 'Phone Number',
-          accessor: 'phoneNumber',
+          Header: 'TransactionId',
+          accessor: 'TransactionId',
         },
       ],
       []
     ),
-    data: useMemo(() => User_Data, []),
+    data: useMemo(() => PaymentLog_Data, []),
   }, useSortBy)
 
   const {getTableProps, getTableBodyProps, headerGroups, rows, prepareRow} = tableInstance
@@ -80,4 +72,4 @@ const UserTable = ({ usersData} : Props) => {
   )
 }
 
-export { UserTable };
+export { PaymentLogTable };

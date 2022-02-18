@@ -22,7 +22,7 @@ export function Invoice() {
       },
       {
         Header: 'Shipment Id ',
-        accessor: 'ShipmentId ',
+        accessor: 'ShipmentId',
       },
       {
         Header: 'Shipment',
