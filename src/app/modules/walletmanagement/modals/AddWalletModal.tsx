@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { toast } from 'react-toastify';
 import { v4 as uuid } from 'uuid';
 import agent from '../../../../setup/axios/AxiosAgent';
-import { IAddWalletModel, IWalletModel } from '../Models/WalletInterfaces';
+import { IWalletModel } from '../Models/WalletInterfaces';
 import AddWalletForm from '../walletformwidget/AddWalletForm';
 
 

@@ -37,9 +37,9 @@ const WalletPage: React.FC = () => {
           <PageTitle breadcrumbs={userBreadCrumbs}>Wallets</PageTitle>
           <ViewWallet />
         </Route>
-        <Route path='/wallet/addwallet'>
+        {/* <Route path='/wallet/addwallet'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Add Wallet</PageTitle>
-        </Route>
+        </Route> */}
         <Route path='/wallet/transactions'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Wallet Transactions</PageTitle>
           <WalletTransaction />

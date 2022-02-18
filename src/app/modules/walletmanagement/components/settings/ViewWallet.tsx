@@ -42,7 +42,7 @@ export function ViewWallet() {
     {
       linkTitle: 'Add Wallet',
       linkTarget: '#kt_modal_addwallet'
-    }
+    },
     
   ]
 

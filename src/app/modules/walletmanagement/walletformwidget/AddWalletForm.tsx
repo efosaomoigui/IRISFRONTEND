@@ -6,7 +6,7 @@ import { KTSVG } from '../../../../_iris/helpers'
 import IrisDatePicker from '../../layout/forms/IrisDatePicker'
 import IrisSelectInput from '../../layout/forms/IrisSelectInput'
 import IrisTextInput from '../../layout/forms/IrisTextInput'
-import { IAddWalletModel, IWalletModel } from '../Models/WalletInterfaces'
+import { IWalletModel } from '../Models/WalletInterfaces'
 
 
 
@@ -133,7 +133,7 @@ export default function AddWalletForm(props: Props<IWalletModel>) {
                   loading={props.isSubmitting}
                   content='Submit'
                 ></Button>
-                <Button floated='right' positive type='button' content='Cancel'></Button>
+                <Button floated='right' positive type='button' data-bs-dismiss="modal" content='Cancel'></Button>
               </Modal.Footer>
             </div>
           </div>
