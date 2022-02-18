@@ -14,29 +14,21 @@ const WalletTable = ({walletData} : Props) => {
     columns : useMemo(
       () => [
         {
-          Header: 'WalletTransaction Id',
-          accessor: 'WalletTransactionId',
-        },
-        {
-          Header: 'Amount',
-          accessor: 'Amount',
-        },
-        {
-          Header: 'Transaction Type',
-          accessor: 'TransactionType',
-        },
-        {
-          Header: 'Description',
-          accessor: 'Description',
+          Header: 'WalletId',
+          accessor: 'WalletId',
         },
         {
           Header: 'Wallet Number',
           accessor: 'WalletNumber',
         },
         {
-          Header: 'Date Created',
-          accessor: 'DateCreated',
-        }
+          Header: 'User Id',
+          accessor: 'UserId',
+        },
+        {
+          Header: 'Active',
+          accessor: 'IsActive',
+        },
       ],
       []
     ),

@@ -66,7 +66,7 @@ const  Wallet = {
   list: () => request.get<IWalletModel[]>(`${API_URL}/Wallet/WalletNumber/all`),
   details: (walletid: string) => request.get<IWalletModel>(`${API_URL}/Wallet/WalletNumber/all/${walletid}`), 
   create: (wallet: IWalletModel) => request.post<IWalletModel>(`${API_URL}/Wallet/WalletNumber`, wallet), 
-  update: (wallet: IWalletModel) => request.put<IWalletModel>(`${API_URL}/Wallet/WalletNumber/${wallet.WalletTransactionId}`, {}), 
+  update: (wallet: IWalletModel) => request.put<IWalletModel>(`${API_URL}/Wallet/WalletNumber/${wallet.WalletId}`, {}), 
   delete: (id: string) => request.del<void>(`${API_URL}/Wallet/WalletNumber${id}`), 
 }
 
