@@ -5,7 +5,8 @@ import * as Yup from 'yup'
 import { KTSVG } from '../../../../_iris/helpers'
 import IrisTextInput from '../../layout/forms/IrisTextInput'
 import IrisSelectInput from '../../layout/forms/IrisSelectInput'
-import { ITripModel } from '../Monitor models/MonitorInterface'
+import { ITrackHistoryModel } from '../Monitor models/MonitorInterface'
+import IrisDatePicker from '../../layout/forms/IrisDatePicker'
 
 
 
@@ -27,36 +28,23 @@ const options = [
     { text: 'four', value: 'Afganistan' },
 ]
 
-export default function AddTripForm(props: Props<ITripModel>) {
-    const initialFormValue: ITripModel = {
+export default function AddTrackHistoryForm(props: Props<ITrackHistoryModel>) {
+    const initialFormValue: ITrackHistoryModel = {
         id: '',
-        TripReference: '',
-        RouteCode: '',
-        fleetid: '',
-        fleet: '',
-        ManifestId: '',
-        manifest: '',
-        Driver: '',
-        Dispatcher: '',
-        DriverDispatchFee: '',
-        Miscelleneous: '',
-        FuelCosts: '',
-        FuelUsed: '',
-        StartTime: '',
-        EndTime: '',
-        status: '',
+        TripId: '',
+        Action: '',
+        Location: '',
+        TimeStamp: '',
+        Status: ''
     }
 
     const validationSchema = Yup.object({
-        TripReference: Yup.string().required(),
-        RouteCode: Yup.string().required(),
-        fleetid: Yup.string().required(),
-        ManifestId: Yup.string().required(),
-        Driver: Yup.string().required(),
-        Dispatcher: Yup.string().required(),
-        DriverDispatchFee: Yup.string().required(),
-        StartTime: Yup.string().required(),
-        EndTime: Yup.string().required(),
+        id: Yup.string().required(),
+        TripId: Yup.string().required(),
+        Action: Yup.string().required(),
+        Location: Yup.string().required(),
+        TimeStamp: Yup.string().required(),
+        Status: Yup.string().required(),
     })
 
     return (
@@ -71,7 +59,7 @@ export default function AddTripForm(props: Props<ITripModel>) {
                     <div className='modal-dialog modal-dialog-centered mw-900px'>
                         <div className='modal-content'>
                             <div className='modal-header'>
-                                <h2>Add Trip</h2>
+                                <h2>Add Track History</h2>
                                 <div
                                     className='btn btn-sm btn-icon btn-active-color-primary'
                                     data-bs-dismiss='modal'
@@ -83,43 +71,43 @@ export default function AddTripForm(props: Props<ITripModel>) {
                             <div className='modal-body py-lg-10 px-lg-10'>
                                 <IrisTextInput
                                     type='text'
-                                    name='TripReference'
-                                    placeholder='Trip Reference'
-                                    label='Trip Reference'
+                                    name='TripId'
+                                    placeholder='TripId'
+                                    label='TripId'
                                 />
                                 <IrisTextInput
                                     type='text'
-                                    placeholder='fleetid'
-                                    name='fleetid'
-                                    label='fleetid'
+                                    placeholder='Action'
+                                    name='Action'
+                                    label='Action'
                                 />
                                 <IrisTextInput
                                     type='text'
-                                    placeholder='Driver'
-                                    name='Driver'
-                                    label='Driver'
+                                    placeholder='Location'
+                                    name='Location'
+                                    label='Location'
                                 />
-                                <IrisTextInput
+                                {/* <IrisTextInput
                                     type='text'
-                                    placeholder='FuelCosts'
-                                    name='FuelCosts'
-                                    label='FuelCosts'
-                                />
+                                    placeholder='TimeStamp'
+                                    name='TimeStamp'
+                                    label='TimeStamp'
+                                /> */}
 
                                 <IrisTextInput
                                     type='text'
-                                    placeholder='Dispatcher'
-                                    name='Dispatcher'
-                                    label='Dispatcher'
+                                    placeholder='Status'
+                                    name='Status'
+                                    label='Status'
                                 />
 
-                                {/* <IrisDatePicker
-                  placeholderText='Date'
-                  name='date'
-                  showTimeSelect
-                  timeCaption='time'
-                  dateFormat='MMM d, yyyy h:mm: aa'
-                /> */}
+                                <IrisDatePicker
+                                    placeholderText='TimeStamp'
+                                    name='TimeStamp'
+                                    showTimeSelect
+                                    timeCaption='TimeStamp'
+                                    dateFormat='MMM d, yyyy h:mm: aa'
+                                    />
 
                                 {/* <IrisTextInput
                                     type='password'

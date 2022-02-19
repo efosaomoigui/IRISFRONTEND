@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { AddCollectionCenterModal } from '../../app/modules/fulfillment/modals/AddCollectionCenterModal'
+import { AddTrackHistoryModal } from '../../app/modules/monitoring/monitor modal/AddTrackHistoryModal'
 import { AddTripModal } from '../../app/modules/monitoring/monitor modal/AddTripModal'
 import { AddInvoiceModal } from '../../app/modules/payment/paymentmodals/AddInvoiceModal'
 import { AddPaymentLogModal } from '../../app/modules/payment/paymentmodals/AddPaymentLogModal'
@@ -78,6 +79,7 @@ const MasterLayout: React.FC = ({children}) => {
       <AddManifestModal />
       <AddPaymentLogModal />
       <AddInvoiceModal />
+      <AddTrackHistoryModal />
 
       {/* scrolltop */}
       <ScrollTop />

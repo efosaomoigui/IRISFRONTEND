@@ -149,11 +149,11 @@ const  Trip = {
 }
 
 const TrackHistory = {
-  list: () => request.get<ITrackHistoryModel[]>(`${API_URL}/Monitoring/GetUsers`),
-  details: (trackhistoryid: string) => request.get<ITrackHistoryModel>(`${API_URL}/Monitoring/GetUser/${trackhistoryid}`),
-  create: (trackhistory: ITrackHistoryModel) => request.post<ITrackHistoryModel>(`${API_URL}/Monitoring/GetUsers`, trackhistory),
-  update: (trackhistory: ITrackHistoryModel) => request.put<ITrackHistoryModel>(`${API_URL}/Monitoring/GetUser/${trackhistory.id}`, {}),
-  delete: (id: string) => request.del<void>(`${API_URL}/Monitoring/GetUser${id}`),
+  list: () => request.get<ITrackHistoryModel[]>(`${API_URL}/UserManagement/GetUsers`),
+  details: (trackhistoryid: string) => request.get<ITrackHistoryModel>(`${API_URL}/UserManagement/GetUser/${trackhistoryid}`),
+  create: (trackhistory: ITrackHistoryModel) => request.post<ITrackHistoryModel>(`${API_URL}/UserManagement/GetUsers`, trackhistory),
+  update: (trackhistory: ITrackHistoryModel) => request.put<ITrackHistoryModel>(`${API_URL}/UserManagement/GetUser/${trackhistory.id}`, {}),
+  delete: (id: string) => request.del<void>(`${API_URL}/UserManagement/GetUser${id}`),
 }
 // Fulfilment Request Starts
 const CollectionCenter = {

@@ -17,14 +17,14 @@
         "Id": "b2d9ad69-1794-452a-94e2-286623b34e27",
         "ShipmentId": "91976803-0c1d-4661-8fa6-49fd2ff8d04d",
         "Shipment": "repaglinide",
-        "CollectionStatus": null,
+        "CollectionStatus": "Pending",
         "UserId": "0b091310-250a-4610-8dd0-7830331ecda6"
     },
     {
         "Id": "2d1a1dcf-0bdc-4970-a783-ab0c63b62c30",
         "ShipmentId": "dc5c7b06-087b-456c-9032-d02740869469",
         "Shipment": "ALCOHOL",
-        "CollectionStatus": null,
+        "CollectionStatus": "Delivered",
         "UserId": "c926eabb-8c95-4855-95ae-eb44a920cdc8"
     },
     {
@@ -38,28 +38,28 @@
         "Id": "3349383e-7a0c-49f9-8c35-c80043c216f8",
         "ShipmentId": "f7aa3a56-5d50-42aa-b88e-f7a9c845eebe",
         "Shipment": "Divalproex Sodium",
-        "CollectionStatus": null,
+        "CollectionStatus": "Delivered",
         "UserId": "b18c5a96-defc-4716-aabc-226bbe7a8df9"
     },
     {
         "Id": "bb14fa69-abc2-42df-8482-37fafa725998",
         "ShipmentId": "ffa2dadc-5b7d-42b5-a6ac-53c44c0a7dd1",
         "Shipment": "Dextromethorphan Hydrobromide / Guaifenesin",
-        "CollectionStatus": null,
+        "CollectionStatus": "Pending",
         "UserId": "43596948-9fd3-4d0d-a7bf-2fd5b2cbcf23"
     },
     {
         "Id": "aa866b40-0e80-4da9-bb30-fd31d020d269",
         "ShipmentId": "ba2d5c3f-f93a-4b43-b429-1ebe0bd15758",
         "Shipment": "Miconazole Nitrate",
-        "CollectionStatus": null,
+        "CollectionStatus": "Delivered",
         "UserId": "df4f2b85-4327-42f4-9a52-dc222749df2b"
     },
     {
         "Id": "527fb343-8397-4327-a9ad-b8f2ceadec9d",
         "ShipmentId": "7e3b539c-033a-4105-b79b-c01c3aa16771",
         "Shipment": "BUTALBITAL, ASPIRIN, AND CAFFEINE",
-        "CollectionStatus": null,
+        "CollectionStatus": "Pending",
         "UserId": "907e330e-4dcc-497c-a711-6454f6a4ca38"
     },
     {

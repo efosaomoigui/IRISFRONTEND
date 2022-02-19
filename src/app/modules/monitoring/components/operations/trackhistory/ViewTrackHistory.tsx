@@ -53,8 +53,8 @@ export function ViewTrackHistory() {
   //Buttons on the table page
   const ModalTarget = [
     {
-      linkTitle: 'Add Track',
-      linkTarget: '#kt_modal_addtrack'
+      linkTitle: 'Add Track History',
+      linkTarget: '#kt_modal_addtrackhistory'
     }
   ]
 
