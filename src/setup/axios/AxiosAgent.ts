@@ -90,11 +90,11 @@ const  Route = {
 
 // Shipment Request Starts
 const  Shipment = {
-  list: () => request.get<IShipmentModel[]>(`${API_URL}/ShipmentSettings/Route/all`),
-  details: (shipmentid: string) => request.get<IShipmentModel>(`${API_URL}/ShipmentSettings/Route/GetRouteById/${shipmentid}`), 
-  create: (shipment: IShipmentModel) => request.post<IShipmentModel>(`${API_URL}/ShipmentSettings/Route`, shipment), 
-  update: (shipment: IShipmentModel) => request.put<IRouteModel>(`${API_URL}/ShipmentSettings/Route/${shipment.ShipmentId}`, {}), 
-  delete: (id: string) => request.del<void>(`${API_URL}/ShipmentSettings/Route/${id}`), 
+  list: () => request.get<IShipmentModel[]>(`${API_URL}/Shipment/Shipment/all`),
+  details: (shipmentid: string) => request.get<IShipmentModel>(`${API_URL}/Shipment/Shipment/all/${shipmentid}`), 
+  create: (shipment: IShipmentModel) => request.post<IShipmentModel>(`${API_URL}/Shipment/Shipment`, shipment), 
+  update: (shipment: IShipmentModel) => request.put<IRouteModel>(`${API_URL}/Shipment/Shipment/edit/${shipment.ShipmentId}`, {}), 
+  delete: (id: string) => request.del<void>(`${API_URL}/Shipment/Shipment/delete/${id}`), 
 }
 const Manifest = {
   list: () => request.get<IManifestModel[]>(`${API_URL}/UserManagement/GetUsers`),

@@ -95,7 +95,7 @@ const TablesWidgetShipment: React.FC<Props> = ({ shipment,className}) => {
                         </a>
                         <span className='text-muted fw-bold text-muted d-block fs-7'>
                           {/* HTML, JS, ReactJS */}
-                            {shipment.WayBillNumber}
+                            {shipment.Waybill}
                         </span>
                       </div>
                     </div>
@@ -106,7 +106,7 @@ const TablesWidgetShipment: React.FC<Props> = ({ shipment,className}) => {
                     </a>
                     <span className='text-muted fw-bold text-muted d-block fs-7'>
                       {/* Web, UI/UX Design */}
-                        {shipment.FirstName}
+                        {shipment.Customer}
                     </span>
                   </td>
                   <td>
@@ -115,7 +115,7 @@ const TablesWidgetShipment: React.FC<Props> = ({ shipment,className}) => {
                     </a>
                     <span className='text-muted fw-bold text-muted d-block fs-7'>
                       {/* Web, UI/UX Design */}
-                        {shipment.LastName}
+                        {shipment.GrandTotal}
                     </span>
                   </td>
                     <td>
@@ -124,7 +124,7 @@ const TablesWidgetShipment: React.FC<Props> = ({ shipment,className}) => {
                       </a>
                       <span className='text-muted fw-bold text-muted d-block fs-7'>
                         {/* Web, UI/UX Design */}
-                        {shipment.FirstName}
+                        {shipment.Reciever}
                       </span>
                     </td>
                   <td>

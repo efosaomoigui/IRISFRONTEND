@@ -86,11 +86,11 @@ export function AsideMenuMain() {
             title='Capture Shipment'
             hasBullet={true}
           />
-          {/* <AsideMenuItem
-            to='/shipment/CaptureFreightShipment'
-            title='Freight Shipment'
+          <AsideMenuItem
+            to='/shipment/viewshipment'
+            title='View Shipment'
             hasBullet={true}
-          /> */}
+          />
         </AsideMenuItemWithSub>
         <AsideMenuItemWithSub
           to='/shipment'

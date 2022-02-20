@@ -7,9 +7,9 @@ import { ViewFleets} from './components/settings/ViewFleets'
 import { CaptureDomesticShipment } from './components/capture/CaptureDomesticShipment'
 import { CaptureFreightShipment } from './components/capture/CaptureFreightShipment'
 
-import { ViewShipments } from './components/settings/ViewShipments'
 import { ViewPriceSettings } from './components/settings/ViewPriceSettings'
 import { Manifest } from './components/processingandpackaging/Manifest'
+import { ViewShipment } from './components/capture/ViewShipment'
 
 const userBreadCrumbs: Array<PageLink> = [
   {
@@ -48,19 +48,19 @@ const ShipmentPage: React.FC = () => {
           <ViewPriceSettings/>
         </Route>
 
-        <Route path='/shipment/viewshipments'>
-          <PageTitle breadcrumbs={userBreadCrumbs}>View Shipments</PageTitle>
-          <ViewShipments/>
+        <Route path='/shipment/viewshipment'>
+          <PageTitle breadcrumbs={userBreadCrumbs}>View Shipment</PageTitle>
+          <ViewShipment/>
         </Route>
 
         <Route path='/shipment/CaptureDomesticShipment'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Capture Domestic Shipment</PageTitle>
           <CaptureDomesticShipment />
         </Route>
-        <Route path='/shipment/CaptureFreightShipment'>
+        {/* <Route path='/shipment/CaptureFreightShipment'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Capture Freight Shipment</PageTitle>
           <CaptureFreightShipment />
-        </Route>
+        </Route> */}
         <Route path='/shipment/Manifest'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Manifest</PageTitle>
           <Manifest />
