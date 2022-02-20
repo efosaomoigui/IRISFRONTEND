@@ -84,7 +84,7 @@ const  Route = {
   list: () => request.get<IRouteModel[]>(`${API_URL}/ShipmentSettings/Route/all`),
   details: (routeid: string) => request.get<IRouteModel>(`${API_URL}/ShipmentSettings/Route/GetRouteById/${routeid}`), 
   create: (route: IRouteModel) => request.post<IRouteModel>(`${API_URL}/ShipmentSettings/Route`, route), 
-  update: (route: IRouteModel) => request.put<IRouteModel>(`${API_URL}/ShipmentSettings/Route/${route.RouteId}`, {}), 
+  update: (route: IRouteModel) => request.put<IRouteModel>(`${API_URL}/ShipmentSettings/Route/${route.routId}`, {}), 
   delete: (id: string) => request.del<void>(`${API_URL}/ShipmentSettings/Route/${id}`), 
 }
 
@@ -107,19 +107,19 @@ const Manifest = {
 // Fleet Request Starts
 const  Fleet = {
   list: () => request.get<IFleetModel[]>(`${API_URL}/ShipmentSettings/Fleet/all`),
-  details: (fleetid: string) => request.get<IFleetModel>(`${API_URL}/ShipmentSettings/Route/GetFleetById/${fleetid}`), 
+  details: (fleetid: string) => request.get<IFleetModel>(`${API_URL}/ShipmentSettings/Fleet/all/${fleetid}`), 
   create: (fleet: IFleetModel) => request.post<IFleetModel>(`${API_URL}/ShipmentSettings/Fleet`, fleet), 
-  update: (fleet: IFleetModel) => request.put<IFleetModel>(`${API_URL}/ShipmentSettings/Fleet/${fleet.FleetId}`, {}), 
+  update: (fleet: IFleetModel) => request.put<IFleetModel>(`${API_URL}/ShipmentSettings/Fleet/${fleet.id}`, {}), 
   delete: (id: string) => request.del<void>(`${API_URL}/ShipmentSettings/Fleet${id}`),  
 }
 
 // Fleet Request Starts
 const  Price = {
-  list: () => request.get<IPriceModel[]>(`${API_URL}/ShipmentSettings/Fleet/all`),
-  details: (id: string) => request.get<IPriceModel>(`${API_URL}/ShipmentSettings/Route/GetFleetById/${id}`), 
-  create: (price: IPriceModel) => request.post<IPriceModel>(`${API_URL}/ShipmentSettings/Fleet`, price), 
-  update: (price: IPriceModel) => request.put<IPriceModel>(`${API_URL}/ShipmentSettings/Fleet/${price.id}`, {}), 
-  delete: (id: string) => request.del<void>(`${API_URL}/ShipmentSettings/Fleet${id}`),  
+  list: () => request.get<IPriceModel[]>(`${API_URL}/ShipmentSettings/Price/all`),
+  details: (id: string) => request.get<IPriceModel>(`${API_URL}/ShipmentSettings/Price/GetPriceById/{priceid}/${id}`), 
+  create: (price: IPriceModel) => request.post<IPriceModel>(`${API_URL}/ShipmentSettings`, price), 
+  update: (price: IPriceModel) => request.put<IPriceModel>(`${API_URL}/ShipmentSettings/Price/${price.id}`, {}), 
+  delete: (id: string) => request.del<void>(`${API_URL}/ShipmentSettings/Price${id}`),  
 }
 
 // Payment Request Starts

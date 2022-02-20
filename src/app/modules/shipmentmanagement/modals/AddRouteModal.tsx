@@ -1,5 +1,7 @@
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 import { v4 as uuid } from 'uuid';
+import agent from '../../../../setup/axios/AxiosAgent';
 import AddRouteForm from '../shipmentformwidget/AddRouteForm';
 import { IRouteModel } from '../ShipmentModels/ShipmentInterfaces';
 
@@ -7,13 +9,17 @@ import { IRouteModel } from '../ShipmentModels/ShipmentInterfaces';
 
 const AddRouteModal: React.FC = () => {
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const onSubmit = (values: IRouteModel) => {
-    setIsSubmitting(true);
-    values.RouteId = uuid();
-    console.log("TT: ", values);
-  };
+    setIsSubmitting(true)
+    values.routId = uuid()
+    agent.Route.create(values).then((response) => {
+      toast.success("User Creation Was Successful!");
+      // console.log(response)
+      setIsSubmitting(false)
+    })
+  }
 
   return (
     <>

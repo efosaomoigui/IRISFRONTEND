@@ -25,19 +25,29 @@ const options = [
 
 export default function AddFleetForm(props: Props<IFleetModel>) {
   const initialFormValue: IFleetModel = {
-    FleetId: '',
-    FleetName: '',
-    FleetModel: '',
-    FleetMake: '',
-    FleetType: '',
+    id: '',
+    registration_Number: '',
+    chasis_Number: 4,
+    engine_Number: 504,
+    fleet_Type: '',
+    capacity: '',
+    description: '',
+    fleet_Model: '',
+    fleet_Make: '',
+    owner_Id: ''
   }
 
   const validationSchema = Yup.object({
-    FleetId: Yup.string().required(),
-    FleetName: Yup.string().required(),
-    FleetModel: Yup.string().required(),
-    FleetMake: Yup.string().required(),
-    FleetType: Yup.string().required(),
+    id: Yup.string().required(),
+    registration_Number: Yup.string().required(),
+    chasis_Number: Yup.number().required(),
+    engine_Number: Yup.number().required(),
+    fleet_Type: Yup.string().required(),
+    capacity: Yup.string().required(),
+    description: Yup.string().required(),
+    fleet_Model: Yup.string().required(),
+    fleet_Make: Yup.string().required(),
+    owner_Id: Yup.string().required(),
   })
 
   return (
@@ -62,12 +72,12 @@ export default function AddFleetForm(props: Props<IFleetModel>) {
               </div>
 
               <div className='modal-body py-lg-10 px-lg-10'>
-                <IrisTextInput
+                {/* <IrisTextInput
                   type='text'
                   name='id'
                   placeholder='Id'
                   label='Id'
-                />
+                /> */}
                 <IrisTextInput
                   type='number'
                   placeholder='Registration Number'
@@ -148,7 +158,7 @@ export default function AddFleetForm(props: Props<IFleetModel>) {
                   loading={props.isSubmitting}
                   content='Submit'
                 ></Button>
-                <Button floated='right' positive type='button' content='Cancel'></Button>
+                <Button floated='right' positive type='button' data-bs-dismiss="modal" content='Cancel'></Button>
               </Modal.Footer>
             </div>
           </div>

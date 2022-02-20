@@ -11,7 +11,7 @@ const AddFleetModal: React.FC = () => {
 
   const onSubmit = (values: IFleetModel) => {
     setIsSubmitting(true);
-    values.FleetId = uuid();
+    values.id = uuid();
     console.log("TT: ", values);
   };
 
