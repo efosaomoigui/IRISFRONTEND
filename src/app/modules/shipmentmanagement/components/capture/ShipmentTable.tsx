@@ -1,5 +1,5 @@
 import React, {useMemo} from 'react'
-import ShipmentData from '../../ShipmentData.json'
+import Shipment_Data from './Shipment_Data.json'
 import './CustomTable.css'
 import { useSortBy, useTable } from 'react-table'
 import { IShipmentModel } from '../../ShipmentModels/ShipmentInterfaces'
@@ -14,27 +14,43 @@ const ShipmentTable = ({shipmentData} : Props) => {
     columns : useMemo(
       () => [
         {
-          Header: 'id',
-          accessor: 'id',
+          Header: 'Waybill',
+          accessor: 'Waybill',
         },
         {
-          Header: 'wayBill Number',
-          accessor: 'WayBillNumber',
+          Header: 'Customer',
+          accessor: 'Customer',
         },
         {
-            Header: 'last_name',
-            accessor: 'last_name',
+          Header: 'Address Id',
+          accessor: 'AddressId',
         },
         {
-            Header: 'first_name',
-            accessor: 'first_name',
+          Header: 'GrandTotal',
+          accessor: 'GrandTotal',
+        },
+        {
+          Header: 'Reciever',
+          accessor: 'Reciever',
+        },
+        {
+          Header: 'Reciever Address',
+          accessor: 'RecieverAddress',
+        },
+        {
+          Header: 'Pick Up Options',
+          accessor: 'PickUpOptions',
+        },
+        {
+          Header: 'Shipment Items',
+          accessor: 'ShipmentItems',
         },
           
         
       ],
       []
     ),
-    data : useMemo(() => ShipmentData, []),
+    data : useMemo(() => Shipment_Data, []),
   }, useSortBy)
 
   const {getTableProps, getTableBodyProps, headerGroups, rows, prepareRow} = tableInstance

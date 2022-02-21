@@ -9,7 +9,7 @@ import WalletTransaction_Data from './WalletTransaction_Data.json'
 export function WalletTransaction() {
   const [loading, setLoading] = useState(true)
   const [modalTarger, setModalTarget] = useState<madalprops[]>([]);
-  const [walletmodel, setUsersModel] = useState<IWalletTransactionModel[]>([])
+  const [wallettransactionmodel, setUsersModel] = useState<IWalletTransactionModel[]>([])
 
   //all the data for the table
   const tableProvider = {
@@ -71,7 +71,7 @@ export function WalletTransaction() {
     <div className='row g-5 g-xxl-8'>
       <div className='col-xl-12'>
         <IrisTablesWidget
-          tableData={walletmodel}
+          tableData={wallettransactionmodel}
           className='mb-5 mb-xl-8'
           columnsMap={tableProvider.columns}
           DetailsPath={tableProvider.DetailsPath}

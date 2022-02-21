@@ -9,23 +9,26 @@ import PaymentLog_Data from './PaymentLog_Data.json'
 export function PaymentLog() {
   const [loading, setLoading] = useState(true)
   const [modalTarger, setModalTarget] = useState<madalprops[]>([]);
-  const [usersmodel, setUsersModel] = useState<IPaymentLogModel[]>([])
+  const [paymentlogmodel, setUsersModel] = useState<IPaymentLogModel[]>([])
 
   //all the data for the table
   const tableProvider = {
     columns: [
       {
-        Header: 'PaymentId',
-        accessor: 'PaymentId',
-        // cell:({ value }) => {return format(new Date(value), 'dd/MM/YYYY')}
+        Header: 'Amount',
+        accessor: 'Amount',
       },
       {
-        Header: 'Payment Name',
-        accessor: 'PaymentName',
+        Header: 'Payment Method',
+        accessor: 'PaymentMethod',
       },
       {
-        Header: 'Payment Model',
-        accessor: 'PaymentModel',
+        Header: 'User',
+        accessor: 'User',
+      },
+      {
+        Header: 'TransactionId',
+        accessor: 'TransactionId',
       },
     ],
     DetailsPath: '/adminSettings/userDetails/',
@@ -59,7 +62,7 @@ export function PaymentLog() {
     <div className='row g-5 g-xxl-8'>
       <div className='col-xl-12'>
         <IrisTablesWidget
-          tableData={usersmodel}
+          tableData={paymentlogmodel}
           className='mb-5 mb-xl-8'
           columnsMap={tableProvider.columns}
           DetailsPath={tableProvider.DetailsPath}
@@ -78,6 +81,4 @@ export function PaymentLog() {
   )
 }
 
-function setUsersModel(response: any) {
-  throw new Error('Function not implemented.');
-}
+

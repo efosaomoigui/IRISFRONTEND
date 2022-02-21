@@ -1,38 +1,40 @@
 import React, {useMemo} from 'react'
-import Wallet_Data from './Wallet_Data.json'
+import PaymentLog_Data from './PaymentLog_Data.json'
 import {useTable, useSortBy} from 'react-table'
 import './CustomTable.css'
-import { IWalletModel } from '../../Models/WalletInterfaces'
+import { IPaymentLogModel } from '../../PaymentModels/PaymentmentInterfaces'
+import TableActionLinks from '../../../layout/tables/TableActionLinks'
+
 
 interface Props{
-  walletData:IWalletModel | any ;
+  usersData:IPaymentLogModel | any ;
 }
 
-const WalletTable = ({walletData} : Props) => {
+const PaymentLogTable = ({ usersData} : Props) => {
 
   const tableInstance = useTable({
     columns : useMemo(
       () => [
         {
-          Header: 'WalletId',
-          accessor: 'WalletId',
+          Header: 'Amount',
+          accessor: 'Amount',
         },
         {
-          Header: 'Wallet Number',
-          accessor: 'WalletNumber',
+          Header: 'Payment Method',
+          accessor: 'PaymentMethod',
         },
         {
-          Header: 'User Id',
-          accessor: 'UserId',
+          Header: 'User',
+          accessor: 'User',
         },
         {
-          Header: 'Active',
-          accessor: 'IsActive',
+          Header: 'TransactionId',
+          accessor: 'TransactionId',
         },
       ],
       []
     ),
-    data: useMemo(() => Wallet_Data, []),
+    data: useMemo(() => PaymentLog_Data, []),
   }, useSortBy)
 
   const {getTableProps, getTableBodyProps, headerGroups, rows, prepareRow} = tableInstance
@@ -46,6 +48,7 @@ const WalletTable = ({walletData} : Props) => {
               {headerGroup.headers.map((column) => (
                 <th {...column.getHeaderProps()}>{column.render('Header')}</th>
               ))}
+              <th className='min-w-100px text-end'>Actions</th>
             </tr>
           ))}
         </thead>
@@ -57,6 +60,9 @@ const WalletTable = ({walletData} : Props) => {
               {row.cells.map(cell => {
                 return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
               })}
+              <td>
+                <TableActionLinks DetailsPath={'/adminSettings/userDetails'} EditPath={'#'} DeletePath={'#'} />
+              </td>
             </tr>
           )
         })}
@@ -66,4 +72,4 @@ const WalletTable = ({walletData} : Props) => {
   )
 }
 
-export { WalletTable };
+export { PaymentLogTable };

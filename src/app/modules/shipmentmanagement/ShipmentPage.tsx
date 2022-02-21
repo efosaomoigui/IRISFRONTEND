@@ -6,9 +6,9 @@ import { ViewRoutes } from './components/settings/ViewRoutes'
 import { ViewFleets} from './components/settings/ViewFleets'
 import { CaptureShipment } from './components/capture/CaptureShipment'
 
-import { ViewShipments } from './components/settings/ViewShipments'
 import { ViewPriceSettings } from './components/settings/ViewPriceSettings'
 import { Manifest } from './components/processingandpackaging/Manifest'
+import { ViewShipment } from './components/capture/ViewShipment'
 
 const userBreadCrumbs: Array<PageLink> = [
   {
@@ -47,9 +47,9 @@ const ShipmentPage: React.FC = () => {
           <ViewPriceSettings/>
         </Route>
 
-        <Route path='/shipment/viewshipments'>
-          <PageTitle breadcrumbs={userBreadCrumbs}>View Shipments</PageTitle>
-          <ViewShipments/>
+        <Route path='/shipment/viewshipment'>
+          <PageTitle breadcrumbs={userBreadCrumbs}>View Shipment</PageTitle>
+          <ViewShipment/>
         </Route>
 
         <Route path='/shipment/CaptureShipment'>

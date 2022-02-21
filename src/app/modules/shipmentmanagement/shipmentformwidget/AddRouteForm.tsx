@@ -27,11 +27,18 @@ const options = [
 
 export default function AddRouteForm(props: Props<IRouteModel>) {
   const initialFormValue: IRouteModel = {
-    RouteId: '',
-    CodeName: '',
-    departureCentreId: '',
-    destinationCentreId: '',
-    Distance: '',
+    routId: '',
+    routeName: '',
+    depature: '',
+    destination: '',
+    isSubRoute: '',
+    dispatchFee: '',
+    loaderFee: '',
+    captainFee: '',
+    main_Route_Id: '',
+    availabale_At_Terminal: '',
+    availabale_Online: '',
+    route_Type: ''
   }
 
   const validationSchema = Yup.object({
@@ -178,7 +185,7 @@ export default function AddRouteForm(props: Props<IRouteModel>) {
                   loading={props.isSubmitting}
                   content='Submit'
                 ></Button>
-                <Button floated='right' positive type='button' content='Cancel'></Button>
+                <Button floated='right' positive type='button' data-bs-dismiss="modal" content='Cancel'></Button>
               </Modal.Footer>
             </div>
           </div>

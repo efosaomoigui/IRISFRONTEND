@@ -3,27 +3,21 @@ import { IWalletModel } from "./WalletInterfaces";
 
 export const walletmodels: IWalletModel[] = [
     {
-        WalletTransactionId: '',
-        Amount: '',
-        TransactionType: '',
-        Description: '',
+        WalletId: '',
         WalletNumber: '',
-        DateCreated: ''
+        IsActive: false,
+        UserId: ''
     }, 
     {
-        WalletTransactionId: '',
-        Amount: '',
-        TransactionType: '',
-        Description: '',
+        WalletId: '',
         WalletNumber: '',
-        DateCreated: ''
+        IsActive: false,
+        UserId: ''
     },
     {
-        WalletTransactionId: '',
-        Amount: '',
-        TransactionType: '',
-        Description: '',
+        WalletId: '',
         WalletNumber: '',
-        DateCreated: ''
+        IsActive: false,
+        UserId: ''
     }
 ]

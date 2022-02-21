@@ -13,8 +13,8 @@ const AddWalletModal: React.FC = () => {
 
   const onSubmit = (values: IWalletModel) => {
     setIsSubmitting(true)
-    values.WalletTransactionId = uuid()
-    agent.WalletTransaction.create(values).then((response) => {
+    values.WalletId = uuid()
+    agent.Wallet.create(values).then((response) => {
       toast.success("Wallet Creation Was Successful!");
       // console.log(response)
       setIsSubmitting(false)

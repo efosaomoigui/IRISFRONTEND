@@ -27,21 +27,17 @@ const options = [
 
 export default function AddWalletForm(props: Props<IWalletModel>) {
   const initialFormValue: IWalletModel = {
-    WalletTransactionId: '',
-    Amount: '',
-    TransactionType: '',
-    Description: '',
+    WalletId: '',
     WalletNumber: '',
-    DateCreated: ''
+    IsActive: true,
+    UserId: ''
   }
 
   const validationSchema = Yup.object({
-    WalletTransactionId: Yup.string().required(),
-    Amount: Yup.string().required(),
-    TransactionType: Yup.string().required(),
-    Description: Yup.string().required(),
+    WalletId: Yup.string().required(),
     WalletNumber: Yup.string().required(),
-    DateCreated: Yup.string().required()
+    IsActive: Yup.boolean().required(),
+    UserId: Yup.string().required(),
   })
 
   return (
@@ -68,15 +64,15 @@ export default function AddWalletForm(props: Props<IWalletModel>) {
               <div className='modal-body py-lg-10 px-lg-10'>
                 <IrisTextInput
                   type='text'
-                  name='WalletTransactionId'
-                  placeholder='WalletTransaction Id'
-                  label='WalletTransaction Id'
+                  name='WalletId'
+                  placeholder='WalletId'
+                  label='WalletId'
                 />
                 <IrisTextInput
                   type='text'
-                  placeholder='Amount'
-                  name='Amount'
-                  label='Amount'
+                  placeholder='Wallet Number'
+                  name='WalletNumber'
+                  label='Wallet Number'
                 />
                 {/* <IrisSelectInput
                   options={options}
@@ -85,19 +81,19 @@ export default function AddWalletForm(props: Props<IWalletModel>) {
                   label='Active'
                 /> */}
                 <IrisTextInput
-                  type='text'
-                  placeholder='Transaction Type'
-                  name='TransactionType'
-                  label='Transaction Type'
+                  type='boolean'
+                  placeholder='Active'
+                  name='IsActive'
+                  label='Active'
                 />
                 <IrisTextInput
                   type='text'
-                  placeholder='Description'
-                  name='Description'
-                  label='Description'
+                  placeholder='UserId'
+                  name='UserId'
+                  label='UserId'
                 />
 
-                <IrisTextInput
+                {/* <IrisTextInput
                   type='text'
                   placeholder='WalletNumber'
                   name='WalletNumber'
@@ -110,7 +106,7 @@ export default function AddWalletForm(props: Props<IWalletModel>) {
                   showTimeSelect
                   timeCaption='DateCreated'
                   dateFormat='MMM d, yyyy h:mm: aa'
-                />
+                /> */}
 
                 {/* <IrisTextInput
                   type='password'
@@ -137,7 +133,7 @@ export default function AddWalletForm(props: Props<IWalletModel>) {
                   loading={props.isSubmitting}
                   content='Submit'
                 ></Button>
-                <Button floated='right' positive type='button' content='Cancel'></Button>
+                <Button floated='right' positive type='button' data-bs-dismiss="modal" content='Cancel'></Button>
               </Modal.Footer>
             </div>
           </div>

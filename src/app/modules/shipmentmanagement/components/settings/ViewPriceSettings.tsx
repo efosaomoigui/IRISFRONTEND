@@ -15,10 +15,6 @@ export function ViewPriceSettings() {
   const tableProvider = {
     columns: [
       {
-        Header: 'Id',
-        accessor: 'id',
-      },
-      {
         Header: 'Category List',
         accessor: 'Category',
       },

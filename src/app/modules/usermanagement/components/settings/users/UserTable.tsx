@@ -10,7 +10,7 @@ interface Props{
   usersData:IUserModel | any ;
 }
 
-const SearchTripTable = ({ usersData} : Props) => {
+const UserTable = ({ usersData} : Props) => {
 
   const tableInstance = useTable({
     columns : useMemo(
@@ -80,4 +80,4 @@ const SearchTripTable = ({ usersData} : Props) => {
   )
 }
 
-export { SearchTripTable };
+export { UserTable };

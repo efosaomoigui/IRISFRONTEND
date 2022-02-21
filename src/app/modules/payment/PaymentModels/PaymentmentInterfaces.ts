@@ -1,8 +1,10 @@
 
 export interface IPaymentLogModel {
     PaymentId: string
-    PaymentName: string
-    PaymentModel: string
+    Amount: string
+    PaymentMethod: string
+    User: string
+    TransactionId: string
 }
 
 export interface IInvoiceModel {

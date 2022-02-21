@@ -15,28 +15,20 @@ export function ViewWallet() {
   const tableProvider = {
     columns: [
       {
-        Header: 'WalletTransaction Id',
-        accessor: 'WalletTransactionId',
-      },
-      {
-        Header: 'Amount',
-        accessor: 'Amount',
-      },
-      {
-        Header: 'Transaction Type',
-        accessor: 'TransactionType',
-      },
-      {
-        Header: 'Description',
-        accessor: 'Description',
+        Header: 'WalletId',
+        accessor: 'WalletId',
       },
       {
         Header: 'Wallet Number',
         accessor: 'WalletNumber',
       },
       {
-        Header: 'Date Created',
-        accessor: 'DateCreated',
+        Header: 'User Id',
+        accessor: 'UserId',
+      },
+      {
+        Header: 'Active',
+        accessor: 'IsActive',
       },
     ],
     DetailsPath: '/adminSettings/userDetails/',
@@ -50,7 +42,7 @@ export function ViewWallet() {
     {
       linkTitle: 'Add Wallet',
       linkTarget: '#kt_modal_addwallet'
-    }
+    },
     
   ]
 

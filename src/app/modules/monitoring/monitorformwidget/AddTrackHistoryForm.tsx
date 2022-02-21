@@ -1,10 +1,16 @@
 import { Modal } from 'react-bootstrap-v5'
 import { Button } from 'semantic-ui-react'
-import { KTSVG } from '../../../../_iris/helpers'
 import { Formik, Form, FormikHelpers } from 'formik'
 import * as Yup from 'yup'
+import { KTSVG } from '../../../../_iris/helpers'
 import IrisTextInput from '../../layout/forms/IrisTextInput'
-import { IManifestModel } from '../ShipmentModels/ShipmentInterfaces'
+import IrisSelectInput from '../../layout/forms/IrisSelectInput'
+import { ITrackHistoryModel } from '../Monitor models/MonitorInterface'
+import IrisDatePicker from '../../layout/forms/IrisDatePicker'
+
+
+
+
 
 // interface Props {
 //   userVal: IUserModel
@@ -22,21 +28,23 @@ const options = [
     { text: 'four', value: 'Afganistan' },
 ]
 
-export default function AddFleetForm(props: Props<IManifestModel>) {
-    const initialFormValue: IManifestModel = {
-        Id: '',
-        ManifestCode: '',
-        GroupWayBillId: '',
-        GroupWayBill: '',
-        UserId: ''
+export default function AddTrackHistoryForm(props: Props<ITrackHistoryModel>) {
+    const initialFormValue: ITrackHistoryModel = {
+        id: '',
+        TripId: '',
+        Action: '',
+        Location: '',
+        TimeStamp: '',
+        Status: ''
     }
 
     const validationSchema = Yup.object({
-        Id: Yup.string().required(),
-        ManifestCode: Yup.string().required(),
-        GroupWayBillId: Yup.string().required(),
-        GroupWayBill: Yup.string().required(),
-        UserId: Yup.string().required(),
+        id: Yup.string().required(),
+        TripId: Yup.string().required(),
+        Action: Yup.string().required(),
+        Location: Yup.string().required(),
+        TimeStamp: Yup.string().required(),
+        Status: Yup.string().required(),
     })
 
     return (
@@ -51,7 +59,7 @@ export default function AddFleetForm(props: Props<IManifestModel>) {
                     <div className='modal-dialog modal-dialog-centered mw-900px'>
                         <div className='modal-content'>
                             <div className='modal-header'>
-                                <h2>Add Manifest</h2>
+                                <h2>Add Track History</h2>
                                 <div
                                     className='btn btn-sm btn-icon btn-active-color-primary'
                                     data-bs-dismiss='modal'
@@ -63,71 +71,49 @@ export default function AddFleetForm(props: Props<IManifestModel>) {
                             <div className='modal-body py-lg-10 px-lg-10'>
                                 <IrisTextInput
                                     type='text'
-                                    name='id'
-                                    placeholder='Id'
-                                    label='Id'
+                                    name='TripId'
+                                    placeholder='TripId'
+                                    label='TripId'
                                 />
                                 <IrisTextInput
                                     type='text'
-                                    placeholder='ManifestCode'
-                                    name='ManifestCode'
-                                    label='ManifestCode'
+                                    placeholder='Action'
+                                    name='Action'
+                                    label='Action'
                                 />
-                                <IrisTextInput
-                                    type='number'
-                                    placeholder='GroupWayBillId'
-                                    name='GroupWayBillId'
-                                    label='GroupWayBillId'
-                                />
-                                <IrisTextInput type='text' placeholder='GroupWayBill' name='GroupWayBill' label='GroupWayBill' />
-
                                 <IrisTextInput
                                     type='text'
-                                    placeholder='UserId'
-                                    name='UserId'
-                                    label='UserId'
+                                    placeholder='Location'
+                                    name='Location'
+                                    label='Location'
                                 />
                                 {/* <IrisTextInput
                                     type='text'
-                                    placeholder='Capacity'
-                                    name='capacity'
-                                    label='Capacity'
+                                    placeholder='TimeStamp'
+                                    name='TimeStamp'
+                                    label='TimeStamp'
                                 /> */}
 
-                                {/* <IrisDatePicker
-                  placeholderText='Date'
-                  name='date'
-                  showTimeSelect
-                  timeCaption='time'
-                  dateFormat='MMM d, yyyy h:mm: aa'
-                /> */}
+                                <IrisTextInput
+                                    type='text'
+                                    placeholder='Status'
+                                    name='Status'
+                                    label='Status'
+                                />
+
+                                <IrisDatePicker
+                                    placeholderText='TimeStamp'
+                                    name='TimeStamp'
+                                    showTimeSelect
+                                    timeCaption='TimeStamp'
+                                    dateFormat='MMM d, yyyy h:mm: aa'
+                                    />
 
                                 {/* <IrisTextInput
-                                    type='text'
-                                    placeholder='Description'
-                                    name='description'
-                                    label='Description'
-                                />
-
-                                <IrisTextInput
-                                    type='text'
-                                    placeholder='Fleet Model'
-                                    name='fleetModel'
-                                    label='Fleet Model'
-                                />
-
-                                <IrisTextInput
-                                    type='text'
-                                    placeholder='Fleet Make'
-                                    name='fleetMake'
-                                    label='Fleet Make'
-                                />
-
-                                <IrisTextInput
-                                    type='number'
-                                    placeholder='Owner Id'
-                                    name='ownerId'
-                                    label='Owner Id'
+                                    type='password'
+                                    placeholder='Password'
+                                    name='password'
+                                    label='Password'
                                 />
 
                                 <IrisSelectInput
@@ -136,6 +122,7 @@ export default function AddFleetForm(props: Props<IManifestModel>) {
                                     name='category'
                                     label='Category'
                                 /> */}
+
                             </div>
 
                             <Modal.Footer>
