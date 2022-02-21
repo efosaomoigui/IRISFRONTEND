@@ -8,9 +8,9 @@ export function MenuInner() {
   return (
     <>
       <MenuItem title={intl.formatMessage({id: 'MENU.DASHBOARD'})} to='/dashboard' />
-      <MenuItem title='Capture Shipment' to='/dashboard' />
-      <MenuItem title='Wallet Accounts' to='/dashboard' />
-      <MenuItem title='Tracking' to='/dashboard' />
+      <MenuItem title='Capture Shipment' to='/shipment/CaptureShipment' />
+      <MenuItem title='Wallet' to='/wallet' />
+      <MenuItem title='Tracking' to='/monitor/trackhistory' />
       {/* <MenuItem title='Tracking' to='/builder' /> */}
     </>
   )

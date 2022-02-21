@@ -4,8 +4,7 @@ import {PageLink, PageTitle} from '../../../_iris/layout/core'
 import {ShipmentHeader} from './ShipmentHeader'
 import { ViewRoutes } from './components/settings/ViewRoutes'
 import { ViewFleets} from './components/settings/ViewFleets'
-import { CaptureDomesticShipment } from './components/capture/CaptureDomesticShipment'
-import { CaptureFreightShipment } from './components/capture/CaptureFreightShipment'
+import { CaptureShipment } from './components/capture/CaptureShipment'
 
 import { ViewShipments } from './components/settings/ViewShipments'
 import { ViewPriceSettings } from './components/settings/ViewPriceSettings'
@@ -53,14 +52,14 @@ const ShipmentPage: React.FC = () => {
           <ViewShipments/>
         </Route>
 
-        <Route path='/shipment/CaptureDomesticShipment'>
-          <PageTitle breadcrumbs={userBreadCrumbs}>Capture Domestic Shipment</PageTitle>
-          <CaptureDomesticShipment />
+        <Route path='/shipment/CaptureShipment'>
+          <PageTitle breadcrumbs={userBreadCrumbs}>Capture Shipment</PageTitle>
+          <CaptureShipment />
         </Route>
-        <Route path='/shipment/CaptureFreightShipment'>
+        {/* <Route path='/shipment/CaptureFreightShipment'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Capture Freight Shipment</PageTitle>
           <CaptureFreightShipment />
-        </Route>
+        </Route> */}
         <Route path='/shipment/Manifest'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Manifest</PageTitle>
           <Manifest />

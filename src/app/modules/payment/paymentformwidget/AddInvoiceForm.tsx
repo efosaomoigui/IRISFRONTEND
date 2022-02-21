@@ -7,11 +7,6 @@ import IrisTextInput from '../../layout/forms/IrisTextInput'
 import { IInvoiceModel } from '../PaymentModels/PaymentmentInterfaces'
 import IrisSelectInput from '../../layout/forms/IrisSelectInput'
 
-
-
-
-
-
 // interface Props {
 //   userVal: IUserModel
 // }

@@ -76,13 +76,13 @@ export function AsideMenuMain() {
         fontIcon='bi-layers'
       >
         <AsideMenuItemWithSub
-          to='/shipment/CaptureDomesticShipment'
+          to='/shipment/CaptureShipment'
           icon='/media/icons/duotune/general/gen019.svg'
           title='Capture'
           fontIcon='bi-layers'
         >
           <AsideMenuItem
-            to='/shipment/CaptureDomesticShipment'
+            to='/shipment/CaptureShipment'
             title='Capture Shipment'
             hasBullet={true}
           />
