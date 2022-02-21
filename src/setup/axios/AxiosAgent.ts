@@ -158,7 +158,7 @@ const TrackHistory = {
 // Fulfilment Request Starts
 const CollectionCenter = {
   list: () => request.get<IFulfilmentModel[]>(`${API_URL}/UserManagement/GetUsers`),
-  details: (CollectionCenterid: string) => request.get<ShipmentModel>(`${API_URL}/UserManagement/GetUser/${CollectionCenterid}`),
+  details: (CollectionCenterid: string) => request.get<IFulfilmentModel>(`${API_URL}/UserManagement/GetUser/${CollectionCenterid}`),
   create: (CollectionCenter: IFulfilmentModel) => request.post<IFulfilmentModel>(`${API_URL}/UserManagement/GetUsers`, CollectionCenter),
   update: (CollectionCenter: IFulfilmentModel) => request.put<IFulfilmentModel>(`${API_URL}/UserManagement/GetUser/${CollectionCenter.Id}`, {}),
   delete: (id: string) => request.del<void>(`${API_URL}/UserManagement/GetUser${id}`),

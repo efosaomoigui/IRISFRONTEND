@@ -59,7 +59,7 @@ export function ViewTrips() {
      
     
     ],
-    DetailsPath: '/adminSettings/userDetails/',
+    DetailsPath: '/monitor/tripDetails/:id',
     EditPath: '/adminSettings/userDetails/',
     DeletePath: '/adminSettings/userDetails/',
     FakeData: ViewTrips_Data,

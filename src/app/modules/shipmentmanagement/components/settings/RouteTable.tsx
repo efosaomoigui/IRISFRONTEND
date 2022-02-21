@@ -15,51 +15,51 @@ const RouteTable = ({routeData} : Props) => {
       () => [
         {
           Header: 'route Id',
-          accessor: 'route_Id',
+          accessor: 'RouteId',
         },
         {
           Header: 'route Name',
-          accessor: 'route_Name',
+          accessor: 'RouteName',
         },
         {
           Header: 'depature',
-          accessor: 'depature',
+          accessor: 'Departure',
         },
         {
           Header: 'destination',
-          accessor: 'destination',
+          accessor: 'Destination',
         },
         {
           Header: 'is Sub Route',
-          accessor: 'is_Sub_Route',
+          accessor: 'IsSubRoute',
         },
         {
           Header: 'dispatch Fee',
-          accessor: 'dispatchFee',
+          accessor: 'DispatchFee',
         },
         {
             Header: 'loader Fee',
-            accessor: 'loaderFee',
+            accessor: 'LoaderFee',
         },
         {
             Header: 'captain Fee',
-            accessor: 'captainFee',
+            accessor: 'CaptainFee',
         },
         {
             Header: 'main Route Id',
-            accessor: 'main_Route_Id',
+            accessor: 'MainRouteId',
         },
         {
             Header: 'available At Terminal',
-            accessor: 'availabale_At_Terminal',
+            accessor: 'AvailableAtTerminal',
         },
         {
             Header: 'available Online',
-            accessor: 'availabale_Online',
+            accessor: 'AvailableOnline',
         },
         {
             Header: 'Route Type',
-            accessor: 'route_Type',
+            accessor: 'RouteType',
         },
       ],
       []

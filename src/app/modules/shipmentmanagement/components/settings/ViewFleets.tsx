@@ -15,44 +15,48 @@ export function ViewFleets() {
   const tableProvider = {
     columns: [
       {
-        Header: 'Id',
-        accessor: 'id',
+        Header: 'FleetId',
+        accessor: 'FleetId',
       },
       {
         Header: 'registration Number',
-        accessor: 'registration_Number',
+        accessor: 'RegistrationNumber',
       },
       {
         Header: 'chasis Number',
-        accessor: 'chasis_Number',
+        accessor: 'ChasisNumber',
       },
       {
         Header: 'engine Number',
-        accessor: 'engine_Number',
+        accessor: 'EngineNumber',
       },
       {
-        Header: 'fleet Type',
-        accessor: 'fleet_Type',
+        Header: 'Status',
+        accessor: 'Status',
       },
       {
-        Header: 'capacity',
-        accessor: 'capacity',
+        Header: 'FleetType',
+        accessor: 'FleetType',
       },
       {
-          Header: 'description',
-          accessor: 'description',
+          Header: 'Capacity',
+          accessor: 'Capacity',
       },
       {
-          Header: 'fleet Model',
-          accessor: 'fleet_Model',
+          Header: 'Description',
+          accessor: 'Description',
       },
       {
-          Header: 'fleet Make',
-          accessor: 'fleet_Make',
+          Header: 'FleetModel',
+          accessor: 'FleetModel',
+      },
+      {
+          Header: 'FleetMake',
+          accessor: 'FleetMake',
       },
       {
           Header: 'Owner Id',
-          accessor: 'owner_Id',
+          accessor: 'OwnerId',
       },
         ],
     DetailsPath: '/shipment/fleetdetail/:id',

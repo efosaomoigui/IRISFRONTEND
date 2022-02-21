@@ -35,7 +35,7 @@ export function CollectionCenter() {
         accessor: 'UserId',
       }
     ],
-    DetailsPath: '/adminSettings/userDetails/',
+    DetailsPath: '/fulfillment/collectioncenterdetail/:Id',
     EditPath: '/adminSettings/userDetails/',
     DeletePath: '/adminSettings/userDetails/',
     FakeData: CollectionCenter_Data,

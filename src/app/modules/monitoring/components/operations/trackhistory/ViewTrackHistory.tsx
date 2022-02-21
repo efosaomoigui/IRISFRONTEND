@@ -44,7 +44,7 @@ export function ViewTrackHistory() {
         accessor: 'Status',
       },
     ],
-    DetailsPath: '/adminSettings/userDetails/',
+    DetailsPath: '/monitor/trackHistoryDetails/:id',
     EditPath: '/adminSettings/userDetails/',
     DeletePath: '/adminSettings/userDetails/',
     FakeData: TrackHistory_Data,

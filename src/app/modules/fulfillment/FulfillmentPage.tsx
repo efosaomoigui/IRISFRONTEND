@@ -1,6 +1,7 @@
 import React from 'react'
 import {Redirect, Route, Switch} from 'react-router-dom'
 import {PageLink, PageTitle} from '../../../_iris/layout/core'
+import { CollectionCenterDetail } from './components/operations/CollectionCenterDetail'
 import { CollectionCenter } from './components/operations/ViewCollectionCenter'
 import { FulfillmentHeader } from './FulfillmentHeader'
 
@@ -23,6 +24,11 @@ const FulfillmentPage: React.FC = () => {
         <Route path='/fulfillment/collectioncenter'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Collection Center</PageTitle>
           <CollectionCenter />
+        </Route>
+
+        <Route path='/fulfillment/collectioncenterdetail/:Id'>
+          <PageTitle breadcrumbs={userBreadCrumbs}>Collection Center</PageTitle>
+          <CollectionCenterDetail />
         </Route>
        
         <Redirect from='/fulfillment/' exact={true} to='/fulfillment/collectioncenter' />
