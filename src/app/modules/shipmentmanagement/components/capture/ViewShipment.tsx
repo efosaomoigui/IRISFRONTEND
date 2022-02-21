@@ -47,7 +47,7 @@ export function ViewShipment() {
                 accessor: 'ShipmentItems',
             },
         ],
-        DetailsPath: '/adminSettings/userDetails/',
+        DetailsPath: '/shipment/shipmentdetail/:ShipmentId',
         EditPath: '/adminSettings/userDetails/',
         DeletePath: '/adminSettings/userDetails/',
         FakeData: Shipment_Data,

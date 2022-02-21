@@ -2,7 +2,6 @@ import React from 'react'
 import {KTSVG} from '../../../../_iris/helpers'
 import {GenericTable} from './GenericTable'
 import IrisTableHeading, {madalprops} from './IrisTableTitle'
-import styled from 'styled-components'
 
 // const stylecell = styled.td` 
 // color:blue;
