@@ -25,7 +25,7 @@ const AccountPage: React.FC = () => {
     <>
       <AccountHeader />
       <Switch>
-        <Route path='/adminSettings/userDetails'>
+        <Route path='/adminSettings/userDetails/:UserId'>
           <PageTitle breadcrumbs={accountBreadCrumbs}>User Details</PageTitle>
           <Overview />
         </Route>

@@ -1,0 +1,1052 @@
+[
+    {
+        "Id": "5db441b3-778f-40e6-a16e-2a4a136959de",
+        "ShipmentId": "77e42dc0-ca1e-4c68-b5cf-412623f7a9a7",
+        "Shipment": "TITANIUM DIOXIDE",
+        "CollectionStatus": null,
+        "UserId": "30169f0d-d8b2-4841-b349-bdb93441655e"
+    },
+    {
+        "Id": "c9187b63-0408-4d87-a877-9a1bf63ea1aa",
+        "ShipmentId": "194bae4b-d4b7-46ac-907f-5cecb4de5286",
+        "Shipment": "FUSARIUM VASINFECTUM",
+        "CollectionStatus": null,
+        "UserId": "e2894f3c-d5df-4bdd-ba16-e822701954b7"
+    },
+    {
+        "Id": "b2d9ad69-1794-452a-94e2-286623b34e27",
+        "ShipmentId": "91976803-0c1d-4661-8fa6-49fd2ff8d04d",
+        "Shipment": "repaglinide",
+        "CollectionStatus": "Pending",
+        "UserId": "0b091310-250a-4610-8dd0-7830331ecda6"
+    },
+    {
+        "Id": "2d1a1dcf-0bdc-4970-a783-ab0c63b62c30",
+        "ShipmentId": "dc5c7b06-087b-456c-9032-d02740869469",
+        "Shipment": "ALCOHOL",
+        "CollectionStatus": "Delivered",
+        "UserId": "c926eabb-8c95-4855-95ae-eb44a920cdc8"
+    },
+    {
+        "Id": "43e853fe-008b-46c7-a698-09ff18dad27a",
+        "ShipmentId": "3915459b-4dae-4d8e-9615-76c22b7c685f",
+        "Shipment": "metolazone",
+        "CollectionStatus": "GRO",
+        "UserId": "c76355ae-00fc-4707-904a-1d522d82eb7a"
+    },
+    {
+        "Id": "3349383e-7a0c-49f9-8c35-c80043c216f8",
+        "ShipmentId": "f7aa3a56-5d50-42aa-b88e-f7a9c845eebe",
+        "Shipment": "Divalproex Sodium",
+        "CollectionStatus": "Delivered",
+        "UserId": "b18c5a96-defc-4716-aabc-226bbe7a8df9"
+    },
+    {
+        "Id": "bb14fa69-abc2-42df-8482-37fafa725998",
+        "ShipmentId": "ffa2dadc-5b7d-42b5-a6ac-53c44c0a7dd1",
+        "Shipment": "Dextromethorphan Hydrobromide / Guaifenesin",
+        "CollectionStatus": "Pending",
+        "UserId": "43596948-9fd3-4d0d-a7bf-2fd5b2cbcf23"
+    },
+    {
+        "Id": "aa866b40-0e80-4da9-bb30-fd31d020d269",
+        "ShipmentId": "ba2d5c3f-f93a-4b43-b429-1ebe0bd15758",
+        "Shipment": "Miconazole Nitrate",
+        "CollectionStatus": "Delivered",
+        "UserId": "df4f2b85-4327-42f4-9a52-dc222749df2b"
+    },
+    {
+        "Id": "527fb343-8397-4327-a9ad-b8f2ceadec9d",
+        "ShipmentId": "7e3b539c-033a-4105-b79b-c01c3aa16771",
+        "Shipment": "BUTALBITAL, ASPIRIN, AND CAFFEINE",
+        "CollectionStatus": "Pending",
+        "UserId": "907e330e-4dcc-497c-a711-6454f6a4ca38"
+    },
+    {
+        "Id": "5785a15b-57c5-42b9-a09c-cfb06ea673c8",
+        "ShipmentId": "fbf87c70-c0ef-478e-be0b-8a1b84fd76a3",
+        "Shipment": "Adenosine",
+        "CollectionStatus": null,
+        "UserId": "44fc0e53-a886-4b9f-800d-ef84070de49d"
+    },
+    {
+        "Id": "753d51fe-e9b3-4764-acb5-4bb65609a4c5",
+        "ShipmentId": "fd93f25f-f6b8-4f8c-b0db-e297e3e9fcc8",
+        "Shipment": "LISINOPRIL",
+        "CollectionStatus": null,
+        "UserId": "1a9710de-c13d-4814-84b9-1a82db6e7100"
+    },
+    {
+        "Id": "09ca65ef-21b5-4f8c-9d8a-b954fc2c65db",
+        "ShipmentId": "1b74441c-2c36-493a-8bbb-bae3f11d060b",
+        "Shipment": "TITANIUM DIOXIDE",
+        "CollectionStatus": null,
+        "UserId": "a554bc65-6f93-4bfa-9539-b825935de1fc"
+    },
+    {
+        "Id": "48530803-e583-4fc0-aab8-6714d650f96c",
+        "ShipmentId": "bcf97c76-b80d-442a-96a1-0b85bdf478a3",
+        "Shipment": "Alprazolam",
+        "CollectionStatus": null,
+        "UserId": "9ae8b0d3-1995-4e5a-99bb-b682e3d639e5"
+    },
+    {
+        "Id": "0935cba4-93e5-4801-a988-5fc83cec14b0",
+        "ShipmentId": "8d108314-695c-4f74-b0dc-e5bf9110e89d",
+        "Shipment": "Acetaminophen",
+        "CollectionStatus": null,
+        "UserId": "1270e02a-f9f9-4068-8b37-b070aa154871"
+    },
+    {
+        "Id": "cf3554e6-fc03-4e0a-8edd-8d0de035acc3",
+        "ShipmentId": "0b10d39a-b634-42a4-ba2a-9362e537aa8a",
+        "Shipment": "Eucalyptol, Menthol, Methyl Salicylate, and Thymol",
+        "CollectionStatus": null,
+        "UserId": "c2d114e0-5d47-4f6a-8e05-e3839e87aa68"
+    },
+    {
+        "Id": "7cc0cec1-1602-4022-86e6-676005fe00e9",
+        "ShipmentId": "a64fa87c-b341-47fd-bb3c-244e82afbdbb",
+        "Shipment": "HYDROCODONE BITARTRATE AND ACETAMINOPHEN",
+        "CollectionStatus": null,
+        "UserId": "03227f84-9cab-4033-9a69-96778ed5b6fe"
+    },
+    {
+        "Id": "e68f7300-4a2b-4a57-a892-e92d77467e4c",
+        "ShipmentId": "30046a99-2f06-4c2b-8cef-1735011413b5",
+        "Shipment": "Triclosan",
+        "CollectionStatus": null,
+        "UserId": "5769a838-47a4-44bc-982c-cbf887c455a3"
+    },
+    {
+        "Id": "29289bee-3fb3-45c7-b829-384b151d2877",
+        "ShipmentId": "95c3bb44-3892-4852-84c4-56e12c48ce71",
+        "Shipment": "topotecan hydrochloride",
+        "CollectionStatus": null,
+        "UserId": "1acd4e35-3672-4d95-bcfc-677745d74751"
+    },
+    {
+        "Id": "73c31174-e4d9-4f02-aeb5-960570486034",
+        "ShipmentId": "144bbdad-ebfb-4cf2-a775-9a079b248d4f",
+        "Shipment": "Meloxicam",
+        "CollectionStatus": null,
+        "UserId": "2f6da2fe-1803-4605-b5dd-fc76f9f99248"
+    },
+    {
+        "Id": "46b070d5-f681-4f4b-9a4f-ade2f329c1b5",
+        "ShipmentId": "335713f7-f44c-4d02-a71b-ccad286ecf6b",
+        "Shipment": "Hamamelis e cortex 3",
+        "CollectionStatus": null,
+        "UserId": "13db50aa-1636-4009-b0f2-185b5b9d47c7"
+    },
+    {
+        "Id": "8d8be04e-4c80-4e90-97d8-61f408794ef1",
+        "ShipmentId": "09f63c79-2d78-4f3a-a7af-6a71712a54cd",
+        "Shipment": "nicardipine hydrochloride",
+        "CollectionStatus": null,
+        "UserId": "4aa3c8f4-e83a-4156-86f3-afb933e24320"
+    },
+    {
+        "Id": "f5855ba3-3b5c-41db-9d83-4d9f2f804fdc",
+        "ShipmentId": "bef15259-452a-4844-b56c-c3c20b13432f",
+        "Shipment": "albuterol sulfate",
+        "CollectionStatus": null,
+        "UserId": "62bf7bae-904e-45c0-89b6-735772bb80fa"
+    },
+    {
+        "Id": "5b197367-4e42-4e9b-941a-b8b92fa73575",
+        "ShipmentId": "1463ed88-5f06-40a1-9a8f-98164fe0dc2f",
+        "Shipment": "divalproex sodium",
+        "CollectionStatus": null,
+        "UserId": "f035e378-7cf8-4a87-b5fe-580a8cb78bfc"
+    },
+    {
+        "Id": "ded99b10-d726-42b7-b520-874d7fe8a29c",
+        "ShipmentId": "3d382455-8c17-4245-847a-1eb79ace8653",
+        "Shipment": "PYRITHIONE ZINC",
+        "CollectionStatus": null,
+        "UserId": "a6dd5fa7-c1aa-4a3b-b64c-d05d6dfac0e0"
+    },
+    {
+        "Id": "1c40675c-2a5d-4d9e-b3e1-10d8c49efa70",
+        "ShipmentId": "13a3c646-287e-495f-8e90-41a8317f32da",
+        "Shipment": "Bismuth subsalicylate",
+        "CollectionStatus": "02",
+        "UserId": "3aea586d-52aa-4ad3-911a-45b68a8c4b3f"
+    },
+    {
+        "Id": "a45914fe-9537-4a5b-ac2d-1cfd1ee1513e",
+        "ShipmentId": "71db7121-9995-4d86-8b54-1b8ba4558a29",
+        "Shipment": "Coastal Sage",
+        "CollectionStatus": null,
+        "UserId": "faae7296-7ebb-4c2e-9500-37dbeba4e586"
+    },
+    {
+        "Id": "f891afa6-3319-40b8-bb24-1b8c16b0aa36",
+        "ShipmentId": "24e2a46d-98e0-4764-a47b-3f1193ca7951",
+        "Shipment": "Trandolapril",
+        "CollectionStatus": null,
+        "UserId": "f863ae4c-fdad-4999-a621-8e0e6396a4d9"
+    },
+    {
+        "Id": "05110015-b66b-476e-a623-1f2f482850e0",
+        "ShipmentId": "b28abdf2-ce53-49b6-be83-40332817e46d",
+        "Shipment": "Losartan Potassium",
+        "CollectionStatus": null,
+        "UserId": "30925969-64a3-4128-a814-8b27ba08ac4d"
+    },
+    {
+        "Id": "15d2e20a-92c8-46da-80b7-d15dcfe2ef38",
+        "ShipmentId": "91b295ba-d88b-48ba-9b15-571b541640aa",
+        "Shipment": "Quetiapine fumarate",
+        "CollectionStatus": null,
+        "UserId": "798ccc04-cfcf-4c6b-84dc-90dc7d5220b7"
+    },
+    {
+        "Id": "ce81130f-5792-45f7-b0ce-76c741d7a253",
+        "ShipmentId": "709be8c8-85c7-49fc-beaf-a8dcf8524a5a",
+        "Shipment": "Ethyl Alcohol",
+        "CollectionStatus": null,
+        "UserId": "d974b686-d1b9-42cb-9b4f-cc9ee0be9fdd"
+    },
+    {
+        "Id": "34afae20-19bf-4dc8-b2b8-1ef95668c9d1",
+        "ShipmentId": "8b9dac3c-47e7-477f-b2a4-7545c93fd93a",
+        "Shipment": "Adalimumab",
+        "CollectionStatus": null,
+        "UserId": "254071d0-c490-4cb4-acd0-06d4b60fa3d9"
+    },
+    {
+        "Id": "97bfc8d0-e66e-4f24-80cf-6bb32037617a",
+        "ShipmentId": "00f3779b-8067-4ef3-95f2-005b8b79fb62",
+        "Shipment": "Dextromethorphan Hydrobromide, Guaifenesin, Phenylephrine Hydrochloride",
+        "CollectionStatus": null,
+        "UserId": "ce3a3f22-d6a5-4798-a5cc-7bcfda563721"
+    },
+    {
+        "Id": "f820b239-b2b5-4829-a851-6d79f23a131c",
+        "ShipmentId": "24013a94-3217-46cf-ad7d-6f9bf01d515e",
+        "Shipment": "Octinoxate, Oxybenzone, and Octisalate",
+        "CollectionStatus": "AB",
+        "UserId": "ac265b39-c903-4586-9e5d-02a369113637"
+    },
+    {
+        "Id": "ab43b532-3aa1-439b-af05-c6f43ca97443",
+        "ShipmentId": "fdd55ce6-61a9-4880-beaa-0441c6e6fea7",
+        "Shipment": "adapalene",
+        "CollectionStatus": null,
+        "UserId": "66958639-c133-4852-849b-b51b0dc4ba93"
+    },
+    {
+        "Id": "b641d6c6-bbca-4594-a7ff-8f9e87bc8eca",
+        "ShipmentId": "6b4ebcf8-b5ea-4788-ae05-3bdd8c6bc636",
+        "Shipment": "Triclosan",
+        "CollectionStatus": null,
+        "UserId": "89cbb280-7a72-40ab-a48f-3e9e50e0c2d3"
+    },
+    {
+        "Id": "bedc07dd-62e5-4ea4-8314-01e23f8d8869",
+        "ShipmentId": "51b06fcc-eb29-4320-a650-6a1160a58210",
+        "Shipment": "alcohol",
+        "CollectionStatus": "NV",
+        "UserId": "65f8f46d-2297-4f43-9571-cb5bf41becea"
+    },
+    {
+        "Id": "4758f6dc-636a-484a-a444-e03757450db7",
+        "ShipmentId": "03e888fc-b11f-461e-99bb-88b7b380558b",
+        "Shipment": "Carbidopa and Levodopa",
+        "CollectionStatus": "10",
+        "UserId": "a3d3591a-77cc-468a-b37f-2791c719fc7a"
+    },
+    {
+        "Id": "00968591-f503-4815-9373-e2f84f628b36",
+        "ShipmentId": "9dfc999d-1dc6-4a65-b096-d4c4bce9070b",
+        "Shipment": "Colloidal oatmeal",
+        "CollectionStatus": null,
+        "UserId": "50146adb-5e86-4dbe-b176-f72a9f87fb44"
+    },
+    {
+        "Id": "727e83ca-2434-491b-a8b9-1a5265b81cde",
+        "ShipmentId": "c68ed15b-ac84-4a96-a756-d7e5288fa304",
+        "Shipment": "Citalopram Hydrobromide",
+        "CollectionStatus": null,
+        "UserId": "f925e651-49df-445e-a47b-57f1f610d9a4"
+    },
+    {
+        "Id": "0d47d778-4b43-42a5-9e0f-eb1c58651f7b",
+        "ShipmentId": "aefdf1b1-cb24-4c07-ab8d-4568d8dc865b",
+        "Shipment": "ATORVASTATIN CALCIUM",
+        "CollectionStatus": null,
+        "UserId": "b59754f0-822d-417f-a430-a6f3ce165b4b"
+    },
+    {
+        "Id": "8bcad2b2-8ca9-42ea-b910-3245a56d12c2",
+        "ShipmentId": "256bd4d8-6a1b-49f1-8967-fde82608b788",
+        "Shipment": "Lansoprazole",
+        "CollectionStatus": "B3",
+        "UserId": "e00d3e53-5235-49d6-af36-07c2a5198909"
+    },
+    {
+        "Id": "39bfa3e6-0d67-479a-a123-00d72eea5f12",
+        "ShipmentId": "729aa1fb-f7f0-4280-a19b-e3af8513ec51",
+        "Shipment": "Alcohol",
+        "CollectionStatus": null,
+        "UserId": "94c5b6ad-63a7-46c3-81e9-dea85589cd77"
+    },
+    {
+        "Id": "d4bbe665-3254-44d2-b6d0-0a9636ceee59",
+        "ShipmentId": "d997271f-20e9-4904-a99f-6e89d069d74d",
+        "Shipment": "Nitrogen",
+        "CollectionStatus": null,
+        "UserId": "0acd3926-7223-4ce7-b50d-fee63b2b14a7"
+    },
+    {
+        "Id": "6f1dffc1-dbc5-4f69-a73e-59bb517af37b",
+        "ShipmentId": "ab991d0b-9d0a-4f73-8160-a0d0e3c9ab07",
+        "Shipment": "Treatment Set TS348490",
+        "CollectionStatus": null,
+        "UserId": "4f15cd8e-36af-4c92-acb2-272092878636"
+    },
+    {
+        "Id": "abe7d0e8-e847-48fe-91a0-dd0dfe259563",
+        "ShipmentId": "34bd8183-9379-4ee4-98dd-72aedb45a595",
+        "Shipment": "Dicloxacillin Sodium",
+        "CollectionStatus": null,
+        "UserId": "a89877c7-cf84-496c-81e2-04c148f48cd6"
+    },
+    {
+        "Id": "e13dedc2-9611-4077-afd2-0f7b5da5840e",
+        "ShipmentId": "f03916ce-2830-484f-94e8-c3f9f8c69364",
+        "Shipment": "terconazole",
+        "CollectionStatus": null,
+        "UserId": "8ea0e605-6634-4c93-bca5-d0ea1372d06c"
+    },
+    {
+        "Id": "fe16b007-8acd-48d1-b678-65f46d959da5",
+        "ShipmentId": "93c2cbe7-44a3-470c-a1c4-b54e507ccfa0",
+        "Shipment": "Albuterol Sulfate",
+        "CollectionStatus": null,
+        "UserId": "983122b2-2387-4d85-b41f-a0eb97441f32"
+    },
+    {
+        "Id": "0b29d0f7-5caa-42ec-8a2f-ace8554d3093",
+        "ShipmentId": "5981bf93-7937-418a-93e5-4d6a2c73ccd7",
+        "Shipment": "insulin glargine",
+        "CollectionStatus": null,
+        "UserId": "d70eecc4-6c85-4bd9-aff7-43d68b8cc2d5"
+    },
+    {
+        "Id": "5ccc77ea-61d2-481c-8868-92fc65c8f23d",
+        "ShipmentId": "ad44b732-4f87-4ae6-bf2e-431eb6bf4bc5",
+        "Shipment": "dimethicone, camphor, menthol, phenol",
+        "CollectionStatus": null,
+        "UserId": "1a684172-ace5-403d-af90-6f5e997004ab"
+    },
+    {
+        "Id": "e160a541-3a82-48a3-9789-5fd470c5ad47",
+        "ShipmentId": "35c6f6ca-d232-4ef8-bb4f-a00400c8a33b",
+        "Shipment": "buprenorphine hydrochloride and naloxone hydrochloride",
+        "CollectionStatus": null,
+        "UserId": "50f5b21c-e65a-46fe-8756-6dd8d66a5766"
+    },
+    {
+        "Id": "cb22cd03-0748-4f99-8697-a6a608a86e94",
+        "ShipmentId": "1fa5c53f-8425-4239-a51d-f65693e63b07",
+        "Shipment": "Rhodotorula mucilaginosa",
+        "CollectionStatus": null,
+        "UserId": "55d6fdda-260d-45fb-9cbb-abe98dfd83dd"
+    },
+    {
+        "Id": "d1901f29-0db4-4cac-87dd-4e301cb49631",
+        "ShipmentId": "a263c530-d0bd-49ba-80d2-5a100e765ec3",
+        "Shipment": "Pravastatin Sodium",
+        "CollectionStatus": null,
+        "UserId": "660862f5-41b9-4586-86d3-cab38d6d7164"
+    },
+    {
+        "Id": "43eecdfe-27cd-4bfb-8875-cd0b02a80d54",
+        "ShipmentId": "d28126d3-f2ca-45a3-a92c-a780e292ddd5",
+        "Shipment": "witch hazel",
+        "CollectionStatus": null,
+        "UserId": "db8da83c-6299-4b9b-8daa-2ba00fbb97af"
+    },
+    {
+        "Id": "66c5e3b9-3224-4991-9c9d-5c3ed1cefb5c",
+        "ShipmentId": "cd3667d2-8c5e-4946-9df2-c8f22158a54b",
+        "Shipment": "Desoximetasone",
+        "CollectionStatus": null,
+        "UserId": "3f2812d8-718e-4acf-be88-ad5825babaf1"
+    },
+    {
+        "Id": "a14e515a-1585-426e-8408-b2d7976b8b5f",
+        "ShipmentId": "5d96a373-866f-4c9f-8459-95e95f84e19c",
+        "Shipment": "Phentermine hydrochloride",
+        "CollectionStatus": null,
+        "UserId": "8eaa43fc-5482-4751-b140-fcb63b06cc8d"
+    },
+    {
+        "Id": "9b5095ae-07e4-4661-984f-3569e078fb7b",
+        "ShipmentId": "8af9ae55-d602-4460-b333-42f6d2f68b01",
+        "Shipment": "Ceftriaxone",
+        "CollectionStatus": "NY",
+        "UserId": "eb199e18-19e9-4aae-9065-553d8280641a"
+    },
+    {
+        "Id": "8dc5ed92-f736-4a28-9f5d-b16bc51fa81e",
+        "ShipmentId": "d5af0c25-11cf-4d93-b546-bdf1fea64922",
+        "Shipment": "Bleomycin",
+        "CollectionStatus": null,
+        "UserId": "f1a4a507-81e2-41b0-9ad2-7d48935ddbc4"
+    },
+    {
+        "Id": "83eb962d-a457-4ad5-81ad-d075e5daa380",
+        "ShipmentId": "15529430-1dbf-4083-aa7c-a239a9f3494e",
+        "Shipment": "TITANIUM DIOXIDE",
+        "CollectionStatus": "07",
+        "UserId": "539f4a38-0049-4d6c-9427-50096d307dae"
+    },
+    {
+        "Id": "dbc63fa4-3959-469a-bbd8-f722494b0cfa",
+        "ShipmentId": "283270ce-259e-4e92-8e42-7a3344c90330",
+        "Shipment": "Acetaminophen, Diphenhydramine hydrochloride, Phenylephrine hydrochloride",
+        "CollectionStatus": null,
+        "UserId": "9cc49ce9-ac56-4c30-8ca3-b9755e0e25de"
+    },
+    {
+        "Id": "3432aa73-d007-4db0-891a-1f5aaaf5e312",
+        "ShipmentId": "fa3312e7-e7eb-481b-b75b-f8f31a6d76ad",
+        "Shipment": "ACETAMINOHPEN, DEXTROMETHORPHAN HBr, PHENYLEPHRINE HCl",
+        "CollectionStatus": null,
+        "UserId": "cc1b2420-621b-4463-ad98-168eab43e1db"
+    },
+    {
+        "Id": "052c3206-2220-4677-a9ce-c91f22f6a8db",
+        "ShipmentId": "bd4bbdc6-6ded-4aad-a743-df4fe289e6ae",
+        "Shipment": "Escitslopram",
+        "CollectionStatus": null,
+        "UserId": "0413518e-2f8d-4f92-9f8f-eb91e7946d92"
+    },
+    {
+        "Id": "5add8f9b-e903-4df1-854d-96b8ce37c483",
+        "ShipmentId": "fa4a88a3-72cf-4cf9-9784-8f0e5e2ce1be",
+        "Shipment": "Pramipexole Dihydrochloride",
+        "CollectionStatus": null,
+        "UserId": "56fb3806-ecd2-4123-9c39-86fc84c1158f"
+    },
+    {
+        "Id": "6cc9b43d-fea8-4180-90ff-1d2ad702dc8c",
+        "ShipmentId": "f966b437-dab9-49f8-bafd-e4f4864855e6",
+        "Shipment": "OCTINOXATE, TITANIUM DIOXIDE",
+        "CollectionStatus": "A8",
+        "UserId": "a91950ed-74ee-4705-863c-f5f23e67f448"
+    },
+    {
+        "Id": "94cddabf-f263-4888-b080-6f957f24b01e",
+        "ShipmentId": "7fc744e3-9eac-4c43-8a8e-a0339ab21d2a",
+        "Shipment": "VENLAFAXINE HYDROCHLORIDE",
+        "CollectionStatus": "CA",
+        "UserId": "81d59355-e1d9-4ab3-9afe-47803aaa21cb"
+    },
+    {
+        "Id": "c60b7d78-9b6e-4f8e-92d7-ad8896a46b9b",
+        "ShipmentId": "995db54c-8fe4-41dc-a6a5-788424b25e19",
+        "Shipment": "propranolol hydrochloride",
+        "CollectionStatus": null,
+        "UserId": "424877b4-376b-49dc-b09b-9bbaf7f73aca"
+    },
+    {
+        "Id": "eefc91a2-83bd-4627-94d4-6e419211a752",
+        "ShipmentId": "90f70e1f-3c64-41b7-9ab4-841c5bbf7086",
+        "Shipment": "Dextroamphetamine Saccharate, Amphetamine Asparatate, Dextroamphetamine Sulfate and Amphetamine Sulfate",
+        "CollectionStatus": null,
+        "UserId": "db84b6c7-a699-4ae2-8d33-883973281bec"
+    },
+    {
+        "Id": "272d4195-b9d6-4db8-a01c-19a1fa695cb8",
+        "ShipmentId": "3153f688-4fa6-4e2f-8984-7f1116250793",
+        "Shipment": "Acetaminophen, Phenylephrine hydrochloride",
+        "CollectionStatus": null,
+        "UserId": "89b21bb8-402e-4339-a8d8-28e28a441af7"
+    },
+    {
+        "Id": "7ecb1ab2-471d-42dd-833b-2b8b532c3889",
+        "ShipmentId": "c2b7b921-edf0-4c74-8109-26b2c7563521",
+        "Shipment": "Pancrelipase",
+        "CollectionStatus": null,
+        "UserId": "955e4928-10c3-402a-af92-67e2766beed9"
+    },
+    {
+        "Id": "a8c4b519-9b40-4a71-9cc6-d7e3e98d2316",
+        "ShipmentId": "86cf77a0-c4c0-46f3-a641-234dfa9dc5b3",
+        "Shipment": "PANTOPRAZOLE SODIUM",
+        "CollectionStatus": null,
+        "UserId": "e584359d-6695-487c-9ca3-e13a3c6d084f"
+    },
+    {
+        "Id": "d503588d-1cf5-4a3e-8ffd-0bbd929bac40",
+        "ShipmentId": "7ee31ff4-08c7-4435-852a-7f903213bc99",
+        "Shipment": "Sodium fluoride",
+        "CollectionStatus": null,
+        "UserId": "57a484d0-9b37-47ee-9116-6c5a147fe664"
+    },
+    {
+        "Id": "8376495b-e3fd-4445-aa48-526c0c3c2393",
+        "ShipmentId": "577f9079-bfd7-4610-aadc-5a7f7c825d94",
+        "Shipment": "eribulin mesylate",
+        "CollectionStatus": null,
+        "UserId": "9e33685f-cf60-4aa0-a381-6de5bd541ca1"
+    },
+    {
+        "Id": "d847c478-9e0b-4605-8250-23997b6e8f7d",
+        "ShipmentId": "8006ed68-ff56-4294-8da1-dcc036c5517f",
+        "Shipment": "Cactus Crataegus",
+        "CollectionStatus": null,
+        "UserId": "20ac25d9-7612-407e-aafd-a67f66bd0c16"
+    },
+    {
+        "Id": "79bfd091-ca25-4aa5-803f-7a8d0aeec417",
+        "ShipmentId": "c7c3561f-da4c-4239-be5c-2f00af092860",
+        "Shipment": "Mefloquine Hydrochloride",
+        "CollectionStatus": null,
+        "UserId": "6afaeb46-b4f3-4a32-bc32-ad85f69d7b3a"
+    },
+    {
+        "Id": "4657d5c3-0c72-4241-8f1f-2ed43b5c8109",
+        "ShipmentId": "9dd6a9ff-8f9e-492a-9b70-d780651e3776",
+        "Shipment": "Acetaminophen, Aspirin, Caffeine",
+        "CollectionStatus": null,
+        "UserId": "92a5f3f9-cfa2-48f9-9bed-dcc578bf080d"
+    },
+    {
+        "Id": "9467f006-d4cd-4070-9061-a500099a20c7",
+        "ShipmentId": "09f629e9-020e-48e2-8c9e-ca5d8878e8a9",
+        "Shipment": "Octinoxate",
+        "CollectionStatus": "10",
+        "UserId": "3a29f815-10d7-4a58-8789-cd700e37fa2a"
+    },
+    {
+        "Id": "a4354fce-cd0c-4234-98c9-f290a9c2e8b5",
+        "ShipmentId": "6b0bc1f7-ad74-4c8a-99fb-2b335b299a19",
+        "Shipment": "Dexamethasone",
+        "CollectionStatus": null,
+        "UserId": "94668834-818c-4374-abc8-40fbf1d64004"
+    },
+    {
+        "Id": "8383a8c5-a710-4d8a-9d06-bbcc20ac285c",
+        "ShipmentId": "6ce3d554-850e-4a6a-8013-08175ae6e627",
+        "Shipment": "Standardized Orchard Grass Pollen",
+        "CollectionStatus": null,
+        "UserId": "0b697a1e-e9d0-4a17-843f-b4ead86a1908"
+    },
+    {
+        "Id": "c603995a-baa2-4d36-ba35-2bd5461a715d",
+        "ShipmentId": "320565c6-00b3-4fb1-8457-2bee3bce7e49",
+        "Shipment": "Fluoride Toothpaste",
+        "CollectionStatus": null,
+        "UserId": "e538a7de-9b3b-425a-8f65-2af2c0edb8c5"
+    },
+    {
+        "Id": "e3e05d34-826b-4ecf-ae36-b29e78d41c7a",
+        "ShipmentId": "aef66c59-65bc-496c-b55f-341dd0c668a5",
+        "Shipment": "MEPIVACAINE HYDROCHLORIDE",
+        "CollectionStatus": null,
+        "UserId": "810e2c1c-d8d3-420d-a419-2038f8a786b7"
+    },
+    {
+        "Id": "794c2016-f3a5-4d28-9215-d6db9c0c0847",
+        "ShipmentId": "cc7f1fa0-8d65-4537-8e83-773860202c0f",
+        "Shipment": "Hydrochlorothiazide",
+        "CollectionStatus": null,
+        "UserId": "6abe3c7c-e233-40b3-a404-70e226148ae5"
+    },
+    {
+        "Id": "15f2d182-afcc-4950-b9c5-3e5a0a397261",
+        "ShipmentId": "09a0f222-30d6-41c3-af07-df4665c23636",
+        "Shipment": "albuterol sulfate",
+        "CollectionStatus": null,
+        "UserId": "55dbddc3-5edc-4ab9-b963-d240be8ee8df"
+    },
+    {
+        "Id": "c17d6f24-7abf-49ee-b553-8b444a859db7",
+        "ShipmentId": "d14c2bf9-2730-4f47-84d0-a78027b0743c",
+        "Shipment": "Temazepam",
+        "CollectionStatus": "GUA",
+        "UserId": "701af7b0-4f17-4a51-b5a2-682db1cdccf2"
+    },
+    {
+        "Id": "668d0b3e-3bf4-4159-9d2c-8a9db276115f",
+        "ShipmentId": "f4b5536f-54cb-4339-9914-617bb746059e",
+        "Shipment": "ANAMIRTA COCCULUS SEED",
+        "CollectionStatus": null,
+        "UserId": "2457b39e-062c-461a-83c0-e2a708985a01"
+    },
+    {
+        "Id": "3e9ba134-5184-4d44-95d2-e38fd7ee7001",
+        "ShipmentId": "1fb47022-dc15-4419-ae1a-c6a535463581",
+        "Shipment": "TOPIRAMATE",
+        "CollectionStatus": null,
+        "UserId": "b5807cb0-df89-4708-9bdb-800849823f12"
+    },
+    {
+        "Id": "c6184da0-f22c-4730-baad-65f3af510966",
+        "ShipmentId": "6e8e42a9-563f-42ae-afec-e4831491e00a",
+        "Shipment": "Acetaminophen, guaifenesin, phenylephrine HCl",
+        "CollectionStatus": null,
+        "UserId": "b25cf388-ea2a-46b0-99f2-513ce0f0081e"
+    },
+    {
+        "Id": "82c1d3ca-ac92-496b-a24d-5c0b804080ad",
+        "ShipmentId": "64b89715-e9f5-45fa-b9fc-9612fc28c600",
+        "Shipment": "Cetirizine Hydrochloride",
+        "CollectionStatus": null,
+        "UserId": "41f325ab-df05-490e-9016-30378715625e"
+    },
+    {
+        "Id": "9b16b958-9d2b-469f-b138-6928cfcac0f4",
+        "ShipmentId": "bd6b6769-0aa4-47ca-b698-c9559c9c6c29",
+        "Shipment": "CAULOPHYLLUM THALICTROIDES",
+        "CollectionStatus": null,
+        "UserId": "4a03b7a5-153b-4758-acf8-6e3e29123510"
+    },
+    {
+        "Id": "13f1744e-1b24-42cf-b9eb-94571119c08d",
+        "ShipmentId": "5ca63fc0-4de2-452d-b12d-7fe3b69fa2b5",
+        "Shipment": "Guaifenesin Dextromethorphan",
+        "CollectionStatus": null,
+        "UserId": "45d640cb-5290-400a-9c06-1dbdf8b804d5"
+    },
+    {
+        "Id": "50b2ed16-0201-429d-aaf1-95a621cdf98b",
+        "ShipmentId": "67f2e32d-6390-4171-b47d-fb57e962c3a9",
+        "Shipment": "sucroferric oxyhydroxide",
+        "CollectionStatus": "AB",
+        "UserId": "f57a6db3-626c-4ca2-8ef4-aef59d2d413e"
+    },
+    {
+        "Id": "ef71b4da-dc63-421a-b9cb-98d9308eda43",
+        "ShipmentId": "707f6c0d-8c21-41f4-8cbb-d22e0169e96c",
+        "Shipment": "Pramipexole Dihydrochloride",
+        "CollectionStatus": null,
+        "UserId": "43a0788a-4aba-4ba5-a2a6-2f09b48df3d2"
+    },
+    {
+        "Id": "4835235b-38d3-4da2-b6a7-44216b8a7c50",
+        "ShipmentId": "3164f38d-791a-460a-bcaa-0b18498cf4a1",
+        "Shipment": "Hexylresorcinol",
+        "CollectionStatus": null,
+        "UserId": "a1c0dfe2-1789-48af-9ece-e9be84eeaed0"
+    },
+    {
+        "Id": "ffb4f6d4-2460-474f-8457-639461470baf",
+        "ShipmentId": "f7727dc6-34ab-4078-83cb-c976e8c201f0",
+        "Shipment": "dextromethorphan hbr",
+        "CollectionStatus": null,
+        "UserId": "396caf2e-e0a2-4bc5-b69c-c7528880b63b"
+    },
+    {
+        "Id": "e635b631-ab99-4880-a9fd-12e93bf5ecae",
+        "ShipmentId": "3dd1e1f9-4558-401c-a1a2-51bdb5701a66",
+        "Shipment": "Carbamazepine",
+        "CollectionStatus": null,
+        "UserId": "944032c0-89b0-4504-84a7-8ee94e701c34"
+    },
+    {
+        "Id": "7152ccb2-c628-404c-b175-9fe5d7f39509",
+        "ShipmentId": "682b826a-f779-4679-a690-a94a7a0af576",
+        "Shipment": "Fluphenazine Hydrochloride",
+        "CollectionStatus": null,
+        "UserId": "ac5c9d1a-6d81-476f-9aa2-7cf8767c3a44"
+    },
+    {
+        "Id": "55278aa5-1d6e-4fc1-8325-a06d7221b821",
+        "ShipmentId": "330e2c15-1b01-4781-ab47-b46c9b81e4ea",
+        "Shipment": "DEXTROSE MONOHYDRATE",
+        "CollectionStatus": "MB",
+        "UserId": "723b9304-19eb-4487-9130-170596ad575d"
+    },
+    {
+        "Id": "13c05eb9-37fc-4f29-b236-2a69632f755d",
+        "ShipmentId": "6e9260a0-26bd-45ab-9fbc-7f4624e5cc4d",
+        "Shipment": "PETROLATUM",
+        "CollectionStatus": "31",
+        "UserId": "fece9f8d-c8da-41a0-bbf7-57f9cc4f4f3a"
+    },
+    {
+        "Id": "28acfd37-f0db-404f-bf89-4d786a8d0f08",
+        "ShipmentId": "d74373b2-9bda-41cd-9ccb-df979ac505ca",
+        "Shipment": "Terbinafine Hydrochloride",
+        "CollectionStatus": null,
+        "UserId": "511a5f8e-8310-4e7f-be3a-8a7fbf2d3bda"
+    },
+    {
+        "Id": "b4a21941-ae68-4f20-ba0c-c2ed579d199e",
+        "ShipmentId": "d328bdf9-0e4f-4bbb-a874-fb408ec62860",
+        "Shipment": "OCTINOXATE and TITANIUM DIOXIDE",
+        "CollectionStatus": "B8",
+        "UserId": "1c72664b-852f-4f75-8a13-54c358868b07"
+    },
+    {
+        "Id": "9e0c8f78-7bc6-496e-845d-476587f2e59e",
+        "ShipmentId": "ffcaed07-c65c-4e82-9067-ab26a4fd79fc",
+        "Shipment": "GLYCERIN",
+        "CollectionStatus": null,
+        "UserId": "47152b23-41e7-4680-93a0-e63a35044d58"
+    },
+    {
+        "Id": "c329414c-e28e-4ae9-b6d2-efc65fdcd13b",
+        "ShipmentId": "b98c5052-e239-4658-8e05-a6741398e71e",
+        "Shipment": "Acetaminophen, Dextromethorphan hydrobromide, Doxylamine succinate, and Phenylephrine hydrochloride",
+        "CollectionStatus": null,
+        "UserId": "31947e2e-32f2-4b1e-a7a4-772d9258c956"
+    },
+    {
+        "Id": "6eae9232-9bc5-4d0c-9e60-18c0a166317f",
+        "ShipmentId": "aa418c77-d45d-4caf-92d2-0806326d0881",
+        "Shipment": "HYDROGEN PEROXIDE",
+        "CollectionStatus": null,
+        "UserId": "d99f3252-2564-4a64-b2e1-2f367815d010"
+    },
+    {
+        "Id": "622c1275-c124-4c75-b654-2391640ac72f",
+        "ShipmentId": "0cc55f3b-3ba8-4f4e-87da-895136431fa8",
+        "Shipment": "Octinoxate and Titanium Dioxide",
+        "CollectionStatus": null,
+        "UserId": "12fe2ed2-cf6c-45b2-89a6-ccf14d6abe0d"
+    },
+    {
+        "Id": "60684a86-fd5a-4a35-851d-e5ad6bf18530",
+        "ShipmentId": "327d13ef-1242-4f5f-a0da-a0b677286a63",
+        "Shipment": "Lisinopril",
+        "CollectionStatus": null,
+        "UserId": "9339e1ea-a66c-44ce-a951-971e925fc1df"
+    },
+    {
+        "Id": "250bd5bf-5821-4f93-833e-4ec5ae688fdc",
+        "ShipmentId": "674766a0-c426-4915-ac36-2c6295ca3c76",
+        "Shipment": "Dextroamphetamine saccharate, amphetamine aspartate monohydrate, dextroamphetamine sulfate, amphetamine sulfate",
+        "CollectionStatus": null,
+        "UserId": "9db2b7ae-ba60-4a2e-87ad-264d97054782"
+    },
+    {
+        "Id": "4a67d80a-8e20-4d6c-8490-ee6de8db6a2d",
+        "ShipmentId": "e7798d58-994b-401c-962e-4d8c262a4414",
+        "Shipment": "Blackberry",
+        "CollectionStatus": null,
+        "UserId": "aec8659b-cfe6-42c6-bcd2-ced064b0fd41"
+    },
+    {
+        "Id": "9ecd945d-571c-490c-8fe2-fd71b32cd95c",
+        "ShipmentId": "ab0bc946-a041-406b-890c-e41a11c3c73c",
+        "Shipment": "etoposide",
+        "CollectionStatus": null,
+        "UserId": "9f0e4aa7-4569-49b1-8812-ed59b65da897"
+    },
+    {
+        "Id": "8a3bda8c-007d-4fc1-ad93-e9d207da3fc6",
+        "ShipmentId": "18d39f94-1b93-4624-a06c-c84e54574c01",
+        "Shipment": "diphenhydramine hydrochloride",
+        "CollectionStatus": null,
+        "UserId": "01687438-052f-4754-9ef1-beb62466b98c"
+    },
+    {
+        "Id": "b6ae6532-fa52-48cb-babc-26bdc5f169c4",
+        "ShipmentId": "066fb34a-3857-49b4-9430-1f657f1faaac",
+        "Shipment": "Sulfamethoxazole and Trimethoprim",
+        "CollectionStatus": null,
+        "UserId": "f2786b06-7b40-40ac-9acb-d64d30ba0b7e"
+    },
+    {
+        "Id": "3c2c2b9f-766d-49d2-b5f0-416905a3bfa2",
+        "ShipmentId": "6eb11779-5c43-4a18-8122-81e761ab289b",
+        "Shipment": "Nicotine Polacrilex",
+        "CollectionStatus": null,
+        "UserId": "7087f4bb-1e74-4aad-894a-9e92997f1c4c"
+    },
+    {
+        "Id": "015b8af9-3114-4efa-afd8-0403c0c3c8b7",
+        "ShipmentId": "a5ef6dbc-b5a4-43ad-bd97-cf8ea1950dcf",
+        "Shipment": "Titanium Dioxide, OCTINOXATE, Zinc Oxide",
+        "CollectionStatus": null,
+        "UserId": "c4295cb6-4c44-40cb-b9d1-65b87599d6d9"
+    },
+    {
+        "Id": "0b96ad90-b8bf-45f6-a3d6-61bc7cc8e0e1",
+        "ShipmentId": "c73cce84-226b-4a30-aaaa-181f52d26f26",
+        "Shipment": "Avobenzone, Octinoxate, Octisalate, and Oxybenzone",
+        "CollectionStatus": null,
+        "UserId": "2cae63f3-f9b3-416e-bdf0-7e2705e5fefa"
+    },
+    {
+        "Id": "71b03885-a75e-47a8-a5f9-a1a67c47ebbc",
+        "ShipmentId": "432b621c-2944-493d-9a85-a65cade01850",
+        "Shipment": "NALBUPHINE HYDROCHLORIDE",
+        "CollectionStatus": null,
+        "UserId": "22029078-5ac1-4551-b9a8-d35024dae323"
+    },
+    {
+        "Id": "1d0559aa-b50c-4d21-bd01-ff0bb886b7ce",
+        "ShipmentId": "73431334-dc0c-42ac-8942-e8d6c75ec9b3",
+        "Shipment": "Bupropion Hydrochloride",
+        "CollectionStatus": null,
+        "UserId": "6f50f7c0-e0c0-44bc-9860-029242df82dc"
+    },
+    {
+        "Id": "c9eb9bcb-e04f-47e8-9116-01bdb3eeaf59",
+        "ShipmentId": "3d4fcd9c-f833-4e60-8a51-5d3c373920a7",
+        "Shipment": "Allopurinol",
+        "CollectionStatus": null,
+        "UserId": "9b10e520-bf04-4df8-a010-200e76fc76d4"
+    },
+    {
+        "Id": "234f016b-b6ec-4ecc-93af-3ed5f99291f0",
+        "ShipmentId": "c1b18c73-cad2-422b-9bac-267eb51b32bd",
+        "Shipment": "Docusate Sodium and Senna",
+        "CollectionStatus": null,
+        "UserId": "cb42caea-a2fe-44f1-a164-9ce7d175fbc9"
+    },
+    {
+        "Id": "9c69ca26-a96f-42c9-a8e5-b41286fe1e85",
+        "ShipmentId": "4f993b80-99f4-49f7-9043-1a7216e86648",
+        "Shipment": "SUMATRIPTAN",
+        "CollectionStatus": null,
+        "UserId": "783c0a99-7590-4801-9bd9-04dfc2257a25"
+    },
+    {
+        "Id": "c8da78e5-ac0e-4ec0-88ed-2b63cb42449e",
+        "ShipmentId": "595aeab6-b11e-4eb0-a302-60b43c7781be",
+        "Shipment": "LIDOCAINE HYDROCHLORIDE",
+        "CollectionStatus": "B4",
+        "UserId": "4ea68d97-68c6-4c95-bc0d-640948289620"
+    },
+    {
+        "Id": "3907e62a-fe09-4f3c-8f0b-e2af125a6505",
+        "ShipmentId": "6281cc4d-ecec-4632-9e8a-e0af3cfca756",
+        "Shipment": "Trimethoprim",
+        "CollectionStatus": null,
+        "UserId": "4c89963b-de54-4900-98e8-02d30fc91c83"
+    },
+    {
+        "Id": "ee0f9c35-8e80-4870-8c7c-8979660a33f0",
+        "ShipmentId": "cd32777d-e73d-45ae-95c1-49eb82357a69",
+        "Shipment": "lomitapide mesylate",
+        "CollectionStatus": "A8",
+        "UserId": "89fc4ec6-982c-471f-866b-35e27a89691c"
+    },
+    {
+        "Id": "0617217e-a770-457b-851c-937a9e11e395",
+        "ShipmentId": "87e800a4-076a-402b-a602-684e9238340a",
+        "Shipment": "Hydrochlorothiazide",
+        "CollectionStatus": null,
+        "UserId": "190fb2ea-aaf3-4e9d-a895-ddcfb69319f8"
+    },
+    {
+        "Id": "22d480c5-faf4-4c10-b11d-6264be97e81c",
+        "ShipmentId": "0b2ee100-26e8-467a-a366-00f3143c785a",
+        "Shipment": "Acetaminophen, Dextromethorphan HBr, Doxylamine succinate",
+        "CollectionStatus": null,
+        "UserId": "fb415cc0-432e-412e-ad38-e77d4b1ac948"
+    },
+    {
+        "Id": "3165d40c-c7be-400a-bd5d-83c924ffad3d",
+        "ShipmentId": "17ffa6e5-4b2f-4491-9a6a-491f77567f13",
+        "Shipment": "dimethicone",
+        "CollectionStatus": null,
+        "UserId": "ba8a1b43-837d-4438-826a-01a24ebba607"
+    },
+    {
+        "Id": "602b3968-1ca6-4a4e-b24e-cdbe42f7b373",
+        "ShipmentId": "733a379f-e379-4bd2-ab29-3dda86ce064a",
+        "Shipment": "Captopril",
+        "CollectionStatus": null,
+        "UserId": "6c0e41ad-bff4-49e2-bc08-de844062d200"
+    },
+    {
+        "Id": "4bd0acfe-d892-4bce-91e5-faee96f1181e",
+        "ShipmentId": "60a0db12-ea8c-4cd8-9454-aa8927af400f",
+        "Shipment": "Longleaf Pine",
+        "CollectionStatus": null,
+        "UserId": "9267b2e8-1da1-4f02-acf4-6c779ad41b4b"
+    },
+    {
+        "Id": "a28a31a7-99d9-4577-a4fe-c984095c4652",
+        "ShipmentId": "b7652e27-aa9a-4fc0-a427-d606f1e37961",
+        "Shipment": "SULFACETAMIDE SODIUM, SULFUR",
+        "CollectionStatus": null,
+        "UserId": "c41a3307-446f-4c13-af21-3eb4f071b330"
+    },
+    {
+        "Id": "d103e922-558f-4d5b-aed3-dc0b103f4310",
+        "ShipmentId": "98168dc6-a31a-464d-b110-9564b581a107",
+        "Shipment": "Octinoxate, zinc oxide",
+        "CollectionStatus": null,
+        "UserId": "883b5920-7593-4ca8-a5b7-ec73db5ade7c"
+    },
+    {
+        "Id": "81e9ba5d-01ce-4c3d-a2ff-e1598e3ce726",
+        "ShipmentId": "bc75e645-54ff-47ef-a327-cf0da58e391e",
+        "Shipment": "ALPRAZOLAM",
+        "CollectionStatus": "A2",
+        "UserId": "44f4903f-3436-455b-8b6c-673487d79504"
+    },
+    {
+        "Id": "7ef8c8ad-0c17-41ce-83a9-e7d6c1f4d4a9",
+        "ShipmentId": "98d3a44a-a5ac-4c75-91aa-811c7cad402a",
+        "Shipment": "Menthol",
+        "CollectionStatus": null,
+        "UserId": "917ef016-f56f-4a2f-b62b-4ef5176dc5b6"
+    },
+    {
+        "Id": "2137c3dd-c489-4de4-85bb-fe4f0d905997",
+        "ShipmentId": "9d56086d-7c47-4dff-ac8c-955a2e2c2171",
+        "Shipment": "Tranexamic Acid",
+        "CollectionStatus": null,
+        "UserId": "d1863a8e-1aae-4ee0-89a5-94b440a428eb"
+    },
+    {
+        "Id": "8e745ba1-0483-4e25-8ab1-5bdc9a23ede8",
+        "ShipmentId": "b57a066f-0cba-4eba-8d1d-984ca56b3c3d",
+        "Shipment": "Chlorzoxazone",
+        "CollectionStatus": null,
+        "UserId": "67b47d18-d1fc-4b9e-9fa8-5720bc5b8da5"
+    },
+    {
+        "Id": "9d43c25d-1a03-4c5f-9bd9-675f1aae4435",
+        "ShipmentId": "46118cd8-f452-4765-b8de-a9bae72a72f3",
+        "Shipment": "Benzocaine, Resorcinol",
+        "CollectionStatus": null,
+        "UserId": "aef0f308-e35d-4ba9-980f-2b22aadb1095"
+    },
+    {
+        "Id": "6f476326-192d-4c2f-a751-084e5a11ac1b",
+        "ShipmentId": "48fbc972-3653-4f20-ba29-7f5126ca5c89",
+        "Shipment": "Gentamicin Sulfate",
+        "CollectionStatus": null,
+        "UserId": "86dd3873-8ce0-41e6-a642-0fb521e70661"
+    },
+    {
+        "Id": "6f41e056-a735-41bb-ba77-de82aa38c9a8",
+        "ShipmentId": "4f449de3-8c2c-4bce-8daa-46e45eae5c7b",
+        "Shipment": "Tolnafate, Triclosan",
+        "CollectionStatus": null,
+        "UserId": "ab583bdd-e158-4248-a28f-fc05f5ec4968"
+    },
+    {
+        "Id": "885b6eae-4ec8-4c9f-8793-464068dbf6be",
+        "ShipmentId": "9dfd1d7d-ee8c-47b9-bbf1-aed9a006dae6",
+        "Shipment": "acetaminophen, dextromethorphan Hbr, Phenylephrine HCl",
+        "CollectionStatus": null,
+        "UserId": "5abf47c2-e68c-4fd8-8fc2-2b44f5c33f9b"
+    },
+    {
+        "Id": "5cfeef3b-60b1-4437-a84e-5edc6a83e924",
+        "ShipmentId": "1c5c5e3d-a18c-438f-908c-b3070d3f2c26",
+        "Shipment": "synthetic conjugated estrogens, B",
+        "CollectionStatus": null,
+        "UserId": "57529f76-6146-4d67-b1d5-be924aeb6115"
+    },
+    {
+        "Id": "a41fa855-b9f8-4666-947d-040f509c2d0d",
+        "ShipmentId": "e42559ff-4f19-4127-bef4-d237201b56b2",
+        "Shipment": "nedocromil sodium",
+        "CollectionStatus": "MB",
+        "UserId": "4e36504a-4c16-476c-8b89-8106c4da84e5"
+    },
+    {
+        "Id": "60ad3b8f-99bd-4f00-ae77-44626e2cfafd",
+        "ShipmentId": "e914b757-1147-4b80-be3e-e7bf3f9d939c",
+        "Shipment": "Calcium carbonate",
+        "CollectionStatus": "11",
+        "UserId": "6a6a4dc3-ac63-4e49-addf-975326bb809c"
+    },
+    {
+        "Id": "4e5de3bf-285b-4dbc-a96a-82cf476aee42",
+        "ShipmentId": "3fc99c6d-e9a6-438f-b0d3-91ca27240856",
+        "Shipment": "Simvastatin",
+        "CollectionStatus": null,
+        "UserId": "b20d9ebe-a86a-4ef2-b1c0-49172ff03824"
+    },
+    {
+        "Id": "935afe84-19f1-4eeb-841d-7dea7ed6100c",
+        "ShipmentId": "bc7ef271-b39b-4497-97e6-94f26f38309e",
+        "Shipment": "Nicotine Polacrilex",
+        "CollectionStatus": null,
+        "UserId": "60b86158-e1bd-4e56-bf8f-a4a3229524f0"
+    },
+    {
+        "Id": "43d72875-6dbb-471f-8a0b-5531302c03de",
+        "ShipmentId": "2f607f26-ecd2-4d91-8fab-604855f21dcd",
+        "Shipment": "Octinoxate and Oxybenzone",
+        "CollectionStatus": "1084",
+        "UserId": "e4b57158-92fc-46a5-98b7-30a91a278952"
+    },
+    {
+        "Id": "783dbf6c-d29a-48fc-b89a-55872c2e181b",
+        "ShipmentId": "7aad54d5-124b-40b1-a35b-c31af21f9dfc",
+        "Shipment": "Aurum Hypericum Stibium Special Order",
+        "CollectionStatus": null,
+        "UserId": "ac93f23c-6f4b-4980-93fa-16be8e654ebd"
+    },
+    {
+        "Id": "fdb7acfb-c946-40c9-8b53-44a809dd01b7",
+        "ShipmentId": "c160656a-1357-4a8e-9993-1f13001b5519",
+        "Shipment": "AVOBENZONE, HOMOSALATE, OCTOCRYLENE, OXYBENZONE",
+        "CollectionStatus": null,
+        "UserId": "b954b2b2-4e2f-40ec-ab08-ec12a472ce19"
+    },
+    {
+        "Id": "57745d87-b42d-4c47-8b21-8ea809e5b6cd",
+        "ShipmentId": "f247fecb-1ff6-4e00-b838-c2b193945f51",
+        "Shipment": "Influenzinum, Tellurium metallicum, Apis mel, Arsenicum alb., Belladonna, Bryonia, Capsicum, Causticum, Cinchona, Conium, Dulcamara, Ferrum phosphoricum, Hepar sulph. calc., Kali sulph., Lycopodium, Merc. viv., Mezereum, Phosphorus, Plantago, Pulsatilla, Silicea, Verbascum, Echinacea, Hydrastis",
+        "CollectionStatus": null,
+        "UserId": "5bac73a3-9c0e-408f-879d-38524fff6ad2"
+    },
+    {
+        "Id": "a0e7d0d7-6468-4f9e-a99c-7f89840c6804",
+        "ShipmentId": "16d3b9dd-ca8e-49ab-8cb3-1e7184db6f5a",
+        "Shipment": "Mineral oil, Petrolatum, Phenylephrine HCl, Shark liver oil",
+        "CollectionStatus": null,
+        "UserId": "2df8e5f8-14e8-429d-9943-3f5dd005b534"
+    },
+    {
+        "Id": "c17b133b-60ee-4516-b518-f2dee8e987ec",
+        "ShipmentId": "0a6ccff4-02e6-4fa9-add3-fd8f44df9263",
+        "Shipment": "TRICLOSAN",
+        "CollectionStatus": null,
+        "UserId": "8b8ce955-e34e-4873-af65-594fe81bfff7"
+    },
+    {
+        "Id": "cce4e51f-fee2-4331-a002-5d63407cfca5",
+        "ShipmentId": "e59190be-b5e3-4df4-9f41-aaf55cee17b8",
+        "Shipment": "glimepiride",
+        "CollectionStatus": null,
+        "UserId": "cf5c6bf8-e0b8-47a2-bef7-2e298365be2c"
+    },
+    {
+        "Id": "2c47cf57-54e1-4064-b067-d538c0188118",
+        "ShipmentId": "7488c171-bc19-4e7c-9cdb-f00e52d8db12",
+        "Shipment": "triclosan",
+        "CollectionStatus": null,
+        "UserId": "efab8493-ed4b-40bb-98da-4565e292e323"
+    },
+    {
+        "Id": "1fea656a-edc3-4bc2-a917-bdc83b15c214",
+        "ShipmentId": "76019ab7-5dcd-4780-bb03-028b52e7c5af",
+        "Shipment": "octreotide acetate",
+        "CollectionStatus": null,
+        "UserId": "31d340c5-df95-4c33-a21e-ba478fab1001"
+    },
+    {
+        "Id": "a1de9102-c2f8-4025-a999-b75d1af0530a",
+        "ShipmentId": "df59ddbb-b5d8-4fa3-90c9-50c22e9073c1",
+        "Shipment": "Simethicone",
+        "CollectionStatus": "01",
+        "UserId": "cd9ce2c9-2640-492a-b4ef-79f80b2ad8e5"
+    },
+    {
+        "Id": "fa7b22ac-1920-4316-86ec-446f26c1b35a",
+        "ShipmentId": "47bbd443-ed0f-4007-b105-d2f93298b021",
+        "Shipment": "Damiana, Galium aparine, Glandula suprarenalis bovinum, Hepar bovinum, Korean ginseng, Nuphar luteum, Orchitinum bovinum, Phosphoricum acidum, Pituitary bovinum, Populus tremuloides, Testosterone,",
+        "CollectionStatus": null,
+        "UserId": "df715dfd-146b-4275-90bb-37cfee0a3d00"
+    }
+]

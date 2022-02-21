@@ -32,6 +32,7 @@ export default function AddRoleForm(props: Props<IRoleModel>) {
   }
 
   const validationSchema = Yup.object({
+    id: Yup.string().required(),
     name: Yup.string().required(),
   })
 
@@ -59,7 +60,7 @@ export default function AddRoleForm(props: Props<IRoleModel>) {
               <div className='modal-body py-lg-10 px-lg-10'>
                 <IrisTextInput
                   type='text'
-                  name='RoleId'
+                  name='id'
                   placeholder='RoleId'
                   label='RoleId'
                 />
@@ -122,7 +123,7 @@ export default function AddRoleForm(props: Props<IRoleModel>) {
                   loading={props.isSubmitting}
                   content='Submit'
                 ></Button>
-                <Button floated='right' positive type='button' content='Cancel'></Button>
+                <Button floated='right' positive type='button' data-bs-dismiss="modal" content='Cancel'></Button>
               </Modal.Footer>
             </div>
           </div>

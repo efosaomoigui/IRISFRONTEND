@@ -31,10 +31,6 @@ const GenericTable = ({irisData, columnsMap, DetailsPath, EditPath, DeletePath}:
     useRowSelect
   )
 
-  // const selectedTableData = ()=>{
-  //   irisData.find(s => s.);
-  // }
-
   const {
     getTableProps,
     getTableBodyProps,
@@ -86,7 +82,7 @@ const GenericTable = ({irisData, columnsMap, DetailsPath, EditPath, DeletePath}:
                 <td>
                   <TableActionLinks
                     DetailsPath={`${DetailsPath+row.cells[0].value}`}
-                    EditPath={'#'}
+                    EditPath={`${EditPath+row.cells[0].value}`}
                     DeletePath={'#'}
                   />
                 </td>

@@ -25,12 +25,12 @@ const UserHeader: React.FC = () => {
                   <a href='#' className='text-gray-800 text-hover-primary fs-2 fw-bolder me-1'>
                     {user.firstName} {user.lastName}
                   </a>
-                  <a href='#'>
+                  {/* <a href='#'>
                     <KTSVG
                       path='/media/icons/duotune/general/gen026.svg'
                       className='svg-icon-1 svg-icon-primary'
                     />
-                  </a>
+                  </a> */}
                 </div>
 
                 <div className='d-flex flex-wrap fw-bold fs-6 mb-4 pe-2'>

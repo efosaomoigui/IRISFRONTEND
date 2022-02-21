@@ -1,9 +1,10 @@
+
 import {useField} from 'formik'
 import React from 'react'
-import {Form, Label, Select} from 'semantic-ui-react'
+import { Form, Label, Select } from 'semantic-ui-react'
 
 interface Props {
-  placeholder: string
+  placeholder: string 
   name: string
   options: any
   label?: string
@@ -29,3 +30,5 @@ export default function IrisSelectInput(props: Props) {
     </Form.Field>
   )
 }
+
+

@@ -1,9 +1,12 @@
 import React, { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
-import { AddSearchTripModal } from '../../app/modules/monitoring/monitor modal/AddSearchTripModal'
-import { AddTrackModal } from '../../app/modules/monitoring/monitor modal/AddTrackModal'
+import { AddCollectionCenterModal } from '../../app/modules/fulfillment/modals/AddCollectionCenterModal'
+import { AddTrackHistoryModal } from '../../app/modules/monitoring/monitor modal/AddTrackHistoryModal'
 import { AddTripModal } from '../../app/modules/monitoring/monitor modal/AddTripModal'
+import { AddInvoiceModal } from '../../app/modules/payment/paymentmodals/AddInvoiceModal'
+import { AddPaymentLogModal } from '../../app/modules/payment/paymentmodals/AddPaymentLogModal'
 import { AddFleetModal } from '../../app/modules/shipmentmanagement/modals/AddFleetModal'
+import { AddManifestModal } from '../../app/modules/shipmentmanagement/modals/AddManifestModal'
 import { AddRouteModal } from '../../app/modules/shipmentmanagement/modals/AddRouteModal'
 import { AddPermissionModal } from '../../app/modules/usermanagement/modals/AddPermissionModal'
 import { AddRoleModal } from '../../app/modules/usermanagement/modals/AddRoleModal'
@@ -12,6 +15,7 @@ import { AddWalletModal } from '../../app/modules/walletmanagement/modals/AddWal
 import { AddWalletTransactionModal } from '../../app/modules/walletmanagement/modals/AddWalletTransactionModal'
 import { MenuComponent } from '../assets/ts/components'
 import { Main } from '../partials'
+import { AddPriceModal } from '../partials/modals/prices/AddPriceModal'
 import { AsideDefault } from './components/aside/AsideDefault'
 import { Content } from './components/Content'
 import { Footer } from './components/Footer'
@@ -69,9 +73,13 @@ const MasterLayout: React.FC = ({children}) => {
       <AddRouteModal />
       <AddPermissionModal />
       <AddRoleModal />
-      <AddSearchTripModal />
-      <AddTrackModal />
       <AddTripModal />
+      <AddPriceModal />
+      <AddCollectionCenterModal />
+      <AddManifestModal />
+      <AddPaymentLogModal />
+      <AddInvoiceModal />
+      <AddTrackHistoryModal />
 
       {/* scrolltop */}
       <ScrollTop />

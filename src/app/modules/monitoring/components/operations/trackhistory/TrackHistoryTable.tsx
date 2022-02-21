@@ -3,40 +3,45 @@ import TrackHistory_Data from './TrackHistory_Data.json'
 import {useTable, useSortBy} from 'react-table'
 import './CustomTable.css'
 import TableActionLinks from '../../../../layout/tables/TableActionLinks'
-import { ISearchTripModel } from '../../../Monitor models/MonitorInterface'
+import { ITripModel } from '../../../Monitor models/MonitorInterface'
+
 
 interface Props{
-  searchTripData: ISearchTripModel | any ;
+  TripData: ITripModel | any ;
 }
 
-const SearchTripTable = ({ searchTripData} : Props) => {
+const TrackHistoryTable = ({ TripData} : Props) => {
 
   const tableInstance = useTable({
     columns : useMemo(
       () => [
         {
-          Header: 'User Id',
-          accessor: 'userId',
+          Header: 'Id',
+          accessor: 'id',
         },
         {
-          Header: 'User Name',
-          accessor: 'userName',
+          Header: 'TripId',
+          accessor: 'TripId',
         },
         {
-          Header: 'First Name',
-          accessor: 'firstName',
+          Header: 'Trip',
+          accessor: 'Trip',
         },
         {
-          Header: 'Last Name',
-          accessor: 'lastName',
+          Header: 'Action',
+          accessor: 'Action',
         },
         {
-          Header: 'Email',
-          accessor: 'email',
+          Header: 'Locaton',
+          accessor: 'Locaton',
         },
         {
-          Header: 'Phone Number',
-          accessor: 'phoneNumber',
+          Header: 'TimeStamp',
+          accessor: 'TimeStamp',
+        },
+        {
+          Header: 'Status',
+          accessor: 'Status',
         },
       ],
       []
@@ -79,4 +84,4 @@ const SearchTripTable = ({ searchTripData} : Props) => {
   )
 }
 
-export { SearchTripTable };
+export { TrackHistoryTable };

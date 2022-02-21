@@ -7,10 +7,10 @@ import { KTSVG } from '../../../../../../_iris/helpers'
 import TableActionLinks from '../../../../layout/tables/TableActionLinks'
 
 interface Props{
-  searchTripData:IUserModel | any ;
+  usersData:IUserModel | any ;
 }
 
-const SearchTripTable = ({ searchTripData} : Props) => {
+const UserTable = ({ usersData} : Props) => {
 
   const tableInstance = useTable({
     columns : useMemo(
@@ -80,4 +80,4 @@ const SearchTripTable = ({ searchTripData} : Props) => {
   )
 }
 
-export { SearchTripTable };
+export { UserTable };

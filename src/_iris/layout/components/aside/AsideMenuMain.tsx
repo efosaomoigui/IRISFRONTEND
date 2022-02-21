@@ -76,19 +76,19 @@ export function AsideMenuMain() {
         fontIcon='bi-layers'
       >
         <AsideMenuItemWithSub
-          to='/shipment/CaptureDomesticShipment'
+          to='/shipment/CaptureShipment'
           icon='/media/icons/duotune/general/gen019.svg'
           title='Capture'
           fontIcon='bi-layers'
         >
           <AsideMenuItem
-            to='/shipment/CaptureDomesticShipment'
-            title='Domestic Shipment'
+            to='/shipment/CaptureShipment'
+            title='Capture Shipment'
             hasBullet={true}
           />
           <AsideMenuItem
-            to='/shipment/CaptureFreightShipment'
-            title='Freight Shipment'
+            to='/shipment/viewshipment'
+            title='View Shipment'
             hasBullet={true}
           />
         </AsideMenuItemWithSub>
@@ -98,18 +98,9 @@ export function AsideMenuMain() {
           title='Processing Center'
           fontIcon='bi-layers'
         >
-          <AsideMenuItem to='/shipment/SortShipment' title='Sort Shipment' hasBullet={true} />
+          {/* <AsideMenuItem to='/shipment/SortShipment' title='Sort Shipment' hasBullet={true} /> */}
           <AsideMenuItem to='/shipment/Manifest' title='Manifest' hasBullet={true} />
-          <AsideMenuItem to='/shipment/Dispatch' title='Dispatch' hasBullet={true} />
-        </AsideMenuItemWithSub>
-
-        <AsideMenuItemWithSub
-          to='/shipment'
-          icon='/media/icons/duotune/general/gen019.svg'
-          title='Search'
-          fontIcon='bi-layers'
-        >
-          <AsideMenuItem to='/shipment/SearchShipment' title='Search Shipment' hasBullet={true} />
+          {/* <AsideMenuItem to='/shipment/Dispatch' title='Dispatch' hasBullet={true} /> */}
         </AsideMenuItemWithSub>
 
         <AsideMenuItemWithSub
@@ -120,7 +111,7 @@ export function AsideMenuMain() {
         >
           <AsideMenuItem to='/shipment/routes' title='Routes' hasBullet={true} />
           <AsideMenuItem to='/shipment/viewfleet' title='View Fleets' hasBullet={true} />
-          <AsideMenuItem to='/shipment/pricesettings' title='Price Settings' hasBullet={true} />
+          <AsideMenuItem to='/shipment/ViewPriceSettings' title='Price Settings' hasBullet={true} />
         </AsideMenuItemWithSub>
       </AsideMenuItemWithSub>
 
@@ -136,10 +127,10 @@ export function AsideMenuMain() {
         title='Payment'
         fontIcon='bi-layers'
       >
-        <AsideMenuItem to='/payment/wallet' title='Wallets' hasBullet={true} />
-        <AsideMenuItem to='/payment/transaction' title='Transaction' hasBullet={true} />
-        <AsideMenuItem to='/payment/LogPayment' title='Log Payment' hasBullet={true} />
-        <AsideMenuItem to='/payment/PaymentHistory' title='Payment History' hasBullet={true} />
+        {/* <AsideMenuItem to='/payment/wallet' title='Wallets' hasBullet={true} />
+        <AsideMenuItem to='/payment/transaction' title='Transaction' hasBullet={true} /> */}
+        <AsideMenuItem to='/payment/paymentlog' title='Payment Log' hasBullet={true} />
+        <AsideMenuItem to='/payment/invoice' title='Invoice' hasBullet={true} />
       </AsideMenuItemWithSub>
 
       {/* <AsideMenuItemWithSub
@@ -175,7 +166,7 @@ export function AsideMenuMain() {
         <AsideMenuItem to='/monitor/trips' title='Trips' hasBullet={true} />
         {/* <AsideMenuItem to='/monitor/addtrack' title='Add Track' hasBullet={true} /> */}
         <AsideMenuItem to='/monitor/trackhistory' title='Track History' hasBullet={true} />
-        <AsideMenuItem to='/monitor/searchtrip' title='Search Trip' hasBullet={true} />
+        {/* <AsideMenuItem to='/monitor/searchtrip' title='Search Trip' hasBullet={true} /> */}
       </AsideMenuItemWithSub>
       {/* <AsideMenuItemWithSub
         to='/reporting'
@@ -210,14 +201,14 @@ export function AsideMenuMain() {
         </div>
       </div>
       <AsideMenuItemWithSub
-        to='/fulfillment/delivershipment'
+        to='/fulfillment/collectioncenter'
         icon='/media/icons/duotune/general/gen022.svg'
         title='Fulfillment'
         fontIcon='bi-layers'
       >
         <AsideMenuItem
-          to='/fulfillment/delivershipment'
-          title='Deliver Shipment'
+          to='/fulfillment/collectioncenter'
+          title='Collection Center'
           hasBullet={true}
         />
       </AsideMenuItemWithSub>

@@ -1,0 +1,1052 @@
+[
+    {
+        "Id": "0cd92d97-b261-4240-975b-be46aff5feeb",
+        "InvoiceCode": "68382-363",
+        "ShipmentId": "c3cc384c-4f82-42e0-9ee6-d497f9f497b1",
+        "Shipment": "Audi",
+        "PaymentMethod": "CNY"
+    },
+    {
+        "Id": "dba752c4-b335-4e90-891a-6811972934a5",
+        "InvoiceCode": "35356-091",
+        "ShipmentId": "f4881746-2375-49b2-949a-f4c8e2cd4514",
+        "Shipment": "Nissan",
+        "PaymentMethod": "CNY"
+    },
+    {
+        "Id": "273415b6-3ae7-4a84-993c-cfe3ad8d6ff7",
+        "InvoiceCode": "0406-0154",
+        "ShipmentId": "c4b98303-2d62-4a26-88a6-7584f98ae5e2",
+        "Shipment": "Pontiac",
+        "PaymentMethod": "PEN"
+    },
+    {
+        "Id": "78b2f157-a2e5-4311-a551-c0ef9c357441",
+        "InvoiceCode": "0054-3567",
+        "ShipmentId": "4dc2abf7-2cf8-473c-b6f4-ed45efbd121e",
+        "Shipment": "Dodge",
+        "PaymentMethod": "RUB"
+    },
+    {
+        "Id": "d03d82ce-3414-4aa5-966c-b51da69f8ca5",
+        "InvoiceCode": "60846-802",
+        "ShipmentId": "d99f6870-c325-4621-891f-214ebeb8c723",
+        "Shipment": "GMC",
+        "PaymentMethod": "EUR"
+    },
+    {
+        "Id": "80d4d7b5-cd81-45f6-8703-1d582511726a",
+        "InvoiceCode": "43538-940",
+        "ShipmentId": "5fdb77ae-c309-4ea8-bd95-06084d62e182",
+        "Shipment": "Jaguar",
+        "PaymentMethod": "KZT"
+    },
+    {
+        "Id": "0e37e5b4-9db0-4cd0-b6c2-adc2315ab84f",
+        "InvoiceCode": "55312-214",
+        "ShipmentId": "2bd73bde-e83b-4ee1-92c8-a04f44f7ada1",
+        "Shipment": "Mercury",
+        "PaymentMethod": "PLN"
+    },
+    {
+        "Id": "5686e43f-ddea-4272-b267-972d57489819",
+        "InvoiceCode": "68599-6114",
+        "ShipmentId": "17bdd61e-5c1a-4aca-adea-d2b1fdbae5df",
+        "Shipment": "Lincoln",
+        "PaymentMethod": "CNY"
+    },
+    {
+        "Id": "ebf5e1f6-4a9b-496b-83b9-e60bbce770a7",
+        "InvoiceCode": "49348-716",
+        "ShipmentId": "4aad95fc-f178-4dd3-a94b-163a07c2b087",
+        "Shipment": "Chrysler",
+        "PaymentMethod": "CNY"
+    },
+    {
+        "Id": "c360da88-ab50-471a-9a86-19eb456d1745",
+        "InvoiceCode": "55253-073",
+        "ShipmentId": "8671dc9b-bc2d-48a9-92d5-ee84505746b8",
+        "Shipment": "Saturn",
+        "PaymentMethod": "ARS"
+    },
+    {
+        "Id": "4e11836a-b8f4-4d2b-9244-dcf7c46b3cc4",
+        "InvoiceCode": "0378-2650",
+        "ShipmentId": "337026b1-ad2e-406c-a1e0-340efb47c848",
+        "Shipment": "Nissan",
+        "PaymentMethod": "CNY"
+    },
+    {
+        "Id": "447f7d97-9406-4622-88be-2ffb292e6c0d",
+        "InvoiceCode": "63824-413",
+        "ShipmentId": "cc29edbc-7b45-4d52-a66b-77319b4849cd",
+        "Shipment": "Dodge",
+        "PaymentMethod": "IDR"
+    },
+    {
+        "Id": "82873292-66e7-48d0-8a15-d9451f52fdc1",
+        "InvoiceCode": "53633-100",
+        "ShipmentId": "97818a83-81c7-440a-bc04-287b569118d7",
+        "Shipment": "Chevrolet",
+        "PaymentMethod": "LYD"
+    },
+    {
+        "Id": "dc547102-c0b3-4179-957e-3342310ac3da",
+        "InvoiceCode": "68828-192",
+        "ShipmentId": "e2edede1-87bf-4964-bf9f-26185caa6a6c",
+        "Shipment": "Volkswagen",
+        "PaymentMethod": "PLN"
+    },
+    {
+        "Id": "e5d8380d-0f4e-4d92-8d83-4edf60b4b796",
+        "InvoiceCode": "44237-010",
+        "ShipmentId": "f7a39706-e111-4f46-a220-e19e30b37890",
+        "Shipment": "GMC",
+        "PaymentMethod": "CNY"
+    },
+    {
+        "Id": "b369444e-e89a-4853-b139-652beb208cb3",
+        "InvoiceCode": "41167-0036",
+        "ShipmentId": "5280910c-5b79-4041-85f6-0912ba90075f",
+        "Shipment": "Audi",
+        "PaymentMethod": "IDR"
+    },
+    {
+        "Id": "50334011-0b3a-4fa5-96f1-fc4d5af04f81",
+        "InvoiceCode": "49288-0631",
+        "ShipmentId": "c0412ded-50f6-48f5-abcc-ce18bd5c2a29",
+        "Shipment": "Land Rover",
+        "PaymentMethod": "EUR"
+    },
+    {
+        "Id": "7a03610c-9254-4a95-b9bf-f0a2dbf22eeb",
+        "InvoiceCode": "49999-183",
+        "ShipmentId": "345fd16d-dfd3-4d9e-be6c-12b684375919",
+        "Shipment": "Pontiac",
+        "PaymentMethod": "CNY"
+    },
+    {
+        "Id": "2c4ec6e2-b5a8-4157-b734-1ac5347859fb",
+        "InvoiceCode": "50991-783",
+        "ShipmentId": "9d9b4038-5bfd-4dc5-bcad-aca5f30787a3",
+        "Shipment": "Suzuki",
+        "PaymentMethod": "NGN"
+    },
+    {
+        "Id": "ee5e1cd1-6607-4ed5-a38d-935ea7d9b557",
+        "InvoiceCode": "0299-5908",
+        "ShipmentId": "6c455d76-2195-4aff-926c-7ef0a18a3690",
+        "Shipment": "Land Rover",
+        "PaymentMethod": "EUR"
+    },
+    {
+        "Id": "b2b9467f-1220-47ef-b09a-40d9657aba4b",
+        "InvoiceCode": "16590-280",
+        "ShipmentId": "0a4f1936-3154-434d-a054-f2a25224848e",
+        "Shipment": "Buick",
+        "PaymentMethod": "SEK"
+    },
+    {
+        "Id": "4f92f1bf-c1a6-46ab-ad42-0edfb5a83621",
+        "InvoiceCode": "54868-1591",
+        "ShipmentId": "e388d8b2-4e9d-482d-9dfe-9a55be577cc6",
+        "Shipment": "Toyota",
+        "PaymentMethod": "UAH"
+    },
+    {
+        "Id": "15695e32-8be5-47de-ab4a-046b931e9021",
+        "InvoiceCode": "68703-043",
+        "ShipmentId": "0ae6b9ef-0883-4467-8bd9-64a98f65a96a",
+        "Shipment": "BMW",
+        "PaymentMethod": "PHP"
+    },
+    {
+        "Id": "f052ef90-a168-4cbc-929a-6bc46a236f65",
+        "InvoiceCode": "0168-0055",
+        "ShipmentId": "9200c7ab-eb56-4761-973b-5251c664b70a",
+        "Shipment": "Volkswagen",
+        "PaymentMethod": "IDR"
+    },
+    {
+        "Id": "489ddb5a-30e1-4711-a71b-2998d44baa11",
+        "InvoiceCode": "63029-550",
+        "ShipmentId": "12d79626-12d6-4e7e-bb40-229632450e81",
+        "Shipment": "Toyota",
+        "PaymentMethod": "PKR"
+    },
+    {
+        "Id": "66868c43-3340-4cf4-9736-9711df07e72c",
+        "InvoiceCode": "67938-2008",
+        "ShipmentId": "6823df1b-8e91-481e-bb02-40567f0a01f4",
+        "Shipment": "Isuzu",
+        "PaymentMethod": "AMD"
+    },
+    {
+        "Id": "2083e13c-ea0d-435e-b417-7c596380e9df",
+        "InvoiceCode": "63354-010",
+        "ShipmentId": "a91c899d-729b-485c-8820-61105c7b8c67",
+        "Shipment": "Ford",
+        "PaymentMethod": "CAD"
+    },
+    {
+        "Id": "975e84ab-c11d-436c-a89b-aab8002b32f4",
+        "InvoiceCode": "52125-053",
+        "ShipmentId": "c8904ea7-cb98-4ca6-92e8-3f5464bc48a1",
+        "Shipment": "Mazda",
+        "PaymentMethod": "CNY"
+    },
+    {
+        "Id": "e87a5618-bc2c-4ce4-b6b0-b247614e8238",
+        "InvoiceCode": "0052-0272",
+        "ShipmentId": "2c8847de-7c91-45ce-aca3-a79e2ae0d689",
+        "Shipment": "Ford",
+        "PaymentMethod": "COP"
+    },
+    {
+        "Id": "b5144fc8-95de-4c39-afab-4e99d572cebf",
+        "InvoiceCode": "57520-0557",
+        "ShipmentId": "56c6711c-d435-409a-803c-2a79dd1fab5a",
+        "Shipment": "Chevrolet",
+        "PaymentMethod": "COP"
+    },
+    {
+        "Id": "4f063b8c-0738-4133-a18e-01d4b9d8f7c2",
+        "InvoiceCode": "0268-3057",
+        "ShipmentId": "5006737a-ecca-4f64-9405-f4b2a118ac4c",
+        "Shipment": "Plymouth",
+        "PaymentMethod": "IDR"
+    },
+    {
+        "Id": "ad365de3-ffb5-4e0b-bed8-154da036ee2d",
+        "InvoiceCode": "54973-1069",
+        "ShipmentId": "42db1bf3-ff1a-457e-98d1-f358c4de8bd0",
+        "Shipment": "Suzuki",
+        "PaymentMethod": "SLL"
+    },
+    {
+        "Id": "0c0e94f8-2187-42cf-a6b7-303eae9ab7db",
+        "InvoiceCode": "21695-913",
+        "ShipmentId": "7242516a-a3d8-4f7d-ab26-c3150ce90345",
+        "Shipment": "Honda",
+        "PaymentMethod": "MGA"
+    },
+    {
+        "Id": "cf22daab-76d5-4901-acfe-83086373a223",
+        "InvoiceCode": "41250-013",
+        "ShipmentId": "07912f38-0184-43b3-97b8-d19a66d6d562",
+        "Shipment": "Acura",
+        "PaymentMethod": "ARS"
+    },
+    {
+        "Id": "3038029d-bff8-416d-bf46-7d82669e5f8f",
+        "InvoiceCode": "41163-856",
+        "ShipmentId": "e5adb149-4531-47b3-b18e-07de3b0754f7",
+        "Shipment": "Mitsubishi",
+        "PaymentMethod": "BOB"
+    },
+    {
+        "Id": "7a40a3ea-14d3-4061-89d7-371a303dc5a8",
+        "InvoiceCode": "48951-4077",
+        "ShipmentId": "d9a41f46-16ae-4211-afa9-e135f52f4e12",
+        "Shipment": "Dodge",
+        "PaymentMethod": "PHP"
+    },
+    {
+        "Id": "63015f08-3eec-4cee-8795-b31a7d64a5ca",
+        "InvoiceCode": "16590-223",
+        "ShipmentId": "55b4778a-4d6b-4ef4-88c2-63ddc2bca7e4",
+        "Shipment": "Subaru",
+        "PaymentMethod": "CNY"
+    },
+    {
+        "Id": "50f72465-4f2a-4e27-8d5d-cdbb16e1e775",
+        "InvoiceCode": "49884-258",
+        "ShipmentId": "5f955449-887d-4532-b9d8-f050b477d611",
+        "Shipment": "Chevrolet",
+        "PaymentMethod": "CLP"
+    },
+    {
+        "Id": "86bd546d-60de-42ba-9024-13905129f7ea",
+        "InvoiceCode": "68084-275",
+        "ShipmentId": "71cbb1f0-5d64-4a3f-adca-111f4824b219",
+        "Shipment": "Mazda",
+        "PaymentMethod": "UAH"
+    },
+    {
+        "Id": "4fd08014-a1ce-4bab-ab7c-64f578c4afa1",
+        "InvoiceCode": "49939-201",
+        "ShipmentId": "562c4d1a-7da5-470d-b2dc-fcb4ef76224c",
+        "Shipment": "Buick",
+        "PaymentMethod": "PEN"
+    },
+    {
+        "Id": "898d737a-d5dd-4d02-a61e-921cf5a1b42f",
+        "InvoiceCode": "63824-763",
+        "ShipmentId": "036aa1eb-c2f9-449b-ac17-7d3c09719fc9",
+        "Shipment": "Land Rover",
+        "PaymentMethod": "PKR"
+    },
+    {
+        "Id": "2a06ade4-a0c8-441e-95c9-3fc2c6d9bd9b",
+        "InvoiceCode": "54868-0649",
+        "ShipmentId": "a094017c-eaf0-42a9-bcf6-690c13ea7e84",
+        "Shipment": "GMC",
+        "PaymentMethod": "CNY"
+    },
+    {
+        "Id": "84fbec3a-d6fd-4524-91ba-c9b62b5da94c",
+        "InvoiceCode": "42291-837",
+        "ShipmentId": "a9cfbed8-fea2-4bc2-84fb-ff893fb31da7",
+        "Shipment": "Toyota",
+        "PaymentMethod": "IDR"
+    },
+    {
+        "Id": "0265367f-444e-4b8e-b247-d9c6f07d2b1c",
+        "InvoiceCode": "59779-422",
+        "ShipmentId": "8078fffc-993e-46d3-96f4-d8df446de6bd",
+        "Shipment": "Eagle",
+        "PaymentMethod": "HRK"
+    },
+    {
+        "Id": "7ce64943-e30f-4b03-b9f6-bfb8bd1f06f1",
+        "InvoiceCode": "53808-0909",
+        "ShipmentId": "4fdd3e42-ac20-4816-aa5a-459a3eb51e10",
+        "Shipment": "Alfa Romeo",
+        "PaymentMethod": "EUR"
+    },
+    {
+        "Id": "dacab131-64bb-42b2-970e-1c7a9cea520c",
+        "InvoiceCode": "49999-277",
+        "ShipmentId": "977acd50-e58a-4f04-8733-b24757ab001b",
+        "Shipment": "Kia",
+        "PaymentMethod": "CNY"
+    },
+    {
+        "Id": "2b4d9aeb-8cd4-45a6-a9b6-c1c1b43e4658",
+        "InvoiceCode": "41163-959",
+        "ShipmentId": "22fbd6a7-b02c-4ea5-97ff-fc6da1fde81b",
+        "Shipment": "Dodge",
+        "PaymentMethod": "KES"
+    },
+    {
+        "Id": "1605eb34-17ca-4a7e-b4ed-b4ee20a809f6",
+        "InvoiceCode": "55301-453",
+        "ShipmentId": "7cd76150-a583-4c59-9914-21342ee0b8d4",
+        "Shipment": "Jeep",
+        "PaymentMethod": "XAF"
+    },
+    {
+        "Id": "3123d109-1e3f-434d-9ff1-d8cd34b9a753",
+        "InvoiceCode": "54868-3068",
+        "ShipmentId": "67f83adf-3527-45f9-9bbc-c285db31e4bf",
+        "Shipment": "Mercedes-Benz",
+        "PaymentMethod": "USD"
+    },
+    {
+        "Id": "76564a00-b7bc-42d5-bfa6-0d972d5d69bb",
+        "InvoiceCode": "36987-2575",
+        "ShipmentId": "44bb71be-2961-468b-8700-f3beaa750561",
+        "Shipment": "Toyota",
+        "PaymentMethod": "USD"
+    },
+    {
+        "Id": "f02ff270-e271-49d4-9c4e-afb2b9caf735",
+        "InvoiceCode": "65954-007",
+        "ShipmentId": "c2612eea-82a7-4d86-b15b-b6231df05b89",
+        "Shipment": "Subaru",
+        "PaymentMethod": "XAF"
+    },
+    {
+        "Id": "ca48f021-7772-49a9-a791-5c38d6bf1dec",
+        "InvoiceCode": "49967-206",
+        "ShipmentId": "3f31a5f3-d0ae-4867-816a-79b12a66c6d9",
+        "Shipment": "Eagle",
+        "PaymentMethod": "BRL"
+    },
+    {
+        "Id": "99aaac07-5819-4760-8965-e9d8f0907034",
+        "InvoiceCode": "11673-226",
+        "ShipmentId": "a18b98b8-c698-4e54-ba45-250e8913181c",
+        "Shipment": "Pontiac",
+        "PaymentMethod": "JPY"
+    },
+    {
+        "Id": "db0215cc-4e1d-43a4-ba1a-353bd90c49db",
+        "InvoiceCode": "61957-0116",
+        "ShipmentId": "6f2096c9-5aa4-4776-9a7e-d7ec26f0a022",
+        "Shipment": "Mercedes-Benz",
+        "PaymentMethod": "EUR"
+    },
+    {
+        "Id": "2a41b457-f84b-433b-9d9f-161aa2518c6a",
+        "InvoiceCode": "68382-199",
+        "ShipmentId": "ca14115e-00d3-46c4-8e73-e6543e57c52c",
+        "Shipment": "Mazda",
+        "PaymentMethod": "IDR"
+    },
+    {
+        "Id": "33af3cb0-08ea-44ce-9413-fc8cbcff5f34",
+        "InvoiceCode": "54868-6044",
+        "ShipmentId": "cba2697f-bddb-496f-8ebc-c085fe4b64fc",
+        "Shipment": "Jeep",
+        "PaymentMethod": "CNY"
+    },
+    {
+        "Id": "c8f87370-2f63-4c87-92b4-ba7ae51f8c55",
+        "InvoiceCode": "54868-2972",
+        "ShipmentId": "c0c3d801-7280-48aa-91d0-c5c7ca6dc0de",
+        "Shipment": "Chevrolet",
+        "PaymentMethod": "COP"
+    },
+    {
+        "Id": "ba436583-5130-4b49-aadc-1daf19638aee",
+        "InvoiceCode": "10424-156",
+        "ShipmentId": "bfa78665-2074-474c-a69f-9527b19db2d7",
+        "Shipment": "Suzuki",
+        "PaymentMethod": "CNY"
+    },
+    {
+        "Id": "fd27702e-54ea-4bed-964f-a8e934a169a4",
+        "InvoiceCode": "36987-2503",
+        "ShipmentId": "61ff0e92-d5eb-4066-ae32-7895d9e1b4b7",
+        "Shipment": "Chevrolet",
+        "PaymentMethod": "MGA"
+    },
+    {
+        "Id": "b1d46717-8bc6-469d-9ede-a983d4c9b6de",
+        "InvoiceCode": "76340-5001",
+        "ShipmentId": "1cafd2cf-8d91-4f3f-a867-94e4a4a4fba6",
+        "Shipment": "Pontiac",
+        "PaymentMethod": "CNY"
+    },
+    {
+        "Id": "b0c6c93b-75fa-43d3-81d4-3d14c77f6b5b",
+        "InvoiceCode": "60760-063",
+        "ShipmentId": "2a6605de-8552-4304-95ca-5cedc0f40f29",
+        "Shipment": "Mercedes-Benz",
+        "PaymentMethod": "IDR"
+    },
+    {
+        "Id": "374796d9-5fa7-4a47-8292-5a1fe392040f",
+        "InvoiceCode": "11489-059",
+        "ShipmentId": "67c426ee-0ffa-4564-a8a7-0ce3bd225d07",
+        "Shipment": "Subaru",
+        "PaymentMethod": "IDR"
+    },
+    {
+        "Id": "28566453-e756-4a65-b812-d6d55784adee",
+        "InvoiceCode": "49288-0390",
+        "ShipmentId": "620c8478-88b2-40f7-aeb0-b993751d0da7",
+        "Shipment": "Ford",
+        "PaymentMethod": "EUR"
+    },
+    {
+        "Id": "fd5a6e82-0b4d-4685-82c1-11d695b68df8",
+        "InvoiceCode": "60760-985",
+        "ShipmentId": "53383422-3b59-4768-9958-6563f4592b03",
+        "Shipment": "Audi",
+        "PaymentMethod": "PHP"
+    },
+    {
+        "Id": "1a581f55-439b-4e6f-9eee-4e128110d47e",
+        "InvoiceCode": "63323-353",
+        "ShipmentId": "95088dbe-0101-40a5-858d-473c9468eb4b",
+        "Shipment": "Kia",
+        "PaymentMethod": "CNY"
+    },
+    {
+        "Id": "f1c44159-a51f-4aad-863e-cf9de06d331b",
+        "InvoiceCode": "63941-121",
+        "ShipmentId": "47f02fd7-eb9f-480b-95be-cf47fa1c2718",
+        "Shipment": "Porsche",
+        "PaymentMethod": "IDR"
+    },
+    {
+        "Id": "2f8f5a89-5b27-493c-9e5b-de14c5c5dd70",
+        "InvoiceCode": "0003-0893",
+        "ShipmentId": "e7797302-709c-41fe-ad14-ac86759f499c",
+        "Shipment": "GMC",
+        "PaymentMethod": "GEL"
+    },
+    {
+        "Id": "c085ef9b-9dab-4b0c-b8b8-31629e9dafb4",
+        "InvoiceCode": "43857-0293",
+        "ShipmentId": "fcc7ba74-098c-4553-bcd3-cf87e804874e",
+        "Shipment": "Morgan",
+        "PaymentMethod": "KZT"
+    },
+    {
+        "Id": "dff47580-5696-464a-bb84-e70e8c9c70f1",
+        "InvoiceCode": "0179-8317",
+        "ShipmentId": "b01f04e4-f620-4cf6-af66-e2562c82dac8",
+        "Shipment": "BMW",
+        "PaymentMethod": "RUB"
+    },
+    {
+        "Id": "085cae2f-4209-4d18-8888-9937086ebf88",
+        "InvoiceCode": "37808-326",
+        "ShipmentId": "94d74f76-8ed9-448c-881f-9666fd69dc63",
+        "Shipment": "Cadillac",
+        "PaymentMethod": "RUB"
+    },
+    {
+        "Id": "a5d2ae74-b0be-4f04-b1dc-0692abf8a55b",
+        "InvoiceCode": "63187-123",
+        "ShipmentId": "3d0e4b96-bdc4-43bd-994e-f739e5520f16",
+        "Shipment": "Volkswagen",
+        "PaymentMethod": "MNT"
+    },
+    {
+        "Id": "4d90c771-524a-4e9a-b48d-b6eb85c69a7c",
+        "InvoiceCode": "56062-165",
+        "ShipmentId": "ce0ed49f-d791-4ccb-a974-1c192e314378",
+        "Shipment": "Mitsubishi",
+        "PaymentMethod": "SEK"
+    },
+    {
+        "Id": "9d94fbd9-deae-40b6-afdc-3b340804b90b",
+        "InvoiceCode": "63739-512",
+        "ShipmentId": "67786ff1-2d7f-4769-b827-fa7d18dcb9fc",
+        "Shipment": "Hummer",
+        "PaymentMethod": "USD"
+    },
+    {
+        "Id": "6cae426d-6101-41e8-a928-e988cda16901",
+        "InvoiceCode": "44873-102",
+        "ShipmentId": "a655dc00-6c3e-41f7-b175-5d7a8a162049",
+        "Shipment": "Acura",
+        "PaymentMethod": "SEK"
+    },
+    {
+        "Id": "b1e03d4b-a7df-4848-8372-2d8de63b7c02",
+        "InvoiceCode": "67253-902",
+        "ShipmentId": "30bc807d-3ab9-435a-b083-a77c98efba9a",
+        "Shipment": "Toyota",
+        "PaymentMethod": "BRL"
+    },
+    {
+        "Id": "fe03bd64-55f5-4202-b5d6-6f87a8f917d1",
+        "InvoiceCode": "0555-0382",
+        "ShipmentId": "e73aecb3-cf3f-45b4-b71b-f27885c2ea32",
+        "Shipment": "Nissan",
+        "PaymentMethod": "EUR"
+    },
+    {
+        "Id": "cbf01480-5e77-4059-9ab2-ac99b14328f9",
+        "InvoiceCode": "43353-749",
+        "ShipmentId": "4188965b-e593-47f3-8f29-08b17f59aeed",
+        "Shipment": "Bentley",
+        "PaymentMethod": "EUR"
+    },
+    {
+        "Id": "a64005e0-c828-409a-83e0-8cac26a920f7",
+        "InvoiceCode": "37808-393",
+        "ShipmentId": "3f46b0a8-2402-42d2-8473-e1d787c1a818",
+        "Shipment": "Audi",
+        "PaymentMethod": "CNY"
+    },
+    {
+        "Id": "f08f4300-c4d2-4dfe-b43a-04631a733f10",
+        "InvoiceCode": "57955-1803",
+        "ShipmentId": "fb11f51d-e9a7-4354-aefc-8751073739a6",
+        "Shipment": "Mitsubishi",
+        "PaymentMethod": "CAD"
+    },
+    {
+        "Id": "22455dd3-8186-4c86-9ffc-fc13caefefbe",
+        "InvoiceCode": "52959-420",
+        "ShipmentId": "953da44b-3787-49dd-b3e9-86a8a653f9c8",
+        "Shipment": "Nissan",
+        "PaymentMethod": "BRL"
+    },
+    {
+        "Id": "c8d037e0-5458-4df5-b9d1-c8ea354cf7ee",
+        "InvoiceCode": "22840-0039",
+        "ShipmentId": "256c5c92-59a0-4eba-ad55-7df5ae668253",
+        "Shipment": "Ford",
+        "PaymentMethod": "PHP"
+    },
+    {
+        "Id": "51d7a2bb-2aac-46fb-a0c2-7e969cfed093",
+        "InvoiceCode": "58118-3142",
+        "ShipmentId": "29457399-b353-4650-88b4-237e5127d3c6",
+        "Shipment": "Dodge",
+        "PaymentMethod": "PHP"
+    },
+    {
+        "Id": "a50466bf-d1f9-400a-9ca2-e67531a7b900",
+        "InvoiceCode": "49778-003",
+        "ShipmentId": "3ccb8bdb-a67a-456f-bb04-43f3a2dba425",
+        "Shipment": "Lamborghini",
+        "PaymentMethod": "CNY"
+    },
+    {
+        "Id": "c70b7659-b77d-4c8d-a40c-c3c85b9d23b2",
+        "InvoiceCode": "60913-007",
+        "ShipmentId": "5bfafd7b-5c79-4d17-9de8-75815ba169c1",
+        "Shipment": "Eagle",
+        "PaymentMethod": "THB"
+    },
+    {
+        "Id": "051242f2-2df5-45cd-ad9a-42aa1e798459",
+        "InvoiceCode": "60505-1329",
+        "ShipmentId": "7e5ecca2-8733-49a5-a410-73fe67001df4",
+        "Shipment": "Dodge",
+        "PaymentMethod": "THB"
+    },
+    {
+        "Id": "b50ac7f7-35d9-4624-825b-10856b429b60",
+        "InvoiceCode": "16714-501",
+        "ShipmentId": "99f8d88a-8888-459d-943f-cb1a1b8afca1",
+        "Shipment": "GMC",
+        "PaymentMethod": "IDR"
+    },
+    {
+        "Id": "61f44173-2338-45fe-b635-0d59448aa42b",
+        "InvoiceCode": "0093-1076",
+        "ShipmentId": "a0c85e0a-71ed-4228-8e61-267fbe5a41ce",
+        "Shipment": "Kia",
+        "PaymentMethod": "EUR"
+    },
+    {
+        "Id": "ca0a629a-3b93-4c59-86bf-1890849a4be7",
+        "InvoiceCode": "0093-3147",
+        "ShipmentId": "52c5d273-d4c5-482a-913c-d4125be65efe",
+        "Shipment": "Ford",
+        "PaymentMethod": "PLN"
+    },
+    {
+        "Id": "97d70586-e4f2-4c0c-b21d-268a29270d50",
+        "InvoiceCode": "54868-3722",
+        "ShipmentId": "d8a90df0-feb5-4f16-a268-6c7595e05ef0",
+        "Shipment": "Chrysler",
+        "PaymentMethod": "BRL"
+    },
+    {
+        "Id": "722b64d6-4548-4ace-8a9c-914900ee4926",
+        "InvoiceCode": "55714-1508",
+        "ShipmentId": "408f56d2-f12e-40c6-977d-8a92688c16a7",
+        "Shipment": "Mercedes-Benz",
+        "PaymentMethod": "BGN"
+    },
+    {
+        "Id": "dc42f49f-790e-475d-9a2a-88bb10bfad40",
+        "InvoiceCode": "10742-8451",
+        "ShipmentId": "db111be6-4b36-42a2-8f05-30dcdc247674",
+        "Shipment": "Mercury",
+        "PaymentMethod": "EUR"
+    },
+    {
+        "Id": "6ed06a59-9634-4e36-b945-5dab655571cd",
+        "InvoiceCode": "55714-4438",
+        "ShipmentId": "727ebcb7-1000-4321-be26-68d6c301141b",
+        "Shipment": "Oldsmobile",
+        "PaymentMethod": "AZN"
+    },
+    {
+        "Id": "6f34798f-51ed-4e5a-bcd9-3449f5ea5c90",
+        "InvoiceCode": "52125-667",
+        "ShipmentId": "b80656fb-216f-43d8-b1af-05171db4339f",
+        "Shipment": "Mitsubishi",
+        "PaymentMethod": "EUR"
+    },
+    {
+        "Id": "bd1742cf-91e6-4915-8f52-c1c9c43d2f31",
+        "InvoiceCode": "35356-785",
+        "ShipmentId": "27edbdd7-4c3a-4c37-9124-e9c05eec39df",
+        "Shipment": "Saab",
+        "PaymentMethod": "CNY"
+    },
+    {
+        "Id": "37563ad2-2f0c-4ba2-abb4-11124eb3bfd8",
+        "InvoiceCode": "52544-254",
+        "ShipmentId": "2b1bf6b8-a79e-4148-9a4b-a75f13bc50eb",
+        "Shipment": "Hyundai",
+        "PaymentMethod": "JPY"
+    },
+    {
+        "Id": "5884e345-30d4-47bc-8dca-2badd8c9701d",
+        "InvoiceCode": "33261-088",
+        "ShipmentId": "16dbc11b-2a32-4d01-a403-813384a5bbc7",
+        "Shipment": "Pontiac",
+        "PaymentMethod": "RUB"
+    },
+    {
+        "Id": "ec3433f9-c6cc-4589-adb0-489f26eb3c5d",
+        "InvoiceCode": "51452-001",
+        "ShipmentId": "47b652f5-29c7-4180-b7b9-250de8a93ced",
+        "Shipment": "Cadillac",
+        "PaymentMethod": "CNY"
+    },
+    {
+        "Id": "84794cf5-5ac0-4372-bcc8-ec227161aaf7",
+        "InvoiceCode": "53228-002",
+        "ShipmentId": "31963656-9f34-4832-bebd-fdd4d5b77e66",
+        "Shipment": "Volkswagen",
+        "PaymentMethod": "CZK"
+    },
+    {
+        "Id": "156391fb-4853-4f94-90d5-43162e7369f8",
+        "InvoiceCode": "41250-944",
+        "ShipmentId": "02a12b1d-1478-46b3-964b-11b6e70f60e7",
+        "Shipment": "Volvo",
+        "PaymentMethod": "PLN"
+    },
+    {
+        "Id": "5443e35b-6684-48fe-adff-b216c5251745",
+        "InvoiceCode": "67046-085",
+        "ShipmentId": "f26a06e0-e0c0-421e-80dc-cca78795f905",
+        "Shipment": "Chrysler",
+        "PaymentMethod": "DOP"
+    },
+    {
+        "Id": "f3f5109f-eea1-4b57-bceb-6487ddb58935",
+        "InvoiceCode": "16590-774",
+        "ShipmentId": "41ba8865-a0d0-4c09-b15f-10d1a9447757",
+        "Shipment": "Kia",
+        "PaymentMethod": "UZS"
+    },
+    {
+        "Id": "a0d485e7-d0a8-49ab-bf6f-b12c47447642",
+        "InvoiceCode": "23155-129",
+        "ShipmentId": "b4bab32c-d25f-4180-95a4-8b25721ea4e8",
+        "Shipment": "Lincoln",
+        "PaymentMethod": "ARS"
+    },
+    {
+        "Id": "b149c686-459b-4f51-ac44-4edaad6ca019",
+        "InvoiceCode": "48951-6012",
+        "ShipmentId": "87a8fdb9-e060-4a8b-85ad-83d6d6c5a10e",
+        "Shipment": "Toyota",
+        "PaymentMethod": "TZS"
+    },
+    {
+        "Id": "97a4a179-8f35-4c6f-970e-a87b5f4bd22d",
+        "InvoiceCode": "68196-974",
+        "ShipmentId": "808b7437-9be4-4f46-9d7d-1b1fe6cf674d",
+        "Shipment": "Mercedes-Benz",
+        "PaymentMethod": "IDR"
+    },
+    {
+        "Id": "4b9e25a3-3eac-4a16-9554-83b46e3a2667",
+        "InvoiceCode": "54569-3755",
+        "ShipmentId": "35e3cfcd-12b9-44b5-877b-1f480c9554d2",
+        "Shipment": "Chevrolet",
+        "PaymentMethod": "EUR"
+    },
+    {
+        "Id": "85479af6-961e-418b-8cd6-bbb6a7dedc2d",
+        "InvoiceCode": "51991-649",
+        "ShipmentId": "93036d1f-5f7e-40f3-96db-7647f247c1f8",
+        "Shipment": "Lexus",
+        "PaymentMethod": "USD"
+    },
+    {
+        "Id": "c83c9b72-d823-4616-9636-f16603910ec6",
+        "InvoiceCode": "52343-029",
+        "ShipmentId": "557c3605-0c23-4cbe-a236-3e7ea1413f4b",
+        "Shipment": "Toyota",
+        "PaymentMethod": "PHP"
+    },
+    {
+        "Id": "3c477a45-f6cd-4e9c-a0b2-68270b23205c",
+        "InvoiceCode": "53808-0825",
+        "ShipmentId": "67b6ea5c-fa10-43f7-b4c0-90fd347510bb",
+        "Shipment": "MINI",
+        "PaymentMethod": "RUB"
+    },
+    {
+        "Id": "c6b807d9-58e9-44e2-a7f9-5006898c08e5",
+        "InvoiceCode": "57520-0963",
+        "ShipmentId": "abee2250-0c09-471d-a813-8f3fd163bd03",
+        "Shipment": "Chevrolet",
+        "PaymentMethod": "IDR"
+    },
+    {
+        "Id": "acf50f7f-d746-4348-a7bc-b0b3c937fe50",
+        "InvoiceCode": "51386-740",
+        "ShipmentId": "e217b4f1-c088-457b-9047-082513dc06f9",
+        "Shipment": "Chrysler",
+        "PaymentMethod": "SEK"
+    },
+    {
+        "Id": "06723f16-5e0a-4e9a-a831-ede701e473f5",
+        "InvoiceCode": "16590-584",
+        "ShipmentId": "9b71b328-6faf-42ad-acde-fe761404495b",
+        "Shipment": "Saab",
+        "PaymentMethod": "IDR"
+    },
+    {
+        "Id": "3dec0824-126a-489e-8319-b5126a62791f",
+        "InvoiceCode": "63739-518",
+        "ShipmentId": "a7fae9bd-a747-4ba0-b333-bba809fef1a8",
+        "Shipment": "Chevrolet",
+        "PaymentMethod": "EUR"
+    },
+    {
+        "Id": "bb2cf22e-0e99-4179-bbef-1483c286254b",
+        "InvoiceCode": "51862-181",
+        "ShipmentId": "c83b3ed7-94c7-4b88-87f0-e38842e25699",
+        "Shipment": "Acura",
+        "PaymentMethod": "JPY"
+    },
+    {
+        "Id": "9051b4eb-e119-4b08-846d-92b725f4a600",
+        "InvoiceCode": "50242-100",
+        "ShipmentId": "2f45deac-3a9f-4d4b-b0c2-719b59627f04",
+        "Shipment": "Mazda",
+        "PaymentMethod": "SEK"
+    },
+    {
+        "Id": "77dbe7ea-e968-401d-a5a5-319688ce3d59",
+        "InvoiceCode": "25021-673",
+        "ShipmentId": "715857a4-c7e7-4b7a-938c-3d7fb11a36d9",
+        "Shipment": "GMC",
+        "PaymentMethod": "IDR"
+    },
+    {
+        "Id": "a4385351-6354-400c-9c41-a300be671e3f",
+        "InvoiceCode": "16103-348",
+        "ShipmentId": "cfb11fd2-4484-473a-b818-ccbbb396fe2a",
+        "Shipment": "BMW",
+        "PaymentMethod": "COP"
+    },
+    {
+        "Id": "9dfa7877-c9bb-4b75-870f-7e6aec6d9507",
+        "InvoiceCode": "10014-005",
+        "ShipmentId": "80df883c-3a51-4a7b-821c-ded29e894138",
+        "Shipment": "Dodge",
+        "PaymentMethod": "CNY"
+    },
+    {
+        "Id": "45de6717-bd97-477f-b626-c71cdf131ae3",
+        "InvoiceCode": "43063-452",
+        "ShipmentId": "08f848e2-ac51-4387-a05e-357c6e246612",
+        "Shipment": "Chrysler",
+        "PaymentMethod": "IDR"
+    },
+    {
+        "Id": "0524d42f-5a21-41d3-bcac-5c52a94003f9",
+        "InvoiceCode": "51991-074",
+        "ShipmentId": "3e7b3cd3-ea76-4d9e-8520-befb7bde22b2",
+        "Shipment": "Ford",
+        "PaymentMethod": "CNY"
+    },
+    {
+        "Id": "211a8539-1772-4652-92ef-2fe233dc2bd2",
+        "InvoiceCode": "48951-8154",
+        "ShipmentId": "eb9fed39-88de-420a-9e7c-0548a8374f4e",
+        "Shipment": "Acura",
+        "PaymentMethod": "IDR"
+    },
+    {
+        "Id": "bb74d1be-11fe-494f-8c10-b7b8c868a054",
+        "InvoiceCode": "43547-223",
+        "ShipmentId": "0d91dd4f-e882-41e2-a1b1-08078c58791a",
+        "Shipment": "BMW",
+        "PaymentMethod": "IDR"
+    },
+    {
+        "Id": "5c8601a1-c503-4cfa-990c-cef00dbd1a77",
+        "InvoiceCode": "10237-800",
+        "ShipmentId": "a8cb0f8f-28f1-44eb-9450-a4adec0acb79",
+        "Shipment": "Ford",
+        "PaymentMethod": "VEF"
+    },
+    {
+        "Id": "b83ab534-bf24-4061-87d7-1f05ac60a4c7",
+        "InvoiceCode": "59045-1004",
+        "ShipmentId": "60434899-2721-48b3-8eba-2cb5dd6f10d2",
+        "Shipment": "Toyota",
+        "PaymentMethod": "CAD"
+    },
+    {
+        "Id": "c29ef7cb-2cf4-4e07-af54-f775fb5be0c2",
+        "InvoiceCode": "49349-578",
+        "ShipmentId": "d14f46e4-fcfe-442f-8001-baa6ace0ee88",
+        "Shipment": "MINI",
+        "PaymentMethod": "UAH"
+    },
+    {
+        "Id": "d50e5b69-17a2-462f-82a6-d494eb9af458",
+        "InvoiceCode": "11673-556",
+        "ShipmentId": "d531bdba-6837-4516-a729-1ae78b0f3ac3",
+        "Shipment": "Mercedes-Benz",
+        "PaymentMethod": "PHP"
+    },
+    {
+        "Id": "7f11480b-d32b-45c3-ac0f-6ebb5557cd7c",
+        "InvoiceCode": "58118-0114",
+        "ShipmentId": "5e40cc3f-b1af-4671-b328-f0107358593c",
+        "Shipment": "Acura",
+        "PaymentMethod": "BRL"
+    },
+    {
+        "Id": "65a38b30-f084-4b77-8ad0-a12d0a787160",
+        "InvoiceCode": "54569-0557",
+        "ShipmentId": "a8514857-17cd-424b-81ec-b441c287f0bb",
+        "Shipment": "Mazda",
+        "PaymentMethod": "AMD"
+    },
+    {
+        "Id": "6aba60d6-1ce7-4385-93ea-9e3a2040ba3e",
+        "InvoiceCode": "0536-1018",
+        "ShipmentId": "da93664c-ba33-4eed-8c0f-583d81f03e9d",
+        "Shipment": "Chevrolet",
+        "PaymentMethod": "EUR"
+    },
+    {
+        "Id": "3a7f3d6f-fbf5-4c78-ad3e-bb068ddb7a4e",
+        "InvoiceCode": "65224-615",
+        "ShipmentId": "dcdee699-19a0-491f-a682-a5af263189af",
+        "Shipment": "Chrysler",
+        "PaymentMethod": "HNL"
+    },
+    {
+        "Id": "b90fd237-d5f5-4e63-81da-1526a05f6224",
+        "InvoiceCode": "59667-0021",
+        "ShipmentId": "316b6658-ff69-475b-a788-ec56461677e0",
+        "Shipment": "Mercury",
+        "PaymentMethod": "CNY"
+    },
+    {
+        "Id": "e6d176b7-07c8-44df-8a0a-2b9353b11db9",
+        "InvoiceCode": "33261-174",
+        "ShipmentId": "8228108d-78d7-4c81-960b-9c93bc89e1fb",
+        "Shipment": "Maybach",
+        "PaymentMethod": "ILS"
+    },
+    {
+        "Id": "7409e24a-7557-4017-a4f5-869ba853e9cb",
+        "InvoiceCode": "53346-1360",
+        "ShipmentId": "d757d559-0e41-43c4-8473-968ccf6af936",
+        "Shipment": "Chevrolet",
+        "PaymentMethod": "RUB"
+    },
+    {
+        "Id": "f898a22f-c3b8-4a47-85f3-0dddabe82ed5",
+        "InvoiceCode": "76237-169",
+        "ShipmentId": "3a5f525f-4f33-414b-a10b-56561bd2a7b8",
+        "Shipment": "GMC",
+        "PaymentMethod": "PHP"
+    },
+    {
+        "Id": "2c676d7e-8f69-4436-9449-6bc3a1869a61",
+        "InvoiceCode": "53014-583",
+        "ShipmentId": "d47691b2-195a-4485-82d9-17d439116c69",
+        "Shipment": "GMC",
+        "PaymentMethod": "NOK"
+    },
+    {
+        "Id": "5bd89295-6b36-48e4-a8c4-031bafd1d0c0",
+        "InvoiceCode": "45737-203",
+        "ShipmentId": "c1128a5c-af29-4878-8028-6584d8c9e1a6",
+        "Shipment": "Audi",
+        "PaymentMethod": "RUB"
+    },
+    {
+        "Id": "7b129454-d9be-4d59-ae44-665444b78fdf",
+        "InvoiceCode": "53808-0948",
+        "ShipmentId": "c25b9437-74f9-4d6f-8018-faa12680d537",
+        "Shipment": "Lexus",
+        "PaymentMethod": "VEF"
+    },
+    {
+        "Id": "f387d8b3-d61a-4392-a92a-0f33f5245dfd",
+        "InvoiceCode": "57237-017",
+        "ShipmentId": "c02ae544-ae7c-4757-850a-8a1a98a42280",
+        "Shipment": "Subaru",
+        "PaymentMethod": "IDR"
+    },
+    {
+        "Id": "71b080fb-6b38-4ed5-aa4b-53a76a881b16",
+        "InvoiceCode": "58118-0157",
+        "ShipmentId": "8e07b6a1-bc00-4127-835b-291b321e513c",
+        "Shipment": "Aston Martin",
+        "PaymentMethod": "COP"
+    },
+    {
+        "Id": "b8a28ade-35ad-433f-8de1-70e2c6bd1ffe",
+        "InvoiceCode": "43063-384",
+        "ShipmentId": "fb4e97f7-d1f3-4c90-9674-bd7dfcbd9205",
+        "Shipment": "Audi",
+        "PaymentMethod": "IDR"
+    },
+    {
+        "Id": "3f41ca47-460c-4dc5-be50-86a3b9722a36",
+        "InvoiceCode": "36987-2320",
+        "ShipmentId": "3dfbbd21-01f5-40d1-9a93-a058c6937033",
+        "Shipment": "Ford",
+        "PaymentMethod": "EUR"
+    },
+    {
+        "Id": "931f6fb6-9da1-4ef0-ae4f-f01448c5a49e",
+        "InvoiceCode": "50268-050",
+        "ShipmentId": "1bf00ee1-8eaf-48db-afe3-9e6dac6e12c4",
+        "Shipment": "Nissan",
+        "PaymentMethod": "AZN"
+    },
+    {
+        "Id": "3fb2e2da-2306-48e7-883c-bd373ae874b7",
+        "InvoiceCode": "63868-486",
+        "ShipmentId": "d8404b28-a9cc-45e8-860e-6e257d81e0b1",
+        "Shipment": "Mercury",
+        "PaymentMethod": "BGN"
+    },
+    {
+        "Id": "7913ca6b-d867-434f-a1cd-a2a38a5e6f43",
+        "InvoiceCode": "57520-0236",
+        "ShipmentId": "9f971a58-7db8-4ab3-9e53-381b4df27fbe",
+        "Shipment": "Eagle",
+        "PaymentMethod": "CNY"
+    },
+    {
+        "Id": "c67d9e1e-2705-4bf5-b4a3-f44f3f9db338",
+        "InvoiceCode": "42192-135",
+        "ShipmentId": "da7c31bc-219c-4135-b29b-928e2afbb72a",
+        "Shipment": "Dodge",
+        "PaymentMethod": "USD"
+    },
+    {
+        "Id": "13baddbb-8975-4b64-9cba-fca090025198",
+        "InvoiceCode": "50580-134",
+        "ShipmentId": "d064a66a-514f-454a-9e5a-9e4b5f90942b",
+        "Shipment": "Ford",
+        "PaymentMethod": "PLN"
+    },
+    {
+        "Id": "0749cb41-709f-4c4a-b1b8-12e8c3b70589",
+        "InvoiceCode": "37808-915",
+        "ShipmentId": "2514925b-4017-4dcf-977e-f22ba7afe482",
+        "Shipment": "Pontiac",
+        "PaymentMethod": "CNY"
+    },
+    {
+        "Id": "4029dfca-8c6f-4eda-bd7b-03564f4ab6ee",
+        "InvoiceCode": "10544-102",
+        "ShipmentId": "87bbb676-18ee-4c10-958f-6eb79df56c38",
+        "Shipment": "Maybach",
+        "PaymentMethod": "SYP"
+    },
+    {
+        "Id": "c2e46d5a-1647-474b-a4e0-11e042b41da5",
+        "InvoiceCode": "55154-4978",
+        "ShipmentId": "3c812816-404a-4c1d-8716-26de650df064",
+        "Shipment": "Nissan",
+        "PaymentMethod": "CNY"
+    },
+    {
+        "Id": "c8c2026d-c874-48f7-9dc5-da3902feae83",
+        "InvoiceCode": "11673-922",
+        "ShipmentId": "aaabc992-aaab-493c-9c77-43904c9cebb7",
+        "Shipment": "Ford",
+        "PaymentMethod": "SEK"
+    },
+    {
+        "Id": "22037093-0d46-49ca-87ff-dd5c12218a29",
+        "InvoiceCode": "24385-685",
+        "ShipmentId": "663d2ab7-3bd8-4885-bb84-b52391f13306",
+        "Shipment": "Chrysler",
+        "PaymentMethod": "NGN"
+    }
+]

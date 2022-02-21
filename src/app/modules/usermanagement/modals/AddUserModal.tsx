@@ -13,10 +13,9 @@ const AddUserModal: React.FC = () => {
     values.userId = uuid()
     agent.Users.create(values).then((response) => {
       toast.success("User Creation Was Successful!");
-      console.log(response)
+      // console.log(response)
       setIsSubmitting(false)
     })
-    // console.log("TT: ", values);
   }
 
   return (

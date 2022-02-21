@@ -3,6 +3,7 @@ import { Modal } from 'react-bootstrap-v5'
 import { Button } from 'semantic-ui-react'
 import * as Yup from 'yup'
 import { KTSVG } from '../../../../_iris/helpers'
+import IrisDatePicker from '../../layout/forms/IrisDatePicker'
 import IrisSelectInput from '../../layout/forms/IrisSelectInput'
 import IrisTextInput from '../../layout/forms/IrisTextInput'
 import { IWalletModel } from '../Models/WalletInterfaces'
@@ -26,17 +27,17 @@ const options = [
 
 export default function AddWalletForm(props: Props<IWalletModel>) {
   const initialFormValue: IWalletModel = {
-    walletNumberId: '',
-    number: '',
-    isActive: true,
-    userId: ''
+    WalletId: '',
+    WalletNumber: '',
+    IsActive: true,
+    UserId: ''
   }
 
   const validationSchema = Yup.object({
-    walletNumberId: Yup.string().required(),
-    number: Yup.string().required(),
-    userId: Yup.string().required(),
-    isActive: Yup.string().required()
+    WalletId: Yup.string().required(),
+    WalletNumber: Yup.string().required(),
+    IsActive: Yup.boolean().required(),
+    UserId: Yup.string().required(),
   })
 
   return (
@@ -63,47 +64,47 @@ export default function AddWalletForm(props: Props<IWalletModel>) {
               <div className='modal-body py-lg-10 px-lg-10'>
                 <IrisTextInput
                   type='text'
-                  name='walletNumberId'
-                  placeholder='Wallet Number Id'
-                  label='Wallet Number Id'
+                  name='WalletId'
+                  placeholder='WalletId'
+                  label='WalletId'
                 />
                 <IrisTextInput
                   type='text'
-                  placeholder='Number'
-                  name='number'
-                  label='number'
+                  placeholder='Wallet Number'
+                  name='WalletNumber'
+                  label='Wallet Number'
                 />
-                <IrisSelectInput
+                {/* <IrisSelectInput
                   options={options}
                   placeholder=''
                   name='isActive'
                   label='Active'
-                />
-                <IrisTextInput
-                  type='text'
-                  placeholder='User Id'
-                  name='userId'
-                  label='User Id'
-                />
-                {/* <IrisTextInput
-                  type='email'
-                  placeholder='Email'
-                  name='email'
-                  label='Email'
-                />
-
-                <IrisTextInput
-                  type='text'
-                  placeholder='Phone Number='
-                  name='phonenumber'
-                  label='Phone Number'
                 /> */}
+                <IrisTextInput
+                  type='boolean'
+                  placeholder='Active'
+                  name='IsActive'
+                  label='Active'
+                />
+                <IrisTextInput
+                  type='text'
+                  placeholder='UserId'
+                  name='UserId'
+                  label='UserId'
+                />
 
-                {/* <IrisDatePicker
+                {/* <IrisTextInput
+                  type='text'
+                  placeholder='WalletNumber'
+                  name='WalletNumber'
+                  label='WalletNumber'
+                />
+
+                <IrisDatePicker
                   placeholderText='Date'
-                  name='date'
+                  name='DateCreated'
                   showTimeSelect
-                  timeCaption='time'
+                  timeCaption='DateCreated'
                   dateFormat='MMM d, yyyy h:mm: aa'
                 /> */}
 
@@ -132,7 +133,7 @@ export default function AddWalletForm(props: Props<IWalletModel>) {
                   loading={props.isSubmitting}
                   content='Submit'
                 ></Button>
-                <Button floated='right' positive type='button' content='Cancel'></Button>
+                <Button floated='right' positive type='button' data-bs-dismiss="modal" content='Cancel'></Button>
               </Modal.Footer>
             </div>
           </div>

@@ -1,8 +1,6 @@
 import React from 'react'
 import {Redirect, Route, Switch} from 'react-router-dom'
 import {PageLink, PageTitle} from '../../../_iris/layout/core'
-import { ViewSearchTrip } from './components/operations/searchtrip/ViewSearchTrip'
-import { ViewTrack } from './components/operations/track/ViewTrack'
 import { ViewTrackHistory } from './components/operations/trackhistory/ViewTrackHistory'
 import { ViewTrips } from './components/operations/trips/ViewTrips'
 import { MonitorHeader } from './MonitorHeader'
@@ -17,7 +15,7 @@ const userBreadCrumbs: Array<PageLink> = [
   },
   {
     title: 'Add Track',
-    path: '/monitor/addtrack',
+    path: '/monitor/addtrip',
     isSeparator: false,
     isActive: false,
   },
@@ -29,13 +27,13 @@ const userBreadCrumbs: Array<PageLink> = [
   },
   {
     title: 'Search Trip',
-    path: '/monitor/searchtrip',
+    path: '/monitor/addtrip',
     isSeparator: false,
     isActive: false,
   }
 ]
 
-const UserPage: React.FC = () => {
+const MonitorPage: React.FC = () => {
   return (
     <>
       <MonitorHeader />
@@ -44,17 +42,9 @@ const UserPage: React.FC = () => {
           <PageTitle breadcrumbs={userBreadCrumbs}>Trips</PageTitle>
           <ViewTrips />
         </Route>
-        <Route path='/monitor/addtrack'>
-          <PageTitle breadcrumbs={userBreadCrumbs}>Add Track</PageTitle>
-          <ViewTrack />
-        </Route>
         <Route path='/monitor/trackhistory'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Track History</PageTitle>
           <ViewTrackHistory />
-        </Route>
-        <Route path='/monitor/searchtrip'>
-          <PageTitle breadcrumbs={userBreadCrumbs}>Search Trip</PageTitle>
-          <ViewSearchTrip />
         </Route>
         <Redirect from='/monitor/' exact={true} to='/monitor/trips' />
         <Redirect to='/monitor/trips' />
@@ -63,4 +53,4 @@ const UserPage: React.FC = () => {
   )
 }
 
-export default UserPage
+export default MonitorPage

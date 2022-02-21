@@ -4,14 +4,11 @@ import {PageLink, PageTitle} from '../../../_iris/layout/core'
 import {ShipmentHeader} from './ShipmentHeader'
 import { ViewRoutes } from './components/settings/ViewRoutes'
 import { ViewFleets} from './components/settings/ViewFleets'
-import { CaptureDomesticShipment } from './components/capture/CaptureDomesticShipment'
-import { CaptureFreightShipment } from './components/capture/CaptureFreightShipment'
-import { SortShipment } from './components/processingandpackaging/SortShipment'
+import { CaptureShipment } from './components/capture/CaptureShipment'
+
+import { ViewPriceSettings } from './components/settings/ViewPriceSettings'
 import { Manifest } from './components/processingandpackaging/Manifest'
-import { Dispatch } from './components/processingandpackaging/Dispatch'
-import { SearchShipment } from './components/search/SearchShipment'
-import { PriceSettings } from './components/settings/TableWidgetPrice'
-import { ViewShipments } from './components/settings/ViewShipments'
+import { ViewShipment } from './components/capture/ViewShipment'
 
 const userBreadCrumbs: Array<PageLink> = [
   {
@@ -45,42 +42,30 @@ const ShipmentPage: React.FC = () => {
           <ViewFleets />
         </Route>
 
-        <Route path='/shipment/pricesettings'>
+        <Route path='/shipment/ViewPriceSettings'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Price Settings</PageTitle>
-          <PriceSettings/>
+          <ViewPriceSettings/>
         </Route>
 
-        <Route path='/shipment/viewshipments'>
-          <PageTitle breadcrumbs={userBreadCrumbs}>View Shipments</PageTitle>
-          <ViewShipments/>
+        <Route path='/shipment/viewshipment'>
+          <PageTitle breadcrumbs={userBreadCrumbs}>View Shipment</PageTitle>
+          <ViewShipment/>
         </Route>
 
-        <Route path='/shipment/CaptureDomesticShipment'>
-          <PageTitle breadcrumbs={userBreadCrumbs}>Capture Domestic Shipment</PageTitle>
-          <CaptureDomesticShipment />
+        <Route path='/shipment/CaptureShipment'>
+          <PageTitle breadcrumbs={userBreadCrumbs}>Capture Shipment</PageTitle>
+          <CaptureShipment />
         </Route>
-        <Route path='/shipment/CaptureFreightShipment'>
+        {/* <Route path='/shipment/CaptureFreightShipment'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Capture Freight Shipment</PageTitle>
           <CaptureFreightShipment />
-        </Route><Route path='/shipment/SortShipment'>
-          <PageTitle breadcrumbs={userBreadCrumbs}>Sort Shipment</PageTitle>
-          <SortShipment />
-        </Route>
+        </Route> */}
         <Route path='/shipment/Manifest'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Manifest</PageTitle>
           <Manifest />
         </Route>
-        <Route path='/shipment/Dispatch'>
-          <PageTitle breadcrumbs={userBreadCrumbs}>Dispatch</PageTitle>
-          <Dispatch />
-        </Route>
-        <Route path='/shipment/SearchShipment'>
-          <PageTitle breadcrumbs={userBreadCrumbs}>Search Shipment</PageTitle>
-          <SearchShipment />
-        </Route>
-
-
         
+
         <Redirect from='/shipment/' exact={true} to='/shipment/users' />
         <Redirect to='/shipment/users' />
       </Switch>

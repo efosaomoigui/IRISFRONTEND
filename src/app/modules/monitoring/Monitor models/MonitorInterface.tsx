@@ -1,36 +1,28 @@
-export interface ISearchTripModel {
-    userId: string
-    userName?: string
-    password?: string
-    firstName: string
-    lastName: string
-    email: string
-    phonenumber?: string
-    age?: string
-    designation?: string
-    department?: string
-    pictureUrl?: string
-    isActive?: boolean
-    organisation?: string
-    status?: number
-    dateCreated?: string
-    dateModified?: string
-    isDeleted?: string
-    systemUserId?: string
-    systemUserRole?: string
-    passwordExpireDate?: string
-    identificationImage?: string
-    walletNumber?: string
-}
 
-export interface IAddTrackModel {
+export interface ITripModel {
     id: string
-    name: string
+    TripReference: string
+    RouteCode: string
+    fleetid: string
+    fleet: string
+    ManifestId: string
+    manifest: string
+    Driver: string
+    Dispatcher: string
+    DriverDispatchFee: string
+    Miscelleneous: string
+    FuelCosts: string
+    FuelUsed: string
+    StartTime: string
+    EndTime: string
+    status: string
 }
 
 export interface ITrackHistoryModel {
     id: string
-    roleId: string
-    claimType: string
-    claimValue: string
+    TripId : string
+    Action  : string
+    Location : string
+    TimeStamp : string
+    Status : string
 }
