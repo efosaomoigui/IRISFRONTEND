@@ -1,11 +1,12 @@
 import React from 'react'
 import {Redirect, Route, Switch} from 'react-router-dom'
 import {PageLink, PageTitle} from '../../../_iris/layout/core'
-import { ViewPermissions } from './components/settings/permissions/ViewPermissions'
-import { ViewRoles } from './components/settings/roles/ViewRoles'
+import {ViewPermissions} from './components/settings/permissions/ViewPermissions'
+import {ViewRoles} from './components/settings/roles/ViewRoles'
 import {UserHeader} from './UserHeader'
-import { ViewUsers } from './components/settings/users/ViewUsers'
+import {ViewUsers} from './components/settings/users/ViewUsers'
 import RoleUserManagement from './components/settings/users/RoleUserManagement'
+import { RoleDetail } from './components/settings/roles/RoleDetail'
 
 const userBreadCrumbs: Array<PageLink> = [
   {
@@ -35,14 +36,30 @@ const UserPage: React.FC = () => {
           <PageTitle breadcrumbs={userBreadCrumbs}>Roles</PageTitle>
           <ViewRoles />
         </Route>
+
         <Route path='/admin/permissions'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Permissions</PageTitle>
           <ViewPermissions />
         </Route>
+
+        {/* <Route path='/admin/permissionDetail/:id'>
+          <PageTitle breadcrumbs={userBreadCrumbs}>Permissions</PageTitle>
+          <DetailPermission />
+        </Route> */}
+
+        {/* Role */}
         <Route path='/admin/addUserToRole'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Add To Role</PageTitle>
           <RoleUserManagement />
         </Route>
+
+        <Route path='/admin/roleDetails/:id'>
+          <PageTitle breadcrumbs={userBreadCrumbs}>Add To Role</PageTitle>
+          <RoleDetail />
+        </Route>
+
+        {/* Default */}
+
         <Redirect from='/admin/' exact={true} to='/admin/users' />
         <Redirect to='/admin/users' />
       </Switch>

@@ -21,7 +21,7 @@ export function ViewRoles() {
           accessor: 'name',
         },
     ],
-    DetailsPath: '',
+    DetailsPath: '/admin/roleDetails/',
     EditPath: '',
     DeletePath: '',
     FakeData: Role_Data,
