@@ -36,7 +36,7 @@ export function ViewPermissions() {
           accessor: 'Permission',
         },
     ],
-    DetailsPath: '',
+    DetailsPath: '/admin/permissionDetails/:id',
     EditPath: '',
     DeletePath: '',
     FakeData: Permission_Data,

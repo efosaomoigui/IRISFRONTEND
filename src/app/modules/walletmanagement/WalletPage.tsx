@@ -4,6 +4,8 @@ import {PageLink, PageTitle} from '../../../_iris/layout/core'
 import { WalletHeader } from './WalletHeader'
 import { ViewWallet } from './components/settings/ViewWallet'
 import { WalletTransaction } from './components/settings/WalletTransaction'
+import { WalletDetail } from './components/settings/WalletDetail'
+import { WalletTransactionDetail } from './components/settings/WalletTransactionDetail'
 
 
 
@@ -43,6 +45,15 @@ const WalletPage: React.FC = () => {
         <Route path='/wallet/transactions'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Wallet Transactions</PageTitle>
           <WalletTransaction />
+        </Route>
+        <Route path='/wallet/walletdetails/:WalletId'>
+          <PageTitle breadcrumbs={userBreadCrumbs}>Wallet Details</PageTitle>
+          <WalletDetail />
+        </Route>
+
+        <Route path='/wallet/wallettransactiondetails/:WalletTransactionId'>
+          <PageTitle breadcrumbs={userBreadCrumbs}>Wallet Details</PageTitle>
+          <WalletTransactionDetail />
         </Route>
         <Redirect from='/wallet/' exact={true} to='/wallet/wallets' />
         <Redirect to='/wallet/wallets' />

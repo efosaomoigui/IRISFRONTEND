@@ -7,6 +7,7 @@ import {UserHeader} from './UserHeader'
 import {ViewUsers} from './components/settings/users/ViewUsers'
 import RoleUserManagement from './components/settings/users/RoleUserManagement'
 import { RoleDetail } from './components/settings/roles/RoleDetail'
+import { PermissionDetail } from './components/settings/permissions/PermissionDetail'
 
 const userBreadCrumbs: Array<PageLink> = [
   {
@@ -56,6 +57,10 @@ const UserPage: React.FC = () => {
         <Route path='/admin/roleDetails/:id'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Add To Role</PageTitle>
           <RoleDetail />
+        </Route>
+        <Route path='/admin/permissionDetails/:id'>
+          <PageTitle breadcrumbs={userBreadCrumbs}>Add Permission To Role</PageTitle>
+          <PermissionDetail />
         </Route>
 
         {/* Default */}

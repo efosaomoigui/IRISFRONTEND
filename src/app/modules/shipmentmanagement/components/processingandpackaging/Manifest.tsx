@@ -37,7 +37,7 @@ export function Manifest() {
         accessor: 'UserId',
       },
     ],
-    DetailsPath: '/adminSettings/userDetails/',
+    DetailsPath: '/shipment/manifestdetail/:Id',
     EditPath: '/adminSettings/userDetails/',
     DeletePath: '/adminSettings/userDetails/',
     FakeData: Manifest_Data,

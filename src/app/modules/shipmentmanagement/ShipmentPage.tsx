@@ -9,6 +9,11 @@ import { CaptureShipment } from './components/capture/CaptureShipment'
 import { ViewPriceSettings } from './components/settings/ViewPriceSettings'
 import { Manifest } from './components/processingandpackaging/Manifest'
 import { ViewShipment } from './components/capture/ViewShipment'
+import { ShipmentDetail } from './components/capture/ShipmentDetail'
+import { ManifestDetail } from './components/processingandpackaging/ManifestDetail'
+import { RouteDetail } from './components/settings/RouteDetail'
+import { FleetDetail } from './components/settings/FleetDetail'
+import { PriceSettingDetail } from './components/settings/PriceSettingDetail'
 
 const userBreadCrumbs: Array<PageLink> = [
   {
@@ -56,6 +61,21 @@ const ShipmentPage: React.FC = () => {
           <PageTitle breadcrumbs={userBreadCrumbs}>Capture Shipment</PageTitle>
           <CaptureShipment />
         </Route>
+
+        <Route path='/shipment/routedetail/:routId'>
+          <PageTitle breadcrumbs={userBreadCrumbs}>Route Detail</PageTitle>
+          <RouteDetail />
+        </Route>
+
+        <Route path='/shipment/fleetdetail/:id'>
+          <PageTitle breadcrumbs={userBreadCrumbs}>Fleet detail</PageTitle>
+          <FleetDetail />
+        </Route>
+
+        <Route path='/shipment/pricesettingdetail/:id'>
+          <PageTitle breadcrumbs={userBreadCrumbs}>Price Setting</PageTitle>
+          <PriceSettingDetail />
+        </Route>
         {/* <Route path='/shipment/CaptureFreightShipment'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Capture Freight Shipment</PageTitle>
           <CaptureFreightShipment />
@@ -65,6 +85,15 @@ const ShipmentPage: React.FC = () => {
           <Manifest />
         </Route>
         
+        <Route path='/shipment/shipmentdetail/:ShipmentId'>
+          <PageTitle breadcrumbs={userBreadCrumbs}>Manifest</PageTitle>
+          <ShipmentDetail />
+        </Route>
+
+        <Route path='/shipment/manifestdetail/:Id'>
+          <PageTitle breadcrumbs={userBreadCrumbs}>Manifest Detail</PageTitle>
+          <ManifestDetail />
+        </Route>
 
         <Redirect from='/shipment/' exact={true} to='/shipment/users' />
         <Redirect to='/shipment/users' />
