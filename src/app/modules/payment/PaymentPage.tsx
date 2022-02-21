@@ -2,7 +2,9 @@ import React from 'react'
 import {Redirect, Route, Switch} from 'react-router-dom'
 import {PageLink, PageTitle} from '../../../_iris/layout/core'
 import { Invoice } from './components/operations/Invoice'
+import { InvoiceDetail } from './components/operations/InvoiceDetail'
 import { PaymentLog } from './components/operations/PaymentLog'
+import { PaymentLogDetail } from './components/operations/PaymentLogDetail'
 import { PaymentHeader } from './PaymentHeader'
 
 
@@ -44,6 +46,15 @@ const UserPage: React.FC = () => {
         <Route path='/payment/invoice'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Invoice</PageTitle>
           <Invoice />
+        </Route>
+
+        <Route path='/payment/paymentLogDetails/:PaymentId'>
+          <PageTitle breadcrumbs={userBreadCrumbs}>Payment Log</PageTitle>
+          <PaymentLogDetail />
+        </Route>
+        <Route path='/payment/invoiceDetail/:Id'>
+          <PageTitle breadcrumbs={userBreadCrumbs}>Invoice</PageTitle>
+          <InvoiceDetail />
         </Route>
         
         <Redirect from='/admin/' exact={true} to='/admin/users' />
