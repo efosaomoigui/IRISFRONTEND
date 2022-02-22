@@ -24,18 +24,18 @@ export function PriceSettingDetail() {
         <div className='card mb-5 mb-xl-10' id='kt_profile_details_view'>
           <div className='card-header cursor-pointer'>
             <div className='card-title m-0'>
-              <h3 className='fw-bolder m-0'>Profile Details</h3>
+              <h3 className='fw-bolder m-0'>Price Setting Details</h3>
             </div>
 
             <Link to='/adminSettings/settings' className='btn btn-primary align-self-center'>
-              Edit Role
+              Edit Price
             </Link>
           </div>
 
           <div className='card-body p-9'>
             {pricedetails && <>
             <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>Permission Name</label>
+              <label className='col-lg-4 fw-bold text-muted'>Price Setting</label>
 
               <div className='col-lg-8'>
                 <span className='fw-bolder fs-6 text-dark'>
@@ -111,7 +111,7 @@ export function PriceSettingDetail() {
             </div>
             </>}
 
-            {!pricedetails && <><h4>Sorry, Role does not exit!</h4></>}
+            {!pricedetails && <><h4>Sorry, Price does not exit!</h4></>}
 
           </div>
         </div>

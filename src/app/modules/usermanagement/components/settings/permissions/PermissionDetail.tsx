@@ -23,11 +23,11 @@ export function PermissionDetail() {
         <div className='card mb-5 mb-xl-10' id='kt_profile_details_view'>
           <div className='card-header cursor-pointer'>
             <div className='card-title m-0'>
-              <h3 className='fw-bolder m-0'>Profile Details</h3>
+              <h3 className='fw-bolder m-0'>Permission Details</h3>
             </div>
 
             <Link to='/adminSettings/settings' className='btn btn-primary align-self-center'>
-              Edit Role
+              Edit Permission
             </Link>
           </div>
 
@@ -110,7 +110,7 @@ export function PermissionDetail() {
             </div>
             </>}
 
-            {!permissiondetails && <><h4>Sorry, Role does not exit!</h4></>}
+            {!permissiondetails && <><h4>Sorry, Permission does not exit!</h4></>}
 
           </div>
         </div>
