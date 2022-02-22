@@ -45,6 +45,121 @@ export function TripDetail() {
             </div>
 
             <div className='row mb-7'>
+              <label className='col-lg-4 fw-bold text-muted'>Dispatcher</label>
+
+              <div className='col-lg-8'>
+                <span className='fw-bolder fs-6 text-dark'>
+                  {tripdetails?.Dispatcher}
+                </span>
+              </div>
+            </div>
+
+            <div className='row mb-7'>
+              <label className='col-lg-4 fw-bold text-muted'>Driver</label>
+
+              <div className='col-lg-8'>
+                <span className='fw-bolder fs-6 text-dark'>
+                  {tripdetails?.Driver}
+                </span>
+              </div>
+            </div>
+            <div className='row mb-7'>
+              <label className='col-lg-4 fw-bold text-muted'>DriverDispatcher</label>
+
+              <div className='col-lg-8'>
+                <span className='fw-bolder fs-6 text-dark'>
+                  {tripdetails?.DriverDispatchFee}
+                </span>
+              </div>
+            </div>
+            <div className='row mb-7'>
+              <label className='col-lg-4 fw-bold text-muted'>EndTime</label>
+
+              <div className='col-lg-8'>
+                <span className='fw-bolder fs-6 text-dark'>
+                  {tripdetails?.EndTime}
+                </span>
+              </div>
+            </div>
+
+            <div className='row mb-7'>
+              <label className='col-lg-4 fw-bold text-muted'>Fuel Costs</label>
+
+              <div className='col-lg-8'>
+                <span className='fw-bolder fs-6 text-dark'>
+                  {tripdetails?.FuelCosts}
+                </span>
+              </div>
+            </div>
+            <div className='row mb-7'>
+              <label className='col-lg-4 fw-bold text-muted'>Fuel Used</label>
+
+              <div className='col-lg-8'>
+                <span className='fw-bolder fs-6 text-dark'>
+                  {tripdetails?.FuelUsed}
+                </span>
+              </div>
+            </div>
+
+            <div className='row mb-7'>
+              <label className='col-lg-4 fw-bold text-muted'>ManifestId</label>
+
+              <div className='col-lg-8'>
+                <span className='fw-bolder fs-6 text-dark'>
+                  {tripdetails?.ManifestId}
+                </span>
+              </div>
+            </div>
+            <div className='row mb-7'>
+              <label className='col-lg-4 fw-bold text-muted'>Miscellaneous</label>
+
+              <div className='col-lg-8'>
+                <span className='fw-bolder fs-6 text-dark'>
+                  {tripdetails?.Miscelleneous}
+                </span>
+              </div>
+            </div>
+            <div className='row mb-7'>
+              <label className='col-lg-4 fw-bold text-muted'>RouteCode</label>
+
+              <div className='col-lg-8'>
+                <span className='fw-bolder fs-6 text-dark'>
+                  {tripdetails?.RouteCode}
+                </span>
+              </div>
+            </div>
+            <div className='row mb-7'>
+              <label className='col-lg-4 fw-bold text-muted'>Start Time</label>
+
+              <div className='col-lg-8'>
+                <span className='fw-bolder fs-6 text-dark'>
+                  {tripdetails?.StartTime}
+                </span>
+              </div>
+            </div>
+            <div className='row mb-7'>
+              <label className='col-lg-4 fw-bold text-muted'>Trip Reference</label>
+
+              <div className='col-lg-8'>
+                <span className='fw-bolder fs-6 text-dark'>
+                  {tripdetails?.TripReference}
+                </span>
+              </div>
+            </div>
+            <div className='row mb-7'>
+              <label className='col-lg-4 fw-bold text-muted'>fleet</label>
+
+              <div className='col-lg-8'>
+                <span className='fw-bolder fs-6 text-dark'>
+                  {tripdetails?.fleet}
+                </span>
+              </div>
+            </div>
+
+
+
+
+            <div className='row mb-7'>
               <label className='col-lg-4 fw-bold text-muted'>Company</label>
 
               <div className='col-lg-8 fv-row'>

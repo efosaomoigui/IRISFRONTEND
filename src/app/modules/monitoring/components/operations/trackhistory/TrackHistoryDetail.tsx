@@ -24,7 +24,7 @@ export function TrackHistoryDetail() {
         <div className='card mb-5 mb-xl-10' id='kt_profile_details_view'>
           <div className='card-header cursor-pointer'>
             <div className='card-title m-0'>
-              <h3 className='fw-bolder m-0'>Track History Details</h3>
+              <h3 className='fw-bolder m-0'>Track Details</h3>
             </div>
 
             <Link to='/adminSettings/settings' className='btn btn-primary align-self-center'>
@@ -43,6 +43,55 @@ export function TrackHistoryDetail() {
                 </span>
               </div>
             </div>
+
+            <div className='row mb-7'>
+              <label className='col-lg-4 fw-bold text-muted'>Trip Id</label>
+
+              <div className='col-lg-8'>
+                <span className='fw-bolder fs-6 text-dark'>
+                  {trackhistorydetails?.TripId}
+                </span>
+              </div>
+            </div>
+
+            <div className='row mb-7'>
+              <label className='col-lg-4 fw-bold text-muted'>Location</label>
+
+              <div className='col-lg-8'>
+                <span className='fw-bolder fs-6 text-dark'>
+                  {trackhistorydetails?.Location}
+                </span>
+              </div>
+            </div>
+
+            <div className='row mb-7'>
+              <label className='col-lg-4 fw-bold text-muted'>Status</label>
+
+              <div className='col-lg-8'>
+                <span className='fw-bolder fs-6 text-dark'>
+                  {trackhistorydetails?.Status}
+                </span>
+              </div>
+            </div>
+            <div className='row mb-7'>
+              <label className='col-lg-4 fw-bold text-muted'>Time Stamp</label>
+
+              <div className='col-lg-8'>
+                <span className='fw-bolder fs-6 text-dark'>
+                  {trackhistorydetails?.TimeStamp}
+                </span>
+              </div>
+            </div>
+            <div className='row mb-7'>
+              <label className='col-lg-4 fw-bold text-muted'>Action</label>
+
+              <div className='col-lg-8'>
+                <span className='fw-bolder fs-6 text-dark'>
+                  {trackhistorydetails?.Action}
+                </span>
+              </div>
+            </div>
+
 
             <div className='row mb-7'>
               <label className='col-lg-4 fw-bold text-muted'>Company</label>

@@ -47,6 +47,36 @@ export function CollectionCenterDetail() {
             </div>
 
             <div className='row mb-7'>
+              <label className='col-lg-4 fw-bold text-muted'>Shipment</label>
+
+              <div className='col-lg-8'>
+                <span className='fw-bolder fs-6 text-dark'>
+                  {collectioncenterdetails?.Shipment}
+                </span>
+              </div>
+            </div>
+
+            <div className='row mb-7'>
+              <label className='col-lg-4 fw-bold text-muted'>Shipment Id</label>
+
+              <div className='col-lg-8'>
+                <span className='fw-bolder fs-6 text-dark'>
+                  {collectioncenterdetails?.ShipmentId}
+                </span>
+              </div>
+            </div>
+
+            <div className='row mb-7'>
+              <label className='col-lg-4 fw-bold text-muted'>User Id</label>
+
+              <div className='col-lg-8'>
+                <span className='fw-bolder fs-6 text-dark'>
+                  {collectioncenterdetails?.UserId}
+                </span>
+              </div>
+            </div>
+
+            <div className='row mb-7'>
               <label className='col-lg-4 fw-bold text-muted'>Company</label>
 
               <div className='col-lg-8 fv-row'>
@@ -68,16 +98,6 @@ export function CollectionCenterDetail() {
                 <span className='fw-bolder fs-6 me-2'>(070) 639 65528</span>
 
                 <span className='badge badge-success'>Verified</span>
-              </div>
-            </div>
-
-            <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>Company Site</label>
-
-              <div className='col-lg-8'>
-                <a href='#' className='fw-bold fs-6 text-dark text-hover-primary'>
-                  http://chiscoexpress.com
-                </a>
               </div>
             </div>
 
