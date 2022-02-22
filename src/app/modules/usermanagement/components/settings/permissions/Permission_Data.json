@@ -1,52 +1,44 @@
 [
     {
         "roleId": "274c4160-c89e-40cb-8662-0204f0abc405",
-        "PermissionId": "4f7ebca7-9f07-4be2-9fe0-9466ba6d490e",
-        "PermissionType": "cpayze0",
-        "Permission": "kfranklin0"
+        "claimType": "cpayze0",
+        "claimValue": "kfranklin0"
     },
     {
-        "roleId": "Product Management",
-        "PermissionId": "a898b11f-33de-4f06-a6dc-4da08a5a8fd3",
-        "PermissionType": "doldroyd1",
-        "Permission": "msjollema1"
+        "roleId": "8a1d6a43-d479-4c62-a7b7-cc2687825552",
+        "claimType": "cpayze0",
+        "claimValue": "kfranklin0"
     },
+   {
+    "roleId": "cee81ff0-df27-4415-8f3f-7460c38eef87",
+    "claimType": "cpayze0",
+    "claimValue": "kfranklin0"
+},
+   {
+    "roleId": "0643fdd5-aaec-4550-8d2f-485406c4caea",
+    "claimType": "cpayze0",
+    "claimValue": "kfranklin0"
+},
     {
-        "roleId": "Product Management",
-        "PermissionId": "6c7e129c-e94c-43a9-823d-abc9928c12cd",
-        "PermissionType": "lmiddlehurst2",
-        "Permission": "tleyre2"
+        "roleId": "da6bacd6-80c5-40cc-922b-b1826d60d7a9",
+        "claimType": "cpayze0",
+        "claimValue": "kfranklin0"
     },
-    {
-        "roleId": "Research and Development",
-        "PermissionId": "2a0f34bc-4cbd-4e9e-bada-6fb4923eb7c4",
-        "PermissionType": "mcopping3",
-        "Permission": "aspilsburie3"
-    },
-    {
-        "roleId": "Engineering",
-        "PermissionId": "70742556-1307-4a7d-b904-bfcaa7f61a62",
-        "PermissionType": "nbartolomieu4",
-        "Permission": "mdarlaston4"
-    },
-    {
-        "roleId": "Business Development",
-        "PermissionId": "641a7752-72bd-40f8-bb88-ab609b7f0fa5",
-        "PermissionType": "vdale5",
-        "Permission": "dcornish5"
-    },
-    {
-        "roleId": "Support",
-        "PermissionId": "87645dae-7c74-4b1a-a566-f9c0465f5c62",
-        "PermissionType": "mbotha6",
-        "Permission": "bbaumert6"
-    },
-    {
-        "roleId": "Services",
-        "PermissionId": "81ea602a-47b2-4d8b-8615-cb963ac7045e",
-        "PermissionType": "oloweth7",
-        "Permission": "nportchmouth7"
-    },
+   {
+    "roleId": "274c4160-c89e-40cb-8662-0204f0abc405",
+    "claimType": "cpayze0",
+    "claimValue": "kfranklin0"
+},
+   {
+    "roleId": "274c4160-c89e-40cb-8662-0204f0abc405",
+    "claimType": "cpayze0",
+    "claimValue": "kfranklin0"
+},
+   {
+    "roleId": "274c4160-c89e-40cb-8662-0204f0abc405",
+    "claimType": "cpayze0",
+    "claimValue": "kfranklin0"
+},
     {
         "roleId": "Business Development",
         "PermissionId": "409536d0-c4de-4c03-acd5-7299db25b76c",
