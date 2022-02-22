@@ -44,43 +44,28 @@ export function PermissionDetail() {
             </div>
 
             <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>Company</label>
-
-              <div className='col-lg-8 fv-row'>
-                <span className='fw-bold fs-6'>Chisco Express Ltd</span>
-              </div>
-            </div>
-
-            <div className='row mb-7'>
               <label className='col-lg-4 fw-bold text-muted'>Permission Id</label>
 
               <div className='col-lg-8'>
-                  {/* <span className='fw-bold fs-6'>{permissiondetails.id}</span> */}
+                  <span className='fw-bold fs-6'>{permissiondetails.roleId}</span>
               </div>
             </div>
 
-            <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>
-                Country
-                <i
-                  className='fas fa-exclamation-circle ms-1 fs-7'
-                  data-bs-toggle='tooltip'
-                  title='Country of origination'
-                ></i>
-              </label>
+              <div className='row mb-7'>
+                <label className='col-lg-4 fw-bold text-muted'>Permission Type</label>
 
-              <div className='col-lg-8'>
-                <span className='fw-bolder fs-6 text-dark'>Nigeria</span>
+                <div className='col-lg-8'>
+                  <span className='fw-bold fs-6'>{permissiondetails.claimType}</span>
+                </div>
               </div>
-            </div>
 
-            <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>Communication</label>
+              <div className='row mb-7'>
+                <label className='col-lg-4 fw-bold text-muted'>Permission Value</label>
 
-              <div className='col-lg-8'>
-                <span className='fw-bolder fs-6 text-dark'>Email, Phone</span>
+                <div className='col-lg-8'>
+                  <span className='fw-bold fs-6'>{permissiondetails.claimValue}</span>
+                </div>
               </div>
-            </div>
 
             <div className='row mb-10'>
               <label className='col-lg-4 fw-bold text-muted'>Allow Changes</label>

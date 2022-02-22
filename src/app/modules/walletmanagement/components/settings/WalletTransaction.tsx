@@ -39,7 +39,7 @@ export function WalletTransaction() {
         accessor: 'DateCreated',
       },
     ],
-    DetailsPath: '/wallet/wallettransactiondetails/:WalletTransactionId',
+    DetailsPath: '/wallet/wallettransactiondetails/',
     EditPath: '/adminSettings/userDetails/',
     DeletePath: '/adminSettings/userDetails/',
     FakeData: WalletTransaction_Data,

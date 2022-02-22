@@ -31,7 +31,7 @@ export function ViewWallet() {
         accessor: 'IsActive',
       },
     ],
-    DetailsPath: '/adminSettings/userDetails/',
+    DetailsPath: '/wallet/walletdetails/',
     EditPath: '/adminSettings/userDetails/',
     DeletePath: '/adminSettings/userDetails/',
     FakeData: Wallet_Data,
