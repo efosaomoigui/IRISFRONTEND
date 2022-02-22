@@ -84,7 +84,7 @@ const  Route = {
   list: () => request.get<IRouteModel[]>(`${API_URL}/ShipmentSettings/Route/all`),
   details: (routeid: string) => request.get<IRouteModel>(`${API_URL}/ShipmentSettings/Route/GetRouteById/${routeid}`), 
   create: (route: IRouteModel) => request.post<IRouteModel>(`${API_URL}/ShipmentSettings/Route`, route), 
-  update: (route: IRouteModel) => request.put<IRouteModel>(`${API_URL}/ShipmentSettings/Route/${route.routId}`, {}), 
+  update: (route: IRouteModel) => request.put<IRouteModel>(`${API_URL}/ShipmentSettings/Route/${route.RouteId}`, {}), 
   delete: (id: string) => request.del<void>(`${API_URL}/ShipmentSettings/Route/${id}`), 
 }
 

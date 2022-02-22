@@ -27,18 +27,18 @@ const options = [
 
 export default function AddRouteForm(props: Props<IRouteModel>) {
   const initialFormValue: IRouteModel = {
-    routId: '',
-    routeName: '',
-    depature: '',
-    destination: '',
-    isSubRoute: '',
-    dispatchFee: '',
-    loaderFee: '',
-    captainFee: '',
-    main_Route_Id: '',
-    availabale_At_Terminal: '',
-    availabale_Online: '',
-    route_Type: ''
+    RouteId: '',
+    RouteName: '',
+    Departure: '',
+    Destination: '',
+    IsSubRoute: '',
+    DispatchFee: '',
+    LoaderFee: '',
+    CaptainFee: '',
+    MainRouteId: '',
+    AvailableAtTerminal: '',
+    AvailableOnline: '',
+    RouteType: ''
   }
 
   const validationSchema = Yup.object({

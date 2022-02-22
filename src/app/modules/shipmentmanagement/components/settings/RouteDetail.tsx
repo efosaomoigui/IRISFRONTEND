@@ -39,7 +39,7 @@ export function RouteDetail() {
 
               <div className='col-lg-8'>
                 <span className='fw-bolder fs-6 text-dark'>
-                    {routedetails?.routId}
+                    {routedetails?.RouteId}
                 </span>
               </div>
             </div>

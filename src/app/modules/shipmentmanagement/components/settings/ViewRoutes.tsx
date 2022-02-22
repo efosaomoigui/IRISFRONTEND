@@ -14,55 +14,55 @@ export function ViewRoutes() {
   //all the data for the table
   const tableProvider = {
     columns: [
-        {
-            Header: 'route Id',
-            accessor: 'route_Id',
-          },
-          {
-            Header: 'route Name',
-            accessor: 'route_Name',
-          },
-          {
-            Header: 'depature',
-            accessor: 'depature',
-          },
-          {
-            Header: 'destination',
-            accessor: 'destination',
-          },
-          // {
-          //   Header: 'is Sub Route',
-          //   accessor: 'is_Sub_Route',
-          // },
-          {
-            Header: 'dispatch Fee',
-            accessor: 'dispatchFee',
-          },
-          {
-              Header: 'loader Fee',
-              accessor: 'loaderFee',
-          },
-          {
-              Header: 'captain Fee',
-              accessor: 'captainFee',
-          },
-          {
-              Header: 'main Route Id',
-              accessor: 'main_Route_Id',
-          },
-          // {
-          //     Header: 'available At Terminal',
-          //     accessor: 'availabale_At_Terminal',
-          // },
-          // {
-          //     Header: 'available Online',
-          //     accessor: 'availabale_Online',
-          // },
-          // {
-          //     Header: 'Route Type',
-          //     accessor: 'route_Type',
-          // },
-        ],
+      {
+        Header: 'route Id',
+        accessor: 'RouteId',
+      },
+      {
+        Header: 'route Name',
+        accessor: 'RouteName',
+      },
+      {
+        Header: 'depature',
+        accessor: 'Departure',
+      },
+      {
+        Header: 'destination',
+        accessor: 'Destination',
+      },
+      {
+        Header: 'is Sub Route',
+        accessor: 'IsSubRoute',
+      },
+      {
+        Header: 'dispatch Fee',
+        accessor: 'DispatchFee',
+      },
+      {
+        Header: 'loader Fee',
+        accessor: 'LoaderFee',
+      },
+      {
+        Header: 'captain Fee',
+        accessor: 'CaptainFee',
+      },
+      {
+        Header: 'main Route Id',
+        accessor: 'MainRouteId',
+      },
+      {
+        Header: 'available At Terminal',
+        accessor: 'AvailableAtTerminal',
+      },
+      {
+        Header: 'available Online',
+        accessor: 'AvailableOnline',
+      },
+      {
+        Header: 'Route Type',
+        accessor: 'RouteType',
+      },
+    ],
     DetailsPath: '/shipment/routedetail/:routId',
     EditPath: '/adminSettings/userDetails/',
     DeletePath: '/adminSettings/userDetails/',
