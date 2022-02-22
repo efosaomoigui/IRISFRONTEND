@@ -11,11 +11,12 @@ const AddPermissionModal: React.FC = () => {
 
   const onSubmit = (values: IPermissionModel) => {
     setIsSubmitting(true)
-    values.id = uuid()
+    alert("Values to submite" + JSON.stringify(values));
+
     agent.Permissions.create(values).then((response) => {
       toast.success("Permission Creation Was Successful!");
-      // console.log(response)
-      setIsSubmitting(false)
+      console.log(response)
+      setIsSubmitting(true)
     })
   }
 

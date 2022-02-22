@@ -19,27 +19,17 @@ interface Props<Values> {
   isSubmitting: boolean
 }
 
-const options = [
-  { text: 'one', value: 'Bag' },
-  { text: 'two', value: 'Serial' },
-  { text: 'three', value: 'Turkey' },
-  { text: 'four', value: 'Afganistan' },
-]
-
 export default function AddPermissionForm(props: Props<IPermissionModel>) {
   const initialFormValue: IPermissionModel = {
-  id: '',
   roleId: '',
-  PermissionId: '',
-  PermissionType: '',
-  Permission: ''
+  claimType: '',
+  claimValue: ''
   }
 
   const validationSchema = Yup.object({
     roleId: Yup.string().required(),
-    PermissionId: Yup.string().required(),
-    PermissionType: Yup.string().required(),
-    Permission: Yup.string().required(),
+    claimType: Yup.string().required(),
+    claimValue: Yup.string().required(),
   })
 
   return (
@@ -66,74 +56,26 @@ export default function AddPermissionForm(props: Props<IPermissionModel>) {
               <div className='modal-body py-lg-10 px-lg-10'>
                 <IrisTextInput
                   type='text'
-                  name='RoleId'
+                  name='roleId'
                   placeholder='RoleId'
                   label='RoleId'
                 />
                 <IrisTextInput
                   type='text'
-                  placeholder='PermissionId'
-                  name='PermissionId'
-                  label='PermissionId'
-                />
-                <IrisTextInput
-                  type='text'
-                  placeholder='PermissionType'
-                  name='PermissionType'
-                  label='PermissionType'
+                  placeholder='Permission Type'
+                  name='claimType'
+                  label='Permission Type'
                 />
                 <IrisTextInput
                   type='text'
                   placeholder='Permission'
-                  name='Permission'
+                  name='claimValue'
                   label='Permission'
                 />
 
-                {/* <IrisTextInput
-                  type='number'
-                  placeholder='Phone Number='
-                  name='phonenumber'
-                  label='Phone Number'
-                /> */}
-
-                {/* <IrisDatePicker
-                  placeholderText='Date'
-                  name='date'
-                  showTimeSelect
-                  timeCaption='time'
-                  dateFormat='MMM d, yyyy h:mm: aa'
-                /> */}
-
-                
-                {/* <IrisTextInput
-                  type='password'
-                  placeholder='Password'
-                  name='password'
-                  label='Password'
-                /> */}
-
-                {/* <IrisSelectInput
-                  options={options}
-                  placeholder='RoleId'
-                  name='RoleId'
-                  label='RoleId'
-                /> */}
-
-                {/* <IrisSelectInput
-                  options={options}
-                  placeholder='Claim Type'
-                  name='Claim Type'
-                  label='Claim Type'
-                /> */}
-
-                {/* <IrisSelectInput
-                  options={options}
-                  placeholder='Claim Value'
-                  name='Claim Value'
-                  label='Claim Value'
-                /> */}
-
               </div>
+
+              {/* Are you there? */}
 
               <Modal.Footer>
                 <Button

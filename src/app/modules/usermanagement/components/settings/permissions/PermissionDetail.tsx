@@ -4,18 +4,18 @@ import agent from '../../../../../../setup/axios/AxiosAgent'
 import { IPermissionModel } from '../../../../auth/models/AuthInterfaces'
 
 export function PermissionDetail() {
-  let { PermissionId } = useParams<{ PermissionId: string}>()
-  const [permissiondetails, setRoleDetails] = useState<IPermissionModel>()
+  let { roleId } = useParams<{ roleId: string}>()
+  const [permissiondetails, setPermissionDetails] = useState<IPermissionModel>()
 
-  function getRole(permissionid: string) {
-    agent.Permissions.details(permissionid).then((response) => {
-      setRoleDetails(response)
+  function getPermission(roleId: string) {
+    agent.Permissions.details(roleId).then((response) => {
+      setPermissionDetails(response)
     })
   }
 
   useEffect(() => {
-    getRole(PermissionId)
-  }, [PermissionId])
+    getPermission(roleId)
+  }, [roleId])
 
   return (
     <div className='row g-5 g-xxl-8'>
@@ -38,7 +38,7 @@ export function PermissionDetail() {
 
               <div className='col-lg-8'>
                 <span className='fw-bolder fs-6 text-dark'>
-                    {permissiondetails?.roleId}
+                    {permissiondetails.roleId} 
                 </span>
               </div>
             </div>
@@ -52,29 +52,10 @@ export function PermissionDetail() {
             </div>
 
             <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>
-                Contact Phone
-                <i
-                  className='fas fa-exclamation-circle ms-1 fs-7'
-                  data-bs-toggle='tooltip'
-                  title='Phone number must be active'
-                ></i>
-              </label>
-
-              <div className='col-lg-8 d-flex align-items-center'>
-                <span className='fw-bolder fs-6 me-2'>(070) 639 65528</span>
-
-                <span className='badge badge-success'>Verified</span>
-              </div>
-            </div>
-
-            <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>Company Site</label>
+              <label className='col-lg-4 fw-bold text-muted'>Permission Id</label>
 
               <div className='col-lg-8'>
-                <a href='#' className='fw-bold fs-6 text-dark text-hover-primary'>
-                  http://chiscoexpress.com
-                </a>
+                  {/* <span className='fw-bold fs-6'>{permissiondetails.id}</span> */}
               </div>
             </div>
 
