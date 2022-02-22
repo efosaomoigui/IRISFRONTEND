@@ -6,16 +6,16 @@ import { IRouteModel, IShipmentModel } from '../../ShipmentModels/ShipmentInterf
 
 export function RouteDetail() {
   let { routeid } = useParams<{ routeid: string}>()
-  const [routedetails, setRoleDetails] = useState<IRouteModel>()
+  const [routedetails, setRouteDetails] = useState<IRouteModel>()
 
-  function getRole(routeid: string) {
+  function getRoute(routeid: string) {
     agent.Route.details(routeid).then((response) => {
-      setRoleDetails(response)
+      setRouteDetails(response)
     })
   }
 
   useEffect(() => {
-    getRole(routeid)
+    getRoute(routeid)
   }, [routeid])
 
   return (
@@ -43,64 +43,43 @@ export function RouteDetail() {
                 </span>
               </div>
             </div>
-
             <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>Company</label>
+                <label className='col-lg-4 fw-bold text-muted'>Route Name</label>
 
-              <div className='col-lg-8 fv-row'>
-                <span className='fw-bold fs-6'>Chisco Express Ltd</span>
-              </div>
+                <div className='col-lg-8'>
+                  <span className='fw-bolder fs-6 text-dark'>
+                    {routedetails?.RouteName}
+                  </span>
+                </div>
             </div>
+              <div className='row mb-7'>
+                <label className='col-lg-4 fw-bold text-muted'>Departure</label>
 
-            <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>
-                Contact Phone
-                <i
-                  className='fas fa-exclamation-circle ms-1 fs-7'
-                  data-bs-toggle='tooltip'
-                  title='Phone number must be active'
-                ></i>
-              </label>
-
-              <div className='col-lg-8 d-flex align-items-center'>
-                <span className='fw-bolder fs-6 me-2'>(070) 639 65528</span>
-
-                <span className='badge badge-success'>Verified</span>
+                <div className='col-lg-8'>
+                  <span className='fw-bolder fs-6 text-dark'>
+                    {routedetails?.Departure}
+                  </span>
+                </div>
               </div>
-            </div>
+              <div className='row mb-7'>
+                <label className='col-lg-4 fw-bold text-muted'>Destination</label>
 
-            <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>Company Site</label>
-
-              <div className='col-lg-8'>
-                <a href='#' className='fw-bold fs-6 text-dark text-hover-primary'>
-                  http://chiscoexpress.com
-                </a>
+                <div className='col-lg-8'>
+                  <span className='fw-bolder fs-6 text-dark'>
+                    {routedetails?.Destination}
+                  </span>
+                </div>
               </div>
-            </div>
+              <div className='row mb-7'>
+                <label className='col-lg-4 fw-bold text-muted'>DispatchFee</label>
 
-            <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>
-                Country
-                <i
-                  className='fas fa-exclamation-circle ms-1 fs-7'
-                  data-bs-toggle='tooltip'
-                  title='Country of origination'
-                ></i>
-              </label>
-
-              <div className='col-lg-8'>
-                <span className='fw-bolder fs-6 text-dark'>Nigeria</span>
+                <div className='col-lg-8'>
+                  <span className='fw-bolder fs-6 text-dark'>
+                    {routedetails?.DispatchFee}
+                  </span>
+                </div>
               </div>
-            </div>
-
-            <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>Communication</label>
-
-              <div className='col-lg-8'>
-                <span className='fw-bolder fs-6 text-dark'>Email, Phone</span>
-              </div>
-            </div>
+           
 
             <div className='row mb-10'>
               <label className='col-lg-4 fw-bold text-muted'>Allow Changes</label>

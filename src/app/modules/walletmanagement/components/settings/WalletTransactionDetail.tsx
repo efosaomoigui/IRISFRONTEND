@@ -6,16 +6,16 @@ import { IWalletModel, IWalletTransactionModel } from '../../Models/WalletInterf
 
 export function WalletTransactionDetail() {
   let { wallettransactionId } = useParams<{ wallettransactionId: string}>()
-  const [wallettranscationdetails, setRoleDetails] = useState<IWalletTransactionModel>()
+  const [wallettranscationdetails, setWalletDetails] = useState<IWalletTransactionModel>()
 
-  function getRole(wallettransactionid: string) {
+  function getWallet(wallettransactionid: string) {
     agent.WalletTransaction.details(wallettransactionid).then((response) => {
-      setRoleDetails(response)
+      setWalletDetails(response)
     })
   }
 
   useEffect(() => {
-    getRole(wallettransactionId)
+    getWallet(wallettransactionId)
   }, [wallettransactionId])
 
   return (

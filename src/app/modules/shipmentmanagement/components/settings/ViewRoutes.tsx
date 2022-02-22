@@ -63,7 +63,7 @@ export function ViewRoutes() {
         accessor: 'RouteType',
       },
     ],
-    DetailsPath: '/shipment/routedetail/:routId',
+    DetailsPath: '/shipment/routedetail/',
     EditPath: '/adminSettings/userDetails/',
     DeletePath: '/adminSettings/userDetails/',
     FakeData: RouteData,

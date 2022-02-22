@@ -59,7 +59,7 @@ export function ViewFleets() {
           accessor: 'OwnerId',
       },
         ],
-    DetailsPath: '/shipment/fleetdetail/:id',
+    DetailsPath: '/shipment/fleetdetail/',
     EditPath: '/adminSettings/userDetails/',
     DeletePath: '/adminSettings/userDetails/',
     FakeData: FleetData,
