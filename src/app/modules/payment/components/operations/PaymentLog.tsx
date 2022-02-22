@@ -31,7 +31,7 @@ export function PaymentLog() {
         accessor: 'TransactionId',
       },
     ],
-    DetailsPath: '/payment/paymentLogDetails/:PaymentId/',
+    DetailsPath: '/payment/paymentLogDetails/',
     EditPath: '/adminSettings/userDetails/',
     DeletePath: '/adminSettings/userDetails/',
     FakeData: PaymentLog_Data,

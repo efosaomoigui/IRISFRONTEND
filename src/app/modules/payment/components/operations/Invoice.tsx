@@ -33,7 +33,7 @@ export function Invoice() {
         accessor: 'PaymentMethod',
       },
     ],
-    DetailsPath: '/payment/invoiceDetail/:Id',
+    DetailsPath: '/payment/invoiceDetail/',
     EditPath: '/adminSettings/userDetails/',
     DeletePath: '/adminSettings/userDetails/',
     FakeData: Invoice_Data,
