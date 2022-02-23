@@ -11,8 +11,8 @@ const InputField = ({label, ...props}: Props) => {
 
   return (
     <TextField
-      // sx={{m: 1, lineHeight: 50}}
       margin="normal"
+      variant='outlined'
       fullWidth
       label={label}
       {...field}

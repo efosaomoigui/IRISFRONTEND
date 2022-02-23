@@ -1,4 +1,4 @@
-import {Button, Step, StepLabel, Stepper} from '@material-ui/core'
+import {Box, Button, Step, StepLabel, Stepper} from '@material-ui/core'
 import {makeStyles} from '@material-ui/core/styles'
 
 import {Form, Formik, FormikConfig, FormikHelpers, FormikValues} from 'formik'
@@ -15,6 +15,7 @@ import {StepIconProps} from '@mui/material/StepIcon'
 import {styled} from '@mui/material/styles'
 import Stack from '@mui/material/Stack'
 import {Grid, Typography} from '@material-ui/core'
+import { ColorlibConnector, ColorlibStepIconRoot } from '../../shipmentmanagement/components/capture/CaptureStyles'
 
 const useStyles = makeStyles({
   rootx: {
@@ -62,52 +63,7 @@ const MultiStepForm = ({children, initialValues, onSubmit}: Props) => {
     }
   }
 
-  const ColorlibConnector = styled(StepConnector)(({theme}) => ({
-    [`&.${stepConnectorClasses.alternativeLabel}`]: {
-      top: 22,
-    },
-    [`&.${stepConnectorClasses.active}`]: {
-      [`& .${stepConnectorClasses.line}`]: {
-        backgroundImage:
-          'linear-gradient( 95deg,rgb(242,113,33) 0%,rgb(233,64,87) 50%,rgb(138,35,135) 100%)',
-      },
-    },
-    [`&.${stepConnectorClasses.completed}`]: {
-      [`& .${stepConnectorClasses.line}`]: {
-        backgroundImage:
-          'linear-gradient( 95deg,rgb(242,113,33) 0%,rgb(233,64,87) 50%,rgb(138,35,135) 100%)',
-      },
-    },
-    [`& .${stepConnectorClasses.line}`]: {
-      height: 3,
-      border: 0,
-      backgroundColor: theme.palette.mode === 'dark' ? theme.palette.grey[800] : '#eaeaf0',
-      borderRadius: 1,
-    },
-  }))
 
-  const ColorlibStepIconRoot = styled('div')<{
-    ownerState: {completed?: boolean; active?: boolean}
-  }>(({theme, ownerState}) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? theme.palette.grey[700] : '#ccc',
-    zIndex: 1,
-    color: '#fff',
-    width: 50,
-    height: 50,
-    display: 'flex',
-    borderRadius: '50%',
-    justifyContent: 'center',
-    alignItems: 'center',
-    ...(ownerState.active && {
-      backgroundImage:
-        'linear-gradient( 136deg, rgb(242,113,33) 0%, rgb(233,64,87) 50%, rgb(138,35,135) 100%)',
-      boxShadow: '0 4px 10px 0 rgba(0,0,0,.25)',
-    }),
-    ...(ownerState.completed && {
-      backgroundImage:
-        'linear-gradient( 136deg, rgb(242,113,33) 0%, rgb(233,64,87) 50%, rgb(138,35,135) 100%)',
-    }),
-  }))
 
   function ColorlibStepIcon(props: StepIconProps) {
     const {active, completed, className} = props
@@ -140,7 +96,7 @@ const MultiStepForm = ({children, initialValues, onSubmit}: Props) => {
                 return (
                   <Step key={label}>
                     <StepLabel StepIconComponent={ColorlibStepIcon}>
-                      <Typography variant='h5' component='h5'>
+                      <Typography variant='h5' component='h5' >
                         {label}
                       </Typography>
                     </StepLabel>

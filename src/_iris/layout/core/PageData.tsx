@@ -15,18 +15,29 @@ export interface PageDataContextModel {
   setPageDescription: (_description: string) => void
   pageBreadcrumbs?: Array<PageLink>
   setPageBreadcrumbs: (_breadcrumbs: Array<PageLink>) => void
+  entityDetailValues?:any
+  setEntityDetailValues?: (detailsList:any[]) => any
+  handleSelectValues?:(_entityDetailValues:any)=>any
+  selectUrlParam?:string
+  setSelectUrlParam?:(urlparam: string) =>void
 }
 
 const PageDataContext = createContext<PageDataContextModel>({
   setPageTitle: (_title: string) => {},
   setPageBreadcrumbs: (_breadcrumbs: Array<PageLink>) => {},
   setPageDescription: (_description: string) => {},
-})
+  setEntityDetailValues: (detailId:Array<any>) => {},
+  handleSelectValues:(_entityDetailValues:Array<any>)=>{},
+  setSelectUrlParam:(urlparam: string) =>{} 
+}) 
 
 const PageDataProvider: React.FC = ({children}) => {
   const [pageTitle, setPageTitle] = useState<string>('')
   const [pageDescription, setPageDescription] = useState<string>('')
   const [pageBreadcrumbs, setPageBreadcrumbs] = useState<Array<PageLink>>([])
+  const [entityDetailValues, setEntityDetailValues] = useState<any[]>([])
+  const [selectUrlParam, setSelectUrlParam] = useState<string>('')
+
   const value: PageDataContextModel = {
     pageTitle,
     setPageTitle,
@@ -34,6 +45,10 @@ const PageDataProvider: React.FC = ({children}) => {
     setPageDescription,
     pageBreadcrumbs,
     setPageBreadcrumbs,
+    entityDetailValues,
+    setEntityDetailValues,
+    selectUrlParam,
+    setSelectUrlParam
   }
   return <PageDataContext.Provider value={value}>{children}</PageDataContext.Provider>
 }

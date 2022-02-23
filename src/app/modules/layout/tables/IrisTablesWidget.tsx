@@ -1,5 +1,7 @@
 import React from 'react'
 import {KTSVG} from '../../../../_iris/helpers'
+import { usePageData } from '../../../../_iris/layout/core'
+import { IUserModel } from '../../auth/models/AuthInterfaces'
 import {GenericTable} from './GenericTable'
 import IrisTableHeading, {madalprops} from './IrisTableTitle'
 //import styled from 'styled-components'
@@ -41,8 +43,7 @@ const IrisTablesWidget: React.FC<Props> = ({
   ModalTarget,
 }) => {
   const tabledata = UseFakeData ? FakeData : tableData
-
-  // console.log('==>', tableData)
+  const {entityDetailValues, setEntityDetailValues, selectUrlParam, setSelectUrlParam} = usePageData()
 
   return (
     <div className={`card ${className}`}>

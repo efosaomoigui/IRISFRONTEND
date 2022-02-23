@@ -66,7 +66,9 @@ const MasterLayout: React.FC = ({children}) => {
       {/* <InviteUsers /> */}
 
       {/* custom modals for iris */}
-      <AddUserModal />
+      <AddUserModal handleSelect={function (): void {
+        throw new Error('Function not implemented.')
+      } } SelectedValues={[]} />
       <AddWalletModal />
       <AddWalletTransactionModal />
       <AddFleetModal />

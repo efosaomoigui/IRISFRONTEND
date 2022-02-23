@@ -8,8 +8,6 @@ import IrisTextInput from '../../layout/forms/IrisTextInput'
 import IrisSelectInput from '../../layout/forms/IrisSelectInput'
 
 
-
-
 // interface Props {
 //   userVal: IUserModel
 // }
@@ -17,6 +15,7 @@ import IrisSelectInput from '../../layout/forms/IrisSelectInput'
 interface Props<Values> {
   onSubmit: (values: Values, formikHelpers: FormikHelpers<Values>) => void | Promise<any>
   isSubmitting: boolean
+  user?:IUserModel  //change here by Mr Efe
 }
 
 const options = [
@@ -27,14 +26,15 @@ const options = [
 ]
 
 export default function AddUserForm(props: Props<IUserModel>) {
+
   const initialFormValue: IUserModel = {
-    userId: '',
-    userName: '',
-    password: '',
-    firstName: '',
-    lastName: '',
-    email: '',
-    phonenumber: '',
+    userId: props.user? props.user!.userId : '',
+    userName: props.user? props.user!.userName : '',
+    password: props.user? props.user!.password : '',
+    firstName: props.user? props.user!.firstName : '',
+    lastName: props.user? props.user!.lastName : '',
+    email: props.user? props.user!.email : '',
+    phonenumber: props.user? props.user!.phonenumber : '',
   }
 
   const validationSchema = Yup.object({
@@ -100,26 +100,11 @@ export default function AddUserForm(props: Props<IUserModel>) {
                   label='Phone Number'
                 />
 
-                {/* <IrisDatePicker
-                  placeholderText='Date'
-                  name='date'
-                  showTimeSelect
-                  timeCaption='time'
-                  dateFormat='MMM d, yyyy h:mm: aa'
-                /> */}
-
                 <IrisTextInput
                   type='password'
                   placeholder='Password'
                   name='password'
                   label='Password'
-                />
-
-                <IrisSelectInput
-                  options={options}
-                  placeholder='category'
-                  name='category'
-                  label='Category'
                 />
 
               </div>

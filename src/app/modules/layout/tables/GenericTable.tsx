@@ -1,5 +1,6 @@
-import React, {useMemo} from 'react'
+import React, {useEffect, useMemo} from 'react'
 import {useTable, useSortBy, useGlobalFilter, usePagination, useRowSelect} from 'react-table'
+import {usePageData} from '../../../../_iris/layout/core'
 import {IUserModel} from '../../auth/models/AuthInterfaces'
 import './CustomTable.css'
 // import 'bootstrap/dist/css/bootstrap.min.css';
@@ -49,7 +50,14 @@ const GenericTable = ({irisData, columnsMap, DetailsPath, EditPath, DeletePath}:
     state,
     setGlobalFilter,
   } = tableInstance
+
   const {globalFilter, pageIndex, pageSize} = state
+  const {entityDetailValues, setEntityDetailValues, selectUrlParam, setSelectUrlParam} =
+    usePageData()
+
+  useEffect(() => {
+    setEntityDetailValues!(irisData)
+  },[])
 
   return (
     <div>
@@ -81,8 +89,8 @@ const GenericTable = ({irisData, columnsMap, DetailsPath, EditPath, DeletePath}:
 
                 <td>
                   <TableActionLinks
-                    DetailsPath={`${DetailsPath+row.cells[0].value}`}
-                    EditPath={`${EditPath+row.cells[0].value}`}
+                    DetailsPath={`${DetailsPath + row.cells[0].value}`}
+                    EditPath={`${EditPath}`}
                     DeletePath={'#'}
                   />
                 </td>
@@ -122,11 +130,7 @@ const GenericTable = ({irisData, columnsMap, DetailsPath, EditPath, DeletePath}:
         <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
           {'<<'}
         </button>
-        <button
-          className=''
-          onClick={() => previousPage()}
-          disabled={!canPreviousPage}
-        >
+        <button className='' onClick={() => previousPage()} disabled={!canPreviousPage}>
           Previous
         </button>{' '}
         <button className='' onClick={() => nextPage()} disabled={!canNextPage}>

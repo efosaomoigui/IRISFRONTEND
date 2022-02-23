@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import agent from '../../../../../../setup/axios/AxiosAgent'
+import { usePageData } from '../../../../../../_iris/layout/core'
 import { IUserModel } from '../../../../auth/models/AuthInterfaces'
 import { IrisTablesWidget } from '../../../../layout/tables/IrisTablesWidget'
 import { madalprops } from '../../../../layout/tables/IrisTableTitle'
@@ -10,6 +11,7 @@ export function ViewUsers() {
   const [loading, setLoading] = useState(true)
   const [modalTarger, setModalTarget] = useState<madalprops[]>([]);
   const [usersmodel, setUsersModel] = useState<IUserModel[]>([])
+
 
   //all the data for the table
   const tableProvider = {
@@ -41,7 +43,7 @@ export function ViewUsers() {
       },
     ],
     DetailsPath: '/adminSettings/userDetails/',
-    EditPath: '/adminSettings/userDetails/',
+    EditPath: '#kt_modal_adduser',
     DeletePath: '/adminSettings/userDetails/',
     FakeData: User_Data,
   }

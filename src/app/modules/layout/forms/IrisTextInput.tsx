@@ -7,6 +7,7 @@ interface Props {
   name: string
   type?:string
   label?: string
+  value?:string
 }
 
 export default function IrisTextInput(props: Props) {
