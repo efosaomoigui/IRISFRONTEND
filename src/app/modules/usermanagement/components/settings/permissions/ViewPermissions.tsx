@@ -23,20 +23,16 @@ export function ViewPermissions() {
           Header: 'Role Id',
           accessor: 'roleId',
         },
-      {
-        Header: 'Permission id',
-        accessor: 'PermissionId',
-      },
         {
           Header: 'Permission Type',
-          accessor: 'PermissionType',
+          accessor: 'claimType',
         },
         {
           Header: 'Permission',
-          accessor: 'Permission',
+          accessor: 'claimValue',
         },
     ],
-    DetailsPath: '/admin/permissionDetails/:id',
+    DetailsPath: '/admin/permissionDetails/',
     EditPath: '',
     DeletePath: '',
     FakeData: Permission_Data,

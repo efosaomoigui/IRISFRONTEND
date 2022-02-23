@@ -24,7 +24,7 @@ export function ManifestDetail() {
         <div className='card mb-5 mb-xl-10' id='kt_profile_details_view'>
           <div className='card-header cursor-pointer'>
             <div className='card-title m-0'>
-              <h3 className='fw-bolder m-0'>Profile Details</h3>
+              <h3 className='fw-bolder m-0'>Manifest Details</h3>
             </div>
 
             <Link to='/adminSettings/settings' className='btn btn-primary align-self-center'>
@@ -111,7 +111,7 @@ export function ManifestDetail() {
             </div>
             </>}
 
-            {!manifestdetails && <><h4>Sorry, Role does not exit!</h4></>}
+            {!manifestdetails && <><h4>Sorry, Manifest does not exit!</h4></>}
 
           </div>
         </div>

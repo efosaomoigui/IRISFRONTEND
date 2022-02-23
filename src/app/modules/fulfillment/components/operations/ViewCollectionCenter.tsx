@@ -58,6 +58,11 @@ export function CollectionCenter() {
     })
   }, [])
 
+  const ModalTargetDetails: madalprops = {
+    linkTarget : tableProvider.EditPath,
+    linkTitle : ""
+  }
+
   // console.log(usersmodel);
 
   // if (loading) return <LoadingComponent content='Loading...' />

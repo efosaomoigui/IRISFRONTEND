@@ -6,16 +6,16 @@ import { IWalletModel, IWalletTransactionModel } from '../../Models/WalletInterf
 
 export function WalletTransactionDetail() {
   let { wallettransactionId } = useParams<{ wallettransactionId: string}>()
-  const [wallettranscationdetails, setRoleDetails] = useState<IWalletTransactionModel>()
+  const [wallettranscationdetails, setWalletDetails] = useState<IWalletTransactionModel>()
 
-  function getRole(wallettransactionid: string) {
+  function getWallet(wallettransactionid: string) {
     agent.WalletTransaction.details(wallettransactionid).then((response) => {
-      setRoleDetails(response)
+      setWalletDetails(response)
     })
   }
 
   useEffect(() => {
-    getRole(wallettransactionId)
+    getWallet(wallettransactionId)
   }, [wallettransactionId])
 
   return (
@@ -24,18 +24,18 @@ export function WalletTransactionDetail() {
         <div className='card mb-5 mb-xl-10' id='kt_profile_details_view'>
           <div className='card-header cursor-pointer'>
             <div className='card-title m-0'>
-              <h3 className='fw-bolder m-0'>Profile Details</h3>
+              <h3 className='fw-bolder m-0'>Wallet Transaction Details</h3>
             </div>
 
             <Link to='/adminSettings/settings' className='btn btn-primary align-self-center'>
-              Edit Role
+              Edit Wallet Transaction
             </Link>
           </div>
 
           <div className='card-body p-9'>
             {wallettranscationdetails && <>
             <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>Permission Name</label>
+              <label className='col-lg-4 fw-bold text-muted'>Wallet Transaction Name</label>
 
               <div className='col-lg-8'>
                 <span className='fw-bolder fs-6 text-dark'>
@@ -43,65 +43,62 @@ export function WalletTransactionDetail() {
                 </span>
               </div>
             </div>
+              <div className='row mb-7'>
+                <label className='col-lg-4 fw-bold text-muted'>Wallet Transaction Name</label>
 
-            <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>Company</label>
-
-              <div className='col-lg-8 fv-row'>
-                <span className='fw-bold fs-6'>Chisco Express Ltd</span>
+                <div className='col-lg-8'>
+                  <span className='fw-bolder fs-6 text-dark'>
+                    {wallettranscationdetails?.WalletTransactionId}
+                  </span>
+                </div>
               </div>
-            </div>
+              <div className='row mb-7'>
+                <label className='col-lg-4 fw-bold text-muted'>Amount</label>
 
-            <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>
-                Contact Phone
-                <i
-                  className='fas fa-exclamation-circle ms-1 fs-7'
-                  data-bs-toggle='tooltip'
-                  title='Phone number must be active'
-                ></i>
-              </label>
-
-              <div className='col-lg-8 d-flex align-items-center'>
-                <span className='fw-bolder fs-6 me-2'>(070) 639 65528</span>
-
-                <span className='badge badge-success'>Verified</span>
+                <div className='col-lg-8'>
+                  <span className='fw-bolder fs-6 text-dark'>
+                    {wallettranscationdetails?.Amount}
+                  </span>
+                </div>
               </div>
-            </div>
+              <div className='row mb-7'>
+                <label className='col-lg-4 fw-bold text-muted'>Transaction Type</label>
 
-            <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>Company Site</label>
-
-              <div className='col-lg-8'>
-                <a href='#' className='fw-bold fs-6 text-dark text-hover-primary'>
-                  http://chiscoexpress.com
-                </a>
+                <div className='col-lg-8'>
+                  <span className='fw-bolder fs-6 text-dark'>
+                    {wallettranscationdetails?.TransactionType}
+                  </span>
+                </div>
               </div>
-            </div>
+              <div className='row mb-7'>
+                <label className='col-lg-4 fw-bold text-muted'>Description</label>
 
-            <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>
-                Country
-                <i
-                  className='fas fa-exclamation-circle ms-1 fs-7'
-                  data-bs-toggle='tooltip'
-                  title='Country of origination'
-                ></i>
-              </label>
-
-              <div className='col-lg-8'>
-                <span className='fw-bolder fs-6 text-dark'>Nigeria</span>
+                <div className='col-lg-8'>
+                  <span className='fw-bolder fs-6 text-dark'>
+                    {wallettranscationdetails?.Description}
+                  </span>
+                </div>
               </div>
-            </div>
+              <div className='row mb-7'>
+                <label className='col-lg-4 fw-bold text-muted'>Wallet Number</label>
 
-            <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>Communication</label>
-
-              <div className='col-lg-8'>
-                <span className='fw-bolder fs-6 text-dark'>Email, Phone</span>
+                <div className='col-lg-8'>
+                  <span className='fw-bolder fs-6 text-dark'>
+                    {wallettranscationdetails?.WalletNumber}
+                  </span>
+                </div>
               </div>
-            </div>
+              <div className='row mb-7'>
+                <label className='col-lg-4 fw-bold text-muted'>Date Created</label>
 
+                <div className='col-lg-8'>
+                  <span className='fw-bolder fs-6 text-dark'>
+                    {wallettranscationdetails?.DateCreated}
+                  </span>
+                </div>
+              </div>
+
+            
             <div className='row mb-10'>
               <label className='col-lg-4 fw-bold text-muted'>Allow Changes</label>
 
@@ -111,7 +108,7 @@ export function WalletTransactionDetail() {
             </div>
             </>}
 
-            {!wallettranscationdetails && <><h4>Sorry, Role does not exit!</h4></>}
+            {!wallettranscationdetails && <><h4>Sorry, Wallet Transaction does not exit!</h4></>}
 
           </div>
         </div>

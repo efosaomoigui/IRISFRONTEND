@@ -13,7 +13,7 @@ const AddRouteModal: React.FC = () => {
 
   const onSubmit = (values: IRouteModel) => {
     setIsSubmitting(true)
-    values.routId = uuid()
+    values.RouteId = uuid()
     agent.Route.create(values).then((response) => {
       toast.success("User Creation Was Successful!");
       // console.log(response)

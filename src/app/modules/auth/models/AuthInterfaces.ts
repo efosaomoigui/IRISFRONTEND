@@ -29,9 +29,7 @@ export interface IRoleModel {
 }
 
 export interface IPermissionModel {
-  id: string
   roleId: string
-  PermissionId: string
-  PermissionType: string
-  Permission: string
+  claimType: string 
+  claimValue: string
 }

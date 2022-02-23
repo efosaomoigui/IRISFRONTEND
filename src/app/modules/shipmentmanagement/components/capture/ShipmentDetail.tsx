@@ -6,16 +6,16 @@ import { IShipmentModel } from '../../ShipmentModels/ShipmentInterfaces'
 
 export function ShipmentDetail() {
   let { ShipmentId } = useParams<{ ShipmentId: string}>()
-  const [shipmentdetails, setRoleDetails] = useState<IShipmentModel>()
+  const [shipmentdetails, setShipmentDetails] = useState<IShipmentModel>()
 
-  function getRole(shipmentId: string) {
+  function getShipment(shipmentId: string) {
     agent.Shipment.details(ShipmentId).then((response) => {
-      setRoleDetails(response)
+      setShipmentDetails(response)
     })
   }
 
   useEffect(() => {
-    getRole(ShipmentId)
+    getShipment(ShipmentId)
   }, [ShipmentId])
 
   return (
@@ -24,18 +24,18 @@ export function ShipmentDetail() {
         <div className='card mb-5 mb-xl-10' id='kt_profile_details_view'>
           <div className='card-header cursor-pointer'>
             <div className='card-title m-0'>
-              <h3 className='fw-bolder m-0'>Profile Details</h3>
+              <h3 className='fw-bolder m-0'>Shipment Details</h3>
             </div>
 
             <Link to='/adminSettings/settings' className='btn btn-primary align-self-center'>
-              Edit Role
+              Edit Shipment
             </Link>
           </div>
 
           <div className='card-body p-9'>
             {shipmentdetails && <>
             <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>Permission Name</label>
+              <label className='col-lg-4 fw-bold text-muted'>Shipment Name</label>
 
               <div className='col-lg-8'>
                 <span className='fw-bolder fs-6 text-dark'>
@@ -43,64 +43,79 @@ export function ShipmentDetail() {
                 </span>
               </div>
             </div>
+              <div className='row mb-7'>
+                <label className='col-lg-4 fw-bold text-muted'>Shipment Name</label>
 
-            <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>Company</label>
-
-              <div className='col-lg-8 fv-row'>
-                <span className='fw-bold fs-6'>Chisco Express Ltd</span>
+                <div className='col-lg-8'>
+                  <span className='fw-bolder fs-6 text-dark'>
+                    {shipmentdetails?.ShipmentId}
+                  </span>
+                </div>
               </div>
-            </div>
+              <div className='row mb-7'>
+                <label className='col-lg-4 fw-bold text-muted'>Waybill</label>
 
-            <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>
-                Contact Phone
-                <i
-                  className='fas fa-exclamation-circle ms-1 fs-7'
-                  data-bs-toggle='tooltip'
-                  title='Phone number must be active'
-                ></i>
-              </label>
-
-              <div className='col-lg-8 d-flex align-items-center'>
-                <span className='fw-bolder fs-6 me-2'>(070) 639 65528</span>
-
-                <span className='badge badge-success'>Verified</span>
+                <div className='col-lg-8'>
+                  <span className='fw-bolder fs-6 text-dark'>
+                    {shipmentdetails?.Waybill}
+                  </span>
+                </div>
               </div>
-            </div>
+              <div className='row mb-7'>
+                <label className='col-lg-4 fw-bold text-muted'>Customer</label>
 
-            <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>Company Site</label>
-
-              <div className='col-lg-8'>
-                <a href='#' className='fw-bold fs-6 text-dark text-hover-primary'>
-                  http://chiscoexpress.com
-                </a>
+                <div className='col-lg-8'>
+                  <span className='fw-bolder fs-6 text-dark'>
+                    {shipmentdetails?.Customer}
+                  </span>
+                </div>
               </div>
-            </div>
+              <div className='row mb-7'>
+                <label className='col-lg-4 fw-bold text-muted'>Address Id</label>
 
-            <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>
-                Country
-                <i
-                  className='fas fa-exclamation-circle ms-1 fs-7'
-                  data-bs-toggle='tooltip'
-                  title='Country of origination'
-                ></i>
-              </label>
-
-              <div className='col-lg-8'>
-                <span className='fw-bolder fs-6 text-dark'>Nigeria</span>
+                <div className='col-lg-8'>
+                  <span className='fw-bolder fs-6 text-dark'>
+                    {shipmentdetails?.AddressId}
+                  </span>
+                </div>
               </div>
-            </div>
+              <div className='row mb-7'>
+                <label className='col-lg-4 fw-bold text-muted'>Reciever</label>
 
-            <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>Communication</label>
-
-              <div className='col-lg-8'>
-                <span className='fw-bolder fs-6 text-dark'>Email, Phone</span>
+                <div className='col-lg-8'>
+                  <span className='fw-bolder fs-6 text-dark'>
+                    {shipmentdetails?.Reciever}
+                  </span>
+                </div>
               </div>
-            </div>
+              <div className='row mb-7'>
+                <label className='col-lg-4 fw-bold text-muted'>Reciever Address</label>
+
+                <div className='col-lg-8'>
+                  <span className='fw-bolder fs-6 text-dark'>
+                    {shipmentdetails?.RecieverAddress}
+                  </span>
+                </div>
+              </div>
+              <div className='row mb-7'>
+                <label className='col-lg-4 fw-bold text-muted'>Pick Up Options</label>
+
+                <div className='col-lg-8'>
+                  <span className='fw-bolder fs-6 text-dark'>
+                    {shipmentdetails?.PickUpOptions}
+                  </span>
+                </div>
+              </div>
+              <div className='row mb-7'>
+                <label className='col-lg-4 fw-bold text-muted'>Shipment Items</label>
+
+                <div className='col-lg-8'>
+                  <span className='fw-bolder fs-6 text-dark'>
+                    {shipmentdetails?.ShipmentItems}
+                  </span>
+                </div>
+              </div>
+            
 
             <div className='row mb-10'>
               <label className='col-lg-4 fw-bold text-muted'>Allow Changes</label>
@@ -111,7 +126,7 @@ export function ShipmentDetail() {
             </div>
             </>}
 
-            {!shipmentdetails && <><h4>Sorry, Role does not exit!</h4></>}
+            {!shipmentdetails && <><h4>Sorry, Shipment does not exit!</h4></>}
 
           </div>
         </div>

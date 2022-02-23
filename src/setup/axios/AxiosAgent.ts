@@ -54,10 +54,10 @@ const Roles = {
   delete: (id: string) => request.del<void>(`${API_URL}/UserManagement/GetUser${id}`),
 }
 const Permissions = {
-  list: () => request.get<IPermissionModel[]>(`${API_URL}/UserManagement/GetUser`),
-  details: (permissionid: string) => request.get<IPermissionModel>(`${API_URL}/UserManagement/GetUser/${permissionid}`),
+  list: () => request.get<IPermissionModel[]>(`${API_URL}/UserManagement/GetPermissions`),
+  details: (roleId: string) => request.get<IPermissionModel>(`${API_URL}/UserManagement/GetPermissions/${roleId}`),
   create: (permission: IPermissionModel) => request.post<IPermissionModel>(`${API_URL}/UserManagement/AddPermissionToRole`, permission),
-  update: (permission: IPermissionModel) => request.put<IPermissionModel>(`${API_URL}/UserManagement/GetUser/${permission.id}`, {}),
+  update: (permission: IPermissionModel) => request.put<IPermissionModel>(`${API_URL}/UserManagement/GetUser/${permission.roleId}`, {}),
   delete: (id: string) => request.del<void>(`${API_URL}/UserManagement/GetUser${id}`),
 }
 
@@ -84,7 +84,7 @@ const  Route = {
   list: () => request.get<IRouteModel[]>(`${API_URL}/ShipmentSettings/Route/all`),
   details: (routeid: string) => request.get<IRouteModel>(`${API_URL}/ShipmentSettings/Route/GetRouteById/${routeid}`), 
   create: (route: IRouteModel) => request.post<IRouteModel>(`${API_URL}/ShipmentSettings/Route`, route), 
-  update: (route: IRouteModel) => request.put<IRouteModel>(`${API_URL}/ShipmentSettings/Route/${route.routId}`, {}), 
+  update: (route: IRouteModel) => request.put<IRouteModel>(`${API_URL}/ShipmentSettings/Route/${route.RouteId}`, {}), 
   delete: (id: string) => request.del<void>(`${API_URL}/ShipmentSettings/Route/${id}`), 
 }
 

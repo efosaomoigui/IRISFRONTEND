@@ -1,21 +1,21 @@
 import {useEffect, useState} from 'react'
 import {Link, useParams} from 'react-router-dom'
 import agent from '../../../../../setup/axios/AxiosAgent'
-import { IFleetModel, IShipmentModel } from '../../ShipmentModels/ShipmentInterfaces'
+import { IFleetModel } from '../../ShipmentModels/ShipmentInterfaces'
 
 
 export function FleetDetail() {
   let { fleetid } = useParams<{ fleetid: string}>()
-  const [fleetdetails, setRoleDetails] = useState<IFleetModel>()
+  const [fleetdetails, setFleetDetails] = useState<IFleetModel>()
 
-  function getRole(shipmentId: string) {
+  function getFleet(shipmentId: string) {
     agent.Fleet.details(fleetid).then((response) => {
-      setRoleDetails(response)
+      setFleetDetails(response)
     })
   }
 
   useEffect(() => {
-    getRole(fleetid)
+    getFleet(fleetid)
   }, [fleetid])
 
   return (
@@ -24,7 +24,7 @@ export function FleetDetail() {
         <div className='card mb-5 mb-xl-10' id='kt_profile_details_view'>
           <div className='card-header cursor-pointer'>
             <div className='card-title m-0'>
-              <h3 className='fw-bolder m-0'>Profile Details</h3>
+              <h3 className='fw-bolder m-0'>Fleet Details</h3>
             </div>
 
             <Link to='/adminSettings/settings' className='btn btn-primary align-self-center'>
@@ -35,7 +35,7 @@ export function FleetDetail() {
           <div className='card-body p-9'>
             {fleetdetails && <>
             <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>Permission Name</label>
+              <label className='col-lg-4 fw-bold text-muted'>Fleet Name</label>
 
               <div className='col-lg-8'>
                 <span className='fw-bolder fs-6 text-dark'>
@@ -44,63 +44,57 @@ export function FleetDetail() {
               </div>
             </div>
 
-            <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>Company</label>
+              <div className='row mb-7'>
+                <label className='col-lg-4 fw-bold text-muted'>Registration Name</label>
 
-              <div className='col-lg-8 fv-row'>
-                <span className='fw-bold fs-6'>Chisco Express Ltd</span>
+                <div className='col-lg-8'>
+                  <span className='fw-bolder fs-6 text-dark'>
+                    {fleetdetails?.registration_Number}
+                  </span>
+                </div>
               </div>
-            </div>
 
-            <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>
-                Contact Phone
-                <i
-                  className='fas fa-exclamation-circle ms-1 fs-7'
-                  data-bs-toggle='tooltip'
-                  title='Phone number must be active'
-                ></i>
-              </label>
+              <div className='row mb-7'>
+                <label className='col-lg-4 fw-bold text-muted'>chasis Number</label>
 
-              <div className='col-lg-8 d-flex align-items-center'>
-                <span className='fw-bolder fs-6 me-2'>(070) 639 65528</span>
-
-                <span className='badge badge-success'>Verified</span>
+                <div className='col-lg-8'>
+                  <span className='fw-bolder fs-6 text-dark'>
+                    {fleetdetails?.chasis_Number}
+                  </span>
+                </div>
               </div>
-            </div>
 
-            <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>Company Site</label>
+              <div className='row mb-7'>
+                <label className='col-lg-4 fw-bold text-muted'>fleet Type</label>
 
-              <div className='col-lg-8'>
-                <a href='#' className='fw-bold fs-6 text-dark text-hover-primary'>
-                  http://chiscoexpress.com
-                </a>
+                <div className='col-lg-8'>
+                  <span className='fw-bolder fs-6 text-dark'>
+                    {fleetdetails?.fleet_Type}
+                  </span>
+                </div>
               </div>
-            </div>
 
-            <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>
-                Country
-                <i
-                  className='fas fa-exclamation-circle ms-1 fs-7'
-                  data-bs-toggle='tooltip'
-                  title='Country of origination'
-                ></i>
-              </label>
+              <div className='row mb-7'>
+                <label className='col-lg-4 fw-bold text-muted'>capacity</label>
 
-              <div className='col-lg-8'>
-                <span className='fw-bolder fs-6 text-dark'>Nigeria</span>
+                <div className='col-lg-8'>
+                  <span className='fw-bolder fs-6 text-dark'>
+                    {fleetdetails?.capacity}
+                  </span>
+                </div>
               </div>
-            </div>
 
-            <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>Communication</label>
+              <div className='row mb-7'>
+                <label className='col-lg-4 fw-bold text-muted'>description</label>
 
-              <div className='col-lg-8'>
-                <span className='fw-bolder fs-6 text-dark'>Email, Phone</span>
+                <div className='col-lg-8'>
+                  <span className='fw-bolder fs-6 text-dark'>
+                    {fleetdetails?.description}
+                  </span>
+                </div>
               </div>
-            </div>
+
+            
 
             <div className='row mb-10'>
               <label className='col-lg-4 fw-bold text-muted'>Allow Changes</label>
@@ -111,7 +105,7 @@ export function FleetDetail() {
             </div>
             </>}
 
-            {!fleetdetails && <><h4>Sorry, Role does not exit!</h4></>}
+            {!fleetdetails && <><h4>Sorry, Fleet does not exit!</h4></>}
 
           </div>
         </div>

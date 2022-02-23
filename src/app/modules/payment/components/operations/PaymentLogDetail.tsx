@@ -45,6 +45,48 @@ export function PaymentLogDetail() {
             </div>
 
             <div className='row mb-7'>
+              <label className='col-lg-4 fw-bold text-muted'>Amount</label>
+
+              <div className='col-lg-8'>
+                <span className='fw-bolder fs-6 text-dark'>
+                  {paymentLogdetails?.Amount}
+                </span>
+              </div>
+            </div>
+
+            <div className='row mb-7'>
+              <label className='col-lg-4 fw-bold text-muted'>Payment Method</label>
+
+              <div className='col-lg-8'>
+                <span className='fw-bolder fs-6 text-dark'>
+                  {paymentLogdetails?.PaymentMethod}
+                </span>
+              </div>
+            </div>
+
+            <div className='row mb-7'>
+              <label className='col-lg-4 fw-bold text-muted'>Transaction Id</label>
+
+              <div className='col-lg-8'>
+                <span className='fw-bolder fs-6 text-dark'>
+                  {paymentLogdetails?.TransactionId}
+                </span>
+              </div>
+            </div>
+
+            <div className='row mb-7'>
+              <label className='col-lg-4 fw-bold text-muted'>User</label>
+
+              <div className='col-lg-8'>
+                <span className='fw-bolder fs-6 text-dark'>
+                  {paymentLogdetails?.User}
+                </span>
+              </div>
+            </div>
+
+            
+
+            <div className='row mb-7'>
               <label className='col-lg-4 fw-bold text-muted'>Company</label>
 
               <div className='col-lg-8 fv-row'>
@@ -53,52 +95,43 @@ export function PaymentLogDetail() {
             </div>
 
             <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>
-                Contact Phone
-                <i
-                  className='fas fa-exclamation-circle ms-1 fs-7'
-                  data-bs-toggle='tooltip'
-                  title='Phone number must be active'
-                ></i>
-              </label>
+              <label className='col-lg-4 fw-bold text-muted'>Payment Id</label>
 
-              <div className='col-lg-8 d-flex align-items-center'>
-                <span className='fw-bolder fs-6 me-2'>(070) 639 65528</span>
-
-                <span className='badge badge-success'>Verified</span>
+              <div className='col-lg-8 fv-row'>
+                <span className='fw-bold fs-6'>42254-108</span>
               </div>
             </div>
 
             <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>Company Site</label>
+              <label className='col-lg-4 fw-bold text-muted'>Amount</label>
 
-              <div className='col-lg-8'>
-                <a href='#' className='fw-bold fs-6 text-dark text-hover-primary'>
-                  http://chiscoexpress.com
-                </a>
+              <div className='col-lg-8 fv-row'>
+                <span className='fw-bold fs-6'>$8.63</span>
               </div>
             </div>
 
             <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>
-                Country
-                <i
-                  className='fas fa-exclamation-circle ms-1 fs-7'
-                  data-bs-toggle='tooltip'
-                  title='Country of origination'
-                ></i>
-              </label>
+              <label className='col-lg-4 fw-bold text-muted'>PaymentMethod</label>
+
+              <div className='col-lg-8 fv-row'>
+                <span className='fw-bold fs-6'>uniform</span>
+              </div>
+            </div>
+
+
+            <div className='row mb-7'>
+              <label className='col-lg-4 fw-bold text-muted'>User</label>
 
               <div className='col-lg-8'>
-                <span className='fw-bolder fs-6 text-dark'>Nigeria</span>
+                <span className='fw-bolder fs-6 text-dark'>ncundict0</span>
               </div>
             </div>
 
             <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>Communication</label>
+              <label className='col-lg-4 fw-bold text-muted'>TransactionId</label>
 
               <div className='col-lg-8'>
-                <span className='fw-bolder fs-6 text-dark'>Email, Phone</span>
+                <span className='fw-bolder fs-6 text-dark'>43455-0001</span>
               </div>
             </div>
 

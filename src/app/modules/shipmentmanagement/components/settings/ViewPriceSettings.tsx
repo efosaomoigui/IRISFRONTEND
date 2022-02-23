@@ -35,7 +35,7 @@ export function ViewPriceSettings() {
         accessor: 'PricePErUnit',
       },
     ],
-    DetailsPath: '/shipment/pricesettingdetail/:id',
+    DetailsPath: '/shipment/pricesettingdetail/',
     EditPath: '/adminSettings/userDetails/',
     DeletePath: '/adminSettings/userDetails/',
     FakeData: PriceData,

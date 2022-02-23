@@ -73,7 +73,7 @@ const TablesWidgetRoute: React.FC<Props> = ({ route,className}) => {
             {/* begin::Table body */}
             <tbody>
                 {route.map((route) => (
-                <tr key={route.routId}>
+                  <tr key={route.RouteId}>
                   <td>
                     <div className='form-check form-check-sm form-check-custom form-check-solid'>
                       <input
@@ -90,12 +90,12 @@ const TablesWidgetRoute: React.FC<Props> = ({ route,className}) => {
                       </div>
                       <div className='d-flex justify-content-start flex-column'>
                         <a href='#' className='text-dark fw-bolder text-hover-primary fs-6'>
-                            {route.routeName} 
+                            {route.RouteName} 
                           {/* Fleet Manager */}
                         </a>
                         <span className='text-muted fw-bold text-muted d-block fs-7'>
                           {/* HTML, JS, ReactJS */}
-                            {route.depature}
+                            {route.Departure}
                         </span>
                       </div>
                     </div>
@@ -106,7 +106,7 @@ const TablesWidgetRoute: React.FC<Props> = ({ route,className}) => {
                     </a>
                     <span className='text-muted fw-bold text-muted d-block fs-7'>
                       {/* Web, UI/UX Design */}
-                        {route.destination}
+                        {route.Destination}
                     </span>
                   </td>
                   <td>
@@ -115,7 +115,7 @@ const TablesWidgetRoute: React.FC<Props> = ({ route,className}) => {
                     </a>
                     <span className='text-muted fw-bold text-muted d-block fs-7'>
                       {/* Web, UI/UX Design */}
-                        {route.dispatchFee}
+                        {route.DispatchFee}
                     </span>
                   </td>
                     <td>
@@ -124,7 +124,7 @@ const TablesWidgetRoute: React.FC<Props> = ({ route,className}) => {
                       </a>
                       <span className='text-muted fw-bold text-muted d-block fs-7'>
                         {/* Web, UI/UX Design */}
-                        {route.route_Type}
+                        {route.RouteType}
                       </span>
                     </td>
                   <td>
