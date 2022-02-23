@@ -58,6 +58,11 @@ export function ViewTrackHistory() {
     }
   ]
 
+  const ModalTargetDetails: madalprops = {
+    linkTarget: tableProvider.EditPath,
+    linkTitle: ""
+  }
+
   // //USE EFFECT HOOK
   useEffect(() => {
     agent.TrackHistory.list().then((response) => {

@@ -54,8 +54,8 @@ const Roles = {
   delete: (id: string) => request.del<void>(`${API_URL}/UserManagement/GetUser${id}`),
 }
 const Permissions = {
-  list: () => request.get<IPermissionModel[]>(`${API_URL}/UserManagement/GetUser`),
-  details: (roleId: string) => request.get<IPermissionModel>(`${API_URL}/UserManagement/GetUser/${roleId}`),
+  list: () => request.get<IPermissionModel[]>(`${API_URL}/UserManagement/GetPermissions`),
+  details: (roleId: string) => request.get<IPermissionModel>(`${API_URL}/UserManagement/GetPermissions/${roleId}`),
   create: (permission: IPermissionModel) => request.post<IPermissionModel>(`${API_URL}/UserManagement/AddPermissionToRole`, permission),
   update: (permission: IPermissionModel) => request.put<IPermissionModel>(`${API_URL}/UserManagement/GetUser/${permission.roleId}`, {}),
   delete: (id: string) => request.del<void>(`${API_URL}/UserManagement/GetUser${id}`),

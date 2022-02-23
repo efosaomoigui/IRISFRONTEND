@@ -41,7 +41,7 @@ export function ViewUsers() {
       },
     ],
     DetailsPath: '/adminSettings/userDetails/',
-    EditPath: '/adminSettings/userDetails/',
+    EditPath: '/#kt_modal_adduser',
     DeletePath: '/adminSettings/userDetails/',
     FakeData: User_Data,
   }
@@ -53,6 +53,8 @@ export function ViewUsers() {
       linkTarget: '#kt_modal_adduser'
     },
   ]
+
+  
 
   // //USE EFFECT HOOK
   useEffect(() => {

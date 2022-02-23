@@ -82,7 +82,7 @@ const GenericTable = ({irisData, columnsMap, DetailsPath, EditPath, DeletePath}:
                 <td>
                   <TableActionLinks
                     DetailsPath={`${DetailsPath+row.cells[0].value}`}
-                    EditPath={`${EditPath+row.cells[0].value}`}
+                    EditPath={`${EditPath+"/"+row.cells[0].value}`} 
                     DeletePath={'#'}
                   />
                 </td>
