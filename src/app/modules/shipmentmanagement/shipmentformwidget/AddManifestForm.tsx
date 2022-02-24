@@ -13,6 +13,7 @@ import { IManifestModel } from '../ShipmentModels/ShipmentInterfaces'
 interface Props<Values> {
     onSubmit: (values: Values, formikHelpers: FormikHelpers<Values>) => void | Promise<any>
     isSubmitting: boolean
+    manifest?: IManifestModel
 }
 
 const options = [
@@ -24,11 +25,11 @@ const options = [
 
 export default function AddFleetForm(props: Props<IManifestModel>) {
     const initialFormValue: IManifestModel = {
-        Id: '',
-        ManifestCode: '',
-        GroupWayBillId: '',
-        GroupWayBill: '',
-        UserId: ''
+        Id: props.manifest ? props.manifest!.Id : '',
+        ManifestCode: props.manifest ? props.manifest!.ManifestCode : '',
+        GroupWayBillId: props.manifest ? props.manifest!.GroupWayBillId : '',
+        GroupWayBill: props.manifest ? props.manifest!.GroupWayBill : '',
+        UserId: props.manifest ? props.manifest!.UserId : ''
     }
 
     const validationSchema = Yup.object({
@@ -87,55 +88,6 @@ export default function AddFleetForm(props: Props<IManifestModel>) {
                                     name='UserId'
                                     label='UserId'
                                 />
-                                {/* <IrisTextInput
-                                    type='text'
-                                    placeholder='Capacity'
-                                    name='capacity'
-                                    label='Capacity'
-                                /> */}
-
-                                {/* <IrisDatePicker
-                  placeholderText='Date'
-                  name='date'
-                  showTimeSelect
-                  timeCaption='time'
-                  dateFormat='MMM d, yyyy h:mm: aa'
-                /> */}
-
-                                {/* <IrisTextInput
-                                    type='text'
-                                    placeholder='Description'
-                                    name='description'
-                                    label='Description'
-                                />
-
-                                <IrisTextInput
-                                    type='text'
-                                    placeholder='Fleet Model'
-                                    name='fleetModel'
-                                    label='Fleet Model'
-                                />
-
-                                <IrisTextInput
-                                    type='text'
-                                    placeholder='Fleet Make'
-                                    name='fleetMake'
-                                    label='Fleet Make'
-                                />
-
-                                <IrisTextInput
-                                    type='number'
-                                    placeholder='Owner Id'
-                                    name='ownerId'
-                                    label='Owner Id'
-                                />
-
-                                <IrisSelectInput
-                                    options={options}
-                                    placeholder='category'
-                                    name='category'
-                                    label='Category'
-                                /> */}
                             </div>
 
                             <Modal.Footer>

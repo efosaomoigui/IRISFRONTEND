@@ -1,15 +1,16 @@
 
 export interface IFleetModel {
-    id: string;
-    registration_Number: string;
-    chasis_Number: number;
-    engine_Number: number;
-    fleet_Type: string;
-    capacity: string;
-    description: string;
-    fleet_Model: string;
-    fleet_Make: string;
-    owner_Id: string;
+    FleetId: string;
+    RegistrationNumber: string;
+    ChasisNumber: string;
+    EngineNumber: string;
+    Status: string;
+    FleetType: string;
+    Capacity: string;
+    Description: string;
+    FleetModel: string;
+    FleetMake: string;
+    OwnerId: string;
 }
 
 export interface IRouteModel {

@@ -14,6 +14,7 @@ import {IPriceModel} from '../ShipmentModels/ShipmentInterfaces'
 interface Props<Values> {
   onSubmit: (values: Values, formikHelpers: FormikHelpers<Values>) => void | Promise<any>
   isSubmitting: boolean
+  price?: IPriceModel
 }
 
 const options = [
@@ -25,12 +26,12 @@ const options = [
 
 export default function AddPriceForm(props: Props<IPriceModel>) {
   const initialFormValue: IPriceModel = {
-    id: '',
-    Category: '',
-    RouteId: '',
-    Route: '',
-    UnitWeight: 3,
-    PricePErUnit: ''
+    id: props.price ? props.price!.id : '',
+    Category: props.price ? props.price!.Category : '',
+    RouteId: props.price ? props.price!.RouteId : '',
+    Route: props.price ? props.price!.Route : '',
+    UnitWeight: props.price ? props.price!.UnitWeight : 3,
+    PricePErUnit: props.price ? props.price!.PricePErUnit : '',
   }
 
   const validationSchema = Yup.object({
@@ -98,18 +99,12 @@ export default function AddPriceForm(props: Props<IPriceModel>) {
                   label='PricePErUnit'
                 />
 
-                {/* <IrisDatePicker
-                  placeholderText='Date'
-                  name='date'
-                  showTimeSelect
-                  timeCaption='time'
-                  dateFormat='MMM d, yyyy h:mm: aa'
-                /> */}
+            
 
                 <IrisSelectInput
                   options={options}
                   placeholder='category'
-                  name='category'
+                  name='Category'
                   label='Category'
                 />
               </div>

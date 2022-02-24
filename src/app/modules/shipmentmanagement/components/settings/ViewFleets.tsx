@@ -60,7 +60,7 @@ export function ViewFleets() {
       },
         ],
     DetailsPath: '/shipment/fleetdetail/',
-    EditPath: '/adminSettings/userDetails/',
+    EditPath: '#kt_modal_addfleet',
     DeletePath: '/adminSettings/userDetails/',
     FakeData: FleetData,
   }

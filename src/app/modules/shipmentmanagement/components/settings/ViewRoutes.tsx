@@ -64,7 +64,7 @@ export function ViewRoutes() {
       },
     ],
     DetailsPath: '/shipment/routedetail/',
-    EditPath: '/adminSettings/userDetails/',
+    EditPath: '#kt_modal_addroute',
     DeletePath: '/adminSettings/userDetails/',
     FakeData: RouteData,
   }

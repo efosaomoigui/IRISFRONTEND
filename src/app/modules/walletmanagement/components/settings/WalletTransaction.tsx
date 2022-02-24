@@ -40,7 +40,7 @@ export function WalletTransaction() {
       },
     ],
     DetailsPath: '/wallet/wallettransactiondetails/',
-    EditPath: '/adminSettings/userDetails/',
+    EditPath: '#kt_modal_addwallettransaction',
     DeletePath: '/adminSettings/userDetails/',
     FakeData: WalletTransaction_Data,
   }

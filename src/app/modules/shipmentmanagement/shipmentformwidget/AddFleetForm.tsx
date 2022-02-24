@@ -14,6 +14,7 @@ import {IFleetModel} from '../ShipmentModels/ShipmentInterfaces'
 interface Props<Values> {
   onSubmit: (values: Values, formikHelpers: FormikHelpers<Values>) => void | Promise<any>
   isSubmitting: boolean
+  fleet?: IFleetModel
 }
 
 const options = [
@@ -25,29 +26,31 @@ const options = [
 
 export default function AddFleetForm(props: Props<IFleetModel>) {
   const initialFormValue: IFleetModel = {
-    id: '',
-    registration_Number: '',
-    chasis_Number: 4,
-    engine_Number: 504,
-    fleet_Type: '',
-    capacity: '',
-    description: '',
-    fleet_Model: '',
-    fleet_Make: '',
-    owner_Id: ''
+    FleetId: props.fleet ? props.fleet!.FleetId : '',
+    RegistrationNumber: props.fleet ? props.fleet!.RegistrationNumber : '',
+    ChasisNumber: props.fleet ? props.fleet!.ChasisNumber : '',
+    EngineNumber: props.fleet ? props.fleet!.EngineNumber : '',
+    Status: props.fleet ? props.fleet!.Status : '',
+    FleetType: props.fleet ? props.fleet!.FleetType : '',
+    Capacity: props.fleet ? props.fleet!.Capacity : '',
+    Description: props.fleet ? props.fleet!.Description : '',
+    FleetModel: props.fleet ? props.fleet!.FleetModel : '',
+    FleetMake: props.fleet ? props.fleet!.FleetMake : '',
+    OwnerId: props.fleet ? props.fleet!.OwnerId : '',
   }
 
   const validationSchema = Yup.object({
-    id: Yup.string().required(),
-    registration_Number: Yup.string().required(),
-    chasis_Number: Yup.number().required(),
-    engine_Number: Yup.number().required(),
-    fleet_Type: Yup.string().required(),
-    capacity: Yup.string().required(),
-    description: Yup.string().required(),
-    fleet_Model: Yup.string().required(),
-    fleet_Make: Yup.string().required(),
-    owner_Id: Yup.string().required(),
+    FleetId: Yup.string().required(),
+    RegistrationNumber: Yup.string().required(),
+    ChasisNumber: Yup.number().required(),
+    EngineNumber: Yup.number().required(),
+    Status: Yup.string().required(),
+    FleetType: Yup.string().required(),
+    Capacity: Yup.string().required(),
+    Description: Yup.string().required(),
+    FleetModel: Yup.string().required(),
+    FleetMake: Yup.string().required(),
+    OwnerId: Yup.string().required(),
   })
 
   return (
@@ -72,12 +75,12 @@ export default function AddFleetForm(props: Props<IFleetModel>) {
               </div>
 
               <div className='modal-body py-lg-10 px-lg-10'>
-                {/* <IrisTextInput
+                <IrisTextInput
                   type='text'
-                  name='id'
-                  placeholder='Id'
-                  label='Id'
-                /> */}
+                  name='FleetId'
+                  placeholder='FleetId'
+                  label='FleetId'
+                />
                 <IrisTextInput
                   type='number'
                   placeholder='Registration Number'

@@ -32,7 +32,7 @@ export function ViewWallet() {
       },
     ],
     DetailsPath: '/wallet/walletdetails/',
-    EditPath: '/adminSettings/userDetails/',
+    EditPath: '#kt_modal_addwallet',
     DeletePath: '/adminSettings/userDetails/',
     FakeData: Wallet_Data,
   }

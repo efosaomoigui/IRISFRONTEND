@@ -16,6 +16,7 @@ import IrisTextInput from '../../layout/forms/IrisTextInput'
 interface Props<Values> {
   onSubmit: (values: Values, formikHelpers: FormikHelpers<Values>) => void | Promise<any>
   isSubmitting: boolean
+  role?: IRoleModel
 }
 
 // const options = [
@@ -27,8 +28,8 @@ interface Props<Values> {
 
 export default function AddRoleForm(props: Props<IRoleModel>) {
   const initialFormValue: IRoleModel = {
-    id: '',
-    name: ''
+    id: props.role ? props.role!.id : '',
+    name: props.role ? props.role!.name : '',
   }
 
   const validationSchema = Yup.object({
@@ -64,24 +65,6 @@ export default function AddRoleForm(props: Props<IRoleModel>) {
                   placeholder='RoleId'
                   label='RoleId'
                 />
-                {/* <IrisTextInput
-                  type='text'
-                  placeholder='FirstName'
-                  name='firstName'
-                  label='First Name'
-                /> */}
-                {/* <IrisTextInput
-                  type='text'
-                  placeholder='Last Name'
-                  name='lastName'
-                  label='Last Name'
-                />
-                <IrisTextInput
-                  type='email'
-                  placeholder='Email'
-                  name='email'
-                  label='Email'
-                /> */}
 
                 <IrisTextInput
                   type='text'
@@ -89,28 +72,6 @@ export default function AddRoleForm(props: Props<IRoleModel>) {
                   name='name'
                   label='Role Name'
                 />
-
-                {/* <IrisDatePicker
-                  placeholderText='Date'
-                  name='date'
-                  showTimeSelect
-                  timeCaption='time'
-                  dateFormat='MMM d, yyyy h:mm: aa'
-                /> */}
-
-                {/* <IrisTextInput
-                  type='password'
-                  placeholder='Password'
-                  name='password'
-                  label='Password'
-                /> */}
-
-                {/* <IrisSelectInput
-                  options={options}
-                  placeholder='Role name'
-                  name='name'
-                  label='Role name'
-                /> */}
 
               </div>
 

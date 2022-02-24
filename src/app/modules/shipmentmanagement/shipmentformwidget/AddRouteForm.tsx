@@ -16,6 +16,7 @@ import { IRouteModel } from '../ShipmentModels/ShipmentInterfaces'
 interface Props<Values> {
   onSubmit: (values: Values, formikHelpers: FormikHelpers<Values>) => void | Promise<any>
   isSubmitting: boolean
+  route?: IRouteModel
 }
 
 const options = [
@@ -27,18 +28,18 @@ const options = [
 
 export default function AddRouteForm(props: Props<IRouteModel>) {
   const initialFormValue: IRouteModel = {
-    RouteId: '',
-    RouteName: '',
-    Departure: '',
-    Destination: '',
-    IsSubRoute: '',
-    DispatchFee: '',
-    LoaderFee: '',
-    CaptainFee: '',
-    MainRouteId: '',
-    AvailableAtTerminal: '',
-    AvailableOnline: '',
-    RouteType: ''
+    RouteId: props.route ? props.route!.RouteId : '',
+    RouteName: props.route ? props.route!.RouteName : '',
+    Departure: props.route ? props.route!.Departure : '',
+    Destination: props.route ? props.route!.Destination : '',
+    IsSubRoute: props.route ? props.route!.IsSubRoute : '',
+    DispatchFee: props.route ? props.route!.DispatchFee : '',
+    LoaderFee: props.route ? props.route!.LoaderFee : '',
+    CaptainFee: props.route ? props.route!.CaptainFee : '',
+    MainRouteId: props.route ? props.route!.MainRouteId : '',
+    AvailableAtTerminal: props.route ? props.route!.AvailableAtTerminal : '',
+    AvailableOnline: props.route ? props.route!.AvailableOnline : '',
+    RouteType: props.route ? props.route!.RouteType : ''
   }
 
   const validationSchema = Yup.object({
