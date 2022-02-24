@@ -43,18 +43,18 @@ export default function AddRouteForm(props: Props<IRouteModel>) {
   }
 
   const validationSchema = Yup.object({
-    routId: Yup.string().required(),
-    routeName: Yup.string().required(),
-    depature: Yup.string().required(),
-    destination: Yup.string().required(),
-    isSubRoute: Yup.string().required(),
-    dispatchFee: Yup.string().required(),
-    loaderFee: Yup.string().required(),
+    RouteId: Yup.string().required(),
+    RouteName: Yup.string().required(),
+    Departure: Yup.string().required(),
+    Destination: Yup.string().required(),
+    IsSubRoute: Yup.string().required(),
+    DispatchFee: Yup.string().required(),
+    LoaderFee: Yup.string().required(),
     captainFee: Yup.string().required(),
-    main_Route_Id: Yup.string().required(),
-    availabale_At_Terminal: Yup.string().required(),
-    availabale_Online: Yup.string().required(),
-    route_Type: Yup.string().required(),
+    MainRouteId: Yup.string().required(),
+    AvailableAtTerminal: Yup.string().required(),
+    AvailableOnline: Yup.string().required(),
+    RouteType: Yup.string().required(),
   })
 
   return (
@@ -81,55 +81,46 @@ export default function AddRouteForm(props: Props<IRouteModel>) {
               <div className='modal-body py-lg-10 px-lg-10'>
                 <IrisTextInput
                   type='text'
-                  name='routId'
+                  name='RouteId'
                   placeholder='Route Id'
                   label='Route Id'
                 />
                 <IrisTextInput
                   type='text'
                   placeholder='Route Name'
-                  name='routeName'
+                  name='RouteName'
                   label='Route Name'
                 />
                 <IrisTextInput
                   type='text'
                   placeholder='Depature'
-                  name='depature'
+                  name='Departure'
                   label='Depature'
                 />
                 <IrisTextInput
                   type='text'
                   placeholder='Destination'
-                  name='destination'
+                  name='Destination'
                   label='Destination'
                 />
                 
                 <IrisTextInput
                   type='text'
                   placeholder='Is_Sub_Route'
-                  name='isSubRoute'
+                  name='IsSubRoute'
                   label='Is_Sub_Route'
                 />
 
                 <IrisTextInput
                   type='text'
                   placeholder='Dispatch Fee'
-                  name='dispatchFee'
+                  name='DispatchFee'
                   label='Dispatch Fee'
                 />
-
-                {/* <IrisDatePicker
-                  placeholderText='Date'
-                  name='date'
-                  showTimeSelect
-                  timeCaption='time'
-                  dateFormat='MMM d, yyyy h:mm: aa'
-                /> */}
-
                 <IrisTextInput
                   type='text'
                   placeholder='Loader Fee'
-                  name='loaderFee'
+                  name='LoaderFee'
                   label='Loader Fee'
                 />
 
@@ -143,37 +134,37 @@ export default function AddRouteForm(props: Props<IRouteModel>) {
                 <IrisTextInput
                   type='text'
                   placeholder='Main_Route_Id'
-                  name='main_Route_Id'
+                  name='MainRouteId'
                   label='Main_Route_Id'
                 />
 
                 <IrisTextInput
                   type='text'
                   placeholder='Availabale_At_Terminal'
-                  name='availabale_At_Terminal'
+                  name='AvailableAtTerminal'
                   label='Availabale_At_Terminal'
                 />
 
                 <IrisTextInput
                   type='text'
                   placeholder='Availabale_Online'
-                  name='availabale_Online'
+                  name='AvailableOnline'
                   label='Availabale_Online'
                 />
 
                 <IrisTextInput
                   type='text'
                   placeholder='Route_Type'
-                  name='route_Type'
+                  name='RouteType'
                   label='Route_Type'
                 />
 
-                <IrisSelectInput
+                {/* <IrisSelectInput
                   options={options}
                   placeholder='category'
                   name='category'
                   label='Category'
-                />
+                /> */}
 
               </div>
 
