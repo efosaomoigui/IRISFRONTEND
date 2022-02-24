@@ -15,7 +15,7 @@ export function ViewRoutes() {
   const tableProvider = {
     columns: [
       {
-        Header: 'route Id',
+        Header: 'Route Id',
         accessor: 'RouteId',
       },
       {
@@ -68,7 +68,6 @@ export function ViewRoutes() {
     DeletePath: '/adminSettings/userDetails/',
     FakeData: RouteData,
   }
-
   //Buttons on the table page
   const ModalTarget = [
     {

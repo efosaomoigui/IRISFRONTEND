@@ -84,27 +84,27 @@ export default function AddFleetForm(props: Props<IFleetModel>) {
                 <IrisTextInput
                   type='number'
                   placeholder='Registration Number'
-                  name='registrationNumber'
+                  name='RegistrationNumber'
                   label='Registration Number'
                 />
                 <IrisTextInput
                   type='number'
                   placeholder='Chasis Number'
-                  name='chasisNumber'
+                  name='ChasisNumber'
                   label='Chasis Number'
                 />
-                <IrisTextInput type='email' placeholder='Email' name='email' label='Email' />
+                {/* <IrisTextInput type='email' placeholder='Email' name='email' label='Email' /> */}
 
                 <IrisTextInput
                   type='text'
                   placeholder='Fleet Type'
-                  name='fleetType'
+                  name='FleetType'
                   label='Fleet Type'
                 />
                  <IrisTextInput
                   type='text'
                   placeholder='Capacity'
-                  name='capacity'
+                  name='Capacity'
                   label='Capacity'
                 />
 
@@ -119,37 +119,37 @@ export default function AddFleetForm(props: Props<IFleetModel>) {
                 <IrisTextInput
                   type='text'
                   placeholder='Description'
-                  name='description'
+                  name='Description'
                   label='Description'
                 />
 
                 <IrisTextInput
                   type='text'
                   placeholder='Fleet Model'
-                  name='fleetModel'
+                  name='FleetModel'
                   label='Fleet Model'
                 />
 
                 <IrisTextInput
                   type='text'
                   placeholder='Fleet Make'
-                  name='fleetMake'
+                  name='FleetMake'
                   label='Fleet Make'
                 />
 
                 <IrisTextInput
                   type='number'
                   placeholder='Owner Id'
-                  name='ownerId'
+                  name='OwnerId'
                   label='Owner Id'
                 />
 
-                <IrisSelectInput
+                {/* <IrisSelectInput
                   options={options}
                   placeholder='category'
                   name='category'
                   label='Category'
-                />
+                /> */}
               </div>
 
               <Modal.Footer>
