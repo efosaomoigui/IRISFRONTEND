@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { toast } from 'react-toastify';
 import { v4 as uuid } from 'uuid';
 import agent from '../../../../setup/axios/AxiosAgent';
+import { usePageData } from '../../../../_iris/layout/core';
 import AddInvoiceForm from '../paymentformwidget/AddInvoiceForm';
 import { IInvoiceModel } from '../PaymentModels/PaymentmentInterfaces';
 
@@ -12,19 +13,42 @@ const AddInvoiceModal: React.FC = () => {
 
     const [isSubmitting, setIsSubmitting] = useState(false)
 
-    const onSubmit = (values: IInvoiceModel) => {
-        setIsSubmitting(true)
-        values.Id = uuid()
-        agent.Invoice.create(values).then((response) => {
-            toast.success("Log Creation Was Successful!");
-            // console.log(response)
-            setIsSubmitting(false)
-        })
+    const [selectInvoice, setSelectInvoice] = useState<IInvoiceModel>()
+
+    const { entityDetailValues, selectUrlParam, setSelectUrlParam } = usePageData()
+
+  // handle logic
+    const invoice = entityDetailValues as IInvoiceModel[];
+
+    const setSelectedValue = (invoice: IInvoiceModel[]) => {
+    const val = invoice.find(x => x.Id === selectUrlParam)
+    return val;
     }
+
+  const selected = setSelectedValue(invoice);
+  console.log("LOG ", (selected) ? "old invoice" : "new invoice");
+
+  const onSubmit = (values: IInvoiceModel) => {
+    setIsSubmitting(true)
+    values.Id = uuid()
+
+    if (selected?.Id) {
+      agent.Invoice.update(values).then((response) => {
+        toast.success('Invoice Update Was Successful!')
+        setIsSubmitting(false)
+      })
+    } else {
+      agent.Invoice.create(values).then((response) => {
+        toast.success('Invoice Creation Was Successful!')
+        setIsSubmitting(false)
+      })
+    }
+  }
+
     return (
         <>
             <div className='modal fade' id='kt_modal_addinvoice' aria-hidden='true'>
-                <AddInvoiceForm isSubmitting={isSubmitting} onSubmit={onSubmit} />
+                <AddInvoiceForm isSubmitting={isSubmitting} onSubmit={onSubmit} invoice={selected}/>
             </div>
         </>
     )

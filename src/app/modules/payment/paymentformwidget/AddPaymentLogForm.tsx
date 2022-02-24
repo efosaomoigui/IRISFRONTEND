@@ -19,6 +19,7 @@ import IrisSelectInput from '../../layout/forms/IrisSelectInput'
 interface Props<Values> {
     onSubmit: (values: Values, formikHelpers: FormikHelpers<Values>) => void | Promise<any>
     isSubmitting: boolean
+    paymentlog?: IPaymentLogModel
 }
 
 const options = [
@@ -30,11 +31,11 @@ const options = [
 
 export default function AddPaymentlLogForm(props: Props<IPaymentLogModel>) {
     const initialFormValue: IPaymentLogModel = {
-        PaymentId: '',
-        Amount: '',
-        PaymentMethod: '',
-        User: '',
-        TransactionId: ''
+        PaymentId: props.paymentlog ? props.paymentlog!.PaymentId : '',
+        Amount: props.paymentlog ? props.paymentlog!.Amount : '',
+        PaymentMethod: props.paymentlog ? props.paymentlog!.PaymentMethod : '',
+        User: props.paymentlog ? props.paymentlog!.User : '',
+        TransactionId: props.paymentlog ? props.paymentlog!.TransactionId : ''
     }
 
     const validationSchema = Yup.object({
