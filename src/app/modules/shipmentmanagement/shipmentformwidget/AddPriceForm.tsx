@@ -118,7 +118,7 @@ export default function AddPriceForm(props: Props<IPriceModel>) {
                   loading={props.isSubmitting}
                   content='Submit'
                 ></Button>
-                <Button floated='right' positive type='button' content='Cancel'></Button>
+                <Button floated='right' positive type='button' data-bs-dismiss="modal" content='Cancel'></Button>
               </Modal.Footer>
             </div>
           </div>
