@@ -1,50 +1,51 @@
-import { Modal } from 'react-bootstrap-v5'
-import { Button } from 'semantic-ui-react'
-import { Formik, Form, FormikHelpers } from 'formik'
+import {FormLabel, Modal} from 'react-bootstrap-v5'
+import {Button, Radio} from 'semantic-ui-react'
+import {Formik, Form, FormikHelpers} from 'formik'
 import * as Yup from 'yup'
-import { IUserModel } from '../../auth/models/AuthInterfaces'
-import { KTSVG } from '../../../../_iris/helpers'
+import {IUserModel} from '../../auth/models/AuthInterfaces'
+import {KTSVG} from '../../../../_iris/helpers'
 import IrisTextInput from '../../layout/forms/IrisTextInput'
 import IrisSelectInput from '../../layout/forms/IrisSelectInput'
-
-
-// interface Props {
-//   userVal: IUserModel
-// }
+import {FormControlLabel, Grid, RadioGroup} from '@material-ui/core'
+import useStyles from '../../layout/formstyles/FormStyle'
+import IrisTextRadio from '../../layout/forms/IrisTextRadio'
+import { Alert } from '@mui/material'
 
 interface Props<Values> {
   onSubmit: (values: Values, formikHelpers: FormikHelpers<Values>) => void | Promise<any>
   isSubmitting: boolean
-  user?:IUserModel  //change here by Mr Efe
+  user?: IUserModel //change here by Mr Efe
+  showForm?:boolean
 }
 
-const options = [
-  { text: 'one', value: 'Bag' },
-  { text: 'two', value: 'Serial' },
-  { text: 'three', value: 'Turkey' },
-  { text: 'four', value: 'Afganistan' },
-]
-
 export default function AddUserForm(props: Props<IUserModel>) {
-
   const initialFormValue: IUserModel = {
-    userId: props.user? props.user!.userId : '',
-    userName: props.user? props.user!.userName : '',
-    password: props.user? props.user!.password : '',
-    firstName: props.user? props.user!.firstName : '',
-    lastName: props.user? props.user!.lastName : '',
-    email: props.user? props.user!.email : '',
-    phonenumber: props.user? props.user!.phonenumber : '',
+    userId: props.user ? props.user!.userId : '',
+    userName: props.user ? props.user!.userName : '',
+    password: props.user ? props.user!.password : '',
+    firstName: props.user ? props.user!.firstName : '',
+    lastName: props.user ? props.user!.lastName : '',
+    email: props.user ? props.user!.email : '',
+    phonenumber: props.user ? props.user!.phonenumber : '',
+    gender: props.user ? props.user!.gender : 'male',
+    userType: props.user ? props.user!.userType : 'corporate',
   }
 
   const validationSchema = Yup.object({
     userName: Yup.string().required(),
     firstName: Yup.string().required(),
     password: Yup.string().required(),
+    passwordConfirmation: Yup.string().oneOf([Yup.ref('password'), null], 'Passwords must match'),
     lastName: Yup.string().required(),
     email: Yup.string().required(),
     phonenumber: Yup.string().required(),
+    gender: Yup.string().required(),
+    userType: Yup.string().required(),
   })
+
+  const classes = useStyles()
+  const optionsArray1 = ['male', 'female']
+  const optionsArray2 = ['corporate', 'individual']
 
   return (
     <>
@@ -54,11 +55,12 @@ export default function AddUserForm(props: Props<IUserModel>) {
         enableReinitialize
         onSubmit={props.onSubmit}
       >
-        <Form className='ui form' autoComplete='off'>
+        {({ values, setFieldValue }) => (
+        <Form>
           <div className='modal-dialog modal-dialog-centered mw-900px'>
             <div className='modal-content'>
               <div className='modal-header'>
-                <h2>Create User</h2>
+                <h2>Add User</h2>
                 <div
                   className='btn btn-sm btn-icon btn-active-color-primary'
                   data-bs-dismiss='modal'
@@ -67,46 +69,34 @@ export default function AddUserForm(props: Props<IUserModel>) {
                 </div>
               </div>
 
-              <div className='modal-body py-lg-10 px-lg-10'>
-                <IrisTextInput
-                  type='text'
-                  name='userName'
-                  placeholder='User Name'
-                  label='User name'
-                />
-                <IrisTextInput
-                  type='text'
-                  placeholder='FirstName'
-                  name='firstName'
-                  label='First Name'
-                />
-                <IrisTextInput
-                  type='text'
-                  placeholder='Last Name'
-                  name='lastName'
-                  label='Last Name'
-                />
-                <IrisTextInput
-                  type='email'
-                  placeholder='Email'
-                  name='email'
-                  label='Email'
-                />
+              <div className='modal-body'>
 
-                <IrisTextInput
-                  type='text'
-                  placeholder='Phone Number='
-                  name='phonenumber'
-                  label='Phone Number'
-                />
+                {props.showForm && 
+                 <Grid container className={classes.root}>
+                 <Grid item xs={6}>
+                   <IrisTextInput type='text' name='userName' label='User Name' />
+                   <IrisTextInput type='text' name='firstName' label='First Name' />
+                   <IrisTextInput type='text' name='lastName' label='Last Name' />
+                   <IrisTextInput type='email' name='email' label='Email' />
+                 </Grid>
 
-                <IrisTextInput
-                  type='password'
-                  placeholder='Password'
-                  name='password'
-                  label='Password'
-                />
+                 <Grid item xs={6}>
+                   <IrisTextInput type='text' name='phonenumber' label='Phone Number' />
 
+                   <IrisTextRadio name='gender' options={optionsArray1} /> 
+
+                   <IrisTextInput type='password' name='password' label='Password' />
+                   <IrisTextInput
+                     type='password'
+                     name='passwordConfirmation'
+                     label='Confirm Password'
+                   />
+
+                   <IrisTextRadio name='gender' value={values.gender!.toString()} options={optionsArray2} />  
+                 </Grid>
+               </Grid>
+                }
+                {!props.showForm && <Alert severity="info">User Creation Was Successful!</Alert>}
               </div>
 
               <Modal.Footer>
@@ -118,11 +108,18 @@ export default function AddUserForm(props: Props<IUserModel>) {
                   loading={props.isSubmitting}
                   content='Submit'
                 ></Button>
-                <Button floated='right' positive type='reset' data-bs-dismiss="modal" content='Cancel'></Button>
+                <Button
+                  floated='right'
+                  positive
+                  type='reset'
+                  data-bs-dismiss='modal'
+                  content='Cancel'
+                ></Button>
               </Modal.Footer>
             </div>
           </div>
         </Form>
+        )}
       </Formik>
     </>
   )

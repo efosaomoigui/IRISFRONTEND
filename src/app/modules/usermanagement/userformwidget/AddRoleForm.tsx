@@ -1,13 +1,13 @@
-import { Form, Formik, FormikHelpers } from 'formik'
-import { Modal } from 'react-bootstrap-v5'
-import { Button } from 'semantic-ui-react'
+import {Grid} from '@material-ui/core'
+import { Alert } from '@mui/material'
+import {Form, Formik, FormikHelpers} from 'formik'
+import {Modal} from 'react-bootstrap-v5'
+import {Button} from 'semantic-ui-react'
 import * as Yup from 'yup'
-import { KTSVG } from '../../../../_iris/helpers'
-import { IRoleModel } from '../../auth/models/AuthInterfaces'
+import {KTSVG} from '../../../../_iris/helpers'
+import {IRoleModel} from '../../auth/models/AuthInterfaces'
 import IrisTextInput from '../../layout/forms/IrisTextInput'
-
-
-
+import useStyles from '../../layout/formstyles/FormStyle'
 
 // interface Props {
 //   userVal: IUserModel
@@ -16,25 +16,20 @@ import IrisTextInput from '../../layout/forms/IrisTextInput'
 interface Props<Values> {
   onSubmit: (values: Values, formikHelpers: FormikHelpers<Values>) => void | Promise<any>
   isSubmitting: boolean
+  showForm?:boolean
 }
-
-// const options = [
-//   { text: 'one', value: 'Bag' },
-//   { text: 'two', value: 'Serial' },
-//   { text: 'three', value: 'Turkey' },
-//   { text: 'four', value: 'Afganistan' },
-// ]
 
 export default function AddRoleForm(props: Props<IRoleModel>) {
   const initialFormValue: IRoleModel = {
     id: '',
-    name: ''
+    name: '',
   }
 
   const validationSchema = Yup.object({
-    id: Yup.string().required(),
     name: Yup.string().required(),
   })
+
+  const classes = useStyles()
 
   return (
     <>
@@ -44,11 +39,11 @@ export default function AddRoleForm(props: Props<IRoleModel>) {
         enableReinitialize
         onSubmit={props.onSubmit}
       >
-        <Form className='ui form' autoComplete='off'>
+        <Form>
           <div className='modal-dialog modal-dialog-centered mw-900px'>
             <div className='modal-content'>
               <div className='modal-header'>
-                <h2>Add Role</h2>
+                <h2>Add User Role</h2>
                 <div
                   className='btn btn-sm btn-icon btn-active-color-primary'
                   data-bs-dismiss='modal'
@@ -57,61 +52,16 @@ export default function AddRoleForm(props: Props<IRoleModel>) {
                 </div>
               </div>
 
-              <div className='modal-body py-lg-10 px-lg-10'>
-                <IrisTextInput
-                  type='text'
-                  name='id'
-                  placeholder='RoleId'
-                  label='RoleId'
-                />
-                {/* <IrisTextInput
-                  type='text'
-                  placeholder='FirstName'
-                  name='firstName'
-                  label='First Name'
-                /> */}
-                {/* <IrisTextInput
-                  type='text'
-                  placeholder='Last Name'
-                  name='lastName'
-                  label='Last Name'
-                />
-                <IrisTextInput
-                  type='email'
-                  placeholder='Email'
-                  name='email'
-                  label='Email'
-                /> */}
-
-                <IrisTextInput
-                  type='text'
-                  placeholder='Role Name'
-                  name='name'
-                  label='Role Name'
-                />
-
-                {/* <IrisDatePicker
-                  placeholderText='Date'
-                  name='date'
-                  showTimeSelect
-                  timeCaption='time'
-                  dateFormat='MMM d, yyyy h:mm: aa'
-                /> */}
-
-                {/* <IrisTextInput
-                  type='password'
-                  placeholder='Password'
-                  name='password'
-                  label='Password'
-                /> */}
-
-                {/* <IrisSelectInput
-                  options={options}
-                  placeholder='Role name'
-                  name='name'
-                  label='Role name'
-                /> */}
-
+              <div className='modal-body' >
+              {props.showForm && 
+                <Grid container className={classes.root}>
+                  <Grid item xs={6}>
+                    {/* <IrisTextInput type='text' name='id' label='Role Id' /> */}
+                    <IrisTextInput type='text' name='name' label='Role Name' />
+                  </Grid>
+                </Grid>
+                }
+                {!props.showForm && <Alert severity="info">Role Created Successfully!</Alert>}
               </div>
 
               <Modal.Footer>
@@ -123,7 +73,13 @@ export default function AddRoleForm(props: Props<IRoleModel>) {
                   loading={props.isSubmitting}
                   content='Submit'
                 ></Button>
-                <Button floated='right' positive type='button' data-bs-dismiss="modal" content='Cancel'></Button>
+                <Button
+                  floated='right'
+                  positive
+                  type='button'
+                  data-bs-dismiss='modal'
+                  content='Cancel'
+                ></Button>
               </Modal.Footer>
             </div>
           </div>
