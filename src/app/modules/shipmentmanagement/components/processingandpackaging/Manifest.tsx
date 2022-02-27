@@ -37,8 +37,8 @@ export function Manifest() {
         accessor: 'UserId',
       },
     ],
-    DetailsPath: '/shipment/manifestdetail/:Id',
-    EditPath: '/adminSettings/userDetails/',
+    DetailsPath: '/shipment/manifestdetail/',
+    EditPath: '#kt_modal_addmanifest',
     DeletePath: '/adminSettings/userDetails/',
     FakeData: Manifest_Data,
   }

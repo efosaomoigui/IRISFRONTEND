@@ -19,6 +19,7 @@ import IrisDatePicker from '../../layout/forms/IrisDatePicker'
 interface Props<Values> {
     onSubmit: (values: Values, formikHelpers: FormikHelpers<Values>) => void | Promise<any>
     isSubmitting: boolean
+    trackHistory?: ITrackHistoryModel
 }
 
 const options = [
@@ -30,12 +31,12 @@ const options = [
 
 export default function AddTrackHistoryForm(props: Props<ITrackHistoryModel>) {
     const initialFormValue: ITrackHistoryModel = {
-        id: '',
-        TripId: '',
-        Action: '',
-        Location: '',
-        TimeStamp: '',
-        Status: ''
+        id: props.trackHistory ? props.trackHistory!.id : '',
+        TripId: props.trackHistory ? props.trackHistory!.TripId :  '',
+        Action: props.trackHistory ? props.trackHistory!.Action:'',
+        Location: props.trackHistory ? props.trackHistory!.Location: '',
+        TimeStamp: props.trackHistory ? props.trackHistory!.TimeStamp :'',
+        Status: props.trackHistory ? props.trackHistory!.Status :''
     }
 
     const validationSchema = Yup.object({

@@ -16,6 +16,11 @@ export function Invoice() {
   const tableProvider = {
     columns: [
       {
+        Header: 'Id',
+        accessor: 'Id',
+        // cell:({ value }) => {return format(new Date(value), 'dd/MM/YYYY')}
+      },
+      {
         Header: 'Invoice Code',
         accessor: 'InvoiceCode',
         // cell:({ value }) => {return format(new Date(value), 'dd/MM/YYYY')}
@@ -34,7 +39,7 @@ export function Invoice() {
       },
     ],
     DetailsPath: '/payment/invoiceDetail/',
-    EditPath: '/adminSettings/userDetails/',
+    EditPath: '#kt_modal_addinvoice',
     DeletePath: '/adminSettings/userDetails/',
     FakeData: Invoice_Data,
   }

@@ -45,7 +45,7 @@ export function ViewTrackHistory() {
       },
     ],
     DetailsPath: '/monitor/trackHistoryDetails/',
-    EditPath: '/adminSettings/userDetails/',
+    EditPath: '#kt_modal_addtrackhistory',
     DeletePath: '/adminSettings/userDetails/',
     FakeData: TrackHistory_Data,
   }

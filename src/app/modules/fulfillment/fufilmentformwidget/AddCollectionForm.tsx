@@ -16,6 +16,7 @@ import { IFulfilmentModel } from '../models/FulfilmentInterface'
 interface Props<Values> {
     onSubmit: (values: Values, formikHelpers: FormikHelpers<Values>) => void | Promise<any>
     isSubmitting: boolean
+    collectionCenter?: IFulfilmentModel
 }
 
 const options = [
@@ -27,11 +28,11 @@ const options = [
 
 export default function AddCollectionForm(props: Props<IFulfilmentModel>) {
     const initialFormValue: IFulfilmentModel = {
-        Id: '',
-        ShipmentId: '',
-        Shipment: '',
-        CollectionStatus: true,
-        UserId: '',
+        Id: props.collectionCenter ? props.collectionCenter!.Id :  '',
+        ShipmentId: props.collectionCenter ? props.collectionCenter!.ShipmentId :'',
+        Shipment: props.collectionCenter ? props.collectionCenter!.Shipment :'',
+        CollectionStatus: props.collectionCenter ? props.collectionCenter!.CollectionStatus :true,
+        UserId: props.collectionCenter ? props.collectionCenter!.UserId :'',
     }
 
     const validationSchema = Yup.object({

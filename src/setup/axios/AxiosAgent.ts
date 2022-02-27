@@ -109,7 +109,7 @@ const  Fleet = {
   list: () => request.get<IFleetModel[]>(`${API_URL}/ShipmentSettings/Fleet/all`),
   details: (fleetid: string) => request.get<IFleetModel>(`${API_URL}/ShipmentSettings/Fleet/all/${fleetid}`), 
   create: (fleet: IFleetModel) => request.post<IFleetModel>(`${API_URL}/ShipmentSettings/Fleet`, fleet), 
-  update: (fleet: IFleetModel) => request.put<IFleetModel>(`${API_URL}/ShipmentSettings/Fleet/${fleet.id}`, {}), 
+  update: (fleet: IFleetModel) => request.put<IFleetModel>(`${API_URL}/ShipmentSettings/Fleet/${fleet.FleetId}`, {}), 
   delete: (id: string) => request.del<void>(`${API_URL}/ShipmentSettings/Fleet${id}`),  
 }
 

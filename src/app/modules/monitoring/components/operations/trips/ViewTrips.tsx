@@ -60,7 +60,7 @@ export function ViewTrips() {
     
     ],
     DetailsPath: '/monitor/tripDetails/',
-    EditPath: '/adminSettings/userDetails/',
+    EditPath: '#kt_modal_addtrip',
     DeletePath: '/adminSettings/userDetails/',
     FakeData: ViewTrips_Data,
   }

@@ -2,6 +2,7 @@ import { Form, Formik, FormikHelpers } from 'formik'
 import { Modal } from 'react-bootstrap-v5'
 import { Button } from 'semantic-ui-react'
 import * as Yup from 'yup'
+import { boolean } from 'yup/lib/locale'
 import { KTSVG } from '../../../../_iris/helpers'
 import IrisDatePicker from '../../layout/forms/IrisDatePicker'
 import IrisSelectInput from '../../layout/forms/IrisSelectInput'
@@ -18,6 +19,7 @@ import { IWalletModel } from '../Models/WalletInterfaces'
 interface Props<Values> {
   onSubmit: (values: Values, formikHelpers: FormikHelpers<Values>) => void | Promise<any>
   isSubmitting: boolean
+  wallet?: IWalletModel  //change here by Mr Efe
 }
 
 const options = [
@@ -27,10 +29,10 @@ const options = [
 
 export default function AddWalletForm(props: Props<IWalletModel>) {
   const initialFormValue: IWalletModel = {
-    WalletId: '',
-    WalletNumber: '',
-    IsActive: true,
-    UserId: ''
+    WalletId: props.wallet ? props.wallet!.WalletId : '',
+    WalletNumber: props.wallet ? props.wallet!.WalletNumber : '',
+    IsActive: props.wallet ? props.wallet!.IsActive : true,
+    UserId: props.wallet ? props.wallet!.UserId : '',
   }
 
   const validationSchema = Yup.object({
@@ -74,12 +76,6 @@ export default function AddWalletForm(props: Props<IWalletModel>) {
                   name='WalletNumber'
                   label='Wallet Number'
                 />
-                {/* <IrisSelectInput
-                  options={options}
-                  placeholder=''
-                  name='isActive'
-                  label='Active'
-                /> */}
                 <IrisTextInput
                   type='boolean'
                   placeholder='Active'
@@ -92,36 +88,6 @@ export default function AddWalletForm(props: Props<IWalletModel>) {
                   name='UserId'
                   label='UserId'
                 />
-
-                {/* <IrisTextInput
-                  type='text'
-                  placeholder='WalletNumber'
-                  name='WalletNumber'
-                  label='WalletNumber'
-                />
-
-                <IrisDatePicker
-                  placeholderText='Date'
-                  name='DateCreated'
-                  showTimeSelect
-                  timeCaption='DateCreated'
-                  dateFormat='MMM d, yyyy h:mm: aa'
-                /> */}
-
-                {/* <IrisTextInput
-                  type='password'
-                  placeholder='Password'
-                  name='password'
-                  label='Password'
-                />
-
-                <IrisSelectInput
-                  options={options}
-                  placeholder='Active'
-                  name='isActive'
-                  label='Active'
-                /> */}
-
               </div>
 
               <Modal.Footer>

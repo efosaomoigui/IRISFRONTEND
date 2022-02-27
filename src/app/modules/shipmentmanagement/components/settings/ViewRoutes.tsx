@@ -15,7 +15,7 @@ export function ViewRoutes() {
   const tableProvider = {
     columns: [
       {
-        Header: 'route Id',
+        Header: 'Route Id',
         accessor: 'RouteId',
       },
       {
@@ -64,11 +64,10 @@ export function ViewRoutes() {
       },
     ],
     DetailsPath: '/shipment/routedetail/',
-    EditPath: '/adminSettings/userDetails/',
+    EditPath: '#kt_modal_addroute',
     DeletePath: '/adminSettings/userDetails/',
     FakeData: RouteData,
   }
-
   //Buttons on the table page
   const ModalTarget = [
     {

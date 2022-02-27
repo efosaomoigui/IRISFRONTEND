@@ -17,15 +17,16 @@ interface Props<Values> {
   onSubmit: (values: Values, formikHelpers: FormikHelpers<Values>) => void | Promise<any>
   isSubmitting: boolean
   showForm?:boolean
+  role?: IRoleModel
 }
 
 export default function AddRoleForm(props: Props<IRoleModel>) {
   const initialFormValue: IRoleModel = {
-    id: '',
-    name: '',
+    id: props.role ? props.role!.id : '',
+    name: props.role ? props.role!.name : '', 
   }
 
-  const validationSchema = Yup.object({
+  const validationSchema = Yup.object({ 
     name: Yup.string().required(),
   })
 
@@ -46,7 +47,7 @@ export default function AddRoleForm(props: Props<IRoleModel>) {
                 <h2>Add User Role</h2>
                 <div
                   className='btn btn-sm btn-icon btn-active-color-primary'
-                  data-bs-dismiss='modal'
+                  data-bs-dismiss='modal' 
                 >
                   <KTSVG path='/media/icons/duotune/arrows/arr061.svg' className='svg-icon-1' />
                 </div>

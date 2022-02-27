@@ -36,7 +36,7 @@ export function CollectionCenter() {
       }
     ],
     DetailsPath: '/fulfillment/collectioncenterdetail/',
-    EditPath: '/adminSettings/userDetails/',
+    EditPath: '#kt_modal_addcollectioncenter/',
     DeletePath: '/adminSettings/userDetails/',
     FakeData: CollectionCenter_Data,
   }

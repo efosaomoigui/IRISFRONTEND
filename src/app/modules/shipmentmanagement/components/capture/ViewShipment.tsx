@@ -48,7 +48,7 @@ export function ViewShipment() {
             },
         ],
         DetailsPath: '/shipment/shipmentdetail/',
-        EditPath: '/adminSettings/userDetails/',
+        EditPath: '#kt_modal_viewshipment',
         DeletePath: '/adminSettings/userDetails/',
         FakeData: Shipment_Data,
     }

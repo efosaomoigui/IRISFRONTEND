@@ -33,7 +33,7 @@ export function ViewPermissions() {
         },
     ],
     DetailsPath: '/admin/permissionDetails/',
-    EditPath: '',
+    EditPath: '#kt_modal_addpermission',
     DeletePath: '',
     FakeData: Permission_Data,
   }

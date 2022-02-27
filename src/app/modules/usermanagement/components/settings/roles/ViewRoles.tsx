@@ -22,7 +22,7 @@ export function ViewRoles() {
         },
     ],
     DetailsPath: '/admin/roleDetails/',
-    EditPath: '',
+    EditPath: '#kt_modal_addrole',
     DeletePath: '',
     FakeData: Role_Data,
   }

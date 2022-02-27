@@ -17,13 +17,14 @@ import IrisTextInput from '../../layout/forms/IrisTextInput'
 interface Props<Values> {
   onSubmit: (values: Values, formikHelpers: FormikHelpers<Values>) => void | Promise<any>
   isSubmitting: boolean
+  permission?: IPermissionModel  //change here by Mr Efe
 }
 
 export default function AddPermissionForm(props: Props<IPermissionModel>) {
   const initialFormValue: IPermissionModel = {
-  roleId: '',
-  claimType: '',
-  claimValue: ''
+  roleId: props.permission ? props.permission!.roleId : '',
+    claimType: props.permission ? props.permission!.claimType : '',
+    claimValue: props.permission ? props.permission!.claimValue : ''
   }
 
   const validationSchema = Yup.object({

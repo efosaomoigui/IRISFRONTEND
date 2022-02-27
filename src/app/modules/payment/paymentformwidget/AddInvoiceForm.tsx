@@ -14,6 +14,7 @@ import IrisSelectInput from '../../layout/forms/IrisSelectInput'
 interface Props<Values> {
     onSubmit: (values: Values, formikHelpers: FormikHelpers<Values>) => void | Promise<any>
     isSubmitting: boolean
+    invoice?: IInvoiceModel
 }
 
 const options = [
@@ -25,12 +26,12 @@ const options = [
 
 export default function AddInvoiceForm(props: Props<IInvoiceModel>) {
     const initialFormValue: IInvoiceModel = {
-        Id: '',
-        InvoiceCode: '',
-        ShipmentId: '',
-        Shipment: '',
-        PaymentMethod: '',
-        ShipStatus: ''
+        Id: props.invoice ? props.invoice!.Id : '',
+        InvoiceCode: props.invoice ? props.invoice!.InvoiceCode : '',
+        ShipmentId: props.invoice ? props.invoice!.ShipmentId:'',
+        Shipment: props.invoice ? props.invoice!.Shipment :'',
+        PaymentMethod: props.invoice ? props.invoice!.PaymentMethod:'',
+        ShipStatus: props.invoice ? props.invoice!.ShipStatus: ''
     }
 
     const validationSchema = Yup.object({

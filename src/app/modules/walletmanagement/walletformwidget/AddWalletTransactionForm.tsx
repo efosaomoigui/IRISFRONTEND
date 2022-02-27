@@ -18,6 +18,7 @@ import { IWalletModel, IWalletTransactionModel } from '../Models/WalletInterface
 interface Props<Values> {
   onSubmit: (values: Values, formikHelpers: FormikHelpers<Values>) => void | Promise<any>
   isSubmitting: boolean
+  wallettransaction?: IWalletTransactionModel  //change here by Mr Efe
 }
 
 const options = [
@@ -27,12 +28,12 @@ const options = [
 
 export default function AddWalletForm(props: Props<IWalletTransactionModel>) {
   const initialFormValue: IWalletTransactionModel = {
-    WalletTransactionId: '',
-    Amount: '',
-    TransactionType: '',
-    Description: '',
-    WalletNumber: '',
-    DateCreated: ''
+    WalletTransactionId: props.wallettransaction ? props.wallettransaction!.WalletTransactionId : '',
+    Amount: props.wallettransaction ? props.wallettransaction!.Amount : '',
+    TransactionType: props.wallettransaction ? props.wallettransaction!.TransactionType : '',
+    Description: props.wallettransaction ? props.wallettransaction!.Description : '',
+    WalletNumber: props.wallettransaction ? props.wallettransaction!.WalletNumber : '',
+    DateCreated: props.wallettransaction ? props.wallettransaction!.DateCreated : '',
   }
 
   const validationSchema = Yup.object({

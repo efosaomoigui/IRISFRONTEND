@@ -15,6 +15,10 @@ export function PaymentLog() {
   const tableProvider = {
     columns: [
       {
+        Header: 'PaymentId',
+        accessor: 'PaymentId',
+      },
+      {
         Header: 'Amount',
         accessor: 'Amount',
       },
@@ -32,7 +36,7 @@ export function PaymentLog() {
       },
     ],
     DetailsPath: '/payment/paymentLogDetails/',
-    EditPath: '/adminSettings/userDetails/',
+    EditPath: '#kt_modal_addpaymentlog',
     DeletePath: '/adminSettings/userDetails/',
     FakeData: PaymentLog_Data,
   }

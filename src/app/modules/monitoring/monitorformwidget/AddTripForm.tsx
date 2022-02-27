@@ -18,6 +18,7 @@ import { ITripModel } from '../Monitor models/MonitorInterface'
 interface Props<Values> {
     onSubmit: (values: Values, formikHelpers: FormikHelpers<Values>) => void | Promise<any>
     isSubmitting: boolean
+    trip?: ITripModel
 }
 
 const options = [
@@ -29,22 +30,22 @@ const options = [
 
 export default function AddTripForm(props: Props<ITripModel>) {
     const initialFormValue: ITripModel = {
-        id: '',
-        TripReference: '',
-        RouteCode: '',
-        fleetid: '',
-        fleet: '',
-        ManifestId: '',
-        manifest: '',
-        Driver: '',
-        Dispatcher: '',
-        DriverDispatchFee: '',
-        Miscelleneous: '',
-        FuelCosts: '',
-        FuelUsed: '',
-        StartTime: '',
-        EndTime: '',
-        status: '',
+        id: props.trip ? props.trip!.id : '',
+        TripReference: props.trip ? props.trip!.TripReference :'',
+        RouteCode: props.trip ? props.trip!.RouteCode:'',
+        fleetid: props.trip ? props.trip!.fleetid :'',
+        fleet: props.trip ? props.trip!.fleet :'',
+        ManifestId: props.trip ? props.trip!.ManifestId :'',
+        manifest: props.trip ? props.trip!.manifest :'',
+        Driver: props.trip ? props.trip!.Driver :'',
+        Dispatcher: props.trip ? props.trip!.Dispatcher :'',
+        DriverDispatchFee: props.trip ? props.trip!.DriverDispatchFee :'',
+        Miscelleneous: props.trip ? props.trip!.Miscelleneous :'',
+        FuelCosts: props.trip ? props.trip!.FuelCosts :'',
+        FuelUsed: props.trip ? props.trip!.FuelUsed :'',
+        StartTime: props.trip ? props.trip!.StartTime :'',
+        EndTime: props.trip ? props.trip!.EndTime :'',
+        status: props.trip ? props.trip!.status :'',
     }
 
     const validationSchema = Yup.object({

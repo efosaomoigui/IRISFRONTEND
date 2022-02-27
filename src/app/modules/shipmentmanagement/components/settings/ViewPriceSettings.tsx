@@ -15,6 +15,10 @@ export function ViewPriceSettings() {
   const tableProvider = {
     columns: [
       {
+        Header: 'ID',
+        accessor: 'id',
+      },
+      {
         Header: 'Category List',
         accessor: 'Category',
       },
@@ -36,7 +40,7 @@ export function ViewPriceSettings() {
       },
     ],
     DetailsPath: '/shipment/pricesettingdetail/',
-    EditPath: '/adminSettings/userDetails/',
+    EditPath: '#kt_modal_addprice',
     DeletePath: '/adminSettings/userDetails/',
     FakeData: PriceData,
   }
