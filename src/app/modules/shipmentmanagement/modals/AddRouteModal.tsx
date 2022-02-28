@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 import { v4 as uuid } from 'uuid';
+import { boolean } from 'yup/lib/locale';
 import agent from '../../../../setup/axios/AxiosAgent';
 import { usePageData } from '../../../../_iris/layout/core';
 import AddRouteForm from '../shipmentformwidget/AddRouteForm';
@@ -29,6 +30,7 @@ const AddRouteModal: React.FC = () => {
   const onSubmit = (values: IRouteModel) => {
     setIsSubmitting(true)
     values.RouteId = uuid()
+    values.IsSubRoute = Boolean(values.IsSubRoute);
 
     if (selected?.RouteId) {
       agent.Route.update(values).then((response) => {

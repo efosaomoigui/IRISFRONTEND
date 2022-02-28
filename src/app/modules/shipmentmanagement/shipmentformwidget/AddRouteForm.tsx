@@ -32,14 +32,14 @@ export default function AddRouteForm(props: Props<IRouteModel>) {
     RouteName: props.route ? props.route!.RouteName : '',
     Departure: props.route ? props.route!.Departure : '',
     Destination: props.route ? props.route!.Destination : '',
-    IsSubRoute: props.route ? props.route!.IsSubRoute : '',
-    DispatchFee: props.route ? props.route!.DispatchFee : '',
-    LoaderFee: props.route ? props.route!.LoaderFee : '',
-    CaptainFee: props.route ? props.route!.CaptainFee : '',
-    MainRouteId: props.route ? props.route!.MainRouteId : '',
-    AvailableAtTerminal: props.route ? props.route!.AvailableAtTerminal : '',
-    AvailableOnline: props.route ? props.route!.AvailableOnline : '',
-    RouteType: props.route ? props.route!.RouteType : ''
+    IsSubRoute: props.route ? props.route!.IsSubRoute : true,
+    DispatchFee: props.route ? props.route!.DispatchFee : 0,
+    LoaderFee: props.route ? props.route!.LoaderFee : 0,
+    CaptainFee: props.route ? props.route!.CaptainFee : 0,
+    MainRouteId: props.route ? props.route!.MainRouteId : 0,
+    AvailableAtTerminal: props.route ? props.route!.AvailableAtTerminal : true,
+    AvailableOnline: props.route ? props.route!.AvailableOnline : true,
+    RouteType: props.route ? props.route!.RouteType : 0
   }
 
   const validationSchema = Yup.object({
@@ -47,14 +47,14 @@ export default function AddRouteForm(props: Props<IRouteModel>) {
     RouteName: Yup.string().required(),
     Departure: Yup.string().required(),
     Destination: Yup.string().required(),
-    IsSubRoute: Yup.string().required(),
-    DispatchFee: Yup.string().required(),
-    LoaderFee: Yup.string().required(),
-    captainFee: Yup.string().required(),
+    IsSubRoute: Yup.boolean().required(),
+    DispatchFee: Yup.number().required(),
+    LoaderFee: Yup.number().required(),
+    captainFee: Yup.number().required(),
     MainRouteId: Yup.string().required(),
-    AvailableAtTerminal: Yup.string().required(),
-    AvailableOnline: Yup.string().required(),
-    RouteType: Yup.string().required(),
+    AvailableAtTerminal: Yup.boolean().required(),
+    AvailableOnline: Yup.boolean().required(),
+    RouteType: Yup.number().required(),
   })
 
   return (

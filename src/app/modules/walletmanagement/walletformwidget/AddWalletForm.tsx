@@ -31,14 +31,14 @@ export default function AddWalletForm(props: Props<IWalletModel>) {
   const initialFormValue: IWalletModel = {
     WalletId: props.wallet ? props.wallet!.WalletId : '',
     WalletNumber: props.wallet ? props.wallet!.WalletNumber : '',
-    IsActive: props.wallet ? props.wallet!.IsActive : true,
+    IsActive: props.wallet ? props.wallet!.IsActive : '',
     UserId: props.wallet ? props.wallet!.UserId : '',
   }
 
   const validationSchema = Yup.object({
     WalletId: Yup.string().required(),
     WalletNumber: Yup.string().required(),
-    IsActive: Yup.boolean().required(),
+    IsActive: Yup.string().required(),
     UserId: Yup.string().required(),
   })
 

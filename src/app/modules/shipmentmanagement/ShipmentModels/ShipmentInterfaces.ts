@@ -18,14 +18,14 @@ export interface IRouteModel {
     RouteName: string
     Departure: string
     Destination: string
-    IsSubRoute: string
-    DispatchFee: string
-    LoaderFee: string
-    CaptainFee: string
-    MainRouteId: string
-    AvailableAtTerminal: string
-    AvailableOnline: string
-    RouteType: string
+    IsSubRoute: boolean
+    DispatchFee: number
+    LoaderFee: number
+    CaptainFee: number
+    MainRouteId: number
+    AvailableAtTerminal: boolean
+    AvailableOnline: boolean
+    RouteType: number
 } 
 
 export interface IShipmentModel {

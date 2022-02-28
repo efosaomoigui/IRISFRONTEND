@@ -2,7 +2,7 @@
 export interface IWalletModel { 
     WalletId: string
     WalletNumber: string
-    IsActive?: boolean
+IsActive: string
     UserId: string
     
 }

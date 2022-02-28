@@ -8,27 +8,13 @@ export const routemodels: IRouteModel[] = [
     RouteName: '',
     Departure: '',
     Destination: '',
-    IsSubRoute: '',
-    DispatchFee: '',
-    LoaderFee: '',
-    CaptainFee: '',
-    MainRouteId: '',
-    AvailableAtTerminal: '',
-    AvailableOnline: '',
-    RouteType: ''
+    IsSubRoute: true,
+    DispatchFee: 0,
+    LoaderFee: 0,
+    CaptainFee: 0,
+    MainRouteId: 0,
+    AvailableAtTerminal: true,
+    AvailableOnline: true,
+    RouteType: 0
   },
-  {
-    RouteId: '',
-    RouteName: '',
-    Departure: '',
-    Destination: '',
-    IsSubRoute: '',
-    DispatchFee: '',
-    LoaderFee: '',
-    CaptainFee: '',
-    MainRouteId: '',
-    AvailableAtTerminal: '',
-    AvailableOnline: '',
-    RouteType: ''
-  }
 ]

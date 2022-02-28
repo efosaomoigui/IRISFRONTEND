@@ -5,19 +5,7 @@ export const walletmodels: IWalletModel[] = [
     {
         WalletId: '',
         WalletNumber: '',
-        IsActive: false,
+        IsActive: '',
         UserId: ''
     }, 
-    {
-        WalletId: '',
-        WalletNumber: '',
-        IsActive: false,
-        UserId: ''
-    },
-    {
-        WalletId: '',
-        WalletNumber: '',
-        IsActive: false,
-        UserId: ''
-    }
 ]
