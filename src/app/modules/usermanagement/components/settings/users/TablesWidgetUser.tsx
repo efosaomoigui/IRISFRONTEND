@@ -3,7 +3,7 @@ import React from 'react'
 import { KTSVG } from '../../../../../../_iris/helpers'
 import { IUserModel } from '../../../../auth/models/AuthInterfaces'
 import { GenericTable } from '../../../../layout/tables/GenericTable'
-import IrisTableHeading, { madalprops } from '../../../../layout/tables/IrisTableTitle'
+import IrisTableHeading, { modalprops } from '../../../../layout/tables/IrisTableTitle'
 import IrisTableTitle from '../../../../layout/tables/IrisTableTitle'
 
 // import {KTSVG, toAbsoluteUrl} from '../../../helpers'
@@ -24,7 +24,7 @@ type Props = {
   FakeData: any[]
   TableTitle: string
   Count: string
-  ModalTarget: madalprops[]
+  ModalTarget: modalprops[]
 }
 
 const TablesWidgetUser: React.FC<Props> = ({

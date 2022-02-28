@@ -7,14 +7,9 @@ import IrisTextInput from '../../layout/forms/IrisTextInput'
 import IrisSelectInput from '../../layout/forms/IrisSelectInput'
 import { ITrackHistoryModel } from '../Monitor models/MonitorInterface'
 import IrisDatePicker from '../../layout/forms/IrisDatePicker'
+import { usePageData } from '../../../../_iris/layout/core'
 
 
-
-
-
-// interface Props {
-//   userVal: IUserModel
-// }
 
 interface Props<Values> {
     onSubmit: (values: Values, formikHelpers: FormikHelpers<Values>) => void | Promise<any>
@@ -30,6 +25,16 @@ const options = [
 ]
 
 export default function AddTrackHistoryForm(props: Props<ITrackHistoryModel>) {
+
+    const {
+        entityDetailValues,
+        setEntityDetailValues,
+        selectUrlParam,
+        setSelectUrlParam,
+        formTitle,
+        setFormTitle,
+      } = usePageData()
+      
     const initialFormValue: ITrackHistoryModel = {
         id: props.trackHistory ? props.trackHistory!.id : '',
         TripId: props.trackHistory ? props.trackHistory!.TripId :  '',
@@ -60,7 +65,7 @@ export default function AddTrackHistoryForm(props: Props<ITrackHistoryModel>) {
                     <div className='modal-dialog modal-dialog-centered mw-900px'>
                         <div className='modal-content'>
                             <div className='modal-header'>
-                                <h2>Add Track History</h2>
+                                <h2>{formTitle + ' Track History'} </h2>
                                 <div
                                     className='btn btn-sm btn-icon btn-active-color-primary'
                                     data-bs-dismiss='modal'

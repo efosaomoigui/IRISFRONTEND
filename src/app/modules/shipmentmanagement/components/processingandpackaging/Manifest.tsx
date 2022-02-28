@@ -2,18 +2,18 @@ import { useEffect, useState } from 'react'
 import agent from '../../../../../setup/axios/AxiosAgent';
 import LoadingComponent from '../../../../LoadingComponent';
 import { IrisTablesWidget } from '../../../layout/tables/IrisTablesWidget';
-import { madalprops } from '../../../layout/tables/IrisTableTitle';
+import { modalprops } from '../../../layout/tables/IrisTableTitle';
 import { IManifestModel } from '../../ShipmentModels/ShipmentInterfaces';
 import Manifest_Data from './Manifest_Data.json'
 // import {format} from 'date-fns' 
 
 export function Manifest() {
   const [loading, setLoading] = useState(true)
-  const [modalTarger, setModalTarget] = useState<madalprops[]>([]);
+  const [modalTarger, setModalTarget] = useState<modalprops[]>([]);
   const [manifestmodel, setUsersModel] = useState<IManifestModel[]>([])
 
   //all the data for the table
-  const tableProvider = {
+  const tableProvider = { 
     columns: [
       {
         Header: 'Id',

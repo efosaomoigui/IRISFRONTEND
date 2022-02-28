@@ -1,14 +1,14 @@
 import {useEffect, useState} from 'react'
 import agent from '../../../../../setup/axios/AxiosAgent'
 import { IrisTablesWidget } from '../../../layout/tables/IrisTablesWidget'
-import { madalprops } from '../../../layout/tables/IrisTableTitle'
+import { modalprops } from '../../../layout/tables/IrisTableTitle'
 import { IFulfilmentModel } from '../../models/FulfilmentInterface'
 import CollectionCenter_Data from './CollectionCenter_Data.json'
 // import {format} from 'date-fns' 
 
 export function CollectionCenter() {
   const [loading, setLoading] = useState(true)
-  const [modalTarger, setModalTarget] = useState<madalprops[]>([]);
+  const [modalTarger, setModalTarget] = useState<modalprops[]>([]);
   const [collectionmodel, setUsersModel] = useState<IFulfilmentModel[]>([])
 
   //all the data for the table
@@ -58,7 +58,7 @@ export function CollectionCenter() {
     })
   }, [])
 
-  const ModalTargetDetails: madalprops = {
+  const ModalTargetDetails: modalprops = {
     linkTarget : tableProvider.EditPath,
     linkTitle : ""
   }

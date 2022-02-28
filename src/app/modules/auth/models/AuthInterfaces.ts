@@ -4,9 +4,11 @@ export interface IUserModel {
   password?: string
   firstName: string
   lastName: string
-  email: string
-  phonenumber?: string
+  email: string 
+  phoneNumber?: string
+  gender?: string
   age?: string
+  userType?: string
   designation?: string
   department?: string
   pictureUrl?: string

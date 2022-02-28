@@ -2,14 +2,14 @@ import { useEffect, useState } from 'react'
 import agent from '../../../../../../setup/axios/AxiosAgent'
 import LoadingComponent from '../../../../../LoadingComponent'
 import { IrisTablesWidget } from '../../../../layout/tables/IrisTablesWidget'
-import { madalprops } from '../../../../layout/tables/IrisTableTitle'
+import { modalprops } from '../../../../layout/tables/IrisTableTitle'
 import { ITripModel } from '../../../Monitor models/MonitorInterface'
 import ViewTrips_Data from './ViewTrips_Data.json'
 // import {format} from 'date-fns' 
 
 export function ViewTrips() {
   const [loading, setLoading] = useState(true)
-  const [modalTarger, setModalTarget] = useState<madalprops[]>([]);
+  const [modalTarger, setModalTarget] = useState<modalprops[]>([]);
   const [tripmodel, setUsersModel] = useState<ITripModel[]>([])
 
   //all the data for the table

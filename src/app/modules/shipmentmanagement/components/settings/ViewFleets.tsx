@@ -1,14 +1,14 @@
 import {useEffect, useState} from 'react'
 import agent from '../../../../../setup/axios/AxiosAgent'
 import { IrisTablesWidget } from '../../../layout/tables/IrisTablesWidget'
-import { madalprops } from '../../../layout/tables/IrisTableTitle'
+import { modalprops } from '../../../layout/tables/IrisTableTitle'
 import FleetData from '../../FleetData.json'
 import { IFleetModel } from '../../ShipmentModels/ShipmentInterfaces'
 // import {format} from 'date-fns' 
 
 export function ViewFleets() {
   const [loading, setLoading] = useState(true)
-  const [modalTarger, setModalTarget] = useState<madalprops[]>([]);
+  const [modalTarger, setModalTarget] = useState<modalprops[]>([]);
   const [fleetmodel, setFleetModel] = useState<IFleetModel[]>([])
 
   //all the data for the table

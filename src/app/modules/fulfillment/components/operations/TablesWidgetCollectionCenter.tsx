@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
 import { GenericTable } from '../../../layout/tables/GenericTable'
-import IrisTableHeading, { madalprops } from '../../../layout/tables/IrisTableTitle'
+import IrisTableHeading, { modalprops } from '../../../layout/tables/IrisTableTitle'
 
 
 // import {KTSVG, toAbsoluteUrl} from '../../../helpers'
@@ -22,7 +22,7 @@ type Props = {
   FakeData: any[]
   TableTitle: string
   Count: string
-  ModalTarget: madalprops[]
+  ModalTarget: modalprops[]  
 }
 
 const TablesWidgetCollectionCenter: React.FC<Props> = ({

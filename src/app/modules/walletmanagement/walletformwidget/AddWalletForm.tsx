@@ -4,6 +4,7 @@ import { Button } from 'semantic-ui-react'
 import * as Yup from 'yup'
 import { boolean } from 'yup/lib/locale'
 import { KTSVG } from '../../../../_iris/helpers'
+import { usePageData } from '../../../../_iris/layout/core'
 import IrisDatePicker from '../../layout/forms/IrisDatePicker'
 import IrisSelectInput from '../../layout/forms/IrisSelectInput'
 import IrisTextInput from '../../layout/forms/IrisTextInput'
@@ -28,6 +29,8 @@ const options = [
 ]
 
 export default function AddWalletForm(props: Props<IWalletModel>) {
+  const {entityDetailValues, setEntityDetailValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle} = usePageData()
+
   const initialFormValue: IWalletModel = {
     WalletId: props.wallet ? props.wallet!.WalletId : '',
     WalletNumber: props.wallet ? props.wallet!.WalletNumber : '',
@@ -54,7 +57,7 @@ export default function AddWalletForm(props: Props<IWalletModel>) {
           <div className='modal-dialog modal-dialog-centered mw-900px'>
             <div className='modal-content'>
               <div className='modal-header'>
-                <h2>Add Wallet</h2>
+                <h2>{formTitle+" Wallet"}</h2>
                 <div
                   className='btn btn-sm btn-icon btn-active-color-primary'
                   data-bs-dismiss='modal'

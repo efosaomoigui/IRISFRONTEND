@@ -1,4 +1,4 @@
-import {useState,createContext, useContext } from 'react'
+import {useState,createContext, useContext, useEffect } from 'react'
 import {KTSVG} from '../../../../_iris/helpers'
 import { usePageData } from '../../../../_iris/layout/core'
 
@@ -9,11 +9,12 @@ interface Props {
 }
 
 const TableActionLinks = ({DetailsPath, EditPath, DeletePath}: Props) => {
-  const {entityDetailValues, selectUrlParam, setSelectUrlParam} = usePageData()
+  const {entityDetailValues, selectUrlParam, setSelectUrlParam,formTitle, setFormTitle} = usePageData()
 
   const clickAction = ()=>{
     const urlParm = DetailsPath.split('/')
     setSelectUrlParam!(urlParm[urlParm.length-1]);
+    setFormTitle('Edit');
   }
 
   return (
@@ -25,7 +26,6 @@ const TableActionLinks = ({DetailsPath, EditPath, DeletePath}: Props) => {
       >
         <KTSVG path='/media/icons/duotune/general/gen019.svg' className='svg-icon-3' />
       </a>
-
 
       <a
         // href={EditPath}

@@ -3,7 +3,8 @@ import {KTSVG} from '../../../../_iris/helpers'
 import { usePageData } from '../../../../_iris/layout/core'
 import { IUserModel } from '../../auth/models/AuthInterfaces'
 import {GenericTable} from './GenericTable'
-import IrisTableHeading, {madalprops} from './IrisTableTitle'
+import IrisTableHeading from './IrisTableTitle'
+// import IrisTableHeading, {madalprops} from './IrisTableTitle'
 //import styled from 'styled-components'
 
 // const stylecell = styled.td` 
@@ -14,6 +15,12 @@ interface colAcc {
   Header: string
   accessor: string
 }
+
+export interface modalprops {
+  linkTitle: string
+  linkTarget: string
+}
+
 
 type Props = {
   className: string
@@ -26,7 +33,7 @@ type Props = {
   FakeData: any[]
   TableTitle: string
   Count: string
-  ModalTarget: madalprops[]
+  ModalTarget: modalprops[]
 }
 
 const IrisTablesWidget: React.FC<Props> = ({
@@ -43,13 +50,13 @@ const IrisTablesWidget: React.FC<Props> = ({
   ModalTarget,
 }) => {
   const tabledata = UseFakeData ? FakeData : tableData
-  const {entityDetailValues, setEntityDetailValues, selectUrlParam, setSelectUrlParam} = usePageData()
+  const {entityDetailValues, setEntityDetailValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle} = usePageData()
 
   return (
     <div className={`card ${className}`}>
       {/* begin::Header */} 
       <IrisTableHeading tableTitle={TableTitle} count={Count} modelTarget={ModalTarget} />
-      {/* end::Header */}
+      {/* end::Header */} 
 
       {/* begin::Body */}
       <div className='card-body py-3'>

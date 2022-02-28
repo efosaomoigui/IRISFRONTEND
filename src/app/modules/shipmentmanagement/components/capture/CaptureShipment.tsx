@@ -52,13 +52,13 @@ export function CaptureShipment() {
                 </Grid>
                 <Grid item xs={6}>
                   {/* <InputField name='shipmenttype' label='Shipment Type' /> */}
-                  <IrisSelectInput2 name='shipmenttype' label={'Shipment Type'} />
+                  {/* <IrisSelectInput2 name='shipmenttype' label={'Shipment Type'} /> */}
                 </Grid>
                 <Grid item xs={6}>
-                  <IrisSelectInput2 name='departure' label={'Departure'} />{' '}
+                  {/* <IrisSelectInput2 name='departure' label={'Departure'} />{' '} */}
                 </Grid>{' '}
                 <Grid item xs={6}>
-                  <IrisSelectInput2 name='departure' label={'Destination'} />{' '}
+                  {/* <IrisSelectInput2 name='departure' label={'Destination'} />{' '} */}
                 </Grid>
               </Grid>
             </FormStep>

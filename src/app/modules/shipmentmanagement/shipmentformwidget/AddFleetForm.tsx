@@ -6,6 +6,7 @@ import * as Yup from 'yup'
 import IrisTextInput from '../../layout/forms/IrisTextInput'
 import IrisSelectInput from '../../layout/forms/IrisSelectInput'
 import {IFleetModel} from '../ShipmentModels/ShipmentInterfaces'
+import { usePageData } from '../../../../_iris/layout/core'
 
 // interface Props {
 //   userVal: IUserModel
@@ -25,6 +26,8 @@ const options = [
 ]
 
 export default function AddFleetForm(props: Props<IFleetModel>) {
+  const {entityDetailValues, setEntityDetailValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle} = usePageData()
+
   const initialFormValue: IFleetModel = {
     FleetId: props.fleet ? props.fleet!.FleetId : '',
     RegistrationNumber: props.fleet ? props.fleet!.RegistrationNumber : '',
@@ -65,7 +68,7 @@ export default function AddFleetForm(props: Props<IFleetModel>) {
           <div className='modal-dialog modal-dialog-centered mw-900px'>
             <div className='modal-content'>
               <div className='modal-header'>
-                <h2>Create Fleet</h2>
+                <h2>{formTitle+" Fleet"}</h2>
                 <div
                   className='btn btn-sm btn-icon btn-active-color-primary'
                   data-bs-dismiss='modal'

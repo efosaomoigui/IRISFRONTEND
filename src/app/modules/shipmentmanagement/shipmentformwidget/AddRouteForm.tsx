@@ -6,6 +6,7 @@ import * as Yup from 'yup'
 import IrisTextInput from '../../layout/forms/IrisTextInput'
 import IrisSelectInput from '../../layout/forms/IrisSelectInput'
 import { IRouteModel } from '../ShipmentModels/ShipmentInterfaces'
+import { usePageData } from '../../../../_iris/layout/core'
 
 
 
@@ -27,6 +28,8 @@ const options = [
 ]
 
 export default function AddRouteForm(props: Props<IRouteModel>) {
+  const {entityDetailValues, setEntityDetailValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle} = usePageData()
+
   const initialFormValue: IRouteModel = {
     RouteId: props.route ? props.route!.RouteId : '',
     RouteName: props.route ? props.route!.RouteName : '',
@@ -69,7 +72,7 @@ export default function AddRouteForm(props: Props<IRouteModel>) {
           <div className='modal-dialog modal-dialog-centered mw-900px'>
             <div className='modal-content'>
               <div className='modal-header'>
-                <h2>Create Route</h2>
+                <h2>{formTitle+" Route"}</h2>
                 <div
                   className='btn btn-sm btn-icon btn-active-color-primary'
                   data-bs-dismiss='modal'

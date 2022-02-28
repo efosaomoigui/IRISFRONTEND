@@ -1,7 +1,8 @@
 import React from 'react'
 import {KTSVG} from '../../../../_iris/helpers'
+import { usePageData } from '../../../../_iris/layout/core'
 
-export interface madalprops {
+export interface modalprops {
   linkTitle: string
   linkTarget: string
 }
@@ -9,10 +10,18 @@ export interface madalprops {
 interface Props {
   tableTitle: string
   count: string
-  modelTarget: madalprops[]
+  modelTarget: modalprops[]
 }
 
+
 const IrisTableHeading = ({tableTitle, count, modelTarget}: Props) => {
+
+  const {entityDetailValues, setEntityDetailValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle} = usePageData()
+
+  const clickAction = ()=>{
+    setFormTitle('Add');
+  }
+
   return (
       <div className='card-header border-0 pt-5'>
         <h3 className='card-title align-items-start flex-column'>
@@ -35,6 +44,7 @@ const IrisTableHeading = ({tableTitle, count, modelTarget}: Props) => {
               className='btn btn-sm btn-light-primary'
               data-bs-toggle='modal'
               data-bs-target={target.linkTarget}
+              onClick={()=>clickAction()}
             >
               <KTSVG path='/media/icons/duotune/arrows/arr075.svg' className='svg-icon-3' />
               {target.linkTitle}

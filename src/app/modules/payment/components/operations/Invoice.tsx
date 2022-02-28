@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import agent from '../../../../../setup/axios/AxiosAgent';
 import { IrisTablesWidget } from '../../../layout/tables/IrisTablesWidget';
-import { madalprops } from '../../../layout/tables/IrisTableTitle';
+import { modalprops } from '../../../layout/tables/IrisTableTitle';
 import { IInvoiceModel } from '../../PaymentModels/PaymentmentInterfaces';
 
 import Invoice_Data from './Invoice_Data.json'
@@ -9,7 +9,7 @@ import Invoice_Data from './Invoice_Data.json'
 
 export function Invoice() {
   const [loading, setLoading] = useState(true)
-  const [modalTarger, setModalTarget] = useState<madalprops[]>([]);
+  const [modalTarger, setModalTarget] = useState<modalprops[]>([]);
   const [invoicemodel, setUsersModel] = useState<IInvoiceModel[]>([])
 
   //all the data for the table

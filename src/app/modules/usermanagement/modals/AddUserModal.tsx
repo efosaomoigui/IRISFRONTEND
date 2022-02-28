@@ -14,8 +14,10 @@ interface Props {
 const AddUserModal: React.FC<Props> = ({handleSelect, SelectedValues}: Props) => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [selectUsers, setSelectUsers] = useState<IUserModel>()
+  
+  const [showForm, setShowForm] = useState(true)
 
-  const {entityDetailValues, selectUrlParam, setSelectUrlParam} = usePageData()
+  const {entityDetailValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle} = usePageData()
 
   // handle logic
   const users = entityDetailValues as IUserModel[];
@@ -26,7 +28,7 @@ const AddUserModal: React.FC<Props> = ({handleSelect, SelectedValues}: Props) =>
   }
 
   const selected = setSelectedValue(users);
-  console.log("LOG ", (selected)?"old user": "new user");
+  // console.log("LOG ", (selected)?"old user": "new user");
 
   const onSubmit = (values: IUserModel) => {
     setIsSubmitting(true)
@@ -40,15 +42,20 @@ const AddUserModal: React.FC<Props> = ({handleSelect, SelectedValues}: Props) =>
     }else{
       agent.Users.create(values).then((response) => {
         toast.success('User Creation Was Successful!')
+        setInterval(()=>{
+          setShowForm(false);
+        }, 1000)
         setIsSubmitting(false)
       })
     }
+
+    // console.log("Vals: ", values);
   }
 
   return (
     <>
       <div className='modal fade' id='kt_modal_adduser' aria-hidden='true'>
-        <AddUserForm isSubmitting={isSubmitting} onSubmit={onSubmit} user={selected} />
+        <AddUserForm isSubmitting={isSubmitting} onSubmit={onSubmit} user={selected} showForm={showForm} formTitle={'Add User'} />
       </div>
     </>
   )

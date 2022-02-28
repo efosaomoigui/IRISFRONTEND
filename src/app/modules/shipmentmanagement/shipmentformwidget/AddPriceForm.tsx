@@ -6,6 +6,7 @@ import * as Yup from 'yup'
 import IrisTextInput from '../../layout/forms/IrisTextInput'
 import IrisSelectInput from '../../layout/forms/IrisSelectInput'
 import {IPriceModel} from '../ShipmentModels/ShipmentInterfaces'
+import { usePageData } from '../../../../_iris/layout/core'
 
 // interface Props {
 //   userVal: IUserModel
@@ -25,6 +26,8 @@ const options = [
 ]
 
 export default function AddPriceForm(props: Props<IPriceModel>) {
+  const {entityDetailValues, setEntityDetailValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle} = usePageData()
+
   const initialFormValue: IPriceModel = {
     id: props.price ? props.price!.id : '',
     Category: props.price ? props.price!.Category : '',
@@ -55,7 +58,7 @@ export default function AddPriceForm(props: Props<IPriceModel>) {
           <div className='modal-dialog modal-dialog-centered mw-900px'>
             <div className='modal-content'>
               <div className='modal-header'>
-                <h2>Create Price</h2>
+                <h2>{formTitle+" Price Item"}</h2>
                 <div
                   className='btn btn-sm btn-icon btn-active-color-primary'
                   data-bs-dismiss='modal'

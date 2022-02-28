@@ -3,6 +3,7 @@ import { Modal } from 'react-bootstrap-v5'
 import { Button } from 'semantic-ui-react'
 import * as Yup from 'yup'
 import { KTSVG } from '../../../../_iris/helpers'
+import { usePageData } from '../../../../_iris/layout/core'
 import IrisDatePicker from '../../layout/forms/IrisDatePicker'
 import IrisSelectInput from '../../layout/forms/IrisSelectInput'
 import IrisTextInput from '../../layout/forms/IrisTextInput'
@@ -27,6 +28,8 @@ const options = [
 ]
 
 export default function AddWalletForm(props: Props<IWalletTransactionModel>) {
+  const {entityDetailValues, setEntityDetailValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle} = usePageData()
+
   const initialFormValue: IWalletTransactionModel = {
     WalletTransactionId: props.wallettransaction ? props.wallettransaction!.WalletTransactionId : '',
     Amount: props.wallettransaction ? props.wallettransaction!.Amount : '',
@@ -57,7 +60,7 @@ export default function AddWalletForm(props: Props<IWalletTransactionModel>) {
           <div className='modal-dialog modal-dialog-centered mw-900px'>
             <div className='modal-content'>
               <div className='modal-header'>
-                <h2>Add Wallet Transaction</h2>
+                <h2>{formTitle+" Wallet Transaction"} </h2>
                 <div
                   className='btn btn-sm btn-icon btn-active-color-primary'
                   data-bs-dismiss='modal'

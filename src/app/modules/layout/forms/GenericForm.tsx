@@ -5,7 +5,7 @@ import {IUserModel} from '../../auth/models/AuthInterfaces'
 import {Formik, Form, FormikHelpers} from 'formik'
 import * as Yup from 'yup'
 import IrisTextInput from './IrisTextInput'
-import IrisSelectInput from './IrisSelectInput'
+import IrisSelectInput from './IrisSelectInput' 
 
 
 // interface Props {
@@ -31,16 +31,18 @@ export default function GenericForm(props: Props<IUserModel>) {
     firstName: 'hgg',
     lastName: 'jj',
     email: 'kkk@h.com',
-    phonenumber: '55657757',
+    phoneNumber: '55657757',
+    gender: 'male',
+    userType:'corporate'
   }
 
-  const validationSchema = Yup.object({
+  const validationSchema = Yup.object({ 
     userName: Yup.string().required(),
     firstName: Yup.string().required(),
     password: Yup.string().required(),
     lastName: Yup.string().required(),
     email: Yup.string().required(),
-    phonenumber: Yup.string().required(),
+    phoneNumber: Yup.string().required(),
   })
 
   return (
