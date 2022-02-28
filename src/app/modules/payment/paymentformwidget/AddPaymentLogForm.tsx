@@ -7,6 +7,9 @@ import IrisTextInput from '../../layout/forms/IrisTextInput'
 import {IInvoiceModel, IPaymentLogModel} from '../PaymentModels/PaymentmentInterfaces'
 import IrisSelectInput from '../../layout/forms/IrisSelectInput'
 import {usePageData} from '../../../../_iris/layout/core'
+import { Grid } from '@material-ui/core'
+import { Alert } from '@mui/material'
+import useStyles from '../../layout/formstyles/FormStyle'
 
 // interface Props {
 //   userVal: IUserModel
@@ -15,6 +18,7 @@ import {usePageData} from '../../../../_iris/layout/core'
 interface Props<Values> {
   onSubmit: (values: Values, formikHelpers: FormikHelpers<Values>) => void | Promise<any>
   isSubmitting: boolean
+  showForm?: boolean
   paymentlog?: IPaymentLogModel
 }
 
@@ -51,6 +55,8 @@ export default function AddPaymentlLogForm(props: Props<IPaymentLogModel>) {
     TransactionId: Yup.string().required(),
   })
 
+  const classes = useStyles()
+
   return (
     <>
       <Formik
@@ -72,50 +78,40 @@ export default function AddPaymentlLogForm(props: Props<IPaymentLogModel>) {
                 </div>
               </div>
 
+              <div className='modal-body' >
+                {props.showForm &&
+                  <Grid container className={classes.root}>
+                    <Grid item xs={6}>
+                      {/* <IrisTextInput type='text' name='id' label='Role Id' /> */}
+                      <IrisTextInput
+                        type='text'
+                        name='PaymentId'
+                        placeholder='PaymentId'
+                        label='PaymentId'
+                      />
+                      <IrisTextInput type='text' placeholder='Amount' name='Amount' label='Amount' />
+                      <IrisTextInput
+                        type='text'
+                        placeholder='PaymentMethod'
+                        name='PaymentMethod'
+                        label='PaymentMethod'
+                      />
+                    </Grid>
+                    <Grid item xs={6}>
+                      <IrisTextInput type='text' placeholder='User' name='User' label='User' />
+
+                      <IrisTextInput
+                        type='text'
+                        placeholder='TransactionId'
+                        name='TransactionId'
+                        label='TransactionId'
+                      />
+                    </Grid>
+                    </Grid>
+                }
+                {!props.showForm && <Alert severity="info">Payment Log Created Successfully!</Alert>}
+              </div>
               <div className='modal-body py-lg-10 px-lg-10'>
-                <IrisTextInput
-                  type='text'
-                  name='PaymentId'
-                  placeholder='PaymentId'
-                  label='PaymentId'
-                />
-                <IrisTextInput type='text' placeholder='Amount' name='Amount' label='Amount' />
-                <IrisTextInput
-                  type='text'
-                  placeholder='PaymentMethod'
-                  name='PaymentMethod'
-                  label='PaymentMethod'
-                />
-                <IrisTextInput type='text' placeholder='User' name='User' label='User' />
-
-                <IrisTextInput
-                  type='text'
-                  placeholder='TransactionId'
-                  name='TransactionId'
-                  label='TransactionId'
-                />
-
-                {/* <IrisDatePicker
-                  placeholderText='Date'
-                  name='date'
-                  showTimeSelect
-                  timeCaption='time'
-                  dateFormat='MMM d, yyyy h:mm: aa'
-                /> */}
-
-                {/* <IrisTextInput
-                                    type='password'
-                                    placeholder='Password'
-                                    name='password'
-                                    label='Password'
-                                /> */}
-
-                {/* <IrisSelectInput
-                                    options={options}
-                                    placeholder='ShipStatus'
-                                    name='ShipStatus'
-                                    label='ShipStatus'
-                                /> */}
               </div>
 
               <Modal.Footer>

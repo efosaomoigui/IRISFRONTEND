@@ -7,6 +7,9 @@ import IrisTextInput from '../../layout/forms/IrisTextInput'
 import IrisSelectInput from '../../layout/forms/IrisSelectInput'
 import { ITripModel } from '../Monitor models/MonitorInterface'
 import {usePageData} from '../../../../_iris/layout/core'
+import { Grid } from '@material-ui/core'
+import { Alert } from '@mui/material'
+import useStyles from '../../layout/formstyles/FormStyle'
 
 
 
@@ -20,6 +23,7 @@ interface Props<Values> {
     onSubmit: (values: Values, formikHelpers: FormikHelpers<Values>) => void | Promise<any>
     isSubmitting: boolean
     trip?: ITripModel
+    showForm?: boolean
 }
 
 const options = [
@@ -71,6 +75,8 @@ export default function AddTripForm(props: Props<ITripModel>) {
         EndTime: Yup.string().required(),
     })
 
+    const classes = useStyles()
+
     return (
         <>
             <Formik
@@ -83,7 +89,7 @@ export default function AddTripForm(props: Props<ITripModel>) {
                     <div className='modal-dialog modal-dialog-centered mw-900px'>
                         <div className='modal-content'>
                             <div className='modal-header'>
-                                <h2>{formTitle + ' Trip Dispatach'}</h2>
+                                <h2>{formTitle + ' Trip Dispatch'}</h2>
                                 <div
                                     className='btn btn-sm btn-icon btn-active-color-primary'
                                     data-bs-dismiss='modal'
@@ -91,64 +97,50 @@ export default function AddTripForm(props: Props<ITripModel>) {
                                     <KTSVG path='/media/icons/duotune/arrows/arr061.svg' className='svg-icon-1' />
                                 </div>
                             </div>
+                            <div className='modal-body' >
+                                {props.showForm &&
+                                    <Grid container className={classes.root}>
+                                        <Grid item xs={6}>
+                                            <IrisTextInput
+                                                type='text'
+                                                name='TripReference'
+                                                placeholder='Trip Reference'
+                                                label='Trip Reference'
+                                            />
+                                            <IrisTextInput
+                                                type='text'
+                                                placeholder='fleetid'
+                                                name='fleetid'
+                                                label='fleetid'
+                                            />
+                                        </Grid>
+                                        <Grid item xs={6}>
+                                            <IrisTextInput
+                                                type='text'
+                                                placeholder='Driver'
+                                                name='Driver'
+                                                label='Driver'
+                                            />
+                                            <IrisTextInput
+                                                type='text'
+                                                placeholder='FuelCosts'
+                                                name='FuelCosts'
+                                                label='FuelCosts'
+                                            />
 
-                            <div className='modal-body py-lg-10 px-lg-10'>
-                                <IrisTextInput
-                                    type='text'
-                                    name='TripReference'
-                                    placeholder='Trip Reference'
-                                    label='Trip Reference'
-                                />
-                                <IrisTextInput
-                                    type='text'
-                                    placeholder='fleetid'
-                                    name='fleetid'
-                                    label='fleetid'
-                                />
-                                <IrisTextInput
-                                    type='text'
-                                    placeholder='Driver'
-                                    name='Driver'
-                                    label='Driver'
-                                />
-                                <IrisTextInput
-                                    type='text'
-                                    placeholder='FuelCosts'
-                                    name='FuelCosts'
-                                    label='FuelCosts'
-                                />
-
-                                <IrisTextInput
-                                    type='text'
-                                    placeholder='Dispatcher'
-                                    name='Dispatcher'
-                                    label='Dispatcher'
-                                />
-
-                                {/* <IrisDatePicker
-                  placeholderText='Date'
-                  name='date'
-                  showTimeSelect
-                  timeCaption='time'
-                  dateFormat='MMM d, yyyy h:mm: aa'
-                /> */}
-
-                                {/* <IrisTextInput
-                                    type='password'
-                                    placeholder='Password'
-                                    name='password'
-                                    label='Password'
-                                />
-
-                                <IrisSelectInput
-                                    options={options}
-                                    placeholder='category'
-                                    name='category'
-                                    label='Category'
-                                /> */}
-
+                                            <IrisTextInput
+                                                type='text'
+                                                placeholder='Dispatcher'
+                                                name='Dispatcher'
+                                                label='Dispatcher'
+                                            />
+                                        </Grid>
+                                    </Grid>
+                                }
+                                {!props.showForm && <Alert severity="info">Trip Created Successfully!</Alert>}
                             </div>
-
+                            <div className='modal-body py-lg-10 px-lg-10'>
+                            </div>
                             <Modal.Footer>
                                 <Button
                                     floated='right'

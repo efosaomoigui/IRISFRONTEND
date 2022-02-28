@@ -7,6 +7,9 @@ import IrisTextInput from '../../layout/forms/IrisTextInput'
 import {IInvoiceModel} from '../PaymentModels/PaymentmentInterfaces'
 import IrisSelectInput from '../../layout/forms/IrisSelectInput'
 import {usePageData} from '../../../../_iris/layout/core'
+import { Alert } from '@mui/material'
+import { Grid } from '@material-ui/core'
+import useStyles from '../../layout/formstyles/FormStyle'
 
 // interface Props {
 //   userVal: IUserModel
@@ -16,6 +19,7 @@ interface Props<Values> {
   onSubmit: (values: Values, formikHelpers: FormikHelpers<Values>) => void | Promise<any>
   isSubmitting: boolean
   invoice?: IInvoiceModel
+  showForm?: boolean
 }
 
 const options = [
@@ -52,6 +56,8 @@ export default function AddInvoiceForm(props: Props<IInvoiceModel>) {
     PaymentMethod: Yup.string().required(),
     ShipStatus: Yup.string().required(),
   })
+  
+  const classes = useStyles()
 
   return (
     <>
@@ -74,60 +80,49 @@ export default function AddInvoiceForm(props: Props<IInvoiceModel>) {
                 </div>
               </div>
 
+              <div className='modal-body' >
+                {props.showForm &&
+                  <Grid container className={classes.root}>
+                    <Grid item xs={6}>
+                      <IrisTextInput
+                        type='text'
+                        name='InvoiceCode'
+                        placeholder='Invoice Code'
+                        label='Invoice Code'
+                      />
+                      <IrisTextInput
+                        type='text'
+                        placeholder='ShipmentId'
+                        name='ShipmentId'
+                        label='ShipmentId'
+                      />
+                    </Grid>
+                    <Grid item xs={6}>
+                      <IrisTextInput
+                        type='text'
+                        placeholder='Shipment'
+                        name='Shipment'
+                        label='Shipment'
+                      />
+                      <IrisTextInput
+                        type='text'
+                        placeholder='Payment Method'
+                        name='PaymentMethod'
+                        label='Payment Method'
+                      />
+                      <IrisSelectInput
+                        options={options}
+                        placeholder='ShipStatus'
+                        name='ShipStatus'
+                        label='ShipStatus'
+                      />
+                    </Grid>
+                  </Grid> 
+                }
+                {!props.showForm && <Alert severity="info">Invoice Created Successfully!</Alert>}
+              </div>
+
               <div className='modal-body py-lg-10 px-lg-10'>
-                <IrisTextInput
-                  type='text'
-                  name='InvoiceCode'
-                  placeholder='Invoice Code'
-                  label='Invoice Code'
-                />
-                <IrisTextInput
-                  type='text'
-                  placeholder='ShipmentId'
-                  name='ShipmentId'
-                  label='ShipmentId'
-                />
-                <IrisTextInput
-                  type='text'
-                  placeholder='Shipment'
-                  name='Shipment'
-                  label='Shipment'
-                />
-                <IrisTextInput
-                  type='text'
-                  placeholder='Payment Method'
-                  name='PaymentMethod'
-                  label='Payment Method'
-                />
-
-                {/* <IrisTextInput
-                                    type='text'
-                                    placeholder='Dispatcher'
-                                    name='Dispatcher'
-                                    label='Dispatcher'
-                                /> */}
-
-                {/* <IrisDatePicker
-                  placeholderText='Date'
-                  name='date'
-                  showTimeSelect
-                  timeCaption='time'
-                  dateFormat='MMM d, yyyy h:mm: aa'
-                /> */}
-
-                {/* <IrisTextInput
-                                    type='password'
-                                    placeholder='Password'
-                                    name='password'
-                                    label='Password'
-                                /> */}
-
-                <IrisSelectInput
-                  options={options}
-                  placeholder='ShipStatus'
-                  name='ShipStatus'
-                  label='ShipStatus'
-                />
               </div>
 
               <Modal.Footer>
@@ -143,7 +138,7 @@ export default function AddInvoiceForm(props: Props<IInvoiceModel>) {
                   floated='right'
                   positive
                   type='button'
-                  data-bs-dismiss='modal'
+                  data-bs-dismiss="modal"
                   content='Cancel'
                 ></Button>
               </Modal.Footer>

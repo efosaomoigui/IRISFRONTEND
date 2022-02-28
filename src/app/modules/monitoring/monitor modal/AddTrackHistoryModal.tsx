@@ -12,9 +12,8 @@ import AddTripForm from '../monitorformwidget/AddTripForm';
 const AddTrackHistoryModal: React.FC = () => {
 
     const [isSubmitting, setIsSubmitting] = useState(false);
-
+    const [showForm, setShowForm] = useState(true)
     const [selectTrackHistory, setSelectTrackHistory] = useState<ITrackHistoryModel>()
-
     const { entityDetailValues, selectUrlParam, setSelectUrlParam } = usePageData()
 
   // handle logic
@@ -35,12 +34,17 @@ const AddTrackHistoryModal: React.FC = () => {
     if (selected?.id) {
       agent.TrackHistory.update(values).then((response) => {
         toast.success('Track History Update Was Successful!')
+        setInterval(() => {
+          setShowForm(false);
+        }, 1000)
         setIsSubmitting(false)
       })
     } else {
       agent.TrackHistory.create(values).then((response) => {
         toast.success('Track History Creation Was Successful!')
-        setIsSubmitting(false)
+        setInterval(() => {
+          setShowForm(false);
+        }, 1000)
       })
     }
   }
@@ -48,7 +52,7 @@ const AddTrackHistoryModal: React.FC = () => {
     return (
         <>
             <div className='modal fade' id='kt_modal_addtrackhistory' aria-hidden='true'>
-                <AddTrackHistoryForm isSubmitting={isSubmitting} onSubmit={onSubmit} trackHistory={selected}/>
+          <AddTrackHistoryForm isSubmitting={isSubmitting} onSubmit={onSubmit} trackHistory={selected} showForm={showForm} />
             </div>
         </>
     )

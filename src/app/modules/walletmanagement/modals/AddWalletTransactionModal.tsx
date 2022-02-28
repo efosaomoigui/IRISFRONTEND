@@ -11,6 +11,7 @@ import AddWalletTransactionForm from '../walletformwidget/AddWalletTransactionFo
 const AddWalletTransactionModal: React.FC = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [showForm, setShowForm] = useState(true)
   const [selectWallettransaction, setSelectWallettransaction] = useState<IWalletTransactionModel>()
 
   const { entityDetailValues, selectUrlParam, setSelectUrlParam } = usePageData()
@@ -33,11 +34,17 @@ const AddWalletTransactionModal: React.FC = () => {
     if (selected?.WalletTransactionId) {
       agent.WalletTransaction.update(values).then((response) => {
         toast.success('Wallet transaction Update Was Successful!')
+        setInterval(() => {
+          setShowForm(false);
+        }, 1000)
         setIsSubmitting(false)
       })
     } else {
       agent.WalletTransaction.create(values).then((response) => {
         toast.success('Wallet transaction Creation Was Successful!')
+        setInterval(() => {
+          setShowForm(false);
+        }, 1000)
         setIsSubmitting(false)
       })
     }
@@ -45,7 +52,7 @@ const AddWalletTransactionModal: React.FC = () => {
   return (
     <>
       <div className='modal fade' id='kt_modal_addwallettransaction' aria-hidden='true'>
-        <AddWalletTransactionForm isSubmitting={isSubmitting} onSubmit={onSubmit} wallettransaction={selected} />
+        <AddWalletTransactionForm isSubmitting={isSubmitting} onSubmit={onSubmit} wallettransaction={selected} showForm={showForm} />
       </div>
     </>
   )

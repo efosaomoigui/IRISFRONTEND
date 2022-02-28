@@ -7,6 +7,9 @@ import IrisTextInput from '../../layout/forms/IrisTextInput'
 import IrisSelectInput from '../../layout/forms/IrisSelectInput'
 import { IRouteModel } from '../ShipmentModels/ShipmentInterfaces'
 import { usePageData } from '../../../../_iris/layout/core'
+import { Alert } from '@mui/material'
+import { Grid } from '@material-ui/core'
+import useStyles from '../../layout/formstyles/FormStyle'
 
 
 
@@ -18,6 +21,7 @@ interface Props<Values> {
   onSubmit: (values: Values, formikHelpers: FormikHelpers<Values>) => void | Promise<any>
   isSubmitting: boolean
   route?: IRouteModel
+  showForm?: boolean
 }
 
 const options = [
@@ -60,6 +64,8 @@ export default function AddRouteForm(props: Props<IRouteModel>) {
     RouteType: Yup.number().required(),
   })
 
+  const classes = useStyles()
+
   return (
     <>
       <Formik
@@ -81,96 +87,103 @@ export default function AddRouteForm(props: Props<IRouteModel>) {
                 </div>
               </div>
 
-              <div className='modal-body py-lg-10 px-lg-10'>
-                <IrisTextInput
-                  type='text'
-                  name='RouteId'
-                  placeholder='Route Id'
-                  label='Route Id'
-                />
-                <IrisTextInput
-                  type='text'
-                  placeholder='Route Name'
-                  name='RouteName'
-                  label='Route Name'
-                />
-                <IrisTextInput
-                  type='text'
-                  placeholder='Depature'
-                  name='Departure'
-                  label='Depature'
-                />
-                <IrisTextInput
-                  type='text'
-                  placeholder='Destination'
-                  name='Destination'
-                  label='Destination'
-                />
-                
-                <IrisTextInput
-                  type='text'
-                  placeholder='Is_Sub_Route'
-                  name='IsSubRoute'
-                  label='Is_Sub_Route'
-                />
+              <div className='modal-body' >
+                {props.showForm &&
+                  <Grid container className={classes.root}>
+                    <Grid item xs={3}>
+                      <IrisTextInput
+                        type='text'
+                        name='RouteId'
+                        placeholder='Route Id'
+                        label='Route Id'
+                      />
+                      <IrisTextInput
+                        type='text'
+                        placeholder='Route Name'
+                        name='RouteName'
+                        label='Route Name'
+                      />
+                      <IrisTextInput
+                        type='text'
+                        placeholder='Depature'
+                        name='Departure'
+                        label='Depature'
+                      />
+                    </Grid>
+                    <Grid item xs={3}>
+                      <IrisTextInput
+                        type='text'
+                        placeholder='Destination'
+                        name='Destination'
+                        label='Destination'
+                      />
 
-                <IrisTextInput
-                  type='text'
-                  placeholder='Dispatch Fee'
-                  name='DispatchFee'
-                  label='Dispatch Fee'
-                />
-                <IrisTextInput
-                  type='text'
-                  placeholder='Loader Fee'
-                  name='LoaderFee'
-                  label='Loader Fee'
-                />
+                      <IrisTextInput
+                        type='text'
+                        placeholder='Is_Sub_Route'
+                        name='IsSubRoute'
+                        label='Is_Sub_Route'
+                      />
 
-                <IrisTextInput
-                  type='text'
-                  placeholder='Captain Fee'
-                  name='captainFee'
-                  label='Captain Fee'
-                />
+                      <IrisTextInput
+                        type='text'
+                        placeholder='Dispatch Fee'
+                        name='DispatchFee'
+                        label='Dispatch Fee'
+                      />
+                    </Grid>
+                    <Grid item xs={3}>
+                      <IrisTextInput
+                        type='text'
+                        placeholder='Loader Fee'
+                        name='LoaderFee'
+                        label='Loader Fee'
+                      />
 
-                <IrisTextInput
-                  type='text'
-                  placeholder='Main_Route_Id'
-                  name='MainRouteId'
-                  label='Main_Route_Id'
-                />
+                      <IrisTextInput
+                        type='text'
+                        placeholder='Captain Fee'
+                        name='captainFee'
+                        label='Captain Fee'
+                      />
 
-                <IrisTextInput
-                  type='text'
-                  placeholder='Availabale_At_Terminal'
-                  name='AvailableAtTerminal'
-                  label='Availabale_At_Terminal'
-                />
+                      <IrisTextInput
+                        type='text'
+                        placeholder='Main_Route_Id'
+                        name='MainRouteId'
+                        label='Main_Route_Id'
+                      />
+                    </Grid>
+                    <Grid item xs={3}>
+                      <IrisTextInput
+                        type='text'
+                        placeholder='Availabale_At_Terminal'
+                        name='AvailableAtTerminal'
+                        label='Availabale_At_Terminal'
+                      />
 
-                <IrisTextInput
-                  type='text'
-                  placeholder='Availabale_Online'
-                  name='AvailableOnline'
-                  label='Availabale_Online'
-                />
+                      <IrisTextInput
+                        type='text'
+                        placeholder='Availabale_Online'
+                        name='AvailableOnline'
+                        label='Availabale_Online'
+                      />
 
-                <IrisTextInput
-                  type='text'
-                  placeholder='Route_Type'
-                  name='RouteType'
-                  label='Route_Type'
-                />
+                      <IrisTextInput
+                        type='text'
+                        placeholder='Route_Type'
+                        name='RouteType'
+                        label='Route_Type'
+                      />
 
-                {/* <IrisSelectInput
-                  options={options}
-                  placeholder='category'
-                  name='category'
-                  label='Category'
-                /> */}
-
+                    </Grid>
+                  </Grid>
+              
+                }
+                {!props.showForm && <Alert severity="info">Collection Center Item Created Successfully!</Alert>}
               </div>
-
+              <div className='modal-body py-lg-10 px-lg-10'>
+              </div>
               <Modal.Footer>
                 <Button
                   floated='right'

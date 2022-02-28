@@ -1,3 +1,5 @@
+import { Grid } from '@material-ui/core'
+import { Alert } from '@mui/material'
 import { Form, Formik, FormikHelpers } from 'formik'
 import { Modal } from 'react-bootstrap-v5'
 import { Button } from 'semantic-ui-react'
@@ -8,6 +10,7 @@ import { usePageData } from '../../../../_iris/layout/core'
 import IrisDatePicker from '../../layout/forms/IrisDatePicker'
 import IrisSelectInput from '../../layout/forms/IrisSelectInput'
 import IrisTextInput from '../../layout/forms/IrisTextInput'
+import useStyles from '../../layout/formstyles/FormStyle'
 import { IWalletModel } from '../Models/WalletInterfaces'
 
 
@@ -21,6 +24,7 @@ interface Props<Values> {
   onSubmit: (values: Values, formikHelpers: FormikHelpers<Values>) => void | Promise<any>
   isSubmitting: boolean
   wallet?: IWalletModel  //change here by Mr Efe
+  showForm?: boolean
 }
 
 const options = [
@@ -45,6 +49,8 @@ export default function AddWalletForm(props: Props<IWalletModel>) {
     UserId: Yup.string().required(),
   })
 
+  const classes = useStyles()
+
   return (
     <>
       <Formik
@@ -66,31 +72,42 @@ export default function AddWalletForm(props: Props<IWalletModel>) {
                 </div>
               </div>
 
+              <div className='modal-body' >
+                {props.showForm &&
+                  <Grid container className={classes.root}>
+                    <Grid item xs={6}>
+                      <IrisTextInput
+                        type='text'
+                        name='WalletId'
+                        placeholder='WalletId'
+                        label='WalletId'
+                      />
+                      <IrisTextInput
+                        type='text'
+                        placeholder='Wallet Number'
+                        name='WalletNumber'
+                        label='Wallet Number'
+                      />
+                    </Grid>
+                    <Grid item xs={6}>
+                      <IrisTextInput
+                        type='boolean'
+                        placeholder='Active'
+                        name='IsActive'
+                        label='Active'
+                      />
+                      <IrisTextInput
+                        type='text'
+                        placeholder='UserId'
+                        name='UserId'
+                        label='UserId'
+                      />
+                    </Grid>
+                  </Grid>
+                }
+                {!props.showForm && <Alert severity="info">Wallet Created Successfully!</Alert>}
+              </div>
               <div className='modal-body py-lg-10 px-lg-10'>
-                <IrisTextInput
-                  type='text'
-                  name='WalletId'
-                  placeholder='WalletId'
-                  label='WalletId'
-                />
-                <IrisTextInput
-                  type='text'
-                  placeholder='Wallet Number'
-                  name='WalletNumber'
-                  label='Wallet Number'
-                />
-                <IrisTextInput
-                  type='boolean'
-                  placeholder='Active'
-                  name='IsActive'
-                  label='Active'
-                />
-                <IrisTextInput
-                  type='text'
-                  placeholder='UserId'
-                  name='UserId'
-                  label='UserId'
-                />
               </div>
 
               <Modal.Footer>

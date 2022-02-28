@@ -58,10 +58,6 @@ export function ViewTrackHistory() {
     }
   ]
 
-  const ModalTargetDetails: modalprops = {
-    linkTarget: tableProvider.EditPath,
-    linkTitle: ""
-  }
 
   // //USE EFFECT HOOK
   useEffect(() => {
@@ -71,6 +67,11 @@ export function ViewTrackHistory() {
       setLoading(true) 
     })
   }, [])
+
+  const ModalTargetDetails: modalprops = {
+    linkTarget: tableProvider.EditPath,
+    linkTitle: ""
+  }
 
   // console.log(usersmodel);
 

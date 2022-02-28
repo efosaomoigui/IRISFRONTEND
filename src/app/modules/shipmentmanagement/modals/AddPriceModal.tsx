@@ -10,7 +10,8 @@ import { IPriceModel } from '../ShipmentModels/ShipmentInterfaces';
 
 const AddPriceModal: React.FC = () => {
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [showForm, setShowForm] = useState(true)
   const [selectPrice, setSelectPrice] = useState<IPriceModel>()
 
   const { entityDetailValues, selectUrlParam, setSelectUrlParam } = usePageData()
@@ -33,11 +34,17 @@ const AddPriceModal: React.FC = () => {
     if (selected?.RouteId) {
       agent.Price.update(values).then((response) => {
         toast.success('price Update Was Successful!')
+        setInterval(() => {
+          setShowForm(false);
+        }, 1000)
         setIsSubmitting(false)
       })
     } else {
       agent.Price.create(values).then((response) => {
         toast.success('price Creation Was Successful!')
+        setInterval(() => {
+          setShowForm(false);
+        }, 1000)
         setIsSubmitting(false)
       })
     }
@@ -46,7 +53,7 @@ const AddPriceModal: React.FC = () => {
   return (
     <>
       <div className='modal fade' id='kt_modal_addprice' aria-hidden='true'>
-        <AddPriceForm isSubmitting={isSubmitting} onSubmit={onSubmit} price={selected}/>
+        <AddPriceForm isSubmitting={isSubmitting} onSubmit={onSubmit} price={selected} showForm={showForm} />
       </div>
     </>
   )

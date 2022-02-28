@@ -1,9 +1,13 @@
+import { Grid } from '@material-ui/core'
+import { Alert } from '@mui/material'
 import { Form, Formik, FormikHelpers } from 'formik'
 import { Modal } from 'react-bootstrap-v5'
 import { Button } from 'semantic-ui-react'
 import * as Yup from 'yup'
 import { KTSVG } from '../../../../_iris/helpers'
+import { usePageData } from '../../../../_iris/layout/core'
 import IrisTextInput from '../../layout/forms/IrisTextInput'
+import useStyles from '../../layout/formstyles/FormStyle'
 import { IFulfilmentModel } from '../models/FulfilmentInterface'
 
 
@@ -17,6 +21,7 @@ interface Props<Values> {
     onSubmit: (values: Values, formikHelpers: FormikHelpers<Values>) => void | Promise<any>
     isSubmitting: boolean
     collectionCenter?: IFulfilmentModel
+    showForm?: boolean
 }
 
 const options = [
@@ -27,6 +32,9 @@ const options = [
 ]
 
 export default function AddCollectionForm(props: Props<IFulfilmentModel>) {
+    const { entityDetailValues, setEntityDetailValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle } = usePageData()
+
+
     const initialFormValue: IFulfilmentModel = {
         Id: props.collectionCenter ? props.collectionCenter!.Id :  '',
         ShipmentId: props.collectionCenter ? props.collectionCenter!.ShipmentId :'',
@@ -43,6 +51,8 @@ export default function AddCollectionForm(props: Props<IFulfilmentModel>) {
         UserId: Yup.string().required(),
     })
 
+    const classes = useStyles()
+
     return (
         <>
             <Formik
@@ -55,7 +65,7 @@ export default function AddCollectionForm(props: Props<IFulfilmentModel>) {
                     <div className='modal-dialog modal-dialog-centered mw-900px'>
                         <div className='modal-content'>
                             <div className='modal-header'>
-                                <h2>Create User</h2>
+                                <h2>{formTitle + ' Trip Dispatch'}</h2>
                                 <div
                                     className='btn btn-sm btn-icon btn-active-color-primary'
                                     data-bs-dismiss='modal'
@@ -64,56 +74,46 @@ export default function AddCollectionForm(props: Props<IFulfilmentModel>) {
                                 </div>
                             </div>
 
+                            <div className='modal-body' >
+                                {props.showForm &&
+                                    <Grid container className={classes.root}>
+                                        <Grid item xs={6}>
+                                            {/* <IrisTextInput type='text' name='id' label='Role Id' /> */}
+                                            {/* <IrisTextInput type='text' name='name' label='Role Name' /> */}
+                                            <IrisTextInput
+                                                type='text'
+                                                name='Id'
+                                                label='Id'
+                                            />
+                                            <IrisTextInput
+                                                type='text'
+                                                placeholder='ShipmentId'
+                                                name='ShipmentId'
+                                                label='ShipmentId'
+                                            />
+                                        </Grid>
+
+                                        <Grid item xs={6}>
+                                            {/* <IrisTextInput type='text' name='id' label='Role Id' /> */}
+                                            {/* <IrisTextInput type='text' name='name' label='Role Name' /> */}
+                                            <IrisTextInput
+                                                type='boolean'
+                                                name='CollectionStatus'
+                                                label='CollectionStatus'
+                                            />
+                                            <IrisTextInput
+                                                type='text'
+                                                name='UserId'
+                                                label='UserId'
+                                            />
+
+                                        </Grid>
+                                    </Grid>
+                                }
+                                {!props.showForm && <Alert severity="info">Collection Center Item Created Successfully!</Alert>}
+                            </div>
+
                             <div className='modal-body py-lg-10 px-lg-10'>
-                                <IrisTextInput
-                                    type='text'
-                                    name='Id'
-                                    placeholder='Id'
-                                    label='Id'
-                                />
-                                <IrisTextInput
-                                    type='text'
-                                    placeholder='ShipmentId'
-                                    name='ShipmentId'
-                                    label='ShipmentId'
-                                />
-                                <IrisTextInput
-                                    type='boolean'
-                                    placeholder='CollectionStatus'
-                                    name='CollectionStatus'
-                                    label='CollectionStatus'
-                                />
-                                <IrisTextInput
-                                    type='text'
-                                    placeholder='UserId'
-                                    name='UserId'
-                                    label='UserId'
-                                />
-
-                            
-
-                                {/* <IrisDatePicker
-                  placeholderText='Date'
-                  name='date'
-                  showTimeSelect
-                  timeCaption='time'
-                  dateFormat='MMM d, yyyy h:mm: aa'
-                /> */}
-
-                                {/* <IrisTextInput
-                                    type='password'
-                                    placeholder='Password'
-                                    name='password'
-                                    label='Password'
-                                />
-
-                                <IrisSelectInput
-                                    options={options}
-                                    placeholder='category'
-                                    name='category'
-                                    label='Category'
-                                /> */}
-
                             </div>
 
                             <Modal.Footer>

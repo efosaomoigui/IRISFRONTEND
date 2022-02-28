@@ -8,10 +8,9 @@ import {IPaymentLogModel} from '../PaymentModels/PaymentmentInterfaces'
 
 const AddPaymentLogModal: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
-
   const [selectPaymentLogs, setSelectPaymentLogs] = useState<IPaymentLogModel>()
-
   const {entityDetailValues, selectUrlParam, setSelectUrlParam} = usePageData()
+  const [showForm, setShowForm] = useState(true)
 
   // handle logic
   const paymentlogs = entityDetailValues as IPaymentLogModel[]
@@ -31,11 +30,17 @@ const AddPaymentLogModal: React.FC = () => {
     if (selected?.PaymentId) {
       agent.PaymentLog.update(values).then((response) => {
         toast.success('Payment log Update Was Successful!')
+        setInterval(() => {
+          setShowForm(false);
+        }, 1000)
         setIsSubmitting(false)
       })
     } else {
       agent.PaymentLog.create(values).then((response) => {
         toast.success('Payment log Creation Was Successful!')
+        setInterval(() => {
+          setShowForm(false);
+        }, 1000)
         setIsSubmitting(false)
       })
     }
@@ -44,7 +49,7 @@ const AddPaymentLogModal: React.FC = () => {
   return (
     <>
       <div className='modal fade' id='kt_modal_addpaymentlog' aria-hidden='true'>
-        <AddPaymentLogForm isSubmitting={isSubmitting} onSubmit={onSubmit} paymentlog={selected} />
+        <AddPaymentLogForm isSubmitting={isSubmitting} onSubmit={onSubmit} paymentlog={selected} showForm={showForm} />
       </div>
     </>
   )

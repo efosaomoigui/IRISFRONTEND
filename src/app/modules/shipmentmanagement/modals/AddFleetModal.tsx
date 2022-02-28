@@ -10,7 +10,8 @@ import { IFleetModel } from '../ShipmentModels/ShipmentInterfaces';
 
 const AddFleetModal: React.FC = () => {
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [showForm, setShowForm] = useState(true)
   const [selectFleet, setSelectFleet] = useState<IFleetModel>()
 
   const { entityDetailValues, selectUrlParam, setSelectUrlParam } = usePageData()
@@ -33,11 +34,17 @@ const AddFleetModal: React.FC = () => {
     if (selected?.FleetId) {
       agent.Fleet.update(values).then((response) => {
         toast.success('fleet Update Was Successful!')
+        setInterval(() => {
+          setShowForm(false);
+        }, 1000)
         setIsSubmitting(false)
       })
     } else {
       agent.Fleet.create(values).then((response) => {
         toast.success('fleet Creation Was Successful!')
+        setInterval(() => {
+          setShowForm(false);
+        }, 1000)
         setIsSubmitting(false)
       })
     }
@@ -47,7 +54,7 @@ const AddFleetModal: React.FC = () => {
   return (
     <>
       <div className='modal fade' id='kt_modal_addfleet' aria-hidden='true'>
-        <AddFleetForm isSubmitting={isSubmitting} onSubmit={onSubmit} fleet={selected}/>
+        <AddFleetForm isSubmitting={isSubmitting} onSubmit={onSubmit} fleet={selected} showForm={showForm} />
       </div>
     </>
   )

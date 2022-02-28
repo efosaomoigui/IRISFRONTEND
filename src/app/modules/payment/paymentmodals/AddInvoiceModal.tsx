@@ -16,6 +16,7 @@ const AddInvoiceModal: React.FC = () => {
     const [selectInvoice, setSelectInvoice] = useState<IInvoiceModel>()
 
     const { entityDetailValues, selectUrlParam, setSelectUrlParam } = usePageData()
+    const [showForm, setShowForm] = useState(true)
 
   // handle logic
     const invoice = entityDetailValues as IInvoiceModel[];
@@ -35,12 +36,17 @@ const AddInvoiceModal: React.FC = () => {
     if (selected?.Id) {
       agent.Invoice.update(values).then((response) => {
         toast.success('Invoice Update Was Successful!')
+        setInterval(() => {
+          setShowForm(false);
+        }, 1000)
         setIsSubmitting(false)
       })
     } else {
       agent.Invoice.create(values).then((response) => {
         toast.success('Invoice Creation Was Successful!')
-        setIsSubmitting(false)
+        setInterval(() => {
+          setShowForm(false);
+        }, 1000)
       })
     }
   }
@@ -48,7 +54,7 @@ const AddInvoiceModal: React.FC = () => {
     return (
         <>
             <div className='modal fade' id='kt_modal_addinvoice' aria-hidden='true'>
-                <AddInvoiceForm isSubmitting={isSubmitting} onSubmit={onSubmit} invoice={selected}/>
+          <AddInvoiceForm isSubmitting={isSubmitting} onSubmit={onSubmit} invoice={selected} showForm={showForm} />
             </div>
         </>
     )

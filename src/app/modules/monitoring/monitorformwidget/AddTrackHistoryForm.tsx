@@ -8,6 +8,9 @@ import IrisSelectInput from '../../layout/forms/IrisSelectInput'
 import { ITrackHistoryModel } from '../Monitor models/MonitorInterface'
 import IrisDatePicker from '../../layout/forms/IrisDatePicker'
 import { usePageData } from '../../../../_iris/layout/core'
+import { Alert } from '@mui/material'
+import { Grid } from '@material-ui/core'
+import useStyles from '../../layout/formstyles/FormStyle'
 
 
 
@@ -15,6 +18,7 @@ interface Props<Values> {
     onSubmit: (values: Values, formikHelpers: FormikHelpers<Values>) => void | Promise<any>
     isSubmitting: boolean
     trackHistory?: ITrackHistoryModel
+    showForm?: boolean
 }
 
 const options = [
@@ -53,6 +57,8 @@ export default function AddTrackHistoryForm(props: Props<ITrackHistoryModel>) {
         Status: Yup.string().required(),
     })
 
+    const classes = useStyles()
+
     return (
         <>
             <Formik
@@ -74,60 +80,52 @@ export default function AddTrackHistoryForm(props: Props<ITrackHistoryModel>) {
                                 </div>
                             </div>
 
+                            <div className='modal-body' >
+                                {props.showForm &&
+                                    <Grid container className={classes.root}>
+                                        <Grid item xs={6}>
+                                            <IrisTextInput
+                                                type='text'
+                                                name='TripId'
+                                                placeholder='TripId'
+                                                label='TripId'
+                                            />
+                                            <IrisTextInput
+                                                type='text'
+                                                placeholder='Action'
+                                                name='Action'
+                                                label='Action'
+                                            />
+                                            <IrisTextInput
+                                                type='text'
+                                                placeholder='Location'
+                                                name='Location'
+                                                label='Location'
+                                            />
+                                        </Grid>
+                                        <Grid item xs={6}>
+                                            <IrisTextInput
+                                                type='text'
+                                                placeholder='Status'
+                                                name='Status'
+                                                label='Status'
+                                            />
+
+                                            <IrisDatePicker
+                                                placeholderText='TimeStamp'
+                                                name='TimeStamp'
+                                                showTimeSelect
+                                                timeCaption='TimeStamp'
+                                                dateFormat='MMM d, yyyy h:mm: aa'
+                                            />
+
+                                        </Grid>
+                                    </Grid>
+                                }
+                                {!props.showForm && <Alert severity="info">Track history Created Successfully!</Alert>}
+                            </div>
+
                             <div className='modal-body py-lg-10 px-lg-10'>
-                                <IrisTextInput
-                                    type='text'
-                                    name='TripId'
-                                    placeholder='TripId'
-                                    label='TripId'
-                                />
-                                <IrisTextInput
-                                    type='text'
-                                    placeholder='Action'
-                                    name='Action'
-                                    label='Action'
-                                />
-                                <IrisTextInput
-                                    type='text'
-                                    placeholder='Location'
-                                    name='Location'
-                                    label='Location'
-                                />
-                                {/* <IrisTextInput
-                                    type='text'
-                                    placeholder='TimeStamp'
-                                    name='TimeStamp'
-                                    label='TimeStamp'
-                                /> */}
-
-                                <IrisTextInput
-                                    type='text'
-                                    placeholder='Status'
-                                    name='Status'
-                                    label='Status'
-                                />
-
-                                <IrisDatePicker
-                                    placeholderText='TimeStamp'
-                                    name='TimeStamp'
-                                    showTimeSelect
-                                    timeCaption='TimeStamp'
-                                    dateFormat='MMM d, yyyy h:mm: aa'
-                                    />
-
-                                {/* <IrisTextInput
-                                    type='password'
-                                    placeholder='Password'
-                                    name='password'
-                                    label='Password'
-                                />
-
-                                <IrisSelectInput
-                                    options={options}
-                                    placeholder='category'
-                                    name='category'
-                                    label='Category'
-                                /> */}
 
                             </div>
 

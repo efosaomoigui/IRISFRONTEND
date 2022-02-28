@@ -7,6 +7,9 @@ import IrisTextInput from '../../layout/forms/IrisTextInput'
 import IrisSelectInput from '../../layout/forms/IrisSelectInput'
 import {IFleetModel} from '../ShipmentModels/ShipmentInterfaces'
 import { usePageData } from '../../../../_iris/layout/core'
+import useStyles from '../../layout/formstyles/FormStyle'
+import { Alert } from '@mui/material'
+import { Grid } from '@material-ui/core'
 
 // interface Props {
 //   userVal: IUserModel
@@ -16,6 +19,7 @@ interface Props<Values> {
   onSubmit: (values: Values, formikHelpers: FormikHelpers<Values>) => void | Promise<any>
   isSubmitting: boolean
   fleet?: IFleetModel
+  showForm?: boolean
 }
 
 const options = [
@@ -56,6 +60,8 @@ export default function AddFleetForm(props: Props<IFleetModel>) {
     OwnerId: Yup.string().required(),
   })
 
+  const classes = useStyles()
+
   return (
     <>
       <Formik
@@ -76,83 +82,76 @@ export default function AddFleetForm(props: Props<IFleetModel>) {
                   <KTSVG path='/media/icons/duotune/arrows/arr061.svg' className='svg-icon-1' />
                 </div>
               </div>
+              <div className='modal-body' >
+                {props.showForm &&
+                  <Grid container className={classes.root}>
+                    <Grid item xs={3}>
+                      <IrisTextInput
+                        type='text'
+                        name='FleetId'
+                        placeholder='FleetId'
+                        label='FleetId'
+                      />
+                      <IrisTextInput
+                        type='number'
+                        placeholder='Registration Number'
+                        name='RegistrationNumber'
+                        label='Registration Number'
+                      />
+                      <IrisTextInput
+                        type='number'
+                        placeholder='Chasis Number'
+                        name='ChasisNumber'
+                        label='Chasis Number'
+                      />
+                    </Grid>
+                     <Grid item xs={3}>
+                      <IrisTextInput
+                        type='text'
+                        placeholder='Fleet Type'
+                        name='FleetType'
+                        label='Fleet Type'
+                      />
+                      <IrisTextInput
+                        type='text'
+                        placeholder='Capacity'
+                        name='Capacity'
+                        label='Capacity'
+                      />
+                      <IrisTextInput
+                        type='text'
+                        placeholder='Description'
+                        name='Description'
+                        label='Description'
+                      />
+                     </Grid>
+                     <Grid item xs={3}>
+                      <IrisTextInput
+                        type='text'
+                        placeholder='Fleet Model'
+                        name='FleetModel'
+                        label='Fleet Model'
+                      />
 
+                      <IrisTextInput
+                        type='text'
+                        placeholder='Fleet Make'
+                        name='FleetMake'
+                        label='Fleet Make'
+                      />
+
+                      <IrisTextInput
+                        type='number'
+                        placeholder='Owner Id'
+                        name='OwnerId'
+                        label='Owner Id'
+                      />
+                     </Grid>
+                  </Grid>
+                }
+                {!props.showForm && <Alert severity="info">Fleet Created Successfully!</Alert>}
+              </div>
               <div className='modal-body py-lg-10 px-lg-10'>
-                <IrisTextInput
-                  type='text'
-                  name='FleetId'
-                  placeholder='FleetId'
-                  label='FleetId'
-                />
-                <IrisTextInput
-                  type='number'
-                  placeholder='Registration Number'
-                  name='RegistrationNumber'
-                  label='Registration Number'
-                />
-                <IrisTextInput
-                  type='number'
-                  placeholder='Chasis Number'
-                  name='ChasisNumber'
-                  label='Chasis Number'
-                />
-                {/* <IrisTextInput type='email' placeholder='Email' name='email' label='Email' /> */}
-
-                <IrisTextInput
-                  type='text'
-                  placeholder='Fleet Type'
-                  name='FleetType'
-                  label='Fleet Type'
-                />
-                 <IrisTextInput
-                  type='text'
-                  placeholder='Capacity'
-                  name='Capacity'
-                  label='Capacity'
-                />
-
-                {/* <IrisDatePicker
-                  placeholderText='Date'
-                  name='date'
-                  showTimeSelect
-                  timeCaption='time'
-                  dateFormat='MMM d, yyyy h:mm: aa'
-                /> */}
-
-                <IrisTextInput
-                  type='text'
-                  placeholder='Description'
-                  name='Description'
-                  label='Description'
-                />
-
-                <IrisTextInput
-                  type='text'
-                  placeholder='Fleet Model'
-                  name='FleetModel'
-                  label='Fleet Model'
-                />
-
-                <IrisTextInput
-                  type='text'
-                  placeholder='Fleet Make'
-                  name='FleetMake'
-                  label='Fleet Make'
-                />
-
-                <IrisTextInput
-                  type='number'
-                  placeholder='Owner Id'
-                  name='OwnerId'
-                  label='Owner Id'
-                />
-
-                {/* <IrisSelectInput
-                  options={options}
-                  placeholder='category'
-                  name='category'
-                  label='Category'
-                /> */}
               </div>
 
               <Modal.Footer>

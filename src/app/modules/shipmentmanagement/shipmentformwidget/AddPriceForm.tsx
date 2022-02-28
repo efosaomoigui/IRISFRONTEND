@@ -7,6 +7,9 @@ import IrisTextInput from '../../layout/forms/IrisTextInput'
 import IrisSelectInput from '../../layout/forms/IrisSelectInput'
 import {IPriceModel} from '../ShipmentModels/ShipmentInterfaces'
 import { usePageData } from '../../../../_iris/layout/core'
+import { Alert } from '@mui/material'
+import { Grid } from '@material-ui/core'
+import useStyles from '../../layout/formstyles/FormStyle'
 
 // interface Props {
 //   userVal: IUserModel
@@ -16,6 +19,7 @@ interface Props<Values> {
   onSubmit: (values: Values, formikHelpers: FormikHelpers<Values>) => void | Promise<any>
   isSubmitting: boolean
   price?: IPriceModel
+  showForm?: boolean
 }
 
 const options = [
@@ -46,6 +50,8 @@ export default function AddPriceForm(props: Props<IPriceModel>) {
     PricePErUnit: Yup.string().required(),
   })
 
+  const classes = useStyles()
+
   return (
     <>
       <Formik
@@ -66,50 +72,52 @@ export default function AddPriceForm(props: Props<IPriceModel>) {
                   <KTSVG path='/media/icons/duotune/arrows/arr061.svg' className='svg-icon-1' />
                 </div>
               </div>
+              <div className='modal-body' >
+                {props.showForm &&
+                  <Grid container className={classes.root}>
+                    <Grid item xs={6}>
+                      <IrisTextInput
+                        type='text'
+                        name='id'
+                        placeholder='Id'
+                        label='Id'
+                      />
+                      <IrisTextInput
+                        type='number'
+                        placeholder='RouteId'
+                        name='RouteId'
+                        label='RouteId'
+                      />
+                      <IrisTextInput type='text' placeholder='Route' name='Route' label='Route' />
 
+                    </Grid>
+                    <Grid item xs={6}>
+                      <IrisTextInput
+                        type='number'
+                        placeholder='UnitWeight'
+                        name='UnitWeight'
+                        label='UnitWeight'
+                      />
+                      <IrisTextInput
+                        type='number'
+                        placeholder='PricePErUnit'
+                        name='PricePErUnit'
+                        label='PricePErUnit'
+                      />
+                      <IrisSelectInput
+                        options={options}
+                        placeholder='category'
+                        name='Category'
+                        label='Category'
+                      />
+                    </Grid>
+                  </Grid>
+                }
+                {!props.showForm && <Alert severity="info">Price Created Successfully!</Alert>}
+              </div>
               <div className='modal-body py-lg-10 px-lg-10'>
-                <IrisTextInput
-                  type='text'
-                  name='id'
-                  placeholder='Id'
-                  label='Id'
-                />
-                {/* <IrisTextInput
-                  type='text'
-                  placeholder='Category'
-                  name='Category'
-                  // label='Category'
-                /> */}
-                <IrisTextInput
-                  type='number'
-                  placeholder='RouteId'
-                  name='RouteId'
-                  label='RouteId'
-                />
-                <IrisTextInput type='text' placeholder='Route' name='Route' label='Route' />
-
-                <IrisTextInput
-                  type='number'
-                  placeholder='UnitWeight'
-                  name='UnitWeight'
-                  label='UnitWeight'
-                />
-
-                <IrisTextInput
-                  type='number'
-                  placeholder='PricePErUnit'
-                  name='PricePErUnit'
-                  label='PricePErUnit'
-                />
-
-            
-
-                <IrisSelectInput
-                  options={options}
-                  placeholder='category'
-                  name='Category'
-                  label='Category'
-                />
+               
+                
               </div>
 
               <Modal.Footer>

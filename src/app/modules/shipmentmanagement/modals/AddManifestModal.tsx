@@ -12,7 +12,7 @@ const AddManifestModal: React.FC = () => {
 
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [selectManifest, setSelectManifest] = useState<IManifestModel>()
-
+    const [showForm, setShowForm] = useState(true)
     const { entityDetailValues, selectUrlParam, setSelectUrlParam } = usePageData()
 
     // handle logic
@@ -33,11 +33,17 @@ const AddManifestModal: React.FC = () => {
         if (selected?.Id) {
             agent.Manifest.update(values).then((response) => {
                 toast.success('Manifest Update Was Successful!')
+                setInterval(() => {
+                    setShowForm(false);
+                }, 1000)
                 setIsSubmitting(false)
             })
         } else {
             agent.Manifest.create(values).then((response) => {
                 toast.success('Manifest Creation Was Successful!')
+                setInterval(() => {
+                    setShowForm(false);
+                }, 1000)
                 setIsSubmitting(false)
             })
         }
@@ -46,7 +52,7 @@ const AddManifestModal: React.FC = () => {
     return (
         <>
             <div className='modal fade' id='kt_modal_addmanifest' aria-hidden='true'>
-                <AddManifestForm isSubmitting={isSubmitting} onSubmit={onSubmit} manifest={selected}/>
+                <AddManifestForm isSubmitting={isSubmitting} onSubmit={onSubmit} manifest={selected} showForm={showForm} />
             </div>
         </>
     )

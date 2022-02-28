@@ -12,6 +12,7 @@ import { IRouteModel } from '../ShipmentModels/ShipmentInterfaces';
 const AddRouteModal: React.FC = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [showForm, setShowForm] = useState(true)
   const [selectRoute, setSelectRoute] = useState<IRouteModel>()
 
   const { entityDetailValues, selectUrlParam, setSelectUrlParam } = usePageData()
@@ -35,11 +36,17 @@ const AddRouteModal: React.FC = () => {
     if (selected?.RouteId) {
       agent.Route.update(values).then((response) => {
         toast.success('Route Update Was Successful!')
+        setInterval(() => {
+          setShowForm(false);
+        }, 1000)
         setIsSubmitting(false)
       })
     } else {
       agent.Route.create(values).then((response) => {
         toast.success('Route Creation Was Successful!')
+        setInterval(() => {
+          setShowForm(false);
+        }, 1000)
         setIsSubmitting(false)
       })
     }
@@ -48,7 +55,7 @@ const AddRouteModal: React.FC = () => {
   return (
     <>
       <div className='modal fade' id='kt_modal_addroute' aria-hidden='true'>
-        <AddRouteForm isSubmitting={isSubmitting} onSubmit={onSubmit} route={selected}/>
+        <AddRouteForm isSubmitting={isSubmitting} onSubmit={onSubmit} route={selected} showForm={showForm} />
       </div>
     </>
   )

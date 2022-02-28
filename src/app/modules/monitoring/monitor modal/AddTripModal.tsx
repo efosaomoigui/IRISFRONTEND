@@ -10,9 +10,8 @@ import AddTripForm from '../monitorformwidget/AddTripForm';
 
 const AddTripModal: React.FC = () => {
 
-    const [isSubmitting, setIsSubmitting] = useState(false);
-
-
+    const [isSubmitting, setIsSubmitting] = useState(false)
+    const [showForm, setShowForm] = useState(true)
     const [selectTrips, setSelectTrips] = useState<ITripModel>()
 
     const { entityDetailValues, selectUrlParam, setSelectUrlParam } = usePageData()
@@ -35,11 +34,17 @@ const AddTripModal: React.FC = () => {
     if (selected?.id) {
       agent.Trip.update(values).then((response) => {
         toast.success('Payment log Update Was Successful!')
+        setInterval(() => {
+          setShowForm(false);
+        }, 1000)
         setIsSubmitting(false)
       })
     } else {
       agent.Trip.create(values).then((response) => {
         toast.success('Payment log Creation Was Successful!')
+        setInterval(() => {
+          setShowForm(false);
+        }, 1000)
         setIsSubmitting(false)
       })
     }
@@ -48,7 +53,7 @@ const AddTripModal: React.FC = () => {
     return (
         <>
             <div className='modal fade' id='kt_modal_addtrip' aria-hidden='true'>
-                <AddTripForm isSubmitting={isSubmitting} onSubmit={onSubmit} trip={selected}/>
+          <AddTripForm isSubmitting={isSubmitting} onSubmit={onSubmit} trip={selected} showForm={showForm} />
             </div>
         </>
     )
