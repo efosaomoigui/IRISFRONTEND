@@ -26,7 +26,7 @@ export default function IrisTextRadio(props: Props) {
       <RadioGroup {...field} {...props} name={props.name} value={props.value} row>
         {props.options!.map((option) => (
           <FormControlLabel
-            value={option.toString()}
+            value={option}
             control={<Radio />}
             label={option.charAt(0).toUpperCase() + option.slice(1)}
             key={option}

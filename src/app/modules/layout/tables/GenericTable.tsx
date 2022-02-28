@@ -57,7 +57,7 @@ const GenericTable = ({irisData, columnsMap, DetailsPath, EditPath, DeletePath}:
 
   useEffect(() => {
     setEntityDetailValues!(irisData)
-  },[])
+  },[entityDetailValues])
 
   return (
     <div>

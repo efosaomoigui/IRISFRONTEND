@@ -14,9 +14,10 @@ interface Props {
 const AddUserModal: React.FC<Props> = ({handleSelect, SelectedValues}: Props) => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [selectUsers, setSelectUsers] = useState<IUserModel>()
+  
   const [showForm, setShowForm] = useState(true)
 
-  const {entityDetailValues, selectUrlParam, setSelectUrlParam} = usePageData()
+  const {entityDetailValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle} = usePageData()
 
   // handle logic
   const users = entityDetailValues as IUserModel[];
@@ -48,13 +49,13 @@ const AddUserModal: React.FC<Props> = ({handleSelect, SelectedValues}: Props) =>
       })
     }
 
-    console.log("Vals: ", values);
+    // console.log("Vals: ", values);
   }
 
   return (
     <>
       <div className='modal fade' id='kt_modal_adduser' aria-hidden='true'>
-        <AddUserForm isSubmitting={isSubmitting} onSubmit={onSubmit} user={selected} showForm={showForm} />
+        <AddUserForm isSubmitting={isSubmitting} onSubmit={onSubmit} user={selected} showForm={showForm} formTitle={'Add User'} />
       </div>
     </>
   )

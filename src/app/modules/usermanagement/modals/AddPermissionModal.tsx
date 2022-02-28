@@ -1,28 +1,47 @@
-import { useState } from 'react';
-import { toast } from 'react-toastify';
-import { v4 as uuid } from 'uuid';
-import agent from '../../../../setup/axios/AxiosAgent';
-import { usePageData } from '../../../../_iris/layout/core';
-import { IPermissionModel } from '../../auth/models/AuthInterfaces';
-import AddPermissionForm from '../userformwidget/AddPermissionForm';
-
+import {useEffect, useState} from 'react'
+import {toast} from 'react-toastify'
+import {v4 as uuid} from 'uuid'
+import agent from '../../../../setup/axios/AxiosAgent'
+import {usePageData} from '../../../../_iris/layout/core'
+import {IPermissionModel, IRoleModel} from '../../auth/models/AuthInterfaces'
+import AddPermissionForm from '../userformwidget/AddPermissionForm'
 
 const AddPermissionModal: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [selectPermission, setSelectPermission] = useState<IPermissionModel>()
+  const [showForm, setShowForm] = useState(true)
+  const [loading, setLoading] = useState(true)
 
-  const { entityDetailValues, selectUrlParam, setSelectUrlParam } = usePageData()
+  const {entityDetailValues, selectUrlParam, setSelectUrlParam, roleData, setRoleData} =
+    usePageData()
 
-  // handle logic
-  const permisions = entityDetailValues as IPermissionModel[];
+  const setroleDAtaValues = () =>
+    agent.Roles.list().then((response) => {
+      setRoleData(response)
+      setLoading(false)
+    }
+  )
 
-  const setSelectedValue = (permisions: IPermissionModel[]) => {
-    const val = permisions.find(x => x.roleId === selectUrlParam)
-    return val;
+  interface dataType {
+    value: string
+    index: string
   }
 
-  const selected = setSelectedValue(permisions);
-  console.log("LOG ", (selected) ? "old permission" : "new permission");
+  // handle logic
+  const permisions = entityDetailValues as IPermissionModel[]
+
+  const setSelectedValue = (permisions: IPermissionModel[]) => {
+    const val = permisions.find((x) => x.roleId === selectUrlParam)
+    return val
+  }
+
+  const selected = setSelectedValue(permisions)
+  useEffect(() => {
+    setroleDAtaValues()
+  }, [])
+
+  console.log("=====> ", roleData)
+  // setroleDAtaValues()
 
   const onSubmit = (values: IPermissionModel) => {
     setIsSubmitting(true)
@@ -36,6 +55,9 @@ const AddPermissionModal: React.FC = () => {
     } else {
       agent.Permissions.create(values).then((response) => {
         toast.success('Permission Creation Was Successful!')
+        setInterval(() => {
+          setShowForm(false)
+        }, 1000)
         setIsSubmitting(false)
       })
     }
@@ -43,11 +65,16 @@ const AddPermissionModal: React.FC = () => {
   return (
     <>
       <div className='modal fade' id='kt_modal_addpermission' aria-hidden='true'>
-        <AddPermissionForm isSubmitting={isSubmitting} onSubmit={onSubmit} permission={selected}/>
+        <AddPermissionForm
+          isSubmitting={isSubmitting}
+          onSubmit={onSubmit}
+          permission={selected}
+          showForm={showForm}
+          systemRoles={roleData}
+        />
       </div>
     </>
   )
 }
 
-export { AddPermissionModal };
-
+export {AddPermissionModal}

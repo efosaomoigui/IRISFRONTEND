@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react'
 import agent from '../../../../../setup/axios/AxiosAgent';
 import { IrisTablesWidget } from '../../../layout/tables/IrisTablesWidget';
-import { madalprops } from '../../../layout/tables/IrisTableTitle';
+import { modalprops } from '../../../layout/tables/IrisTableTitle';
 import { IWalletModel } from '../../Models/WalletInterfaces'
 import Wallet_Data from './Wallet_Data.json'
 // import {format} from 'date-fns' 
 
 export function ViewWallet() {
   const [loading, setLoading] = useState(true)
-  const [modalTarger, setModalTarget] = useState<madalprops[]>([]);
+  const [modalTarger, setModalTarget] = useState<modalprops[]>([]);
   const [walletmodel, setUsersModel] = useState<IWalletModel[]>([])
 
   //all the data for the table

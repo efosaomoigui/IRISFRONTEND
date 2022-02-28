@@ -9,6 +9,7 @@ import AddRoleForm from '../userformwidget/AddRoleForm';
 
 const AddRoleModal: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [selectPermission, setSelectPermission] = useState<IRoleModel>()
   const [showForm, setShowForm] = useState(true)
 
   const onSubmit = (values: IRoleModel) => {
@@ -23,7 +24,6 @@ const AddRoleModal: React.FC = () => {
       setIsSubmitting(false)
     })
   }
-
 
   return (
     <>

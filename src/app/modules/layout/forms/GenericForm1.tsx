@@ -25,7 +25,7 @@ export default function GenericForm1({userVal}: Props) {
     firstName: '',
     lastName: '',
     email: '',
-    phonenumber: '',
+    phoneNumber: '',
     age: '70',
     designation: '',
     department: '',
@@ -81,7 +81,7 @@ export default function GenericForm1({userVal}: Props) {
                   />
                   <Form.Input
                     placeholder='firstName'
-                    value={user.firstName}
+                    value={user.firstName} 
                     name='firstName'
                     onChange={handleChange}
                   />
@@ -105,7 +105,7 @@ export default function GenericForm1({userVal}: Props) {
                   />
                   <Form.Input
                     placeholder='phone'
-                    value={user.phonenumber}
+                    value={user.phoneNumber}
                     name='phonenumber'
                     onChange={handleChange}
                   />

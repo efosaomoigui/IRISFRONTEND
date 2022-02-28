@@ -3,15 +3,14 @@ import agent from '../../../../../../setup/axios/AxiosAgent'
 import { usePageData } from '../../../../../../_iris/layout/core'
 import { IUserModel } from '../../../../auth/models/AuthInterfaces'
 import { IrisTablesWidget } from '../../../../layout/tables/IrisTablesWidget'
-import { madalprops } from '../../../../layout/tables/IrisTableTitle'
+import { modalprops } from '../../../../layout/tables/IrisTableTitle'
 import User_Data from './User_Data.json'
 // import {format} from 'date-fns' 
 
 export function ViewUsers() {
   const [loading, setLoading] = useState(true)
-  const [modalTarger, setModalTarget] = useState<madalprops[]>([]);
+  const [modalTarger, setModalTarget] = useState<modalprops[]>([])
   const [usersmodel, setUsersModel] = useState<IUserModel[]>([])
-
 
   //all the data for the table
   const tableProvider = {
@@ -56,8 +55,6 @@ export function ViewUsers() {
     },
   ]
 
-  
-
   // //USE EFFECT HOOK
   useEffect(() => {
     agent.Users.list().then((response) => {
@@ -66,10 +63,6 @@ export function ViewUsers() {
       setLoading(false)
     })
   }, [])
-
-  // console.log(usersmodel);
-
-  // if (loading) return <LoadingComponent content='Loading...' />
 
   return (
     <div className='row g-5 g-xxl-8'>

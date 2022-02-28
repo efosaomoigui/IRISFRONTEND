@@ -6,6 +6,7 @@ import { KTSVG } from '../../../../_iris/helpers'
 import IrisTextInput from '../../layout/forms/IrisTextInput'
 import IrisSelectInput from '../../layout/forms/IrisSelectInput'
 import { ITripModel } from '../Monitor models/MonitorInterface'
+import {usePageData} from '../../../../_iris/layout/core'
 
 
 
@@ -29,6 +30,16 @@ const options = [
 ]
 
 export default function AddTripForm(props: Props<ITripModel>) {
+
+    const {
+        entityDetailValues,
+        setEntityDetailValues,
+        selectUrlParam,
+        setSelectUrlParam,
+        formTitle,
+        setFormTitle,
+      } = usePageData()
+      
     const initialFormValue: ITripModel = {
         id: props.trip ? props.trip!.id : '',
         TripReference: props.trip ? props.trip!.TripReference :'',
@@ -72,7 +83,7 @@ export default function AddTripForm(props: Props<ITripModel>) {
                     <div className='modal-dialog modal-dialog-centered mw-900px'>
                         <div className='modal-content'>
                             <div className='modal-header'>
-                                <h2>Add Trip</h2>
+                                <h2>{formTitle + ' Trip Dispatach'}</h2>
                                 <div
                                     className='btn btn-sm btn-icon btn-active-color-primary'
                                     data-bs-dismiss='modal'

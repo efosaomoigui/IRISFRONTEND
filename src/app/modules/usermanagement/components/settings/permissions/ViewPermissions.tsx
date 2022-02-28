@@ -2,12 +2,12 @@ import {useEffect, useState} from 'react'
 import agent from '../../../../../../setup/axios/AxiosAgent'
 import {IPermissionModel, IRoleModel, IUserModel} from '../../../../auth/models/AuthInterfaces'
 import { IrisTablesWidget } from '../../../../layout/tables/IrisTablesWidget'
-import { madalprops } from '../../../../layout/tables/IrisTableTitle'
+import { modalprops } from '../../../../layout/tables/IrisTableTitle'
 
 import Permission_Data from './Permission_Data.json'
 
 export function ViewPermissions() {
-  const [modalTarger, setModalTarget] = useState<madalprops[]>([]);
+  const [modalTarger, setModalTarget] = useState<modalprops[]>([]);
     const [loading, setLoading] = useState(true)
   const [permissionmodel, setPermissionModel] = useState<IPermissionModel[]>()
 

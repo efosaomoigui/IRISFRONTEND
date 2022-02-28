@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react'
 import agent from '../../../../../setup/axios/AxiosAgent';
 import { IrisTablesWidget } from '../../../layout/tables/IrisTablesWidget';
-import { madalprops } from '../../../layout/tables/IrisTableTitle';
+import { modalprops } from '../../../layout/tables/IrisTableTitle';
 import { IPaymentLogModel } from '../../PaymentModels/PaymentmentInterfaces';
 import PaymentLog_Data from './PaymentLog_Data.json'
 // import {format} from 'date-fns' 
 
 export function PaymentLog() {
   const [loading, setLoading] = useState(true)
-  const [modalTarger, setModalTarget] = useState<madalprops[]>([]);
+  const [modalTarger, setModalTarget] = useState<modalprops[]>([]);
   const [paymentlogmodel, setUsersModel] = useState<IPaymentLogModel[]>([])
 
   //all the data for the table

@@ -1,14 +1,14 @@
 import {useEffect, useState} from 'react'
 import agent from '../../../../../setup/axios/AxiosAgent'
 import {IrisTablesWidget} from '../../../layout/tables/IrisTablesWidget'
-import {madalprops} from '../../../layout/tables/IrisTableTitle'
+import {modalprops} from '../../../layout/tables/IrisTableTitle'
 import PriceData from '../../PriceData.json'
 import {IPriceModel} from '../../ShipmentModels/ShipmentInterfaces'
 // import {format} from 'date-fns'
 
 export function ViewPriceSettings() {
   const [loading, setLoading] = useState(true)
-  const [modalTarger, setModalTarget] = useState<madalprops[]>([])
+  const [modalTarger, setModalTarget] = useState<modalprops[]>([])
   const [pricemodel, setPriceModel] = useState<IPriceModel[]>([])
 
   //all the data for the table

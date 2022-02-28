@@ -5,7 +5,7 @@ export interface IUserModel {
   firstName: string
   lastName: string
   email: string 
-  phonenumber?: string
+  phoneNumber?: string
   gender?: string
   age?: string
   userType?: string

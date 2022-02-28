@@ -5,6 +5,7 @@ import {Modal} from 'react-bootstrap-v5'
 import {Button} from 'semantic-ui-react'
 import * as Yup from 'yup'
 import {KTSVG} from '../../../../_iris/helpers'
+import { usePageData } from '../../../../_iris/layout/core'
 import {IRoleModel} from '../../auth/models/AuthInterfaces'
 import IrisTextInput from '../../layout/forms/IrisTextInput'
 import useStyles from '../../layout/formstyles/FormStyle'
@@ -21,6 +22,9 @@ interface Props<Values> {
 }
 
 export default function AddRoleForm(props: Props<IRoleModel>) {
+
+  const {entityDetailValues, setEntityDetailValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle} = usePageData()
+
   const initialFormValue: IRoleModel = {
     id: props.role ? props.role!.id : '',
     name: props.role ? props.role!.name : '', 
@@ -44,7 +48,7 @@ export default function AddRoleForm(props: Props<IRoleModel>) {
           <div className='modal-dialog modal-dialog-centered mw-900px'>
             <div className='modal-content'>
               <div className='modal-header'>
-                <h2>Add User Role</h2>
+                <h2>{formTitle+" User Role"}</h2>
                 <div
                   className='btn btn-sm btn-icon btn-active-color-primary'
                   data-bs-dismiss='modal' 
