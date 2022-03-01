@@ -4,7 +4,7 @@ import {Form, Formik, FormikHelpers} from 'formik'
 import { Modal } from 'react-bootstrap-v5'
 import {Button} from 'semantic-ui-react'
 import * as Yup from 'yup'
-import agent from '../../../../setup/axios/AxiosAgent'
+import agent from '../../../../setup/axios/AxiosAgent' 
 import {KTSVG} from '../../../../_iris/helpers'
 import {usePageData} from '../../../../_iris/layout/core'
 import {IPermissionModel, IRoleModel} from '../../auth/models/AuthInterfaces'
@@ -30,8 +30,6 @@ export default function AddPermissionForm(props: Props<IPermissionModel>) {
     setSelectUrlParam,
     formTitle,
     setFormTitle,
-    roleData, 
-    setRoleData
   } = usePageData()
 
   const initialFormValue: IPermissionModel = {
@@ -76,13 +74,13 @@ export default function AddPermissionForm(props: Props<IPermissionModel>) {
                   <Grid container className={classes.root}>
                     <Grid item xs={6}>
                       {/* <IrisTextInput type='text' name='id' label='Role Id' /> */}
-                      <IrisSelectInput  name='roleId' label='RoleId' options={roleData} placeholder={'Role'}/>
+                      <IrisSelectInput  name='roleId' label='RoleId' placeholder={'Role'}/>
                       <IrisTextInput type='text' name='claimType' label='Permission Type' />
                       <IrisTextInput type='text' name='claimValue' label='Permission' />
                     </Grid> 
                   </Grid>
                 )}
-                {!props.showForm && <Alert severity='info'>Permission Added Successfully!</Alert>}
+                {!props.showForm && <Alert severity='info'>Permission Added Successfully!</Alert>} 
               </div>
 
               {/* Are you there? */}

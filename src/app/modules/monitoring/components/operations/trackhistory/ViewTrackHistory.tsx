@@ -87,7 +87,7 @@ export function ViewTrackHistory() {
           DetailsPath={tableProvider.DetailsPath}
           EditPath={tableProvider.EditPath}
           DeletePath={tableProvider.DeletePath}
-          UseFakeData={true}
+          UseFakeData={false}
           FakeData={tableProvider.FakeData}
           TableTitle={'Track History'}
           Count={'Over 300 Users'}

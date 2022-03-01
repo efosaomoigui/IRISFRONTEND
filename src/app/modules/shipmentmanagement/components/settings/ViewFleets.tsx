@@ -96,7 +96,7 @@ export function ViewFleets() {
           DetailsPath={tableProvider.DetailsPath}
           EditPath={tableProvider.EditPath}
           DeletePath={tableProvider.DeletePath}
-          UseFakeData={true}
+          UseFakeData={false}
           FakeData={tableProvider.FakeData}
           TableTitle={'Fleet Profile'}
           Count={'Over 300 Users'}

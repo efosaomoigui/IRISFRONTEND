@@ -57,7 +57,7 @@ const Roles = {
 }
 const Permissions = {
   list: () => request.get<IPermissionModel[]>(`${API_URL}/UserManagement/GetPermissions`),
-  details: (roleId: string) => request.get<IPermissionModel>(`${API_URL}/UserManagement/GetPermissions/${roleId}`),
+  details: (roleId: string) => request.get<IPermissionModel>(`${API_URL}/UserManagement/Permissions/GetPermissionsByRoleId/{roleid}/${roleId}`),
   create: (permission: IPermissionModel) => request.post<IPermissionModel>(`${API_URL}/UserManagement/AddPermissionToRole`, permission),
   update: (permission: IPermissionModel) => request.put<IPermissionModel>(`${API_URL}/UserManagement/GetUser/${permission.roleId}`, {}),
   delete: (id: string) => request.del<void>(`${API_URL}/UserManagement/GetUser${id}`),
@@ -66,7 +66,7 @@ const Permissions = {
 // wallet Starts here
 const  Wallet = {
   list: () => request.get<IWalletModel[]>(`${API_URL}/Wallet/WalletNumber/all`),
-  details: (walletid: string) => request.get<IWalletModel>(`${API_URL}/Wallet/WalletNumber/all/${walletid}`), 
+  details: (walletid: string) => request.get<IWalletModel>(`${API_URL}/Wallet/Wallets/GetWalletById/${walletid}`), 
   create: (wallet: IWalletModel) => request.post<IWalletModel>(`${API_URL}/Wallet/WalletNumber`, wallet), 
   update: (wallet: IWalletModel) => request.put<IWalletModel>(`${API_URL}/Wallet/WalletNumber/${wallet.WalletId}`, {}), 
   delete: (id: string) => request.del<void>(`${API_URL}/Wallet/WalletNumber${id}`), 
@@ -75,7 +75,7 @@ const  Wallet = {
 // wallet transaction Starts here
 const WalletTransaction = {
   list: () => request.get<IWalletTransactionModel[]>(`${API_URL}/Wallet/WalletTransaction/all`),
-  details: (wallettransactionid: string) => request.get<IWalletTransactionModel>(`${API_URL}/Wallet/WalletTransaction/all/${wallettransactionid}`),
+  details: (wallettransactionid: string) => request.get<IWalletTransactionModel>(`${API_URL}/Wallet/WalletTransaction/GetWalletTransactionById/${wallettransactionid}`),
   create: (wallettransaction: IWalletTransactionModel) => request.post<IWalletTransactionModel>(`${API_URL}/Wallet/WalletTransaction`, wallettransaction),
   update: (wallettransaction: IWalletTransactionModel) => request.put<IWalletTransactionModel>(`${API_URL}/Wallet/WalletTransaction/${wallettransaction.WalletTransactionId}`, {}),
   delete: (id: string) => request.del<void>(`${API_URL}/Shipment/GetUser${id}`),
@@ -93,18 +93,18 @@ const  Route = {
 // Shipment Request Starts
 const  Shipment = {
   list: () => request.get<IShipmentModel[]>(`${API_URL}/Shipment/Shipment/all`),
-  details: (shipmentid: string) => request.get<IShipmentModel>(`${API_URL}/Shipment/Shipment/all/${shipmentid}`), 
+  details: (shipmentid: string) => request.get<IShipmentModel>(`${API_URL}/Shipment/Shipment/GetShipmentById/${shipmentid}`), 
   create: (shipment: IShipmentModel) => request.post<IShipmentModel>(`${API_URL}/Shipment/Shipment`, shipment), 
   update: (shipment: IShipmentModel) => request.put<IRouteModel>(`${API_URL}/Shipment/Shipment/edit/${shipment.ShipmentId}`, {}), 
   delete: (id: string) => request.del<void>(`${API_URL}/Shipment/Shipment/delete/${id}`), 
 }
 
 const Manifest = {
-  list: () => request.get<IManifestModel[]>(`${API_URL}/UserManagement/GetUsers`),
-  details: (manifestid: string) => request.get<IManifestModel>(`${API_URL}/UserManagement/GetUser/${manifestid}`),
-  create: (manifest: IManifestModel) => request.post<IManifestModel>(`${API_URL}/UserManagement/GetUsers`, manifest),
-  update: (manifest: IManifestModel) => request.put<IManifestModel>(`${API_URL}/UserManagement/GetUsers/${manifest.Id}`, {}),
-  delete: (id: string) => request.del<void>(`${API_URL}/UserManagement/GetUser/${id}`),
+  list: () => request.get<IManifestModel[]>(`${API_URL}/Manifest/Manifest/all`),
+  details: (manifestcode: string) => request.get<IManifestModel>(`${API_URL}/api/Manifest/Manifest/GetManifestByManifestCode/${manifestcode}`),
+  create: (manifest: IManifestModel) => request.post<IManifestModel>(`${API_URL}/Manifest/Manifest`, manifest),
+  update: (manifest: IManifestModel) => request.put<IManifestModel>(`${API_URL}/Manifest/Manifest/edit/${manifest.Id}`, {}),
+  delete: (id: string) => request.del<void>(`${API_URL}/Manifest/Manifest/delete/${id}`),
 }
 
 // Fleet Request Starts
@@ -119,8 +119,8 @@ const  Fleet = {
 // Fleet Request Starts
 const  Price = {
   list: () => request.get<IPriceModel[]>(`${API_URL}/ShipmentSettings/Price/all`),
-  details: (id: string) => request.get<IPriceModel>(`${API_URL}/ShipmentSettings/Price/GetPriceById/{priceid}/${id}`), 
-  create: (price: IPriceModel) => request.post<IPriceModel>(`${API_URL}/ShipmentSettings`, price), 
+  details: (id: string) => request.get<IPriceModel>(`${API_URL}/api/ShipmentSettings/Price/GetPriceById/${id}`), 
+  create: (price: IPriceModel) => request.post<IPriceModel>(`${API_URL}/ShipmentSettings/Price`, price), 
   update: (price: IPriceModel) => request.put<IPriceModel>(`${API_URL}/ShipmentSettings/Price/${price.id}`, {}), 
   delete: (id: string) => request.del<void>(`${API_URL}/ShipmentSettings/Price${id}`),  
 }
@@ -135,36 +135,36 @@ const  PaymentLog = {
 }
 
 const Invoice = {
-  list: () => request.get<IInvoiceModel[]>(`${API_URL}/UserManagement/GetRoles`),
-  details: (invoiceid: string) => request.get<IInvoiceModel>(`${API_URL}/UserManagement/GetRoles/${invoiceid}`),
-  create: (invoice: IInvoiceModel) => request.post<IInvoiceModel>(`${API_URL}/UserManagement/AddRole`, invoice),
-  update: (invoice: IInvoiceModel) => request.put<IInvoiceModel>(`${API_URL}/UserManagement/GetUser/${invoice.Id}`, {}),
-  delete: (id: string) => request.del<void>(`${API_URL}/UserManagement/GetUser${id}`),
+  list: () => request.get<IInvoiceModel[]>(`${API_URL}/Payment/Payment/all`),
+  details: (invoiceid: string) => request.get<IInvoiceModel>(`${API_URL}/Payment/Invoice/GetInvoiceByInvoiceId/${invoiceid}`),
+  create: (invoice: IInvoiceModel) => request.post<IInvoiceModel>(`${API_URL}/Payment/Payment`, invoice),
+  update: (invoice: IInvoiceModel) => request.put<IInvoiceModel>(`${API_URL}/Payment/Payment/edit/${invoice.Id}`, {}),
+  delete: (id: string) => request.del<void>(`${API_URL}/Payment/Payment/delete${id}`),
 }
 
 // Monitoring Request Starts
 const  Trip = {
-  list: () => request.get<ITripModel[]>(`${API_URL}/UserManagement/GetUsers`),
-  details: (tripid: string) => request.get<ITripModel>(`${API_URL}/UserManagement/GetUser/${tripid}`), 
-  create: (trip: ITripModel) => request.post<ITripModel>(`${API_URL}/UserManagement/GetUsers`, trip), 
-  update: (trip: ITripModel) => request.put<ITripModel>(`${API_URL}/UserManagement/GetUser/${trip.id}`, {}), 
-  delete: (id: string) => request.del<void>(`${API_URL}/UserManagement/GetUser${id}`), 
+  list: () => request.get<ITripModel[]>(`${API_URL}/Trip/Trip/all`),
+  details: (tripid: string) => request.get<ITripModel>(`${API_URL}/Trip/Trip/GetTripByTripId/${tripid}`), 
+  create: (trip: ITripModel) => request.post<ITripModel>(`${API_URL}/Trip/Trip/Add`, trip), 
+  update: (trip: ITripModel) => request.put<ITripModel>(`${API_URL}/Trip/Trip/edit/${trip.id}`, {}), 
+  delete: (id: string) => request.del<void>(`${API_URL}/Trip/Trip/delete${id}`), 
 }
 
 const TrackHistory = {
-  list: () => request.get<ITrackHistoryModel[]>(`${API_URL}/UserManagement/GetUsers`),
-  details: (trackhistoryid: string) => request.get<ITrackHistoryModel>(`${API_URL}/UserManagement/GetUser/${trackhistoryid}`),
-  create: (trackhistory: ITrackHistoryModel) => request.post<ITrackHistoryModel>(`${API_URL}/UserManagement/GetUsers`, trackhistory),
-  update: (trackhistory: ITrackHistoryModel) => request.put<ITrackHistoryModel>(`${API_URL}/UserManagement/GetUser/${trackhistory.id}`, {}),
+  list: () => request.get<ITrackHistoryModel[]>(`${API_URL}/TrackHistory/TrackHistory/all`),
+  details: (id: string) => request.get<ITrackHistoryModel>(`${API_URL}/TrackHistory/TrackHistory/GetTrackHistoryById/${id}`),
+  create: (trackhistory: ITrackHistoryModel) => request.post<ITrackHistoryModel>(`${API_URL}/TrackHistory/TrackHistory`, trackhistory),
+  update: (trackhistory: ITrackHistoryModel) => request.put<ITrackHistoryModel>(`${API_URL}/TrackHistory/TrackHistory/edit/${trackhistory.id}`, {}),
   delete: (id: string) => request.del<void>(`${API_URL}/UserManagement/GetUser${id}`),
 }
 // Fulfilment Request Starts
 const CollectionCenter = {
-  list: () => request.get<IFulfilmentModel[]>(`${API_URL}/UserManagement/GetUsers`),
+  list: () => request.get<IFulfilmentModel[]>(`${API_URL}/Shipment/CollectionCenter/all`),
   details: (CollectionCenterid: string) => request.get<IFulfilmentModel>(`${API_URL}/UserManagement/GetUser/${CollectionCenterid}`),
-  create: (CollectionCenter: IFulfilmentModel) => request.post<IFulfilmentModel>(`${API_URL}/UserManagement/GetUsers`, CollectionCenter),
-  update: (CollectionCenter: IFulfilmentModel) => request.put<IFulfilmentModel>(`${API_URL}/UserManagement/GetUser/${CollectionCenter.Id}`, {}),
-  delete: (id: string) => request.del<void>(`${API_URL}/UserManagement/GetUser${id}`),
+  create: (CollectionCenter: IFulfilmentModel) => request.post<IFulfilmentModel>(`${API_URL}/Shipment/CollectionCenter`, CollectionCenter),
+  update: (CollectionCenter: IFulfilmentModel) => request.put<IFulfilmentModel>(`${API_URL}/Shipment/CollectionCenter/edit/${CollectionCenter.Id}`, {}),
+  delete: (id: string) => request.del<void>(`${API_URL}/Shipment/CollectionCenter/delete${id}`),
 }
 
 const agent = {

@@ -96,7 +96,7 @@ export function ViewTrips() {
           DetailsPath={tableProvider.DetailsPath}
           EditPath={tableProvider.EditPath}
           DeletePath={tableProvider.DeletePath}
-          UseFakeData={true}
+          UseFakeData={false}
           FakeData={tableProvider.FakeData}
           TableTitle={'Trips'}
           Count={'Over 300 Users'}

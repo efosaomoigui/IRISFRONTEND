@@ -12,12 +12,12 @@ const AddPermissionModal: React.FC = () => {
   const [showForm, setShowForm] = useState(true)
   const [loading, setLoading] = useState(true)
 
-  const {entityDetailValues, selectUrlParam, setSelectUrlParam, roleData, setRoleData} =
+  const {entityDetailValues, selectUrlParam, setSelectUrlParam} =
     usePageData()
 
   const setroleDAtaValues = () =>
     agent.Roles.list().then((response) => {
-      setRoleData(response)
+      // setRoleData(response)
       setLoading(false)
     }
   )
@@ -40,7 +40,6 @@ const AddPermissionModal: React.FC = () => {
     setroleDAtaValues()
   }, [])
 
-  console.log("=====> ", roleData)
   // setroleDAtaValues()
 
   const onSubmit = (values: IPermissionModel) => {
@@ -70,7 +69,7 @@ const AddPermissionModal: React.FC = () => {
           onSubmit={onSubmit}
           permission={selected}
           showForm={showForm}
-          systemRoles={roleData}
+          // systemRoles={}
         />
       </div>
     </>

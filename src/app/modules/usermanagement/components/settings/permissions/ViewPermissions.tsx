@@ -65,7 +65,7 @@ export function ViewPermissions() {
           DetailsPath={tableProvider.DetailsPath}
           EditPath={tableProvider.EditPath}
           DeletePath={tableProvider.DeletePath}
-          UseFakeData={true}
+          UseFakeData={false}
           FakeData={tableProvider.FakeData}
           TableTitle={'Permission'}
           Count={'Over 300 Users'}

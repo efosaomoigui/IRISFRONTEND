@@ -52,6 +52,8 @@ const IrisTablesWidget: React.FC<Props> = ({
   const tabledata = UseFakeData ? FakeData : tableData
   const {entityDetailValues, setEntityDetailValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle} = usePageData()
 
+  console.log("{ }", tabledata);
+
   return (
     <div className={`card ${className}`}>
       {/* begin::Header */} 

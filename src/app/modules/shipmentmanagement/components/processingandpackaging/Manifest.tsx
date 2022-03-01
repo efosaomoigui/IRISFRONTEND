@@ -75,7 +75,7 @@ export function Manifest() {
           DetailsPath={tableProvider.DetailsPath}
           EditPath={tableProvider.EditPath}
           DeletePath={tableProvider.DeletePath}
-          UseFakeData={true}
+          UseFakeData={false}
           FakeData={tableProvider.FakeData}
           TableTitle={'Manifest'}
           Count={'Over 300 Users'}

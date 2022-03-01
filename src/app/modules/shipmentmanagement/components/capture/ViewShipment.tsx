@@ -82,7 +82,7 @@ export function ViewShipment() {
                     DetailsPath={tableProvider.DetailsPath}
                     EditPath={tableProvider.EditPath}
                     DeletePath={tableProvider.DeletePath}
-                    UseFakeData={true}
+                    UseFakeData={false}
                     FakeData={tableProvider.FakeData}
                     TableTitle={'View Shipment'}
                     Count={'Over 300 Users'}

@@ -87,18 +87,15 @@ export default function AddTrackHistoryForm(props: Props<ITrackHistoryModel>) {
                                             <IrisTextInput
                                                 type='text'
                                                 name='TripId'
-                                                placeholder='TripId'
                                                 label='TripId'
                                             />
                                             <IrisTextInput
                                                 type='text'
-                                                placeholder='Action'
                                                 name='Action'
                                                 label='Action'
                                             />
                                             <IrisTextInput
                                                 type='text'
-                                                placeholder='Location'
                                                 name='Location'
                                                 label='Location'
                                             />
@@ -106,18 +103,17 @@ export default function AddTrackHistoryForm(props: Props<ITrackHistoryModel>) {
                                         <Grid item xs={6}>
                                             <IrisTextInput
                                                 type='text'
-                                                placeholder='Status'
                                                 name='Status'
                                                 label='Status'
                                             />
 
-                                            <IrisDatePicker
+                                            {/* <IrisDatePicker
                                                 placeholderText='TimeStamp'
                                                 name='TimeStamp'
                                                 showTimeSelect
                                                 timeCaption='TimeStamp'
                                                 dateFormat='MMM d, yyyy h:mm: aa'
-                                            />
+                                            /> */}
 
                                         </Grid>
                                     </Grid>

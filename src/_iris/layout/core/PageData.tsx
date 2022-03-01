@@ -25,8 +25,6 @@ export interface PageDataContextModel {
   formTitle?: string
   setFormTitle: (_title: string) => void
 
-  roleData?: IRoleModel[]
-  setRoleData: (_data: IRoleModel[]) => void
 }
 
 const PageDataContext = createContext<PageDataContextModel>({
@@ -37,7 +35,6 @@ const PageDataContext = createContext<PageDataContextModel>({
   handleSelectValues:(_entityDetailValues:Array<any>)=>{},
   setSelectUrlParam:(urlparam: string) =>{},
   setFormTitle:(_title: string) =>{},
-  setRoleData:(_data: IRoleModel[]) =>{}
 }) 
 
 const PageDataProvider: React.FC = ({children}) => {
@@ -47,7 +44,6 @@ const PageDataProvider: React.FC = ({children}) => {
   const [entityDetailValues, setEntityDetailValues] = useState<any[]>([])
   const [selectUrlParam, setSelectUrlParam] = useState<string>('')
   const [formTitle, setFormTitle] = useState<string>('')
-  const [roleData, setRoleData] = useState<IRoleModel[]>([])
 
   const value: PageDataContextModel = {
     pageTitle,
@@ -61,9 +57,7 @@ const PageDataProvider: React.FC = ({children}) => {
     selectUrlParam,
     setSelectUrlParam, 
     formTitle,
-    setFormTitle,
-    roleData,
-    setRoleData
+    setFormTitle
   }
 
   return <PageDataContext.Provider value={value}>{children}</PageDataContext.Provider>

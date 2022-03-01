@@ -21,6 +21,8 @@ interface Props {
 }
 
 const GenericTable = ({irisData, columnsMap, DetailsPath, EditPath, DeletePath}: Props) => {
+
+  // console.log("realdata==>", irisData)
   const tableInstance = useTable(
     {
       columns: useMemo(() => columnsMap, []),

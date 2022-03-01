@@ -37,11 +37,14 @@ export function ViewRoles() {
   // //USE EFFECT HOOK
   useEffect(() => {
     agent.Roles.list().then((response) => {
+      console.log("AA! ", rolemodel);
       setRoleModel(response)
       setModalTarget(ModalTarget)
-      setLoading(false)
+      setLoading(true)
     })
   }, [])
+
+  console.log("AA ", rolemodel);
 
   return (
     <div className='row g-5 g-xxl-8'>
