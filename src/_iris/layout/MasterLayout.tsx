@@ -28,6 +28,11 @@ import {EditWalletModal} from '../../app/modules/walletmanagement/modals/EditWal
 import { EditRoleModal } from '../../app/modules/usermanagement/modals/EditRoleModal'
 import { EditPermissionModal } from '../../app/modules/usermanagement/modals/EditPermissionModal'
 import { EditWalletTransactionModal } from '../../app/modules/walletmanagement/modals/EditWalletTransactionModal'
+import { EditFleetModal } from '../../app/modules/shipmentmanagement/modals/EditFleetModal'
+import { EditManifestModal } from '../../app/modules/shipmentmanagement/modals/EditManifestModal'
+import { EditPriceModal } from '../../app/modules/shipmentmanagement/modals/EditPriceModal'
+import { EditRouteModal } from '../../app/modules/shipmentmanagement/modals/EditRouteModal'
+
 
 const MasterLayout: React.FC = ({children}) => {
   const location = useLocation()
@@ -78,18 +83,28 @@ const MasterLayout: React.FC = ({children}) => {
       <AddWalletTransactionModal />
       <EditWalletTransactionModal />
 
-     
-
       <AddPermissionModal />
       <EditPermissionModal />
 
       <AddRoleModal />
       <EditRoleModal />
 
+      <AddFleetModal />
+      <EditFleetModal />
+
       <AddTripModal />
+
       <AddPriceModal />
+      <EditPriceModal />
+
+      <AddRouteModal />
+      <EditRouteModal />
+      
       <AddCollectionCenterModal />
+
       <AddManifestModal />
+      <EditManifestModal />
+
       <AddPaymentLogModal />
       <AddInvoiceModal />
       <AddTrackHistoryModal />
