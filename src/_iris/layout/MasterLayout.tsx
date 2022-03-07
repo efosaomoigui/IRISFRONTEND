@@ -34,6 +34,7 @@ import { EditPriceModal } from '../../app/modules/shipmentmanagement/modals/Edit
 import { EditRouteModal } from '../../app/modules/shipmentmanagement/modals/EditRouteModal'
 import { EditTripModal } from '../../app/modules/monitoring/monitor modal/EditTripModal'
 import { EditTrackHistoryModal } from '../../app/modules/monitoring/monitor modal/EditTrackHistoryModal'
+import { EditCollectionCenterModal } from '../../app/modules/fulfillment/modals/EditCollectionCenterModal'
 
 
 const MasterLayout: React.FC = ({children}) => {
@@ -104,13 +105,14 @@ const MasterLayout: React.FC = ({children}) => {
       <EditRouteModal />
 
       <AddCollectionCenterModal />
+      <EditCollectionCenterModal />
 
       <AddManifestModal />
       <EditManifestModal />
 
       <AddPaymentLogModal />
       <AddInvoiceModal />
-      
+
       <AddTrackHistoryModal />
       <EditTrackHistoryModal />
       {/* scrolltop */}
