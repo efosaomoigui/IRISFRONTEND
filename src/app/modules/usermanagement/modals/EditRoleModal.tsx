@@ -12,7 +12,7 @@ interface Props {
   SelectedValues?: any[]
 }
 
-const EditRoleModal: React.FC = () => {
+const EditRoleModal: React.FC<Props> = ({ handleEdit, SelectedValues }: Props) => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [selectPermission, setSelectPermission] = useState<IRoleModel>()
   const [showForm, setShowForm] = useState(true)

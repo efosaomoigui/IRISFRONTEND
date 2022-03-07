@@ -26,7 +26,7 @@ interface Props<Values> {
   handleClick?: () => void
 }
 
-export default function AddRoleForm(props: Props<IRoleModel>) {
+export default function EditRoleForm(props: Props<IRoleModel>) {
 
   const { entityDetailValues, setEntityDetailValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle } = usePageData()
 

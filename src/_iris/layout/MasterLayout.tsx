@@ -78,8 +78,7 @@ const MasterLayout: React.FC = ({children}) => {
       <AddWalletTransactionModal />
       <EditWalletTransactionModal />
 
-      <AddFleetModal />
-      <AddRouteModal />
+     
 
       <AddPermissionModal />
       <EditPermissionModal />
