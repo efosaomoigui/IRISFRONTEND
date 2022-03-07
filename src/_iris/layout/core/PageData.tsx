@@ -26,7 +26,6 @@ export interface PageDataContextModel {
   setSelectUrlParam?:(urlparam: string) =>void
   formTitle?: string
   setFormTitle: (_title: string) => void
-  
 }
 
 const PageDataContext = createContext<PageDataContextModel>({

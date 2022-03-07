@@ -37,9 +37,9 @@ export default function AddWalletForm(props: Props<IWalletModel>) {
 
   const initialFormValue: IWalletModel = {
     id: props.wallet ? props.wallet!.id : '',
-    WalletNumber: props.wallet ? props.wallet!.WalletNumber : '',
-    IsActive: props.wallet ? props.wallet!.IsActive : '',
-    UserId: props.wallet ? props.wallet!.UserId : '',
+    number: props.wallet ? props.wallet!.number : '',
+    isActive: props.wallet ? props.wallet!.isActive : '',
+    userId: props.wallet ? props.wallet!.userId : '', 
   }
 
   const validationSchema = Yup.object({

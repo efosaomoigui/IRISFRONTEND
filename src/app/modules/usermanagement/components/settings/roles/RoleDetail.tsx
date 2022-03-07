@@ -4,7 +4,7 @@ import agent from '../../../../../../setup/axios/AxiosAgent'
 import {IRoleModel, IUserModel} from '../../../../auth/models/AuthInterfaces'
 
 export function RoleDetail() {
-  let {RoleId} = useParams<{RoleId: string}>()
+  let {roleId} = useParams<{roleId: string}>()
   const [roledetails, setRoleDetails] = useState<IRoleModel>()
 
   function getRole(roleid: string) {
@@ -14,8 +14,8 @@ export function RoleDetail() {
   }
 
   useEffect(() => {
-    getRole(RoleId)
-  }, [RoleId])
+    getRole(roleId)
+  }, [roleId])
 
   return (
     <div className='row g-5 g-xxl-8'>

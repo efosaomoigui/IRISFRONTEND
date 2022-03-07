@@ -43,22 +43,12 @@ export function WalletDetail() {
                 </span>
               </div>
             </div>
-
-              <div className='row mb-7'>
-                <label className='col-lg-4 fw-bold text-muted'>Wallet Name</label>
-
-                <div className='col-lg-8'>
-                  <span className='fw-bolder fs-6 text-dark'>
-                    {walletdetails?.id}
-                  </span>
-                </div>
-              </div>
               <div className='row mb-7'>
                 <label className='col-lg-4 fw-bold text-muted'>Wallet Number</label>
 
                 <div className='col-lg-8'>
                   <span className='fw-bolder fs-6 text-dark'>
-                    {walletdetails?.WalletNumber}
+                    {walletdetails?.number}
                   </span>
                 </div>
               </div>
@@ -67,7 +57,7 @@ export function WalletDetail() {
 
                 <div className='col-lg-8'>
                   <span className='fw-bolder fs-6 text-dark'>
-                    {walletdetails?.UserId}
+                    {walletdetails?.userId}
                   </span>
                 </div>
               </div>

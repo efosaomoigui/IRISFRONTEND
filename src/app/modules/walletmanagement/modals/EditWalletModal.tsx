@@ -7,23 +7,20 @@ import {IWalletModel} from '../Models/WalletInterfaces'
 import AddWalletForm from '../walletformwidget/AddWalletForm'
 import EditWalletForm from '../walletformwidget/EditWalletForm'
 
-const EditWalletModal: React.FC = () => {
+interface Props {
+  handleEdit?: (wallet: IWalletModel) => void
+  SelectedValues?: any[]
+}
+
+const EditWalletModal: React.FC<Props> = ({handleEdit, SelectedValues}: Props) => { 
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [showForm, setShowForm] = useState(true)
   const [selectWallet, setSelectWallet] = useState<IWalletModel>()
+  const [hasError, setHasError] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
+  const [showError, setShowError] = useState(false)
 
   const {selectValue, handleSelectValue, selectUrlParam, setSelectUrlParam} = usePageData() //global data
-
-  // handle logic
-  // const wallets = entityDetailValues as IWalletModel[];
-
-  // const setSelectedValue = (wallets: IWalletModel[]) => {
-  //   const val = wallets.find(x => x.id === selectUrlParam)
-  //   return val;
-  // }
-
-  // const selected = setSelectedValue(wallets);
-  // console.log("LOG ", (selected) ? "old wallet" : "new wallet");
 
   const onSubmit = (values: IWalletModel) => {
     setIsSubmitting(true)
@@ -37,6 +34,16 @@ const EditWalletModal: React.FC = () => {
     })
   }
 
+  
+  const handleClick = () => {
+    setShowError(false)
+    setShowForm(true)
+    window.location.reload()
+    console.log('On click', showError)
+  }
+
+  console.log("wallet: ", selectValue);
+
   return (
     <>
       <div className='modal fade' id='kt_modal_editwallet' aria-hidden='true'>
@@ -44,7 +51,9 @@ const EditWalletModal: React.FC = () => {
           isSubmitting={isSubmitting}
           onSubmit={onSubmit}
           wallet={selectValue}
-          showForm={showForm}
+          showForm={showForm} 
+          handleClick={handleClick}
+          formTitle={'Edit User'}
         />
       </div>
     </>

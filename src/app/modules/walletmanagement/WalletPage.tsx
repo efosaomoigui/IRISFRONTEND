@@ -46,7 +46,7 @@ const WalletPage: React.FC = () => {
           <PageTitle breadcrumbs={userBreadCrumbs}>Wallet Transactions</PageTitle>
           <WalletTransaction />
         </Route>
-        <Route path='/wallet/walletdetails/:WalletId'>
+        <Route path='/wallet/walletdetails/:walletId'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Wallet Details</PageTitle>
           <WalletDetail />
         </Route>
