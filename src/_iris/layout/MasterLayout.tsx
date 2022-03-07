@@ -1,32 +1,30 @@
-import React, { useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
-import { AddCollectionCenterModal } from '../../app/modules/fulfillment/modals/AddCollectionCenterModal'
-import { AddTrackHistoryModal } from '../../app/modules/monitoring/monitor modal/AddTrackHistoryModal'
-import { AddTripModal } from '../../app/modules/monitoring/monitor modal/AddTripModal'
-import { AddInvoiceModal } from '../../app/modules/payment/paymentmodals/AddInvoiceModal'
-import { AddPaymentLogModal } from '../../app/modules/payment/paymentmodals/AddPaymentLogModal'
-import { AddFleetModal } from '../../app/modules/shipmentmanagement/modals/AddFleetModal'
-import { AddManifestModal } from '../../app/modules/shipmentmanagement/modals/AddManifestModal'
-import { AddRouteModal } from '../../app/modules/shipmentmanagement/modals/AddRouteModal'
-import { AddPermissionModal } from '../../app/modules/usermanagement/modals/AddPermissionModal'
-import { AddRoleModal } from '../../app/modules/usermanagement/modals/AddRoleModal'
-import { AddUserModal } from '../../app/modules/usermanagement/modals/AddUserModal'
-import { AddWalletModal } from '../../app/modules/walletmanagement/modals/AddWalletModal'
-import { AddWalletTransactionModal } from '../../app/modules/walletmanagement/modals/AddWalletTransactionModal'
-import { MenuComponent } from '../assets/ts/components'
-import { Main } from '../partials'
-import { AddPriceModal } from '../../app/modules/shipmentmanagement/modals/AddPriceModal'
-import { AsideDefault } from './components/aside/AsideDefault'
-import { Content } from './components/Content'
-import { Footer } from './components/Footer'
-import { HeaderWrapper } from './components/header/HeaderWrapper'
-import { ScrollTop } from './components/ScrollTop'
-import { Toolbar } from './components/toolbar/Toolbar'
-import { PageDataProvider } from './core'
-import { EditUserModal } from '../../app/modules/usermanagement/modals/EditUserModal'
-import { EditWalletModal } from '../../app/modules/walletmanagement/modals/EditWalletModal'
-
-
+import React, {useEffect} from 'react'
+import {useLocation} from 'react-router-dom'
+import {AddCollectionCenterModal} from '../../app/modules/fulfillment/modals/AddCollectionCenterModal'
+import {AddTrackHistoryModal} from '../../app/modules/monitoring/monitor modal/AddTrackHistoryModal'
+import {AddTripModal} from '../../app/modules/monitoring/monitor modal/AddTripModal'
+import {AddInvoiceModal} from '../../app/modules/payment/paymentmodals/AddInvoiceModal'
+import {AddPaymentLogModal} from '../../app/modules/payment/paymentmodals/AddPaymentLogModal'
+import {AddFleetModal} from '../../app/modules/shipmentmanagement/modals/AddFleetModal'
+import {AddManifestModal} from '../../app/modules/shipmentmanagement/modals/AddManifestModal'
+import {AddRouteModal} from '../../app/modules/shipmentmanagement/modals/AddRouteModal'
+import {AddPermissionModal} from '../../app/modules/usermanagement/modals/AddPermissionModal'
+import {AddRoleModal} from '../../app/modules/usermanagement/modals/AddRoleModal'
+import {AddUserModal} from '../../app/modules/usermanagement/modals/AddUserModal'
+import {AddWalletModal} from '../../app/modules/walletmanagement/modals/AddWalletModal'
+import {AddWalletTransactionModal} from '../../app/modules/walletmanagement/modals/AddWalletTransactionModal'
+import {MenuComponent} from '../assets/ts/components'
+import {Main} from '../partials'
+import {AddPriceModal} from '../../app/modules/shipmentmanagement/modals/AddPriceModal'
+import {AsideDefault} from './components/aside/AsideDefault'
+import {Content} from './components/Content'
+import {Footer} from './components/Footer'
+import {HeaderWrapper} from './components/header/HeaderWrapper'
+import {ScrollTop} from './components/ScrollTop'
+import {Toolbar} from './components/toolbar/Toolbar'
+import {PageDataProvider} from './core'
+import {EditUserModal} from '../../app/modules/usermanagement/modals/EditUserModal'
+import {EditWalletModal} from '../../app/modules/walletmanagement/modals/EditWalletModal'
 
 const MasterLayout: React.FC = ({children}) => {
   const location = useLocation()
@@ -51,7 +49,7 @@ const MasterLayout: React.FC = ({children}) => {
           <HeaderWrapper />
 
           <div id='kt_content' className='content d-flex flex-column flex-column-fluid'>
-          {/* the toolbar with breadcrumbs */}
+            {/* the toolbar with breadcrumbs */}
             <Toolbar />
 
             <div className='post d-flex flex-column-fluid' id='kt_post'>
@@ -75,6 +73,8 @@ const MasterLayout: React.FC = ({children}) => {
       <EditWalletModal />
 
       <AddWalletTransactionModal />
+      {/* <EditWalletTransactionModal /> */}
+
       <AddFleetModal />
       <AddRouteModal />
       <AddPermissionModal />
@@ -92,5 +92,4 @@ const MasterLayout: React.FC = ({children}) => {
   )
 }
 
-export { MasterLayout }
-
+export {MasterLayout}
