@@ -6,9 +6,16 @@ import { Form, Label, Select } from 'semantic-ui-react'
 interface Props {
   placeholder: string 
   name: string
-  options?: any
   label?: string
 }
+
+const options = [
+  {text: 'one', value: 'Bag'},
+  {text: 'two', value: 'Serial'},
+  {text: 'three', value: 'Turkey'},
+  {text: 'four', value: 'Afganistan'},
+]
+
 
 export default function IrisSelectInput(props: Props) {
   const [field, meta, helpers] = useField(props.name)
@@ -17,7 +24,7 @@ export default function IrisSelectInput(props: Props) {
       <label>{props.label}</label>
       <Select
         clearable
-        options={props.options}
+        options={options}
         value={field.value}
         onBlur={() => helpers.setTouched(true)}
         placeholder={props.placeholder}

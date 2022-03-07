@@ -1,21 +1,17 @@
 import {useState,createContext, useContext, useEffect } from 'react'
 import {KTSVG} from '../../../../_iris/helpers'
 import { usePageData } from '../../../../_iris/layout/core'
+import { IUserModel } from '../../auth/models/AuthInterfaces'
 
 interface Props {
   DetailsPath: string
   EditPath: string
   DeletePath: string
+  handleEdit?: (event: React.MouseEvent) => void
 }
 
-const TableActionLinks = ({DetailsPath, EditPath, DeletePath}: Props) => {
+const TableActionLinks = ({DetailsPath, EditPath, DeletePath, handleEdit}: Props) => {
   const {entityDetailValues, selectUrlParam, setSelectUrlParam,formTitle, setFormTitle} = usePageData()
-
-  const clickAction = ()=>{
-    const urlParm = DetailsPath.split('/')
-    setSelectUrlParam!(urlParm[urlParm.length-1]);
-    setFormTitle('Edit');
-  }
 
   return (
     <div className='d-flex justify-content-end flex-shrink-0'>
@@ -31,12 +27,13 @@ const TableActionLinks = ({DetailsPath, EditPath, DeletePath}: Props) => {
         // href={EditPath}
         href="#_b"
         title='Edit'
+        id={EditPath.split(",")[1]}
         data-bs-toggle='modal'
-        data-bs-target={EditPath}
+        data-bs-target={EditPath.split(",")[0]}
         className='btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1'
-        onClick={clickAction}
+        onClick={handleEdit}
       >
-        <KTSVG path='/media/icons/duotune/art/art005.svg' className='svg-icon-3' />
+        <KTSVG path='/media/icons/duotune/art/art005.svg' className='svg-icon-3' /> 
       </a>
 
       <a

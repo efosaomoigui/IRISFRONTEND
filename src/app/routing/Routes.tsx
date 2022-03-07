@@ -8,7 +8,7 @@ import {ErrorsPage} from '../modules/errors/ErrorsPage'
 import {RootState} from '../../setup'
 import {MasterInit} from '../../_iris/layout/MasterInit'
 import {ToastContainer} from 'react-toastify'
-import GetStates from '../modules/files/GetStates'
+import GetStates from '../modules/common/files/GetStates'
 
 
 const Routes: FC = () => {

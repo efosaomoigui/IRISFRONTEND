@@ -1,16 +1,17 @@
-import { useEffect, useState } from 'react'
+import {useEffect, useState} from 'react'
 import agent from '../../../../../../setup/axios/AxiosAgent'
-import { IUserModel } from '../../../../auth/models/AuthInterfaces'
-import { IrisTablesWidget } from '../../../../layout/tables/IrisTablesWidget'
-import { modalprops } from '../../../../layout/tables/IrisTableTitle'
-import { ITrackHistoryModel, ITripModel } from '../../../Monitor models/MonitorInterface'
+import {IUserModel} from '../../../../auth/models/AuthInterfaces'
+import {IrisTablesWidget} from '../../../../layout/tables/IrisTablesWidget'
+import {modalprops} from '../../../../layout/tables/IrisTableTitle'
+import {ITrackHistoryModel, ITripModel} from '../../../Monitor models/MonitorInterface'
 import TrackHistory_Data from './TrackHistory_Data.json'
-// import {format} from 'date-fns' 
+// import {format} from 'date-fns'
 
 export function ViewTrackHistory() {
   const [loading, setLoading] = useState(true)
-  const [modalTarger, setModalTarget] = useState<modalprops[]>([]);
+  const [modalTarger, setModalTarget] = useState<modalprops[]>([])
   const [trackhistorymodel, setUsersModel] = useState<ITrackHistoryModel[]>([])
+  const [loadingData, setLoadingData] = useState(true)
 
   //all the data for the table
   const tableProvider = {
@@ -54,47 +55,43 @@ export function ViewTrackHistory() {
   const ModalTarget = [
     {
       linkTitle: 'Add Track History',
-      linkTarget: '#kt_modal_addtrackhistory'
-    }
+      linkTarget: '#kt_modal_addtrackhistory',
+    },
   ]
-
-
   // //USE EFFECT HOOK
   useEffect(() => {
-    agent.TrackHistory.list().then((response) => {
-      setUsersModel(response)
-      setModalTarget(ModalTarget);
-      setLoading(true) 
-    })
+    const callFunc = async () => {
+      await agent.TrackHistory.list().then((response) => {
+        setUsersModel(response)
+        setModalTarget(ModalTarget)
+        setLoadingData(false)
+      })
+    }
+    if (loadingData) {
+      callFunc()
+    }
   }, [])
-
-  const ModalTargetDetails: modalprops = {
-    linkTarget: tableProvider.EditPath,
-    linkTitle: ""
-  }
-
-  // console.log(usersmodel);
-
-  // if (loading) return <LoadingComponent content='Loading...' />
 
   return (
     <div className='row g-5 g-xxl-8'>
       <div className='col-xl-12'>
-        <IrisTablesWidget
-          tableData={trackhistorymodel}
-          className='mb-5 mb-xl-8'
-          columnsMap={tableProvider.columns}
-          DetailsPath={tableProvider.DetailsPath}
-          EditPath={tableProvider.EditPath}
-          DeletePath={tableProvider.DeletePath}
-          UseFakeData={false}
-          FakeData={tableProvider.FakeData}
-          TableTitle={'Track History'}
-          Count={'Over 300 Users'}
-          ModalTarget={
-            modalTarger
-          }
-        />
+        {loadingData ? (
+          <p>Loading Please wait...</p>
+        ) : (
+          <IrisTablesWidget
+            tableData={trackhistorymodel}
+            className='mb-5 mb-xl-8'
+            columnsMap={tableProvider.columns}
+            DetailsPath={tableProvider.DetailsPath}
+            EditPath={tableProvider.EditPath}
+            DeletePath={tableProvider.DeletePath}
+            UseFakeData={false}
+            FakeData={tableProvider.FakeData}
+            TableTitle={'Track History'}
+            Count={'Over 300 Users'}
+            ModalTarget={modalTarger}
+          />
+        )}
       </div>
     </div>
   )

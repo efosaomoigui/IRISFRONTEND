@@ -110,12 +110,12 @@ export default function AddInvoiceForm(props: Props<IInvoiceModel>) {
                         name='PaymentMethod'
                         label='Payment Method'
                       />
-                      <IrisSelectInput
+                      {/* <IrisSelectInput
                         options={options}
                         placeholder='ShipStatus'
                         name='ShipStatus'
                         label='ShipStatus'
-                      />
+                      /> */}
                     </Grid>
                   </Grid> 
                 }

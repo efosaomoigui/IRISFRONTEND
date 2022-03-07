@@ -66,7 +66,7 @@ const HorizontalShipmentCapture: FC = () => {
           className='stepper stepper-links d-flex flex-column pt-15'
           id='kt_create_account_stepper'
         >
-          <div className='stepper-nav mb-9'>
+          <div className='stepper-nav mb-11'>
             <div className='stepper-item current' data-kt-stepper-element='nav'>
               <h3 className='stepper-title'>General Information</h3>
             </div>
@@ -90,6 +90,7 @@ const HorizontalShipmentCapture: FC = () => {
             <div className='stepper-item' data-kt-stepper-element='nav'>
               <h3 className='stepper-title'>Completed</h3>
             </div>
+            
           </div>
 
           <Formik validationSchema={currentSchema} initialValues={initValues} onSubmit={submitStep}>

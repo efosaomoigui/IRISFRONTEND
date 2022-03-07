@@ -1,66 +1,36 @@
 import {useEffect, useState} from 'react'
+import {Spinner} from 'react-bootstrap-v5'
 import agent from '../../../../../setup/axios/AxiosAgent'
-import { IrisTablesWidget } from '../../../layout/tables/IrisTablesWidget'
-import { modalprops } from '../../../layout/tables/IrisTableTitle'
+import {IrisTablesWidget} from '../../../layout/tables/IrisTablesWidget'
+import {modalprops} from '../../../layout/tables/IrisTableTitle'
 import RouteData from '../../RouteData.json'
-import { IRouteModel } from '../../ShipmentModels/ShipmentInterfaces'
-// import {format} from 'date-fns' 
+import {IRouteModel} from '../../ShipmentModels/ShipmentInterfaces'
+// import {format} from 'date-fns'
 
 export function ViewRoutes() {
   const [loading, setLoading] = useState(true)
-  const [modalTarger, setModalTarget] = useState<modalprops[]>([]);
+  const [modalTarger, setModalTarget] = useState<modalprops[]>([])
   const [routemodel, setRouteModel] = useState<IRouteModel[]>([])
+  const [loadingData, setLoadingData] = useState(true)
 
   //all the data for the table
   const tableProvider = {
     columns: [
       {
         Header: 'Route Id',
-        accessor: 'RouteId',
+        accessor: 'routeId',
       },
       {
         Header: 'route Name',
-        accessor: 'RouteName',
+        accessor: 'routeName',
       },
       {
         Header: 'depature',
-        accessor: 'Departure',
+        accessor: 'departure',
       },
       {
         Header: 'destination',
-        accessor: 'Destination',
-      },
-      {
-        Header: 'is Sub Route',
-        accessor: 'IsSubRoute',
-      },
-      {
-        Header: 'dispatch Fee',
-        accessor: 'DispatchFee',
-      },
-      {
-        Header: 'loader Fee',
-        accessor: 'LoaderFee',
-      },
-      {
-        Header: 'captain Fee',
-        accessor: 'CaptainFee',
-      },
-      {
-        Header: 'main Route Id',
-        accessor: 'MainRouteId',
-      },
-      {
-        Header: 'available At Terminal',
-        accessor: 'AvailableAtTerminal',
-      },
-      {
-        Header: 'available Online',
-        accessor: 'AvailableOnline',
-      },
-      {
-        Header: 'Route Type',
-        accessor: 'RouteType',
+        accessor: 'destination',
       },
     ],
     DetailsPath: '/shipment/routedetail/',
@@ -71,42 +41,47 @@ export function ViewRoutes() {
   //Buttons on the table page
   const ModalTarget = [
     {
-      linkTitle:'Add Route',
-      linkTarget : '#kt_modal_addroute'
-    }
+      linkTitle: 'Add Route',
+      linkTarget: '#kt_modal_addroute',
+    },
   ]
 
   // //USE EFFECT HOOK
   useEffect(() => {
-    agent.Route.list().then((response) => {
-      setRouteModel(response)
-      setModalTarget(ModalTarget);
-      setLoading(false) 
-    })
+    const callFunc = async () => {
+      await agent.Route.list().then((response) => {
+        setRouteModel(response)
+        setModalTarget(ModalTarget)
+        setLoadingData(false)
+      })
+    }
+    if (loadingData) {
+      callFunc()
+    }
   }, [])
-
-  // console.log(usersmodel);
-
-  // if (loading) return <LoadingComponent content='Loading...' />
 
   return (
     <div className='row g-5 g-xxl-8'>
       <div className='col-xl-12'>
-        <IrisTablesWidget
-          tableData={routemodel}
-          className='mb-5 mb-xl-8'
-          columnsMap={tableProvider.columns}
-          DetailsPath={tableProvider.DetailsPath}
-          EditPath={tableProvider.EditPath}
-          DeletePath={tableProvider.DeletePath}
-          UseFakeData={false}
-          FakeData={tableProvider.FakeData}
-          TableTitle={'Route Profile'}
-          Count={'Over 300 Users'}
-          ModalTarget={
-            modalTarger
-          }
-        />
+        {loadingData ? (
+          <div>
+            <Spinner animation='border' />
+          </div>
+        ) : (
+          <IrisTablesWidget
+            tableData={routemodel}
+            className='mb-5 mb-xl-8'
+            columnsMap={tableProvider.columns}
+            DetailsPath={tableProvider.DetailsPath}
+            EditPath={tableProvider.EditPath}
+            DeletePath={tableProvider.DeletePath}
+            UseFakeData={false}
+            FakeData={tableProvider.FakeData}
+            TableTitle={'Route Profile'}
+            Count={'Over 300 Users'}
+            ModalTarget={modalTarger}
+          />
+        )}
       </div>
     </div>
   )

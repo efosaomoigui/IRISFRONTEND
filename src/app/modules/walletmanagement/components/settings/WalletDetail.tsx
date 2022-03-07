@@ -6,7 +6,7 @@ import { IWalletModel } from '../../Models/WalletInterfaces'
 
 export function WalletDetail() {
   let { walletId } = useParams<{ walletId: string}>()
-  const [walletdetails, setWalletDetails] = useState<IWalletModel>()
+  const [walletdetails, setWalletDetails] = useState<IWalletModel>() 
 
   function getWallet(walletid: string) {
     agent.Wallet.details(walletid).then((response) => {
@@ -39,7 +39,7 @@ export function WalletDetail() {
 
               <div className='col-lg-8'>
                 <span className='fw-bolder fs-6 text-dark'>
-                    {walletdetails?.WalletId}
+                    {walletdetails!.id}
                 </span>
               </div>
             </div>
@@ -49,7 +49,7 @@ export function WalletDetail() {
 
                 <div className='col-lg-8'>
                   <span className='fw-bolder fs-6 text-dark'>
-                    {walletdetails?.WalletId}
+                    {walletdetails?.id}
                   </span>
                 </div>
               </div>
@@ -81,7 +81,7 @@ export function WalletDetail() {
             </div>
             </>}
 
-            {!walletdetails && <><h4>Sorry, Wallet does not exit!</h4></>}
+            {!walletdetails && <><h4>Sorry, Wallet does not exit!</h4></>} 
 
           </div>
         </div>

@@ -3,9 +3,9 @@ import { IWalletModel } from "./WalletInterfaces";
 
 export const walletmodels: IWalletModel[] = [
     {
-        WalletId: '',
+        id: '',
         WalletNumber: '',
-        IsActive: '',
+        IsActive: '',  
         UserId: ''
     }, 
 ]

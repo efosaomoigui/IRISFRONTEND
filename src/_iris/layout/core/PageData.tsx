@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, {FC, createContext, useContext, useEffect, useState} from 'react'
-import { IRoleModel } from '../../../app/modules/auth/models/AuthInterfaces'
+import { IPermissionModel, IRoleModel, IUserModel } from '../../../app/modules/auth/models/AuthInterfaces'
+import { IWalletModel } from '../../../app/modules/walletmanagement/Models/WalletInterfaces'
 import agent from '../../../setup/axios/AxiosAgent'
 
 export interface PageLink {
@@ -19,12 +20,13 @@ export interface PageDataContextModel {
   setPageBreadcrumbs: (_breadcrumbs: Array<PageLink>) => void
   entityDetailValues?:any
   setEntityDetailValues?: (detailsList:any[]) => any
-  handleSelectValues?:(_entityDetailValues:any)=>any
+  selectValue?: any
+  handleSelectValue:(_entityDetailValues:any)=>void
   selectUrlParam?:string
   setSelectUrlParam?:(urlparam: string) =>void
   formTitle?: string
   setFormTitle: (_title: string) => void
-
+  
 }
 
 const PageDataContext = createContext<PageDataContextModel>({
@@ -32,7 +34,7 @@ const PageDataContext = createContext<PageDataContextModel>({
   setPageBreadcrumbs: (_breadcrumbs: Array<PageLink>) => {},
   setPageDescription: (_description: string) => {},
   setEntityDetailValues: (detailId:Array<any>) => {},
-  handleSelectValues:(_entityDetailValues:Array<any>)=>{},
+  handleSelectValue:(_entityDetailValues:IUserModel | IWalletModel)=>{},
   setSelectUrlParam:(urlparam: string) =>{},
   setFormTitle:(_title: string) =>{},
 }) 
@@ -44,6 +46,7 @@ const PageDataProvider: React.FC = ({children}) => {
   const [entityDetailValues, setEntityDetailValues] = useState<any[]>([])
   const [selectUrlParam, setSelectUrlParam] = useState<string>('')
   const [formTitle, setFormTitle] = useState<string>('')
+  const [selectValue, handleSelectValue] = useState<IUserModel | IWalletModel>()
 
   const value: PageDataContextModel = {
     pageTitle,
@@ -56,6 +59,8 @@ const PageDataProvider: React.FC = ({children}) => {
     setEntityDetailValues,
     selectUrlParam,
     setSelectUrlParam, 
+    selectValue,
+    handleSelectValue, 
     formTitle,
     setFormTitle
   }

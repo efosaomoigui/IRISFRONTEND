@@ -1,4 +1,5 @@
 import {useEffect, useState} from 'react'
+import { Spinner } from 'react-bootstrap-v5'
 import agent from '../../../../../setup/axios/AxiosAgent'
 import { IrisTablesWidget } from '../../../layout/tables/IrisTablesWidget'
 import { modalprops } from '../../../layout/tables/IrisTableTitle'
@@ -10,53 +11,50 @@ export function ViewFleets() {
   const [loading, setLoading] = useState(true)
   const [modalTarger, setModalTarget] = useState<modalprops[]>([]);
   const [fleetmodel, setFleetModel] = useState<IFleetModel[]>([])
+  const [loadingData, setLoadingData] = useState(true)
 
   //all the data for the table
   const tableProvider = {
     columns: [
       {
         Header: 'FleetId',
-        accessor: 'FleetId',
+        accessor: 'fleetId',
       },
       {
-        Header: 'registration Number',
-        accessor: 'RegistrationNumber',
+        Header: 'Registration Number',
+        accessor: 'registrationNumber',
       },
       {
-        Header: 'chasis Number',
-        accessor: 'ChasisNumber',
-      },
-      {
-        Header: 'engine Number',
-        accessor: 'EngineNumber',
+        Header: 'Chasis Number',
+        accessor: 'chasisNumber',
       },
       {
         Header: 'Status',
-        accessor: 'Status',
+        accessor: 'status',
       },
       {
         Header: 'FleetType',
-        accessor: 'FleetType',
+        accessor: 'fleetType',
       },
       {
           Header: 'Capacity',
-          accessor: 'Capacity',
+          accessor: 'capacity',
       },
       {
           Header: 'Description',
-          accessor: 'Description',
+          accessor: 'description',
       },
       {
           Header: 'FleetModel',
-          accessor: 'FleetModel',
+          accessor: 'fleetModel',
       },
       {
           Header: 'FleetMake',
-          accessor: 'FleetMake',
+          accessor: 'fleetMake',
       },
       {
           Header: 'Owner Id',
-          accessor: 'OwnerId',
+          accessor: 'ownerId',
       },
         ],
     DetailsPath: '/shipment/fleetdetail/',
@@ -73,22 +71,28 @@ export function ViewFleets() {
     },
   ]
 
-  // //USE EFFECT HOOK
-  useEffect(() => {
-    agent.Fleet.list().then((response) => {
-      setFleetModel(response)
-      setModalTarget(ModalTarget);
-      setLoading(false) 
-    })
+   // //USE EFFECT HOOK
+   useEffect(() => {
+    const callFunc = async () => {
+      await agent.Fleet.list().then((response) => {
+        setFleetModel(response)
+        setModalTarget(ModalTarget);
+        setLoadingData(false)
+      })
+    }
+    if (loadingData) {
+      callFunc()
+    }
   }, [])
-
-  // console.log(usersmodel);
-
-  // if (loading) return <LoadingComponent content='Loading...' />
 
   return (
     <div className='row g-5 g-xxl-8'>
       <div className='col-xl-12'>
+      {loadingData ? (
+          <div>
+            <Spinner animation='border' />
+          </div>
+        ) : (
         <IrisTablesWidget
           tableData={fleetmodel}
           className='mb-5 mb-xl-8'
@@ -104,6 +108,7 @@ export function ViewFleets() {
             modalTarger
           }
         />
+        )}
       </div>
     </div>
   )

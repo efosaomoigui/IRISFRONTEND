@@ -18,9 +18,10 @@ interface Props {
   DetailsPath: string
   EditPath: string
   DeletePath: string
+  handleEdit?: (event: React.MouseEvent) => void
 }
 
-const GenericTable = ({irisData, columnsMap, DetailsPath, EditPath, DeletePath}: Props) => {
+const GenericTable = ({irisData, columnsMap, DetailsPath, EditPath, DeletePath, handleEdit}: Props) => {
 
   // console.log("realdata==>", irisData)
   const tableInstance = useTable(
@@ -92,8 +93,9 @@ const GenericTable = ({irisData, columnsMap, DetailsPath, EditPath, DeletePath}:
                 <td>
                   <TableActionLinks
                     DetailsPath={`${DetailsPath + row.cells[0].value}`}
-                    EditPath={`${EditPath}`}
+                    EditPath={`${[EditPath,row.cells[0].value]}`} 
                     DeletePath={'#'}
+                    handleEdit={handleEdit}
                   />
                 </td>
               </tr>

@@ -29,10 +29,12 @@ const UserPage: React.FC = () => {
     <>
       <UserHeader />
       <Switch>
+        
         <Route path='/admin/users'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Users</PageTitle>
           <ViewUsers />
         </Route>
+
         <Route path='/admin/roles'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Roles</PageTitle>
           <ViewRoles />

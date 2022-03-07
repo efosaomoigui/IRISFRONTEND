@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Spinner } from 'react-bootstrap-v5'
 import agent from '../../../../../../setup/axios/AxiosAgent'
 import LoadingComponent from '../../../../../LoadingComponent'
 import { IrisTablesWidget } from '../../../../layout/tables/IrisTablesWidget'
@@ -11,6 +12,8 @@ export function ViewTrips() {
   const [loading, setLoading] = useState(true)
   const [modalTarger, setModalTarget] = useState<modalprops[]>([]);
   const [tripmodel, setUsersModel] = useState<ITripModel[]>([])
+  const [loadingData, setLoadingData] = useState(true)
+
 
   //all the data for the table
   const tableProvider = {
@@ -73,22 +76,29 @@ export function ViewTrips() {
     },
   ]
 
-  // //USE EFFECT HOOK
-  useEffect(() => {
-    agent.Trip.list().then((response) => {
-      setUsersModel(response)
-      setModalTarget(ModalTarget);
-      setLoading(false)
-    })
-  }, [])
+    //USE EFFECT HOOK
+    useEffect(() => {
+      const callFunc = async () => {
+        await agent.Trip.list().then((response) => {
+          setUsersModel(response)
+          setModalTarget(ModalTarget);
+          setLoadingData(false)
+        })
+      }
+      if (loadingData) {
+        callFunc()
+      }
+    }, [])
 
-  // console.log(usersmodel);
-
-  // if (loading) return <LoadingComponent content='Loading...' />
 
   return (
     <div className='row g-5 g-xxl-8'>
       <div className='col-xl-24'>
+      {loadingData ? (
+          <div>
+            <Spinner animation='border' />
+          </div>
+        ) : (
         <IrisTablesWidget
           tableData={tripmodel}
           className='mb-5 mb-xl-8'
@@ -104,6 +114,7 @@ export function ViewTrips() {
             modalTarger
           }
         />
+        )}
       </div>
     </div>
   )

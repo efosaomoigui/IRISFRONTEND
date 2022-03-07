@@ -17,7 +17,7 @@ import { useEffect, useState } from 'react'
 interface Props<Values> {
   onSubmit: (values: Values, formikHelpers: FormikHelpers<Values>) => void | Promise<any>
   isSubmitting: boolean
-  user?: IUserModel //change here by Mr Efe
+  user?: any //change here by Mr Efe
   showForm?: boolean
   formTitle?: string
   showError?: boolean
@@ -25,7 +25,7 @@ interface Props<Values> {
   handleClick? : () => void
 }
 
-export default function AddUserForm(props: Props<IUserModel>) {
+export default function EditUserForm(props: Props<IUserModel>) {
   const {
     entityDetailValues,
     setEntityDetailValues,
@@ -66,7 +66,6 @@ export default function AddUserForm(props: Props<IUserModel>) {
   const optionsArray1 = ['male', 'female']
   const optionsArray2 = ['corporate', 'individual']
 
-
   return (
     <>
       <Formik
@@ -81,7 +80,7 @@ export default function AddUserForm(props: Props<IUserModel>) {
               <div className='modal-content'>
                 <div className='modal-header'>
                   {/* {console.log('==> ', props.user?.userId)} */}
-                  <h2>{formTitle + ' User'}</h2>
+                  <h2>{'Edit User'}</h2>
                   <div
                     className='btn btn-sm btn-icon btn-active-color-primary'
                     data-bs-dismiss='modal'

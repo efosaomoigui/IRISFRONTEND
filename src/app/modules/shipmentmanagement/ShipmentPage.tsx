@@ -14,6 +14,7 @@ import { ManifestDetail } from './components/processingandpackaging/ManifestDeta
 import { RouteDetail } from './components/settings/RouteDetail'
 import { FleetDetail } from './components/settings/FleetDetail'
 import { PriceSettingDetail } from './components/settings/PriceSettingDetail'
+import { HorizontalShipmentCapture } from './components/capture/HorizontalShipmentCapture'
 
 const userBreadCrumbs: Array<PageLink> = [
   {
@@ -59,7 +60,8 @@ const ShipmentPage: React.FC = () => {
 
         <Route path='/shipment/CaptureShipment'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Capture Shipment</PageTitle>
-          <CaptureShipment />
+          {/* <CaptureShipment /> */}
+          <HorizontalShipmentCapture />
         </Route>
 
         <Route path='/shipment/routedetail/:routId'>

@@ -34,6 +34,7 @@ type Props = {
   TableTitle: string
   Count: string
   ModalTarget: modalprops[]
+  handleEdit?: (event: React.MouseEvent) => void
 }
 
 const IrisTablesWidget: React.FC<Props> = ({
@@ -48,11 +49,11 @@ const IrisTablesWidget: React.FC<Props> = ({
   TableTitle,
   Count,
   ModalTarget,
+  handleEdit
 }) => {
   const tabledata = UseFakeData ? FakeData : tableData
   const {entityDetailValues, setEntityDetailValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle} = usePageData()
 
-  console.log("{ }", tabledata);
 
   return (
     <div className={`card ${className}`}>
@@ -71,6 +72,7 @@ const IrisTablesWidget: React.FC<Props> = ({
             DetailsPath={DetailsPath}
             EditPath={EditPath}
             DeletePath={DeletePath}
+            handleEdit={handleEdit!}
           />
           {/* end::Table */}
         </div>

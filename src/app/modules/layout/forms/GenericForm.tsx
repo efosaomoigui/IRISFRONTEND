@@ -114,12 +114,12 @@ export default function GenericForm(props: Props<IUserModel>) {
                   label='Password'
                 />
 
-                <IrisSelectInput
+                {/* <IrisSelectInput
                   options={options}
                   placeholder='category'
                   name='category'
                   label='Category'
-                />
+                /> */}
 
               </div>
 

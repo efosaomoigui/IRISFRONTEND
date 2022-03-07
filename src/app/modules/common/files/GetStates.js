@@ -1,4 +1,4 @@
-import State from '../common/State.json'
+import State from '../State.json'
 
 function GetStates(){
     const statesInNigeria = JSON.parse(JSON.stringify(State));

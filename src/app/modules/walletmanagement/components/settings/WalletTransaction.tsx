@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Spinner } from 'react-bootstrap-v5';
 import agent from '../../../../../setup/axios/AxiosAgent';
 import { IrisTablesWidget } from '../../../layout/tables/IrisTablesWidget';
 import { modalprops } from '../../../layout/tables/IrisTableTitle';
@@ -9,7 +10,8 @@ import WalletTransaction_Data from './WalletTransaction_Data.json'
 export function WalletTransaction() {
   const [loading, setLoading] = useState(true)
   const [modalTarger, setModalTarget] = useState<modalprops[]>([]);
-  const [wallettransactionmodel, setUsersModel] = useState<IWalletTransactionModel[]>([])
+  const [wallettransactionmodel, setWalletRansactionModel] = useState<IWalletTransactionModel[]>([])
+  const [loadingData, setLoadingData] = useState(true)
 
   //all the data for the table
   const tableProvider = {
@@ -54,14 +56,20 @@ export function WalletTransaction() {
 
   ]
 
-  // //USE EFFECT HOOK
-  useEffect(() => {
-    agent.WalletTransaction.list().then((response) => {
-      setUsersModel(response)
-      setModalTarget(ModalTarget);
-      setLoading(false)
-    })
-  }, [])
+    // //USE EFFECT HOOK
+    useEffect(() => {
+      const callFunc = async () => {
+        await agent.WalletTransaction.list().then((response) => {
+          setWalletRansactionModel(response)
+          setModalTarget(ModalTarget);
+          setLoadingData(false)
+        })
+      }
+      if (loadingData) {
+        callFunc()
+      }
+    }, [])
+
 
   // console.log(usersmodel);
 
@@ -70,6 +78,9 @@ export function WalletTransaction() {
   return (
     <div className='row g-5 g-xxl-8'>
       <div className='col-xl-12'>
+      {loadingData ? (
+          <div><Spinner animation="border" /></div>
+        ) : (
         <IrisTablesWidget
           tableData={wallettransactionmodel}
           className='mb-5 mb-xl-8'
@@ -85,6 +96,7 @@ export function WalletTransaction() {
             modalTarger
           }
         />
+        )}
       </div>
     </div>
   )

@@ -1,16 +1,11 @@
-import { IAddWalletModel } from "./WalletInterfaces";
+import {IAddWalletModel} from './WalletInterfaces'
 
 export const Addwalletmodel: IAddWalletModel[] = [
   {
-    WalletId: '',
+    id: '',
     WalletNumber: '',
     IsActive: true,
-    UserId: ''
-  },
-  {
-    WalletId: '',
-    WalletNumber: '',
-    IsActive: true,
-    UserId: ''
+    UserId: '',
   }
-]
+
+] 

@@ -23,6 +23,8 @@ import { HeaderWrapper } from './components/header/HeaderWrapper'
 import { ScrollTop } from './components/ScrollTop'
 import { Toolbar } from './components/toolbar/Toolbar'
 import { PageDataProvider } from './core'
+import { EditUserModal } from '../../app/modules/usermanagement/modals/EditUserModal'
+import { EditWalletModal } from '../../app/modules/walletmanagement/modals/EditWalletModal'
 
 
 
@@ -66,10 +68,12 @@ const MasterLayout: React.FC = ({children}) => {
       {/* <InviteUsers /> */}
 
       {/* custom modals for iris */}
-      <AddUserModal handleSelect={function (): void {
-        throw new Error('Function not implemented.')
-      } } SelectedValues={[]} />
+      <AddUserModal />
+      <EditUserModal />
+
       <AddWalletModal />
+      <EditWalletModal />
+
       <AddWalletTransactionModal />
       <AddFleetModal />
       <AddRouteModal />
@@ -82,7 +86,6 @@ const MasterLayout: React.FC = ({children}) => {
       <AddPaymentLogModal />
       <AddInvoiceModal />
       <AddTrackHistoryModal />
-
       {/* scrolltop */}
       <ScrollTop />
     </PageDataProvider>

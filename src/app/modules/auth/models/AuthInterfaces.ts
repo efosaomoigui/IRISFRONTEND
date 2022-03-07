@@ -23,6 +23,10 @@ export interface IUserModel {
   passwordExpireDate?: string
   identificationImage?: string
   walletNumber?: string
+  message?:string
+  validationErrors?: string[]
+  userdto?: {}
+  //Error:  {"userdto":null,"success":true,"message":null,"validationErrors":["Unable to create user, User already exist!"],"accessToken":null,"expireAt":"0001-01-01T00:00:00"}
 }
 
 export interface IRoleModel {

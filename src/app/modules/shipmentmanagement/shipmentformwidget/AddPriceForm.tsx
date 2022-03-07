@@ -104,12 +104,12 @@ export default function AddPriceForm(props: Props<IPriceModel>) {
                         name='PricePErUnit'
                         label='PricePErUnit'
                       />
-                      <IrisSelectInput
+                      {/* <IrisSelectInput
                         options={options}
                         placeholder='category'
                         name='Category'
                         label='Category'
-                      />
+                      /> */}
                     </Grid>
                   </Grid>
                 }

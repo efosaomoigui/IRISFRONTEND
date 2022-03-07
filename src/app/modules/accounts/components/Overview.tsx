@@ -27,10 +27,9 @@ export function Overview() {
     })
   }
 
-  useEffect(() =>{
+  useEffect(() => {
     getUser(UserId)
-  }, [UserId]);
-
+  }, [UserId])
 
   return (
     <>
@@ -172,7 +171,9 @@ export function Overview() {
         <>
           <Container>
             <Row>
-              <Col><h2 className='fw-bolder fs-1x text-black-100 mb-4'>User Not Found!</h2></Col>
+              <Col>
+                <h2 className='fw-bolder fs-1x text-black-100 mb-4'>User Not Found!</h2>
+              </Col>
             </Row>
           </Container>
         </>

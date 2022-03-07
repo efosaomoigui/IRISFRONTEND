@@ -1,6 +1,6 @@
 
 export interface IWalletModel { 
-    WalletId: string
+    id: string
     WalletNumber: string
 IsActive: string
     UserId: string
@@ -17,7 +17,7 @@ export interface IWalletTransactionModel {
 }
 
 export interface IAddWalletModel {
-    WalletId: string
+    id: string
     WalletNumber: string
     IsActive?: boolean
     UserId: string

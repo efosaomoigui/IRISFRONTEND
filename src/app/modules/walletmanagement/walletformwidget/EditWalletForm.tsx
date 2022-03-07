@@ -23,7 +23,7 @@ import { IWalletModel } from '../Models/WalletInterfaces'
 interface Props<Values> {
   onSubmit: (values: Values, formikHelpers: FormikHelpers<Values>) => void | Promise<any>
   isSubmitting: boolean
-  wallet?: IWalletModel  //change here by Mr Efe
+  wallet?: any  //change here by Mr Efe
   showForm?: boolean
 }
 
@@ -32,7 +32,7 @@ const options = [
   { text: 'false', value: 'false' }
 ]
 
-export default function AddWalletForm(props: Props<IWalletModel>) {
+export default function EditWalletForm(props: Props<IWalletModel>) {
   const {entityDetailValues, setEntityDetailValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle} = usePageData()
 
   const initialFormValue: IWalletModel = {
@@ -63,7 +63,7 @@ export default function AddWalletForm(props: Props<IWalletModel>) {
           <div className='modal-dialog modal-dialog-centered mw-900px'>
             <div className='modal-content'>
               <div className='modal-header'>
-                <h2>{formTitle+" Wallet"}</h2>
+                <h2>{"Edit Wallet"}</h2>
                 <div
                   className='btn btn-sm btn-icon btn-active-color-primary'
                   data-bs-dismiss='modal'

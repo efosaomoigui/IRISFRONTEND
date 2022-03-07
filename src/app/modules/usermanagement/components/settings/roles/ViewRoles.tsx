@@ -1,4 +1,5 @@
 import {useEffect, useState} from 'react'
+import { Spinner } from 'react-bootstrap-v5'
 import agent from '../../../../../../setup/axios/AxiosAgent'
 import {IRoleModel, IUserModel} from '../../../../auth/models/AuthInterfaces'
 import {IrisTablesWidget} from '../../../../layout/tables/IrisTablesWidget'
@@ -9,6 +10,7 @@ export function ViewRoles() {
   const [modalTarger, setModalTarget] = useState<modalprops[]>([])
   const [loading, setLoading] = useState(true)
   const [rolemodel, setRoleModel] = useState<IRoleModel[]>()
+  const [loadingData, setLoadingData] = useState(true)
 
   const tableProvider = {
     columns: [
@@ -36,32 +38,40 @@ export function ViewRoles() {
 
   // //USE EFFECT HOOK
   useEffect(() => {
-    agent.Roles.list().then((response) => {
-      console.log("AA! ", rolemodel);
-      setRoleModel(response)
-      setModalTarget(ModalTarget)
-      setLoading(true)
-    })
+    const callFunc = async () => {
+      await agent.Roles.list().then((response) => {
+        setRoleModel(response)
+        setModalTarget(ModalTarget)
+        setLoadingData(false)
+      })
+    }
+    if (loadingData) {
+      callFunc()
+    }
   }, [])
 
-  console.log("AA ", rolemodel);
 
   return (
     <div className='row g-5 g-xxl-8'>
       <div className='col-xl-12'>
-        <IrisTablesWidget
+      {loadingData ? (
+          <div><Spinner animation="border" /></div>
+        ) : (
+          <IrisTablesWidget
           tableData={rolemodel}
           className='mb-5 mb-xl-8'
           columnsMap={tableProvider.columns}
           DetailsPath={tableProvider.DetailsPath}
           EditPath={tableProvider.EditPath}
           DeletePath={tableProvider.DeletePath}
-          UseFakeData={true}
+          UseFakeData={false}
           FakeData={tableProvider.FakeData}
           TableTitle={'Roles'}
           Count={'Over 300 Users'}
           ModalTarget={modalTarger}
         />
+        )}
+
       </div>
     </div>
   )
