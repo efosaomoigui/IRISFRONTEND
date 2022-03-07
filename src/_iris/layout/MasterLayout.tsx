@@ -25,6 +25,9 @@ import {Toolbar} from './components/toolbar/Toolbar'
 import {PageDataProvider} from './core'
 import {EditUserModal} from '../../app/modules/usermanagement/modals/EditUserModal'
 import {EditWalletModal} from '../../app/modules/walletmanagement/modals/EditWalletModal'
+import { EditRoleModal } from '../../app/modules/usermanagement/modals/EditRoleModal'
+import { EditPermissionModal } from '../../app/modules/usermanagement/modals/EditPermissionModal'
+import { EditWalletTransactionModal } from '../../app/modules/walletmanagement/modals/EditWalletTransactionModal'
 
 const MasterLayout: React.FC = ({children}) => {
   const location = useLocation()
@@ -73,12 +76,17 @@ const MasterLayout: React.FC = ({children}) => {
       <EditWalletModal />
 
       <AddWalletTransactionModal />
-      {/* <EditWalletTransactionModal /> */}
+      <EditWalletTransactionModal />
 
       <AddFleetModal />
       <AddRouteModal />
+
       <AddPermissionModal />
+      <EditPermissionModal />
+
       <AddRoleModal />
+      <EditRoleModal />
+
       <AddTripModal />
       <AddPriceModal />
       <AddCollectionCenterModal />
