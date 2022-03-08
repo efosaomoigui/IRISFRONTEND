@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Spinner } from 'react-bootstrap-v5';
 import agent from '../../../../../setup/axios/AxiosAgent';
+import { usePageData } from '../../../../../_iris/layout/core';
 import { IrisTablesWidget } from '../../../layout/tables/IrisTablesWidget';
 import { modalprops } from '../../../layout/tables/IrisTableTitle';
 import { IWalletModel, IWalletTransactionModel } from '../../Models/WalletInterfaces'
@@ -12,7 +13,9 @@ export function WalletTransaction() {
   const [modalTarger, setModalTarget] = useState<modalprops[]>([]);
   const [wallettransactionmodel, setWalletRansactionModel] = useState<IWalletTransactionModel[]>([])
   const [loadingData, setLoadingData] = useState(true)
-
+  const { selectValue, handleSelectValue, selectUrlParam, setSelectUrlParam } = usePageData() //global data
+  
+  
   //all the data for the table
   const tableProvider = {
     columns: [
@@ -56,6 +59,12 @@ export function WalletTransaction() {
 
   ]
 
+  const handleEdit = (event: React.MouseEvent) => {
+    const urlParm = event.currentTarget.getAttribute('id')
+    const val = wallettransactionmodel.find((x) => x.WalletTransactionId === urlParm)
+    handleSelectValue(val!)
+    return val
+  }
     // //USE EFFECT HOOK
     useEffect(() => {
       const callFunc = async () => {
@@ -95,6 +104,7 @@ export function WalletTransaction() {
           ModalTarget={
             modalTarger
           }
+          handleEdit={handleEdit}
         />
         )}
       </div>

@@ -14,6 +14,9 @@ const AddRouteModal: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [showForm, setShowForm] = useState(true)
   const [selectRoute, setSelectRoute] = useState<IRouteModel>()
+  const [hasError, setHasError] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
+  const [showError, setShowError] = useState(false)
 
   const { entityDetailValues, selectUrlParam, setSelectUrlParam } = usePageData()
 
@@ -31,26 +34,25 @@ const AddRouteModal: React.FC = () => {
   const onSubmit = (values: IRouteModel) => {
     setIsSubmitting(true)
     values.RouteId = uuid()
-    values.IsSubRoute = Boolean(values.IsSubRoute);
 
-    if (selected?.RouteId) {
-      agent.Route.update(values).then((response) => {
-        toast.success('Route Update Was Successful!')
-        setInterval(() => {
-          setShowForm(false);
-        }, 1000)
-        setIsSubmitting(false)
+    agent.Route.create(values)
+      .then((response) => {
+        if (response.validationErrors!.length > 0) {
+          toast.error(response.validationErrors?.toString())
+          setErrorMessage(response.validationErrors!.toString())
+          setIsSubmitting(false)
+          setShowError(true)
+        } else {
+          toast.success('User Creation Was Successful!')
+          setInterval(() => {
+            setShowForm(false)
+          }, 1000)
+          setIsSubmitting(false)
+          setShowError(false)
+        }
       })
-    } else {
-      agent.Route.create(values).then((response) => {
-        toast.success('Route Creation Was Successful!')
-        setInterval(() => {
-          setShowForm(false);
-        }, 1000)
-        setIsSubmitting(false)
-      })
-    }
   }
+
 
   return (
     <>

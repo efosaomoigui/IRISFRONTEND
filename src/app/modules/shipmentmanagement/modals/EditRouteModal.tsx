@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Container } from 'react-bootstrap-v5';
 import { toast } from 'react-toastify';
 import { v4 as uuid } from 'uuid';
 import { boolean } from 'yup/lib/locale';
@@ -36,41 +37,29 @@ const EditRouteModal: React.FC<Props> = ({ handleEdit, SelectedValues }: Props) 
     console.log('On click', showError)
   }
 
-  const setSelectedValue = (routes: IRouteModel[]) => {
-    const val = routes.find(x => x.RouteId === selectUrlParam)
-    return val;
-  }
-
-  const selected = setSelectedValue(routes);
-  console.log("LOG ", (selected) ? "old Route" : "new Route");
-
   const onSubmit = (values: IRouteModel) => {
     setIsSubmitting(true)
     values.RouteId = uuid()
-    values.IsSubRoute = Boolean(values.IsSubRoute);
 
-    if (selected?.RouteId) {
-      agent.Route.update(values).then((response) => {
+    agent.Route.update(values).then((response) => {
+      if (response.validationErrors!.length > 0) {
+        toast.error(response.validationErrors?.toString())
+        setErrorMessage(response.validationErrors!.toString())
+        setIsSubmitting(false)
+        setShowError(true)
+      } else {
         toast.success('Route Update Was Successful!')
         setInterval(() => {
-          setShowForm(false);
+          setShowForm(false)
         }, 1000)
         setIsSubmitting(false)
-      })
-    } else {
-      agent.Route.create(values).then((response) => {
-        toast.success('Route Creation Was Successful!')
-        setInterval(() => {
-          setShowForm(false);
-        }, 1000)
-        setIsSubmitting(false)
-      })
-    }
+        setShowError(false)
+      }
+    })
   }
-
   return (
     <>
-      <div className='modal fade' id='kt_modal_addroute' aria-hidden='true'>
+      <Container className='modal fade' id='kt_modal_addroute' aria-hidden='true'>
         <EditRouteForm 
           isSubmitting={isSubmitting}
           onSubmit={onSubmit}
@@ -79,8 +68,8 @@ const EditRouteModal: React.FC<Props> = ({ handleEdit, SelectedValues }: Props) 
           showError={showError}
           errorMessage={errorMessage}
           handleClick={handleClick}
-          formTitle={'Edit User'}/>
-      </div>
+          formTitle={'Edit Route'}/>
+      </Container>
     </>
   )
 }

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Container } from 'react-bootstrap-v5';
 import { toast } from 'react-toastify';
 import { v4 as uuid } from 'uuid';
 import agent from '../../../../setup/axios/AxiosAgent';
@@ -18,6 +19,7 @@ const EditWalletTransactionModal: React.FC<Props> = ({ handleEdit, SelectedValue
   const [showForm, setShowForm] = useState(true)
   const [selectWallettransaction, setSelectWallettransaction] = useState<IWalletTransactionModel>()
   const [showError, setShowError] = useState(false)
+  const [hasError, setHasError] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
 
   const { entityDetailValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle, selectValue, handleSelectValue } = usePageData()
@@ -34,39 +36,31 @@ const EditWalletTransactionModal: React.FC<Props> = ({ handleEdit, SelectedValue
     console.log('On click', showError)
   }
 
-  const setSelectedValue = (wallettransactions: IWalletTransactionModel[]) => {
-    const val = wallettransactions.find(x => x.WalletTransactionId === selectUrlParam)
-    return val;
-  }
-
-  const selected = setSelectedValue(wallettransactions);
-  console.log("LOG ", (selected) ? "old Wallet transaction" : "new Wallet transaction");
-
   const onSubmit = (values: IWalletTransactionModel) => {
     setIsSubmitting(true)
     values.WalletTransactionId = uuid()
 
-    if (selected?.WalletTransactionId) {
-      agent.WalletTransaction.update(values).then((response) => {
-        toast.success('Wallet transaction Update Was Successful!')
+    agent.WalletTransaction.update(values).then((response) => {
+      if (response.validationErrors!.length > 0) {
+        toast.error(response.validationErrors?.toString())
+        setErrorMessage(response.validationErrors!.toString())
+        setIsSubmitting(false)
+        setShowError(true)
+      } else {
+        toast.success('User Update Was Successful!')
         setInterval(() => {
-          setShowForm(false);
+          setShowForm(false)
         }, 1000)
         setIsSubmitting(false)
-      })
-    } else {
-      agent.WalletTransaction.create(values).then((response) => {
-        toast.success('Wallet transaction Creation Was Successful!')
-        setInterval(() => {
-          setShowForm(false);
-        }, 1000)
-        setIsSubmitting(false)
-      })
-    }
+        setShowError(false)
+      }
+    })
   }
+
+
   return (
     <>
-      <div className='modal fade' id='kt_modal_addwallettransaction' aria-hidden='true'>
+      <Container className='modal fade' id='kt_modal_addwallettransaction' aria-hidden='true'>
         <EditWalletTransactionForm 
           isSubmitting={isSubmitting}
           onSubmit={onSubmit}
@@ -76,7 +70,7 @@ const EditWalletTransactionModal: React.FC<Props> = ({ handleEdit, SelectedValue
           errorMessage={errorMessage}
           handleClick={handleClick}
           formTitle={'Edit Permission'} />
-      </div>
+      </Container>
     </>
   )
 }

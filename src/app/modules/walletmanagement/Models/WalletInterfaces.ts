@@ -3,6 +3,9 @@ export interface IWalletModel {
   number: string
   isActive: string
   userId: string
+  message?: string
+  validationErrors?: string[]
+  walletdto?: {}
 }
 
 export interface IWalletTransactionModel {
@@ -12,6 +15,9 @@ export interface IWalletTransactionModel {
   Description: string
   WalletNumber: string
   DateCreated: string
+  message?: string
+  validationErrors?: string[]
+  wallettransactionto?: {}
 }
 
 export interface IAddWalletModel {
