@@ -4,6 +4,7 @@ import {Col, Container, Row} from 'react-bootstrap-v5'
 import {Link, useParams} from 'react-router-dom'
 import agent from '../../../../setup/axios/AxiosAgent'
 import {KTSVG} from '../../../../_iris/helpers'
+import { usePageData } from '../../../../_iris/layout/core'
 import {
   ChartsWidget1,
   TablesWidget1,
@@ -20,6 +21,8 @@ import WalletTransactionSummary from '../../walletmanagement/components/summary/
 export function Overview() {
   let {UserId} = useParams<{UserId: string}>()
   const [userdetails, setUserDetails] = useState<IUserModel>()
+  const [usersmodel, setUsersModel] = useState<IUserModel[]>([])
+  const {selectValue, handleSelectValue, selectUrlParam, setSelectUrlParam} =usePageData() //global data
 
   function getUser(userid: string) {
     agent.Users.details(userid).then((response) => {
@@ -30,6 +33,12 @@ export function Overview() {
   useEffect(() => {
     getUser(UserId)
   }, [UserId])
+
+  const handleEdit = (event: React.MouseEvent) => {
+    handleSelectValue(userdetails!)
+  }
+
+  console.log("VAA ", JSON.stringify(userdetails));
 
   return (
     <>
@@ -42,9 +51,18 @@ export function Overview() {
                 <h3 className='fw-bolder m-0'>Profile Details</h3>
               </div>
 
-              <Link to='/adminSettings/settings' className='btn btn-primary align-self-center'>
-                Edit Profile
-              </Link>
+              <a
+                href='#_b'
+                title='Edit'
+                id='#kt_modal_edituser'
+                data-bs-toggle='modal'
+                data-bs-target='#kt_modal_edituser'
+                className='btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1'
+                onClick={handleEdit}
+              >
+                <KTSVG path='/media/icons/duotune/art/art005.svg' className='svg-icon-3' />
+              </a>
+
             </div>
 
             <div className='card-body p-9'>
@@ -53,7 +71,7 @@ export function Overview() {
 
                 <div className='col-lg-8'>
                   <span className='fw-bolder fs-6 text-dark'>
-                    {userdetails?.firstName + '' + userdetails?.lastName}
+                    {userdetails?.firstName + ' ' + userdetails?.lastName}
                   </span>
                 </div>
               </div>
@@ -77,19 +95,19 @@ export function Overview() {
                 </label>
 
                 <div className='col-lg-8 d-flex align-items-center'>
-                  <span className='fw-bolder fs-6 me-2'>(070) 639 65528</span>
+                  <span className='fw-bolder fs-6 me-2'>{userdetails?.phoneNumber}</span>
 
                   <span className='badge badge-success'>Verified</span>
                 </div>
               </div>
 
               <div className='row mb-7'>
-                <label className='col-lg-4 fw-bold text-muted'>Company Site</label>
+                <label className='col-lg-4 fw-bold text-muted'>
+                  Email
+                </label>
 
-                <div className='col-lg-8'>
-                  <a href='#' className='fw-bold fs-6 text-dark text-hover-primary'>
-                    http://chiscoexpress.com
-                  </a>
+                <div className='col-lg-8 d-flex align-items-center'>
+                  <span className='fw-bolder fs-6 me-2'>{userdetails?.email}</span>
                 </div>
               </div>
 
@@ -108,41 +126,6 @@ export function Overview() {
                 </div>
               </div>
 
-              <div className='row mb-7'>
-                <label className='col-lg-4 fw-bold text-muted'>Communication</label>
-
-                <div className='col-lg-8'>
-                  <span className='fw-bolder fs-6 text-dark'>Email, Phone</span>
-                </div>
-              </div>
-
-              <div className='row mb-10'>
-                <label className='col-lg-4 fw-bold text-muted'>Allow Changes</label>
-
-                <div className='col-lg-8'>
-                  <span className='fw-bold fs-6'>Yes</span>
-                </div>
-              </div>
-
-              {/* <div className='notice d-flex bg-light-warning rounded border-warning border border-dashed p-6'>
-            <KTSVG
-              path='icons/duotune/general/gen044.svg'
-              className='svg-icon-2tx svg-icon-warning me-4'
-            />
-            <div className='d-flex flex-stack flex-grow-1'>
-              <div className='fw-bold'>
-                <h4 className='text-gray-800 fw-bolder'>We need your attention!</h4>
-                <div className='fs-6 text-gray-600'>
-                  Your payment was declined. To start using tools, please
-                  <Link className='fw-bolder' to='/crafted/account/settings'>
-                    {' '}
-                    Add Payment Method
-                  </Link>
-                  .
-                </div>
-              </div>
-            </div>
-          </div> */}
             </div>
           </div>
 

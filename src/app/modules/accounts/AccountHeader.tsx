@@ -4,9 +4,13 @@ import {KTSVG, toAbsoluteUrl} from '../../../_iris/helpers'
 import {Link} from 'react-router-dom'
 import {Dropdown1} from '../../../_iris/partials'
 import {useLocation} from 'react-router'
+import { IUserModel } from '../auth/models/AuthInterfaces'
+import { RootState } from '../../../setup'
+import { shallowEqual, useSelector } from 'react-redux'
 
 const AccountHeader: React.FC = () => {
   const location = useLocation()
+  const user: IUserModel = useSelector<RootState>(({auth}) => auth.user, shallowEqual) as IUserModel
 
   return (
     <div className='card mb-5 mb-xl-10'>
@@ -24,7 +28,7 @@ const AccountHeader: React.FC = () => {
               <div className='d-flex flex-column'>
                 <div className='d-flex align-items-center mb-2'>
                   <a href='#' className='text-gray-800 text-hover-primary fs-2 fw-bolder me-1'>
-                    Omoigui Efosa Abel
+                  {user.firstName} {user.lastName}
                   </a>
                   <a href='#'>
                     <KTSVG

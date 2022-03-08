@@ -1,11 +1,11 @@
 export interface IUserModel {
-  userId: string
+  userId?: string
   userName?: string
   password?: string
   firstName: string
   lastName: string
-  email: string 
-  phoneNumber?: string
+  email?: string 
+  phoneNumber: string
   gender?: string
   age?: string
   userType?: string

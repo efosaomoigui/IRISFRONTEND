@@ -9,6 +9,7 @@ import { Step4 } from '../../../wizards/components/steps/Step4'
 import { Step3 } from '../../../wizards/components/steps/Step3'
 import { Step2 } from '../../../wizards/components/steps/Step2'
 import { Step1 } from '../../../wizards/components/steps/Step1'
+import { Button, Nav } from 'react-bootstrap-v5'
 
 const HorizontalShipmentCapture: FC = () => {
   const stepperRef = useRef<HTMLDivElement | null>(null)
@@ -61,9 +62,9 @@ const HorizontalShipmentCapture: FC = () => {
   return (
     <div className='card'>
       <div className='card-body'>
-        <div
+        <Nav
           ref={stepperRef}
-          className='stepper stepper-links d-flex flex-column pt-15'
+          className='stepper stepper-links d-flex flex-column pt-15 nav'
           id='kt_create_account_stepper'
         >
           <div className='stepper-nav mb-11'>
@@ -72,15 +73,15 @@ const HorizontalShipmentCapture: FC = () => {
             </div>
 
             <div className='stepper-item' data-kt-stepper-element='nav'>
-              <h3 className='stepper-title'>Package</h3>
+              <h3 className='stepper-title'>Sender Details</h3>
             </div>
 
             <div className='stepper-item' data-kt-stepper-element='nav'>
-              <h3 className='stepper-title'>Price</h3>
+              <h3 className='stepper-title'>Package Information</h3>
             </div>
 
             <div className='stepper-item' data-kt-stepper-element='nav'>
-              <h3 className='stepper-title'>Price</h3>
+              <h3 className='stepper-title'>Price Details</h3>
             </div>
 
             <div className='stepper-item' data-kt-stepper-element='nav'>
@@ -88,7 +89,7 @@ const HorizontalShipmentCapture: FC = () => {
             </div>
 
             <div className='stepper-item' data-kt-stepper-element='nav'>
-              <h3 className='stepper-title'>Completed</h3>
+              <h3 className='stepper-title'>Shipment CheckOut</h3>
             </div>
             
           </div>
@@ -116,12 +117,13 @@ const HorizontalShipmentCapture: FC = () => {
                   <Step5 />
                 </div>
 
-                <div className='d-flex flex-stack pt-15'>
+                <div className='d-flex flex-stack pt-2'>
                   <div className='mr-2'>
-                    <button
+                    <Button
                       onClick={prevStep}
                       type='button'
-                      className='btn btn-lg btn-light-primary me-3'
+                      style={{width:'100%' }}
+                      className='btn btn-lg btn-primary me-3'
                       data-kt-stepper-action='previous'
                     >
                       <KTSVG
@@ -129,11 +131,11 @@ const HorizontalShipmentCapture: FC = () => {
                         className='svg-icon-4 me-1'
                       />
                       Back
-                    </button>
+                    </Button>
                   </div>
 
                   <div>
-                    <button type='submit' className='btn btn-lg btn-primary me-3'>
+                    <Button type='submit' style={{width:'100%' }} className='btn btn-lg btn-primary me-3'>
                       <span className='indicator-label'>
                         {!isSubmitButton && 'Continue'}
                         {isSubmitButton && 'Submit'}
@@ -142,13 +144,13 @@ const HorizontalShipmentCapture: FC = () => {
                           className='svg-icon-3 ms-2 me-0'
                         />
                       </span>
-                    </button>
+                    </Button>
                   </div>
                 </div>
               </Form>
             )}
           </Formik>
-        </div>
+        </Nav>
       </div>
     </div>
   )
