@@ -22,15 +22,36 @@ const EditWalletModal: React.FC<Props> = ({handleEdit, SelectedValues}: Props) =
 
   const {selectValue, handleSelectValue, selectUrlParam, setSelectUrlParam} = usePageData() //global data
 
+  // const onSubmit = (values: IWalletModel) => {
+  //   setIsSubmitting(true)
+  //   values.id = uuid()
+  //   agent.Wallet.create(values).then((response) => {
+  //     toast.success('wallet Creation Was Successful!')
+  //     setInterval(() => {
+  //       setShowForm(false)
+  //     }, 1000)
+  //     setIsSubmitting(false)
+  //   })
+  // }
+
   const onSubmit = (values: IWalletModel) => {
     setIsSubmitting(true)
     values.id = uuid()
-    agent.Wallet.create(values).then((response) => {
-      toast.success('wallet Creation Was Successful!')
-      setInterval(() => {
-        setShowForm(false)
-      }, 1000)
-      setIsSubmitting(false)
+
+    agent.Wallet.update(values).then((response) => {
+      if (response.validationErrors!.length > 0) {
+        toast.error(response.validationErrors?.toString())
+        setErrorMessage(response.validationErrors!.toString())
+        setIsSubmitting(false)
+        setShowError(true)
+      } else {
+        toast.success('Wallet Update Was Successful!')
+        setInterval(() => {
+          setShowForm(false)
+        }, 1000)
+        setIsSubmitting(false)
+        setShowError(false)
+      }
     })
   }
 

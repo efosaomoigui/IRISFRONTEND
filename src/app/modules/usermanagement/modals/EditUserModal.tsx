@@ -27,7 +27,6 @@ const EditUserModal: React.FC<Props> = ({handleEdit, SelectedValues}: Props) => 
   // handle logic
   const users = entityDetailValues as IUserModel[] 
 
-  //const selected = setSelectedValue(users)
 
   const handleClick = () => {
     setShowError(false)
