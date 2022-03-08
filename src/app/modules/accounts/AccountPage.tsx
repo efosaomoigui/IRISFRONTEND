@@ -8,7 +8,7 @@ import {AccountHeader} from './AccountHeader'
 const accountBreadCrumbs: Array<PageLink> = [
   {
     title: 'User Details',
-    path: '/adminSettings/userDetails',
+    path: '/adminSettings/userDetails/',
     isSeparator: false,
     isActive: false,
   },
@@ -23,14 +23,19 @@ const accountBreadCrumbs: Array<PageLink> = [
 const AccountPage: React.FC = () => {
   return (
     <>
-      <AccountHeader />
+      {/* <AccountHeader /> */}
       <Switch>
         <Route path='/adminSettings/userDetails/:UserId'>
           <PageTitle breadcrumbs={accountBreadCrumbs}>User Details</PageTitle>
           <Overview />
         </Route>
-
+{/* 
         <Route path='/adminSettings/settings'>
+          <PageTitle breadcrumbs={accountBreadCrumbs}>Settings</PageTitle>
+          <Settings />
+        </Route> */}
+
+        <Route path='/adminSettings/settings/:UserId'>
           <PageTitle breadcrumbs={accountBreadCrumbs}>Settings</PageTitle>
           <Settings />
         </Route>
