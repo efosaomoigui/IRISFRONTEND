@@ -25,6 +25,19 @@ import {Toolbar} from './components/toolbar/Toolbar'
 import {PageDataProvider} from './core'
 import {EditUserModal} from '../../app/modules/usermanagement/modals/EditUserModal'
 import {EditWalletModal} from '../../app/modules/walletmanagement/modals/EditWalletModal'
+import { EditRoleModal } from '../../app/modules/usermanagement/modals/EditRoleModal'
+import { EditPermissionModal } from '../../app/modules/usermanagement/modals/EditPermissionModal'
+import { EditWalletTransactionModal } from '../../app/modules/walletmanagement/modals/EditWalletTransactionModal'
+import { EditFleetModal } from '../../app/modules/shipmentmanagement/modals/EditFleetModal'
+import { EditManifestModal } from '../../app/modules/shipmentmanagement/modals/EditManifestModal'
+import { EditPriceModal } from '../../app/modules/shipmentmanagement/modals/EditPriceModal'
+import { EditRouteModal } from '../../app/modules/shipmentmanagement/modals/EditRouteModal'
+import { EditTripModal } from '../../app/modules/monitoring/monitor modal/EditTripModal'
+import { EditTrackHistoryModal } from '../../app/modules/monitoring/monitor modal/EditTrackHistoryModal'
+import { EditCollectionCenterModal } from '../../app/modules/fulfillment/modals/EditCollectionCenterModal'
+import { EditPaymentLogModal } from '../../app/modules/payment/paymentmodals/EditPaymentLogModal'
+import { EditInvoiceModal } from '../../app/modules/payment/paymentmodals/EditInvoiceModal'
+
 
 const MasterLayout: React.FC = ({children}) => {
   const location = useLocation()
@@ -73,19 +86,40 @@ const MasterLayout: React.FC = ({children}) => {
       <EditWalletModal />
 
       <AddWalletTransactionModal />
-      {/* <EditWalletTransactionModal /> */}
+      <EditWalletTransactionModal />
+
+      <AddPermissionModal />
+      <EditPermissionModal />
+
+      <AddRoleModal />
+      <EditRoleModal />
 
       <AddFleetModal />
-      <AddRouteModal />
-      <AddPermissionModal />
-      <AddRoleModal />
+      <EditFleetModal />
+
       <AddTripModal />
+      <EditTripModal />
+
       <AddPriceModal />
+      <EditPriceModal />
+
+      <AddRouteModal />
+      <EditRouteModal />
+
       <AddCollectionCenterModal />
+      <EditCollectionCenterModal />
+
       <AddManifestModal />
+      <EditManifestModal />
+
       <AddPaymentLogModal />
+      <EditPaymentLogModal />
+
       <AddInvoiceModal />
+      <EditInvoiceModal />
+
       <AddTrackHistoryModal />
+      <EditTrackHistoryModal />
       {/* scrolltop */}
       <ScrollTop />
     </PageDataProvider>
