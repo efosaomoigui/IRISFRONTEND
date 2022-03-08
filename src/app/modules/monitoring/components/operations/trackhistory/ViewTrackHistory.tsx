@@ -87,7 +87,7 @@ export function ViewTrackHistory() {
             DeletePath={tableProvider.DeletePath}
             UseFakeData={false}
             FakeData={tableProvider.FakeData}
-            TableTitle={'Track History'}
+            TableTitle={'Traeck History'}
             Count={'Over 300 Users'}
             ModalTarget={modalTarger}
           />

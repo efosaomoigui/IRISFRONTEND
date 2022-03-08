@@ -15,8 +15,8 @@ const AddPermissionModal: React.FC = () => {
   const {entityDetailValues, selectUrlParam, setSelectUrlParam} =
     usePageData()
 
-  const setroleDAtaValues = () =>
-    agent.Roles.list().then((response) => {
+  const setpermissionDataValues = () =>
+    agent.Permissions.list().then((response) => {
       // setRoleData(response)
       setLoading(false)
     }
@@ -37,7 +37,7 @@ const AddPermissionModal: React.FC = () => {
 
   const selected = setSelectedValue(permisions)
   useEffect(() => {
-    setroleDAtaValues()
+    setpermissionDataValues()
   }, [])
 
   // setroleDAtaValues()

@@ -1,4 +1,5 @@
 import {useEffect, useState} from 'react'
+import { Container } from 'react-bootstrap-v5'
 import {toast} from 'react-toastify'
 import {v4 as uuid} from 'uuid'
 import agent from '../../../../setup/axios/AxiosAgent'
@@ -22,17 +23,6 @@ const EditPermissionModal: React.FC<Props> = ({ handleEdit, SelectedValues }: Pr
 
   const { entityDetailValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle, selectValue, handleSelectValue } = usePageData()
 
-  const setroleDAtaValues = () =>
-    agent.Roles.list().then((response) => {
-      // setRoleData(response)
-      setLoading(false)
-    }
-  )
-
-  interface dataType {
-    value: string
-    index: string
-  }
 
   // handle logic
   const permisions = entityDetailValues as IPermissionModel[]
@@ -46,40 +36,33 @@ const EditPermissionModal: React.FC<Props> = ({ handleEdit, SelectedValues }: Pr
     console.log('On click', showError)
   }
 
-  const setSelectedValue = (permisions: IPermissionModel[]) => {
-    const val = permisions.find((x) => x.roleId === selectUrlParam)
-    return val
-  }
 
-  const selected = setSelectedValue(permisions)
-  useEffect(() => {
-    setroleDAtaValues()
-  }, [])
-
-  // setroleDAtaValues()
 
   const onSubmit = (values: IPermissionModel) => {
     setIsSubmitting(true)
     values.roleId = uuid()
 
-    if (selected?.roleId) {
-      agent.Permissions.update(values).then((response) => {
-        toast.success('Permission Update Was Successful!')
+    agent.Permissions.update(values).then((response) => {
+      if (response.validationErrors!.length > 0) {
+        toast.error(response.validationErrors?.toString())
+        setErrorMessage(response.validationErrors!.toString())
         setIsSubmitting(false)
-      })
-    } else {
-      agent.Permissions.create(values).then((response) => {
-        toast.success('Permission Creation Was Successful!')
+        setShowError(true)
+      } else {
+        toast.success('User Update Was Successful!')
         setInterval(() => {
           setShowForm(false)
         }, 1000)
         setIsSubmitting(false)
-      })
-    }
+        setShowError(false)
+      }
+    })
   }
+
+
   return (
     <>
-      <div className='modal fade' id='kt_modal_addpermission' aria-hidden='true'>
+      <Container className='modal fade' id='kt_modal_addpermission' aria-hidden='true'>
         <EditPermissionForm
           isSubmitting={isSubmitting}
           onSubmit={onSubmit}
@@ -90,7 +73,7 @@ const EditPermissionModal: React.FC<Props> = ({ handleEdit, SelectedValues }: Pr
           handleClick={handleClick}
           formTitle={'Edit Permission'}
         />
-      </div>
+      </Container>
     </>
   )
 }

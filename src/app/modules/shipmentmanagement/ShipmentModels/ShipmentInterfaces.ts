@@ -26,6 +26,9 @@ export interface IRouteModel {
     AvailableAtTerminal: boolean
     AvailableOnline: boolean
     RouteType: number
+    message?: string
+    validationErrors?: string[]
+    routedto?: {}
 } 
 
 export interface IShipmentModel {

@@ -10,6 +10,7 @@ import { usePageData } from '../../../../_iris/layout/core'
 import { Alert } from '@mui/material'
 import { Grid } from '@material-ui/core'
 import useStyles from '../../layout/formstyles/FormStyle'
+import { useState } from 'react'
 
 
 
@@ -37,6 +38,9 @@ const options = [
 
 export default function EditRouteForm(props: Props<IRouteModel>) {
   const {entityDetailValues, setEntityDetailValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle} = usePageData()
+
+  const [errorMessage, setErrorMessage] = useState('')
+  const [showError, setShowError] = useState(true)
 
   const initialFormValue: IRouteModel = {
     RouteId: props.route ? props.route!.RouteId : '',
@@ -188,23 +192,26 @@ export default function EditRouteForm(props: Props<IRouteModel>) {
               </div>
               <div className='modal-body py-lg-10 px-lg-10'>
               </div>
-              <Modal.Footer>
-                <Button
-                  floated='right'
-                  positive
-                  type='submit'
-                  variant='secondary'
-                  loading={props.isSubmitting}
-                  content='Submit'
-                ></Button>
-                <Button 
-                  floated='right'
-                  positive
-                  type='reset'
-                  variant='primary'
-                  onClick={props.handleClick}
-                  data-bs-dismiss='modal'
-                  content='Cancel'></Button>
+                <Modal.Footer>
+                  {props.showForm &&
+                    (<Button
+                      floated='right'
+                      positive
+                      type='submit'
+                      variant='primary'
+                      loading={props.isSubmitting}
+                      content='Submit'
+                    />
+                    )}
+                  <Button
+                    floated='right'
+                    positive
+                    type='reset'
+                    variant='primary'
+                    onClick={props.handleClick}
+                    data-bs-dismiss='modal'
+                    content='Cancel'
+                  />
               </Modal.Footer>
             </div>
           </div>

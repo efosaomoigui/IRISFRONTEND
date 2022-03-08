@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Container } from 'react-bootstrap-v5';
 import { toast } from 'react-toastify';
 import { v4 as uuid } from 'uuid';
 import agent from '../../../../setup/axios/AxiosAgent';
@@ -14,13 +15,17 @@ interface Props {
 
 const EditRoleModal: React.FC<Props> = ({ handleEdit, SelectedValues }: Props) => {
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [selectPermission, setSelectPermission] = useState<IRoleModel>()
+  const [selectrole, setSelectrole] = useState<IRoleModel>()
   const [showForm, setShowForm] = useState(true)
+  const [hasError, setHasError] = useState(false)
   const [showError, setShowError] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
 
   const { entityDetailValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle, selectValue, handleSelectValue } = usePageData()
 
+  // handle logic
+  const users = entityDetailValues as IRoleModel[]
+  
   //const selected = setSelectedValue(users)
 
   const handleClick = () => {
@@ -34,19 +39,27 @@ const EditRoleModal: React.FC<Props> = ({ handleEdit, SelectedValues }: Props) =
   const onSubmit = (values: IRoleModel) => {
     setIsSubmitting(true)
     values.id = uuid()
-    agent.Roles.create(values).then((response) => {
-      toast.success("Role Creation Was Successful!"); 
-      setInterval(()=>{
-        setShowForm(false);
-      }, 1000)
-      // console.log(response)
-      setIsSubmitting(false)
+
+    agent.Roles.update(values).then((response) => {
+      if (response.validationErrors!.length > 0) {
+        toast.error(response.validationErrors?.toString())
+        setErrorMessage(response.validationErrors!.toString())
+        setIsSubmitting(false)
+        setShowError(true)
+      } else {
+        toast.success('Role Update Was Successful!')
+        setInterval(() => {
+          setShowForm(false)
+        }, 1000)
+        setIsSubmitting(false)
+        setShowError(false)
+      }
     })
   }
 
   return (
     <>
-      <div className='modal fade' id='kt_modal_addrole' aria-hidden='true'>
+      <Container className='modal fade' id='kt_modal_addrole' aria-hidden='true'>
         <EditRoleForm 
           isSubmitting={isSubmitting}
           onSubmit={onSubmit}
@@ -56,7 +69,7 @@ const EditRoleModal: React.FC<Props> = ({ handleEdit, SelectedValues }: Props) =
           errorMessage={errorMessage}
           handleClick={handleClick}
           formTitle={'Edit Role'} />
-      </div>
+      </Container>
     </>
   )
 }

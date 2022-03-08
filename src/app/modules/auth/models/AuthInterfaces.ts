@@ -32,10 +32,16 @@ export interface IUserModel {
 export interface IRoleModel {
   id: string
   name: string
+  message?: string
+  validationErrors?: string[]
+  roledto?: {}
 }
 
 export interface IPermissionModel {
   roleId: string
   claimType: string 
   claimValue: string
+  message?: string
+  validationErrors?: string[]
+  permissiondto?: {}
 }

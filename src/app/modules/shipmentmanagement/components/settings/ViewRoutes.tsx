@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react'
 import {Spinner} from 'react-bootstrap-v5'
 import agent from '../../../../../setup/axios/AxiosAgent'
+import { usePageData } from '../../../../../_iris/layout/core'
 import {IrisTablesWidget} from '../../../layout/tables/IrisTablesWidget'
 import {modalprops} from '../../../layout/tables/IrisTableTitle'
 import RouteData from '../../RouteData.json'
@@ -12,6 +13,8 @@ export function ViewRoutes() {
   const [modalTarger, setModalTarget] = useState<modalprops[]>([])
   const [routemodel, setRouteModel] = useState<IRouteModel[]>([])
   const [loadingData, setLoadingData] = useState(true)
+  const { selectValue, handleSelectValue, selectUrlParam, setSelectUrlParam } = usePageData() //global data
+
 
   //all the data for the table
   const tableProvider = {
@@ -45,6 +48,13 @@ export function ViewRoutes() {
       linkTarget: '#kt_modal_addroute',
     },
   ]
+
+  const handleEdit = (event: React.MouseEvent) => {
+    const urlParm = event.currentTarget.getAttribute('id')
+    const val = routemodel.find((x) => x.RouteId === urlParm)
+    handleSelectValue(val!)
+    return val
+  }
 
   // //USE EFFECT HOOK
   useEffect(() => {
@@ -80,6 +90,7 @@ export function ViewRoutes() {
             TableTitle={'Route Profile'}
             Count={'Over 300 Users'}
             ModalTarget={modalTarger}
+            handleEdit={handleEdit}
           />
         )}
       </div>

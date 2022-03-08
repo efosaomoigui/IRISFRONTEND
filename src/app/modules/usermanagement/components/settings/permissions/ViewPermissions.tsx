@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react'
 import { Spinner } from 'react-bootstrap-v5'
 import agent from '../../../../../../setup/axios/AxiosAgent'
+import { usePageData } from '../../../../../../_iris/layout/core'
 import {IPermissionModel, IRoleModel, IUserModel} from '../../../../auth/models/AuthInterfaces'
 import { IrisTablesWidget } from '../../../../layout/tables/IrisTablesWidget'
 import { modalprops } from '../../../../layout/tables/IrisTableTitle'
@@ -9,10 +10,11 @@ import Permission_Data from './Permission_Data.json'
 
 export function ViewPermissions() {
   const [modalTarger, setModalTarget] = useState<modalprops[]>([]);
-    const [loading, setLoading] = useState(true)
-  const [permissionmodel, setPermissionModel] = useState<IPermissionModel[]>()
+  const [loading, setLoading] = useState(true)
+  const [permissionmodel, setPermissionModel] = useState<IPermissionModel[]>([])
   const [loadingData, setLoadingData] = useState(true)
-  
+  const { selectValue, handleSelectValue, selectUrlParam, setSelectUrlParam } = usePageData() //global data
+
   const tableProvider = {
     columns: [
         {
@@ -41,6 +43,12 @@ export function ViewPermissions() {
     }
   ]
 
+  const handleEdit = (event: React.MouseEvent) => {
+    const urlParm = event.currentTarget.getAttribute('id')
+    const val = permissionmodel.find((x) => x.roleId === urlParm)
+    handleSelectValue(val!)
+    return val
+  }
   // //USE EFFECT HOOK
   useEffect(() => {
     agent.Permissions.list().then((response) => {
@@ -85,6 +93,7 @@ export function ViewPermissions() {
           ModalTarget={
             modalTarger
           }
+          handleEdit={handleEdit}
         />
       )}
 

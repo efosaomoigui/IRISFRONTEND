@@ -1,6 +1,7 @@
 import { Grid } from '@material-ui/core'
 import { Alert } from '@mui/material'
 import { Form, Formik, FormikHelpers } from 'formik'
+import { useState } from 'react'
 import { Modal } from 'react-bootstrap-v5'
 import { Button } from 'semantic-ui-react'
 import * as Yup from 'yup'
@@ -30,6 +31,10 @@ export default function EditRoleForm(props: Props<IRoleModel>) {
 
   const { entityDetailValues, setEntityDetailValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle } = usePageData()
 
+  const [errorMessage, setErrorMessage] = useState('')
+  const [showError, setShowError] = useState(true)
+
+  
   const initialFormValue: IRoleModel = {
     id: props.role ? props.role!.id : '',
     name: props.role ? props.role!.name : '',

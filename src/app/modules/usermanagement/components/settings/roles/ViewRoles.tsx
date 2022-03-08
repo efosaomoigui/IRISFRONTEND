@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react'
 import { Spinner } from 'react-bootstrap-v5'
 import agent from '../../../../../../setup/axios/AxiosAgent'
+import { usePageData } from '../../../../../../_iris/layout/core'
 import {IRoleModel, IUserModel} from '../../../../auth/models/AuthInterfaces'
 import {IrisTablesWidget} from '../../../../layout/tables/IrisTablesWidget'
 import {modalprops} from '../../../../layout/tables/IrisTableTitle'
@@ -9,9 +10,10 @@ import Role_Data from './Role_Data.json'
 export function ViewRoles() {
   const [modalTarger, setModalTarget] = useState<modalprops[]>([])
   const [loading, setLoading] = useState(true)
-  const [rolemodel, setRoleModel] = useState<IRoleModel[]>()
+  const [rolemodel, setRoleModel] = useState<IRoleModel[]>([])
   const [loadingData, setLoadingData] = useState(true)
-
+  const { selectValue, handleSelectValue, selectUrlParam, setSelectUrlParam } = usePageData() //global data
+  
   const tableProvider = {
     columns: [
       {
@@ -36,6 +38,12 @@ export function ViewRoles() {
     },
   ]
 
+  const handleEdit = (event: React.MouseEvent) => {
+    const urlParm = event.currentTarget.getAttribute('id')
+    const val = rolemodel.find((x) => x.id === urlParm)
+    handleSelectValue(val!)
+    return val
+  }
   // //USE EFFECT HOOK
   useEffect(() => {
     const callFunc = async () => {
@@ -69,6 +77,7 @@ export function ViewRoles() {
           TableTitle={'Roles'}
           Count={'Over 300 Users'}
           ModalTarget={modalTarger}
+          handleEdit={handleEdit}
         />
         )}
 
