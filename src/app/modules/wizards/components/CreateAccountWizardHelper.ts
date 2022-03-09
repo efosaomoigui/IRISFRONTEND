@@ -1,8 +1,13 @@
 import * as Yup from 'yup'
 
 export interface ICreateAccount {
-  accountType: string
-  accountTeamSize: string
+  shipmentCategory: string
+  shipperFullName: string
+  shipperAddress: string
+  shipperPhoneNumber: string
+  receiverFullName: string
+  receiverAddress: string
+  receiverPhoneNumber: string
   accountName: string
   accountPlan: string
   businessName: string
@@ -20,10 +25,15 @@ export interface ICreateAccount {
 
 const createAccountSchemas = [
   Yup.object({
-    accountType: Yup.string().required().label('Account Type'),
+    shipmentCategory: Yup.string().required().label('Shipment Type'),
   }),
   Yup.object({
-    accountName: Yup.string().required().label('Account Name'),
+    shipperFullName: Yup.string().required().label('Shipper Full Name'),
+    shipperAddress: Yup.string().required().label('Shipper Address'),
+    shipperPhoneNumber: Yup.string().required().label('Shipper Phone'),
+    receiverFullName: Yup.string().required().label('Receiver Full Name'),
+    receiverAddress: Yup.string().required().label('Receiver Address'),
+    receiverPhoneNumber: Yup.string().required().label('Receiver Phone'),
   }),
   Yup.object({
     businessName: Yup.string().required().label('Business Name'),
@@ -41,8 +51,13 @@ const createAccountSchemas = [
 ]
 
 const inits: ICreateAccount = {
-  accountType: 'personal',
-  accountTeamSize: '50+',
+  shipmentCategory: 'mailandparcel',
+  shipperFullName: '50+',
+  shipperAddress: '50+',
+  shipperPhoneNumber: '50+',
+  receiverFullName: '50+',
+  receiverAddress: '50+',
+  receiverPhoneNumber: '50+',
   accountName: '',
   accountPlan: '1',
   businessName: 'Keenthemes Inc.',

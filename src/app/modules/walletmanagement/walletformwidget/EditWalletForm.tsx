@@ -32,7 +32,7 @@ export default function EditWalletForm(props: Props<IWalletModel>) {
     formTitle,
     setFormTitle,
     selectValue,
-    handleSelectValue,
+    handleSelectValue, 
   } = usePageData()
 
   const initialFormValue: IWalletModel = {

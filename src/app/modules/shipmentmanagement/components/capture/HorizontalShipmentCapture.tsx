@@ -73,7 +73,7 @@ const HorizontalShipmentCapture: FC = () => {
             </div>
 
             <div className='stepper-item' data-kt-stepper-element='nav'>
-              <h3 className='stepper-title'>Sender Details</h3>
+              <h3 className='stepper-title'>Shipper Details</h3>
             </div>
 
             <div className='stepper-item' data-kt-stepper-element='nav'>
@@ -85,18 +85,18 @@ const HorizontalShipmentCapture: FC = () => {
             </div>
 
             <div className='stepper-item' data-kt-stepper-element='nav'>
-              <h3 className='stepper-title'>Billing Details</h3>
+              <h3 className='stepper-title'>Billing</h3>
             </div>
 
             <div className='stepper-item' data-kt-stepper-element='nav'>
-              <h3 className='stepper-title'>Shipment CheckOut</h3>
+              <h3 className='stepper-title'>CheckOut</h3>
             </div>
             
           </div>
 
           <Formik validationSchema={currentSchema} initialValues={initValues} onSubmit={submitStep}>
             {() => (
-              <Form className='mx-auto mw-600px w-100 pt-15 pb-10' id='kt_create_account_form'>
+              <Form className='mx-auto mw-900px w-100 pt-15 pb-10' id='kt_create_account_form'>
                 <div className='current' data-kt-stepper-element='content'>
                   <Step1 />
                 </div>

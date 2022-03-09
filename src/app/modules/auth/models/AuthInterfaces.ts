@@ -38,7 +38,6 @@ export interface IRoleModel {
 }
 
 export interface IPermissionModel {
-  id: number
   roleId: string
   claimType: string 
   claimValue: string
