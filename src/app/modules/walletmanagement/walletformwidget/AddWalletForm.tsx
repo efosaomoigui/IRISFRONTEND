@@ -7,6 +7,7 @@ import * as Yup from 'yup'
 import { boolean } from 'yup/lib/locale'
 import { KTSVG } from '../../../../_iris/helpers'
 import { usePageData } from '../../../../_iris/layout/core'
+import ErrorAlert from '../../common/ErrorAlert'
 import IrisDatePicker from '../../layout/forms/IrisDatePicker'
 import IrisSelectInput from '../../layout/forms/IrisSelectInput'
 import IrisTextInput from '../../layout/forms/IrisTextInput'
@@ -25,6 +26,10 @@ interface Props<Values> {
   isSubmitting: boolean
   wallet?: IWalletModel  //change here by Mr Efe
   showForm?: boolean
+  formTitle?: string
+  showError?: boolean
+  errorMessage?: string
+  handleClick?: () => void
 }
 
 const options = [
@@ -39,14 +44,15 @@ export default function AddWalletForm(props: Props<IWalletModel>) {
     id: props.wallet ? props.wallet!.id : '',
     number: props.wallet ? props.wallet!.number : '',
     isActive: props.wallet ? props.wallet!.isActive : '',
-    userId: props.wallet ? props.wallet!.userId : '', 
+    walletBalance: props.wallet ? props.wallet!.walletBalance : 0,
+    userId: props.wallet ? props.wallet!.userId : ''
   }
 
   const validationSchema = Yup.object({
     WalletId: Yup.string().required(),
     WalletNumber: Yup.string().required(),
     IsActive: Yup.string().required(),
-    UserId: Yup.string().required(),  
+    walletBalance: Yup.number().required(),  
   })
 
   const classes = useStyles()
@@ -73,7 +79,8 @@ export default function AddWalletForm(props: Props<IWalletModel>) {
               </div>
 
               <div className='modal-body' >
-                {props.showForm &&
+                {props.showError && <ErrorAlert type={'danger'} message={props.errorMessage!.toString()} heading={'Oh snap! You got an error!'} />}
+                {props.showForm &&(
                   <Grid container className={classes.root}>
                     <Grid item xs={6}>
                       <IrisTextInput
@@ -98,28 +105,38 @@ export default function AddWalletForm(props: Props<IWalletModel>) {
                       />
                       <IrisTextInput
                         type='text'
-                        placeholder='UserId'
-                        name='UserId'
-                        label='UserId'
+                        placeholder='walletBalance'
+                        name='walletBalance'
+                        label='wallet Balance'
                       />
                     </Grid>
                   </Grid>
-                }
-                {!props.showForm && <Alert severity="info">Wallet Created Successfully!</Alert>}
+                )}
+                {!props.showForm && <ErrorAlert type={'success'} message={'Wallet Created Successfully!'} heading={'Confirmation Message!'} />}
               </div>
               <div className='modal-body py-lg-10 px-lg-10'>
               </div>
 
               <Modal.Footer>
+                {props.showForm &&
+                  (<Button
+                    floated='right'
+                    positive
+                    type='submit'
+                    variant='primary'
+                    loading={props.isSubmitting}
+                    content='Submit'
+                  />
+                  )}
                 <Button
                   floated='right'
                   positive
-                  type='submit'
-                  variant='secondary'
-                  loading={props.isSubmitting}
-                  content='Submit'
-                ></Button>
-                <Button floated='right' positive type='button' data-bs-dismiss="modal" content='Cancel'></Button>
+                  type='reset'
+                  variant='primary'
+                  onClick={props.handleClick}
+                  data-bs-dismiss='modal'
+                  content='Cancel'
+                />
               </Modal.Footer>
             </div>
           </div>

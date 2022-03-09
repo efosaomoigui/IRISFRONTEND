@@ -44,7 +44,6 @@ export default function EditPermissionForm(props: Props<IPermissionModel>) {
   }
 
   const validationSchema = Yup.object({
-    id: Yup.number().required(),
     roleId: Yup.string().required(),
     claimType: Yup.string().required(),
     claimValue: Yup.string().required(),
@@ -76,6 +75,7 @@ export default function EditPermissionForm(props: Props<IPermissionModel>) {
               {/* {console.log("new what? ", props.systemRoles)} */}
 
               <div className='modal-body'>
+                {props.showError && <ErrorAlert type={'danger'} message={props.errorMessage!.toString()} heading={'Oh snap! You got an error!'} />}
                 {props.showForm && (
                   <Grid container className={classes.root}>
                     <Grid item xs={6}>

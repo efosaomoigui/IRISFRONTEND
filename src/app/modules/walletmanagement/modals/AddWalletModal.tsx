@@ -24,7 +24,7 @@ const AddWalletModal: React.FC = () => {
   }
 
   const selected = setSelectedValue(wallets);
-  console.log("LOG ", (selected) ? "old wallet" : "new wallet");
+  // console.log("LOG ", (selected) ? "old wallet" : "new wallet");
 
   const onSubmit = (values: IWalletModel) => {
     setIsSubmitting(true)
