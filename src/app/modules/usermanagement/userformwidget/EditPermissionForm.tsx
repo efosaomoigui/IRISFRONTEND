@@ -38,7 +38,6 @@ export default function EditPermissionForm(props: Props<IPermissionModel>) {
   } = usePageData()
 
   const initialFormValue: IPermissionModel = {
-    id: props.permission ? props.permission!.id : 0,
     roleId: props.permission ? props.permission!.roleId : '',
     claimType: props.permission ? props.permission!.claimType : '',
     claimValue: props.permission ? props.permission!.claimValue : '',

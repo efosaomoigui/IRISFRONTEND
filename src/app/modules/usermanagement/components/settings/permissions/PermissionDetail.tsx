@@ -14,7 +14,7 @@ export function PermissionDetail() {
   }
 
   useEffect(() => {
-    getPermission(roleId)
+    getPermission(roleId) 
   }, [roleId])
 
   return (
