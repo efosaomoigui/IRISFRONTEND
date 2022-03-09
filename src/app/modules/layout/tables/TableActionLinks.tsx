@@ -36,13 +36,13 @@ const TableActionLinks = ({DetailsPath, EditPath, DeletePath, handleEdit}: Props
         <KTSVG path='/media/icons/duotune/art/art005.svg' className='svg-icon-3' /> 
       </a>
 
-      <a
+      {/* <a
         href={DeletePath}
         title='Delete'
         className='btn btn-icon btn-bg-light btn-active-color-primary btn-sm'
       >
         <KTSVG path='/media/icons/duotune/general/gen027.svg' className='svg-icon-3' />
-      </a>
+      </a> */}
     </div>
   )
 }

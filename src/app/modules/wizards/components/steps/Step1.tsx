@@ -33,11 +33,11 @@ const Step1: FC = () => {
               className='btn-check'
               name='shipmentCategory'
               value='mailandparcel'
-              id='kt_create_account_form_account_type_personal'
+              id='kt_create_account_form_account_type_mail'
             />
             <label
               className='btn btn-outline btn-outline-dashed btn-outline-default p-7 d-flex align-items-center mb-10'
-              htmlFor='kt_create_account_form_account_type_personal'
+              htmlFor='kt_create_account_form_account_type_mail'
             >
               <KTSVG
                 path='/media/icons/duotune/communication/com005.svg'
@@ -47,7 +47,7 @@ const Step1: FC = () => {
               <span className='d-block fw-bold text-start'>
                 <span className='text-dark fw-bolder d-block fs-4 mb-2'>Mail & Parcel</span>
                 <span className='text-gray-400 fw-bold fs-6'>
-                  If you need more info, please check it out
+                  Create Shipment for Mail and Parcel
                 </span>
               </span>
             </label>
@@ -59,18 +59,18 @@ const Step1: FC = () => {
               className='btn-check'
               name='shipmentCategory'
               value='Truck Load'
-              id='kt_create_account_form_account_type_corporate'
+              id='kt_create_account_form_account_type_truck'
             />
             <label
               className='btn btn-outline btn-outline-dashed btn-outline-default p-7 d-flex align-items-center'
-              htmlFor='kt_create_account_form_account_type_corporate'
+              htmlFor='kt_create_account_form_account_type_truck'
             >
               <KTSVG path='/media/icons/duotune/finance/fin006.svg' className='svg-icon-3x me-5' />
 
               <span className='d-block fw-bold text-start'>
                 <span className='text-dark fw-bolder d-block fs-4 mb-2'>Truck Load</span>
                 <span className='text-gray-400 fw-bold fs-6'>
-                  Create corporate account to mane users
+                  Create shipment for 15, 30 tons truck load
                 </span>
               </span>
             </label>
@@ -82,11 +82,11 @@ const Step1: FC = () => {
               className='btn-check'
               name='shipmentCategory'
               value='freight'
-              id='kt_create_account_form_account_type_corporate'
+              id='kt_create_account_form_account_type_freight'
             />
             <label
               className='btn btn-outline btn-outline-dashed btn-outline-default p-7 d-flex align-items-center'
-              htmlFor='kt_create_account_form_account_type_corporate'
+              htmlFor='kt_create_account_form_account_type_freight'
             >
               <KTSVG path='/media/icons/duotune/finance/fin006.svg' className='svg-icon-3x me-5' />
 
@@ -100,7 +100,7 @@ const Step1: FC = () => {
           </div> 
 
           <div className='text-danger mt-2'>
-            <ErrorMessage name='accountType' />
+            <ErrorMessage name='shipmentCategory' />
           </div>
         </div>
       </div>
