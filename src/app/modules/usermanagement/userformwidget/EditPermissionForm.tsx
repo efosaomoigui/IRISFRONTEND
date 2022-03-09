@@ -38,7 +38,7 @@ export default function EditPermissionForm(props: Props<IPermissionModel>) {
   } = usePageData()
 
   const initialFormValue: IPermissionModel = {
-    id: props.permission ? props.permission!.id : 0,
+    
     roleId: props.permission ? props.permission!.roleId : '',
     claimType: props.permission ? props.permission!.claimType : '',
     claimValue: props.permission ? props.permission!.claimValue : '',
@@ -77,6 +77,7 @@ export default function EditPermissionForm(props: Props<IPermissionModel>) {
               {/* {console.log("new what? ", props.systemRoles)} */}
 
               <div className='modal-body'>
+                {props.showError && <ErrorAlert type={'danger'} message={props.errorMessage!.toString()} heading={'Oh snap! You got an error!'} />}
                 {props.showForm && (
                   <Grid container className={classes.root}>
                     <Grid item xs={6}>
