@@ -16,11 +16,11 @@ interface Props {
 
 
 const EditRouteModal: React.FC<Props> = ({ handleEdit, SelectedValues }: Props) => {
-
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [showForm, setShowForm] = useState(true)
   const [selectRoute, setSelectRoute] = useState<IRouteModel>()
   const [errorMessage, setErrorMessage] = useState('')
+  const [hasError, setHasError] = useState(false)
   const [showError, setShowError] = useState(false)
 
   const { entityDetailValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle, selectValue, handleSelectValue } = usePageData()
@@ -39,7 +39,7 @@ const EditRouteModal: React.FC<Props> = ({ handleEdit, SelectedValues }: Props) 
 
   const onSubmit = (values: IRouteModel) => {
     setIsSubmitting(true)
-    values.RouteId = uuid()
+    values.routeId = uuid()
 
     agent.Route.update(values).then((response) => {
       if (response.validationErrors!.length > 0) {
@@ -59,7 +59,7 @@ const EditRouteModal: React.FC<Props> = ({ handleEdit, SelectedValues }: Props) 
   }
   return (
     <>
-      <Container className='modal fade' id='kt_modal_addroute' aria-hidden='true'>
+      <Container className='modal fade' id='kt_modal_editroute' aria-hidden='true'>
         <EditRouteForm 
           isSubmitting={isSubmitting}
           onSubmit={onSubmit}

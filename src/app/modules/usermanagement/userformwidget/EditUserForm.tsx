@@ -120,7 +120,7 @@ export default function EditUserForm(props: Props<IUserModel>) {
                       </Grid>
                     </Grid>
                   )}
-                  {!props.showForm && <ErrorAlert type={'success'} message={'Role Created Successfully!'} heading={'Confirmation Message!'} />}
+                  {!props.showForm && <ErrorAlert type={'success'} message={'User Created Successfully!'} heading={'Confirmation Message!'} />}
                 </div>
 
                 <Modal.Footer>

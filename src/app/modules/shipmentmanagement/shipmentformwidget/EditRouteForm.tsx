@@ -11,6 +11,7 @@ import { Alert } from '@mui/material'
 import { Grid } from '@material-ui/core'
 import useStyles from '../../layout/formstyles/FormStyle'
 import { useState } from 'react'
+import ErrorAlert from '../../common/ErrorAlert'
 
 
 
@@ -43,33 +44,17 @@ export default function EditRouteForm(props: Props<IRouteModel>) {
   const [showError, setShowError] = useState(true)
 
   const initialFormValue: IRouteModel = {
-    RouteId: props.route ? props.route!.RouteId : '',
-    RouteName: props.route ? props.route!.RouteName : '',
-    Departure: props.route ? props.route!.Departure : '',
-    Destination: props.route ? props.route!.Destination : '',
-    IsSubRoute: props.route ? props.route!.IsSubRoute : true,
-    DispatchFee: props.route ? props.route!.DispatchFee : 0,
-    LoaderFee: props.route ? props.route!.LoaderFee : 0,
-    CaptainFee: props.route ? props.route!.CaptainFee : 0,
-    MainRouteId: props.route ? props.route!.MainRouteId : 0,
-    AvailableAtTerminal: props.route ? props.route!.AvailableAtTerminal : true,
-    AvailableOnline: props.route ? props.route!.AvailableOnline : true,
-    RouteType: props.route ? props.route!.RouteType : 0
+    routeId: props.route ? props.route!.routeId : '',
+    routeName: props.route ? props.route!.routeName : '',
+    departure: props.route ? props.route!.departure : '',
+    destination: props.route ? props.route!.destination : '',
   }
 
   const validationSchema = Yup.object({
-    RouteId: Yup.string().required(),
-    RouteName: Yup.string().required(),
-    Departure: Yup.string().required(),
-    Destination: Yup.string().required(),
-    IsSubRoute: Yup.boolean().required(),
-    DispatchFee: Yup.number().required(),
-    LoaderFee: Yup.number().required(),
-    captainFee: Yup.number().required(),
-    MainRouteId: Yup.string().required(),
-    AvailableAtTerminal: Yup.boolean().required(),
-    AvailableOnline: Yup.boolean().required(),
-    RouteType: Yup.number().required(),
+    routeId: Yup.string().required(),
+    routeName: Yup.string().required(),
+    departure: Yup.string().required(),
+    destination: Yup.string().required(),
   })
 
   const classes = useStyles()
@@ -86,7 +71,7 @@ export default function EditRouteForm(props: Props<IRouteModel>) {
           <div className='modal-dialog modal-dialog-centered mw-900px'>
             <div className='modal-content'>
               <div className='modal-header'>
-                <h2>{formTitle+" Route"}</h2>
+                <h2>{"Edit Route"}</h2>
                 <div
                   className='btn btn-sm btn-icon btn-active-color-primary'
                   data-bs-dismiss='modal'
@@ -96,99 +81,39 @@ export default function EditRouteForm(props: Props<IRouteModel>) {
               </div>
 
               <div className='modal-body' >
-                {props.showForm &&
+                {props.showError && <ErrorAlert type={'danger'} message={props.errorMessage!.toString()} heading={'Oh snap! You got an error!'} />}
+                {props.showForm && (
                   <Grid container className={classes.root}>
                     <Grid item xs={3}>
                       <IrisTextInput
                         type='text'
-                        name='RouteId'
+                        name='routeId'
                         placeholder='Route Id'
                         label='Route Id'
                       />
                       <IrisTextInput
                         type='text'
                         placeholder='Route Name'
-                        name='RouteName'
+                        name='routeName'
                         label='Route Name'
                       />
                       <IrisTextInput
                         type='text'
                         placeholder='Depature'
-                        name='Departure'
+                        name='departure'
                         label='Depature'
                       />
-                    </Grid>
-                    <Grid item xs={3}>
                       <IrisTextInput
                         type='text'
                         placeholder='Destination'
-                        name='Destination'
+                        name='destination'
                         label='Destination'
                       />
-
-                      <IrisTextInput
-                        type='text'
-                        placeholder='Is_Sub_Route'
-                        name='IsSubRoute'
-                        label='Is_Sub_Route'
-                      />
-
-                      <IrisTextInput
-                        type='text'
-                        placeholder='Dispatch Fee'
-                        name='DispatchFee'
-                        label='Dispatch Fee'
-                      />
-                    </Grid>
-                    <Grid item xs={3}>
-                      <IrisTextInput
-                        type='text'
-                        placeholder='Loader Fee'
-                        name='LoaderFee'
-                        label='Loader Fee'
-                      />
-
-                      <IrisTextInput
-                        type='text'
-                        placeholder='Captain Fee'
-                        name='captainFee'
-                        label='Captain Fee'
-                      />
-
-                      <IrisTextInput
-                        type='text'
-                        placeholder='Main_Route_Id'
-                        name='MainRouteId'
-                        label='Main_Route_Id'
-                      />
-                    </Grid>
-                    <Grid item xs={3}>
-                      <IrisTextInput
-                        type='text'
-                        placeholder='Availabale_At_Terminal'
-                        name='AvailableAtTerminal'
-                        label='Availabale_At_Terminal'
-                      />
-
-                      <IrisTextInput
-                        type='text'
-                        placeholder='Availabale_Online'
-                        name='AvailableOnline'
-                        label='Availabale_Online'
-                      />
-
-                      <IrisTextInput
-                        type='text'
-                        placeholder='Route_Type'
-                        name='RouteType'
-                        label='Route_Type'
-                      />
-
                     </Grid>
                   </Grid>
               
-                }
-                {!props.showForm && <Alert severity="info">Collection Center Item Created Successfully!</Alert>}
+                )}
+                {!props.showForm && <ErrorAlert type={'success'} message={'Route Updated Successfully!'} heading={'Confirmation Message!'} />}
               </div>
               <div className='modal-body py-lg-10 px-lg-10'>
               </div>

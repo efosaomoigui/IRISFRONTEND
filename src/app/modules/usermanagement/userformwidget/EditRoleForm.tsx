@@ -80,14 +80,16 @@ export default function EditRoleForm(props: Props<IRoleModel>) {
               </div>
 
               <Modal.Footer>
-                <Button
-                  floated='right'
-                  positive
-                  type='submit'
-                  variant='secondary'
-                  loading={props.isSubmitting}
-                  content='Submit'
-                ></Button>
+                {props.showForm &&
+                  (<Button
+                    floated='right'
+                    positive
+                    type='submit'
+                    variant='primary'
+                    loading={props.isSubmitting}
+                    content='Submit'
+                  />
+                  )}
                 <Button
                   floated='right'
                   positive
@@ -96,7 +98,7 @@ export default function EditRoleForm(props: Props<IRoleModel>) {
                   onClick={props.handleClick}
                   data-bs-dismiss='modal'
                   content='Cancel'
-                ></Button>
+                />
               </Modal.Footer>
             </div>
           </div>

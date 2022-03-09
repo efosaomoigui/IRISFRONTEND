@@ -5,7 +5,6 @@ import { usePageData } from '../../../../../../_iris/layout/core'
 import {IPermissionModel, IRoleModel, IUserModel} from '../../../../auth/models/AuthInterfaces'
 import { IrisTablesWidget } from '../../../../layout/tables/IrisTablesWidget'
 import { modalprops } from '../../../../layout/tables/IrisTableTitle'
-
 import Permission_Data from './Permission_Data.json'
 
 export function ViewPermissions() {
@@ -31,7 +30,7 @@ export function ViewPermissions() {
         },
     ],
     DetailsPath: '/admin/permissionDetails/',
-    EditPath: '#kt_modal_addpermission',
+    EditPath: '#kt_modal_editpermission',
     DeletePath: '',
     FakeData: Permission_Data,
   }
@@ -49,14 +48,6 @@ export function ViewPermissions() {
     handleSelectValue(val!)
     return val
   }
-  // //USE EFFECT HOOK
-  useEffect(() => {
-    agent.Permissions.list().then((response) => {
-      setPermissionModel(response)
-      setModalTarget(ModalTarget);
-      setLoading(false)
-    })
-  }, [])
 
     // //USE EFFECT HOOK
     useEffect(() => {

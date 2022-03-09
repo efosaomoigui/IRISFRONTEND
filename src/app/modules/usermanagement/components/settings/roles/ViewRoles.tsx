@@ -77,7 +77,7 @@ export function ViewRoles() {
           TableTitle={'Roles'}
           Count={'Over 300 Users'}
           ModalTarget={modalTarger}
-          handleEdit={handleEdit}
+          handleEdit = {handleEdit}
         />
         )}
 

@@ -1,4 +1,5 @@
 import {useEffect, useState} from 'react'
+import { Container } from 'react-bootstrap-v5'
 import {toast} from 'react-toastify'
 import {v4 as uuid} from 'uuid'
 import agent from '../../../../setup/axios/AxiosAgent'
@@ -6,72 +7,77 @@ import {usePageData} from '../../../../_iris/layout/core'
 import {IPermissionModel, IRoleModel} from '../../auth/models/AuthInterfaces'
 import AddPermissionForm from '../userformwidget/AddPermissionForm'
 
-const AddPermissionModal: React.FC = () => {
+interface Props {
+  handleSelect?: () => void
+  SelectedValues?: any[]
+}
+
+const AddPermissionModal: React.FC<Props> = ({ handleSelect, SelectedValues }: Props) => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [selectPermission, setSelectPermission] = useState<IPermissionModel>()
   const [showForm, setShowForm] = useState(true)
   const [loading, setLoading] = useState(true)
+  const [hasError, setHasError] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
+  const [showError, setShowError] = useState(false)
 
-  const {entityDetailValues, selectUrlParam, setSelectUrlParam} =
+  const { entityDetailValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle } =
     usePageData()
 
-  const setpermissionDataValues = () =>
-    agent.Permissions.list().then((response) => {
-      // setRoleData(response)
-      setLoading(false)
-    }
-  )
-
-  interface dataType {
-    value: string
-    index: string
-  }
 
   // handle logic
   const permisions = entityDetailValues as IPermissionModel[]
 
-  const setSelectedValue = (permisions: IPermissionModel[]) => {
-    const val = permisions.find((x) => x.roleId === selectUrlParam)
+  const setSelectedValue = (permissions: IPermissionModel[]) => {
+    const val = permissions.find((x) => x.roleId === selectUrlParam)
     return val
   }
 
   const selected = setSelectedValue(permisions)
-  useEffect(() => {
-    setpermissionDataValues()
-  }, [])
 
-  // setroleDAtaValues()
+  const handleClick = () => {
+    setShowError(false);
+    setShowForm(true);
+    window.location.reload();
+    console.log('On click', showError)
+  }
 
   const onSubmit = (values: IPermissionModel) => {
     setIsSubmitting(true)
     values.roleId = uuid()
 
-    if (selected?.roleId) {
-      agent.Permissions.update(values).then((response) => {
-        toast.success('Permission Update Was Successful!')
-        setIsSubmitting(false)
+    agent.Permissions.create(values)
+      .then((response) => {
+        if (response.validationErrors!.length > 0) {
+          toast.error(response.validationErrors?.toString())
+          setErrorMessage(response.validationErrors!.toString())
+          setIsSubmitting(false)
+          setShowError(true)
+        } else {
+          toast.success('Permission Creation Was Successful!')
+          setInterval(() => {
+            setShowForm(false)
+          }, 1000)
+          setIsSubmitting(false)
+          setShowError(false)
+        }
       })
-    } else {
-      agent.Permissions.create(values).then((response) => {
-        toast.success('Permission Creation Was Successful!')
-        setInterval(() => {
-          setShowForm(false)
-        }, 1000)
-        setIsSubmitting(false)
-      })
-    }
   }
+
   return (
     <>
-      <div className='modal fade' id='kt_modal_addpermission' aria-hidden='true'>
+      <Container className='modal fade' id='kt_modal_addpermission' aria-hidden='true'>
         <AddPermissionForm
           isSubmitting={isSubmitting}
           onSubmit={onSubmit}
           permission={selected}
           showForm={showForm}
-          // systemRoles={}
+          showError={showError}
+          errorMessage={errorMessage}
+          handleClick={handleClick}
+          formTitle={'Add permission to Role'}
         />
-      </div>
+      </Container>
     </>
   )
 }
