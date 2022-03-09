@@ -39,12 +39,11 @@ const AddPermissionModal: React.FC<Props> = ({ handleSelect, SelectedValues }: P
     setShowError(false);
     setShowForm(true);
     window.location.reload();
-    console.log('On click', showError)
   }
 
   const onSubmit = (values: IPermissionModel) => {
     setIsSubmitting(true)
-    values.roleId = uuid()
+    // values.roleId = uuid()
 
     agent.Permissions.create(values)
       .then((response) => {
