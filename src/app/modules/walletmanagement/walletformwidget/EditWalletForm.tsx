@@ -40,6 +40,7 @@ export default function EditWalletForm(props: Props<IWalletModel>) {
     number: props.wallet ? props.wallet!.number : '',
     isActive: props.wallet ? props.wallet!.isActive : '',
     userId: props.wallet ? props.wallet!.userId : '',
+    walletBalance: props.wallet ? props.wallet!.walletBalance : 0
   }
 
   const validationSchema = Yup.object({

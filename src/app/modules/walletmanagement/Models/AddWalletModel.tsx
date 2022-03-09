@@ -6,6 +6,7 @@ export const Addwalletmodel: IAddWalletModel[] = [
     WalletNumber: '',
     IsActive: true,
     UserId: '',
+    walletBalance: 0
   }
 
 ] 
