@@ -26,7 +26,7 @@ export function ViewRoles() {
       },
     ],
     DetailsPath: '/admin/roleDetails/',
-    EditPath: '#kt_modal_addrole',
+    EditPath: '#kt_modal_editrole',
     DeletePath: '',
     FakeData: Role_Data,
   }
@@ -77,7 +77,7 @@ export function ViewRoles() {
           TableTitle={'Roles'}
           Count={'Over 300 Users'}
           ModalTarget={modalTarger}
-          handleEdit={handleEdit}
+          handleEdit = {handleEdit}
         />
         )}
 

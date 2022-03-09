@@ -7,9 +7,12 @@ import { usePageData } from '../../../../_iris/layout/core';
 import AddRouteForm from '../shipmentformwidget/AddRouteForm';
 import { IRouteModel } from '../ShipmentModels/ShipmentInterfaces';
 
+interface Props {
+  handleSelect?: () => void
+  SelectedValues?: any[]
+}
 
-
-const AddRouteModal: React.FC = () => {
+const AddRouteModal: React.FC<Props> = ({ handleSelect, SelectedValues }: Props) => {
 
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [showForm, setShowForm] = useState(true)
@@ -18,22 +21,29 @@ const AddRouteModal: React.FC = () => {
   const [errorMessage, setErrorMessage] = useState('')
   const [showError, setShowError] = useState(false)
 
-  const { entityDetailValues, selectUrlParam, setSelectUrlParam } = usePageData()
+  const { entityDetailValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle } =
+    usePageData()
 
   // handle logic
-  const routes = entityDetailValues as IRouteModel[];
+  const route = entityDetailValues as IRouteModel[]
 
-  const setSelectedValue = (routes: IRouteModel[]) => {
-    const val = routes.find(x => x.RouteId === selectUrlParam)
-    return val;
+  const setSelectedValue = (route: IRouteModel[]) => {
+    const val = route.find((x) => x.routeId === selectUrlParam)
+    return val
   }
 
-  const selected = setSelectedValue(routes);
-  console.log("LOG ", (selected) ? "old Route" : "new Route");
+  const selected = setSelectedValue(route)
+
+  const handleClick = () => {
+    setShowError(false);
+    setShowForm(true);
+    window.location.reload();
+    console.log('On click', showError)
+  }
 
   const onSubmit = (values: IRouteModel) => {
     setIsSubmitting(true)
-    values.RouteId = uuid()
+    values.routeId = uuid()
 
     agent.Route.create(values)
       .then((response) => {
@@ -43,7 +53,7 @@ const AddRouteModal: React.FC = () => {
           setIsSubmitting(false)
           setShowError(true)
         } else {
-          toast.success('User Creation Was Successful!')
+          toast.success('Route Creation Was Successful!')
           setInterval(() => {
             setShowForm(false)
           }, 1000)
@@ -57,7 +67,14 @@ const AddRouteModal: React.FC = () => {
   return (
     <>
       <div className='modal fade' id='kt_modal_addroute' aria-hidden='true'>
-        <AddRouteForm isSubmitting={isSubmitting} onSubmit={onSubmit} route={selected} showForm={showForm} />
+        <AddRouteForm isSubmitting={isSubmitting}
+          onSubmit={onSubmit} 
+          route={selected} 
+          showForm={showForm} 
+          showError={showError}
+          errorMessage={errorMessage}
+          handleClick={handleClick}
+          formTitle={'Add Route'}/>
       </div>
     </>
   )

@@ -37,7 +37,7 @@ export function ViewRoutes() {
       },
     ],
     DetailsPath: '/shipment/routedetail/',
-    EditPath: '#kt_modal_addroute',
+    EditPath: '#kt_modal_editroute',
     DeletePath: '/adminSettings/userDetails/',
     FakeData: RouteData,
   }
@@ -51,7 +51,7 @@ export function ViewRoutes() {
 
   const handleEdit = (event: React.MouseEvent) => {
     const urlParm = event.currentTarget.getAttribute('id')
-    const val = routemodel.find((x) => x.RouteId === urlParm)
+    const val = routemodel.find((x) => x.routeId === urlParm)
     handleSelectValue(val!)
     return val
   }

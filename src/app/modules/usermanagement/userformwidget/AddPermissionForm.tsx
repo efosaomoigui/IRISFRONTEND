@@ -1,6 +1,7 @@
 import {Grid} from '@material-ui/core'
 import { Alert } from '@mui/material'
 import {Form, Formik, FormikHelpers} from 'formik'
+import { useState } from 'react'
 import { Modal } from 'react-bootstrap-v5'
 import {Button} from 'semantic-ui-react'
 import * as Yup from 'yup'
@@ -8,6 +9,7 @@ import agent from '../../../../setup/axios/AxiosAgent'
 import {KTSVG} from '../../../../_iris/helpers'
 import {usePageData} from '../../../../_iris/layout/core'
 import {IPermissionModel, IRoleModel} from '../../auth/models/AuthInterfaces'
+import ErrorAlert from '../../common/ErrorAlert'
 import IrisSelectInput from '../../layout/forms/IrisSelectInput'
 import { dataType, IrisSelectInput2 } from '../../layout/forms/IrisSelectInput2'
 import IrisTextInput from '../../layout/forms/IrisTextInput'
@@ -18,8 +20,12 @@ interface Props<Values> {
   onSubmit: (values: Values, formikHelpers: FormikHelpers<Values>) => void | Promise<any>
   isSubmitting: boolean
   permission?: IPermissionModel //change here by Mr Efe
-  systemRoles?: IRoleModel[] //change here by Mr Efe
+  // systemRoles?: IRoleModel[] //change here by Mr Efe
   showForm?: boolean
+  formTitle?: string
+  showError?: boolean
+  errorMessage?: string
+  handleClick?: () => void
 }
 
 export default function AddPermissionForm(props: Props<IPermissionModel>) {
@@ -32,13 +38,18 @@ export default function AddPermissionForm(props: Props<IPermissionModel>) {
     setFormTitle,
   } = usePageData()
 
+  const [errorMessage, setErrorMessage] = useState('')
+  const [showError, setShowError] = useState(true)
+
   const initialFormValue: IPermissionModel = {
+    id: props.permission ? props.permission!.id : 0,
     roleId: props.permission ? props.permission!.roleId : '',
     claimType: props.permission ? props.permission!.claimType : '',
     claimValue: props.permission ? props.permission!.claimValue : '',
   }
 
   const validationSchema = Yup.object({
+    id: Yup.number().required(),
     roleId: Yup.string().required(),
     claimType: Yup.string().required(),
     claimValue: Yup.string().required(),
@@ -58,7 +69,7 @@ export default function AddPermissionForm(props: Props<IPermissionModel>) {
           <div className='modal-dialog modal-dialog-centered mw-900px'>
             <div className='modal-content'>
               <div className='modal-header'>
-                <h2>{formTitle + ' Role Permission'} </h2>
+                <h2>{'Add Role Permission'} </h2>
                 <div
                   className='btn btn-sm btn-icon btn-active-color-primary'
                   data-bs-dismiss='modal'
@@ -67,40 +78,42 @@ export default function AddPermissionForm(props: Props<IPermissionModel>) {
                 </div>
               </div>
 
-              {console.log("new what? ", props.systemRoles)}
+              {/* {console.log("new what? ", props.systemRoles)} */}
 
               <div className='modal-body'>
+                {props.showError && <ErrorAlert type={'danger'} message={props.errorMessage!.toString()} heading={'Oh snap! You got an error!'} />}
                 {props.showForm && (
                   <Grid container className={classes.root}>
                     <Grid item xs={6}>
                       {/* <IrisTextInput type='text' name='id' label='Role Id' /> */}
-                      <IrisSelectInput  name='roleId' label='RoleId' placeholder={'Role'}/>
+                      <IrisTextInput name='roleId' label='RoleId' placeholder={'Role'}/>
                       <IrisTextInput type='text' name='claimType' label='Permission Type' />
                       <IrisTextInput type='text' name='claimValue' label='Permission' />
                     </Grid> 
                   </Grid>
                 )}
-                {!props.showForm && <Alert severity='info'>Permission Added Successfully!</Alert>} 
+                {!props.showForm && <ErrorAlert type={'success'} message={'Role Permission Created Successfully!'} heading={'Confirmation Message!'} />}
               </div>
-
-              {/* Are you there? */}
-
               <Modal.Footer>
+                {props.showForm &&
+                  (<Button
+                    floated='right'
+                    positive
+                    type='submit'
+                    variant='primary'
+                    loading={props.isSubmitting}
+                    content='Submit'
+                  />
+                  )}
                 <Button
                   floated='right'
                   positive
-                  type='submit'
-                  variant='secondary'
-                  loading={props.isSubmitting}
-                  content='Submit'
-                ></Button>
-                <Button
-                  floated='right'
-                  positive
-                  type='button'
+                  type='reset'
+                  variant='primary'
+                  onClick={props.handleClick}
                   data-bs-dismiss='modal'
                   content='Cancel'
-                ></Button>
+                />
               </Modal.Footer>
             </div>
           </div>

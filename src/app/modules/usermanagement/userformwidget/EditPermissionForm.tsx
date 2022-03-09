@@ -38,12 +38,14 @@ export default function EditPermissionForm(props: Props<IPermissionModel>) {
   } = usePageData()
 
   const initialFormValue: IPermissionModel = {
+    id: props.permission ? props.permission!.id : 0,
     roleId: props.permission ? props.permission!.roleId : '',
     claimType: props.permission ? props.permission!.claimType : '',
     claimValue: props.permission ? props.permission!.claimValue : '',
   }
 
   const validationSchema = Yup.object({
+    id: Yup.number().required(),
     roleId: Yup.string().required(),
     claimType: Yup.string().required(),
     claimValue: Yup.string().required(),
@@ -63,7 +65,7 @@ export default function EditPermissionForm(props: Props<IPermissionModel>) {
           <div className='modal-dialog modal-dialog-centered mw-900px'>
             <div className='modal-content'>
               <div className='modal-header'>
-                <h2>{formTitle + ' Role Permission'} </h2>
+                <h2>{'Edit Role Permission'} </h2>
                 <div
                   className='btn btn-sm btn-icon btn-active-color-primary'
                   data-bs-dismiss='modal'
@@ -72,14 +74,14 @@ export default function EditPermissionForm(props: Props<IPermissionModel>) {
                 </div>
               </div>
 
-              {console.log("new what? ", props.systemRoles)}
+              {/* {console.log("new what? ", props.systemRoles)} */}
 
               <div className='modal-body'>
                 {props.showForm && (
                   <Grid container className={classes.root}>
                     <Grid item xs={6}>
                       {/* <IrisTextInput type='text' name='id' label='Role Id' /> */}
-                      <IrisSelectInput name='roleId' label='RoleId' placeholder={'Role'} />
+                      <IrisTextInput name='roleId' label='RoleId' placeholder={'Role'} />
                       <IrisTextInput type='text' name='claimType' label='Permission Type' />
                       <IrisTextInput type='text' name='claimValue' label='Permission' />
                     </Grid>

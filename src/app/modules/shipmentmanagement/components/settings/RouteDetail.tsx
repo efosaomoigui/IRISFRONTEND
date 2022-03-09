@@ -39,7 +39,7 @@ export function RouteDetail() {
 
               <div className='col-lg-8'>
                 <span className='fw-bolder fs-6 text-dark'>
-                    {routedetails?.RouteId}
+                    {routedetails?.routeId}
                 </span>
               </div>
             </div>
@@ -48,7 +48,7 @@ export function RouteDetail() {
 
                 <div className='col-lg-8'>
                   <span className='fw-bolder fs-6 text-dark'>
-                    {routedetails?.RouteName}
+                    {routedetails?.routeName}
                   </span>
                 </div>
             </div>
@@ -57,7 +57,7 @@ export function RouteDetail() {
 
                 <div className='col-lg-8'>
                   <span className='fw-bolder fs-6 text-dark'>
-                    {routedetails?.Departure}
+                    {routedetails?.departure}
                   </span>
                 </div>
               </div>
@@ -66,20 +66,10 @@ export function RouteDetail() {
 
                 <div className='col-lg-8'>
                   <span className='fw-bolder fs-6 text-dark'>
-                    {routedetails?.Destination}
+                    {routedetails?.destination}
                   </span>
                 </div>
               </div>
-              <div className='row mb-7'>
-                <label className='col-lg-4 fw-bold text-muted'>DispatchFee</label>
-
-                <div className='col-lg-8'>
-                  <span className='fw-bolder fs-6 text-dark'>
-                    {routedetails?.DispatchFee}
-                  </span>
-                </div>
-              </div>
-           
 
             <div className='row mb-10'>
               <label className='col-lg-4 fw-bold text-muted'>Allow Changes</label>

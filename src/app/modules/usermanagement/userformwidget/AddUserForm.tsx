@@ -81,7 +81,7 @@ export default function AddUserForm(props: Props<IUserModel>) {
               <div className='modal-content'>
                 <div className='modal-header'>
                   {/* {console.log('==> ', props.user?.userId)} */}
-                  <h2>{formTitle + ' User'}</h2>
+                  <h2>{'Add User'}</h2>
                   <div
                     className='btn btn-sm btn-icon btn-active-color-primary'
                     data-bs-dismiss='modal'

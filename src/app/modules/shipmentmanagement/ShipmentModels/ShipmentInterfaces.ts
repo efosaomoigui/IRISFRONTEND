@@ -14,18 +14,10 @@ export interface IFleetModel {
 }
 
 export interface IRouteModel {
-    RouteId: string
-    RouteName: string
-    Departure: string
-    Destination: string
-    IsSubRoute: boolean
-    DispatchFee: number
-    LoaderFee: number
-    CaptainFee: number
-    MainRouteId: number
-    AvailableAtTerminal: boolean
-    AvailableOnline: boolean
-    RouteType: number
+    routeId: string
+    routeName: string
+    departure: string
+    destination: string
     message?: string
     validationErrors?: string[]
     routedto?: {}

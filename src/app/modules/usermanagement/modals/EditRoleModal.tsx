@@ -59,7 +59,7 @@ const EditRoleModal: React.FC<Props> = ({ handleEdit, SelectedValues }: Props) =
 
   return (
     <>
-      <Container className='modal fade' id='kt_modal_addrole' aria-hidden='true'>
+      <Container className='modal fade' id='kt_modal_editrole' aria-hidden='true'>
         <EditRoleForm 
           isSubmitting={isSubmitting}
           onSubmit={onSubmit}

@@ -58,7 +58,7 @@ export default function EditRoleForm(props: Props<IRoleModel>) {
           <div className='modal-dialog modal-dialog-centered mw-900px'>
             <div className='modal-content'>
               <div className='modal-header'>
-                <h2>{formTitle + " User Role"}</h2>
+                <h2>{"Edit User Role"}</h2>
                 <div
                   className='btn btn-sm btn-icon btn-active-color-primary'
                   data-bs-dismiss='modal'
@@ -68,26 +68,29 @@ export default function EditRoleForm(props: Props<IRoleModel>) {
               </div>
 
               <div className='modal-body' >
-                {props.showForm &&
+                {props.showError && <ErrorAlert type={'danger'} message={props.errorMessage!.toString()} heading={'Oh snap! You got an error!'} />}
+                {props.showForm &&(
                   <Grid container className={classes.root}>
                     <Grid item xs={6}>
                       {/* <IrisTextInput type='text' name='id' label='Role Id' /> */}
                       <IrisTextInput type='text' name='name' label='Role Name' />
                     </Grid>
                   </Grid>
-                }
+                )}
                 {!props.showForm && <ErrorAlert type={'success'} message={'Role Created Successfully!'} heading={'Confirmation Message!'} />}
               </div>
 
               <Modal.Footer>
-                <Button
-                  floated='right'
-                  positive
-                  type='submit'
-                  variant='secondary'
-                  loading={props.isSubmitting}
-                  content='Submit'
-                ></Button>
+                {props.showForm &&
+                  (<Button
+                    floated='right'
+                    positive
+                    type='submit'
+                    variant='primary'
+                    loading={props.isSubmitting}
+                    content='Submit'
+                  />
+                  )}
                 <Button
                   floated='right'
                   positive
@@ -96,7 +99,7 @@ export default function EditRoleForm(props: Props<IRoleModel>) {
                   onClick={props.handleClick}
                   data-bs-dismiss='modal'
                   content='Cancel'
-                ></Button>
+                />
               </Modal.Footer>
             </div>
           </div>

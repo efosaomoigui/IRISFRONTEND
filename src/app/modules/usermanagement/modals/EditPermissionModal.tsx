@@ -62,7 +62,7 @@ const EditPermissionModal: React.FC<Props> = ({ handleEdit, SelectedValues }: Pr
 
   return (
     <>
-      <Container className='modal fade' id='kt_modal_addpermission' aria-hidden='true'>
+      <Container className='modal fade' id='kt_modal_editpermission' aria-hidden='true'>
         <EditPermissionForm
           isSubmitting={isSubmitting}
           onSubmit={onSubmit}
