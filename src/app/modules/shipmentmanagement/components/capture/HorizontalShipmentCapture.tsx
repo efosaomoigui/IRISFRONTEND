@@ -96,7 +96,7 @@ const HorizontalShipmentCapture: FC = () => {
 
           <Formik validationSchema={currentSchema} initialValues={initValues} onSubmit={submitStep}>
             {() => (
-              <Form className='mx-auto mw-900px w-100 pt-15 pb-10' id='kt_create_account_form'>
+              <Form className='mx-auto mw-900px w-100 pt-8 pb-10' id='kt_create_account_form'>
                 <div className='current' data-kt-stepper-element='content'>
                   <Step1 />
                 </div>
@@ -111,6 +111,10 @@ const HorizontalShipmentCapture: FC = () => {
 
                 <div data-kt-stepper-element='content'>
                   <Step4 />
+                </div>
+
+                <div data-kt-stepper-element='content'>
+                  <Step5 />
                 </div>
 
                 <div data-kt-stepper-element='content'>
