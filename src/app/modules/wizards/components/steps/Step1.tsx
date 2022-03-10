@@ -1,9 +1,13 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, {FC} from 'react'
+import React, {ChangeEvent, FC, FormEvent} from 'react'
 import {KTSVG} from '../../../../../_iris/helpers'
 import {Field, ErrorMessage} from 'formik'
 
-const Step1: FC = () => {
+interface Props{
+  handleClick?:(event: ChangeEvent<HTMLInputElement>)=>void
+}
+
+const Step1: FC<Props> = ({handleClick}:Props) => {
   return (
     <div className='w-100'>
       <div className='pb-10 pb-lg-15'>
@@ -34,6 +38,7 @@ const Step1: FC = () => {
               name='shipmentCategory'
               value='mailandparcel'
               id='kt_create_account_form_account_type_mail'
+              onClick={handleClick}
             />
             <label
               className='btn btn-outline btn-outline-dashed btn-outline-default p-7 d-flex align-items-center mb-10'
@@ -58,8 +63,9 @@ const Step1: FC = () => {
               type='radio'
               className='btn-check'
               name='shipmentCategory'
-              value='Truck Load'
+              value='TruckLoad'
               id='kt_create_account_form_account_type_truck'
+              onClick={handleClick}
             />
             <label
               className='btn btn-outline btn-outline-dashed btn-outline-default p-7 d-flex align-items-center'
@@ -83,6 +89,7 @@ const Step1: FC = () => {
               name='shipmentCategory'
               value='freight'
               id='kt_create_account_form_account_type_freight'
+              onClick={handleClick}
             />
             <label
               className='btn btn-outline btn-outline-dashed btn-outline-default p-7 d-flex align-items-center'

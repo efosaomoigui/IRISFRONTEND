@@ -43,7 +43,7 @@ export function CaptureShipment() {
             >
               <Grid container className={classes.container}>
                 <Typography variant='h6' component='h5'>
-                  General Shipment Information
+                General Shipment Information
                 </Typography>
               </Grid>
               <Grid container spacing={2}>

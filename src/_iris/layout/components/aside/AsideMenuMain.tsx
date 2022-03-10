@@ -36,7 +36,7 @@ export function AsideMenuMain() {
         <AsideMenuItem to='/admin/Users' title='Users' hasBullet={true} />
         <AsideMenuItem to='/admin/roles' title='Roles' hasBullet={true} />
         <AsideMenuItem to='/admin/permissions' title='Permissions' hasBullet={true} />
-        <AsideMenuItem to='/adminSettings/userDetails' title='User Profile' hasBullet={true} />
+        {/* <AsideMenuItem to='/adminSettings/userDetails' title='User Profile' hasBullet={true} /> */}
       </AsideMenuItemWithSub>
 
       {/* SETTINGS */}
