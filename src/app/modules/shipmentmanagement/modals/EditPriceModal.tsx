@@ -17,6 +17,7 @@ const EditPriceModal: React.FC<Props> = ({ handleEdit, SelectedValues }: Props) 
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [showForm, setShowForm] = useState(true)
   const [selectPrice, setSelectPrice] = useState<IPriceModel>()
+  const [hasError, setHasError] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
   const [showError, setShowError] = useState(false)
 
@@ -34,40 +35,40 @@ const EditPriceModal: React.FC<Props> = ({ handleEdit, SelectedValues }: Props) 
     console.log('On click', showError)
   }
 
-  const setSelectedValue = (prices: IPriceModel[]) => {
-    const val = prices.find(x => x.id === selectUrlParam)
-    return val;
-  }
+  // const setSelectedValue = (prices: IPriceModel[]) => {
+  //   const val = prices.find(x => x.RouteId === selectUrlParam)
+  //   return val;
+  // }
 
-  const selected = setSelectedValue(prices);
-  console.log("LOG ", (selected) ? "old price" : "new price");
+  
+
+  // const selected = setSelectedValue(prices);
+  // console.log("LOG ", (selected) ? "old price" : "new price");
 
   const onSubmit = (values: IPriceModel) => {
     setIsSubmitting(true)
     values.RouteId = uuid()
 
-    if (selected?.RouteId) {
-      agent.Price.update(values).then((response) => {
-        toast.success('price Update Was Successful!')
+    agent.Price.update(values).then((response) => {
+      if (response.validationErrors!.length > 0) {
+        toast.error(response.validationErrors?.toString())
+        setErrorMessage(response.validationErrors!.toString())
+        setIsSubmitting(false)
+        setShowError(true)
+      } else {
+        toast.success('Price Update Was Successful!')
         setInterval(() => {
-          setShowForm(false);
+          setShowForm(false)
         }, 1000)
         setIsSubmitting(false)
-      })
-    } else {
-      agent.Price.create(values).then((response) => {
-        toast.success('price Creation Was Successful!')
-        setInterval(() => {
-          setShowForm(false);
-        }, 1000)
-        setIsSubmitting(false)
-      })
-    }
+        setShowError(false)
+      }
+    })
   }
 
   return (
     <>
-      <div className='modal fade' id='kt_modal_addprice' aria-hidden='true'>
+      <div className='modal fade' id='kt_modal_editprice' aria-hidden='true'>
         <EditPriceForm 
           isSubmitting={isSubmitting}
           onSubmit={onSubmit}
@@ -76,7 +77,7 @@ const EditPriceModal: React.FC<Props> = ({ handleEdit, SelectedValues }: Props) 
           showError={showError}
           errorMessage={errorMessage}
           handleClick={handleClick}
-          formTitle={'Edit User'}/>
+          formTitle={'Edit Price'}/>
       </div>
     </>
   )

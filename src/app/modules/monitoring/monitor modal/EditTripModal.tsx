@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Container } from 'react-bootstrap-v5';
 import { toast } from 'react-toastify';
 import { v4 as uuid } from 'uuid';
 import agent from '../../../../setup/axios/AxiosAgent';
@@ -13,12 +14,12 @@ interface Props {
 }
 
 const EditTripModal: React.FC<Props> = ({ handleEdit, SelectedValues }: Props) => {
-
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [showForm, setShowForm] = useState(true)
     const [selectTrips, setSelectTrips] = useState<ITripModel>()
     const [errorMessage, setErrorMessage] = useState('')
     const [showError, setShowError] = useState(false)
+    const [hasError, setHasError] = useState(false)
 
     const { entityDetailValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle, selectValue, handleSelectValue } = usePageData()
 
@@ -34,40 +35,31 @@ const EditTripModal: React.FC<Props> = ({ handleEdit, SelectedValues }: Props) =
     console.log('On click', showError)
   }
 
-    const setSelectedValue = (trip: ITripModel[]) => {
-    const val = trips.find(x => x.id === selectUrlParam)
-    return val;
-    }
-
-  const selected = setSelectedValue(trips);
-  console.log("LOG ", (selected) ? "old trips" : "new trips");
 
   const onSubmit = (values: ITripModel) => {
     setIsSubmitting(true)
     values.id = uuid()
 
-    if (selected?.id) {
-      agent.Trip.update(values).then((response) => {
-        toast.success('Payment log Update Was Successful!')
+    agent.Trip.update(values).then((response) => {
+      if (response.validationErrors!.length > 0) {
+        toast.error(response.validationErrors?.toString())
+        setErrorMessage(response.validationErrors!.toString())
+        setIsSubmitting(false)
+        setShowError(true)
+      } else {
+        toast.success('Trip Update Was Successful!')
         setInterval(() => {
-          setShowForm(false);
+          setShowForm(false)
         }, 1000)
         setIsSubmitting(false)
-      })
-    } else {
-      agent.Trip.create(values).then((response) => {
-        toast.success('Payment log Creation Was Successful!')
-        setInterval(() => {
-          setShowForm(false);
-        }, 1000)
-        setIsSubmitting(false)
-      })
-    }
+        setShowError(false)
+      }
+    })
   }
 
     return (
         <>
-            <div className='modal fade' id='kt_modal_addtrip' aria-hidden='true'>
+        <Container className='modal fade' id='kt_modal_edittrip' aria-hidden='true'>
           <EditTripForm 
             isSubmitting={isSubmitting}
             onSubmit={onSubmit}
@@ -76,8 +68,9 @@ const EditTripModal: React.FC<Props> = ({ handleEdit, SelectedValues }: Props) =
             showError={showError}
             errorMessage={errorMessage}
             handleClick={handleClick}
-            formTitle={'Edit Trip'} />
-            </div>
+            formTitle={'Edit Trip'}
+          />
+        </Container>
         </>
     )
 }

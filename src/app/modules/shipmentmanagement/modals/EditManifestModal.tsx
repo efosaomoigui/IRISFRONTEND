@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Container } from 'react-bootstrap-v5';
 import { toast } from 'react-toastify';
 import { v4 as uuid } from 'uuid';
 import agent from '../../../../setup/axios/AxiosAgent';
@@ -18,6 +19,7 @@ const EditManifestModal: React.FC<Props> = ({ handleEdit, SelectedValues }: Prop
     const [selectManifest, setSelectManifest] = useState<IManifestModel>()
     const [showForm, setShowForm] = useState(true)
     const [errorMessage, setErrorMessage] = useState('')
+    const [hasError, setHasError] = useState(false)
     const [showError, setShowError] = useState(false)
 
     const { entityDetailValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle, selectValue, handleSelectValue } = usePageData()
@@ -34,40 +36,30 @@ const EditManifestModal: React.FC<Props> = ({ handleEdit, SelectedValues }: Prop
         console.log('On click', showError)
     }
 
-    const setSelectedValue = (manifests: IManifestModel[]) => {
-        const val = manifests.find(x => x.Id === selectUrlParam)
-        return val;
-    }
-
-    const selected = setSelectedValue(manifests);
-    console.log("LOG ", (selected) ? "old Manifest" : "new Manifest");
-
+   
     const onSubmit = (values: IManifestModel) => {
         setIsSubmitting(true)
         values.Id = uuid()
 
-        if (selected?.Id) {
-            agent.Manifest.update(values).then((response) => {
+        agent.Manifest.update(values).then((response) => {
+            if (response.validationErrors!.length > 0) {
+                toast.error(response.validationErrors?.toString())
+                setErrorMessage(response.validationErrors!.toString())
+                setIsSubmitting(false)
+                setShowError(true)
+            } else {
                 toast.success('Manifest Update Was Successful!')
                 setInterval(() => {
-                    setShowForm(false);
+                    setShowForm(false)
                 }, 1000)
                 setIsSubmitting(false)
-            })
-        } else {
-            agent.Manifest.create(values).then((response) => {
-                toast.success('Manifest Creation Was Successful!')
-                setInterval(() => {
-                    setShowForm(false);
-                }, 1000)
-                setIsSubmitting(false)
-            })
-        }
+                setShowError(false)
+            }
+        })
     }
-
     return (
         <>
-            <div className='modal fade' id='kt_modal_addmanifest' aria-hidden='true'>
+            <Container className='modal fade' id='kt_modal_editmanifest' aria-hidden='true'>
                 <EditManifestForm 
                     isSubmitting={isSubmitting}
                     onSubmit={onSubmit}
@@ -76,8 +68,8 @@ const EditManifestModal: React.FC<Props> = ({ handleEdit, SelectedValues }: Prop
                     showError={showError}
                     errorMessage={errorMessage}
                     handleClick={handleClick}
-                    formTitle={'Edit User'}/>
-            </div>
+                    formTitle={'Edit Manifest'}/>
+            </Container>
         </>
     )
 }

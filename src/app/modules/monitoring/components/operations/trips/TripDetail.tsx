@@ -49,7 +49,7 @@ export function TripDetail() {
 
               <div className='col-lg-8'>
                 <span className='fw-bolder fs-6 text-dark'>
-                  {tripdetails?.Dispatcher}
+                  {tripdetails?.Driver}
                 </span>
               </div>
             </div>
@@ -68,7 +68,7 @@ export function TripDetail() {
 
               <div className='col-lg-8'>
                 <span className='fw-bolder fs-6 text-dark'>
-                  {tripdetails?.DriverDispatchFee}
+                  {tripdetails?.ManifestId}
                 </span>
               </div>
             </div>
@@ -87,7 +87,7 @@ export function TripDetail() {
 
               <div className='col-lg-8'>
                 <span className='fw-bolder fs-6 text-dark'>
-                  {tripdetails?.FuelCosts}
+                  {tripdetails?.RouteCode}
                 </span>
               </div>
             </div>
@@ -96,7 +96,7 @@ export function TripDetail() {
 
               <div className='col-lg-8'>
                 <span className='fw-bolder fs-6 text-dark'>
-                  {tripdetails?.FuelUsed}
+                  {tripdetails?.fleetid}
                 </span>
               </div>
             </div>
@@ -115,7 +115,7 @@ export function TripDetail() {
 
               <div className='col-lg-8'>
                 <span className='fw-bolder fs-6 text-dark'>
-                  {tripdetails?.Miscelleneous}
+                  {tripdetails?.fleet}
                 </span>
               </div>
             </div>

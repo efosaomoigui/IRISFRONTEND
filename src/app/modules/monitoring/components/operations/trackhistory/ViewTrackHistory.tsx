@@ -1,5 +1,7 @@
 import {useEffect, useState} from 'react'
+import { Spinner } from 'react-bootstrap-v5'
 import agent from '../../../../../../setup/axios/AxiosAgent'
+import { usePageData } from '../../../../../../_iris/layout/core'
 import {IUserModel} from '../../../../auth/models/AuthInterfaces'
 import {IrisTablesWidget} from '../../../../layout/tables/IrisTablesWidget'
 import {modalprops} from '../../../../layout/tables/IrisTableTitle'
@@ -12,6 +14,7 @@ export function ViewTrackHistory() {
   const [modalTarger, setModalTarget] = useState<modalprops[]>([])
   const [trackhistorymodel, setUsersModel] = useState<ITrackHistoryModel[]>([])
   const [loadingData, setLoadingData] = useState(true)
+  const { selectValue, handleSelectValue, selectUrlParam, setSelectUrlParam } = usePageData() //global data
 
   //all the data for the table
   const tableProvider = {
@@ -46,7 +49,7 @@ export function ViewTrackHistory() {
       },
     ],
     DetailsPath: '/monitor/trackHistoryDetails/',
-    EditPath: '#kt_modal_addtrackhistory',
+    EditPath: '#kt_modal_edittrackhistory',
     DeletePath: '/adminSettings/userDetails/',
     FakeData: TrackHistory_Data,
   }
@@ -58,6 +61,14 @@ export function ViewTrackHistory() {
       linkTarget: '#kt_modal_addtrackhistory',
     },
   ]
+
+  const handleEdit = (event: React.MouseEvent) => {
+    const urlParm = event.currentTarget.getAttribute('id')
+    const val = trackhistorymodel.find((x) => x.id === urlParm)
+    handleSelectValue(val!)
+    return val
+  }
+
   // //USE EFFECT HOOK
   useEffect(() => {
     const callFunc = async () => {
@@ -76,7 +87,7 @@ export function ViewTrackHistory() {
     <div className='row g-5 g-xxl-8'>
       <div className='col-xl-12'>
         {loadingData ? (
-          <p>Loading Please wait...</p>
+          <div><Spinner animation="border" /></div>
         ) : (
           <IrisTablesWidget
             tableData={trackhistorymodel}
@@ -90,6 +101,7 @@ export function ViewTrackHistory() {
             TableTitle={'Traeck History'}
             Count={'Over 300 Users'}
             ModalTarget={modalTarger}
+            handleEdit={handleEdit}
           />
         )}
       </div>

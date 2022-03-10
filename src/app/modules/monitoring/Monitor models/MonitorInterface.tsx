@@ -8,21 +8,22 @@ export interface ITripModel {
     ManifestId: string
     manifest: string
     Driver: string
-    Dispatcher: string
-    DriverDispatchFee: string
-    Miscelleneous: string
-    FuelCosts: string
-    FuelUsed: string
     StartTime: string
     EndTime: string
-    status: string
+    message?: string
+    validationErrors?: string[]
+    tripdto?: {}
 }
 
 export interface ITrackHistoryModel {
     id: string
     TripId : string
+    Trip: string
     Action  : string
     Location : string
     TimeStamp : string
     Status : string
+    message?: string
+    validationErrors?: string[]
+    trackhistorydto?: {}
 }
