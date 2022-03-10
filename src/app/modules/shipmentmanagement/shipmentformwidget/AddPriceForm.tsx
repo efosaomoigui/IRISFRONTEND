@@ -10,6 +10,8 @@ import { usePageData } from '../../../../_iris/layout/core'
 import { Alert } from '@mui/material'
 import { Grid } from '@material-ui/core'
 import useStyles from '../../layout/formstyles/FormStyle'
+import { useState } from 'react'
+import ErrorAlert from '../../common/ErrorAlert'
 
 // interface Props {
 //   userVal: IUserModel
@@ -20,6 +22,10 @@ interface Props<Values> {
   isSubmitting: boolean
   price?: IPriceModel
   showForm?: boolean
+  formTitle?: string
+  showError?: boolean
+  errorMessage?: string
+  handleClick?: () => void
 }
 
 const options = [
@@ -30,10 +36,18 @@ const options = [
 ]
 
 export default function AddPriceForm(props: Props<IPriceModel>) {
-  const {entityDetailValues, setEntityDetailValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle} = usePageData()
+  const {entityDetailValues,
+         setEntityDetailValues, 
+         selectUrlParam, 
+         setSelectUrlParam, 
+         formTitle, 
+         setFormTitle} = usePageData()
+
+  const [errorMessage, setErrorMessage] = useState('')
+  const [showError, setShowError] = useState(true)
 
   const initialFormValue: IPriceModel = {
-    id: props.price ? props.price!.id : '',
+    
     Category: props.price ? props.price!.Category : '',
     RouteId: props.price ? props.price!.RouteId : '',
     Route: props.price ? props.price!.Route : '',
@@ -42,7 +56,7 @@ export default function AddPriceForm(props: Props<IPriceModel>) {
   }
 
   const validationSchema = Yup.object({
-    id: Yup.string().required(),
+    
     Category: Yup.string().required(),
     RouteId: Yup.string().required(),
     Route: Yup.string().required(),
@@ -73,22 +87,27 @@ export default function AddPriceForm(props: Props<IPriceModel>) {
                 </div>
               </div>
               <div className='modal-body' >
-                {props.showForm &&
+                {props.showError && <ErrorAlert type={'danger'} message={props.errorMessage!.toString()} heading={'Oh snap! You got an error!'} />}
+                {props.showForm && (
                   <Grid container className={classes.root}>
                     <Grid item xs={6}>
-                      <IrisTextInput
+                      {/* <IrisTextInput
                         type='text'
                         name='id'
                         placeholder='Id'
                         label='Id'
-                      />
+                      /> */}
                       <IrisTextInput
-                        type='number'
+                        type='text'
                         placeholder='RouteId'
                         name='RouteId'
                         label='RouteId'
                       />
-                      <IrisTextInput type='text' placeholder='Route' name='Route' label='Route' />
+                      <IrisTextInput 
+                        type='text' 
+                        placeholder='Route'
+                        name='Route' 
+                        label='Route' />
 
                     </Grid>
                     <Grid item xs={6}>
@@ -104,32 +123,37 @@ export default function AddPriceForm(props: Props<IPriceModel>) {
                         name='PricePErUnit'
                         label='PricePErUnit'
                       />
-                      {/* <IrisSelectInput
-                        options={options}
+                      <IrisTextInput
+                        type='text'
                         placeholder='category'
                         name='Category'
                         label='Category'
-                      /> */}
+                      />
                     </Grid>
                   </Grid>
-                }
-                {!props.showForm && <Alert severity="info">Price Created Successfully!</Alert>}
+                )}
+                {!props.showForm && <ErrorAlert type={'success'} message={'Price Created Successfully!'} heading={'Confirmation Message!'} />}
               </div>
-              <div className='modal-body py-lg-10 px-lg-10'>
-               
-                
-              </div>
-
               <Modal.Footer>
+                {props.showForm &&
+                  (<Button
+                    floated='right'
+                    positive
+                    type='submit'
+                    variant='primary'
+                    loading={props.isSubmitting}
+                    content='Submit'
+                  />
+                  )}
                 <Button
                   floated='right'
                   positive
-                  type='submit'
-                  variant='secondary'
-                  loading={props.isSubmitting}
-                  content='Submit'
-                ></Button>
-                <Button floated='right' positive type='button' data-bs-dismiss="modal" content='Cancel'></Button>
+                  type='reset'
+                  variant='primary'
+                  onClick={props.handleClick}
+                  data-bs-dismiss='modal'
+                  content='Cancel'
+                />
               </Modal.Footer>
             </div>
           </div>

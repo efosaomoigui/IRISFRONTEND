@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react'
 import {Spinner} from 'react-bootstrap-v5'
 import agent from '../../../../../setup/axios/AxiosAgent'
+import { usePageData } from '../../../../../_iris/layout/core'
 import {IrisTablesWidget} from '../../../layout/tables/IrisTablesWidget'
 import {modalprops} from '../../../layout/tables/IrisTableTitle'
 import PriceData from '../../PriceData.json'
@@ -12,14 +13,15 @@ export function ViewPriceSettings() {
   const [modalTarger, setModalTarget] = useState<modalprops[]>([])
   const [pricemodel, setPriceModel] = useState<IPriceModel[]>([])
   const [loadingData, setLoadingData] = useState(true)
+  const { selectValue, handleSelectValue, selectUrlParam, setSelectUrlParam } = usePageData() //global data
 
   //all the data for the table
   const tableProvider = {
     columns: [
-      {
-        Header: 'ID',
-        accessor: 'id',
-      },
+      // {
+      //   Header: 'ID',
+      //   accessor: 'id',
+      // },
       {
         Header: 'Category List',
         accessor: 'Category',
@@ -42,7 +44,7 @@ export function ViewPriceSettings() {
       },
     ],
     DetailsPath: '/shipment/pricesettingdetail/',
-    EditPath: '#kt_modal_addprice',
+    EditPath: '#kt_modal_editprice',
     DeletePath: '/adminSettings/userDetails/',
     FakeData: PriceData,
   }
@@ -54,6 +56,13 @@ export function ViewPriceSettings() {
       linkTarget: '#kt_modal_addprice',
     },
   ]
+
+  const handleEdit = (event: React.MouseEvent) => {
+    const urlParm = event.currentTarget.getAttribute('id')
+    const val = pricemodel.find((x) => x.RouteId === urlParm)
+    handleSelectValue(val!)
+    return val
+  }
 
   // //USE EFFECT HOOK
   useEffect(() => {
@@ -89,6 +98,7 @@ export function ViewPriceSettings() {
             TableTitle={'Price Profile'}
             Count={'Over 300 Users'}
             ModalTarget={modalTarger}
+            handleEdit={handleEdit}
           />
         )}
       </div>

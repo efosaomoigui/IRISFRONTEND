@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Container } from 'react-bootstrap-v5';
 import { toast } from 'react-toastify';
 import { v4 as uuid } from 'uuid';
 import agent from '../../../../setup/axios/AxiosAgent';
@@ -7,14 +8,22 @@ import { ITrackHistoryModel, ITripModel } from '../Monitor models/MonitorInterfa
 import AddTrackHistoryForm from '../monitorformwidget/AddTrackHistoryForm';
 import AddTripForm from '../monitorformwidget/AddTripForm';
 
-
+interface Props {
+  handleSelect?: () => void
+  SelectedValues?: any[]
+}
 
 const AddTrackHistoryModal: React.FC = () => {
-
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [showForm, setShowForm] = useState(true)
     const [selectTrackHistory, setSelectTrackHistory] = useState<ITrackHistoryModel>()
-    const { entityDetailValues, selectUrlParam, setSelectUrlParam } = usePageData()
+    const [hasError, setHasError] = useState(false)
+    const [errorMessage, setErrorMessage] = useState('')
+    const [showError, setShowError] = useState(false)
+
+
+  const { entityDetailValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle } =
+    usePageData()
 
   // handle logic
     const trackHistory = entityDetailValues as ITrackHistoryModel[];
@@ -25,35 +34,49 @@ const AddTrackHistoryModal: React.FC = () => {
     }
 
   const selected = setSelectedValue(trackHistory);
-  console.log("LOG ", (selected) ? "old Track History" : "new Track History");
+
+  const handleClick = () => {
+    setShowError(false);
+    setShowForm(true);
+    window.location.reload();
+    console.log('On click', showError)
+  }
 
   const onSubmit = (values: ITrackHistoryModel) => {
     setIsSubmitting(true)
     values.id = uuid()
 
-    if (selected?.id) {
-      agent.TrackHistory.update(values).then((response) => {
-        toast.success('Track History Update Was Successful!')
-        setInterval(() => {
-          setShowForm(false);
-        }, 1000)
-        setIsSubmitting(false)
+    agent.TrackHistory.create(values)
+      .then((response) => {
+        if (response.validationErrors!.length > 0) {
+          toast.error(response.validationErrors?.toString())
+          setErrorMessage(response.validationErrors!.toString())
+          setIsSubmitting(false)
+          setShowError(true)
+        } else {
+          toast.success('Track History Creation Was Successful!')
+          setInterval(() => {
+            setShowForm(false)
+          }, 1000)
+          setIsSubmitting(false)
+          setShowError(false)
+        }
       })
-    } else {
-      agent.TrackHistory.create(values).then((response) => {
-        toast.success('Track History Creation Was Successful!')
-        setInterval(() => {
-          setShowForm(false);
-        }, 1000)
-      })
-    }
   }
 
     return (
         <>
-            <div className='modal fade' id='kt_modal_addtrackhistory' aria-hidden='true'>
-          <AddTrackHistoryForm isSubmitting={isSubmitting} onSubmit={onSubmit} trackHistory={selected} showForm={showForm} />
-            </div>
+        <Container className='modal fade' id='kt_modal_addtrackhistory' aria-hidden='true'>
+          <AddTrackHistoryForm 
+            isSubmitting={isSubmitting}
+            onSubmit={onSubmit}
+            trackHistory={selected}
+            showForm={showForm}
+            errorMessage={errorMessage}
+            handleClick={handleClick}
+            formTitle={'Add User'}
+             />
+        </Container>
         </>
     )
 }

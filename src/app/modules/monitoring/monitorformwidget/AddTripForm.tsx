@@ -10,6 +10,9 @@ import {usePageData} from '../../../../_iris/layout/core'
 import { Grid } from '@material-ui/core'
 import { Alert } from '@mui/material'
 import useStyles from '../../layout/formstyles/FormStyle'
+import ErrorAlert from '../../common/ErrorAlert'
+import { useState } from 'react'
+import IrisDatePicker from '../../layout/forms/IrisDatePicker'
 
 
 
@@ -24,6 +27,10 @@ interface Props<Values> {
     isSubmitting: boolean
     trip?: ITripModel
     showForm?: boolean
+    formTitle?: string
+    showError?: boolean
+    errorMessage?: string
+    handleClick?: () => void
 }
 
 const options = [
@@ -43,6 +50,9 @@ export default function AddTripForm(props: Props<ITripModel>) {
         formTitle,
         setFormTitle,
       } = usePageData()
+
+    const [errorMessage, setErrorMessage] = useState('')
+    const [showError, setShowError] = useState(true)
       
     const initialFormValue: ITripModel = {
         id: props.trip ? props.trip!.id : '',
@@ -53,24 +63,19 @@ export default function AddTripForm(props: Props<ITripModel>) {
         ManifestId: props.trip ? props.trip!.ManifestId :'',
         manifest: props.trip ? props.trip!.manifest :'',
         Driver: props.trip ? props.trip!.Driver :'',
-        Dispatcher: props.trip ? props.trip!.Dispatcher :'',
-        DriverDispatchFee: props.trip ? props.trip!.DriverDispatchFee :'',
-        Miscelleneous: props.trip ? props.trip!.Miscelleneous :'',
-        FuelCosts: props.trip ? props.trip!.FuelCosts :'',
-        FuelUsed: props.trip ? props.trip!.FuelUsed :'',
         StartTime: props.trip ? props.trip!.StartTime :'',
         EndTime: props.trip ? props.trip!.EndTime :'',
-        status: props.trip ? props.trip!.status :'',
     }
 
     const validationSchema = Yup.object({
+        id: Yup.string().required(),
         TripReference: Yup.string().required(),
         RouteCode: Yup.string().required(),
         fleetid: Yup.string().required(),
+        fleet: Yup.string().required(),
         ManifestId: Yup.string().required(),
+        manifest: Yup.string().required(),
         Driver: Yup.string().required(),
-        Dispatcher: Yup.string().required(),
-        DriverDispatchFee: Yup.string().required(),
         StartTime: Yup.string().required(),
         EndTime: Yup.string().required(),
     })
@@ -98,9 +103,16 @@ export default function AddTripForm(props: Props<ITripModel>) {
                                 </div>
                             </div>
                             <div className='modal-body' >
-                                {props.showForm &&
+                                {props.showError && <ErrorAlert type={'danger'} message={props.errorMessage!.toString()} heading={'Oh snap! You got an error!'} />}
+                                {props.showForm &&(
                                     <Grid container className={classes.root}>
-                                        <Grid item xs={6}>
+                                        <Grid item xs={3}>
+                                            <IrisTextInput
+                                                type='text'
+                                                placeholder='Trip Id'
+                                                name='id'
+                                                label='Trip Id'
+                                            />
                                             <IrisTextInput
                                                 type='text'
                                                 name='TripReference'
@@ -113,8 +125,9 @@ export default function AddTripForm(props: Props<ITripModel>) {
                                                 name='fleetid'
                                                 label='fleetid'
                                             />
+                                            
                                         </Grid>
-                                        <Grid item xs={6}>
+                                        <Grid item xs={3}>
                                             <IrisTextInput
                                                 type='text'
                                                 placeholder='Driver'
@@ -123,34 +136,71 @@ export default function AddTripForm(props: Props<ITripModel>) {
                                             />
                                             <IrisTextInput
                                                 type='text'
-                                                placeholder='FuelCosts'
-                                                name='FuelCosts'
-                                                label='FuelCosts'
+                                                placeholder='RouteCode'
+                                                name='RouteCode'
+                                                label='RouteCode'
                                             />
-
                                             <IrisTextInput
                                                 type='text'
-                                                placeholder='Dispatcher'
-                                                name='Dispatcher'
-                                                label='Dispatcher'
+                                                placeholder='fleet'
+                                                name='fleet'
+                                                label='fleet'
+                                            />
+                                        </Grid>
+                                        <Grid item xs={3}>
+                                            <IrisTextInput
+                                                type='text'
+                                                placeholder='ManifestId'
+                                                name='ManifestId'
+                                                label='ManifestId'
+                                            />
+                                            <IrisTextInput
+                                                type='text'
+                                                placeholder='manifest'
+                                                name='manifest'
+                                                label='manifest'
+                                            />
+                                            <IrisDatePicker
+                                                placeholderText='StartTime'
+                                                name='StartTime'
+                                                showTimeSelect
+                                                timeCaption='StartTime'
+                                                dateFormat='MMM d, yyyy h:mm: aa'
+                                            />
+                                            <IrisDatePicker
+                                                placeholderText='EndTime'
+                                                name='EndTime'
+                                                showTimeSelect
+                                                timeCaption='EndTime'
+                                                dateFormat='MMM d, yyyy h:mm: aa'
                                             />
                                         </Grid>
                                     </Grid>
-                                }
-                                {!props.showForm && <Alert severity="info">Trip Created Successfully!</Alert>}
+                                )}
+                                {!props.showForm && <ErrorAlert type={'success'} message={'Trip Created Successfully!'} heading={'Confirmation Message!'} />}
                             </div>
                             <div className='modal-body py-lg-10 px-lg-10'>
                             </div>
                             <Modal.Footer>
+                                {props.showForm &&
+                                    (<Button
+                                        floated='right'
+                                        positive
+                                        type='submit'
+                                        variant='primary'
+                                        loading={props.isSubmitting}
+                                        content='Submit'
+                                    />
+                                    )}
                                 <Button
                                     floated='right'
                                     positive
-                                    type='submit'
-                                    variant='secondary'
-                                    loading={props.isSubmitting}
-                                    content='Submit'
-                                ></Button>
-                                <Button floated='right' positive type='button' data-bs-dismiss="modal" content='Cancel'></Button>
+                                    type='reset'
+                                    variant='primary'
+                                    onClick={props.handleClick}
+                                    data-bs-dismiss='modal'
+                                    content='Cancel'
+                                />
                             </Modal.Footer>
                         </div>
                     </div>

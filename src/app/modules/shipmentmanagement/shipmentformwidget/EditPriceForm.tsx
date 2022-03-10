@@ -10,6 +10,7 @@ import { usePageData } from '../../../../_iris/layout/core'
 import { Alert } from '@mui/material'
 import { Grid } from '@material-ui/core'
 import useStyles from '../../layout/formstyles/FormStyle'
+import ErrorAlert from '../../common/ErrorAlert'
 
 // interface Props {
 //   userVal: IUserModel
@@ -37,7 +38,7 @@ export default function EditPriceForm(props: Props<IPriceModel>) {
   const {entityDetailValues, setEntityDetailValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle} = usePageData()
 
   const initialFormValue: IPriceModel = {
-    id: props.price ? props.price!.id : '',
+    
     Category: props.price ? props.price!.Category : '',
     RouteId: props.price ? props.price!.RouteId : '',
     Route: props.price ? props.price!.Route : '',
@@ -46,7 +47,7 @@ export default function EditPriceForm(props: Props<IPriceModel>) {
   }
 
   const validationSchema = Yup.object({
-    id: Yup.string().required(),
+    
     Category: Yup.string().required(),
     RouteId: Yup.string().required(),
     Route: Yup.string().required(),
@@ -68,7 +69,7 @@ export default function EditPriceForm(props: Props<IPriceModel>) {
           <div className='modal-dialog modal-dialog-centered mw-900px'>
             <div className='modal-content'>
               <div className='modal-header'>
-                <h2>{formTitle+" Price Item"}</h2>
+                <h2>{"Edit Price Item"}</h2>
                 <div
                   className='btn btn-sm btn-icon btn-active-color-primary'
                   data-bs-dismiss='modal'
@@ -77,7 +78,8 @@ export default function EditPriceForm(props: Props<IPriceModel>) {
                 </div>
               </div>
               <div className='modal-body' >
-                {props.showForm &&
+                {props.showError && <ErrorAlert type={'danger'} message={props.errorMessage!.toString()} heading={'Oh snap! You got an error!'} />}
+                {props.showForm && (
                   <Grid container className={classes.root}>
                     <Grid item xs={6}>
                       <IrisTextInput
@@ -116,8 +118,8 @@ export default function EditPriceForm(props: Props<IPriceModel>) {
                       /> */}
                     </Grid>
                   </Grid>
-                }
-                {!props.showForm && <Alert severity="info">Price Created Successfully!</Alert>}
+                )}
+                {!props.showForm && <ErrorAlert type={'success'} message={'Price Created Successfully!'} heading={'Confirmation Message!'} />}
               </div>
               <div className='modal-body py-lg-10 px-lg-10'>
                
@@ -125,22 +127,25 @@ export default function EditPriceForm(props: Props<IPriceModel>) {
               </div>
 
               <Modal.Footer>
+                {props.showForm &&
+                  (<Button
+                    floated='right'
+                    positive
+                    type='submit'
+                    variant='primary'
+                    loading={props.isSubmitting}
+                    content='Submit'
+                  />
+                  )}
                 <Button
-                  floated='right'
-                  positive
-                  type='submit'
-                  variant='secondary'
-                  loading={props.isSubmitting}
-                  content='Submit'
-                ></Button>
-                <Button 
                   floated='right'
                   positive
                   type='reset'
                   variant='primary'
                   onClick={props.handleClick}
                   data-bs-dismiss='modal'
-                  content='Cancel'></Button>
+                  content='Cancel'
+                />
               </Modal.Footer>
             </div>
           </div>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Spinner } from 'react-bootstrap-v5'
 import agent from '../../../../../../setup/axios/AxiosAgent'
+import { usePageData } from '../../../../../../_iris/layout/core'
 import LoadingComponent from '../../../../../LoadingComponent'
 import { IrisTablesWidget } from '../../../../layout/tables/IrisTablesWidget'
 import { modalprops } from '../../../../layout/tables/IrisTableTitle'
@@ -13,6 +14,7 @@ export function ViewTrips() {
   const [modalTarger, setModalTarget] = useState<modalprops[]>([]);
   const [tripmodel, setUsersModel] = useState<ITripModel[]>([])
   const [loadingData, setLoadingData] = useState(true)
+  const { selectValue, handleSelectValue, selectUrlParam, setSelectUrlParam } = usePageData() //global data
 
 
   //all the data for the table
@@ -39,16 +41,12 @@ export function ViewTrips() {
         accessor: 'ManifestId',
       },
       {
+        Header: 'Manifest',
+        accessor: 'manifest',
+      },
+      {
         Header: 'Driver',
         accessor: 'Driver',
-      },
-      {
-        Header: 'Dispatcher',
-        accessor: 'Dispatcher',
-      },
-      {
-        Header: 'Driver Dispatch Fee ',
-        accessor: 'DriverDispatchFee',
       },
 
       {
@@ -63,7 +61,7 @@ export function ViewTrips() {
     
     ],
     DetailsPath: '/monitor/tripDetails/',
-    EditPath: '#kt_modal_addtrip',
+    EditPath: '#kt_modal_edittrip',
     DeletePath: '/adminSettings/userDetails/',
     FakeData: ViewTrips_Data,
   }
@@ -75,6 +73,15 @@ export function ViewTrips() {
       linkTarget: '#kt_modal_addtrip'
     },
   ]
+
+
+  const handleEdit = (event: React.MouseEvent) => {
+    const urlParm = event.currentTarget.getAttribute('id')
+    const val = tripmodel.find((x) => x.id === urlParm)
+    handleSelectValue(val!)
+    return val
+  }
+
 
     //USE EFFECT HOOK
     useEffect(() => {
@@ -113,6 +120,7 @@ export function ViewTrips() {
           ModalTarget={
             modalTarger
           }
+          handleEdit={handleEdit}
         />
         )}
       </div>

@@ -121,7 +121,7 @@ const  Price = {
   list: () => request.get<IPriceModel[]>(`${API_URL}/ShipmentSettings/Price/all`),
   details: (id: string) => request.get<IPriceModel>(`${API_URL}/api/ShipmentSettings/Price/GetPriceById/${id}`), 
   create: (price: IPriceModel) => request.post<IPriceModel>(`${API_URL}/ShipmentSettings/Price`, price), 
-  update: (price: IPriceModel) => request.put<IPriceModel>(`${API_URL}/ShipmentSettings/Price/${price.id}`, {}), 
+  update: (price: IPriceModel) => request.put<IPriceModel>(`${API_URL}/ShipmentSettings/Price/${price.RouteId}`, {}), 
   delete: (id: string) => request.del<void>(`${API_URL}/ShipmentSettings/Price${id}`),  
 }
 

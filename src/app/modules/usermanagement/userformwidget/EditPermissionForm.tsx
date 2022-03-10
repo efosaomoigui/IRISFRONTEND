@@ -45,7 +45,6 @@ export default function EditPermissionForm(props: Props<IPermissionModel>) {
   }
 
   const validationSchema = Yup.object({
-    id: Yup.number().required(),
     roleId: Yup.string().required(),
     claimType: Yup.string().required(),
     claimValue: Yup.string().required(),

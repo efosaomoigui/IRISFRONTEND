@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Spinner } from 'react-bootstrap-v5';
 import agent from '../../../../../setup/axios/AxiosAgent';
+import { usePageData } from '../../../../../_iris/layout/core';
 import LoadingComponent from '../../../../LoadingComponent';
 import { IrisTablesWidget } from '../../../layout/tables/IrisTablesWidget';
 import { modalprops } from '../../../layout/tables/IrisTableTitle';
@@ -13,6 +14,7 @@ export function Manifest() {
   const [modalTarger, setModalTarget] = useState<modalprops[]>([]);
   const [manifestmodel, setUsersModel] = useState<IManifestModel[]>([])
   const [loadingData, setLoadingData] = useState(true)
+  const { selectValue, handleSelectValue, selectUrlParam, setSelectUrlParam } = usePageData() //global data
 
   //all the data for the table
   const tableProvider = { 
@@ -30,17 +32,9 @@ export function Manifest() {
         Header: 'Group WayBillId',
         accessor: 'GroupWayBillId',
       },
-      {
-        Header: 'Group WayBill',
-        accessor: 'GroupWayBill',
-      },
-      {
-        Header: 'UserId',
-        accessor: 'UserId',
-      },
     ],
     DetailsPath: '/shipment/manifestdetail/',
-    EditPath: '#kt_modal_addmanifest',
+    EditPath: '#kt_modal_editmanifest',
     DeletePath: '/adminSettings/userDetails/',
     FakeData: Manifest_Data,
   }
@@ -52,6 +46,13 @@ export function Manifest() {
       linkTarget: '#kt_modal_addmanifest',
     }
   ]
+
+  const handleEdit = (event: React.MouseEvent) => {
+    const urlParm = event.currentTarget.getAttribute('id')
+    const val = manifestmodel.find((x) => x.Id === urlParm)
+    handleSelectValue(val!)
+    return val
+  }
     // //USE EFFECT HOOK
     useEffect(() => {
       const callFunc = async () => {
@@ -87,6 +88,7 @@ export function Manifest() {
           ModalTarget={
             modalTarger
           }
+          handleEdit={handleEdit}
         />
         )}
       </div>

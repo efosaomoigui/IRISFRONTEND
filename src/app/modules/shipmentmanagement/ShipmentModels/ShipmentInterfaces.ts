@@ -11,6 +11,9 @@ export interface IFleetModel {
     FleetModel: string;
     FleetMake: string;
     OwnerId: string;
+    message?: string
+    validationErrors?: string[]
+    fleetdto?: {}
 }
 
 export interface IRouteModel {
@@ -35,17 +38,21 @@ export interface IShipmentModel {
     ShipmentItems: string
 } 
 export interface IPriceModel {
-    id: string;
+   
     Category: string;
     RouteId: string;
     Route: string;
     UnitWeight: number;
     PricePErUnit: string;
+    message?: string
+    validationErrors?: string[]
+    pricedto?: {}
 } 
 export interface IManifestModel {
     Id: string;
     ManifestCode: string;
     GroupWayBillId: string;
-    GroupWayBill: string;
-    UserId: string;
+    message?: string
+    validationErrors?: string[]
+    manifestdto?: {}
 } 
