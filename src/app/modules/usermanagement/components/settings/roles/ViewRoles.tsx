@@ -12,7 +12,7 @@ export function ViewRoles() {
   const [loading, setLoading] = useState(true)
   const [rolemodel, setRoleModel] = useState<IRoleModel[]>([])
   const [loadingData, setLoadingData] = useState(true)
-  const { selectValue, handleSelectValue, selectUrlParam, setSelectUrlParam } = usePageData() //global data
+  const { selectValue, handleSelectValue, selectUrlParam, setSelectUrlParam, entityDetailValues, setEntityDetailValues } = usePageData() //global data
   
   const tableProvider = {
     columns: [
@@ -42,8 +42,10 @@ export function ViewRoles() {
     const urlParm = event.currentTarget.getAttribute('id')
     const val = rolemodel.find((x) => x.id === urlParm)
     handleSelectValue(val!)
+    // alert('hurray ' + JSON.stringify(val))
     return val
   }
+
   // //USE EFFECT HOOK
   useEffect(() => {
     const callFunc = async () => {
