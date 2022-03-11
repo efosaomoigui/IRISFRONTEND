@@ -1,15 +1,20 @@
-import {FC, useEffect, useRef, useState} from 'react'
+import {ChangeEvent, FC, FormEvent, useEffect, useRef, useState} from 'react'
 
 import {KTSVG} from '../../../../../_iris/helpers'
 import {StepperComponent} from '../../../../../_iris/assets/ts/components'
-import {Formik, Form, FormikValues} from 'formik'
-import { createAccountSchemas, ICreateAccount, inits } from '../../../wizards/components/CreateAccountWizardHelper'
-import { Step5 } from '../../../wizards/components/steps/Step5'
-import { Step4 } from '../../../wizards/components/steps/Step4'
-import { Step3 } from '../../../wizards/components/steps/Step3'
-import { Step2 } from '../../../wizards/components/steps/Step2'
-import { Step1 } from '../../../wizards/components/steps/Step1'
-import { Button, Nav } from 'react-bootstrap-v5'
+import {Formik, Form, FormikValues, useFormikContext} from 'formik'
+import {
+  createAccountSchemas,
+  ICreateAccount,
+  inits,
+} from '../../../wizards/components/CreateAccountWizardHelper'
+import {Step5} from '../../../wizards/components/steps/Step5'
+import {Step4} from '../../../wizards/components/steps/Step4'
+import {Step3} from '../../../wizards/components/steps/Step3'
+import {Step2} from '../../../wizards/components/steps/Step2'
+import {Step1} from '../../../wizards/components/steps/Step1'
+import {Button, Nav} from 'react-bootstrap-v5'
+import {Step6} from '../../../wizards/components/steps/Step6'
 
 const HorizontalShipmentCapture: FC = () => {
   const stepperRef = useRef<HTMLDivElement | null>(null)
@@ -17,6 +22,7 @@ const HorizontalShipmentCapture: FC = () => {
   const [currentSchema, setCurrentSchema] = useState(createAccountSchemas[0])
   const [initValues] = useState<ICreateAccount>(inits)
   const [isSubmitButton, setSubmitButton] = useState(false)
+  const [radioState, setRadioState] = useState("");
 
   const loadStepper = () => {
     stepper.current = StepperComponent.createInsance(stepperRef.current as HTMLDivElement)
@@ -28,9 +34,7 @@ const HorizontalShipmentCapture: FC = () => {
     }
 
     setSubmitButton(stepper.current.currentStepIndex === stepper.current.totatStepsNumber! - 1)
-
     stepper.current.goPrev()
-
     setCurrentSchema(createAccountSchemas[stepper.current.currentStepIndex - 1])
   }
 
@@ -40,7 +44,6 @@ const HorizontalShipmentCapture: FC = () => {
     }
 
     setSubmitButton(stepper.current.currentStepIndex === stepper.current.totatStepsNumber! - 1)
-
     setCurrentSchema(createAccountSchemas[stepper.current.currentStepIndex])
 
     if (stepper.current.currentStepIndex !== stepper.current.totatStepsNumber) {
@@ -50,6 +53,12 @@ const HorizontalShipmentCapture: FC = () => {
       actions.resetForm()
     }
   }
+
+  const handleOnChange = (e: ChangeEvent<HTMLInputElement>)=> {
+    const newValue = e.target.value;
+    setRadioState(newValue)
+    console.log("}==> ", newValue);
+ }
 
   useEffect(() => {
     if (!stepperRef.current) {
@@ -85,20 +94,24 @@ const HorizontalShipmentCapture: FC = () => {
             </div>
 
             <div className='stepper-item' data-kt-stepper-element='nav'>
-              <h3 className='stepper-title'>Billing</h3>
+              <h3 className='stepper-title'>Summary</h3>
             </div>
 
             <div className='stepper-item' data-kt-stepper-element='nav'>
               <h3 className='stepper-title'>CheckOut</h3>
             </div>
-            
           </div>
 
-          <Formik validationSchema={currentSchema} initialValues={initValues} onSubmit={submitStep}>
+          <Formik
+            validationSchema={currentSchema}
+            initialValues={initValues}
+            onSubmit={submitStep}
+            onChange={handleOnChange}
+          >
             {() => (
               <Form className='mx-auto mw-900px w-100 pt-8 pb-10' id='kt_create_account_form'>
                 <div className='current' data-kt-stepper-element='content'>
-                  <Step1 />
+                  <Step1 handleClick={handleOnChange} />
                 </div>
 
                 <div data-kt-stepper-element='content'>
@@ -106,7 +119,7 @@ const HorizontalShipmentCapture: FC = () => {
                 </div>
 
                 <div data-kt-stepper-element='content'>
-                  <Step3 />
+                  <Step3 radioState={radioState} /> 
                 </div>
 
                 <div data-kt-stepper-element='content'>
@@ -118,7 +131,7 @@ const HorizontalShipmentCapture: FC = () => {
                 </div>
 
                 <div data-kt-stepper-element='content'>
-                  <Step5 />
+                  <Step6 />
                 </div>
 
                 <div className='d-flex flex-stack pt-2'>
@@ -126,7 +139,7 @@ const HorizontalShipmentCapture: FC = () => {
                     <Button
                       onClick={prevStep}
                       type='button'
-                      style={{width:'100%' }}
+                      style={{width: '100%'}}
                       className='btn btn-lg btn-primary me-3'
                       data-kt-stepper-action='previous'
                     >
@@ -139,7 +152,11 @@ const HorizontalShipmentCapture: FC = () => {
                   </div>
 
                   <div>
-                    <Button type='submit' style={{width:'100%' }} className='btn btn-lg btn-primary me-3'>
+                    <Button
+                      type='submit'
+                      style={{width: '100%'}}
+                      className='btn btn-lg btn-primary me-3'
+                    >
                       <span className='indicator-label'>
                         {!isSubmitButton && 'Continue'}
                         {isSubmitButton && 'Submit'}
