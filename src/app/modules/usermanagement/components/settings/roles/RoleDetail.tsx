@@ -1,21 +1,31 @@
 import {useEffect, useState} from 'react'
 import {Link, useParams} from 'react-router-dom'
 import agent from '../../../../../../setup/axios/AxiosAgent'
+import { usePageData } from '../../../../../../_iris/layout/core'
 import {IRoleModel, IUserModel} from '../../../../auth/models/AuthInterfaces'
+import ErrorAlert from '../../../../common/ErrorAlert'
 
 export function RoleDetail() {
   let {roleId} = useParams<{roleId: string}>()
   const [roledetails, setRoleDetails] = useState<IRoleModel>()
+  const { selectValue, handleSelectValue, selectUrlParam, setSelectUrlParam } = usePageData() 
 
-  function getRole(roleid: string) {
-    agent.Roles.details(roleid).then((response) => {
-      setRoleDetails(response)
-    })
-  }
+  // function getRole(roleid: string) {
+  //   agent.Roles.details(roleid).then((response) => {
+  //     setRoleDetails(response)
+  //     console.log("ROLEVIEW: ", roledetails)
+  //   })
+  // }
 
-  useEffect(() => {
-    getRole(roleId)
-  }, [roleId])
+  // useEffect(() => {
+  //   getRole(roleId)
+  // }, [roleId])
+
+  const selValue = selectValue as IRoleModel
+  useEffect(() =>{
+    setRoleDetails(selValue);
+    console.log("{}: ", selectValue);
+  }, [])
 
   return (
     <div className='row g-5 g-xxl-8'>
@@ -110,7 +120,7 @@ export function RoleDetail() {
             </div>
             </>}
 
-            {!roledetails && <><h4>Sorry, Role does not exit!</h4></>}
+            {!roledetails && <><ErrorAlert type={'danger'} message={"Sorry, Role does not exit"} heading={'Oh snap! You got an error!'} /></>}
 
           </div>
         </div>
