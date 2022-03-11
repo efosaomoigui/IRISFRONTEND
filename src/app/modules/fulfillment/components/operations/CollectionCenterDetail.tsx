@@ -41,7 +41,7 @@ export function CollectionCenterDetail() {
 
               <div className='col-lg-8'>
                 <span className='fw-bolder fs-6 text-dark'>
-                  {collectioncenterdetails?.Id}
+                  {collectioncenterdetails?.shipmentId}
                 </span>
               </div>
             </div>
@@ -51,7 +51,7 @@ export function CollectionCenterDetail() {
 
               <div className='col-lg-8'>
                 <span className='fw-bolder fs-6 text-dark'>
-                  {collectioncenterdetails?.Shipment}
+                  {collectioncenterdetails?.shipment}
                 </span>
               </div>
             </div>
@@ -61,7 +61,7 @@ export function CollectionCenterDetail() {
 
               <div className='col-lg-8'>
                 <span className='fw-bolder fs-6 text-dark'>
-                  {collectioncenterdetails?.ShipmentId}
+                  {collectioncenterdetails?.shipmentId}
                 </span>
               </div>
             </div>
@@ -71,7 +71,7 @@ export function CollectionCenterDetail() {
 
               <div className='col-lg-8'>
                 <span className='fw-bolder fs-6 text-dark'>
-                  {collectioncenterdetails?.UserId}
+                  {collectioncenterdetails?.userId}
                 </span>
               </div>
             </div>

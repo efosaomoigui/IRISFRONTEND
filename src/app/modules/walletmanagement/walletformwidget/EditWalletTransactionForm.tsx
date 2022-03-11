@@ -40,21 +40,19 @@ export default function EditWalletTransactionForm(props: Props<IWalletTransactio
   const {entityDetailValues, setEntityDetailValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle} = usePageData()
 
   const initialFormValue: IWalletTransactionModel = {
-    WalletTransactionId: props.wallettransaction ? props.wallettransaction!.WalletTransactionId : '',
-    Amount: props.wallettransaction ? props.wallettransaction!.Amount : '',
-    TransactionType: props.wallettransaction ? props.wallettransaction!.TransactionType : '',
-    Description: props.wallettransaction ? props.wallettransaction!.Description : '',
-    WalletNumber: props.wallettransaction ? props.wallettransaction!.WalletNumber : '',
-    DateCreated: props.wallettransaction ? props.wallettransaction!.DateCreated : '',
+    amount: props.wallettransaction ? props.wallettransaction!.amount : '',
+    transactionType: props.wallettransaction ? props.wallettransaction!.transactionType : 2,
+    description: props.wallettransaction ? props.wallettransaction!.description : '',
+    walletNumber: props.wallettransaction ? props.wallettransaction!.walletNumber : '',
+    userId: props.wallettransaction ? props.wallettransaction!.userId : '',
   }
 
   const validationSchema = Yup.object({
-    WalletTransactionId: Yup.string().required(),
-    Amount: Yup.string().required(),
-    TransactionType: Yup.string().required(),
-    Description: Yup.string().required(),
-    WalletNumber: Yup.string().required(),
-    DateCreated: Yup.string().required()
+    amount: Yup.string().required(),
+    transactionType: Yup.number().required(),
+    description: Yup.string().required(),
+    walletNumber: Yup.string().required(),
+    userId: Yup.string().required()
   })
 
   const classes = useStyles()
@@ -85,20 +83,14 @@ export default function EditWalletTransactionForm(props: Props<IWalletTransactio
                     <Grid item xs={6}>
                       <IrisTextInput
                         type='text'
-                        name='WalletTransactionId'
-                        placeholder='WalletTransaction Id'
-                        label='WalletTransaction Id'
-                      />
-                      <IrisTextInput
-                        type='text'
                         placeholder='Amount'
-                        name='Amount'
+                        name='amount'
                         label='Amount'
                       />
                       <IrisTextInput
-                        type='text'
+                        type='number'
                         placeholder='Transaction Type'
-                        name='TransactionType'
+                        name='transactionType'
                         label='Transaction Type'
                       />
                     </Grid>
@@ -106,23 +98,21 @@ export default function EditWalletTransactionForm(props: Props<IWalletTransactio
                       <IrisTextInput
                         type='text'
                         placeholder='Description'
-                        name='Description'
+                        name='description'
                         label='Description'
                       />
 
                       <IrisTextInput
                         type='text'
                         placeholder='WalletNumber'
-                        name='WalletNumber'
+                        name='walletNumber'
                         label='WalletNumber'
                       />
-
-                      <IrisDatePicker
-                        placeholderText='Date'
-                        name='DateCreated'
-                        showTimeSelect
-                        timeCaption='DateCreated'
-                        dateFormat='MMM d, yyyy h:mm: aa'
+                      <IrisTextInput
+                        type='text'
+                        placeholder='User Id'
+                        name='userId'
+                        label='userId'
                       />
                     </Grid>
                   </Grid>

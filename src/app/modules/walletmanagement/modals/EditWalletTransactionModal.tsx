@@ -38,7 +38,7 @@ const EditWalletTransactionModal: React.FC<Props> = ({ handleEdit, SelectedValue
 
   const onSubmit = (values: IWalletTransactionModel) => {
     setIsSubmitting(true)
-    values.WalletTransactionId = uuid()
+    values.userId = uuid()
 
     agent.WalletTransaction.update(values).then((response) => {
       if (response.validationErrors!.length > 0) {

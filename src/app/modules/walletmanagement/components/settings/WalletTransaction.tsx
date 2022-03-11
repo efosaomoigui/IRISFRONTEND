@@ -20,32 +20,28 @@ export function WalletTransaction() {
   const tableProvider = {
     columns: [
       {
-        Header: 'WalletTransaction Id',
-        accessor: 'WalletTransactionId',
-      },
-      {
         Header: 'Amount',
-        accessor: 'Amount',
+        accessor: 'amount',
       },
       {
         Header: 'Transaction Type',
-        accessor: 'TransactionType',
+        accessor: 'transactionType',
       },
       {
         Header: 'Description',
-        accessor: 'Description',
+        accessor: 'description',
       },
       {
         Header: 'Wallet Number',
-        accessor: 'WalletNumber',
+        accessor: 'walletNumber',
       },
       {
-        Header: 'Date Created',
-        accessor: 'DateCreated',
+        Header: 'user Id',
+        accessor: 'userId',
       },
     ],
     DetailsPath: '/wallet/wallettransactiondetails/',
-    EditPath: '#kt_modal_addwallettransaction',
+    EditPath: '#kt_modal_editwallettransaction',
     DeletePath: '/adminSettings/userDetails/',
     FakeData: WalletTransaction_Data,
   }
@@ -61,7 +57,7 @@ export function WalletTransaction() {
 
   const handleEdit = (event: React.MouseEvent) => {
     const urlParm = event.currentTarget.getAttribute('id')
-    const val = wallettransactionmodel.find((x) => x.WalletTransactionId === urlParm)
+    const val = wallettransactionmodel.find((x) => x.userId === urlParm)
     handleSelectValue(val!)
     return val
   }

@@ -1,11 +1,13 @@
 import {Grid} from '@material-ui/core'
 import {Alert} from '@mui/material'
 import {Form, Formik, FormikHelpers} from 'formik'
+import { useState } from 'react'
 import {Modal} from 'react-bootstrap-v5'
 import {Button} from 'semantic-ui-react'
 import * as Yup from 'yup'
 import {KTSVG} from '../../../../_iris/helpers'
 import {usePageData} from '../../../../_iris/layout/core'
+import ErrorAlert from '../../common/ErrorAlert'
 import IrisTextInput from '../../layout/forms/IrisTextInput'
 import useStyles from '../../layout/formstyles/FormStyle'
 import {IFulfilmentModel} from '../models/FulfilmentInterface'
@@ -42,20 +44,21 @@ export default function EditCollectionForm(props: Props<IFulfilmentModel>) {
     setFormTitle,
   } = usePageData()
 
+  const [errorMessage, setErrorMessage] = useState('')
+  const [showError, setShowError] = useState(true)
+
   const initialFormValue: IFulfilmentModel = {
-    Id: props.collectionCenter ? props.collectionCenter!.Id : '',
-    ShipmentId: props.collectionCenter ? props.collectionCenter!.ShipmentId : '',
-    Shipment: props.collectionCenter ? props.collectionCenter!.Shipment : '',
-    CollectionStatus: props.collectionCenter ? props.collectionCenter!.CollectionStatus : true,
-    UserId: props.collectionCenter ? props.collectionCenter!.UserId : '',
+    shipmentId: props.collectionCenter ? props.collectionCenter!.shipmentId : '',
+    shipment: props.collectionCenter ? props.collectionCenter!.shipment : '',
+    collectionStatus: props.collectionCenter ? props.collectionCenter!.collectionStatus : true,
+    userId: props.collectionCenter ? props.collectionCenter!.userId : '',
   }
 
   const validationSchema = Yup.object({
-    Id: Yup.string().required(),
-    ShipmentId: Yup.string().required(),
-    Shipment: Yup.string().required(),
-    CollectionStatus: Yup.boolean().required(),
-    UserId: Yup.string().required(),
+    shipmentId: Yup.string().required(),
+    shipment: Yup.string().required(),
+    collectionStatus: Yup.boolean().required(),
+    userId: Yup.string().required(),
   })
 
   const classes = useStyles()
@@ -72,7 +75,7 @@ export default function EditCollectionForm(props: Props<IFulfilmentModel>) {
           <div className='modal-dialog modal-dialog-centered mw-900px'>
             <div className='modal-content'>
               <div className='modal-header'>
-                <h2>{formTitle + ' Trip Dispatch'}</h2>
+                <h2>{'Edit Collection Center'}</h2>
                 <div
                   className='btn btn-sm btn-icon btn-active-color-primary'
                   data-bs-dismiss='modal'
@@ -82,48 +85,45 @@ export default function EditCollectionForm(props: Props<IFulfilmentModel>) {
               </div>
 
               <div className='modal-body'>
+                {props.showError && <ErrorAlert type={'danger'} message={props.errorMessage!.toString()} heading={'Oh snap! You got an error!'} />}
                 {props.showForm && (
                   <Grid container className={classes.root}>
                     <Grid item xs={6}>
-                      {/* <IrisTextInput type='text' name='id' label='Role Id' /> */}
-                      {/* <IrisTextInput type='text' name='name' label='Role Name' /> */}
-                      <IrisTextInput type='text' name='Id' label='Id' />
                       <IrisTextInput
                         type='text'
                         placeholder='ShipmentId'
-                        name='ShipmentId'
+                        name='shipmentId'
                         label='ShipmentId'
                       />
+                      <IrisTextInput type='text' name='shipment' label='shipment' />
                     </Grid>
 
                     <Grid item xs={6}>
-                      {/* <IrisTextInput type='text' name='id' label='Role Id' /> */}
-                      {/* <IrisTextInput type='text' name='name' label='Role Name' /> */}
                       <IrisTextInput
                         type='boolean'
-                        name='CollectionStatus'
+                        name='collectionStatus'
                         label='CollectionStatus'
                       />
-                      <IrisTextInput type='text' name='UserId' label='UserId' />
+                      <IrisTextInput type='text' name='userId' label='UserId' />
                     </Grid>
                   </Grid>
                 )}
-                {!props.showForm && (
-                  <Alert severity='info'>Collection Center Item Created Successfully!</Alert>
-                )}
+                {!props.showForm && <ErrorAlert type={'success'} message={'User Created Successfully!'} heading={'Confirmation Message!'} />}
               </div>
 
               <div className='modal-body py-lg-10 px-lg-10'></div>
 
               <Modal.Footer>
-                <Button
-                  floated='right'
-                  positive
-                  type='submit'
-                  variant='secondary'
-                  loading={props.isSubmitting}
-                  content='Submit'
-                />
+                {props.showForm &&
+                  (<Button
+                    floated='right'
+                    positive
+                    type='submit'
+                    variant='primary'
+                    loading={props.isSubmitting}
+                    content='Submit'
+                  />
+                  )}
                 <Button
                   floated='right'
                   positive
@@ -132,7 +132,7 @@ export default function EditCollectionForm(props: Props<IFulfilmentModel>) {
                   onClick={props.handleClick}
                   data-bs-dismiss='modal'
                   content='Cancel'
-                ></Button>
+                />
               </Modal.Footer>
             </div>
           </div>

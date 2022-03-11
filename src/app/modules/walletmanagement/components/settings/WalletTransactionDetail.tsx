@@ -39,7 +39,7 @@ export function WalletTransactionDetail() {
 
               <div className='col-lg-8'>
                 <span className='fw-bolder fs-6 text-dark'>
-                    {wallettranscationdetails?.WalletTransactionId}
+                    {wallettranscationdetails?.userId}
                 </span>
               </div>
             </div>
@@ -48,7 +48,7 @@ export function WalletTransactionDetail() {
 
                 <div className='col-lg-8'>
                   <span className='fw-bolder fs-6 text-dark'>
-                    {wallettranscationdetails?.WalletTransactionId}
+                    {wallettranscationdetails?.amount}
                   </span>
                 </div>
               </div>
@@ -57,7 +57,7 @@ export function WalletTransactionDetail() {
 
                 <div className='col-lg-8'>
                   <span className='fw-bolder fs-6 text-dark'>
-                    {wallettranscationdetails?.Amount}
+                    {wallettranscationdetails?.description}
                   </span>
                 </div>
               </div>
@@ -66,7 +66,7 @@ export function WalletTransactionDetail() {
 
                 <div className='col-lg-8'>
                   <span className='fw-bolder fs-6 text-dark'>
-                    {wallettranscationdetails?.TransactionType}
+                    {wallettranscationdetails?.transactionType}
                   </span>
                 </div>
               </div>
@@ -75,7 +75,7 @@ export function WalletTransactionDetail() {
 
                 <div className='col-lg-8'>
                   <span className='fw-bolder fs-6 text-dark'>
-                    {wallettranscationdetails?.Description}
+                    {wallettranscationdetails?.description}
                   </span>
                 </div>
               </div>
@@ -84,7 +84,7 @@ export function WalletTransactionDetail() {
 
                 <div className='col-lg-8'>
                   <span className='fw-bolder fs-6 text-dark'>
-                    {wallettranscationdetails?.WalletNumber}
+                    {wallettranscationdetails?.walletNumber}
                   </span>
                 </div>
               </div>
@@ -93,7 +93,7 @@ export function WalletTransactionDetail() {
 
                 <div className='col-lg-8'>
                   <span className='fw-bolder fs-6 text-dark'>
-                    {wallettranscationdetails?.DateCreated}
+                    {wallettranscationdetails?.userId}
                   </span>
                 </div>
               </div>

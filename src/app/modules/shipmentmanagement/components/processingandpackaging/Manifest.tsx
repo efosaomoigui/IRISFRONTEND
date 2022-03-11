@@ -19,18 +19,18 @@ export function Manifest() {
   //all the data for the table
   const tableProvider = { 
     columns: [
-      {
-        Header: 'Id',
-        accessor: 'Id',
-        // cell:({ value }) => {return format(new Date(value), 'dd/MM/YYYY')}
-      },
+
       {
         Header: 'Manifest Code',
-        accessor: 'ManifestCode',
+        accessor: 'manifestCode',
       },
       {
         Header: 'Group WayBillId',
-        accessor: 'GroupWayBillId',
+        accessor: 'groupWayBillId',
+      },
+      {
+        Header: 'Service CenterId',
+        accessor: 'serviceCenterId',
       },
     ],
     DetailsPath: '/shipment/manifestdetail/',
@@ -49,7 +49,7 @@ export function Manifest() {
 
   const handleEdit = (event: React.MouseEvent) => {
     const urlParm = event.currentTarget.getAttribute('id')
-    const val = manifestmodel.find((x) => x.Id === urlParm)
+    const val = manifestmodel.find((x) => x.groupWayBillId === urlParm)
     handleSelectValue(val!)
     return val
   }
