@@ -72,7 +72,7 @@ const TablesWidgetFleet: React.FC<Props> = ({ fleet,className}) => {
             {/* begin::Table body */}
             <tbody>
                 {fleet.map((fleet) => (
-                  <tr key={fleet.FleetId}>
+                  <tr key={fleet.fleetId}>
                   <td>
                     <div className='form-check form-check-sm form-check-custom form-check-solid'>
                       <input
@@ -89,12 +89,12 @@ const TablesWidgetFleet: React.FC<Props> = ({ fleet,className}) => {
                       </div>
                       <div className='d-flex justify-content-start flex-column'>
                         <a href='#' className='text-dark fw-bolder text-hover-primary fs-6'>
-                            {fleet.RegistrationNumber} 
+                            {fleet.registrationNumber} 
                           {/* Fleet Manager */}
                         </a>
                         <span className='text-muted fw-bold text-muted d-block fs-7'>
                           {/* HTML, JS, ReactJS */}
-                            {fleet.EngineNumber}
+                            {fleet.capacity}
                         </span>
                       </div>
                     </div>
@@ -105,7 +105,7 @@ const TablesWidgetFleet: React.FC<Props> = ({ fleet,className}) => {
                     </a>
                     <span className='text-muted fw-bold text-muted d-block fs-7'>
                       {/* Web, UI/UX Design */}
-                        {fleet.FleetMake}
+                        {fleet.fleetMake}
                     </span>
                   </td>
                   <td>
@@ -114,7 +114,7 @@ const TablesWidgetFleet: React.FC<Props> = ({ fleet,className}) => {
                     </a>
                     <span className='text-muted fw-bold text-muted d-block fs-7'>
                       {/* Web, UI/UX Design */}
-                        {fleet.FleetType}
+                        {fleet.fleetType}
                     </span>
                   </td>
                   <td className='text-end'>

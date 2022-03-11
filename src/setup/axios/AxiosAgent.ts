@@ -112,7 +112,7 @@ const  Fleet = {
   list: () => request.get<IFleetModel[]>(`${API_URL}/ShipmentSettings/Fleet/all`),
   details: (fleetid: string) => request.get<IFleetModel>(`${API_URL}/ShipmentSettings/Fleet/all/${fleetid}`), 
   create: (fleet: IFleetModel) => request.post<IFleetModel>(`${API_URL}/ShipmentSettings/Fleet`, fleet), 
-  update: (fleet: IFleetModel) => request.put<IFleetModel>(`${API_URL}/ShipmentSettings/Fleet/${fleet.FleetId}`, {}), 
+  update: (fleet: IFleetModel) => request.put<IFleetModel>(`${API_URL}/ShipmentSettings/Fleet/${fleet.fleetId}`, {}), 
   delete: (id: string) => request.del<void>(`${API_URL}/ShipmentSettings/Fleet${id}`),  
 }
 
@@ -121,7 +121,7 @@ const  Price = {
   list: () => request.get<IPriceModel[]>(`${API_URL}/ShipmentSettings/Price/all`),
   details: (id: string) => request.get<IPriceModel>(`${API_URL}/api/ShipmentSettings/Price/GetPriceById/${id}`), 
   create: (price: IPriceModel) => request.post<IPriceModel>(`${API_URL}/ShipmentSettings/Price`, price), 
-  update: (price: IPriceModel) => request.put<IPriceModel>(`${API_URL}/ShipmentSettings/Price/${price.RouteId}`, {}), 
+  update: (price: IPriceModel) => request.put<IPriceModel>(`${API_URL}/ShipmentSettings/Price/${price.routeId}`, {}), 
   delete: (id: string) => request.del<void>(`${API_URL}/ShipmentSettings/Price${id}`),  
 }
 

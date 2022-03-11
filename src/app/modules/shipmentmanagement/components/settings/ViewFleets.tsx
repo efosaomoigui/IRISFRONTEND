@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react'
 import { Spinner } from 'react-bootstrap-v5'
 import agent from '../../../../../setup/axios/AxiosAgent'
+import { usePageData } from '../../../../../_iris/layout/core'
 import { IrisTablesWidget } from '../../../layout/tables/IrisTablesWidget'
 import { modalprops } from '../../../layout/tables/IrisTableTitle'
 import FleetData from '../../FleetData.json'
@@ -12,6 +13,8 @@ export function ViewFleets() {
   const [modalTarger, setModalTarget] = useState<modalprops[]>([]);
   const [fleetmodel, setFleetModel] = useState<IFleetModel[]>([])
   const [loadingData, setLoadingData] = useState(true)
+  const { selectValue, handleSelectValue, selectUrlParam, setSelectUrlParam } = usePageData() //global data
+
 
   //all the data for the table
   const tableProvider = {
@@ -58,7 +61,7 @@ export function ViewFleets() {
       },
         ],
     DetailsPath: '/shipment/fleetdetail/',
-    EditPath: '#kt_modal_addfleet',
+    EditPath: '#kt_modal_editfleet',
     DeletePath: '/adminSettings/userDetails/',
     FakeData: FleetData,
   }
@@ -70,6 +73,13 @@ export function ViewFleets() {
       linkTarget : '#kt_modal_addfleet'
     },
   ]
+
+  const handleEdit = (event: React.MouseEvent) => {
+    const urlParm = event.currentTarget.getAttribute('id')
+    const val = fleetmodel.find((x) => x.fleetId === urlParm)
+    handleSelectValue(val!)
+    return val
+  }
 
    // //USE EFFECT HOOK
    useEffect(() => {
@@ -107,6 +117,7 @@ export function ViewFleets() {
           ModalTarget={
             modalTarger
           }
+          handleEdit={handleEdit}
         />
         )}
       </div>

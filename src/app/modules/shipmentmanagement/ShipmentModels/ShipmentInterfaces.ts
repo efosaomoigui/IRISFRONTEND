@@ -1,16 +1,16 @@
 
 export interface IFleetModel {
-    FleetId: string;
-    RegistrationNumber: string;
-    ChasisNumber: string;
-    EngineNumber: string;
-    Status: string;
-    FleetType: string;
-    Capacity: string;
-    Description: string;
-    FleetModel: string;
-    FleetMake: string;
-    OwnerId: string;
+    fleetId: string;
+    fleetType: number;
+    registrationNumber: string;
+    chassisNumber: string;
+    engineNumber: string;
+    status: boolean;
+    capacity: number;
+    description: string;
+    fleetModel: string;
+    fleetMake: string;
+    ownerId: string;
     message?: string
     validationErrors?: string[]
     fleetdto?: {}
@@ -39,11 +39,10 @@ export interface IShipmentModel {
 } 
 export interface IPriceModel {
    
-    Category: string;
-    RouteId: string;
-    Route: string;
-    UnitWeight: number;
-    PricePErUnit: string;
+    category: number;
+    routeId: string;
+    unitWeight: number;
+    pricePErUnit: number;
     message?: string
     validationErrors?: string[]
     pricedto?: {}

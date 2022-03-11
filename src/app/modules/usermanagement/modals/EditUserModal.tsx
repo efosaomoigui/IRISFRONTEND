@@ -32,7 +32,7 @@ const EditUserModal: React.FC<Props> = ({handleEdit, SelectedValues}: Props) => 
     setShowError(false)
     setShowForm(true)
     window.location.reload()
-    console.log('On click', showError)
+    // console.log('On click', showError)
   }
 
   const onSubmit = (values: IUserModel) => {
