@@ -20,6 +20,7 @@ const AuthInit: FC<PropsFromRedux> = (props) => {
     const requestUser = async () => {
       try {
         if (!didRequest.current) {
+          alert(accessToken);
           const {data: user} = await getUserByToken(accessToken as string)
           dispatch(props.fulfillUser(user))
         }
@@ -35,6 +36,7 @@ const AuthInit: FC<PropsFromRedux> = (props) => {
     }
 
     if (accessToken) {
+      alert(accessToken)
       requestUser()
     } else {
       dispatch(props.logout())

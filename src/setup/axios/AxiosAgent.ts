@@ -1,5 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
 import { useEffect } from 'react';
+import { toast } from 'react-toastify';
 import { IPermissionModel, IRoleModel, IUserModel } from '../../app/modules/auth/models/AuthInterfaces';
 import { IFulfilmentModel } from '../../app/modules/fulfillment/models/FulfilmentInterface';
 import { ITrackHistoryModel, ITripModel } from '../../app/modules/monitoring/Monitor models/MonitorInterface';
@@ -13,7 +14,6 @@ import { IWalletModel, IWalletTransactionModel } from '../../app/modules/walletm
 const responseBody =<T>(response : AxiosResponse<T>) => response.data;
 const API_URL = process.env.REACT_APP_API_URL
 
-
 // const sleep = (delay: number) => 
 // {
 //   return new Promise((resolve) =>{
@@ -23,14 +23,19 @@ const API_URL = process.env.REACT_APP_API_URL
 
 //show loader when request is delaying
 // axios.interceptors.response.use(response => {
-//   return sleep(1000)
-//   .then(() =>{
-//     return response;
-//   })
-//   .catch((error)=>{
-//     console.log(error);
-//     return Promise.reject(error);
-//   });
+//   return response;
+// });
+
+// axios.interceptors.response.use(function (response) {
+//   return response;
+// }, function (error) {
+//   if (401 === error.response.status) {
+//     toast.error("Sorry, your session has expired, please relogin")
+//     window.location.reload();
+//     // dispatch(props.logout())
+//   } else {
+//       return Promise.reject(error);
+//   }
 // });
 
 const request = {
@@ -49,7 +54,7 @@ const  Users = {
   delete: (id:string) => request.del<void>(`${API_URL}/UserManagement/GetUser${id}`), 
 }
 const Roles = {
-  list: () => request.get<IRoleModel[]>(`${API_URL}/UserManagement/GetRoles`),
+  list: () => request.get<IRoleModel[]>(`${API_URL}/UserManagement/GetRoles`),  
   details: (roleid: string) => request.get<IRoleModel>(`${API_URL}/UserManagement/GetRoleById/${roleid}`),
   create: (roles: IRoleModel) => request.post<IRoleModel>(`${API_URL}/UserManagement/AddRole`, roles),
   update: (roles: IRoleModel) => request.put<IRoleModel>(`${API_URL}/UserManagement/GetUser/${roles.id}`, {}),
@@ -77,7 +82,7 @@ const WalletTransaction = {
   list: () => request.get<IWalletTransactionModel[]>(`${API_URL}/Wallet/WalletTransaction/all`),
   details: (wallettransactionid: string) => request.get<IWalletTransactionModel>(`${API_URL}/Wallet/WalletTransaction/GetWalletTransactionById/${wallettransactionid}`),
   create: (wallettransaction: IWalletTransactionModel) => request.post<IWalletTransactionModel>(`${API_URL}/Wallet/WalletTransaction`, wallettransaction),
-  update: (wallettransaction: IWalletTransactionModel) => request.put<IWalletTransactionModel>(`${API_URL}/Wallet/WalletTransaction/${wallettransaction.userId}`, {}),
+  update: (wallettransaction: IWalletTransactionModel) => request.put<IWalletTransactionModel>(`${API_URL}/Wallet/WalletTransaction/${wallettransaction.WalletTransactionId}`, {}),
   delete: (id: string) => request.del<void>(`${API_URL}/Shipment/GetUser${id}`),
 }
 
@@ -101,9 +106,9 @@ const  Shipment = {
 
 const Manifest = {
   list: () => request.get<IManifestModel[]>(`${API_URL}/Manifest/Manifest/all`),
-  details: (groupwaybillid: string) => request.get<IManifestModel>(`${API_URL}/Manifest/GetManifestByGroupWayBillNumber/${groupwaybillid}`),
+  details: (manifestcode: string) => request.get<IManifestModel>(`${API_URL}/api/Manifest/Manifest/GetManifestByManifestCode/${manifestcode}`),
   create: (manifest: IManifestModel) => request.post<IManifestModel>(`${API_URL}/Manifest/Manifest`, manifest),
-  update: (manifest: IManifestModel) => request.put<IManifestModel>(`${API_URL}/Manifest/Manifest/edit/${manifest.groupWayBillId}`, {}),
+  update: (manifest: IManifestModel) => request.put<IManifestModel>(`${API_URL}/Manifest/Manifest/edit/${manifest.Id}`, {}),
   delete: (id: string) => request.del<void>(`${API_URL}/Manifest/Manifest/delete/${id}`),
 }
 
@@ -163,8 +168,8 @@ const CollectionCenter = {
   list: () => request.get<IFulfilmentModel[]>(`${API_URL}/Shipment/CollectionCenter/all`),
   details: (CollectionCenterid: string) => request.get<IFulfilmentModel>(`${API_URL}/UserManagement/GetUser/${CollectionCenterid}`),
   create: (CollectionCenter: IFulfilmentModel) => request.post<IFulfilmentModel>(`${API_URL}/Shipment/CollectionCenter`, CollectionCenter),
-  update: (CollectionCenter: IFulfilmentModel) => request.put<IFulfilmentModel>(`${API_URL}/Shipment/CollectionCenter/edit${CollectionCenter.shipmentId}`, {}),
-  delete: (id: string) => request.del<void>(`${API_URL}/Shipment/CollectionCenter/delete${id}`),
+  update: (CollectionCenter: IFulfilmentModel) => request.put<IFulfilmentModel>(`${API_URL}/Shipment/CollectionCenter/edit/${CollectionCenter.Id}`, {}),
+  delete: (id: string) => request.del<void>(`${API_URL}/Shipment/CollectionCenter/delete${id}`), 
 }
 
 const agent = {
@@ -186,3 +191,8 @@ const agent = {
 }
 
 export default agent;
+
+function dispatch(arg0: any) {
+  throw new Error('Function not implemented.');
+}
+
