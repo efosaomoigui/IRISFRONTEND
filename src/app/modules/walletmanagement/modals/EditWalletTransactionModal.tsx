@@ -22,10 +22,10 @@ const EditWalletTransactionModal: React.FC<Props> = ({ handleEdit, SelectedValue
   const [hasError, setHasError] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
 
-  const { entityDetailValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle, selectValue, handleSelectValue } = usePageData()
+  const { entityValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle, selectValue, handleSelectValue } = usePageData()
 
   // handle logic
-  const wallettransactions = entityDetailValues as IWalletTransactionModel[];
+  const wallettransactions = entityValues as IWalletTransactionModel[];
 
   //const selected = setSelectedValue(users)
 

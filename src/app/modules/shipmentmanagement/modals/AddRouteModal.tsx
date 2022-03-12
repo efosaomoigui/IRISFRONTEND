@@ -21,11 +21,11 @@ const AddRouteModal: React.FC<Props> = ({ handleSelect, SelectedValues }: Props)
   const [errorMessage, setErrorMessage] = useState('')
   const [showError, setShowError] = useState(false)
 
-  const { entityDetailValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle } =
+  const { entityValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle } =
     usePageData()
 
   // handle logic
-  const route = entityDetailValues as IRouteModel[]
+  const route = entityValues as IRouteModel[]
 
   const setSelectedValue = (route: IRouteModel[]) => {
     const val = route.find((x) => x.routeId === selectUrlParam)

@@ -37,8 +37,8 @@ const options = [
 export default function EditTrackHistoryForm(props: Props<ITrackHistoryModel>) {
 
     const {
-        entityDetailValues,
-        setEntityDetailValues,
+        entityValues,
+        setEntityValues,
         selectUrlParam,
         setSelectUrlParam,
         formTitle,

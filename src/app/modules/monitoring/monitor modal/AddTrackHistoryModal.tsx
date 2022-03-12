@@ -22,11 +22,11 @@ const AddTrackHistoryModal: React.FC = () => {
     const [showError, setShowError] = useState(false)
 
 
-  const { entityDetailValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle } =
+  const { entityValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle } =
     usePageData()
 
   // handle logic
-    const trackHistory = entityDetailValues as ITrackHistoryModel[];
+    const trackHistory = entityValues as ITrackHistoryModel[];
 
     const setSelectedValue = (trackHistory: ITrackHistoryModel[]) => {
     const val = trackHistory.find(x => x.id === selectUrlParam)

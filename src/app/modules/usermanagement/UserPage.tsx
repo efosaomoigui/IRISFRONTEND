@@ -55,7 +55,7 @@ const UserPage: React.FC = () => {
           <PageTitle breadcrumbs={userBreadCrumbs}>Add To Role</PageTitle>
           <RoleUserManagement />
         </Route>
-
+        
         <Route path='/admin/roleDetails/:roleId'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Add To Role</PageTitle>
           <RoleDetail />

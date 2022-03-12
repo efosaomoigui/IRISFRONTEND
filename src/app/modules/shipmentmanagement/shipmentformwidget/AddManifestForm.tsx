@@ -37,8 +37,8 @@ const options = [
 
 export default function AddManifestForm(props: Props<IManifestModel>) {
     const {
-        entityDetailValues,
-        setEntityDetailValues,
+        entityValues,
+        setEntityValues,
         selectUrlParam,
         setSelectUrlParam,
         formTitle,

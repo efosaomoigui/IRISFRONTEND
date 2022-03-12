@@ -25,8 +25,8 @@ interface Props<Values> {
 
 export default function EditWalletForm(props: Props<IWalletModel>) {
   const {
-    entityDetailValues,
-    setEntityDetailValues,
+    entityValues,
+    setEntityValues,
     selectUrlParam,
     setSelectUrlParam,
     formTitle,

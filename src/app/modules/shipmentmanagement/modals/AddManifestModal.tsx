@@ -20,11 +20,11 @@ const AddManifestModal: React.FC = () => {
     const [hasError, setHasError] = useState(false)
     const [errorMessage, setErrorMessage] = useState('')
     const [showError, setShowError] = useState(false)
-    const { entityDetailValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle } =
+    const { entityValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle } =
         usePageData()
 
     // handle logic
-    const manifests = entityDetailValues as IManifestModel[];
+    const manifests = entityValues as IManifestModel[];
 
     const setSelectedValue = (manifests: IManifestModel[]) => {
         const val = manifests.find(x => x.Id === selectUrlParam)

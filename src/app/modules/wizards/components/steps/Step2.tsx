@@ -5,6 +5,32 @@ import {Field, ErrorMessage} from 'formik'
 const Step2: FC = () => {
   return (
     <div className='w-100'>
+      <div className='pb-2 pb-lg-6'>
+        <h2 className='fw-bolder text-dark'>Route</h2>
+      </div>
+
+      <div className='mb-15 fv-row'>
+        <div className='container'>
+          <div className='row'>
+            <div className='col-6'>
+              <Field as='select' name='departure' className='form-select'>
+                <option value='red'>Red</option>
+                <option value='green'>Green</option>
+                <option value='blue'>Blue</option>
+              </Field>
+            </div>
+
+            <div className='col-6'>
+              <Field as='select' name='destination' className='form-select'>
+                <option value='red'>Red</option>
+                <option value='green'>Green</option>
+                <option value='blue'>Blue</option>
+              </Field>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div className='pb-10 pb-lg-15'>
         <h2 className='fw-bolder text-dark'>Shippers Information</h2>
       </div>

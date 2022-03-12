@@ -15,11 +15,11 @@ const AddInvoiceModal: React.FC = () => {
 
     const [selectInvoice, setSelectInvoice] = useState<IInvoiceModel>()
 
-    const { entityDetailValues, selectUrlParam, setSelectUrlParam } = usePageData()
+    const { entityValues, selectUrlParam, setSelectUrlParam } = usePageData()
     const [showForm, setShowForm] = useState(true)
 
   // handle logic
-    const invoice = entityDetailValues as IInvoiceModel[];
+    const invoice = entityValues as IInvoiceModel[];
 
     const setSelectedValue = (invoice: IInvoiceModel[]) => {
     const val = invoice.find(x => x.Id === selectUrlParam)

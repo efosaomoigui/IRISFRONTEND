@@ -38,7 +38,7 @@ const options = [
 ]
 
 export default function AddWalletForm(props: Props<IWalletModel>) {
-  const {entityDetailValues, setEntityDetailValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle} = usePageData()
+  const {entityValues, setEntityValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle} = usePageData()
 
   const initialFormValue: IWalletModel = {
     id: props.wallet ? props.wallet!.id : '',

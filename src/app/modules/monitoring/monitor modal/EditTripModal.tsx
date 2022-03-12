@@ -21,10 +21,10 @@ const EditTripModal: React.FC<Props> = ({ handleEdit, SelectedValues }: Props) =
     const [showError, setShowError] = useState(false)
     const [hasError, setHasError] = useState(false)
 
-    const { entityDetailValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle, selectValue, handleSelectValue } = usePageData()
+    const { entityValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle, selectValue, handleSelectValue } = usePageData()
 
   // handle logic
-    const trips = entityDetailValues as ITripModel[];
+    const trips = entityValues as ITripModel[];
 
   //const selected = setSelectedValue(users)
 

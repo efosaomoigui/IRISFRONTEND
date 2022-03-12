@@ -21,10 +21,10 @@ const EditRoleModal: React.FC<Props> = ({ handleEdit, SelectedValues }: Props) =
   const [showError, setShowError] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
 
-  const { entityDetailValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle, selectValue, handleSelectValue } = usePageData()
+  const { entityValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle, selectValue, handleSelectValue } = usePageData()
 
   // handle logic
-  const users = entityDetailValues as IRoleModel[]
+  const users = entityValues as IRoleModel[]
   
   //const selected = setSelectedValue(users)
 

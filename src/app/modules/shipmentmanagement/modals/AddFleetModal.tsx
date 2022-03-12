@@ -14,10 +14,10 @@ const AddFleetModal: React.FC = () => {
   const [showForm, setShowForm] = useState(true)
   const [selectFleet, setSelectFleet] = useState<IFleetModel>()
 
-  const { entityDetailValues, selectUrlParam, setSelectUrlParam } = usePageData()
+  const { entityValues, selectUrlParam, setSelectUrlParam } = usePageData()
 
   // handle logic
-  const fleets = entityDetailValues as IFleetModel[];
+  const fleets = entityValues as IFleetModel[];
 
   const setSelectedValue = (fleets: IFleetModel[]) => {
     const val = fleets.find(x => x.FleetId === selectUrlParam)

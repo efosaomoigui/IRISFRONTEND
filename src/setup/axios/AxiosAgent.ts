@@ -50,7 +50,7 @@ const  Users = {
 }
 const Roles = {
   list: () => request.get<IRoleModel[]>(`${API_URL}/UserManagement/GetRoles`),
-  details: (roleid: string) => request.get<IRoleModel>(`${API_URL}/UserManagement/GetRoles/${roleid}`),
+  details: (roleid: string) => request.get<IRoleModel>(`${API_URL}/UserManagement/GetRoleById/${roleid}`),
   create: (roles: IRoleModel) => request.post<IRoleModel>(`${API_URL}/UserManagement/AddRole`, roles),
   update: (roles: IRoleModel) => request.put<IRoleModel>(`${API_URL}/UserManagement/GetUser/${roles.id}`, {}),
   delete: (id: string) => request.del<void>(`${API_URL}/UserManagement/GetUser${id}`),

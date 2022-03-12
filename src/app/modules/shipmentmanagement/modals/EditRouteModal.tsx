@@ -23,10 +23,10 @@ const EditRouteModal: React.FC<Props> = ({ handleEdit, SelectedValues }: Props) 
   const [hasError, setHasError] = useState(false)
   const [showError, setShowError] = useState(false)
 
-  const { entityDetailValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle, selectValue, handleSelectValue } = usePageData()
+  const { entityValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle, selectValue, handleSelectValue } = usePageData()
 
   // handle logic
-  const routes = entityDetailValues as IRouteModel[];
+  const routes = entityValues as IRouteModel[];
 
   //const selected = setSelectedValue(users)
 

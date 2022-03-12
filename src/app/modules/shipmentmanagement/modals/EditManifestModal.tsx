@@ -22,10 +22,10 @@ const EditManifestModal: React.FC<Props> = ({ handleEdit, SelectedValues }: Prop
     const [hasError, setHasError] = useState(false)
     const [showError, setShowError] = useState(false)
 
-    const { entityDetailValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle, selectValue, handleSelectValue } = usePageData()
+    const { entityValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle, selectValue, handleSelectValue } = usePageData()
 
     // handle logic
-    const manifests = entityDetailValues as IManifestModel[];
+    const manifests = entityValues as IManifestModel[];
 
     //const selected = setSelectedValue(users)
 

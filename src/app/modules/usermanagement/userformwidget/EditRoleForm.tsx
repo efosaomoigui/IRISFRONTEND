@@ -29,18 +29,17 @@ interface Props<Values> {
 
 export default function EditRoleForm(props: Props<IRoleModel>) {
 
-  const { entityDetailValues, setEntityDetailValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle } = usePageData()
+  const { entityValues, setEntityValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle } = usePageData()
 
   const [errorMessage, setErrorMessage] = useState('')
   const [showError, setShowError] = useState(true)
 
   
   const initialFormValue: IRoleModel = {
-    id: props.role ? props.role!.id : '',
     name: props.role ? props.role!.name : '',
   }
 
-  const validationSchema = Yup.object({
+  const validationSchema = Yup.object({ 
     name: Yup.string().required(),
   })
 

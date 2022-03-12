@@ -27,8 +27,8 @@ interface Props<Values> {
 
 export default function AddUserForm(props: Props<IUserModel>) {
   const {
-    entityDetailValues,
-    setEntityDetailValues,
+    entityValues,
+    setEntityValues,
     selectUrlParam,
     setSelectUrlParam,
     formTitle,

@@ -52,7 +52,7 @@ const IrisTablesWidget: React.FC<Props> = ({
   handleEdit
 }) => {
   const tabledata = UseFakeData ? FakeData : tableData
-  const {entityDetailValues, setEntityDetailValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle} = usePageData()
+  const {entityValues, setEntityValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle} = usePageData()
 
 
   return (

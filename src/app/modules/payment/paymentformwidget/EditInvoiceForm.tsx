@@ -35,8 +35,8 @@ const options = [
 
 export default function EditInvoiceForm(props: Props<IInvoiceModel>) {
   const {
-    entityDetailValues,
-    setEntityDetailValues,
+    entityValues,
+    setEntityValues,
     selectUrlParam,
     setSelectUrlParam,
     formTitle,

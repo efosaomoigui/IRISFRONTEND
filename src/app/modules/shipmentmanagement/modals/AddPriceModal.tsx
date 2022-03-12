@@ -21,11 +21,11 @@ const AddPriceModal: React.FC<Props> = ({ handleSelect, SelectedValues }: Props)
   const [errorMessage, setErrorMessage] = useState('')
   const [showError, setShowError] = useState(false)
 
-  const { entityDetailValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle } =
+  const { entityValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle } =
     usePageData()
 
   // handle logic
-  const prices = entityDetailValues as IPriceModel[];
+  const prices = entityValues as IPriceModel[];
 
   const setSelectedValue = (prices: IPriceModel[]) => {
     const val = prices.find(x => x.RouteId === selectUrlParam)

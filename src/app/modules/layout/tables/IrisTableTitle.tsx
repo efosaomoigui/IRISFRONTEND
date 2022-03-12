@@ -16,7 +16,7 @@ interface Props {
 
 const IrisTableHeading = ({tableTitle, count, modelTarget}: Props) => {
 
-  const {entityDetailValues, setEntityDetailValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle} = usePageData()
+  const {entityValues, setEntityValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle} = usePageData()
 
   const clickAction = ()=>{
     setFormTitle('Add');

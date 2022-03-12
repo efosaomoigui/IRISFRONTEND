@@ -1,7 +1,9 @@
 import {useState,createContext, useContext, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import {KTSVG} from '../../../../_iris/helpers'
 import { usePageData } from '../../../../_iris/layout/core'
 import { IUserModel } from '../../auth/models/AuthInterfaces'
+import { RoleDetail } from '../../usermanagement/components/settings/roles/RoleDetail'
 
 interface Props {
   DetailsPath: string
@@ -11,17 +13,18 @@ interface Props {
 }
 
 const TableActionLinks = ({DetailsPath, EditPath, DeletePath, handleEdit}: Props) => {
-  const {entityDetailValues, selectUrlParam, setSelectUrlParam,formTitle, setFormTitle} = usePageData()
+  const {entityValues, selectUrlParam, setSelectUrlParam,formTitle, setFormTitle} = usePageData()
 
   return (
     <div className='d-flex justify-content-end flex-shrink-0'>
-      <a
-        href={DetailsPath}
+      <Link
+        to={DetailsPath}
         title='Details'
         className='btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1'
+        onClick={handleEdit}
       >
         <KTSVG path='/media/icons/duotune/general/gen019.svg' className='svg-icon-3' />
-      </a>
+      </Link>
 
       <a
         // href={EditPath}

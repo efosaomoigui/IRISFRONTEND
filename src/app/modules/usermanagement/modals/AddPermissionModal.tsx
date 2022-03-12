@@ -21,12 +21,12 @@ const AddPermissionModal: React.FC<Props> = ({ handleSelect, SelectedValues }: P
   const [errorMessage, setErrorMessage] = useState('')
   const [showError, setShowError] = useState(false)
 
-  const { entityDetailValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle } =
+  const { entityValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle } =
     usePageData()
 
 
   // handle logic
-  const permisions = entityDetailValues as IPermissionModel[]
+  const permisions = entityValues as IPermissionModel[]
 
   const setSelectedValue = (permissions: IPermissionModel[]) => {
     const val = permissions.find((x) => x.roleId === selectUrlParam)

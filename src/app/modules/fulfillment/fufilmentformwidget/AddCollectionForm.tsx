@@ -30,8 +30,8 @@ const options = [
 
 export default function AddCollectionForm(props: Props<IFulfilmentModel>) {
   const {
-    entityDetailValues,
-    setEntityDetailValues,
+    entityValues,
+    setEntityValues,
     selectUrlParam,
     setSelectUrlParam,
     formTitle,

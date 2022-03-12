@@ -9,11 +9,11 @@ import {IPaymentLogModel} from '../PaymentModels/PaymentmentInterfaces'
 const AddPaymentLogModal: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [selectPaymentLogs, setSelectPaymentLogs] = useState<IPaymentLogModel>()
-  const {entityDetailValues, selectUrlParam, setSelectUrlParam} = usePageData()
+  const {entityValues, selectUrlParam, setSelectUrlParam} = usePageData()
   const [showForm, setShowForm] = useState(true)
 
   // handle logic
-  const paymentlogs = entityDetailValues as IPaymentLogModel[]
+  const paymentlogs = entityValues as IPaymentLogModel[]
 
   const setSelectedValue = (paymentlog: IPaymentLogModel[]) => {
     const val = paymentlogs.find((x) => x.PaymentId === selectUrlParam)

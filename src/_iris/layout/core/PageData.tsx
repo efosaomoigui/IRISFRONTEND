@@ -18,8 +18,8 @@ export interface PageDataContextModel {
   setPageDescription: (_description: string) => void
   pageBreadcrumbs?: Array<PageLink>
   setPageBreadcrumbs: (_breadcrumbs: Array<PageLink>) => void
-  entityDetailValues?:any
-  setEntityDetailValues?: (detailsList:any[]) => any
+  entityValues?:any
+  setEntityValues?: (detailsList:any[]) => any
   selectValue?: any
   handleSelectValue:(_entityDetailValues:any)=>void
   selectUrlParam?:string
@@ -32,7 +32,7 @@ const PageDataContext = createContext<PageDataContextModel>({
   setPageTitle: (_title: string) => {},
   setPageBreadcrumbs: (_breadcrumbs: Array<PageLink>) => {},
   setPageDescription: (_description: string) => {},
-  setEntityDetailValues: (detailId:Array<any>) => {},
+  setEntityValues: (detailId:Array<any>) => {},
   handleSelectValue:(_entityDetailValues:IUserModel | IWalletModel)=>{},
   setSelectUrlParam:(urlparam: string) =>{},
   setFormTitle:(_title: string) =>{},
@@ -42,7 +42,7 @@ const PageDataProvider: React.FC = ({children}) => {
   const [pageTitle, setPageTitle] = useState<string>('')
   const [pageDescription, setPageDescription] = useState<string>('')
   const [pageBreadcrumbs, setPageBreadcrumbs] = useState<Array<PageLink>>([])
-  const [entityDetailValues, setEntityDetailValues] = useState<any[]>([])
+  const [entityValues, setEntityValues] = useState<any[]>([])
   const [selectUrlParam, setSelectUrlParam] = useState<string>('')
   const [formTitle, setFormTitle] = useState<string>('')
   const [selectValue, handleSelectValue] = useState<IUserModel | IWalletModel>()
@@ -54,8 +54,8 @@ const PageDataProvider: React.FC = ({children}) => {
     setPageDescription,
     pageBreadcrumbs,
     setPageBreadcrumbs,
-    entityDetailValues,
-    setEntityDetailValues,
+    entityValues,
+    setEntityValues,
     selectUrlParam,
     setSelectUrlParam, 
     selectValue,

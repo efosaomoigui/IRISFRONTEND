@@ -29,8 +29,8 @@ interface Props<Values> {
 
 export default function EditPermissionForm(props: Props<IPermissionModel>) {
   const {
-    entityDetailValues,
-    setEntityDetailValues,
+    entityValues,
+    setEntityValues,
     selectUrlParam,
     setSelectUrlParam,
     formTitle,

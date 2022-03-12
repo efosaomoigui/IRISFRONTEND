@@ -34,8 +34,8 @@ const options = [
 
 export default function EditCollectionForm(props: Props<IFulfilmentModel>) {
   const {
-    entityDetailValues,
-    setEntityDetailValues,
+    entityValues,
+    setEntityValues,
     selectUrlParam,
     setSelectUrlParam,
     formTitle,

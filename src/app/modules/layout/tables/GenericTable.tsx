@@ -55,12 +55,12 @@ const GenericTable = ({irisData, columnsMap, DetailsPath, EditPath, DeletePath, 
   } = tableInstance
 
   const {globalFilter, pageIndex, pageSize} = state
-  const {entityDetailValues, setEntityDetailValues, selectUrlParam, setSelectUrlParam} =
+  const {entityValues, setEntityValues, selectUrlParam, setSelectUrlParam} =
     usePageData()
 
   useEffect(() => {
-    setEntityDetailValues!(irisData)
-  },[entityDetailValues])
+    setEntityValues!(irisData)
+  },[entityValues])
 
   return (
     <div>

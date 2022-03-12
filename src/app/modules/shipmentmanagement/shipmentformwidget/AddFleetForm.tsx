@@ -30,7 +30,7 @@ const options = [
 ]
 
 export default function AddFleetForm(props: Props<IFleetModel>) {
-  const {entityDetailValues, setEntityDetailValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle} = usePageData()
+  const {entityValues, setEntityValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle} = usePageData()
 
   const initialFormValue: IFleetModel = {
     FleetId: props.fleet ? props.fleet!.FleetId : '',

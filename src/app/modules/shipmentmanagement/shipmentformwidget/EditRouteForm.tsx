@@ -38,7 +38,7 @@ const options = [
 ]
 
 export default function EditRouteForm(props: Props<IRouteModel>) {
-  const {entityDetailValues, setEntityDetailValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle} = usePageData()
+  const {entityValues, setEntityValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle} = usePageData()
 
   const [errorMessage, setErrorMessage] = useState('')
   const [showError, setShowError] = useState(true)

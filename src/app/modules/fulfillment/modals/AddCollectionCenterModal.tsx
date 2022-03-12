@@ -12,10 +12,10 @@ const AddCollectionCenterModal: React.FC = () => {
 
   const [selectTrips, setSelectTrips] = useState<IFulfilmentModel>()
 
-  const {entityDetailValues, selectUrlParam, setSelectUrlParam} = usePageData()
+  const {entityValues, selectUrlParam, setSelectUrlParam} = usePageData()
 
   // handle logic
-  const collectionCenter = entityDetailValues as IFulfilmentModel[]
+  const collectionCenter = entityValues as IFulfilmentModel[]
 
   const setSelectedValue = (collectionCenter: IFulfilmentModel[]) => {
     const val = collectionCenter.find((x) => x.Id === selectUrlParam)

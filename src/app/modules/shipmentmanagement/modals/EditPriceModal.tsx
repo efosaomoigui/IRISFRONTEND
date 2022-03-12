@@ -21,10 +21,10 @@ const EditPriceModal: React.FC<Props> = ({ handleEdit, SelectedValues }: Props) 
   const [errorMessage, setErrorMessage] = useState('')
   const [showError, setShowError] = useState(false)
 
-  const { entityDetailValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle, selectValue, handleSelectValue } = usePageData()
+  const { entityValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle, selectValue, handleSelectValue } = usePageData()
 
   // handle logic
-  const prices = entityDetailValues as IPriceModel[];
+  const prices = entityValues as IPriceModel[];
 
   //const selected = setSelectedValue(users)
 

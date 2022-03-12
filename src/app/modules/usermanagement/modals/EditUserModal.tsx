@@ -22,17 +22,16 @@ const EditUserModal: React.FC<Props> = ({handleEdit, SelectedValues}: Props) => 
   const [errorMessage, setErrorMessage] = useState('')
   const [showError, setShowError] = useState(false)
 
-  const {entityDetailValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle, selectValue, handleSelectValue} = usePageData()
+  const {entityValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle, selectValue, handleSelectValue} = usePageData()
 
   // handle logic
-  const users = entityDetailValues as IUserModel[] 
+  const users = entityValues as IUserModel[] 
 
 
   const handleClick = () => {
     setShowError(false)
     setShowForm(true)
     window.location.reload()
-    console.log('On click', showError)
   }
 
   const onSubmit = (values: IUserModel) => {

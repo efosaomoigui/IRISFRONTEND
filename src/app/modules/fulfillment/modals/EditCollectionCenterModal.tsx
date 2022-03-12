@@ -20,10 +20,10 @@ const EditCollectionCenterModal: React.FC = () => {
   const [errorMessage, setErrorMessage] = useState('')
   const [showError, setShowError] = useState(false)
 
-  const { entityDetailValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle, selectValue, handleSelectValue } = usePageData()
+  const { entityValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle, selectValue, handleSelectValue } = usePageData()
 
   // handle logic
-  const collectionCenter = entityDetailValues as IFulfilmentModel[]
+  const collectionCenter = entityValues as IFulfilmentModel[]
 
   //const selected = setSelectedValue(users)
 

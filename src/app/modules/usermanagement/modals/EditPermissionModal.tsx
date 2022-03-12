@@ -21,11 +21,11 @@ const EditPermissionModal: React.FC<Props> = ({ handleEdit, SelectedValues }: Pr
   const [showError, setShowError] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
 
-  const { entityDetailValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle, selectValue, handleSelectValue } = usePageData()
+  const { entityValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle, selectValue, handleSelectValue } = usePageData()
 
 
   // handle logic
-  const permisions = entityDetailValues as IPermissionModel[]
+  const permisions = entityValues as IPermissionModel[]
 
   //const selected = setSelectedValue(users)
 

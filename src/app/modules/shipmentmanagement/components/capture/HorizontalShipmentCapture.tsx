@@ -8,13 +8,14 @@ import {
   ICreateAccount,
   inits,
 } from '../../../wizards/components/CreateAccountWizardHelper'
-import {Step5} from '../../../wizards/components/steps/Step5'
-import {Step4} from '../../../wizards/components/steps/Step4'
+
 import {Step3} from '../../../wizards/components/steps/Step3'
 import {Step2} from '../../../wizards/components/steps/Step2'
 import {Step1} from '../../../wizards/components/steps/Step1'
 import {Button, Nav} from 'react-bootstrap-v5'
 import {Step6} from '../../../wizards/components/steps/Step6'
+import { Step4 } from '../../../wizards/components/steps/Step4'
+import { Step5 } from '../../../wizards/components/steps/Step5' 
 
 const HorizontalShipmentCapture: FC = () => {
   const stepperRef = useRef<HTMLDivElement | null>(null)
@@ -22,7 +23,7 @@ const HorizontalShipmentCapture: FC = () => {
   const [currentSchema, setCurrentSchema] = useState(createAccountSchemas[0])
   const [initValues] = useState<ICreateAccount>(inits)
   const [isSubmitButton, setSubmitButton] = useState(false)
-  const [radioState, setRadioState] = useState("");
+  const [radioState, setRadioState] = useState("mailandparcel");
 
   const loadStepper = () => {
     stepper.current = StepperComponent.createInsance(stepperRef.current as HTMLDivElement)
@@ -37,6 +38,7 @@ const HorizontalShipmentCapture: FC = () => {
     stepper.current.goPrev()
     setCurrentSchema(createAccountSchemas[stepper.current.currentStepIndex - 1])
   }
+  console.log("==> ", initValues)
 
   const submitStep = (values: ICreateAccount, actions: FormikValues) => {
     if (!stepper.current) {
@@ -49,7 +51,7 @@ const HorizontalShipmentCapture: FC = () => {
     if (stepper.current.currentStepIndex !== stepper.current.totatStepsNumber) {
       stepper.current.goNext()
     } else {
-      stepper.current.goto(1)
+      stepper.current.goto(1) 
       actions.resetForm()
     }
   }
@@ -90,15 +92,15 @@ const HorizontalShipmentCapture: FC = () => {
             </div>
 
             <div className='stepper-item' data-kt-stepper-element='nav'>
-              <h3 className='stepper-title'>Price Details</h3>
+              <h3 className='stepper-title'>Shipment Summary</h3>
             </div>
 
             <div className='stepper-item' data-kt-stepper-element='nav'>
-              <h3 className='stepper-title'>Summary</h3>
+              <h3 className='stepper-title'>Make Payment</h3>
             </div>
 
             <div className='stepper-item' data-kt-stepper-element='nav'>
-              <h3 className='stepper-title'>CheckOut</h3>
+              <h3 className='stepper-title'>Complete</h3>
             </div>
           </div>
 
@@ -108,7 +110,7 @@ const HorizontalShipmentCapture: FC = () => {
             onSubmit={submitStep}
             onChange={handleOnChange}
           >
-            {() => (
+            {({values, handleChange}) => (
               <Form className='mx-auto mw-900px w-100 pt-8 pb-10' id='kt_create_account_form'>
                 <div className='current' data-kt-stepper-element='content'>
                   <Step1 handleClick={handleOnChange} />
@@ -123,7 +125,7 @@ const HorizontalShipmentCapture: FC = () => {
                 </div>
 
                 <div data-kt-stepper-element='content'>
-                  <Step4 />
+                  <Step4 values={values} />
                 </div>
 
                 <div data-kt-stepper-element='content'>

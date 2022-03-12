@@ -31,8 +31,8 @@ const options = [
 
 export default function AddPaymentlLogForm(props: Props<IPaymentLogModel>) {
   const {
-    entityDetailValues,
-    setEntityDetailValues,
+    entityValues,
+    setEntityValues,
     selectUrlParam,
     setSelectUrlParam,
     formTitle,

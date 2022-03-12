@@ -40,7 +40,7 @@ const Step3: FC<Props> = ({radioState}: Props) => {
                           <Field
                             type='radio'
                             className='btn-check'
-                            name='ton10'
+                            name='ton'
                             value='10'
                             id='kt_tons_select_1'
                           />
@@ -56,8 +56,8 @@ const Step3: FC<Props> = ({radioState}: Props) => {
                           <Field
                             type='radio'
                             className='btn-check'
-                            name='ton15'
-                            value='15'
+                            name='ton'
+                            value='20'
                             id='kt_tons_select_2'
                           />
                           <label
@@ -68,12 +68,12 @@ const Step3: FC<Props> = ({radioState}: Props) => {
                           </label>
                         </div>
 
-                        <div className='col mb-10'>
+                        <div className='col mb-3'>
                           <Field
                             type='radio'
                             className='btn-check'
-                            name='ton15'
-                            value='15'
+                            name='ton'
+                            value='30'
                             id='kt_tons_select_3'
                           />
                           <label
@@ -82,6 +82,9 @@ const Step3: FC<Props> = ({radioState}: Props) => {
                           >
                             <span className='fw-bolder fs-3'>30 Tons</span>
                           </label>
+                        </div>
+                        <div className='text-danger mt-1 mb-3'>
+                          <ErrorMessage name='ton' />
                         </div>
                       </div>
 

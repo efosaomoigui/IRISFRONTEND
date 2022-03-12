@@ -21,11 +21,11 @@ const AddUserModal: React.FC<Props> = ({handleSelect, SelectedValues}: Props) =>
   const [errorMessage, setErrorMessage] = useState('')
   const [showError, setShowError] = useState(false)
 
-  const {entityDetailValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle} =
+  const {entityValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle} =
     usePageData()
 
   // handle logic
-  const users = entityDetailValues as IUserModel[]
+  const users = entityValues as IUserModel[]
 
   const setSelectedValue = (users: IUserModel[]) => {
     const val = users.find((x) => x.userId === selectUrlParam)

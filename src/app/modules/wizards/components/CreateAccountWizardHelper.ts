@@ -8,7 +8,10 @@ export interface ICreateAccount {
   receiverFullName: string
   receiverAddress: string
   receiverPhoneNumber: string
-  accountName: string
+  departure: string
+  destination: string
+  weight: string
+  ton: string
   accountPlan: string
   businessName: string
   businessDescriptor: string
@@ -34,9 +37,21 @@ const createAccountSchemas = [
     receiverFullName: Yup.string().required().label('Receiver Full Name'),
     receiverAddress: Yup.string().required().label('Receiver Address'),
     receiverPhoneNumber: Yup.string().required().label('Receiver Phone'),
+    departure: Yup.string().required().label('Departure'),
+    destination: Yup.string().required().label('Destination'),
   }),
   Yup.object({
     businessName: Yup.string().required().label('Business Name'),
+    weight: Yup.string()
+    .when("shipmentCategory", {
+      is: "mailandparcel",
+      then: Yup.string().required().label("Weight is required")
+    }),
+    ton: Yup.string()
+    .when("shipmentCategory", {
+      is: "TruckLoad",
+      then: Yup.string().required().label("Weight (ton) is required")
+    }),
     businessDescriptor: Yup.string().required().label('Shortened Descriptor'),
     businessType: Yup.string().required().label('Corporation Type'),
     businessEmail: Yup.string().required().label('Contact Email'),
@@ -52,13 +67,16 @@ const createAccountSchemas = [
 
 const inits: ICreateAccount = {
   shipmentCategory: 'mailandparcel',
-  shipperFullName: '50+',
-  shipperAddress: '50+',
-  shipperPhoneNumber: '50+',
-  receiverFullName: '50+',
-  receiverAddress: '50+',
-  receiverPhoneNumber: '50+',
-  accountName: '',
+  shipperFullName: '',
+  shipperAddress: '',
+  shipperPhoneNumber: '',
+  receiverFullName: '',
+  receiverAddress: '',
+  receiverPhoneNumber: '',
+  departure: 'LOS',
+  destination: 'ABA',
+  weight: '',
+  ton: '',
   accountPlan: '1',
   businessName: 'Keenthemes Inc.',
   businessDescriptor: 'KEENTHEMES',

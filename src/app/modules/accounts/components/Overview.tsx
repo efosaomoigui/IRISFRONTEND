@@ -38,7 +38,7 @@ export function Overview() {
     handleSelectValue(userdetails!)
   }
 
-  console.log("VAA ", JSON.stringify(userdetails));
+  // console.log("VAA ", JSON.stringify(userdetails));
 
   return (
     <>

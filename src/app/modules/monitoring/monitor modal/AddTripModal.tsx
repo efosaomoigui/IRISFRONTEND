@@ -20,11 +20,11 @@ const AddTripModal: React.FC<Props> = ({ handleSelect, SelectedValues }: Props) 
     const [errorMessage, setErrorMessage] = useState('')
     const [showError, setShowError] = useState(false)
 
-  const { entityDetailValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle } =
+  const { entityValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle } =
     usePageData()
   
     // handle logic
-    const trips = entityDetailValues as ITripModel[];
+    const trips = entityValues as ITripModel[];
 
     const setSelectedValue = (trip: ITripModel[]) => {
     const val = trips.find(x => x.id === selectUrlParam)

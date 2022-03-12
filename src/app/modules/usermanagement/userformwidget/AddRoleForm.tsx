@@ -23,7 +23,7 @@ interface Props<Values> {
 
 export default function AddRoleForm(props: Props<IRoleModel>) {
 
-  const {entityDetailValues, setEntityDetailValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle} = usePageData()
+  const {entityValues, setEntityValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle} = usePageData()
 
   const initialFormValue: IRoleModel = {
     id: props.role ? props.role!.id : '',

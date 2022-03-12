@@ -30,7 +30,7 @@ export interface IUserModel {
 }
 
 export interface IRoleModel {
-  id: string
+  id?: string
   name: string
   message?: string
   validationErrors?: string[]

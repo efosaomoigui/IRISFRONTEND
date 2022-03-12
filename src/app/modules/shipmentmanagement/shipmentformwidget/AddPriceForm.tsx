@@ -36,8 +36,8 @@ const options = [
 ]
 
 export default function AddPriceForm(props: Props<IPriceModel>) {
-  const {entityDetailValues,
-         setEntityDetailValues, 
+  const {entityValues,
+         setEntityValues, 
          selectUrlParam, 
          setSelectUrlParam, 
          formTitle, 

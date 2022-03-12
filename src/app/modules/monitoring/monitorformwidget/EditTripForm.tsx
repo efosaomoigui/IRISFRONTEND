@@ -43,8 +43,8 @@ const options = [
 export default function EditTripForm(props: Props<ITripModel>) {
 
     const {
-        entityDetailValues,
-        setEntityDetailValues,
+        entityValues,
+        setEntityValues,
         selectUrlParam,
         setSelectUrlParam,
         formTitle,

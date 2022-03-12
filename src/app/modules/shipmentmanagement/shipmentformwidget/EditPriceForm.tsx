@@ -35,7 +35,7 @@ const options = [
 ]
 
 export default function EditPriceForm(props: Props<IPriceModel>) {
-  const {entityDetailValues, setEntityDetailValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle} = usePageData()
+  const {entityValues, setEntityValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle} = usePageData()
 
   const initialFormValue: IPriceModel = {
     

@@ -14,10 +14,10 @@ const AddWalletTransactionModal: React.FC = () => {
   const [showForm, setShowForm] = useState(true)
   const [selectWallettransaction, setSelectWallettransaction] = useState<IWalletTransactionModel>()
 
-  const { entityDetailValues, selectUrlParam, setSelectUrlParam } = usePageData()
+  const { entityValues, selectUrlParam, setSelectUrlParam } = usePageData()
 
   // handle logic
-  const wallettransactions = entityDetailValues as IWalletTransactionModel[];
+  const wallettransactions = entityValues as IWalletTransactionModel[];
 
   const setSelectedValue = (wallettransactions: IWalletTransactionModel[]) => {
     const val = wallettransactions.find(x => x.WalletTransactionId === selectUrlParam)

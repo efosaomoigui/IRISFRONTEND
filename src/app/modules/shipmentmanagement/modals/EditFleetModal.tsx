@@ -20,10 +20,10 @@ const EditFleetModal: React.FC<Props> = ({ handleEdit, SelectedValues }: Props) 
   const [errorMessage, setErrorMessage] = useState('')
   const [showError, setShowError] = useState(false)
 
-  const { entityDetailValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle, selectValue, handleSelectValue } = usePageData()
+  const { entityValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle, selectValue, handleSelectValue } = usePageData()
 
   // handle logic
-  const fleets = entityDetailValues as IFleetModel[];
+  const fleets = entityValues as IFleetModel[];
 
   //const selected = setSelectedValue(users)
 

@@ -5,8 +5,8 @@ import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import { Step5 } from '../../../wizards/components/steps/Step5'
-import { Step4 } from '../../../wizards/components/steps/Step4'
+import { Step5 } from '../../../wizards/components/steps/Step4'
+import { Step4 } from '../../../wizards/components/steps/Step5'
 import { Step3 } from '../../../wizards/components/steps/Step3'
 import { Step2 } from '../../../wizards/components/steps/Step2'
 import { Step1 } from '../../../wizards/components/steps/Step1'
