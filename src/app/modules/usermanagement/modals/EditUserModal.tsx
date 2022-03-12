@@ -53,7 +53,7 @@ const EditUserModal: React.FC<Props> = ({handleEdit, SelectedValues}: Props) => 
         setShowError(false)
       }
     })
-  }
+  }  
 
   return (
     <>

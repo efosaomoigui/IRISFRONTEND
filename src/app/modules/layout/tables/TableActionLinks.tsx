@@ -23,7 +23,6 @@ const TableActionLinks = ({DetailsPath, EditPath, DeletePath, handleEdit}: Props
         id={EditPath.split(",")[1]}
         onClick={handleEdit}
         className='btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1'
-        onClick={handleEdit}
       >
         <KTSVG path='/media/icons/duotune/general/gen019.svg' className='svg-icon-3' />
       </Link>
