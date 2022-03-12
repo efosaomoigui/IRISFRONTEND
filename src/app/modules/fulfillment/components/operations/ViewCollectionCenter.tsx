@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react'
 import {Spinner} from 'react-bootstrap-v5'
 import agent from '../../../../../setup/axios/AxiosAgent'
+import { usePageData } from '../../../../../_iris/layout/core'
 import {IrisTablesWidget} from '../../../layout/tables/IrisTablesWidget'
 import {modalprops} from '../../../layout/tables/IrisTableTitle'
 import {IFulfilmentModel} from '../../models/FulfilmentInterface'
@@ -12,14 +13,11 @@ export function CollectionCenter() {
   const [modalTarger, setModalTarget] = useState<modalprops[]>([])
   const [collectionmodel, setUsersModel] = useState<IFulfilmentModel[]>([])
   const [loadingData, setLoadingData] = useState(true)
+  const { selectValue, handleSelectValue, selectUrlParam, setSelectUrlParam } = usePageData() //global data
 
   //all the data for the table
   const tableProvider = {
     columns: [
-      {
-        Header: 'Id',
-        accessor: 'id',
-      },
       {
         Header: 'ShipmentId',
         accessor: 'shipmentId',
@@ -38,7 +36,7 @@ export function CollectionCenter() {
       },
     ],
     DetailsPath: '/fulfillment/collectioncenterdetail/',
-    EditPath: '#kt_modal_addcollectioncenter',
+    EditPath: '#kt_modal_editcollectioncenter',
     DeletePath: '/adminSettings/userDetails/',
     FakeData: CollectionCenter_Data,
   }
@@ -50,6 +48,13 @@ export function CollectionCenter() {
       linkTarget: '#kt_modal_addcollectioncenter',
     },
   ]
+
+  const handleEdit = (event: React.MouseEvent) => {
+    const urlParm = event.currentTarget.getAttribute('id')
+    const val = collectionmodel.find((x) => x.shipmentId === urlParm)
+    handleSelectValue(val!)
+    return val
+  }
 
   // //USE EFFECT HOOK
   useEffect(() => {
@@ -85,6 +90,7 @@ export function CollectionCenter() {
             TableTitle={'Collection Center'}
             Count={'Over 300 Users'}
             ModalTarget={modalTarger}
+            handleEdit={handleEdit}
           />
         )}
       </div>

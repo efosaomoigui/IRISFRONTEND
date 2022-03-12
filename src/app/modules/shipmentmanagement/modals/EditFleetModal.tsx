@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Container } from 'react-bootstrap-v5';
 import { toast } from 'react-toastify';
 import { v4 as uuid } from 'uuid';
 import agent from '../../../../setup/axios/AxiosAgent';
@@ -18,6 +19,7 @@ const EditFleetModal: React.FC<Props> = ({ handleEdit, SelectedValues }: Props) 
   const [showForm, setShowForm] = useState(true)
   const [selectFleet, setSelectFleet] = useState<IFleetModel>()
   const [errorMessage, setErrorMessage] = useState('')
+  const [hasError, setHasError] = useState(false)
   const [showError, setShowError] = useState(false)
 
   const { entityValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle, selectValue, handleSelectValue } = usePageData()
@@ -34,41 +36,33 @@ const EditFleetModal: React.FC<Props> = ({ handleEdit, SelectedValues }: Props) 
     console.log('On click', showError)
   }
 
-  const setSelectedValue = (fleets: IFleetModel[]) => {
-    const val = fleets.find(x => x.FleetId === selectUrlParam)
-    return val;
-  }
-
-  const selected = setSelectedValue(fleets);
-  console.log("LOG ", (selected) ? "old fleet" : "new fleet");
+  
 
   const onSubmit = (values: IFleetModel) => {
     setIsSubmitting(true)
-    values.FleetId = uuid()
+    values.fleetId = uuid()
 
-    if (selected?.FleetId) {
-      agent.Fleet.update(values).then((response) => {
-        toast.success('fleet Update Was Successful!')
+    agent.Fleet.update(values).then((response) => {
+      if (response.validationErrors!.length > 0) {
+        toast.error(response.validationErrors?.toString())
+        setErrorMessage(response.validationErrors!.toString())
+        setIsSubmitting(false)
+        setShowError(true)
+      } else {
+        toast.success('Fleet Update Was Successful!')
         setInterval(() => {
-          setShowForm(false);
+          setShowForm(false)
         }, 1000)
         setIsSubmitting(false)
-      })
-    } else {
-      agent.Fleet.create(values).then((response) => {
-        toast.success('fleet Creation Was Successful!')
-        setInterval(() => {
-          setShowForm(false);
-        }, 1000)
-        setIsSubmitting(false)
-      })
-    }
+        setShowError(false)
+      }
+    })
   }
 
 
   return (
     <>
-      <div className='modal fade' id='kt_modal_addfleet' aria-hidden='true'>
+      <Container className='modal fade' id='kt_modal_editfleet' aria-hidden='true'>
         <EditFleetForm 
           isSubmitting={isSubmitting}
           onSubmit={onSubmit}
@@ -77,8 +71,9 @@ const EditFleetModal: React.FC<Props> = ({ handleEdit, SelectedValues }: Props) 
           showError={showError}
           errorMessage={errorMessage}
           handleClick={handleClick}
-          formTitle={'Edit User'}/>
-      </div>
+          formTitle={'Edit Fleet'}
+        />
+      </Container>
     </>
   )
 }

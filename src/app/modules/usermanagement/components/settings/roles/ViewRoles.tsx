@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react'
-import { Spinner } from 'react-bootstrap-v5'
+import {Spinner} from 'react-bootstrap-v5'
 import agent from '../../../../../../setup/axios/AxiosAgent'
-import { usePageData } from '../../../../../../_iris/layout/core'
+import {usePageData} from '../../../../../../_iris/layout/core'
 import {IRoleModel, IUserModel} from '../../../../auth/models/AuthInterfaces'
 import {IrisTablesWidget} from '../../../../layout/tables/IrisTablesWidget'
 import {modalprops} from '../../../../layout/tables/IrisTableTitle'
@@ -12,8 +12,15 @@ export function ViewRoles() {
   const [loading, setLoading] = useState(true)
   const [rolemodel, setRoleModel] = useState<IRoleModel[]>([])
   const [loadingData, setLoadingData] = useState(true)
-  const { selectValue, handleSelectValue, selectUrlParam, setSelectUrlParam, entityValues, setEntityValues } = usePageData() //global data
-  
+  const {
+    selectValue,
+    handleSelectValue,
+    selectUrlParam,
+    setSelectUrlParam,
+    entityValues,
+    setEntityValues,
+  } = usePageData() //global data
+
   const tableProvider = {
     columns: [
       {
@@ -45,6 +52,7 @@ export function ViewRoles() {
     // alert(selectValue)
     return val
   }
+
   // //USE EFFECT HOOK
   useEffect(() => {
     const callFunc = async () => {
@@ -60,29 +68,29 @@ export function ViewRoles() {
     }
   }, [])
 
-
   return (
     <div className='row g-5 g-xxl-8'>
       <div className='col-xl-12'>
-      {loadingData ? (
-          <div><Spinner animation="border" /></div>
+        {loadingData ? (
+          <div>
+            <Spinner animation='border' />
+          </div>
         ) : (
           <IrisTablesWidget
-          tableData={rolemodel}
-          className='mb-5 mb-xl-8'
-          columnsMap={tableProvider.columns}
-          DetailsPath={tableProvider.DetailsPath}
-          EditPath={tableProvider.EditPath}
-          DeletePath={tableProvider.DeletePath}
-          UseFakeData={false}
-          FakeData={tableProvider.FakeData}
-          TableTitle={'Roles'}
-          Count={'Over 300 Users'}
-          ModalTarget={modalTarger}
-          handleEdit = {handleEdit}
-        />
+            tableData={rolemodel}
+            className='mb-5 mb-xl-8'
+            columnsMap={tableProvider.columns}
+            DetailsPath={tableProvider.DetailsPath}
+            EditPath={tableProvider.EditPath}
+            DeletePath={tableProvider.DeletePath}
+            UseFakeData={false}
+            FakeData={tableProvider.FakeData}
+            TableTitle={'Roles'}
+            Count={'Over 300 Users'}
+            ModalTarget={modalTarger}
+            handleEdit={handleEdit}
+          />
         )}
-
       </div>
     </div>
   )

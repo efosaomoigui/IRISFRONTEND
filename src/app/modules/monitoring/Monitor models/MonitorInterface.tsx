@@ -17,12 +17,11 @@ export interface ITripModel {
 
 export interface ITrackHistoryModel {
     id: string
-    TripId : string
-    Trip: string
-    Action  : string
-    Location : string
-    TimeStamp : string
-    Status : string
+    tripReference: string
+    action  : string
+    location : string
+    timeStamp : string
+    status : string
     message?: string
     validationErrors?: string[]
     trackhistorydto?: {}

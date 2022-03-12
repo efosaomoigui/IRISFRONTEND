@@ -49,15 +49,15 @@ export default function AddManifestForm(props: Props<IManifestModel>) {
     const [showError, setShowError] = useState(true)
     
     const initialFormValue: IManifestModel = {
-        Id: props.manifest ? props.manifest!.Id : '',
-        ManifestCode: props.manifest ? props.manifest!.ManifestCode : '',
-        GroupWayBillId: props.manifest ? props.manifest!.GroupWayBillId : '',
+        serviceCenterId: props.manifest ? props.manifest!.serviceCenterId : '',
+        manifestCode: props.manifest ? props.manifest!.manifestCode : '',
+        groupWayBillId: props.manifest ? props.manifest!.groupWayBillId : '',
     }
 
     const validationSchema = Yup.object({
-        Id: Yup.string().required(),
-        ManifestCode: Yup.string().required(),
-        GroupWayBillId: Yup.string().required(),
+        serviceCenterId: Yup.string().required(),
+        manifestCode: Yup.string().required(),
+        groupWayBillId: Yup.string().required(),
     })
 
     const classes = useStyles()
@@ -90,20 +90,20 @@ export default function AddManifestForm(props: Props<IManifestModel>) {
                                         <Grid item xs={6}>
                                             <IrisTextInput
                                                 type='text'
-                                                name='Id'
-                                                placeholder='Id'
-                                                label='Id'
+                                                name='serviceCenterId'
+                                                placeholder='service CenterId'
+                                                label='service CenterId'
                                             />
                                             <IrisTextInput
                                                 type='text'
                                                 placeholder='ManifestCode'
-                                                name='ManifestCode'
+                                                name='manifestCode'
                                                 label='ManifestCode'
                                             />
                                             <IrisTextInput
-                                                type='number'
+                                                type='text'
                                                 placeholder='GroupWayBillId'
-                                                name='GroupWayBillId'
+                                                name='groupWayBillId'
                                                 label='GroupWayBillId'
                                             />
                                         </Grid>

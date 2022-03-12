@@ -39,7 +39,7 @@ const EditManifestModal: React.FC<Props> = ({ handleEdit, SelectedValues }: Prop
    
     const onSubmit = (values: IManifestModel) => {
         setIsSubmitting(true)
-        values.Id = uuid()
+        values.groupWayBillId = uuid()
 
         agent.Manifest.update(values).then((response) => {
             if (response.validationErrors!.length > 0) {

@@ -18,29 +18,21 @@ export function ViewPriceSettings() {
   //all the data for the table
   const tableProvider = {
     columns: [
-      // {
-      //   Header: 'ID',
-      //   accessor: 'id',
-      // },
       {
         Header: 'Category List',
-        accessor: 'Category',
+        accessor: 'category',
       },
       {
         Header: 'Route Identification',
-        accessor: 'RouteId',
-      },
-      {
-        Header: 'Route',
-        accessor: 'Route',
+        accessor: 'routeId',
       },
       {
         Header: 'Unit Weight',
-        accessor: 'UnitWeight',
+        accessor: 'unitWeight',
       },
       {
         Header: 'Price Per-Unit',
-        accessor: 'PricePErUnit',
+        accessor: 'pricePErUnit',
       },
     ],
     DetailsPath: '/shipment/pricesettingdetail/',
@@ -59,7 +51,7 @@ export function ViewPriceSettings() {
 
   const handleEdit = (event: React.MouseEvent) => {
     const urlParm = event.currentTarget.getAttribute('id')
-    const val = pricemodel.find((x) => x.RouteId === urlParm)
+    const val = pricemodel.find((x) => x.routeId === urlParm)
     handleSelectValue(val!)
     return val
   }

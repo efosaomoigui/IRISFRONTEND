@@ -20,6 +20,8 @@ const TableActionLinks = ({DetailsPath, EditPath, DeletePath, handleEdit}: Props
       <Link
         to={DetailsPath}
         title='Details'
+        id={EditPath.split(",")[1]}
+        onClick={handleEdit}
         className='btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1'
         onClick={handleEdit}
       >

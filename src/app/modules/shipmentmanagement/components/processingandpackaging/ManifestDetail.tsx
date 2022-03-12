@@ -39,7 +39,7 @@ export function ManifestDetail() {
 
               <div className='col-lg-8'>
                 <span className='fw-bolder fs-6 text-dark'>
-                    {manifestdetails?.Id}
+                    {manifestdetails?.groupWayBillId}
                 </span>
               </div>
             </div>

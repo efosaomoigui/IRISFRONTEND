@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Container } from 'react-bootstrap-v5';
 import { toast } from 'react-toastify';
 import { v4 as uuid } from 'uuid';
 import agent from '../../../../setup/axios/AxiosAgent';
@@ -32,22 +33,13 @@ const EditPriceModal: React.FC<Props> = ({ handleEdit, SelectedValues }: Props) 
     setShowError(false)
     setShowForm(true)
     window.location.reload()
-    console.log('On click', showError)
+    // console.log('On click', showError)
   }
 
-  // const setSelectedValue = (prices: IPriceModel[]) => {
-  //   const val = prices.find(x => x.RouteId === selectUrlParam)
-  //   return val;
-  // }
-
-  
-
-  // const selected = setSelectedValue(prices);
-  // console.log("LOG ", (selected) ? "old price" : "new price");
 
   const onSubmit = (values: IPriceModel) => {
     setIsSubmitting(true)
-    values.RouteId = uuid()
+    values.routeId = uuid()
 
     agent.Price.update(values).then((response) => {
       if (response.validationErrors!.length > 0) {
@@ -68,7 +60,7 @@ const EditPriceModal: React.FC<Props> = ({ handleEdit, SelectedValues }: Props) 
 
   return (
     <>
-      <div className='modal fade' id='kt_modal_editprice' aria-hidden='true'>
+      <Container className='modal fade' id='kt_modal_editprice' aria-hidden='true'>
         <EditPriceForm 
           isSubmitting={isSubmitting}
           onSubmit={onSubmit}
@@ -78,7 +70,7 @@ const EditPriceModal: React.FC<Props> = ({ handleEdit, SelectedValues }: Props) 
           errorMessage={errorMessage}
           handleClick={handleClick}
           formTitle={'Edit Price'}/>
-      </div>
+      </Container>
     </>
   )
 }

@@ -19,33 +19,30 @@ export function ViewTrackHistory() {
   //all the data for the table
   const tableProvider = {
     columns: [
+
       {
         Header: 'Id',
         accessor: 'id',
       },
       {
-        Header: 'TripId',
-        accessor: 'TripId',
-      },
-      {
-        Header: 'Trip',
-        accessor: 'Trip',
+        Header: 'Trip Reference',
+        accessor: 'tripReference',
       },
       {
         Header: 'Action',
-        accessor: 'Action',
+        accessor: 'action',
       },
       {
-        Header: 'Locaton',
-        accessor: 'Locaton',
+        Header: 'Location',
+        accessor: 'location',
       },
       {
         Header: 'TimeStamp',
-        accessor: 'TimeStamp',
+        accessor: 'timeStamp',
       },
       {
         Header: 'Status',
-        accessor: 'Status',
+        accessor: 'status',
       },
     ],
     DetailsPath: '/monitor/trackHistoryDetails/',
@@ -98,7 +95,7 @@ export function ViewTrackHistory() {
             DeletePath={tableProvider.DeletePath}
             UseFakeData={false}
             FakeData={tableProvider.FakeData}
-            TableTitle={'Traeck History'}
+            TableTitle={'Track History'}
             Count={'Over 300 Users'}
             ModalTarget={modalTarger}
             handleEdit={handleEdit}

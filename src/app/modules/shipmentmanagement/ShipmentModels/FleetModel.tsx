@@ -3,17 +3,17 @@ import { IFleetModel } from "./ShipmentInterfaces";
 
 export const Fleetmodel: IFleetModel[] = [
   {
-    FleetId: '',
-    RegistrationNumber: '',
-    ChasisNumber: '',
-    EngineNumber: '',
-    Status: '',
-    FleetType: '',
-    Capacity: '',
-    Description: '',
-    FleetModel: '',
-    FleetMake: '',
-    OwnerId: ''
+    fleetId: '',
+    fleetType: 9,
+    registrationNumber: '',
+    chassisNumber: '',
+    engineNumber: '',
+    status: true,
+    capacity: 200,
+    description: '',
+    fleetModel: '',
+    fleetMake: '',
+    ownerId: '',
   }
   
 ]

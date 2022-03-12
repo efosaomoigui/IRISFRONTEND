@@ -20,7 +20,7 @@ const AddWalletTransactionModal: React.FC = () => {
   const wallettransactions = entityValues as IWalletTransactionModel[];
 
   const setSelectedValue = (wallettransactions: IWalletTransactionModel[]) => {
-    const val = wallettransactions.find(x => x.WalletTransactionId === selectUrlParam)
+    const val = wallettransactions.find(x => x.userId === selectUrlParam)
     return val;
   }
 
@@ -29,9 +29,9 @@ const AddWalletTransactionModal: React.FC = () => {
 
   const onSubmit = (values: IWalletTransactionModel) => {
     setIsSubmitting(true)
-    values.WalletTransactionId = uuid()
+    values.userId = uuid()
 
-    if (selected?.WalletTransactionId) {
+    if (selected?.userId) {
       agent.WalletTransaction.update(values).then((response) => {
         toast.success('Wallet transaction Update Was Successful!')
         setInterval(() => {

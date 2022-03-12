@@ -74,7 +74,7 @@ const AddTrackHistoryModal: React.FC = () => {
             showForm={showForm}
             errorMessage={errorMessage}
             handleClick={handleClick}
-            formTitle={'Add User'}
+            formTitle={'Add Track'}
              />
         </Container>
         </>

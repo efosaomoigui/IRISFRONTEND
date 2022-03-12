@@ -77,7 +77,7 @@ const WalletTransaction = {
   list: () => request.get<IWalletTransactionModel[]>(`${API_URL}/Wallet/WalletTransaction/all`),
   details: (wallettransactionid: string) => request.get<IWalletTransactionModel>(`${API_URL}/Wallet/WalletTransaction/GetWalletTransactionById/${wallettransactionid}`),
   create: (wallettransaction: IWalletTransactionModel) => request.post<IWalletTransactionModel>(`${API_URL}/Wallet/WalletTransaction`, wallettransaction),
-  update: (wallettransaction: IWalletTransactionModel) => request.put<IWalletTransactionModel>(`${API_URL}/Wallet/WalletTransaction/${wallettransaction.WalletTransactionId}`, {}),
+  update: (wallettransaction: IWalletTransactionModel) => request.put<IWalletTransactionModel>(`${API_URL}/Wallet/WalletTransaction/${wallettransaction.userId}`, {}),
   delete: (id: string) => request.del<void>(`${API_URL}/Shipment/GetUser${id}`),
 }
 
@@ -101,9 +101,9 @@ const  Shipment = {
 
 const Manifest = {
   list: () => request.get<IManifestModel[]>(`${API_URL}/Manifest/Manifest/all`),
-  details: (manifestcode: string) => request.get<IManifestModel>(`${API_URL}/api/Manifest/Manifest/GetManifestByManifestCode/${manifestcode}`),
+  details: (groupwaybillid: string) => request.get<IManifestModel>(`${API_URL}/Manifest/GetManifestByGroupWayBillNumber/${groupwaybillid}`),
   create: (manifest: IManifestModel) => request.post<IManifestModel>(`${API_URL}/Manifest/Manifest`, manifest),
-  update: (manifest: IManifestModel) => request.put<IManifestModel>(`${API_URL}/Manifest/Manifest/edit/${manifest.Id}`, {}),
+  update: (manifest: IManifestModel) => request.put<IManifestModel>(`${API_URL}/Manifest/Manifest/edit/${manifest.groupWayBillId}`, {}),
   delete: (id: string) => request.del<void>(`${API_URL}/Manifest/Manifest/delete/${id}`),
 }
 
@@ -112,7 +112,7 @@ const  Fleet = {
   list: () => request.get<IFleetModel[]>(`${API_URL}/ShipmentSettings/Fleet/all`),
   details: (fleetid: string) => request.get<IFleetModel>(`${API_URL}/ShipmentSettings/Fleet/all/${fleetid}`), 
   create: (fleet: IFleetModel) => request.post<IFleetModel>(`${API_URL}/ShipmentSettings/Fleet`, fleet), 
-  update: (fleet: IFleetModel) => request.put<IFleetModel>(`${API_URL}/ShipmentSettings/Fleet/${fleet.FleetId}`, {}), 
+  update: (fleet: IFleetModel) => request.put<IFleetModel>(`${API_URL}/ShipmentSettings/Fleet/${fleet.fleetId}`, {}), 
   delete: (id: string) => request.del<void>(`${API_URL}/ShipmentSettings/Fleet${id}`),  
 }
 
@@ -121,7 +121,7 @@ const  Price = {
   list: () => request.get<IPriceModel[]>(`${API_URL}/ShipmentSettings/Price/all`),
   details: (id: string) => request.get<IPriceModel>(`${API_URL}/api/ShipmentSettings/Price/GetPriceById/${id}`), 
   create: (price: IPriceModel) => request.post<IPriceModel>(`${API_URL}/ShipmentSettings/Price`, price), 
-  update: (price: IPriceModel) => request.put<IPriceModel>(`${API_URL}/ShipmentSettings/Price/${price.RouteId}`, {}), 
+  update: (price: IPriceModel) => request.put<IPriceModel>(`${API_URL}/ShipmentSettings/Price/${price.routeId}`, {}), 
   delete: (id: string) => request.del<void>(`${API_URL}/ShipmentSettings/Price${id}`),  
 }
 
@@ -163,7 +163,7 @@ const CollectionCenter = {
   list: () => request.get<IFulfilmentModel[]>(`${API_URL}/Shipment/CollectionCenter/all`),
   details: (CollectionCenterid: string) => request.get<IFulfilmentModel>(`${API_URL}/UserManagement/GetUser/${CollectionCenterid}`),
   create: (CollectionCenter: IFulfilmentModel) => request.post<IFulfilmentModel>(`${API_URL}/Shipment/CollectionCenter`, CollectionCenter),
-  update: (CollectionCenter: IFulfilmentModel) => request.put<IFulfilmentModel>(`${API_URL}/Shipment/CollectionCenter/edit/${CollectionCenter.Id}`, {}),
+  update: (CollectionCenter: IFulfilmentModel) => request.put<IFulfilmentModel>(`${API_URL}/Shipment/CollectionCenter/edit${CollectionCenter.shipmentId}`, {}),
   delete: (id: string) => request.del<void>(`${API_URL}/Shipment/CollectionCenter/delete${id}`),
 }
 

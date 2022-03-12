@@ -10,6 +10,9 @@ import { usePageData } from '../../../../_iris/layout/core'
 import useStyles from '../../layout/formstyles/FormStyle'
 import { Alert } from '@mui/material'
 import { Grid } from '@material-ui/core'
+import ErrorAlert from '../../common/ErrorAlert'
+import { useState } from 'react'
+import IrisTextRadio from '../../layout/forms/IrisTextRadio'
 
 // interface Props {
 //   userVal: IUserModel
@@ -26,7 +29,7 @@ interface Props<Values> {
   handleClick?: () => void
 }
 
-const options = [
+const options = [ 
   {text: 'one', value: 'Bag'},
   {text: 'two', value: 'Serial'},
   {text: 'three', value: 'Turkey'},
@@ -37,35 +40,36 @@ export default function EditFleetForm(props: Props<IFleetModel>) {
   const {entityValues, setEntityValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle} = usePageData()
 
   const initialFormValue: IFleetModel = {
-    FleetId: props.fleet ? props.fleet!.FleetId : '',
-    RegistrationNumber: props.fleet ? props.fleet!.RegistrationNumber : '',
-    ChasisNumber: props.fleet ? props.fleet!.ChasisNumber : '',
-    EngineNumber: props.fleet ? props.fleet!.EngineNumber : '',
-    Status: props.fleet ? props.fleet!.Status : '',
-    FleetType: props.fleet ? props.fleet!.FleetType : '',
-    Capacity: props.fleet ? props.fleet!.Capacity : '',
-    Description: props.fleet ? props.fleet!.Description : '',
-    FleetModel: props.fleet ? props.fleet!.FleetModel : '',
-    FleetMake: props.fleet ? props.fleet!.FleetMake : '',
-    OwnerId: props.fleet ? props.fleet!.OwnerId : '',
+    fleetId: props.fleet ? props.fleet!.fleetId : '',
+    fleetType: props.fleet ? props.fleet!.fleetType : 48,
+    registrationNumber: props.fleet ? props.fleet!.registrationNumber : '',
+    chassisNumber: props.fleet ? props.fleet!.chassisNumber : '',
+    engineNumber: props.fleet ? props.fleet!.engineNumber : '',
+    status: props.fleet ? props.fleet!.status : true,
+    capacity: props.fleet ? props.fleet!.capacity : 200,
+    description: props.fleet ? props.fleet!.description : '',
+    fleetModel: props.fleet ? props.fleet!.fleetModel : '',
+    fleetMake: props.fleet ? props.fleet!.fleetMake : '',
+    ownerId: props.fleet ? props.fleet!.ownerId : '',
   }
 
   const validationSchema = Yup.object({
-    FleetId: Yup.string().required(),
-    RegistrationNumber: Yup.string().required(),
-    ChasisNumber: Yup.number().required(),
-    EngineNumber: Yup.number().required(),
-    Status: Yup.string().required(),
-    FleetType: Yup.string().required(),
-    Capacity: Yup.string().required(),
-    Description: Yup.string().required(),
-    FleetModel: Yup.string().required(),
-    FleetMake: Yup.string().required(),
-    OwnerId: Yup.string().required(),
+    fleetId: Yup.string().required(),
+    registrationNumber: Yup.string().required(),
+    chassisNumber: Yup.string().required(),
+    engineNumber: Yup.string().required(),
+    status: Yup.boolean().required(),
+    fleetType: Yup.number().required(),
+    capacity: Yup.number().required(),
+    description: Yup.string().required(),
+    fleetModel: Yup.string().required(),
+    fleetMake: Yup.string().required(),
+    ownerId: Yup.string().required(),
   })
 
   const classes = useStyles()
 
+ 
   return (
     <>
       <Formik
@@ -74,11 +78,12 @@ export default function EditFleetForm(props: Props<IFleetModel>) {
         enableReinitialize
         onSubmit={props.onSubmit}
       >
+        
         <Form className='ui form' autoComplete='off'>
           <div className='modal-dialog modal-dialog-centered mw-900px'>
             <div className='modal-content'>
               <div className='modal-header'>
-                <h2>{formTitle+" Fleet"}</h2>
+                <h2>{"Edit Fleet"}</h2>
                 <div
                   className='btn btn-sm btn-icon btn-active-color-primary'
                   data-bs-dismiss='modal'
@@ -87,45 +92,59 @@ export default function EditFleetForm(props: Props<IFleetModel>) {
                 </div>
               </div>
               <div className='modal-body' >
-                {props.showForm &&
+                {props.showError && <ErrorAlert type={'danger'} message={props.errorMessage!.toString()} heading={'Oh snap! You got an error!'} />}
+                {props.showForm && (
                   <Grid container className={classes.root}>
                     <Grid item xs={3}>
                       <IrisTextInput
                         type='text'
-                        name='FleetId'
+                        name='fleetId'
                         placeholder='FleetId'
                         label='FleetId'
                       />
                       <IrisTextInput
-                        type='number'
+                        type='text'
                         placeholder='Registration Number'
-                        name='RegistrationNumber'
+                        name='registrationNumber'
                         label='Registration Number'
                       />
                       <IrisTextInput
-                        type='number'
+                        type='text'
                         placeholder='Chasis Number'
-                        name='ChasisNumber'
+                        name='chassisNumber'
                         label='Chasis Number'
+                      />
+                      <IrisTextInput
+                        type='text'
+                        placeholder='Engine Number'
+                        name='engineNumber'
+                        label='Engine Number'
                       />
                     </Grid>
                      <Grid item xs={3}>
+                        <IrisTextInput
+                          type='text'
+                          placeholder='Status'
+                          name='status'
+                          label='status'
+                        />
+
                       <IrisTextInput
                         type='text'
                         placeholder='Fleet Type'
-                        name='FleetType'
+                        name='fleetType'
                         label='Fleet Type'
                       />
                       <IrisTextInput
                         type='text'
                         placeholder='Capacity'
-                        name='Capacity'
+                          name='capacity'
                         label='Capacity'
                       />
                       <IrisTextInput
                         type='text'
                         placeholder='Description'
-                        name='Description'
+                          name='description'
                         label='Description'
                       />
                      </Grid>
@@ -133,48 +152,51 @@ export default function EditFleetForm(props: Props<IFleetModel>) {
                       <IrisTextInput
                         type='text'
                         placeholder='Fleet Model'
-                        name='FleetModel'
+                          name='fleetModel'
                         label='Fleet Model'
                       />
 
                       <IrisTextInput
                         type='text'
                         placeholder='Fleet Make'
-                        name='FleetMake'
+                        name='fleetMake'
                         label='Fleet Make'
                       />
 
                       <IrisTextInput
-                        type='number'
+                        type='text'
                         placeholder='Owner Id'
-                        name='OwnerId'
+                        name='ownerId'
                         label='Owner Id'
                       />
                      </Grid>
                   </Grid>
-                }
-                {!props.showForm && <Alert severity="info">Fleet Created Successfully!</Alert>}
+                )}
+                {!props.showForm && <ErrorAlert type={'success'} message={'Fleet Created Successfully!'} heading={'Confirmation Message!'} />}
               </div>
               <div className='modal-body py-lg-10 px-lg-10'>
               </div>
 
               <Modal.Footer>
+                {props.showForm &&
+                  (<Button
+                    floated='right'
+                    positive
+                    type='submit'
+                    variant='primary'
+                    loading={props.isSubmitting}
+                    content='Submit'
+                  />
+                  )}
                 <Button
                   floated='right'
-                  positive
-                  type='submit'
-                  variant='secondary'
-                  loading={props.isSubmitting}
-                  content='Submit'
-                ></Button>
-                <Button floated='right'
                   positive
                   type='reset'
                   variant='primary'
                   onClick={props.handleClick}
                   data-bs-dismiss='modal'
                   content='Cancel'
-                  ></Button>
+                />
               </Modal.Footer>
             </div>
           </div>

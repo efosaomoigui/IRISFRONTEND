@@ -50,22 +50,20 @@ export default function EditTrackHistoryForm(props: Props<ITrackHistoryModel>) {
 
     const initialFormValue: ITrackHistoryModel = {
         id: props.trackHistory ? props.trackHistory!.id : '',
-        TripId: props.trackHistory ? props.trackHistory!.TripId :  '',
-        Trip: props.trackHistory ? props.trackHistory!.Trip : '',
-        Action: props.trackHistory ? props.trackHistory!.Action:'',
-        Location: props.trackHistory ? props.trackHistory!.Location: '',
-        TimeStamp: props.trackHistory ? props.trackHistory!.TimeStamp :'',
-        Status: props.trackHistory ? props.trackHistory!.Status :''
+        tripReference: props.trackHistory ? props.trackHistory!.tripReference : '',
+        action: props.trackHistory ? props.trackHistory!.action : '',
+        location: props.trackHistory ? props.trackHistory!.location : '',
+        timeStamp: props.trackHistory ? props.trackHistory!.timeStamp : '',
+        status: props.trackHistory ? props.trackHistory!.status : ''
     }
 
     const validationSchema = Yup.object({
         id: Yup.string().required(),
-        TripId: Yup.string().required(),
-        Trip: Yup.string().required(),
-        Action: Yup.string().required(),
-        Location: Yup.string().required(),
-        TimeStamp: Yup.string().required(),
-        Status: Yup.string().required(),
+        tripReference: Yup.string().required(),
+        action: Yup.string().required(),
+        location: Yup.string().required(),
+        timeStamp: Yup.string().required(),
+        status: Yup.string().required(),
     })
 
     const classes = useStyles()
@@ -99,46 +97,40 @@ export default function EditTrackHistoryForm(props: Props<ITrackHistoryModel>) {
                                             <IrisTextInput
                                                 type='text'
                                                 name='id'
-                                                label='id'
+                                                label='Id'
                                             />
 
                                             <IrisTextInput
                                                 type='text'
-                                                name='TripId'
-                                                label='TripId'
-                                            />
-                                            <IrisTextInput
-                                                type='text'
-                                                name='Action'
+                                                name='action'
                                                 label='Action'
                                             />
                                             <IrisTextInput
                                                 type='text'
-                                                name='Location'
+                                                name='location'
                                                 label='Location'
                                             />
                                         </Grid>
                                         <Grid item xs={3}>
                                             <IrisTextInput
                                                 type='text'
-                                                name='Status'
+                                                name='status'
                                                 label='Status'
                                             />
 
                                             <IrisTextInput
                                                 type='text'
-                                                name='Trip'
-                                                label='Trip'
+                                                name='tripReference'
+                                                label='Trip Reference'
                                             />
 
                                             <IrisDatePicker
                                                 placeholderText='TimeStamp'
-                                                name='TimeStamp'
+                                                name='timeStamp'
                                                 showTimeSelect
                                                 timeCaption='TimeStamp'
                                                 dateFormat='MMM d, yyyy h:mm: aa'
                                             />
-
                                         </Grid>
                                     </Grid>
                                 )}

@@ -38,12 +38,12 @@ export function PriceSettingDetail() {
               <label className='col-lg-4 fw-bold text-muted'>Price Setting</label>
               <div className='col-lg-8'>
                 <span className='fw-bolder fs-6 text-dark'>
-                    {pricedetails?.RouteId}
+                    {pricedetails?.routeId}
                 </span>
               </div>
                <div className='col-lg-8'>
                 <span className='fw-bolder fs-6 text-dark'>
-                    {pricedetails?.RouteId}
+                    {pricedetails?.routeId}
                 </span>
               </div>
             </div>
@@ -52,7 +52,7 @@ export function PriceSettingDetail() {
                 <label className='col-lg-4 fw-bold text-muted'>Category</label>
                 <div className='col-lg-8'>
                   <span className='fw-bolder fs-6 text-dark'>
-                    {pricedetails?.Category}
+                    {pricedetails?.category}
                   </span>
                 </div>
               </div>
@@ -62,7 +62,7 @@ export function PriceSettingDetail() {
 
                 <div className='col-lg-8'>
                   <span className='fw-bolder fs-6 text-dark'>
-                    {pricedetails?.RouteId}
+                    {pricedetails?.routeId}
                   </span>
                 </div>
               </div>
@@ -72,7 +72,7 @@ export function PriceSettingDetail() {
 
                 <div className='col-lg-8'>
                   <span className='fw-bolder fs-6 text-dark'>
-                    {pricedetails?.Route}
+                    {pricedetails?.routeId}
                   </span>
                 </div>
               </div>
@@ -82,7 +82,7 @@ export function PriceSettingDetail() {
 
                 <div className='col-lg-8'>
                   <span className='fw-bolder fs-6 text-dark'>
-                    {pricedetails?.UnitWeight}
+                    {pricedetails?.unitWeight}
                   </span>
                 </div>
               </div>
@@ -92,7 +92,7 @@ export function PriceSettingDetail() {
 
                 <div className='col-lg-8'>
                   <span className='fw-bolder fs-6 text-dark'>
-                    {pricedetails?.PricePErUnit}
+                    {pricedetails?.pricePErUnit}
                   </span>
                 </div>
               </div>

@@ -4,6 +4,7 @@ import agent from '../../../../../../setup/axios/AxiosAgent'
 import {KTSVG} from '../../../../../../_iris/helpers'
 import {usePageData} from '../../../../../../_iris/layout/core'
 import {IRoleModel, IUserModel} from '../../../../auth/models/AuthInterfaces'
+import ErrorAlert from '../../../../common/ErrorAlert'
 
 export function RoleDetail() {
   let {roleId} = useParams<{roleId: string}>()

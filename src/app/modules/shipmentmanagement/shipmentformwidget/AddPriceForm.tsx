@@ -48,20 +48,18 @@ export default function AddPriceForm(props: Props<IPriceModel>) {
 
   const initialFormValue: IPriceModel = {
     
-    Category: props.price ? props.price!.Category : '',
-    RouteId: props.price ? props.price!.RouteId : '',
-    Route: props.price ? props.price!.Route : '',
-    UnitWeight: props.price ? props.price!.UnitWeight : 3,
-    PricePErUnit: props.price ? props.price!.PricePErUnit : '',
+    category: props.price ? props.price!.category : 2,
+    routeId: props.price ? props.price!.routeId : '',
+    unitWeight: props.price ? props.price!.unitWeight : 3,
+    pricePErUnit: props.price ? props.price!.pricePErUnit : 300,
   }
 
   const validationSchema = Yup.object({
     
-    Category: Yup.string().required(),
-    RouteId: Yup.string().required(),
-    Route: Yup.string().required(),
-    UnitWeight: Yup.number().required(),
-    PricePErUnit: Yup.string().required(),
+    category: Yup.number().required(),
+    routeId: Yup.string().required(),
+    unitWeight: Yup.number().required(),
+    pricePErUnit: Yup.number().required(),
   })
 
   const classes = useStyles()
@@ -91,42 +89,31 @@ export default function AddPriceForm(props: Props<IPriceModel>) {
                 {props.showForm && (
                   <Grid container className={classes.root}>
                     <Grid item xs={6}>
-                      {/* <IrisTextInput
-                        type='text'
-                        name='id'
-                        placeholder='Id'
-                        label='Id'
-                      /> */}
                       <IrisTextInput
                         type='text'
                         placeholder='RouteId'
-                        name='RouteId'
+                        name='routeId'
                         label='RouteId'
                       />
-                      <IrisTextInput 
-                        type='text' 
-                        placeholder='Route'
-                        name='Route' 
-                        label='Route' />
 
                     </Grid>
                     <Grid item xs={6}>
                       <IrisTextInput
                         type='number'
                         placeholder='UnitWeight'
-                        name='UnitWeight'
+                        name='unitWeight'
                         label='UnitWeight'
                       />
                       <IrisTextInput
                         type='number'
                         placeholder='PricePErUnit'
-                        name='PricePErUnit'
+                        name='pricePErUnit'
                         label='PricePErUnit'
                       />
                       <IrisTextInput
                         type='text'
                         placeholder='category'
-                        name='Category'
+                        name='category'
                         label='Category'
                       />
                     </Grid>

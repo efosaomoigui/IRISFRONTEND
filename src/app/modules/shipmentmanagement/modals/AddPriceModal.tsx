@@ -28,7 +28,7 @@ const AddPriceModal: React.FC<Props> = ({ handleSelect, SelectedValues }: Props)
   const prices = entityValues as IPriceModel[];
 
   const setSelectedValue = (prices: IPriceModel[]) => {
-    const val = prices.find(x => x.RouteId === selectUrlParam)
+    const val = prices.find(x => x.routeId === selectUrlParam)
     return val;
   }
 
@@ -45,9 +45,9 @@ const AddPriceModal: React.FC<Props> = ({ handleSelect, SelectedValues }: Props)
 
   const onSubmit = (values: IPriceModel) => {
     setIsSubmitting(true)
-    values.RouteId = uuid()
+    values.routeId = uuid()
 
-    if (selected?.RouteId) {
+    if (selected?.routeId) {
       agent.Price.update(values).then((response) => {
         toast.success('price Update Was Successful!')
         setInterval(() => {

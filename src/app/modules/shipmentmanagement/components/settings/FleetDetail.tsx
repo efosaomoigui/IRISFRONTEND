@@ -39,7 +39,7 @@ export function FleetDetail() {
 
               <div className='col-lg-8'>
                 <span className='fw-bolder fs-6 text-dark'>
-                    {fleetdetails?.FleetId}
+                    {fleetdetails?.fleetId}
                 </span>
               </div>
             </div>
@@ -49,7 +49,7 @@ export function FleetDetail() {
 
                 <div className='col-lg-8'>
                   <span className='fw-bolder fs-6 text-dark'>
-                    {fleetdetails?.RegistrationNumber}
+                    {fleetdetails?.registrationNumber}
                   </span>
                 </div>
               </div>
@@ -59,7 +59,7 @@ export function FleetDetail() {
 
                 <div className='col-lg-8'>
                   <span className='fw-bolder fs-6 text-dark'>
-                    {fleetdetails?.ChasisNumber}
+                    {fleetdetails?.chassisNumber}
                   </span>
                 </div>
               </div>
@@ -69,7 +69,7 @@ export function FleetDetail() {
 
                 <div className='col-lg-8'>
                   <span className='fw-bolder fs-6 text-dark'>
-                    {fleetdetails?.FleetType}
+                    {fleetdetails?.fleetMake}
                   </span>
                 </div>
               </div>
@@ -79,7 +79,7 @@ export function FleetDetail() {
 
                 <div className='col-lg-8'>
                   <span className='fw-bolder fs-6 text-dark'>
-                    {fleetdetails?.Capacity}
+                    {fleetdetails?.capacity}
                   </span>
                 </div>
               </div>
@@ -89,7 +89,7 @@ export function FleetDetail() {
 
                 <div className='col-lg-8'>
                   <span className='fw-bolder fs-6 text-dark'>
-                    {fleetdetails?.Description}
+                    {fleetdetails?.description}
                   </span>
                 </div>
               </div>

@@ -49,7 +49,7 @@ export function TrackHistoryDetail() {
 
               <div className='col-lg-8'>
                 <span className='fw-bolder fs-6 text-dark'>
-                  {trackhistorydetails?.TripId}
+                  {trackhistorydetails?.id}
                 </span>
               </div>
             </div>
@@ -59,7 +59,7 @@ export function TrackHistoryDetail() {
 
               <div className='col-lg-8'>
                 <span className='fw-bolder fs-6 text-dark'>
-                  {trackhistorydetails?.Location}
+                  {trackhistorydetails?.location}
                 </span>
               </div>
             </div>
@@ -69,7 +69,7 @@ export function TrackHistoryDetail() {
 
               <div className='col-lg-8'>
                 <span className='fw-bolder fs-6 text-dark'>
-                  {trackhistorydetails?.Status}
+                  {trackhistorydetails?.status}
                 </span>
               </div>
             </div>
@@ -78,7 +78,7 @@ export function TrackHistoryDetail() {
 
               <div className='col-lg-8'>
                 <span className='fw-bolder fs-6 text-dark'>
-                  {trackhistorydetails?.TimeStamp}
+                  {trackhistorydetails?.timeStamp}
                 </span>
               </div>
             </div>
@@ -87,7 +87,7 @@ export function TrackHistoryDetail() {
 
               <div className='col-lg-8'>
                 <span className='fw-bolder fs-6 text-dark'>
-                  {trackhistorydetails?.Action}
+                  {trackhistorydetails?.action}
                 </span>
               </div>
             </div>
