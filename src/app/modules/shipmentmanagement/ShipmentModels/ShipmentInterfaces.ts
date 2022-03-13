@@ -48,6 +48,7 @@ export interface IPriceModel {
     pricedto?: {}
 } 
 export interface IManifestModel {
+    Id?:string
     manifestCode: string;
     groupWayBillId: string;
     serviceCenterId: string;
