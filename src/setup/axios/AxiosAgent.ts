@@ -106,7 +106,7 @@ const  Shipment = {
 
 const Manifest = {
   list: () => request.get<IManifestModel[]>(`${API_URL}/Manifest/Manifest/all`),
-  details: (manifestcode: string) => request.get<IManifestModel>(`${API_URL}/api/Manifest/Manifest/GetManifestByManifestCode/${manifestcode}`),
+  details: (manifestCode: string) => request.get<IManifestModel>(`${API_URL}/api/Manifest/Manifest/GetManifestByManifestCode/${manifestCode}`),
   create: (manifest: IManifestModel) => request.post<IManifestModel>(`${API_URL}/Manifest/Manifest`, manifest),
   update: (manifest: IManifestModel) => request.put<IManifestModel>(`${API_URL}/Manifest/Manifest/edit/${manifest.Id}`, {}),
   delete: (id: string) => request.del<void>(`${API_URL}/Manifest/Manifest/delete/${id}`),
