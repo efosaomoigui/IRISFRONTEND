@@ -96,6 +96,11 @@ export default function AddTrackHistoryForm(props: Props<ITrackHistoryModel>) {
                                         <Grid item xs={3}>
                                             <IrisTextInput
                                                 type='text'
+                                                name='tripReference'
+                                                label='Trip'
+                                            />
+                                            <IrisTextInput
+                                                type='text'
                                                 name='id'
                                                 label='Id'
                                             />
@@ -105,11 +110,7 @@ export default function AddTrackHistoryForm(props: Props<ITrackHistoryModel>) {
                                                 name='action'
                                                 label='Action'
                                             />
-                                            <IrisTextInput
-                                                type='text'
-                                                name='location'
-                                                label='Location'
-                                            />
+                                            
                                         </Grid>
                                         <Grid item xs={3}>
                                             <IrisTextInput
@@ -120,8 +121,8 @@ export default function AddTrackHistoryForm(props: Props<ITrackHistoryModel>) {
 
                                             <IrisTextInput
                                                 type='text'
-                                                name='tripReference'
-                                                label='Trip'
+                                                name='location'
+                                                label='Location'
                                             />
 
                                             <IrisDatePicker

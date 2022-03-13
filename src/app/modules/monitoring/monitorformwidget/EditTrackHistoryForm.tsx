@@ -94,6 +94,12 @@ export default function EditTrackHistoryForm(props: Props<ITrackHistoryModel>) {
                                 {props.showForm && (
                                     <Grid container className={classes.root}>
                                         <Grid item xs={3}>
+
+                                            <IrisTextInput
+                                                type='text'
+                                                name='tripReference'
+                                                label='Trip Reference'
+                                            />
                                             <IrisTextInput
                                                 type='text'
                                                 name='id'
@@ -105,11 +111,7 @@ export default function EditTrackHistoryForm(props: Props<ITrackHistoryModel>) {
                                                 name='action'
                                                 label='Action'
                                             />
-                                            <IrisTextInput
-                                                type='text'
-                                                name='location'
-                                                label='Location'
-                                            />
+                                            
                                         </Grid>
                                         <Grid item xs={3}>
                                             <IrisTextInput
@@ -120,8 +122,8 @@ export default function EditTrackHistoryForm(props: Props<ITrackHistoryModel>) {
 
                                             <IrisTextInput
                                                 type='text'
-                                                name='tripReference'
-                                                label='Trip Reference'
+                                                name='location'
+                                                label='Location'
                                             />
 
                                             <IrisDatePicker

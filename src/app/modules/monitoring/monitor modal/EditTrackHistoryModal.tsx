@@ -42,7 +42,7 @@ const EditTrackHistoryModal: React.FC<Props> = ({ handleEdit, SelectedValues }: 
 
   const onSubmit = (values: ITrackHistoryModel) => {
     setIsSubmitting(true)
-    values.id = uuid()
+    values.tripReference = uuid()
 
     agent.TrackHistory.update(values).then((response) => {
       if (response.validationErrors!.length > 0) {

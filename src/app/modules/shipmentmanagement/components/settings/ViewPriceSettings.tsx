@@ -19,12 +19,12 @@ export function ViewPriceSettings() {
   const tableProvider = {
     columns: [
       {
-        Header: 'Category List',
-        accessor: 'category',
-      },
-      {
         Header: 'Route Identification',
         accessor: 'routeId',
+      },
+      {
+        Header: 'Category List',
+        accessor: 'category',
       },
       {
         Header: 'Unit Weight',

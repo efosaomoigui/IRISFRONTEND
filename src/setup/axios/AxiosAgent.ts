@@ -84,7 +84,7 @@ const WalletTransaction = {
 // Route Request Starts
 const  Route = {
   list: () => request.get<IRouteModel[]>(`${API_URL}/ShipmentSettings/Route/all`),
-  details: (routeid: string) => request.get<IRouteModel>(`${API_URL}/ShipmentSettings/Route/GetRouteById/${routeid}`), 
+  details: (routeid: string) => request.get<IRouteModel>(`${API_URL}/ShipmentSettings/GetRouteById/${routeid}`), 
   create: (route: IRouteModel) => request.post<IRouteModel>(`${API_URL}/ShipmentSettings/Route`, route), 
   update: (route: IRouteModel) => request.put<IRouteModel>(`${API_URL}/ShipmentSettings/Route/${route.routeId}`, {}), 
   delete: (id: string) => request.del<void>(`${API_URL}/ShipmentSettings/Route/${id}`), 
@@ -101,7 +101,7 @@ const  Shipment = {
 
 const Manifest = {
   list: () => request.get<IManifestModel[]>(`${API_URL}/Manifest/Manifest/all`),
-  details: (groupwaybillid: string) => request.get<IManifestModel>(`${API_URL}/Manifest/GetManifestByGroupWayBillNumber/${groupwaybillid}`),
+  details: (manifestCode: string) => request.get<IManifestModel>(`${API_URL}/Manifest/GetManifestByManifestCode/${manifestCode}`),
   create: (manifest: IManifestModel) => request.post<IManifestModel>(`${API_URL}/Manifest/Manifest`, manifest),
   update: (manifest: IManifestModel) => request.put<IManifestModel>(`${API_URL}/Manifest/Manifest/edit/${manifest.groupWayBillId}`, {}),
   delete: (id: string) => request.del<void>(`${API_URL}/Manifest/Manifest/delete/${id}`),
@@ -110,7 +110,7 @@ const Manifest = {
 // Fleet Request Starts
 const  Fleet = {
   list: () => request.get<IFleetModel[]>(`${API_URL}/ShipmentSettings/Fleet/all`),
-  details: (fleetid: string) => request.get<IFleetModel>(`${API_URL}/ShipmentSettings/Fleet/all/${fleetid}`), 
+  details: (fleetid: string) => request.get<IFleetModel>(`${API_URL}/ShipmentSettings/GetFleetById/${fleetid}`), 
   create: (fleet: IFleetModel) => request.post<IFleetModel>(`${API_URL}/ShipmentSettings/Fleet`, fleet), 
   update: (fleet: IFleetModel) => request.put<IFleetModel>(`${API_URL}/ShipmentSettings/Fleet/${fleet.fleetId}`, {}), 
   delete: (id: string) => request.del<void>(`${API_URL}/ShipmentSettings/Fleet${id}`),  
@@ -119,7 +119,7 @@ const  Fleet = {
 // Fleet Request Starts
 const  Price = {
   list: () => request.get<IPriceModel[]>(`${API_URL}/ShipmentSettings/Price/all`),
-  details: (id: string) => request.get<IPriceModel>(`${API_URL}/api/ShipmentSettings/Price/GetPriceById/${id}`), 
+  details: (priceid: string) => request.get<IPriceModel>(`${API_URL}/ShipmentSettings/GetPriceById/${priceid}`), 
   create: (price: IPriceModel) => request.post<IPriceModel>(`${API_URL}/ShipmentSettings/Price`, price), 
   update: (price: IPriceModel) => request.put<IPriceModel>(`${API_URL}/ShipmentSettings/Price/${price.routeId}`, {}), 
   delete: (id: string) => request.del<void>(`${API_URL}/ShipmentSettings/Price${id}`),  
@@ -153,9 +153,9 @@ const  Trip = {
 
 const TrackHistory = {
   list: () => request.get<ITrackHistoryModel[]>(`${API_URL}/TrackHistory/TrackHistory/all`),
-  details: (id: string) => request.get<ITrackHistoryModel>(`${API_URL}/TrackHistory/TrackHistory/GetTrackHistoryById/${id}`),
+  details: (tripreference: string) => request.get<ITrackHistoryModel>(`${API_URL}/api/TrackHistory/GetTrackHistoryByTripReference/${tripreference}`),
   create: (trackhistory: ITrackHistoryModel) => request.post<ITrackHistoryModel>(`${API_URL}/TrackHistory/TrackHistory`, trackhistory),
-  update: (trackhistory: ITrackHistoryModel) => request.put<ITrackHistoryModel>(`${API_URL}/TrackHistory/TrackHistory/edit/${trackhistory.id}`, {}),
+  update: (trackhistory: ITrackHistoryModel) => request.put<ITrackHistoryModel>(`${API_URL}/TrackHistory/TrackHistory/edit/${trackhistory.tripReference}`, {}),
   delete: (id: string) => request.del<void>(`${API_URL}/UserManagement/GetUser${id}`),
 }
 // Fulfilment Request Starts

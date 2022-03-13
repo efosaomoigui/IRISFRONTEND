@@ -64,12 +64,12 @@ const ShipmentPage: React.FC = () => {
           <HorizontalShipmentCapture />
         </Route>
 
-        <Route path='/shipment/routedetail/:routId'>
+        <Route path='/shipment/routedetail/:routeId'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Route Detail</PageTitle>
           <RouteDetail />
         </Route>
 
-        <Route path='/shipment/fleetdetail/:id'>
+        <Route path='/shipment/fleetdetail/:fleetId'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Fleet detail</PageTitle>
           <FleetDetail />
         </Route>

@@ -49,7 +49,7 @@ export function Manifest() {
 
   const handleEdit = (event: React.MouseEvent) => {
     const urlParm = event.currentTarget.getAttribute('id')
-    const val = manifestmodel.find((x) => x.groupWayBillId === urlParm)
+    const val = manifestmodel.find((x) => x.manifestCode === urlParm)
     handleSelectValue(val!)
     return val
   }
