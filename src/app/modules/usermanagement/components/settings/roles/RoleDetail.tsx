@@ -65,7 +65,9 @@ export function RoleDetail() {
                   <label className='col-lg-4 fw-bold text-muted'>Role Name</label>
 
                   <div className='col-lg-8'>
-                    <span className='fw-bolder fs-6 text-dark'>{roledetails?.name}</span>
+                    <span className='fw-bolder fs-6 text-dark'>
+                      {roledetails?.name}
+                    </span>
                   </div>
                 </div>
               </>
