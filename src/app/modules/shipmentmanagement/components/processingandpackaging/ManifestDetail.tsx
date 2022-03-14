@@ -6,7 +6,7 @@ import { IManifestModel } from '../../ShipmentModels/ShipmentInterfaces'
 
 
 export function ManifestDetail() {
-  let { manifestid } = useParams<{ manifestid: string}>()
+  let { manifestCode } = useParams<{ manifestCode: string}>()
   const [manifestdetails, setRoleDetails] = useState<IManifestModel>()
   const [loadingData, setLoadingData] = useState(true)
   const {
@@ -21,7 +21,7 @@ export function ManifestDetail() {
   
   useEffect(() => {
     const callFunc = async () => {
-      await agent.Manifest.details(manifestid).then((response) => {
+      await agent.Manifest.details(manifestCode).then((response) => {
         setRoleDetails(response)
         setLoadingData(false)
         setLoadingData(false)
@@ -48,7 +48,7 @@ export function ManifestDetail() {
               title='Edit'
               id='#kt_modal_editmanifest'
               data-bs-toggle='modal'
-              data-bs-target='#kt_modal_editrole'
+              data-bs-target='#kt_modal_editmanifest'
               className='btn btn-primary align-self-center'
               onClick={handleEdit}
             >

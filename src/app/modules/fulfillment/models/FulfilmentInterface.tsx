@@ -1,5 +1,5 @@
 export interface IFulfilmentModel {
-    Id?:string
+    
     shipmentId: string
     shipment: string
     collectionStatus: boolean

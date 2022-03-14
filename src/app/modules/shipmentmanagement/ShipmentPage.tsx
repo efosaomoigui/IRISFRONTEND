@@ -92,7 +92,7 @@ const ShipmentPage: React.FC = () => {
           <ShipmentDetail />
         </Route>
 
-        <Route path='/shipment/manifestdetail/:Id'>
+        <Route path='/shipment/manifestdetail/:manifestCode'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Manifest Detail</PageTitle>
           <ManifestDetail />
         </Route>

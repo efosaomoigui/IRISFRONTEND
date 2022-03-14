@@ -106,7 +106,7 @@ const  Shipment = {
 
 const Manifest = {
   list: () => request.get<IManifestModel[]>(`${API_URL}/Manifest/Manifest/all`),
-  details: (manifestCode: string) => request.get<IManifestModel>(`${API_URL}/api/Manifest/Manifest/GetManifestByManifestCode/${manifestCode}`),
+  details: (manifestcode: string) => request.get<IManifestModel>(`${API_URL}/api/Manifest/Manifest/GetManifestByManifestCode/${manifestcode}`),
   create: (manifest: IManifestModel) => request.post<IManifestModel>(`${API_URL}/Manifest/Manifest`, manifest),
   update: (manifest: IManifestModel) => request.put<IManifestModel>(`${API_URL}/Manifest/Manifest/edit/${manifest.Id}`, {}),
   delete: (id: string) => request.del<void>(`${API_URL}/Manifest/Manifest/delete/${id}`),
@@ -168,7 +168,7 @@ const CollectionCenter = {
   list: () => request.get<IFulfilmentModel[]>(`${API_URL}/Shipment/CollectionCenter/all`),
   details: (CollectionCenterid: string) => request.get<IFulfilmentModel>(`${API_URL}/UserManagement/GetUser/${CollectionCenterid}`),
   create: (CollectionCenter: IFulfilmentModel) => request.post<IFulfilmentModel>(`${API_URL}/Shipment/CollectionCenter`, CollectionCenter),
-  update: (CollectionCenter: IFulfilmentModel) => request.put<IFulfilmentModel>(`${API_URL}/Shipment/CollectionCenter/edit/${CollectionCenter.Id}`, {}),
+  update: (CollectionCenter: IFulfilmentModel) => request.put<IFulfilmentModel>(`${API_URL}/Shipment/CollectionCenter/edit/${CollectionCenter.shipmentId}`, {}),
   delete: (id: string) => request.del<void>(`${API_URL}/Shipment/CollectionCenter/delete${id}`), 
 }
 
