@@ -39,7 +39,7 @@ const EditPriceModal: React.FC<Props> = ({ handleEdit, SelectedValues }: Props) 
 
   const onSubmit = (values: IPriceModel) => {
     setIsSubmitting(true)
-    values.routeId = uuid()
+    // values.routeId = uuid()
 
     agent.Price.update(values).then((response) => {
       if (response.validationErrors!.length > 0) {

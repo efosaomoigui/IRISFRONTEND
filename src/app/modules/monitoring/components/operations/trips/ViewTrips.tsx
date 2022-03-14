@@ -26,19 +26,23 @@ export function ViewTrips() {
       },
       {
         Header: 'Trip Reference',
-        accessor: 'TripReference',
+        accessor: 'tripReference',
       },
       {
         Header: 'Route Code',
-        accessor: 'RouteCode',
+        accessor: 'routeCode',
       },
       {
         Header: 'Fleet Id',
         accessor: 'fleetid',
       },
       {
+        Header: 'Fleet',
+        accessor: 'fleet',
+      },
+      {
         Header: 'Manifest Id',
-        accessor: 'ManifestId',
+        accessor: 'manifestId',
       },
       {
         Header: 'Manifest',
@@ -46,16 +50,16 @@ export function ViewTrips() {
       },
       {
         Header: 'Driver',
-        accessor: 'Driver',
+        accessor: 'driver',
       },
 
       {
         Header: 'Start Time',
-        accessor: 'StartTime',
+        accessor: 'startTime',
       },
       {
         Header: 'End Time',
-        accessor: 'EndTime',
+        accessor: 'endTime',
       },
      
     

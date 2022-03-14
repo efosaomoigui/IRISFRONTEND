@@ -81,7 +81,7 @@ export default function EditPriceForm(props: Props<IPriceModel>) {
                   <Grid container className={classes.root}>
                     <Grid item xs={6}>
                       <IrisTextInput
-                        type='number'
+                        type='text'
                         placeholder='RouteId'
                         name='routeId'
                         label='RouteId'

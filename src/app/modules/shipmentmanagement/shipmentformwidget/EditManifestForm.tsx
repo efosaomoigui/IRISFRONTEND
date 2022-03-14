@@ -75,7 +75,7 @@ export default function EditManifestForm(props: Props<IManifestModel>) {
                     <div className='modal-dialog modal-dialog-centered mw-900px'>
                         <div className='modal-content'>
                             <div className='modal-header'>
-                                <h2>{'Edit Trip Dispatch'}</h2>
+                                <h2>{'Edit Manifest'}</h2>
                                 <div
                                     className='btn btn-sm btn-icon btn-active-color-primary'
                                     data-bs-dismiss='modal'
@@ -89,18 +89,21 @@ export default function EditManifestForm(props: Props<IManifestModel>) {
                                 {props.showForm && (
                                     <Grid container className={classes.root}>
                                         <Grid item xs={6}>
-                                            <IrisTextInput
-                                                type='text'
-                                                name='serviceCenterId'
-                                                placeholder='service CenterId'
-                                                label='service CenterId'
-                                            />
+
                                             <IrisTextInput
                                                 type='text'
                                                 placeholder='ManifestCode'
                                                 name='manifestCode'
                                                 label='ManifestCode'
                                             />
+
+                                            <IrisTextInput
+                                                type='text'
+                                                name='serviceCenterId'
+                                                placeholder='service CenterId'
+                                                label='service CenterId'
+                                            />
+                                            
                                             <IrisTextInput
                                                 type='text'
                                                 placeholder='GroupWayBillId'

@@ -27,7 +27,7 @@ const AddManifestModal: React.FC = () => {
     const manifests = entityValues as IManifestModel[];
 
     const setSelectedValue = (manifests: IManifestModel[]) => {
-        const val = manifests.find(x => x.groupWayBillId === selectUrlParam)
+        const val = manifests.find(x => x.manifestCode === selectUrlParam)
         return val;
     }
 
@@ -42,7 +42,7 @@ const AddManifestModal: React.FC = () => {
 
     const onSubmit = (values: IManifestModel) => {
         setIsSubmitting(true)
-        values.groupWayBillId = uuid()
+        values.manifestCode = uuid()
 
         agent.Manifest.create(values)
             .then((response) => {

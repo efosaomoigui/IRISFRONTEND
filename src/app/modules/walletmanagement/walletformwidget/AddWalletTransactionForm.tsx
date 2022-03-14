@@ -78,10 +78,17 @@ export default function AddWalletForm(props: Props<IWalletTransactionModel>) {
                     <Grid item xs={6}>
                       <IrisTextInput
                         type='text'
+                        placeholder='User Id'
+                        name='userId'
+                        label='userId'
+                      />
+                      <IrisTextInput
+                        type='text'
                         placeholder='Amount'
                         name='amount'
                         label='Amount'
                       />
+                      
                       <IrisTextInput
                         type='number'
                         placeholder='Transaction Type'
@@ -103,12 +110,7 @@ export default function AddWalletForm(props: Props<IWalletTransactionModel>) {
                         name='walletNumber'
                         label='WalletNumber'
                       />
-                      <IrisTextInput
-                        type='text'
-                        placeholder='User Id'
-                        name='userId'
-                        label='userId'
-                      />
+                      
                     </Grid>
                   </Grid>
                 }

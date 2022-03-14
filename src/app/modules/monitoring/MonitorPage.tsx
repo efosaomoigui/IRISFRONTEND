@@ -53,7 +53,7 @@ const MonitorPage: React.FC = () => {
           <PageTitle breadcrumbs={userBreadCrumbs}>Trip Detail</PageTitle>
           <TripDetail />
           </Route>
-          <Route path='/monitor/trackHistoryDetails/:id'>
+        <Route path='/monitor/trackHistoryDetails/:tripReference'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Track History</PageTitle>
           <TrackHistoryDetail />
         </Route>

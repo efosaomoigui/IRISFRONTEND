@@ -1,23 +1,40 @@
 import {useEffect, useState} from 'react'
 import {Link, useParams} from 'react-router-dom'
 import agent from '../../../../../setup/axios/AxiosAgent'
+import { usePageData } from '../../../../../_iris/layout/core'
 import { IManifestModel } from '../../ShipmentModels/ShipmentInterfaces'
 
 
 export function ManifestDetail() {
-  let { manifestid } = useParams<{ manifestid: string}>()
+  let { manifestCode } = useParams<{ manifestCode: string}>()
   const [manifestdetails, setRoleDetails] = useState<IManifestModel>()
+  const [loadingData, setLoadingData] = useState(true)
+  const {
+    selectValue,
+    handleSelectValue,
+    selectUrlParam,
+    setSelectUrlParam,
+    entityValues,
+    setEntityValues,
+  } = usePageData() //global data
 
-  function getRole(manifestid: string) {
-    agent.Manifest.details(manifestid).then((response) => {
-      setRoleDetails(response)
-    })
-  }
-
+  
   useEffect(() => {
-    getRole(manifestid)
-  }, [manifestid])
+    const callFunc = async () => {
+      await agent.Manifest.details(manifestCode).then((response) => {
+        setRoleDetails(response)
+        setLoadingData(false)
+        setLoadingData(false)
+      })
+    }
+    if (loadingData) {
+      callFunc()
+    }
+  }, [manifestdetails])
 
+  const handleEdit = (event: React.MouseEvent) => {
+    handleSelectValue(manifestdetails!)
+  }
   return (
     <div className='row g-5 g-xxl-8'>
       <div className='col-xl-12'>
@@ -26,90 +43,48 @@ export function ManifestDetail() {
             <div className='card-title m-0'>
               <h3 className='fw-bolder m-0'>Manifest Details</h3>
             </div>
-
-            <Link to='/adminSettings/settings' className='btn btn-primary align-self-center'>
+            <a
+              href='#_b'
+              title='Edit'
+              id='#kt_modal_editmanifest'
+              data-bs-toggle='modal'
+              data-bs-target='#kt_modal_editmanifest'
+              className='btn btn-primary align-self-center'
+              onClick={handleEdit}
+            >
               Edit Manifest
-            </Link>
+            </a>
           </div>
 
           <div className='card-body p-9'>
-            {manifestdetails && <>
+            {manifestdetails && (
+            <>
             <div className='row mb-7'>
               <label className='col-lg-4 fw-bold text-muted'>Manifest</label>
 
               <div className='col-lg-8'>
                 <span className='fw-bolder fs-6 text-dark'>
-                    {manifestdetails?.groupWayBillId}
+                    {manifestdetails?.manifestCode}
                 </span>
               </div>
             </div>
 
             <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>Company</label>
+              <label className='col-lg-4 fw-bold text-muted'>Group Waybill Id</label>
 
               <div className='col-lg-8 fv-row'>
-                <span className='fw-bold fs-6'>Chisco Express Ltd</span>
+                    <span className='fw-bold fs-6'>{manifestdetails?.groupWayBillId}</span>
               </div>
             </div>
-
             <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>
-                Contact Phone
-                <i
-                  className='fas fa-exclamation-circle ms-1 fs-7'
-                  data-bs-toggle='tooltip'
-                  title='Phone number must be active'
-                ></i>
-              </label>
-
-              <div className='col-lg-8 d-flex align-items-center'>
-                <span className='fw-bolder fs-6 me-2'>(070) 639 65528</span>
-
-                <span className='badge badge-success'>Verified</span>
-              </div>
-            </div>
-
-            <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>Company Site</label>
+              <label className='col-lg-4 fw-bold text-muted'>Service Center Id</label>
 
               <div className='col-lg-8'>
-                <a href='#' className='fw-bold fs-6 text-dark text-hover-primary'>
-                  http://chiscoexpress.com
-                </a>
+                    <span className='fw-bolder fs-6 text-dark'>{manifestdetails?.serviceCenterId}</span>
               </div>
             </div>
-
-            <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>
-                Country
-                <i
-                  className='fas fa-exclamation-circle ms-1 fs-7'
-                  data-bs-toggle='tooltip'
-                  title='Country of origination'
-                ></i>
-              </label>
-
-              <div className='col-lg-8'>
-                <span className='fw-bolder fs-6 text-dark'>Nigeria</span>
-              </div>
-            </div>
-
-            <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>Communication</label>
-
-              <div className='col-lg-8'>
-                <span className='fw-bolder fs-6 text-dark'>Email, Phone</span>
-              </div>
-            </div>
-
-            <div className='row mb-10'>
-              <label className='col-lg-4 fw-bold text-muted'>Allow Changes</label>
-
-              <div className='col-lg-8'>
-                <span className='fw-bold fs-6'>Yes</span>
-              </div>
-            </div>
-            </>}
+            </>
+            )}
 
             {!manifestdetails && <><h4>Sorry, Manifest does not exit!</h4></>}
 

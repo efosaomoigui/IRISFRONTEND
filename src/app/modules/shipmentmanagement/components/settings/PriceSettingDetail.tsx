@@ -1,23 +1,40 @@
 import {useEffect, useState} from 'react'
 import {Link, useParams} from 'react-router-dom'
 import agent from '../../../../../setup/axios/AxiosAgent'
+import { usePageData } from '../../../../../_iris/layout/core'
 import { IPriceModel } from '../../ShipmentModels/ShipmentInterfaces'
 
 
 export function PriceSettingDetail() {
   let { id } = useParams<{ id: string}>()
   const [pricedetails, setPriceDetails] = useState<IPriceModel>()
+  const [loadingData, setLoadingData] = useState(true)
+  const {
+    selectValue,
+    handleSelectValue,
+    selectUrlParam,
+    setSelectUrlParam,
+    entityValues,
+    setEntityValues,
+  } = usePageData() //global data
 
-  function getPrice(id: string) {
-    agent.Price.details(id).then((response) => {
-      setPriceDetails(response)
-    })
-  }
-
+  
   useEffect(() => {
-    getPrice(id)
-  }, [id])
+    const callFunc = async () => {
+      await agent.Price.details(id).then((response) => {
+        setPriceDetails(response)
+        setLoadingData(false)
+        setLoadingData(false)
+      })
+    }
+    if (loadingData) {
+      callFunc()
+    }
+  }, [pricedetails])
 
+  const handleEdit = (event: React.MouseEvent) => {
+    handleSelectValue(pricedetails!)
+  }
   return (
     <div className='row g-5 g-xxl-8'>
       <div className='col-xl-12'>
@@ -26,27 +43,30 @@ export function PriceSettingDetail() {
             <div className='card-title m-0'>
               <h3 className='fw-bolder m-0'>Price Setting Details</h3>
             </div>
-
-            <Link to='/adminSettings/settings' className='btn btn-primary align-self-center'>
+            <a
+              href='#_b'
+              title='Edit'
+              id='#kt_modal_editrole'
+              data-bs-toggle='modal'
+              data-bs-target='#kt_modal_editprice'
+              className='btn btn-primary align-self-center'
+              onClick={handleEdit}
+            >
               Edit Price
-            </Link>
+            </a>
           </div>
 
           <div className='card-body p-9'>
-            {pricedetails && <>
+            {pricedetails && (
+               <>
             <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>Price Setting</label>
+              <label className='col-lg-4 fw-bold text-muted'>Route Id</label>
               <div className='col-lg-8'>
                 <span className='fw-bolder fs-6 text-dark'>
                     {pricedetails?.routeId}
                 </span>
               </div>
-               <div className='col-lg-8'>
-                <span className='fw-bolder fs-6 text-dark'>
-                    {pricedetails?.routeId}
-                </span>
               </div>
-            </div>
 
               <div className='row mb-7'>
                 <label className='col-lg-4 fw-bold text-muted'>Category</label>
@@ -58,21 +78,11 @@ export function PriceSettingDetail() {
               </div>
 
               <div className='row mb-7'>
-                <label className='col-lg-4 fw-bold text-muted'>RouteId</label>
+                <label className='col-lg-4 fw-bold text-muted'>Price Per Unit</label>
 
                 <div className='col-lg-8'>
                   <span className='fw-bolder fs-6 text-dark'>
-                    {pricedetails?.routeId}
-                  </span>
-                </div>
-              </div>
-
-              <div className='row mb-7'>
-                <label className='col-lg-4 fw-bold text-muted'>Route</label>
-
-                <div className='col-lg-8'>
-                  <span className='fw-bolder fs-6 text-dark'>
-                    {pricedetails?.routeId}
+                    {pricedetails?.pricePErUnit}
                   </span>
                 </div>
               </div>
@@ -86,24 +96,8 @@ export function PriceSettingDetail() {
                   </span>
                 </div>
               </div>
-
-              <div className='row mb-7'>
-                <label className='col-lg-4 fw-bold text-muted'>PricePErUnit</label>
-
-                <div className='col-lg-8'>
-                  <span className='fw-bolder fs-6 text-dark'>
-                    {pricedetails?.pricePErUnit}
-                  </span>
-                </div>
-              </div>
-            <div className='row mb-10'>
-              <label className='col-lg-4 fw-bold text-muted'>Allow Changes</label>
-
-              <div className='col-lg-8'>
-                <span className='fw-bold fs-6'>Yes</span>
-              </div>
-            </div>
-            </>}
+            </>
+            )}
 
             {!pricedetails && <><h4>Sorry, Price does not exit!</h4></>}
 

@@ -60,7 +60,7 @@ const EditWalletTransactionModal: React.FC<Props> = ({ handleEdit, SelectedValue
 
   return (
     <>
-      <Container className='modal fade' id='kt_modal_addwallettransaction' aria-hidden='true'>
+      <Container className='modal fade' id='kt_modal_editwallettransaction' aria-hidden='true'>
         <EditWalletTransactionForm 
           isSubmitting={isSubmitting}
           onSubmit={onSubmit}

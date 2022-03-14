@@ -56,28 +56,28 @@ export default function EditTripForm(props: Props<ITripModel>) {
       
     const initialFormValue: ITripModel = {
         id: props.trip ? props.trip!.id : '',
-        TripReference: props.trip ? props.trip!.TripReference :'',
-        RouteCode: props.trip ? props.trip!.RouteCode:'',
-        fleetid: props.trip ? props.trip!.fleetid :'',
-        fleet: props.trip ? props.trip!.fleet :'',
-        ManifestId: props.trip ? props.trip!.ManifestId :'',
-        manifest: props.trip ? props.trip!.manifest :'',
-        Driver: props.trip ? props.trip!.Driver :'',
-        StartTime: props.trip ? props.trip!.StartTime :'',
-        EndTime: props.trip ? props.trip!.EndTime :'',
+        tripReference: props.trip ? props.trip!.tripReference : '',
+        routeCode: props.trip ? props.trip!.routeCode : '',
+        fleetid: props.trip ? props.trip!.fleetid : '',
+        fleet: props.trip ? props.trip!.fleet : '',
+        manifestId: props.trip ? props.trip!.manifestId : '',
+        manifest: props.trip ? props.trip!.manifest : '',
+        driver: props.trip ? props.trip!.driver : '',
+        startTime: props.trip ? props.trip!.startTime : '',
+        endTime: props.trip ? props.trip!.endTime : '',
     }
 
     const validationSchema = Yup.object({
         id: Yup.string().required(),
-        TripReference: Yup.string().required(),
-        RouteCode: Yup.string().required(),
+        tripReference: Yup.string().required(),
+        routeCode: Yup.string().required(),
         fleetid: Yup.string().required(),
         fleet: Yup.string().required(),
-        ManifestId: Yup.string().required(),
+        manifestId: Yup.string().required(),
         manifest: Yup.string().required(),
-        Driver: Yup.string().required(),       
-        StartTime: Yup.string().required(),
-        EndTime: Yup.string().required(),
+        driver: Yup.string().required(),
+        startTime: Yup.string().required(),
+        endTime: Yup.string().required(),
     })
 
     const classes = useStyles()
@@ -115,7 +115,7 @@ export default function EditTripForm(props: Props<ITripModel>) {
                                             />
                                             <IrisTextInput
                                                 type='text'
-                                                name='TripReference'
+                                                name='tripReference'
                                                 placeholder='Trip Reference'
                                                 label='Trip Reference'
                                             />
@@ -131,13 +131,13 @@ export default function EditTripForm(props: Props<ITripModel>) {
                                             <IrisTextInput
                                                 type='text'
                                                 placeholder='Driver'
-                                                name='Driver'
+                                                name='driver'
                                                 label='Driver'
                                             />
                                             <IrisTextInput
                                                 type='text'
                                                 placeholder='RouteCode'
-                                                name='RouteCode'
+                                                name='routeCode'
                                                 label='RouteCode'
                                             />
                                             <IrisTextInput
@@ -151,7 +151,7 @@ export default function EditTripForm(props: Props<ITripModel>) {
                                             <IrisTextInput
                                                 type='text'
                                                 placeholder='ManifestId'
-                                                name='ManifestId'
+                                                name='manifestId'
                                                 label='ManifestId'
                                             />
                                             <IrisTextInput
@@ -162,14 +162,14 @@ export default function EditTripForm(props: Props<ITripModel>) {
                                             />
                                             <IrisDatePicker
                                                 placeholderText='StartTime'
-                                                name='StartTime'
+                                                name='startTime'
                                                 showTimeSelect
                                                 timeCaption='StartTime'
                                                 dateFormat='MMM d, yyyy h:mm: aa'
                                             />
                                             <IrisDatePicker
                                                 placeholderText='EndTime'
-                                                name='EndTime'
+                                                name='endTime'
                                                 showTimeSelect
                                                 timeCaption='EndTime'
                                                 dateFormat='MMM d, yyyy h:mm: aa'

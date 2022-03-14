@@ -74,7 +74,7 @@ export default function AddManifestForm(props: Props<IManifestModel>) {
                     <div className='modal-dialog modal-dialog-centered mw-900px'>
                         <div className='modal-content'>
                             <div className='modal-header'>
-                                <h2>{'Add Trip Dispatch'}</h2>
+                                <h2>{'Add Manifest'}</h2>
                                 <div
                                     className='btn btn-sm btn-icon btn-active-color-primary'
                                     data-bs-dismiss='modal'
@@ -90,16 +90,18 @@ export default function AddManifestForm(props: Props<IManifestModel>) {
                                         <Grid item xs={6}>
                                             <IrisTextInput
                                                 type='text'
-                                                name='serviceCenterId'
-                                                placeholder='service CenterId'
-                                                label='service CenterId'
-                                            />
-                                            <IrisTextInput
-                                                type='text'
                                                 placeholder='ManifestCode'
                                                 name='manifestCode'
                                                 label='ManifestCode'
                                             />
+
+                                            <IrisTextInput
+                                                type='text'
+                                                name='serviceCenterId'
+                                                placeholder='service CenterId'
+                                                label='service CenterId'
+                                            />
+                                           
                                             <IrisTextInput
                                                 type='text'
                                                 placeholder='GroupWayBillId'

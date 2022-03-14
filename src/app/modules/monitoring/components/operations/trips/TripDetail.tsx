@@ -1,22 +1,40 @@
 import {useEffect, useState} from 'react'
 import {Link, useParams} from 'react-router-dom'
 import agent from '../../../../../../setup/axios/AxiosAgent'
+import { usePageData } from '../../../../../../_iris/layout/core'
 import { ITripModel } from '../../../Monitor models/MonitorInterface'
 
 
 export function TripDetail() {
-  let {TripId} = useParams<{TripId: string}>()
+  let { id } = useParams<{ id: string}>()
   const [tripdetails, setTripDetails] = useState<ITripModel>()
+  const [loadingData, setLoadingData] = useState(true)
+  const {
+    selectValue,
+    handleSelectValue,
+    selectUrlParam,
+    setSelectUrlParam,
+    entityValues,
+    setEntityValues,
+  } = usePageData() //global data
 
-  function getTrip(tripid: string) {
-    agent.Trip.details(TripId).then((response) => {
-        setTripDetails(response)
-    })
-  }
-
+  
   useEffect(() => {
-    getTrip(TripId)
-  }, [TripId])
+    const callFunc = async () => {
+      await agent.Trip.details(id).then((response) => {
+        setTripDetails(response)
+        setLoadingData(false)
+        setLoadingData(false)
+      })
+    }
+    if (loadingData) {
+      callFunc()
+    }
+  }, [tripdetails])
+
+  const handleEdit = (event: React.MouseEvent) => {
+    handleSelectValue(tripdetails!)
+  }
 
   return (
     <div className='row g-5 g-xxl-8'>
@@ -26,16 +44,24 @@ export function TripDetail() {
             <div className='card-title m-0'>
               <h3 className='fw-bolder m-0'>Trip Details</h3>
             </div>
-
-            <Link to='/adminSettings/settings' className='btn btn-primary align-self-center'>
+            <a
+              href='#_b'
+              title='Edit'
+              id='#kt_modal_edittrip'
+              data-bs-toggle='modal'
+              data-bs-target='#kt_modal_edittrip'
+              className='btn btn-primary align-self-center'
+              onClick={handleEdit}
+            >
               Edit Trip
-            </Link>
+            </a>
           </div>
 
           <div className='card-body p-9'>
-            {tripdetails && <>
+            {tripdetails && (
+            <>
             <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>Invoice</label>
+              <label className='col-lg-4 fw-bold text-muted'>Trip Id</label>
 
               <div className='col-lg-8'>
                 <span className='fw-bolder fs-6 text-dark'>
@@ -45,11 +71,11 @@ export function TripDetail() {
             </div>
 
             <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>Dispatcher</label>
+              <label className='col-lg-4 fw-bold text-muted'>Trip Reference</label>
 
               <div className='col-lg-8'>
                 <span className='fw-bolder fs-6 text-dark'>
-                  {tripdetails?.Driver}
+                  {tripdetails?.tripReference}
                 </span>
               </div>
             </div>
@@ -59,16 +85,16 @@ export function TripDetail() {
 
               <div className='col-lg-8'>
                 <span className='fw-bolder fs-6 text-dark'>
-                  {tripdetails?.Driver}
+                  {tripdetails?.driver}
                 </span>
               </div>
             </div>
             <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>DriverDispatcher</label>
+              <label className='col-lg-4 fw-bold text-muted'>Manifest Id</label>
 
               <div className='col-lg-8'>
                 <span className='fw-bolder fs-6 text-dark'>
-                  {tripdetails?.ManifestId}
+                  {tripdetails?.manifestId}
                 </span>
               </div>
             </div>
@@ -77,22 +103,22 @@ export function TripDetail() {
 
               <div className='col-lg-8'>
                 <span className='fw-bolder fs-6 text-dark'>
-                  {tripdetails?.EndTime}
+                  {tripdetails?.endTime}
                 </span>
               </div>
             </div>
 
             <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>Fuel Costs</label>
+              <label className='col-lg-4 fw-bold text-muted'>Route Code</label>
 
               <div className='col-lg-8'>
                 <span className='fw-bolder fs-6 text-dark'>
-                  {tripdetails?.RouteCode}
+                  {tripdetails?.routeCode}
                 </span>
               </div>
             </div>
             <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>Fuel Used</label>
+              <label className='col-lg-4 fw-bold text-muted'>Fleet Id</label>
 
               <div className='col-lg-8'>
                 <span className='fw-bolder fs-6 text-dark'>
@@ -102,29 +128,11 @@ export function TripDetail() {
             </div>
 
             <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>ManifestId</label>
-
-              <div className='col-lg-8'>
-                <span className='fw-bolder fs-6 text-dark'>
-                  {tripdetails?.ManifestId}
-                </span>
-              </div>
-            </div>
-            <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>Miscellaneous</label>
+              <label className='col-lg-4 fw-bold text-muted'>Fleet</label>
 
               <div className='col-lg-8'>
                 <span className='fw-bolder fs-6 text-dark'>
                   {tripdetails?.fleet}
-                </span>
-              </div>
-            </div>
-            <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>RouteCode</label>
-
-              <div className='col-lg-8'>
-                <span className='fw-bolder fs-6 text-dark'>
-                  {tripdetails?.RouteCode}
                 </span>
               </div>
             </div>
@@ -133,100 +141,14 @@ export function TripDetail() {
 
               <div className='col-lg-8'>
                 <span className='fw-bolder fs-6 text-dark'>
-                  {tripdetails?.StartTime}
+                  {tripdetails?.startTime}
                 </span>
               </div>
             </div>
-            <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>Trip Reference</label>
+            </>
+            )}
 
-              <div className='col-lg-8'>
-                <span className='fw-bolder fs-6 text-dark'>
-                  {tripdetails?.TripReference}
-                </span>
-              </div>
-            </div>
-            <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>fleet</label>
-
-              <div className='col-lg-8'>
-                <span className='fw-bolder fs-6 text-dark'>
-                  {tripdetails?.fleet}
-                </span>
-              </div>
-            </div>
-
-
-
-
-            <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>Company</label>
-
-              <div className='col-lg-8 fv-row'>
-                <span className='fw-bold fs-6'>Chisco Express Ltd</span>
-              </div>
-            </div>
-
-            <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>
-                Contact Phone
-                <i
-                  className='fas fa-exclamation-circle ms-1 fs-7'
-                  data-bs-toggle='tooltip'
-                  title='Phone number must be active'
-                ></i>
-              </label>
-
-              <div className='col-lg-8 d-flex align-items-center'>
-                <span className='fw-bolder fs-6 me-2'>(070) 639 65528</span>
-
-                <span className='badge badge-success'>Verified</span>
-              </div>
-            </div>
-
-            <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>Company Site</label>
-
-              <div className='col-lg-8'>
-                <a href='#' className='fw-bold fs-6 text-dark text-hover-primary'>
-                  http://chiscoexpress.com
-                </a>
-              </div>
-            </div>
-
-            <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>
-                Country
-                <i
-                  className='fas fa-exclamation-circle ms-1 fs-7'
-                  data-bs-toggle='tooltip'
-                  title='Country of origination'
-                ></i>
-              </label>
-
-              <div className='col-lg-8'>
-                <span className='fw-bolder fs-6 text-dark'>Nigeria</span>
-              </div>
-            </div>
-
-            <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>Communication</label>
-
-              <div className='col-lg-8'>
-                <span className='fw-bolder fs-6 text-dark'>Email, Phone</span>
-              </div>
-            </div>
-
-            <div className='row mb-10'>
-              <label className='col-lg-4 fw-bold text-muted'>Allow Changes</label>
-
-              <div className='col-lg-8'>
-                <span className='fw-bold fs-6'>Yes</span>
-              </div>
-            </div>
-            </>}
-
-            {!tripdetails && <><h4>Sorry, Trip Log does not exit!</h4></>}
+            {!tripdetails && <><h4>Sorry, Trip does not exit!</h4></>}
 
           </div>
         </div>
