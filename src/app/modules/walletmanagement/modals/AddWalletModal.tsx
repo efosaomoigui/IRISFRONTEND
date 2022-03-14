@@ -53,7 +53,10 @@ const AddWalletModal: React.FC = () => {
   return (
     <>
       <div className='modal fade' id='kt_modal_addwallet' aria-hidden='true'>
-        <AddWalletForm isSubmitting={isSubmitting} onSubmit={onSubmit} wallet={selected} showForm={showForm} />
+        <AddWalletForm 
+        isSubmitting={isSubmitting} 
+        onSubmit={onSubmit} wallet={selected} 
+        showForm={showForm} />
       </div>
     </>
   )

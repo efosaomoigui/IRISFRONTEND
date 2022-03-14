@@ -20,6 +20,10 @@ export function WalletTransaction() {
   const tableProvider = {
     columns: [
       {
+        Header: 'user Id',
+        accessor: 'userId',
+      },
+      {
         Header: 'Amount',
         accessor: 'amount',
       },
@@ -35,10 +39,7 @@ export function WalletTransaction() {
         Header: 'Wallet Number',
         accessor: 'walletNumber',
       },
-      {
-        Header: 'user Id',
-        accessor: 'userId',
-      },
+     
     ],
     DetailsPath: '/wallet/wallettransactiondetails/',
     EditPath: '#kt_modal_editwallettransaction',

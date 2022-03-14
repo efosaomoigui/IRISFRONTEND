@@ -25,7 +25,7 @@ const AddWalletTransactionModal: React.FC = () => {
   }
 
   const selected = setSelectedValue(wallettransactions);
-  console.log("LOG ", (selected) ? "old Wallet transaction" : "new Wallet transaction");
+ 
 
   const onSubmit = (values: IWalletTransactionModel) => {
     setIsSubmitting(true)
@@ -52,7 +52,11 @@ const AddWalletTransactionModal: React.FC = () => {
   return (
     <>
       <div className='modal fade' id='kt_modal_addwallettransaction' aria-hidden='true'>
-        <AddWalletTransactionForm isSubmitting={isSubmitting} onSubmit={onSubmit} wallettransaction={selected} showForm={showForm} />
+        <AddWalletTransactionForm 
+        isSubmitting={isSubmitting} 
+        onSubmit={onSubmit} 
+        wallettransaction={selected} 
+        showForm={showForm} />
       </div>
     </>
   )
