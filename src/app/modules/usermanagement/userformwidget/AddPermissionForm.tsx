@@ -1,20 +1,19 @@
 import {Grid} from '@material-ui/core'
-import { Alert } from '@mui/material'
-import {Form, Formik, FormikHelpers} from 'formik'
-import { useState } from 'react'
-import { Modal } from 'react-bootstrap-v5'
+import {Alert} from '@mui/material'
+import {ErrorMessage, Field, Form, Formik, FormikHelpers} from 'formik'
+import {useEffect, useState} from 'react'
+import {Modal} from 'react-bootstrap-v5'
 import {Button} from 'semantic-ui-react'
 import * as Yup from 'yup'
-import agent from '../../../../setup/axios/AxiosAgent' 
+import agent from '../../../../setup/axios/AxiosAgent'
 import {KTSVG} from '../../../../_iris/helpers'
 import {usePageData} from '../../../../_iris/layout/core'
 import {IPermissionModel, IRoleModel} from '../../auth/models/AuthInterfaces'
 import ErrorAlert from '../../common/ErrorAlert'
 import IrisSelectInput from '../../layout/forms/IrisSelectInput'
-import { dataType, IrisSelectInput2 } from '../../layout/forms/IrisSelectInput2'
+import {dataType, IrisSelectInput2} from '../../layout/forms/IrisSelectInput2'
 import IrisTextInput from '../../layout/forms/IrisTextInput'
 import useStyles from '../../layout/formstyles/FormStyle'
-
 
 interface Props<Values> {
   onSubmit: (values: Values, formikHelpers: FormikHelpers<Values>) => void | Promise<any>
@@ -37,6 +36,22 @@ export default function AddPermissionForm(props: Props<IPermissionModel>) {
     formTitle,
     setFormTitle,
   } = usePageData()
+
+  const [rolemodel, setRoleModel] = useState<IRoleModel[]>([])
+  const [loadingData, setLoadingData] = useState(true)
+
+  //USE EFFECT HOOK
+  useEffect(() => {
+    const callFunc = async () => {
+      await agent.Roles.list().then((response) => {
+        setRoleModel(response)
+        setLoadingData(false)
+      })
+    }
+    if (loadingData) {
+      callFunc()
+    }
+  }, [])
 
   const [errorMessage, setErrorMessage] = useState('')
   const [showError, setShowError] = useState(true)
@@ -79,22 +94,56 @@ export default function AddPermissionForm(props: Props<IPermissionModel>) {
               {/* {console.log("new what? ", props.systemRoles)} */}
 
               <div className='modal-body'>
-                {props.showError && <ErrorAlert type={'danger'} message={props.errorMessage!.toString()} heading={'Oh snap! You got an error!'} />}
+                {props.showError && (
+                  <ErrorAlert
+                    type={'danger'}
+                    message={props.errorMessage!.toString()}
+                    heading={'Oh snap! You got an error!'}
+                  />
+                )}
                 {props.showForm && (
                   <Grid container className={classes.root}>
                     <Grid item xs={6}>
                       {/* <IrisTextInput type='text' name='id' label='Role Id' /> */}
-                      <IrisTextInput name='roleId' label='RoleId' placeholder={'Role'}/>
+                      {/* <IrisTextInput name='roleId' label='RoleId' placeholder={'Role'}/> */}
+                      <div className=' fv-row'>
+                        <div className=''>
+                          <div className='row'>
+                            <div className='col-11'>
+                              <Field as='select' name='roleId' className='form-select'>
+                                {rolemodel.length &&
+                                  rolemodel.map((route, index) => {
+                                    return (
+                                      <option key={index} value={route.id}>
+                                        {route.name}
+                                      </option>
+                                    )
+                                  })}
+                              </Field>
+                              <div className='text-danger mt-2'>
+                                <ErrorMessage name='roleId' />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
                       <IrisTextInput type='text' name='claimType' label='Permission Type' />
                       <IrisTextInput type='text' name='claimValue' label='Permission' />
-                    </Grid> 
+                    </Grid>
                   </Grid>
                 )}
-                {!props.showForm && <ErrorAlert type={'success'} message={'Role Permission Created Successfully!'} heading={'Confirmation Message!'} />}
+                {!props.showForm && (
+                  <ErrorAlert
+                    type={'success'}
+                    message={'Role Permission Created Successfully!'}
+                    heading={'Confirmation Message!'}
+                  />
+                )}
               </div>
               <Modal.Footer>
-                {props.showForm &&
-                  (<Button
+                {props.showForm && (
+                  <Button
                     floated='right'
                     positive
                     type='submit'
@@ -102,7 +151,7 @@ export default function AddPermissionForm(props: Props<IPermissionModel>) {
                     loading={props.isSubmitting}
                     content='Submit'
                   />
-                  )}
+                )}
                 <Button
                   floated='right'
                   positive

@@ -1,31 +1,54 @@
-import React, {FC} from 'react'
+import React, {FC, useEffect, useState} from 'react'
 import {KTSVG} from '../../../../../_iris/helpers'
-import {Field, ErrorMessage} from 'formik'
+import {Field, ErrorMessage, FieldArray} from 'formik'
+import agent from '../../../../../setup/axios/AxiosAgent'
+import {IRouteModel} from '../../../shipmentmanagement/ShipmentModels/ShipmentInterfaces'
 
-const Step2: FC = () => {
+interface Props {
+  values?: any
+}
+
+const Step2: FC<Props> = ({values}: Props) => {
+  const [routemodel, setRouteModel] = useState<IRouteModel[]>([])
+  const [loadingData, setLoadingData] = useState(true)
+
+  //USE EFFECT HOOK
+  useEffect(() => {
+    const callFunc = async () => {
+      await agent.Route.list().then((response) => {
+        setRouteModel(response)
+        setLoadingData(false)
+      })
+    }
+    if (loadingData) {
+      callFunc()
+    }
+  }, [])
+
   return (
     <div className='w-100'>
       <div className='pb-2 pb-lg-6'>
-        <h2 className='fw-bolder text-dark'>Route</h2>
+        <h2 className='fw-bolder text-dark'>{'Departure => Destination'}</h2>
       </div>
 
       <div className='mb-15 fv-row'>
         <div className='container'>
           <div className='row'>
             <div className='col-6'>
-              <Field as='select' name='departure' className='form-select'>
-                <option value='red'>Red</option>
-                <option value='green'>Green</option>
-                <option value='blue'>Blue</option>
+              {}
+              <Field as='select' name='route' className='form-select'>
+                {routemodel.length &&
+                  routemodel.map((route, index) => {
+                    return (
+                      <option  key={index} value={route.routeName}>
+                        {route.departure + ' ' + route.destination}
+                      </option>
+                    )
+                  })}
               </Field>
-            </div>
-
-            <div className='col-6'>
-              <Field as='select' name='destination' className='form-select'>
-                <option value='red'>Red</option>
-                <option value='green'>Green</option>
-                <option value='blue'>Blue</option>
-              </Field>
+              <div className='text-danger mt-2'>
+                <ErrorMessage name='route' />
+              </div>
             </div>
           </div>
         </div>

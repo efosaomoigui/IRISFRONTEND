@@ -37,9 +37,13 @@ const AddUserModal: React.FC<Props> = ({handleSelect, SelectedValues}: Props) =>
   const handleClick = () => {
     setShowError(false);
     setShowForm(true);
-    window.location.reload();
-  console.log('On click',showError)
+    // window.location.reload();
   }
+
+  useEffect(() =>{
+  }, [showForm])
+
+
 
   const onSubmit = (values: IUserModel) => {
     setIsSubmitting(true)

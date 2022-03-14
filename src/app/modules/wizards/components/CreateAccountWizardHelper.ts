@@ -8,10 +8,19 @@ export interface ICreateAccount {
   receiverFullName: string
   receiverAddress: string
   receiverPhoneNumber: string
-  departure: string
-  destination: string
-  weight: string
-  ton: string
+  route: string
+  itemsA?: Array<{
+    ton:string
+    t_shipmentDescription:string
+    t_shipmentType:string
+  }>
+  itemsB?: Array<{
+    weight:string
+    length:string
+    breadth:string
+    height:string
+    m_shipmentDescription:string
+  }>
   accountPlan: string
   businessName: string
   businessDescriptor: string
@@ -37,21 +46,35 @@ const createAccountSchemas = [
     receiverFullName: Yup.string().required().label('Receiver Full Name'),
     receiverAddress: Yup.string().required().label('Receiver Address'),
     receiverPhoneNumber: Yup.string().required().label('Receiver Phone'),
-    departure: Yup.string().required().label('Departure'),
-    destination: Yup.string().required().label('Destination'),
+    route: Yup.string().required().label('Route'),
   }),
   Yup.object({
     businessName: Yup.string().required().label('Business Name'),
-    weight: Yup.string()
-    .when("shipmentCategory", {
-      is: "mailandparcel",
-      then: Yup.string().required().label("Weight is required")
-    }),
-    ton: Yup.string()
-    .when("shipmentCategory", {
-      is: "TruckLoad",
-      then: Yup.string().required().label("Weight (ton) is required")
-    }),
+    // weight: Yup.string()
+    // .when("shipmentCategory", {
+    //   is: "mailandparcel",
+    //   then: Yup.string().required().label("Weight is required")
+    // }),
+    itemsA: Yup.array()
+     .of(
+       Yup.object().shape({
+         ton: Yup.string().when("shipmentCategory", {
+          is: "TruckLoad",
+          then: Yup.string().required().label("Weight (ton) is required")
+        }), 
+       })
+     ),
+    itemsB: Yup.array()
+     .of(
+       Yup.object().shape({
+        weight: Yup.string().when("shipmentCategory", {
+          is: "mailandparcel",
+          then: Yup.string().required().label("Weight (kg) is required")
+        }), 
+       })
+     ),
+    //  .required('Must have items') // these constraints are shown if and only if inner constraints are satisfied
+    //  .min(3, 'Minimum of 3 items')
     businessDescriptor: Yup.string().required().label('Shortened Descriptor'),
     businessType: Yup.string().required().label('Corporation Type'),
     businessEmail: Yup.string().required().label('Contact Email'),
@@ -73,10 +96,19 @@ const inits: ICreateAccount = {
   receiverFullName: '',
   receiverAddress: '',
   receiverPhoneNumber: '',
-  departure: 'LOS',
-  destination: 'ABA',
-  weight: '',
-  ton: '',
+  route: '',
+  itemsA: [{
+    ton:'',
+    t_shipmentDescription:'',
+    t_shipmentType:'',
+  }] ,
+  itemsB: [{
+    weight:'',
+    length:'',
+    breadth:'',
+    height:'',
+    m_shipmentDescription:'',
+  }] ,
   accountPlan: '1',
   businessName: 'Keenthemes Inc.',
   businessDescriptor: 'KEENTHEMES',

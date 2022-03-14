@@ -98,7 +98,7 @@ const Step1: FC<Props> = ({handleClick}:Props) => {
               <KTSVG path='/media/icons/duotune/finance/fin006.svg' className='svg-icon-3x me-5' />
 
               <span className='d-block fw-bold text-start'>
-                <span className='text-dark fw-bolder d-block fs-4 mb-2'>Freight</span>
+                <span className='text-dark fw-bolder d-block fs-4 mb-2'>International Freight</span>
                 <span className='text-gray-400 fw-bold fs-6'>
                   Create corporate account to mane users
                 </span>
