@@ -6,27 +6,32 @@ export interface IUserModel {
   lastName: string
   email?: string 
   phoneNumber: string
-  gender?: string
+  gender: number
   age?: string
-  userType?: string
-  designation?: string
-  department?: string
-  pictureUrl?: string
-  isActive?: boolean
-  organisation?: string
+  userType: number
+  pictureUrl?: string 
+  organisation?: string 
   status?: number
   dateCreated?: string
   dateModified?: string
-  isDeleted?: string
-  systemUserId?: string
-  systemUserRole?: string
   passwordExpireDate?: string
   identificationImage?: string
   walletNumber?: string
   message?:string
-  validationErrors?: string[]
+  validationErrors?: string[] 
   userdto?: {}
   //Error:  {"userdto":null,"success":true,"message":null,"validationErrors":["Unable to create user, User already exist!"],"accessToken":null,"expireAt":"0001-01-01T00:00:00"}
+}
+
+export enum UserType{
+  Corporate,
+  Individual, 
+  Partner
+}
+
+export enum GenderType{
+  Male,
+  Female
 }
 
 export interface IRoleModel {

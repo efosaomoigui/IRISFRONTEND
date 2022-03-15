@@ -33,7 +33,7 @@ const Step2: FC<Props> = ({values}: Props) => {
 
       <div className='mb-15 fv-row'>
         <div className='container'>
-          <div className='row'>
+          <div className='row'> 
             <div className='col-6'>
               {}
               <Field as='select' name='route' className='form-select'>

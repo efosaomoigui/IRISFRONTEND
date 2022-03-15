@@ -4,7 +4,7 @@ import {toast} from 'react-toastify'
 import {v4 as uuid} from 'uuid'
 import agent from '../../../../setup/axios/AxiosAgent'
 import {usePageData} from '../../../../_iris/layout/core'
-import {IUserModel} from '../../auth/models/AuthInterfaces'
+import {GenderType, IUserModel, UserType} from '../../auth/models/AuthInterfaces'
 import ErrorAlert from '../../common/ErrorAlert'
 import AddUserForm from '../userformwidget/AddUserForm'
 
@@ -48,6 +48,11 @@ const AddUserModal: React.FC<Props> = ({handleSelect, SelectedValues}: Props) =>
   const onSubmit = (values: IUserModel) => {
     setIsSubmitting(true)
     values.userId = uuid()
+    const sex = parseInt(GenderType[values.gender])
+    values.gender = parseInt(GenderType[values.gender])
+    values.userType = parseInt(UserType[values.userType])
+
+    console.log("values, ", values)
 
     agent.Users.create(values)
       .then((response) => {

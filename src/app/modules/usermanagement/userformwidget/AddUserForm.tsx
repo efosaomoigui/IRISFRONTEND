@@ -2,7 +2,7 @@ import {FormLabel, Modal} from 'react-bootstrap-v5'
 import {Button, Radio} from 'semantic-ui-react'
 import {Formik, Form, FormikHelpers} from 'formik'
 import * as Yup from 'yup'
-import {IUserModel} from '../../auth/models/AuthInterfaces'
+import {GenderType, IUserModel, UserType} from '../../auth/models/AuthInterfaces'
 import {KTSVG} from '../../../../_iris/helpers'
 import IrisTextInput from '../../layout/forms/IrisTextInput'
 import IrisSelectInput from '../../layout/forms/IrisSelectInput'
@@ -12,7 +12,7 @@ import IrisTextRadio from '../../layout/forms/IrisTextRadio'
 import {Alert} from '@mui/material'
 import {usePageData} from '../../../../_iris/layout/core'
 import ErrorAlert from '../../common/ErrorAlert'
-import { useEffect, useState } from 'react'
+import {useEffect, useState} from 'react'
 
 interface Props<Values> {
   onSubmit: (values: Values, formikHelpers: FormikHelpers<Values>) => void | Promise<any>
@@ -22,7 +22,7 @@ interface Props<Values> {
   formTitle?: string
   showError?: boolean
   errorMessage?: string
-  handleClick? : () => void
+  handleClick?: () => void
 }
 
 export default function AddUserForm(props: Props<IUserModel>) {
@@ -46,8 +46,8 @@ export default function AddUserForm(props: Props<IUserModel>) {
     lastName: props.user ? props.user!.lastName : '',
     email: props.user ? props.user!.email : '',
     phoneNumber: props.user ? props.user!.phoneNumber : '',
-    gender: props.user ? props.user!.gender : 'male',
-    userType: props.user ? props.user!.userType : 'corporate',
+    gender: props.user ? props.user!.gender : GenderType['Male'],
+    userType: props.user ? props.user!.userType : UserType['Individual'],
   }
 
   const validationSchema = Yup.object({
@@ -63,14 +63,13 @@ export default function AddUserForm(props: Props<IUserModel>) {
   })
 
   const classes = useStyles()
-  const optionsArray1 = ['male', 'female']
-  const optionsArray2 = ['corporate', 'individual']
-
+  const optionsArray1 = ['Male', 'Female']
+  const optionsArray2 = ['Corporate', 'Individual']
 
   return (
     <>
       <Formik
-        validationSchema={validationSchema}
+        validationSchema={validationSchema} 
         initialValues={initialFormValue}
         enableReinitialize
         onSubmit={props.onSubmit}
@@ -91,7 +90,13 @@ export default function AddUserForm(props: Props<IUserModel>) {
                 </div>
 
                 <div className='modal-body'>
-                  {props.showError && <ErrorAlert type={'danger'} message={props.errorMessage!.toString()} heading={'Oh snap! You got an error!'} />}
+                  {props.showError && (
+                    <ErrorAlert
+                      type={'danger'}
+                      message={props.errorMessage!.toString()}
+                      heading={'Oh snap! You got an error!'}
+                    />
+                  )}
                   {props.showForm && (
                     <Grid container className={classes.root}>
                       <Grid item xs={6}>
@@ -104,7 +109,10 @@ export default function AddUserForm(props: Props<IUserModel>) {
                       <Grid item xs={6}>
                         <IrisTextInput type='text' name='phoneNumber' label='Phone Number' />
 
-                        <IrisTextRadio name='gender' options={optionsArray1} />
+                        <IrisTextRadio
+                          name='gender'
+                          options={optionsArray1} 
+                        />
 
                         <IrisTextInput type='password' name='password' label='Password' />
                         <IrisTextInput
@@ -114,26 +122,31 @@ export default function AddUserForm(props: Props<IUserModel>) {
                         />
 
                         <IrisTextRadio
-                          name='gender'
-                          value={values.gender}
+                          name='userType'
                           options={optionsArray2}
                         />
                       </Grid>
                     </Grid>
                   )}
-                  {!props.showForm && <ErrorAlert type={'success'} message={'Role Created Successfully!'} heading={'Confirmation Message!'} />}
+                  {!props.showForm && (
+                    <ErrorAlert
+                      type={'success'}
+                      message={'Role Created Successfully!'}
+                      heading={'Confirmation Message!'}
+                    />
+                  )}
                 </div>
 
                 <Modal.Footer>
-                  {props.showForm && 
-                  (<Button
-                    floated='right'
-                    positive
-                    type='submit'
-                    variant='primary'
-                    loading={props.isSubmitting}
-                    content='Submit'
-                  />
+                  {props.showForm && (
+                    <Button
+                      floated='right'
+                      positive
+                      type='submit'
+                      variant='primary'
+                      loading={props.isSubmitting}
+                      content='Submit'
+                    />
                   )}
                   <Button
                     floated='right'

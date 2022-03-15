@@ -1,7 +1,7 @@
 import {Modal} from 'react-bootstrap-v5'
 import {Button} from 'semantic-ui-react'
 import {KTSVG} from '../../../../_iris/helpers'
-import {IUserModel} from '../../auth/models/AuthInterfaces'
+import {GenderType, IUserModel, UserType} from '../../auth/models/AuthInterfaces'
 import {Formik, Form, FormikHelpers} from 'formik'
 import * as Yup from 'yup'
 import IrisTextInput from './IrisTextInput'
@@ -32,8 +32,8 @@ export default function GenericForm(props: Props<IUserModel>) {
     lastName: 'jj',
     email: 'kkk@h.com',
     phoneNumber: '55657757',
-    gender: 'male',
-    userType:'corporate'
+    gender: GenderType['Male'],
+    userType: UserType['Individual'],  
   }
 
   const validationSchema = Yup.object({ 
@@ -42,7 +42,7 @@ export default function GenericForm(props: Props<IUserModel>) {
     password: Yup.string().required(),
     lastName: Yup.string().required(),
     email: Yup.string().required(),
-    phoneNumber: Yup.string().required(),
+    phoneNumber: Yup.string().required(), 
   })
 
   return (

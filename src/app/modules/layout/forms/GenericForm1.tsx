@@ -2,7 +2,7 @@ import React, {ChangeEvent, useState} from 'react'
 import {Modal} from 'react-bootstrap-v5'
 import {Button, Form, Segment} from 'semantic-ui-react'
 import {KTSVG} from '../../../../_iris/helpers'
-import {IUserModel} from '../../auth/models/AuthInterfaces'
+import {GenderType, IUserModel, UserType} from '../../auth/models/AuthInterfaces'
 import {v4 as uuid} from 'uuid'
 import agent from '../../../../setup/axios/AxiosAgent'
 import {Formik} from 'formik'
@@ -27,15 +27,14 @@ export default function GenericForm1({userVal}: Props) {
     email: '',
     phoneNumber: '',
     age: '70',
-    designation: '',
-    department: '',
     pictureUrl: '',
-    isActive: false,
     organisation: '',
     status: 1,
+    gender: GenderType['Male'],
+    userType: UserType['Individual'],  
   }
 
-  const [user, setUser] = useState(initialState)
+  const [user, setUser] = useState(initialState) 
 
 //   function handleSubmit() {
 //     if (user.userId.length === 0) {

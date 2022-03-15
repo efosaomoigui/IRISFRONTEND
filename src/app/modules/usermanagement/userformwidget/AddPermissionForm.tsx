@@ -91,7 +91,7 @@ export default function AddPermissionForm(props: Props<IPermissionModel>) {
                 </div>
               </div>
 
-              {/* {console.log("new what? ", props.systemRoles)} */}
+              {/* {console.log("new what? ", props.systemRoles)} */} 
 
               <div className='modal-body'>
                 {props.showError && (
