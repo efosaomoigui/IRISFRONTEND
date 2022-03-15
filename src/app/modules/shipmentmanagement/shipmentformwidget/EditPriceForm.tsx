@@ -38,7 +38,7 @@ export default function EditPriceForm(props: Props<IPriceModel>) {
   const {entityValues, setEntityValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle} = usePageData()
 
   const initialFormValue: IPriceModel = {
-    
+    id: props.price ? props.price!.id : '',
     category: props.price ? props.price!.category : 2,
     routeId: props.price ? props.price!.routeId : '',
     unitWeight: props.price ? props.price!.unitWeight : 3,

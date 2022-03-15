@@ -47,6 +47,7 @@ export default function AddPriceForm(props: Props<IPriceModel>) {
   const [showError, setShowError] = useState(true)
 
   const initialFormValue: IPriceModel = {
+    id: props.price ? props.price!.id : '',
     routeId: props.price ? props.price!.routeId : '',
     category: props.price ? props.price!.category : 2,
     unitWeight: props.price ? props.price!.unitWeight : 3,
@@ -54,6 +55,7 @@ export default function AddPriceForm(props: Props<IPriceModel>) {
   }
 
   const validationSchema = Yup.object({
+    
     routeId: Yup.string().required(),
     category: Yup.number().required(),
     unitWeight: Yup.number().required(),
