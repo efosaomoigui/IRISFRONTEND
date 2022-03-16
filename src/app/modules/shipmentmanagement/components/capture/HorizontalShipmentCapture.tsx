@@ -38,7 +38,7 @@ const HorizontalShipmentCapture: FC = () => {
     stepper.current.goPrev()
     setCurrentSchema(createAccountSchemas[stepper.current.currentStepIndex - 1])
   }
-  console.log("==> ", initValues)
+  // console.log("==> ", initValues)
 
   const submitStep = (values: ICreateAccount, actions: FormikValues) => {
     if (!stepper.current) {
@@ -59,7 +59,6 @@ const HorizontalShipmentCapture: FC = () => {
   const handleOnChange = (e: ChangeEvent<HTMLInputElement>)=> {
     const newValue = e.target.value;
     setRadioState(newValue)
-    console.log("}==> ", newValue);
  }
 
   useEffect(() => {

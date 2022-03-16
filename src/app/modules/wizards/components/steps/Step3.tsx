@@ -36,7 +36,7 @@ const Step3: FC<Props> = ({radioState, values}: Props) => {
                         ></i>
                       </label>
                       <FieldArray
-                        name='itemsB'
+                        name='itemsA'
                         render={(arrayHelpers) => (
                           <div>
                             {values.itemsA.map((item: {}, index: number) => (
@@ -201,7 +201,7 @@ const Step3: FC<Props> = ({radioState, values}: Props) => {
                         name='itemsB'
                         render={(arrayHelpers) => (
                           <div>
-                            {values.itemsB.map((item: {}, index: number) => (
+                            {values.itemsB.map((item: any, index: number) => ( 
                               <div key={index} className='mb-10'>
                                 <hr className='bg-success border-2 border-top border-danger'></hr>
                                 <div className='mb-10'>
@@ -209,7 +209,7 @@ const Step3: FC<Props> = ({radioState, values}: Props) => {
                                     <label className='form-label'>Weight (Kg)</label>
                                     <div className='col'>
                                       <Field
-                                        name={`itemsB[${index}].weight`}
+                                        name={`itemsB.${index}.weight`}
                                         className='form-control form-control-lg form-control-solid'
                                         rows={3}
                                       ></Field>
