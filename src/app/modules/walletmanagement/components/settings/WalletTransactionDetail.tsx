@@ -1,23 +1,39 @@
 import {useEffect, useState} from 'react'
 import {Link, useParams} from 'react-router-dom'
 import agent from '../../../../../setup/axios/AxiosAgent'
-import { IWalletModel, IWalletTransactionModel } from '../../Models/WalletInterfaces'
+import { usePageData } from '../../../../../_iris/layout/core'
+import { IWalletTransactionModel } from '../../Models/WalletInterfaces'
 
 
 export function WalletTransactionDetail() {
-  let { wallettransactionId } = useParams<{ wallettransactionId: string}>()
-  const [wallettranscationdetails, setWalletDetails] = useState<IWalletTransactionModel>()
-
-  function getWallet(wallettransactionid: string) {
-    agent.WalletTransaction.details(wallettransactionid).then((response) => {
-      setWalletDetails(response)
-    })
-  }
-
+  let {id} = useParams<{id: string}>()
+  const [wallettranscationdetails, setWalletTransactionDetails] = useState<IWalletTransactionModel>()
+  const [loadingData, setLoadingData] = useState(true)
+  const {
+    selectValue,
+    handleSelectValue,
+    selectUrlParam,
+    setSelectUrlParam,
+    entityValues,
+    setEntityValues,
+  } = usePageData() //global data
+  
   useEffect(() => {
-    getWallet(wallettransactionId)
-  }, [wallettransactionId])
+    const callFunc = async () => {
+      await agent.WalletTransaction.details(id).then((response) => {
+        setWalletTransactionDetails(response)
+        setLoadingData(false)
+        setLoadingData(false)
+      })
+    }
+    if (loadingData) {
+      callFunc()
+    }
+  }, [wallettranscationdetails])
 
+  const handleEdit = (event: React.MouseEvent) => {
+    handleSelectValue(wallettranscationdetails!)
+  }
   return (
     <div className='row g-5 g-xxl-8'>
       <div className='col-xl-12'>
@@ -26,26 +42,41 @@ export function WalletTransactionDetail() {
             <div className='card-title m-0'>
               <h3 className='fw-bolder m-0'>Wallet Transaction Details</h3>
             </div>
-
-            <Link to='/adminSettings/settings' className='btn btn-primary align-self-center'>
+            <a
+              href='#_b'
+              title='Edit'
+              id='#kt_modal_editwallettransaction'
+              data-bs-toggle='modal'
+              data-bs-target='#kt_modal_editwallettransaction'
+              className='btn btn-primary align-self-center'
+              onClick={handleEdit}
+            >
               Edit Wallet Transaction
-            </Link>
+            </a>
           </div>
 
           <div className='card-body p-9'>
-            {wallettranscationdetails && <>
-            <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>Wallet Transaction Name</label>
-
+            {wallettranscationdetails && (
+               <>
+            {/* <div className='row mb-7'>
+              <label className='col-lg-4 fw-bold text-muted'>Transaction Id</label>
               <div className='col-lg-8'>
                 <span className='fw-bolder fs-6 text-dark'>
-                    {wallettranscationdetails?.userId}
+                    {wallettranscationdetails?.id}
                 </span>
               </div>
-            </div>
+            </div> */}
               <div className='row mb-7'>
-                <label className='col-lg-4 fw-bold text-muted'>Wallet Transaction Name</label>
+                <label className='col-lg-4 fw-bold text-muted'>User Id</label>
 
+                <div className='col-lg-8'>
+                  <span className='fw-bolder fs-6 text-dark'>
+                    {wallettranscationdetails?.userId}
+                  </span>
+                </div>
+              </div>
+              <div className='row mb-7'>
+                <label className='col-lg-4 fw-bold text-muted'>Amount</label>
                 <div className='col-lg-8'>
                   <span className='fw-bolder fs-6 text-dark'>
                     {wallettranscationdetails?.amount}
@@ -53,16 +84,7 @@ export function WalletTransactionDetail() {
                 </div>
               </div>
               <div className='row mb-7'>
-                <label className='col-lg-4 fw-bold text-muted'>Amount</label>
-
-                <div className='col-lg-8'>
-                  <span className='fw-bolder fs-6 text-dark'>
-                    {wallettranscationdetails?.description}
-                  </span>
-                </div>
-              </div>
-              <div className='row mb-7'>
-                <label className='col-lg-4 fw-bold text-muted'>Transaction Type</label>
+                <label className='col-lg-4 fw-bold text-muted'>Transaction type</label>
 
                 <div className='col-lg-8'>
                   <span className='fw-bolder fs-6 text-dark'>
@@ -72,41 +94,15 @@ export function WalletTransactionDetail() {
               </div>
               <div className='row mb-7'>
                 <label className='col-lg-4 fw-bold text-muted'>Description</label>
-
                 <div className='col-lg-8'>
                   <span className='fw-bolder fs-6 text-dark'>
                     {wallettranscationdetails?.description}
                   </span>
                 </div>
               </div>
-              <div className='row mb-7'>
-                <label className='col-lg-4 fw-bold text-muted'>Wallet Number</label>
-
-                <div className='col-lg-8'>
-                  <span className='fw-bolder fs-6 text-dark'>
-                    {wallettranscationdetails?.walletNumber}
-                  </span>
-                </div>
-              </div>
-              <div className='row mb-7'>
-                <label className='col-lg-4 fw-bold text-muted'>Date Created</label>
-
-                <div className='col-lg-8'>
-                  <span className='fw-bolder fs-6 text-dark'>
-                    {wallettranscationdetails?.userId}
-                  </span>
-                </div>
-              </div>
-
-            
-            <div className='row mb-10'>
-              <label className='col-lg-4 fw-bold text-muted'>Allow Changes</label>
-
-              <div className='col-lg-8'>
-                <span className='fw-bold fs-6'>Yes</span>
-              </div>
-            </div>
-            </>}
+              
+            </>
+            )}
 
             {!wallettranscationdetails && <><h4>Sorry, Wallet Transaction does not exit!</h4></>}
 

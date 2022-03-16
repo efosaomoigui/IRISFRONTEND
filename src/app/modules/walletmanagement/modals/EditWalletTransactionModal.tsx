@@ -33,12 +33,12 @@ const EditWalletTransactionModal: React.FC<Props> = ({ handleEdit, SelectedValue
     setShowError(false)
     setShowForm(true)
     window.location.reload()
-    console.log('On click', showError)
+    // console.log('On click', showError)
   }
 
   const onSubmit = (values: IWalletTransactionModel) => {
     setIsSubmitting(true)
-    values.userId = uuid()
+    values.id = uuid()
 
     agent.WalletTransaction.update(values).then((response) => {
       if (response.validationErrors!.length > 0) {
@@ -47,7 +47,7 @@ const EditWalletTransactionModal: React.FC<Props> = ({ handleEdit, SelectedValue
         setIsSubmitting(false)
         setShowError(true)
       } else {
-        toast.success('User Update Was Successful!')
+        toast.success('Wallet Transaction Update Was Successful!')
         setInterval(() => {
           setShowForm(false)
         }, 1000)
@@ -69,7 +69,7 @@ const EditWalletTransactionModal: React.FC<Props> = ({ handleEdit, SelectedValue
           showError={showError}
           errorMessage={errorMessage}
           handleClick={handleClick}
-          formTitle={'Edit Permission'} />
+          formTitle={'Edit Wallet Transaction'} />
       </Container>
     </>
   )

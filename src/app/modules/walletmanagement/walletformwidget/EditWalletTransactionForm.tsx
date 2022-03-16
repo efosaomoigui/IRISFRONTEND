@@ -40,10 +40,10 @@ export default function EditWalletTransactionForm(props: Props<IWalletTransactio
   const {entityValues, setEntityValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle} = usePageData()
 
   const initialFormValue: IWalletTransactionModel = {
+    id: props.wallettransaction ? props.wallettransaction!.id : '',
     amount: props.wallettransaction ? props.wallettransaction!.amount : '',
     transactionType: props.wallettransaction ? props.wallettransaction!.transactionType : 2,
     description: props.wallettransaction ? props.wallettransaction!.description : '',
-    walletNumber: props.wallettransaction ? props.wallettransaction!.walletNumber : '',
     userId: props.wallettransaction ? props.wallettransaction!.userId : '',
   }
 
@@ -51,7 +51,6 @@ export default function EditWalletTransactionForm(props: Props<IWalletTransactio
     amount: Yup.string().required(),
     transactionType: Yup.number().required(),
     description: Yup.string().required(),
-    walletNumber: Yup.string().required(),
     userId: Yup.string().required()
   })
 
@@ -107,14 +106,6 @@ export default function EditWalletTransactionForm(props: Props<IWalletTransactio
                         name='description'
                         label='Description'
                       />
-
-                      <IrisTextInput
-                        type='text'
-                        placeholder='WalletNumber'
-                        name='walletNumber'
-                        label='WalletNumber'
-                      />
-                      
                     </Grid>
                   </Grid>
                 }
