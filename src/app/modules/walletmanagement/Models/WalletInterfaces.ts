@@ -10,11 +10,10 @@ export interface IWalletModel {
 }
 
 export interface IWalletTransactionModel {
-  WalletTransactionId?:string 
+  id:string 
   amount: string
   transactionType: number
   description: string
-  walletNumber: string
   userId: string
   message?: string
   validationErrors?: string[]

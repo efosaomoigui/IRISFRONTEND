@@ -21,6 +21,7 @@ import FleetSummary from '../../walletmanagement/components/summary/FleetSummary
 import InvoiceSummary from '../../walletmanagement/components/summary/InvoiceSummary'
 import KYCSummary from '../../walletmanagement/components/summary/KYCSummary'
 import WalletTransactionSummary from '../../walletmanagement/components/summary/WalletTransactionSummary'
+import { IWalletTransactionModel } from '../../walletmanagement/Models/WalletInterfaces'
 
 export function Overview() {
   let {UserId} = useParams<{UserId: string}>()
@@ -188,7 +189,7 @@ export function Overview() {
             </div>
 
             <div className='col-xl-6'>
-              <FleetSummary className='card-xxl-stretch mb-5 mb-xl-10' />
+              <FleetSummary userId={userdetails!.userId} className='card-xxl-stretch mb-5 mb-xl-10' />
             </div>
           </div>
 

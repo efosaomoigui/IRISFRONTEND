@@ -20,6 +20,10 @@ export function WalletTransaction() {
   const tableProvider = {
     columns: [
       {
+        Header: 'Transaction Id',
+        accessor: 'id',
+      },
+      {
         Header: 'user Id',
         accessor: 'userId',
       },
@@ -34,10 +38,6 @@ export function WalletTransaction() {
       {
         Header: 'Description',
         accessor: 'description',
-      },
-      {
-        Header: 'Wallet Number',
-        accessor: 'walletNumber',
       },
      
     ],
@@ -58,7 +58,7 @@ export function WalletTransaction() {
 
   const handleEdit = (event: React.MouseEvent) => {
     const urlParm = event.currentTarget.getAttribute('id')
-    const val = wallettransactionmodel.find((x) => x.userId === urlParm)
+    const val = wallettransactionmodel.find((x) => x.id === urlParm)
     handleSelectValue(val!)
     return val
   }

@@ -51,8 +51,8 @@ const WalletPage: React.FC = () => {
           <WalletDetail />
         </Route>
 
-        <Route path='/wallet/wallettransactiondetails/:WalletTransactionId'>
-          <PageTitle breadcrumbs={userBreadCrumbs}>Wallet Details</PageTitle>
+        <Route path='/wallet/wallettransactiondetails/:id'>
+          <PageTitle breadcrumbs={userBreadCrumbs}>Wallet Transaction Details</PageTitle>
           <WalletTransactionDetail />
         </Route>
         <Redirect from='/wallet/' exact={true} to='/wallet/wallets' />

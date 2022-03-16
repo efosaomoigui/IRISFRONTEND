@@ -3,15 +3,17 @@ import agent from '../../../../../setup/axios/AxiosAgent'
 import {KTSVG} from '../../../../../_iris/helpers'
 import {usePageData} from '../../../../../_iris/layout/core'
 import {IRoleModel} from '../../../auth/models/AuthInterfaces'
+import { IWalletTransactionModel } from '../../Models/WalletInterfaces'
 
 type Props = {
   className: string
   userId?: string
 }
 
-const WalletTransactionSummary: React.FC<Props> = ({className, userId}) => {
+const WalletTransactionSummary: React.FC<Props> = ({ className, userId}) => {
   const [loading, setLoading] = useState(true)
-  const [rolemodel, setRoleModel] = useState<IRoleModel[]>([])
+  // const [rolemodel, setRoleModel] = useState<IRoleModel[]>([])
+  const [wallettransactionmodel, setWalletTransactionModel] = useState<IWalletTransactionModel[]>([])
   const [loadingData, setLoadingData] = useState(true)
 
   const {
@@ -26,8 +28,8 @@ const WalletTransactionSummary: React.FC<Props> = ({className, userId}) => {
   // //USE EFFECT HOOK
   useEffect(() => {
     const callFunc = async () => {
-      await agent.Roles.list().then((response) => {
-        setRoleModel(response)
+      await agent.WalletTransaction.list().then((response) => {
+        setWalletTransactionModel(response)
         setEntityValues!(response)
         setLoadingData(false)
       })
@@ -66,10 +68,10 @@ const WalletTransactionSummary: React.FC<Props> = ({className, userId}) => {
         {/* begin::Timeline */}
         <div className='timeline-label'>
           {/* begin::Item */}
-          {rolemodel.map((role) => {
+          {wallettransactionmodel.map((wallettransaction) => {
             ;<div className='timeline-item'>
               {/* begin::Label */}
-              <div className='timeline-label fw-bolder text-gray-800 fs-6'>{role.name}</div>
+              <div className='timeline-label fw-bolder text-gray-800 fs-6'>{wallettransaction.amount}</div>
               {/* end::Label */}
               {/* begin::Badge */}
               <div className='timeline-badge'>
@@ -77,9 +79,25 @@ const WalletTransactionSummary: React.FC<Props> = ({className, userId}) => {
               </div>
               {/* end::Badge */}
               {/* begin::Text */}
-              <div className='fw-mormal timeline-content text-muted ps-3'>{role.name}</div>
+              <div className='fw-mormal timeline-content text-muted ps-3'>{wallettransaction.description}</div>
               {/* end::Text */}
             </div>
+            {/* begin::Badge */ }
+            <div className='timeline-badge'>
+              <i className='fa fa-genderless text-warning fs-1'></i>
+            </div>
+            {/* end::Badge */ }
+            {/* begin::Text */ }
+            <div className='fw-mormal timeline-content text-muted ps-3'>{wallettransaction.transactionType}</div>
+            {/* end::Text */ }
+            {/* begin::Badge */ }
+            <div className='timeline-badge'>
+              <i className='fa fa-genderless text-warning fs-1'></i>
+            </div>
+            {/* end::Badge */ }
+            {/* begin::Text */ }
+            <div className='fw-mormal timeline-content text-muted ps-3'>{wallettransaction.userId}</div>
+            {/* end::Text */ }
           })}
         </div>
         {/* end::Timeline */}

@@ -1,11 +1,44 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import agent from '../../../../../setup/axios/AxiosAgent'
 import {KTSVG, toAbsoluteUrl} from '../../../../../_iris/helpers'
+import { usePageData } from '../../../../../_iris/layout/core'
+import { IFleetModel } from '../../../shipmentmanagement/ShipmentModels/ShipmentInterfaces'
 
 type Props = {
   className: string
+  userId?: string
 }
 
-const FleetSummary: React.FC<Props> = ({className}) => {
+const FleetSummary: React.FC<Props> = ({ className, userId}) => {
+  const [loading, setLoading] = useState(true)
+  // const [rolemodel, setRoleModel] = useState<IRoleModel[]>([])
+  const [fleetmodel, setFleetModel] = useState<IFleetModel[]>([])
+  const [loadingData, setLoadingData] = useState(true)
+
+  const {
+    selectValue,
+    handleSelectValue,
+    selectUrlParam,
+    setSelectUrlParam,
+    entityValues,
+    setEntityValues,
+  } = usePageData() //global data
+
+  // //USE EFFECT HOOK
+  useEffect(() => {
+    const callFunc = async () => {
+      await agent.Fleet.list().then((response) => {
+        setFleetModel(response)
+        setEntityValues!(response)
+        setLoadingData(false)
+        console.log("fleet ", fleetmodel)
+      })
+    }
+    if (loadingData) {
+      callFunc()
+    }
+  }, [])
+
   return (
     <div className={`card ${className}`}>
       {/* begin::Header */}
@@ -49,7 +82,9 @@ const FleetSummary: React.FC<Props> = ({className}) => {
             </thead>
             {/* end::Table head */}
             {/* begin::Table body */}
+            
             <tbody>
+              {fleetmodel.map((fleet) => {
               <tr>
                 <th>
                   <div className='symbol symbol-50px me-2'>
@@ -64,184 +99,27 @@ const FleetSummary: React.FC<Props> = ({className}) => {
                 </th>
                 <td>
                   <a href='#' className='text-dark fw-bolder text-hover-primary mb-1 fs-6'>
-                    Top Authors
+                    Fleet Id
                   </a>
-                  <span className='text-muted fw-bold d-block fs-7'>Successful Fellas</span>
+                  <span className='text-muted fw-bold d-block fs-7'>{fleet.fleetId}</span>
                 </td>
-                <td>
-                  <div className='d-flex flex-column w-100 me-2'>
-                    <div className='d-flex flex-stack mb-2'>
-                      <span className='text-muted me-2 fs-7 fw-bold'>70%</span>
-                    </div>
-                    <div className='progress h-6px w-100'>
-                      <div
-                        className='progress-bar bg-primary'
-                        role='progressbar'
-                        style={{width: '70%'}}
-                      ></div>
-                    </div>
-                  </div>
-                </td>
-                <td className='text-end'>
-                  <a href='#' className='btn btn-sm btn-icon btn-bg-light btn-active-color-primary'>
-                    <KTSVG path='/media/icons/duotune/arrows/arr064.svg' className='svg-icon-2' />
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <th>
-                  <div className='symbol symbol-50px me-2'>
-                    <span className='symbol-label'>
-                      <img
-                        src={toAbsoluteUrl('/media/svg/brand-logos/telegram.svg')}
-                        className='h-50 align-self-center'
-                        alt=''
-                      />
-                    </span>
-                  </div>
-                </th>
                 <td>
                   <a href='#' className='text-dark fw-bolder text-hover-primary mb-1 fs-6'>
-                    Popular Authors
+                    Capacity
                   </a>
-                  <span className='text-muted fw-bold d-block fs-7'>Most Successful</span>
+                  <span className='text-muted fw-bold d-block fs-7'>{fleet.capacity}</span>
                 </td>
-                <td>
-                  <div className='d-flex flex-column w-100 me-2'>
-                    <div className='d-flex flex-stack mb-2'>
-                      <span className='text-muted me-2 fs-7 fw-bold'>50%</span>
-                    </div>
-                    <div className='progress h-6px w-100'>
-                      <div
-                        className='progress-bar bg-primary'
-                        role='progressbar'
-                        style={{width: '50%'}}
-                      ></div>
-                    </div>
-                  </div>
-                </td>
-                <td className='text-end'>
-                  <a href='#' className='btn btn-sm btn-icon btn-bg-light btn-active-color-primary'>
-                    <KTSVG path='/media/icons/duotune/arrows/arr064.svg' className='svg-icon-2' />
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <th>
-                  <div className='symbol symbol-50px me-2'>
-                    <span className='symbol-label'>
-                      <img
-                        src={toAbsoluteUrl('/media/svg/brand-logos/vimeo.svg')}
-                        className='h-50 align-self-center'
-                        alt=''
-                      />
-                    </span>
-                  </div>
-                </th>
                 <td>
                   <a href='#' className='text-dark fw-bolder text-hover-primary mb-1 fs-6'>
-                    New Users
+                    Chasis Number
                   </a>
-                  <span className='text-muted fw-bold d-block fs-7'>Awesome Users</span>
-                </td>
-                <td>
-                  <div className='d-flex flex-column w-100 me-2'>
-                    <div className='d-flex flex-stack mb-2'>
-                      <span className='text-muted me-2 fs-7 fw-bold'>80%</span>
-                    </div>
-                    <div className='progress h-6px w-100'>
-                      <div
-                        className='progress-bar bg-primary'
-                        role='progressbar'
-                        style={{width: '80%'}}
-                      ></div>
-                    </div>
-                  </div>
-                </td>
-                <td className='text-end'>
-                  <a href='#' className='btn btn-sm btn-icon btn-bg-light btn-active-color-primary'>
-                    <KTSVG path='/media/icons/duotune/arrows/arr064.svg' className='svg-icon-2' />
-                  </a>
+                  <span className='text-muted fw-bold d-block fs-7'>{fleet.chassisNumber}</span>
                 </td>
               </tr>
-              <tr>
-                <th>
-                  <div className='symbol symbol-50px me-2'>
-                    <span className='symbol-label'>
-                      <img
-                        src={toAbsoluteUrl('/media/svg/brand-logos/bebo.svg')}
-                        className='h-50 align-self-center'
-                        alt=''
-                      />
-                    </span>
-                  </div>
-                </th>
-                <td>
-                  <a href='#' className='text-dark fw-bolder text-hover-primary mb-1 fs-6'>
-                    Active Customers
-                  </a>
-                  <span className='text-muted fw-bold d-block fs-7'>Best Customers</span>
-                </td>
-                <td>
-                  <div className='d-flex flex-column w-100 me-2'>
-                    <div className='d-flex flex-stack mb-2'>
-                      <span className='text-muted me-2 fs-7 fw-bold'>90%</span>
-                    </div>
-                    <div className='progress h-6px w-100'>
-                      <div
-                        className='progress-bar bg-primary'
-                        role='progressbar'
-                        style={{width: '90%'}}
-                      ></div>
-                    </div>
-                  </div>
-                </td>
-                <td className='text-end'>
-                  <a href='#' className='btn btn-sm btn-icon btn-bg-light btn-active-color-primary'>
-                    <KTSVG path='/media/icons/duotune/arrows/arr064.svg' className='svg-icon-2' />
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <th>
-                  <div className='symbol symbol-50px me-2'>
-                    <span className='symbol-label'>
-                      <img
-                        src={toAbsoluteUrl('/media/svg/brand-logos/kickstarter.svg')}
-                        className='h-50 align-self-center'
-                        alt=''
-                      />
-                    </span>
-                  </div>
-                </th>
-                <td>
-                  <a href='#' className='text-dark fw-bolder text-hover-primary mb-1 fs-6'>
-                    Bestseller Theme
-                  </a>
-                  <span className='text-muted fw-bold d-block fs-7'>Amazing Templates</span>
-                </td>
-                <td>
-                  <div className='d-flex flex-column w-100 me-2'>
-                    <div className='d-flex flex-stack mb-2'>
-                      <span className='text-muted me-2 fs-7 fw-bold'>70%</span>
-                    </div>
-                    <div className='progress h-6px w-100'>
-                      <div
-                        className='progress-bar bg-primary'
-                        role='progressbar'
-                        style={{width: '70%'}}
-                      ></div>
-                    </div>
-                  </div>
-                </td>
-                <td className='text-end'>
-                  <a href='#' className='btn btn-sm btn-icon btn-bg-light btn-active-color-primary'>
-                    <KTSVG path='/media/icons/duotune/arrows/arr064.svg' className='svg-icon-2' />
-                  </a>
-                </td>
-              </tr>
+              })}
             </tbody>
             {/* end::Table body */}
+            
           </table>
           {/* end::Table */}
         </div>
