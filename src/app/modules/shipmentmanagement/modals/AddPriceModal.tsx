@@ -28,7 +28,7 @@ const AddPriceModal: React.FC<Props> = ({ handleSelect, SelectedValues }: Props)
   const prices = entityValues as IPriceModel[];
 
   const setSelectedValue = (prices: IPriceModel[]) => {
-    const val = prices.find(x => x.routeId === selectUrlParam)
+    const val = prices.find(x => x.id === selectUrlParam)
     return val;
   }
 

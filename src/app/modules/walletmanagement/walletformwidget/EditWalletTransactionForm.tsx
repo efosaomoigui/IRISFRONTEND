@@ -69,7 +69,7 @@ export default function EditWalletTransactionForm(props: Props<IWalletTransactio
           <div className='modal-dialog modal-dialog-centered mw-900px'>
             <div className='modal-content'>
               <div className='modal-header'>
-                <h2>{formTitle+" Wallet Transaction"} </h2>
+                <h2>{"Edit Wallet Transaction"} </h2>
                 <div
                   className='btn btn-sm btn-icon btn-active-color-primary'
                   data-bs-dismiss='modal'

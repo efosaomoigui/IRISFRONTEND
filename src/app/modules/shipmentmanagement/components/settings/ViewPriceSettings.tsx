@@ -19,6 +19,10 @@ export function ViewPriceSettings() {
   const tableProvider = {
     columns: [
       {
+        Header: 'Trip Identification',
+        accessor: 'id',
+      },
+      {
         Header: 'Route Identification',
         accessor: 'routeId',
       },
@@ -51,7 +55,7 @@ export function ViewPriceSettings() {
 
   const handleEdit = (event: React.MouseEvent) => {
     const urlParm = event.currentTarget.getAttribute('id')
-    const val = pricemodel.find((x) => x.routeId === urlParm)
+    const val = pricemodel.find((x) => x.id === urlParm)
     handleSelectValue(val!)
     return val
   }

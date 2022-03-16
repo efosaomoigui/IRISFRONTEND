@@ -38,7 +38,7 @@ export interface IShipmentModel {
     ShipmentItems: string
 } 
 export interface IPriceModel {
-   
+    id: string;
     category: number;
     routeId: string;
     unitWeight: number;
