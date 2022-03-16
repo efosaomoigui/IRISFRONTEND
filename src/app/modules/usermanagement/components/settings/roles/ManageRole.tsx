@@ -1,13 +1,36 @@
-import React, {useState} from 'react'
-import {IRoleModel} from '../../../../auth/models/AuthInterfaces'
+import {Field, Form, Formik, FormikHelpers} from 'formik'
+import React, {useEffect, useState} from 'react'
+import agent from '../../../../../../setup/axios/AxiosAgent'
+import {IRoleModel, IUserModel, IUserRole} from '../../../../auth/models/AuthInterfaces'
 
-const ManageRole: React.FC = () => {
+interface Props<Values> {
+  userId?: string
+  roles?: IRoleModel[]
+  onSubmit: (values: Values, formikHelpers: FormikHelpers<Values>) => void | Promise<any>
+  user?: IUserModel
+}
+
+export default function ManageRole(props: Props<IUserRole>) {
   const [data, setData] = useState<IRoleModel>()
+  const [rolemodel, setRoleModel] = useState<IRoleModel[]>([])
+  const [loadingData, setLoadingData] = useState(true)
 
   const updateData = (fieldsToUpdate: Partial<IRoleModel>) => {
     const updatedData = {...data, ...fieldsToUpdate}
     // setData(updatedData)
   }
+
+  useEffect(() => {
+    const callFunc = async () => {
+      await agent.Roles.list().then((response) => {
+        setRoleModel(response)
+        setLoadingData(false)
+      })
+    }
+    if (loadingData) {
+      callFunc()
+    }
+  }, [])
 
   const [loading, setLoading] = useState(false)
 
@@ -18,133 +41,71 @@ const ManageRole: React.FC = () => {
     }, 1000)
   }
 
+  const initialFormValue: IUserRole = {
+    userId: props.userId,
+    roleId: [],
+  }
+
   return (
-    <div className='card mb-5 mb-xl-10'>
-      <div
-        className='card-header border-0 cursor-pointer'
-        role='button'
-        data-bs-toggle='collapse'
-        data-bs-target='#kt_account_email_preferences'
-        aria-expanded='true'
-        aria-controls='kt_account_email_preferences'
-      >
-        <div className='card-title m-0'>
-          <h3 className='fw-bolder m-0'>Manage Role</h3>
-        </div>
-      </div>
+    <div className='card mb-5 mb-xl-3'>
+      <div id='kt_account_email_preferences' className=''>
+        <Formik initialValues={initialFormValue} enableReinitialize onSubmit={props.onSubmit}>
+          {({values, setFieldValue}) => (
+            <Form>
+              {/* <Field as='checkbox' name='roleId' className='form-select'> */}
+              <input type='hidden' name='userId' value={values.userId} />
+              {rolemodel.length &&
+                rolemodel.map((role, index) => {
+                  return (
+                    <div
+                      key={index}
+                      className='card-body px-3 py-3'
+                      role='group'
+                      aria-labelledby='checkbox-group'
+                    >
+                      <label className='form-check form-check-custom form-check-solid align-items-start'>
+                        <Field
+                          type='checkbox'
+                          name='roleId'
+                          value={role.name}
+                          checked={(props.user!.roles!.indexOf(role.name)) > 0 && true}
+                          className='form-check-input me-3'
+                        />
+                        {/* {route.name} */}
+                        <span className='form-check-label d-flex flex-column align-items-start'>
+                          <span className='fw-bolder fs-5 mb-0'>{role.name}</span>
+                          <span className='text-muted fs-6'>
+                            The role allow you to have access to {role.name} 's previlleges'.
+                          </span>
+                        </span>
+                      </label>
+                      <div className='separator separator-dashed my-2'></div>
+                    </div>
+                  )
+                })}
 
-      <div id='kt_account_email_preferences' className='collapse show'>
-        <form className='form'>
-          <div className='card-body border-top px-9 py-9'>
-            <label className='form-check form-check-custom form-check-solid align-items-start'>
-              <input className='form-check-input me-3' type='checkbox' defaultChecked={true} name='email-preferences[]' />
-
-              <span className='form-check-label d-flex flex-column align-items-start'>
-                <span className='fw-bolder fs-5 mb-0'>Iris Administrator</span>
-                <span className='text-muted fs-6'>
-                  The role allow you to have access to preferebces management.
-                </span>
-              </span>
-            </label>
-
-            <div className='separator separator-dashed my-6'></div>
-
-            <label className='form-check form-check-custom form-check-solid align-items-start'>
-              <input className='form-check-input me-3' type='checkbox' name='email-preferences[]' />
-
-              <span className='form-check-label d-flex flex-column align-items-start'>
-                <span className='fw-bolder fs-5 mb-0'>Fleet Officer</span>
-                <span className='text-muted fs-6'>
-                  The manages the fleet officers on the platform
-                </span>
-              </span>
-            </label>
-
-            <div className='separator separator-dashed my-6'></div>
-
-            <label className='form-check form-check-custom form-check-solid align-items-start'>
-              <input className='form-check-input me-3' type='checkbox' name='email-preferences[]' />
-
-              <span className='form-check-label d-flex flex-column align-items-start'>
-                <span className='fw-bolder fs-5 mb-0'>The Ceo</span>
-                <span className='text-muted fs-6'>
-                  Allow overview of all services and account information
-                </span>
-              </span>
-            </label>
-
-            <div className='separator separator-dashed my-6'></div>
-
-            <label className='form-check form-check-custom form-check-solid align-items-start'>
-              <input className='form-check-input me-3' type='checkbox' name='email-preferences[]' />
-
-              <span className='form-check-label d-flex flex-column align-items-start'>
-                <span className='fw-bolder fs-5 mb-0'>Corportate Customer</span>
-                <span className='text-muted fs-6'>Role for corporate clients.</span>
-              </span>
-            </label>
-
-            <div className='separator separator-dashed my-6'></div>
-
-            <label className='form-check form-check-custom form-check-solid align-items-start'>
-              <input
-                className='form-check-input me-3'
-                type='checkbox'
-                name='email-preferences[]'
-                defaultChecked={true}
-              />
-
-              <span className='form-check-label d-flex flex-column align-items-start'>
-                <span className='fw-bolder fs-5 mb-0'>Individual Customer</span>
-                <span className='text-muted fs-6'>Role for customers</span>
-              </span>
-            </label>
-
-            <div className='separator separator-dashed my-6'></div>
-
-            <label className='form-check form-check-custom form-check-solid align-items-start'>
-              <input
-                className='form-check-input me-3'
-                type='checkbox'
-                name='email-preferences[]'
-                defaultChecked={true}
-              />
-
-              <span className='form-check-label d-flex flex-column align-items-start'>
-                <span className='fw-bolder fs-5 mb-0'>Iris Freight Partner</span>
-                <span className='text-muted fs-6'>
-                  Role for freight forwarding partners.
-                </span>
-              </span>
-            </label>
-
-            <div className='separator separator-dashed my-6'></div>
-
-            <label className='form-check form-check-custom form-check-solid align-items-start'>
-              <input className='form-check-input me-3' type='checkbox' name='email-preferences[]' />
-
-              <span className='form-check-label d-flex flex-column align-items-start'>
-                <span className='fw-bolder fs-5 mb-0'>Human Resource Manager</span>
-                <span className='text-muted fs-6'>
-                  Role for the HR
-                </span>
-              </span>
-            </label>
-          </div>
-
-          <div className='card-footer d-flex justify-content-end py-6 px-9'>
-            <button className='btn btn-white btn-active-light-primary me-2'>Discard</button>
-            <button type='button' onClick={click} className='btn btn-primary'>
-              {!loading && 'Save Changes'}
-              {loading && (
-                <span className='indicator-progress' style={{display: 'block'}}>
-                  Please wait...{' '}
-                  <span className='spinner-border spinner-border-sm align-middle ms-2'></span>
-                </span>
-              )}
-            </button>
-          </div>
-        </form>
+              <div className='card-footer d-flex justify-content-end py-6 px-9'>
+                <button
+                  type='submit'
+                  // onClick={click}
+                  onClick={() => {
+                    setFieldValue('hiddenField', props.userId)
+                  }}
+                  className='btn btn-primary'
+                  style={{width: '20%'}}
+                >
+                  {!loading && 'Save Changes'}
+                  {loading && (
+                    <span className='indicator-progress' style={{display: 'block'}}>
+                      Please wait...{' '}
+                      <span className='spinner-border spinner-border-sm align-middle ms-2'></span>
+                    </span>
+                  )}
+                </button>
+              </div>
+            </Form>
+          )}
+        </Formik>
       </div>
     </div>
   )

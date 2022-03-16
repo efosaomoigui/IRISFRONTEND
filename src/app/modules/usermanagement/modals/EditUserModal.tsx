@@ -4,9 +4,11 @@ import {toast} from 'react-toastify'
 import {v4 as uuid} from 'uuid'
 import agent from '../../../../setup/axios/AxiosAgent'
 import {usePageData} from '../../../../_iris/layout/core'
-import {IUserModel} from '../../auth/models/AuthInterfaces'
+import {IUserModel, IUserRole} from '../../auth/models/AuthInterfaces'
 import ErrorAlert from '../../common/ErrorAlert'
+import { AddUserRole } from '../components/settings/roles/AddUserRole'
 import AddUserForm from '../userformwidget/AddUserForm'
+import { AddUserToRole } from '../userformwidget/AddUserToRole'
 import EditUserForm from '../userformwidget/EditUserForm'
 
 interface Props {
@@ -33,6 +35,7 @@ const EditUserModal: React.FC<Props> = ({handleEdit, SelectedValues}: Props) => 
     setShowForm(true)
     window.location.reload()
   }
+
 
   const onSubmit = (values: IUserModel) => {
     setIsSubmitting(true)

@@ -58,7 +58,7 @@ export function PermissionDetail() {
           <div className='card-body p-9'>
             {permissiondetails && (
             <>
-            <div className='row mb-7'>
+            {/* <div className='row mb-7'>
               <label className='col-lg-4 fw-bold text-muted'>Permission Name</label>
 
               <div className='col-lg-8'>
@@ -66,16 +66,16 @@ export function PermissionDetail() {
                     {permissiondetails.roleId} 
                 </span>
               </div>
-            </div>
+            </div> */}
             
 
-            <div className='row mb-7'>
+            {/* <div className='row mb-7'>
               <label className='col-lg-4 fw-bold text-muted'>Permission Id</label>
 
               <div className='col-lg-8'>
                   <span className='fw-bold fs-6'>{permissiondetails.roleId}</span>
               </div>
-            </div>
+            </div> */}
 
               <div className='row mb-7'>
                 <label className='col-lg-4 fw-bold text-muted'>Permission Type</label>

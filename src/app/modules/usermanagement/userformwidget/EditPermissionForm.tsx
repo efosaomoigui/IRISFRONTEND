@@ -1,6 +1,7 @@
 import { Grid } from '@material-ui/core'
 import { Alert } from '@mui/material'
-import { Form, Formik, FormikHelpers } from 'formik'
+import { ErrorMessage, Field, Form, Formik, FormikHelpers } from 'formik'
+import { useEffect, useState } from 'react'
 import { Modal } from 'react-bootstrap-v5'
 import { Button } from 'semantic-ui-react'
 import * as Yup from 'yup'
@@ -37,11 +38,27 @@ export default function EditPermissionForm(props: Props<IPermissionModel>) {
     setFormTitle,
   } = usePageData()
 
+  const [rolemodel, setRoleModel] = useState<IRoleModel[]>([])
+  const [loadingData, setLoadingData] = useState(true)
+
   const initialFormValue: IPermissionModel = {
     roleId: props.permission ? props.permission!.roleId : '',
     claimType: props.permission ? props.permission!.claimType : '',
     claimValue: props.permission ? props.permission!.claimValue : '',
   }
+
+    //USE EFFECT HOOK
+    useEffect(() => {
+      const callFunc = async () => {
+        await agent.Roles.list().then((response) => {
+          setRoleModel(response)
+          setLoadingData(false)
+        })
+      }
+      if (loadingData) {
+        callFunc()
+      }
+    }, [])
 
   const validationSchema = Yup.object({
     roleId: Yup.string().required(),
@@ -80,7 +97,28 @@ export default function EditPermissionForm(props: Props<IPermissionModel>) {
                   <Grid container className={classes.root}>
                     <Grid item xs={6}>
                       {/* <IrisTextInput type='text' name='id' label='Role Id' /> */}
-                      <IrisTextInput name='roleId' label='RoleId' placeholder={'Role'} />
+                      <div className=' fv-row'>
+                        <div className=''>
+                          <div className='row'>
+                            <div className='col-11'>
+                              <Field as='select' name='roleId' className='form-select'>
+                                {rolemodel.length &&
+                                  rolemodel.map((route, index) => {
+                                    return (
+                                      <option key={index} value={route.id}>
+                                        {route.name}
+                                      </option>
+                                    )
+                                  })}
+                              </Field>
+                              <div className='text-danger mt-2'>
+                                <ErrorMessage name='roleId' />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      {/* <IrisTextInput name='roleId' label='RoleId' placeholder={'Role'} /> */}
                       <IrisTextInput type='text' name='claimType' label='Permission Type' />
                       <IrisTextInput type='text' name='claimValue' label='Permission' />
                     </Grid>

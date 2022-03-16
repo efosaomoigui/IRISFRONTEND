@@ -13,7 +13,7 @@ export function Settings() {
       <ProfileDetails />
       {/* <SignInMethod /> */}
       {/* <ConnectedAccounts /> */}
-      <ManageRole />
+      {/* <ManageRole /> */}
       {/* <Notifications /> */}
       <DeactivateAccount />
     </>

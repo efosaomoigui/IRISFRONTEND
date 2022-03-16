@@ -17,10 +17,19 @@ export interface IUserModel {
   passwordExpireDate?: string
   identificationImage?: string
   walletNumber?: string
+  roles?: string[]
   message?:string
   validationErrors?: string[] 
   userdto?: {}
   //Error:  {"userdto":null,"success":true,"message":null,"validationErrors":["Unable to create user, User already exist!"],"accessToken":null,"expireAt":"0001-01-01T00:00:00"}
+}
+
+export interface IUserRole{
+  userId?:string
+  roleId:string[]
+  message?:string
+  validationErrors?: string[] 
+  userdto?: {}
 }
 
 export enum UserType{

@@ -39,7 +39,7 @@ export default function EditUserForm(props: Props<IUserModel>) {
   const [showError, setShowError] = useState(true)
 
   const initialFormValue: IUserModel = {
-    userId: props.user ? props.user!.userId : '',
+    // userId: props.user ? props.user!.userId : '',
     userName: props.user ? props.user!.userName : '',
     password: props.user ? props.user!.password : '',
     firstName: props.user ? props.user!.firstName : '',
@@ -79,7 +79,6 @@ export default function EditUserForm(props: Props<IUserModel>) {
             <div className='modal-dialog modal-dialog-centered mw-900px'>
               <div className='modal-content'>
                 <div className='modal-header'>
-                  {/* {console.log('==> ', props.user?.userId)} */}
                   <h2>{'Edit User'}</h2>
                   <div
                     className='btn btn-sm btn-icon btn-active-color-primary'
@@ -127,6 +126,10 @@ export default function EditUserForm(props: Props<IUserModel>) {
                           value={values.userType?.toString()}
                           options={optionsArray2}
                         />
+                      </Grid>
+                      
+                      <Grid item xs={12}>
+
                       </Grid>
                     </Grid>
                   )}

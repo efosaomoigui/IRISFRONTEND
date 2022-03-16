@@ -1,11 +1,42 @@
-import React from 'react'
-import { KTSVG } from '../../../../../_iris/helpers'
+import React, {useEffect, useState} from 'react'
+import agent from '../../../../../setup/axios/AxiosAgent'
+import {KTSVG} from '../../../../../_iris/helpers'
+import {usePageData} from '../../../../../_iris/layout/core'
+import {IRoleModel} from '../../../auth/models/AuthInterfaces'
 
 type Props = {
   className: string
+  userId?: string
 }
 
-const WalletTransactionSummary: React.FC<Props> = ({className}) => {
+const WalletTransactionSummary: React.FC<Props> = ({className, userId}) => {
+  const [loading, setLoading] = useState(true)
+  const [rolemodel, setRoleModel] = useState<IRoleModel[]>([])
+  const [loadingData, setLoadingData] = useState(true)
+
+  const {
+    selectValue,
+    handleSelectValue,
+    selectUrlParam,
+    setSelectUrlParam,
+    entityValues,
+    setEntityValues,
+  } = usePageData() //global data
+
+  // //USE EFFECT HOOK
+  useEffect(() => {
+    const callFunc = async () => {
+      await agent.Roles.list().then((response) => {
+        setRoleModel(response)
+        setEntityValues!(response)
+        setLoadingData(false)
+      })
+    }
+    if (loadingData) {
+      callFunc()
+    }
+  }, [])
+
   return (
     <div className={`card ${className}`}>
       {/* begin::Header */}
@@ -35,153 +66,21 @@ const WalletTransactionSummary: React.FC<Props> = ({className}) => {
         {/* begin::Timeline */}
         <div className='timeline-label'>
           {/* begin::Item */}
-          <div className='timeline-item'>
-            {/* begin::Label */}
-            <div className='timeline-label fw-bolder text-gray-800 fs-6'>08:42</div>
-            {/* end::Label */}
-            {/* begin::Badge */}
-            <div className='timeline-badge'>
-              <i className='fa fa-genderless text-warning fs-1'></i>
+          {rolemodel.map((role) => {
+            ;<div className='timeline-item'>
+              {/* begin::Label */}
+              <div className='timeline-label fw-bolder text-gray-800 fs-6'>{role.name}</div>
+              {/* end::Label */}
+              {/* begin::Badge */}
+              <div className='timeline-badge'>
+                <i className='fa fa-genderless text-warning fs-1'></i>
+              </div>
+              {/* end::Badge */}
+              {/* begin::Text */}
+              <div className='fw-mormal timeline-content text-muted ps-3'>{role.name}</div>
+              {/* end::Text */}
             </div>
-            {/* end::Badge */}
-            {/* begin::Text */}
-            <div className='fw-mormal timeline-content text-muted ps-3'>
-              Outlines keep you honest. And keep structure
-            </div>
-            {/* end::Text */}
-          </div>
-          {/* end::Item */}
-          {/* begin::Item */}
-          <div className='timeline-item'>
-            {/* begin::Label */}
-            <div className='timeline-label fw-bolder text-gray-800 fs-6'>10:00</div>
-            {/* end::Label */}
-            {/* begin::Badge */}
-            <div className='timeline-badge'>
-              <i className='fa fa-genderless text-success fs-1'></i>
-            </div>
-            {/* end::Badge */}
-            {/* begin::Content */}
-            <div className='timeline-content d-flex'>
-              <span className='fw-bolder text-gray-800 ps-3'>AEOL meeting</span>
-            </div>
-            {/* end::Content */}
-          </div>
-          {/* end::Item */}
-          {/* begin::Item */}
-          <div className='timeline-item'>
-            {/* begin::Label */}
-            <div className='timeline-label fw-bolder text-gray-800 fs-6'>14:37</div>
-            {/* end::Label */}
-            {/* begin::Badge */}
-            <div className='timeline-badge'>
-              <i className='fa fa-genderless text-danger fs-1'></i>
-            </div>
-            {/* end::Badge */}
-            {/* begin::Desc */}
-            <div className='timeline-content fw-bolder text-gray-800 ps-3'>
-              Make deposit
-              <a href='#' className='text-primary'>
-                USD 700
-              </a>
-              . to ESL
-            </div>
-            {/* end::Desc */}
-          </div>
-          {/* end::Item */}
-          {/* begin::Item */}
-          <div className='timeline-item'>
-            {/* begin::Label */}
-            <div className='timeline-label fw-bolder text-gray-800 fs-6'>16:50</div>
-            {/* end::Label */}
-            {/* begin::Badge */}
-            <div className='timeline-badge'>
-              <i className='fa fa-genderless text-primary fs-1'></i>
-            </div>
-            {/* end::Badge */}
-            {/* begin::Text */}
-            <div className='timeline-content fw-mormal text-muted ps-3'>
-              Indulging in poorly driving and keep structure keep great
-            </div>
-            {/* end::Text */}
-          </div>
-          {/* end::Item */}
-          {/* begin::Item */}
-          <div className='timeline-item'>
-            {/* begin::Label */}
-            <div className='timeline-label fw-bolder text-gray-800 fs-6'>21:03</div>
-            {/* end::Label */}
-            {/* begin::Badge */}
-            <div className='timeline-badge'>
-              <i className='fa fa-genderless text-danger fs-1'></i>
-            </div>
-            {/* end::Badge */}
-            {/* begin::Desc */}
-            <div className='timeline-content fw-bold text-gray-800 ps-3'>
-              New order placed
-              <a href='#' className='text-primary'>
-                #XF-2356
-              </a>
-              .
-            </div>
-            {/* end::Desc */}
-          </div>
-          {/* end::Item */}
-          {/* begin::Item */}
-          <div className='timeline-item'>
-            {/* begin::Label */}
-            <div className='timeline-label fw-bolder text-gray-800 fs-6'>16:50</div>
-            {/* end::Label */}
-            {/* begin::Badge */}
-            <div className='timeline-badge'>
-              <i className='fa fa-genderless text-primary fs-1'></i>
-            </div>
-            {/* end::Badge */}
-            {/* begin::Text */}
-            <div className='timeline-content fw-mormal text-muted ps-3'>
-              Indulging in poorly driving and keep structure keep great
-            </div>
-            {/* end::Text */}
-          </div>
-          {/* end::Item */}
-          {/* begin::Item */}
-          <div className='timeline-item'>
-            {/* begin::Label */}
-            <div className='timeline-label fw-bolder text-gray-800 fs-6'>21:03</div>
-            {/* end::Label */}
-            {/* begin::Badge */}
-            <div className='timeline-badge'>
-              <i className='fa fa-genderless text-danger fs-1'></i>
-            </div>
-            {/* end::Badge */}
-            {/* begin::Desc */}
-            <div className='timeline-content fw-bold text-gray-800 ps-3'>
-              New order placed
-              <a href='#' className='text-primary'>
-                #XF-2356
-              </a>
-              .
-            </div>
-            {/* end::Desc */}
-          </div>
-          {/* end::Item */}
-          {/* begin::Item */}
-          <div className='timeline-item'>
-            {/* begin::Label */}
-            <div className='timeline-label fw-bolder text-gray-800 fs-6'>10:30</div>
-            {/* end::Label */}
-            {/* begin::Badge */}
-            <div className='timeline-badge'>
-              <i className='fa fa-genderless text-success fs-1'></i>
-            </div>
-            {/* end::Badge */}
-            {/* begin::Text */}
-            <div className='timeline-content fw-mormal text-muted ps-3'>
-              Finance KPI Mobile app launch preparion meeting
-            </div>
-            {/* end::Text */}
-          </div>
-          {/* end::Item */}
+          })}
         </div>
         {/* end::Timeline */}
       </div>
