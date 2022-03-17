@@ -9,12 +9,12 @@ export interface ICreateAccount {
   receiverAddress: string
   receiverPhoneNumber: string
   route: string
-  itemsA?: Array<{
+  itemsA: Array<{
     ton:string
     t_shipmentDescription:string
     t_shipmentType:string
   }>
-  itemsB?: Array<{
+  itemsB: Array<{
     weight:string
     length:string
     breadth:string
@@ -103,10 +103,10 @@ const inits: ICreateAccount = {
     t_shipmentType:'',
   }] ,
   itemsB: [{
-    weight:'',
-    length:'',
-    breadth:'',
-    height:'',
+    weight:'1',
+    length:'1',
+    breadth:'1',
+    height:'1',
     m_shipmentDescription:'',
   }] ,
   accountPlan: '1',

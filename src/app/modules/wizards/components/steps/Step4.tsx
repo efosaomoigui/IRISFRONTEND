@@ -1,4 +1,4 @@
-import React, {FC} from 'react'
+import React, {FC, useState} from 'react'
 import {KTSVG} from '../../../../../_iris/helpers'
 import {Link} from 'react-router-dom'
 
@@ -7,6 +7,10 @@ interface Props {
 }
 
 const Step4: FC<Props> = ({values}: Props) => {
+
+  const [total, setTotal] = useState(0)
+  const [grandTotal, setGrandTotal] = useState(0)
+
   return (
     <div className='w-100'>
       <div className='pb-1 pb-lg-4'>
@@ -120,19 +124,86 @@ const Step4: FC<Props> = ({values}: Props) => {
                         </div>
                         <div className='row mb-12'>
                           <div className='col-lg-12'>
-                            <ul className='list-group'>
-                              <li className='list-group-item active' aria-current='true'>
-                                Shipment Items
-                              </li>
-                              <li className='list-group-item'>A second item</li>
-                              <li className='list-group-item'>A third item</li>
-                              <li className='list-group-item'>A fourth item</li>
-                              <li className='list-group-item'>And a fifth one</li>
-                            </ul>
+                            {values.shipmentCategory === 'TruckLoad' && (
+                              <ul className='list-group'>
+                                <li className='list-group-item active' aria-current='true'>
+                                  <h3>Shipment Items for Truck Load</h3>
+                                </li>
+                                {values.itemsA.map((item: any, index: number) => {
+                                  <div className='card' style={{width: '18rem;'}}>
+                                <div className='container'>
+                                  <div className='mb-3'>
+                                   <h3>Shipment Items</h3>
+                                  </div>
+                                  <hr className='bg-success border-1 border-top border-danger'></hr>
+                                  {values.itemsB.map((item: any, index: number) => {
+                                    return (
+                                      <>
+                                        <div className='row m-2'>
+                                          <div className='col'><strong>Weight</strong></div>
+                                          <div className='col'>{item.weight}tons</div>
+                                        </div>
+                                        <div className='row m-2'>
+                                          <div className='col'><strong>Description</strong></div>
+                                          <div className='col'>{item.t_shipmentDescription}</div>
+                                        </div>
+                                        <div className='row m-2'>
+                                          <div className='col'><strong>Total</strong></div>
+                                          <div className='col mb-5'><h3 className='fw-bolder m-0'>NGN{23*67}</h3></div>
+                                        </div>
+                                      </>
+                                    )
+                                  })}
+                                </div>
+                              </div>
+                                })}
+                              </ul>
+                            )}
+
+                            {values.shipmentCategory === 'mailandparcel' && (
+                              <div className='card' style={{width: '18rem;'}}>
+                                <div className='container'>
+                                  <div className='mb-3'>
+                                   <h3>Shipment Items</h3>
+                                  </div>
+                                  <hr className='bg-success border-1 border-top border-danger'></hr>
+                                  {values.itemsB.map((item: any, index: number) => {
+                                    return (
+                                      <>
+                                        <div className='row'>
+                                          <div className='col'><strong>Weight</strong></div>
+                                          <div className='col'>{item.weight}kg</div>
+                                        </div>
+                                        <div className='row'>
+                                          <div className='col'><strong>Length</strong></div>
+                                          <div className='col'>{item.length}cm</div>
+                                        </div>
+                                        <div className='row'>
+                                          <div className='col'><strong>Breadth</strong></div>
+                                          <div className='col'>{item.breadth}cm</div>
+                                        </div>
+                                        <div className='row'>
+                                          <div className='col'><strong>Height</strong></div>
+                                          <div className='col'>{item.height}cm</div>
+                                        </div>
+                                        <div className='row'>
+                                          <div className='col'><strong>Description</strong></div>
+                                          <div className='col mb-5'>{item.m_shipmentDescription}cm</div>
+                                        </div>
+                                        <div className='row'>
+                                          <div className='col'><strong>Total</strong></div>
+                                          <div className='col mb-5'><h3 className='fw-bolder m-0'>NGN{23*67}</h3></div>
+                                        </div>
+                                      </>
+                                    )
+                                  })}
+                                </div>
+                              </div>
+                            )}
                           </div>
                         </div>
                       </div>
-                      <hr className="bg-success border-1 border-top border-danger"></hr>
+                      <hr className='bg-success border-1 border-top border-danger'></hr>
                       <div className='card-header cursor-pointer'>
                         <div className='card-title m-0'>
                           <h3 className='fw-bolder m-0'>Grand Total</h3>
