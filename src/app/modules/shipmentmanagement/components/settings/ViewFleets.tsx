@@ -28,8 +28,8 @@ export function ViewFleets() {
         accessor: 'registrationNumber',
       },
       {
-        Header: 'Chasis Number',
-        accessor: 'chasisNumber',
+        Header: 'Chassis Number',
+        accessor: 'chassisNumber',
       },
       {
         Header: 'Status',

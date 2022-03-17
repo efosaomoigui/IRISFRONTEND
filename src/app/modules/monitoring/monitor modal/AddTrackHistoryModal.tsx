@@ -29,7 +29,7 @@ const AddTrackHistoryModal: React.FC = () => {
     const trackHistory = entityValues as ITrackHistoryModel[];
 
     const setSelectedValue = (trackHistory: ITrackHistoryModel[]) => {
-    const val = trackHistory.find(x => x.tripReference === selectUrlParam)
+    const val = trackHistory.find(x => x.id === selectUrlParam)
     return val;
     }
 
