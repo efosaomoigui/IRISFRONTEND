@@ -63,7 +63,7 @@ const EditWalletModal: React.FC<Props> = ({handleEdit, SelectedValues}: Props) =
     console.log('On click', showError)
   }
 
-  console.log("wallet: ", selectValue);
+  // console.log("wallet: ", selectValue);
 
   return (
     <>

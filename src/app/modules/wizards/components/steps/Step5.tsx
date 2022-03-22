@@ -1,11 +1,93 @@
-import React, {FC} from 'react'
+import React, {ChangeEvent, FC, useState} from 'react'
 import {KTSVG, toAbsoluteUrl} from '../../../../../_iris/helpers'
 import {Field, ErrorMessage} from 'formik'
+import {IPaymentCriteriaModel} from '../../../payment/PaymentModels/PaymentmentInterfaces'
+import agent from '../../../../../setup/axios/AxiosAgent'
+import {toast} from 'react-toastify'
+import {v4 as uuid} from 'uuid'
 
-const Step5: FC = () => {
+interface Props {
+  radioState?: string
+  values?: any
+  handleChange?: (event: ChangeEvent<HTMLInputElement>) => void
+  grandTotal?: number
+}
+
+const Step5: FC<Props> = ({values, handleChange, radioState}: Props) => {
+  const [paymentSummary, showPaymentSummary] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
+  const [showError, setShowError] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [showForm, setShowForm] = useState(true)
+
+  const handleClick = () => {
+    var total = 0
+
+    if (radioState === 'mailandparcel') {
+      for (var i = 0; i < values.itemsB.length; i++) {
+        let nValue = parseInt(values.itemsB[i].LineTotal)
+        if (!isNaN(nValue)) {
+          total += nValue
+        }
+      }
+    } else if (radioState === 'TruckLoad') {
+      for (var i = 0; i < values.itemsA.length; i++) {
+        let nValue = parseInt(values.itemsA[i].LineTotal)
+        if (!isNaN(nValue)) {
+          total += nValue
+        }
+      }
+    }
+
+    values.grandTotal = total
+    showPaymentSummary(true)
+    // console.log('total val ', total)
+  }
+
+  const handleWalletPayment = () => {
+    const invoiceCode = '00000'
+    const userCode = uuid()
+
+    const paymentCriteria: IPaymentCriteriaModel = {
+      Amount: values.grandTotal,
+      CustomerPhoneNumber:values.shipperPhoneNumber.toString(),
+      UserId: userCode,
+      InvoiceNumber: invoiceCode,
+      ShimentCategory: 1,
+      RouteId: values.route,
+      PaymentStatus: false,
+      PaymentMethod:1,
+      Description: 'Wallet Debit Transaction',
+    }
+
+    if (radioState === 'mailandparcel') {
+      paymentCriteria.ShimentCategory = 1
+    } else if (radioState === 'TruckLoad') {
+      paymentCriteria.ShimentCategory = 2
+    }
+
+    // console.log("Payment Log", paymentCriteria )
+
+    agent.PaymentLog.makePayment(paymentCriteria).then((response) => {
+      if (response.validationErrors!.length > 0) {
+        toast.error(response.validationErrors?.toString())
+        setErrorMessage(response.validationErrors!.toString())
+        setIsSubmitting(false)
+        setShowError(true)
+      } else {
+        toast.success('User Creation Was Successful!')
+        setInterval(() => {
+          setShowForm(false)
+        }, 1000)
+        setIsSubmitting(false)
+        setShowError(false)
+      }
+    })
+  }
+
   return (
     <div className='w-100'>
-      <div className='pb-10 pb-lg-15'>
+      <div className='pb-2 pb-lg-15'>
         <h2 className='fw-bolder text-dark'>Billing Details</h2>
 
         <div className='text-gray-400 fw-bold fs-6'>
@@ -18,147 +100,360 @@ const Step5: FC = () => {
         </div>
       </div>
 
-      <div className='d-flex flex-column mb-7 fv-row'>
-        <label className='d-flex align-items-center fs-6 fw-bold form-label mb-2'>
-          <span className='required'>Name On Card</span>
-          <i
-            className='fas fa-exclamation-circle ms-2 fs-7'
-            data-bs-toggle='tooltip'
-            title="Specify a card holder's name"
-          ></i>
-        </label>
-
-        <Field
-          type='text'
-          className='form-control form-control-solid'
-          placeholder=''
-          name='nameOnCard'
-        />
-        <div className='text-danger mt-2'>
-          <ErrorMessage name='nameOnCard' />
-        </div>
-      </div>
-
-      <div className='d-flex flex-column mb-7 fv-row'>
-        <label className='required fs-6 fw-bold form-label mb-2'>Card Number</label>
-
-        <div className='position-relative'>
+      <div className='row'>
+        <div className='col-lg-4'>
           <Field
-            type='text'
-            className='form-control form-control-solid'
-            placeholder='Enter card number'
-            name='cardNumber'
+            type='radio'
+            className='btn-check'
+            name='paymentMethod'
+            value='wallet'
+            id='kt_create_payment_wallet'
+            onClick={handleClick}
           />
-          <div className='text-danger mt-2'>
-            <ErrorMessage name='cardNumber' />
-          </div>
-
-          <div className='position-absolute translate-middle-y top-50 end-0 me-5'>
-            <img src={toAbsoluteUrl('/media/svg/card-logos/visa.svg')} alt='' className='h-25px' />
-            <img
-              src={toAbsoluteUrl('/media/svg/card-logos/mastercard.svg')}
-              alt=''
-              className='h-25px'
+          <label
+            className='btn btn-outline btn-outline-dashed btn-outline-default p-7 d-flex align-items-center mb-10'
+            htmlFor='kt_create_payment_wallet'
+          >
+            <KTSVG
+              path='/media/icons/duotune/communication/com005.svg'
+              className='svg-icon-3x me-5'
             />
-            <img
-              src={toAbsoluteUrl('/media/svg/card-logos/american-express.svg')}
-              alt=''
-              className='h-25px'
-            />
-          </div>
-        </div>
-      </div>
 
-      <div className='row mb-10'>
-        <div className='col-md-8 fv-row'>
-          <label className='required fs-6 fw-bold form-label mb-2'>Expiration Date</label>
-
-          <div className='row fv-row'>
-            <div className='col-6'>
-              <Field as='select' name='cardExpiryMonth' className='form-select form-select-solid'>
-                <option>ssddfgg</option>
-                <option value='1'>1</option>
-                <option value='2'>2</option>
-                <option value='3'>3</option>
-                <option value='4'>4</option>
-                <option value='5'>5</option>
-                <option value='6'>6</option>
-                <option value='7'>7</option>
-                <option value='8'>8</option>
-                <option value='9'>9</option>
-                <option value='10'>10</option>
-                <option value='11'>11</option>
-                <option value='12'>12</option>
-              </Field>
-              <div className='text-danger mt-2'>
-                <ErrorMessage name='cardExpiryMonth' />
-              </div>
-            </div>
-
-            <div className='col-6'>
-              <Field as='select' name='cardExpiryYear' className='form-select form-select-solid'>
-                <option></option>
-                <option value='2021'>2021</option>
-                <option value='2022'>2022</option>
-                <option value='2023'>2023</option>
-                <option value='2024'>2024</option>
-                <option value='2025'>2025</option>
-                <option value='2026'>2026</option>
-                <option value='2027'>2027</option>
-                <option value='2028'>2028</option>
-                <option value='2029'>2029</option>
-                <option value='2030'>2030</option>
-                <option value='2031'>2031</option>
-              </Field>
-              <div className='text-danger mt-2'>
-                <ErrorMessage name='cardExpiryYear' />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className='col-md-4 fv-row'>
-          <label className='d-flex align-items-center fs-6 fw-bold form-label mb-2'>
-            <span className='required'>CVV</span>
-            <i
-              className='fas fa-exclamation-circle ms-2 fs-7'
-              data-bs-toggle='tooltip'
-              title='Enter a card CVV code'
-            ></i>
+            <span className='d-block fw-bold text-start'>
+              <span className='text-dark fw-bolder d-block fs-4 mb-2'>Wallet</span>
+              <span className='text-gray-400 fw-bold fs-6'>Wallet Accepted</span>
+            </span>
           </label>
+        </div>
 
-          <div className='position-relative'>
-            <Field
-              type='text'
-              className='form-control form-control-solid'
-              minLength={3}
-              maxLength={4}
-              placeholder='CVV'
-              name='cardCvv'
-            />
-            <div className='text-danger mt-2'>
-              <ErrorMessage name='cardCvv' />
-            </div>
+        <div className='col-lg-4'>
+          <Field
+            type='radio'
+            className='btn-check'
+            name='paymentMethod'
+            value='creditdebitcard'
+            id='kt_create_payment_creditdebit'
+            // onClick={handleClick}
+          />
+          <label
+            className='btn btn-outline btn-outline-dashed btn-outline-default p-7 d-flex align-items-center'
+            htmlFor='kt_create_payment_creditdebit'
+          >
+            <KTSVG path='/media/icons/duotune/finance/fin006.svg' className='svg-icon-3x me-5' />
 
-            <div className='position-absolute translate-middle-y top-50 end-0 me-3'>
-              <KTSVG path='/media/icons/duotune/finance/fin002.svg' className='svg-icon-2hx' />
-            </div>
-          </div>
+            <span className='d-block fw-bold text-start'>
+              <span className='text-dark fw-bolder d-block fs-4 mb-2'>Credit/Debit Card</span>
+              <span className='text-gray-400 fw-bold fs-6'>Debit Card Accepted</span>
+            </span>
+          </label>
+        </div>
+
+        <div className='col-lg-4'>
+          <Field
+            type='radio'
+            className='btn-check'
+            name='paymentMethod'
+            value='postpaid'
+            id='kt_create_payment_postpaid'
+            // onClick={handleClick}
+          />
+          <label
+            className='btn btn-outline btn-outline-dashed btn-outline-default p-7 d-flex align-items-center'
+            htmlFor='kt_create_payment_postpaid'
+          >
+            <KTSVG path='/media/icons/duotune/finance/fin006.svg' className='svg-icon-3x me-5' />
+
+            <span className='d-block fw-bold text-start'>
+              <span className='text-dark fw-bolder d-block fs-4 mb-2'>Post Paid</span>
+              <span className='text-gray-400 fw-bold fs-6'>Post Paid</span>
+            </span>
+          </label>
+        </div>
+
+        <div className='text-danger mt-2'>
+          <ErrorMessage name='shipmentCategory' />
         </div>
       </div>
 
-      <div className='d-flex flex-stack'>
-        <div className='me-5'>
-          <label className='fs-6 fw-bold form-label'>Save Card for further billing?</label>
-          <div className='fs-7 fw-bold text-gray-400'>
-            If you need more info, please check budget planning
+      <div className='row'>
+        <div className='mb-0'>
+          <div className='notice d-flex bg-light-warning rounded border-warning border border-dashed p-2 m-1'>
+            <div className='' style={{width: '100%'}}>
+              <div className='fw-bold'>
+                <div className='fs-6 text-gray-700'>
+                  <div className='row g-5 g-xxl-12'>
+                    <div className='col-xl-12'>
+                      {paymentSummary && (
+                        <div className='card mb-5 mb-xl-12' id='kt_profile_details_view'>
+                          {values.paymentMethod === 'wallet' && (
+                            <div className='card-header cursor-pointer'>
+                              <div className='card-title m-0'>
+                                <h3 className='fw-bolder m-0'>Pay Now</h3>
+                              </div>
+                              <div className='card-title m-2'>
+                                <button
+                                  type='button'
+                                  style={{width: '88%'}}
+                                  className='btn btn-primary btn-lg ml-3'
+                                  onClick={handleWalletPayment}
+                                >
+                                  {isSubmitting && (
+                                    <span className='spinner-grow spinner-grow-sm'></span>
+                                  )}
+                                  Pay NGN {values.grandTotal} with wallet
+                                </button>
+                              </div>
+                            </div>
+                          )}
+
+                          {values.paymentMethod === 'creditdebitcard' && (
+                            <div className='card-header cursor-pointer'>
+                              <div className='card-title m-0'>
+                                <h3 className='fw-bolder m-0'>Pay Now</h3>
+                              </div>
+                              <div className='card-title m-2'>
+                                <button
+                                  type='button'
+                                  style={{width: '88%'}}
+                                  className='btn btn-primary btn-lg ml-3'
+                                  onClick={handleWalletPayment}
+                                >
+                                  {isSubmitting && (
+                                    <span className='spinner-grow spinner-grow-sm'></span>
+                                  )}
+                                  Pay NGN {values.grandTotal} with Credit/Debit Card
+                                </button>
+                              </div>
+                            </div>
+                          )}
+
+                          {values.paymentMethod === 'postpaid' && (
+                            <div className='card-header cursor-pointer'>
+                              <div className='card-title m-0'>
+                                <h3 className='fw-bolder m-0'>Pay Later</h3>
+                              </div>
+                              <div className='card-title m-2'>
+                                <button
+                                  type='button'
+                                  style={{width: '88%'}}
+                                  className='btn btn-primary btn-lg ml-3'
+                                >
+                                  Pay NGN {values.grandTotal} with Post Paid
+                                </button>
+                              </div>
+                            </div>
+                          )}
+
+                          <div className='card-body p-12'>
+                            <div className='row mb-12'>
+                              <label className='col-lg-4 fw-bold text-muted'>
+                                Shipment Category
+                              </label>
+
+                              <div className='col-lg-8'>
+                                <span className='fw-bolder fs-6 text-dark'>
+                                  {values.shipmentCategory}
+                                </span>
+                              </div>
+                            </div>
+
+                            <div className='row mb-12'>
+                              <label className='col-lg-4 fw-bold text-muted'>Route</label>
+
+                              <div className='col-lg-8 fv-row'>
+                                <span className='fw-bold fs-6'>{values.route.toUpperCase()}</span>
+                              </div>
+                            </div>
+
+                            <div className='row mb-12'>
+                              <label className='col-lg-4 fw-bold text-muted'>shipperFullName</label>
+
+                              <div className='col-lg-8 fv-row'>
+                                <span className='fw-bold fs-6'>{values.shipperFullName}</span>
+                              </div>
+                            </div>
+
+                            <div className='row mb-12'>
+                              <label className='col-lg-4 fw-bold text-muted'>
+                                shipperAddress
+                                <i
+                                  className='fas fa-exclamation-circle ms-1 fs-7'
+                                  data-bs-toggle='tooltip'
+                                  title='Phone number must be active'
+                                ></i>
+                              </label>
+
+                              <div className='col-lg-8 d-flex align-items-center'>
+                                <span className='fw-bolder fs-6 me-2'>{values.shipperAddress}</span>
+                              </div>
+                            </div>
+
+                            <div className='row mb-12'>
+                              <label className='col-lg-4 fw-bold text-muted'>
+                                shipperPhoneNumbery Site
+                              </label>
+
+                              <div className='col-lg-8'>0{values.shipperPhoneNumber}</div>
+                            </div>
+
+                            <div className='row mb-12'>
+                              <label className='col-lg-4 fw-bold text-muted'>
+                                receiverFullName
+                                <i
+                                  className='fas fa-exclamation-circle ms-1 fs-7'
+                                  data-bs-toggle='tooltip'
+                                  title='Country of origination'
+                                ></i>
+                              </label>
+
+                              <div className='col-lg-8'>
+                                <span className='fw-bolder fs-6 text-dark'>
+                                  {values.receiverFullName}
+                                </span>
+                              </div>
+                            </div>
+
+                            <div className='row mb-10'>
+                              <label className='col-lg-4 fw-bold text-muted'>receiverAddress</label>
+
+                              <div className='col-lg-8'>
+                                <span className='fw-bolder fs-6 text-dark'>
+                                  {values.receiverAddress}
+                                </span>
+                              </div>
+                            </div>
+
+                            <div className='row mb-10'>
+                              <label className='col-lg-4 fw-bold text-muted'>
+                                receiverPhoneNumber
+                              </label>
+
+                              <div className='col-lg-8'>
+                                <span className='fw-bold fs-6'>0{values.receiverPhoneNumber}</span>
+                              </div>
+                            </div>
+                            <div className='row mb-12'>
+                              <div className='col-lg-12'>
+                                {values.shipmentCategory === 'TruckLoad' && (
+                                  <div className='card' style={{width: '99%'}}>
+                                    <div className='container'>
+                                      <div className='mb-3'>
+                                        <h3>Shipment Items</h3>
+                                      </div>
+                                      <hr className='bg-success border-1 border-top border-danger'></hr>
+                                      {values.itemsA.map((item: any, index: number) => {
+                                        return (
+                                          <div key={index}>
+                                            <div className='row m-2'>
+                                              <div className='col'>
+                                                <strong>Weight</strong>
+                                              </div>
+                                              <div className='col'>{item.weight}tons</div>
+                                            </div>
+                                            <div className='row m-2'>
+                                              <div className='col'>
+                                                <strong>Description</strong>
+                                              </div>
+                                              <div className='col'>
+                                                {item.t_shipmentDescription}
+                                              </div>
+                                            </div>
+                                            <div className='row m-2'>
+                                              <div className='col'>
+                                                <strong>Total</strong>
+                                              </div>
+                                              <div className='col mb-5'>
+                                                <h3 className='fw-bolder m-0'>
+                                                  NGN{item.LineTotal}
+                                                </h3>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        )
+                                      })}
+                                    </div>
+                                  </div>
+                                )}
+
+                                {values.shipmentCategory === 'mailandparcel' && (
+                                  <div className='card' style={{width: '99%'}}>
+                                    <div className='container'>
+                                      <div className='mb-3'>
+                                        <h3>Shipment Items</h3>
+                                      </div>
+                                      <hr className='bg-success border-1 border-top border-danger'></hr>
+                                      {values.itemsB.map((item: any, index: number) => {
+                                        return (
+                                          <div key={index}>
+                                            <div className='row'>
+                                              <div className='col'>
+                                                <strong>Weight</strong>
+                                              </div>
+                                              <div className='col'>{item.weight}kg</div>
+                                            </div>
+                                            <div className='row'>
+                                              <div className='col'>
+                                                <strong>Length</strong>
+                                              </div>
+                                              <div className='col'>{item.length}cm</div>
+                                            </div>
+                                            <div className='row'>
+                                              <div className='col'>
+                                                <strong>Breadth</strong>
+                                              </div>
+                                              <div className='col'>{item.breadth}cm</div>
+                                            </div>
+                                            <div className='row'>
+                                              <div className='col'>
+                                                <strong>Height</strong>
+                                              </div>
+                                              <div className='col'>{item.height}cm</div>
+                                            </div>
+                                            <div className='row'>
+                                              <div className='col'>
+                                                <strong>Description</strong>
+                                              </div>
+                                              <div className='col mb-5'>
+                                                {item.m_shipmentDescription}
+                                              </div>
+                                            </div>
+                                            <div className='row'>
+                                              <div className='col mt-3'>
+                                                <strong>Total</strong>
+                                              </div>
+                                              <div className='col mb-5'>
+                                                <h3 className='fw-bolder m-0'>
+                                                  NGN{item.LineTotal}
+                                                </h3>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        )
+                                      })}
+                                    </div>
+                                  </div>
+                                )}
+                              </div>
+                            </div>
+                          </div>
+                          <hr className='bg-success border-1 border-top border-danger'></hr>
+                          <div className='card-header cursor-pointer'>
+                            <div className='card-title m-0'>
+                              <h3 className='fw-bolder m-0'>Grand Total</h3>
+                            </div>
+                            <div className='card-title m-0'>
+                              <h3 className='fw-bolder m-0'>NGN {values.grandTotal}</h3>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-
-        <label className='form-check form-switch form-check-custom form-check-solid'>
-          <Field className='form-check-input' type='checkbox' value='1' checked={true} />
-          <span className='form-check-label fw-bold text-gray-400'>Save Card</span>
-        </label>
       </div>
     </div>
   )

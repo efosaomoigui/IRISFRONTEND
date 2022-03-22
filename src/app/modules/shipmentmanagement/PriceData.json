@@ -5,7 +5,7 @@
         "RouteId": "44d9ff94-40eb-4e80-9ee0-5f99f8bfc3b3",
         "Route": "Hyères",
         "UnitWeight": 33,
-        "PricePErUnit": "$4.37"
+        "pricePerUnit": "$4.37"
     },
     {
         "id": "41601ce9-021e-42ad-a52f-f088669ebac1",
@@ -13,7 +13,7 @@
         "RouteId": "839599ed-9c0b-4e78-8b30-5ec756b5e4ea",
         "Route": "Hamilton",
         "UnitWeight": 66,
-        "PricePErUnit": "$4.78"
+        "pricePerUnit": "$4.78"
     },
     {
         "id": "48637a3c-19a3-47d8-9521-35e90ba43ec2",
@@ -21,7 +21,7 @@
         "RouteId": "c2dd7e15-5c31-49bd-ad9a-5503522d9024",
         "Route": "Lanlacuni Bajo",
         "UnitWeight": 93,
-        "PricePErUnit": "$1.37"
+        "pricePerUnit": "$1.37"
     },
     {
         "id": "2c28897d-7b90-4a72-add2-d968b29d8764",
@@ -29,7 +29,7 @@
         "RouteId": "6911ed81-9bd7-4c61-9600-e34170d1cf66",
         "Route": "Xiyang",
         "UnitWeight": 32,
-        "PricePErUnit": "$9.35"
+        "pricePerUnit": "$9.35"
     },
     {
         "id": "18df7e93-981a-475a-95bc-b08ec69a4d9e",
@@ -37,7 +37,7 @@
         "RouteId": "d6a355b7-154a-4098-833d-86857a369f96",
         "Route": "Impendle",
         "UnitWeight": 61,
-        "PricePErUnit": "$9.58"
+        "pricePerUnit": "$9.58"
     },
     {
         "id": "46c04c7a-f697-4ddb-86f2-c6ba2d713d2a",
@@ -45,7 +45,7 @@
         "RouteId": "2af06be3-6555-4015-b849-519765642a81",
         "Route": "Dejilin",
         "UnitWeight": 21,
-        "PricePErUnit": "$1.56"
+        "pricePerUnit": "$1.56"
     },
     {
         "id": "10c13678-239c-4e53-8d2b-6dc6f3686a40",
@@ -53,7 +53,7 @@
         "RouteId": "a84645d3-5ca5-49c6-8238-09e9edc03d0a",
         "Route": "Yŏnmu",
         "UnitWeight": 31,
-        "PricePErUnit": "$7.21"
+        "pricePerUnit": "$7.21"
     },
     {
         "id": "08c6388f-3a69-4358-b5b3-e8d9431183d5",
@@ -61,7 +61,7 @@
         "RouteId": "fc04fc61-01b7-4ceb-b966-7c05fe209c21",
         "Route": "Dasol",
         "UnitWeight": 96,
-        "PricePErUnit": "$3.41"
+        "pricePerUnit": "$3.41"
     },
     {
         "id": "20e5619a-2f03-47de-b724-c539bba7d852",
@@ -69,7 +69,7 @@
         "RouteId": "a7ac089d-3e87-44f6-b19c-0ab8bf2b13d3",
         "Route": "Maco",
         "UnitWeight": 19,
-        "PricePErUnit": "$8.10"
+        "pricePerUnit": "$8.10"
     },
     {
         "id": "76113d2b-a63a-42d6-8ff5-942922af68ce",
@@ -77,7 +77,7 @@
         "RouteId": "a0e14cdf-1916-4f6a-8073-f4a610938aa6",
         "Route": "Mikhaylovsk",
         "UnitWeight": 26,
-        "PricePErUnit": "$8.51"
+        "pricePerUnit": "$8.51"
     },
     {
         "id": "798373f0-801a-415c-8719-8fc5117ea2c5",
@@ -85,7 +85,7 @@
         "RouteId": "032e84da-f30a-4e65-b122-d786a408eff3",
         "Route": "Sagua de Tánamo",
         "UnitWeight": 39,
-        "PricePErUnit": "$3.50"
+        "pricePerUnit": "$3.50"
     },
     {
         "id": "14e13e07-4a02-4815-8c05-b0f095f1fd87",
@@ -93,7 +93,7 @@
         "RouteId": "6a333ab5-14e1-4cea-8b66-c620bdc1fd48",
         "Route": "Aubenas",
         "UnitWeight": 5,
-        "PricePErUnit": "$1.79"
+        "pricePerUnit": "$1.79"
     },
     {
         "id": "d25742c5-7310-4d07-8359-ae00c4fb89f0",
@@ -101,7 +101,7 @@
         "RouteId": "ac24774b-d29e-4065-999c-90a7a20e1123",
         "Route": "Griboyedov",
         "UnitWeight": 48,
-        "PricePErUnit": "$6.19"
+        "pricePerUnit": "$6.19"
     },
     {
         "id": "e73e4a46-c199-4d41-b8f0-6250477c252c",
@@ -109,7 +109,7 @@
         "RouteId": "4aa74763-33fd-4eef-a1be-2e24bc652648",
         "Route": "Puerto Morazán",
         "UnitWeight": 69,
-        "PricePErUnit": "$7.62"
+        "pricePerUnit": "$7.62"
     },
     {
         "id": "9d0c0fab-de58-45c6-a471-9876dfe187a9",
@@ -117,7 +117,7 @@
         "RouteId": "1f643ddf-6933-40a0-9aee-4a6171088b61",
         "Route": "Dan Sadau",
         "UnitWeight": 12,
-        "PricePErUnit": "$9.83"
+        "pricePerUnit": "$9.83"
     },
     {
         "id": "1419f8ef-0553-41b8-863a-6f1511728765",
@@ -125,7 +125,7 @@
         "RouteId": "56d050c2-a97b-494f-8c9a-2fcc3b67a7f9",
         "Route": "San Antonio",
         "UnitWeight": 35,
-        "PricePErUnit": "$1.89"
+        "pricePerUnit": "$1.89"
     },
     {
         "id": "00b6d8b9-104d-4bd0-b9de-5f912bbba81b",
@@ -133,7 +133,7 @@
         "RouteId": "44b88e0a-4583-496b-9185-3f690fc6b128",
         "Route": "Paris 02",
         "UnitWeight": 21,
-        "PricePErUnit": "$6.85"
+        "pricePerUnit": "$6.85"
     },
     {
         "id": "f62d03ec-192c-4aee-8446-d2e57d206470",
@@ -141,7 +141,7 @@
         "RouteId": "d58033c1-df61-41e3-9ec0-45b976656f1c",
         "Route": "Kristinehamn",
         "UnitWeight": 34,
-        "PricePErUnit": "$0.24"
+        "pricePerUnit": "$0.24"
     },
     {
         "id": "ef38e55b-67f0-421e-8995-25f1e818d87f",
@@ -149,7 +149,7 @@
         "RouteId": "4d40f6cb-bd61-45ee-9ede-54f04e02048c",
         "Route": "Oued Zem",
         "UnitWeight": 47,
-        "PricePErUnit": "$5.78"
+        "pricePerUnit": "$5.78"
     },
     {
         "id": "bee04b9a-2c71-421f-b59f-1e3a37ae77af",
@@ -157,7 +157,7 @@
         "RouteId": "63859555-6e5f-4008-b532-f67353e383fd",
         "Route": "Komorniki",
         "UnitWeight": 92,
-        "PricePErUnit": "$3.56"
+        "pricePerUnit": "$3.56"
     },
     {
         "id": "dd5f50e3-714b-464d-ad17-efe53bb6eaff",
@@ -165,7 +165,7 @@
         "RouteId": "33586834-4952-4e30-b440-d56656db31bd",
         "Route": "Lianozovo",
         "UnitWeight": 24,
-        "PricePErUnit": "$9.02"
+        "pricePerUnit": "$9.02"
     },
     {
         "id": "2e592f7b-ddf3-4a76-a5ce-f8f7353d0b2d",
@@ -173,7 +173,7 @@
         "RouteId": "3882f3cf-37b7-4e26-9b9b-0bfc2ddc5f7c",
         "Route": "Mir",
         "UnitWeight": 63,
-        "PricePErUnit": "$9.91"
+        "pricePerUnit": "$9.91"
     },
     {
         "id": "9d30ce9c-caf1-42bc-837b-dcce0b9494d7",
@@ -181,7 +181,7 @@
         "RouteId": "cd6c344a-c5eb-4c9f-a91f-a221a7d603fb",
         "Route": "La Garenne-Colombes",
         "UnitWeight": 16,
-        "PricePErUnit": "$2.92"
+        "pricePerUnit": "$2.92"
     },
     {
         "id": "aced9576-823d-4bfd-8123-f53cc78068d0",
@@ -189,7 +189,7 @@
         "RouteId": "8baff3c9-a372-4262-a7df-5d6f82002a1b",
         "Route": "Miaofengshan",
         "UnitWeight": 83,
-        "PricePErUnit": "$4.75"
+        "pricePerUnit": "$4.75"
     },
     {
         "id": "c5adbca6-20bd-4fae-867c-dc3c0b29c862",
@@ -197,7 +197,7 @@
         "RouteId": "1410681b-02fe-47e1-90fd-b5757d149254",
         "Route": "Tongjiaxi",
         "UnitWeight": 66,
-        "PricePErUnit": "$2.55"
+        "pricePerUnit": "$2.55"
     },
     {
         "id": "64bdc869-a970-4422-a0cb-134937ad18f8",
@@ -205,7 +205,7 @@
         "RouteId": "c6db0638-8b72-431d-aee9-86f74b3aec11",
         "Route": "Libas",
         "UnitWeight": 65,
-        "PricePErUnit": "$0.84"
+        "pricePerUnit": "$0.84"
     },
     {
         "id": "79b83180-90f7-4dd3-b97f-837a4a9b6d8c",
@@ -213,7 +213,7 @@
         "RouteId": "2a8d344d-0edb-4670-91d0-134abf3ed7d3",
         "Route": "Turku",
         "UnitWeight": 39,
-        "PricePErUnit": "$5.75"
+        "pricePerUnit": "$5.75"
     },
     {
         "id": "e3352cab-6831-4106-9fcc-ba7c0dba93c8",
@@ -221,7 +221,7 @@
         "RouteId": "59275632-a2fc-439a-b076-9678ec94887c",
         "Route": "Khemarat",
         "UnitWeight": 57,
-        "PricePErUnit": "$5.54"
+        "pricePerUnit": "$5.54"
     },
     {
         "id": "d1fc4a53-c075-4daf-98a9-0b44ba931a6c",
@@ -229,7 +229,7 @@
         "RouteId": "1c1b2763-fbfe-4230-9539-0c8d879d3d4a",
         "Route": "Newark",
         "UnitWeight": 93,
-        "PricePErUnit": "$5.91"
+        "pricePerUnit": "$5.91"
     },
     {
         "id": "774ca1c1-6cfa-4197-8783-8efcaa022fb2",
@@ -237,7 +237,7 @@
         "RouteId": "2bd27451-69a3-4e6d-87ae-322b2c87f16c",
         "Route": "Battaramulla South",
         "UnitWeight": 70,
-        "PricePErUnit": "$4.41"
+        "pricePerUnit": "$4.41"
     },
     {
         "id": "b6feba1b-1e0b-4116-b5dd-5047e22822b0",
@@ -245,7 +245,7 @@
         "RouteId": "c56b5f13-018e-4057-9a7b-2c5052f33982",
         "Route": "Tennō",
         "UnitWeight": 45,
-        "PricePErUnit": "$5.40"
+        "pricePerUnit": "$5.40"
     },
     {
         "id": "5a3189bd-33f1-4e26-8e0e-a89755828fd1",
@@ -253,7 +253,7 @@
         "RouteId": "c5c279b0-f2c7-4510-a3f1-e1f12e4503c3",
         "Route": "Cacoal",
         "UnitWeight": 57,
-        "PricePErUnit": "$5.38"
+        "pricePerUnit": "$5.38"
     },
     {
         "id": "9557479c-defb-4fbf-8e71-b8fecfc148dc",
@@ -261,7 +261,7 @@
         "RouteId": "3c4e7ddf-e325-4d87-95e6-aa8f6ed9c66c",
         "Route": "Puro Pinget",
         "UnitWeight": 11,
-        "PricePErUnit": "$9.73"
+        "pricePerUnit": "$9.73"
     },
     {
         "id": "c5fa873d-ccaf-4f15-9b53-d963ceefe6c5",
@@ -269,7 +269,7 @@
         "RouteId": "15cb51b8-933f-4664-9079-d99d4ea9c5c7",
         "Route": "Karátoulas",
         "UnitWeight": 80,
-        "PricePErUnit": "$3.85"
+        "pricePerUnit": "$3.85"
     },
     {
         "id": "a98827aa-09a6-4183-b5a1-74c1f7b656c7",
@@ -277,7 +277,7 @@
         "RouteId": "221b8d35-a4be-4d1b-ba27-b932a65a0fea",
         "Route": "Gunung Sugih",
         "UnitWeight": 38,
-        "PricePErUnit": "$1.09"
+        "pricePerUnit": "$1.09"
     },
     {
         "id": "f904cd1a-6d12-4008-a00f-c2df535af3a4",
@@ -285,7 +285,7 @@
         "RouteId": "d9fbacc7-6ba5-43bd-b326-29a644d36de6",
         "Route": "Kampot",
         "UnitWeight": 10,
-        "PricePErUnit": "$5.72"
+        "pricePerUnit": "$5.72"
     },
     {
         "id": "00a3cd65-5967-4320-bce4-b7bede575e77",
@@ -293,7 +293,7 @@
         "RouteId": "caea7fbe-86e5-46ac-9c56-fec59cf0564f",
         "Route": "Bourg-en-Bresse",
         "UnitWeight": 60,
-        "PricePErUnit": "$8.38"
+        "pricePerUnit": "$8.38"
     },
     {
         "id": "6487f3f0-da9d-432a-af2f-f1e9b1af7d6d",
@@ -301,7 +301,7 @@
         "RouteId": "19238226-0188-4d9b-b72f-9f2e285eec5f",
         "Route": "Buluangan",
         "UnitWeight": 78,
-        "PricePErUnit": "$2.53"
+        "pricePerUnit": "$2.53"
     },
     {
         "id": "fbcc94fd-1c1c-4dae-86e6-96be1b40a3c1",
@@ -309,7 +309,7 @@
         "RouteId": "40f542fa-256b-4a3e-b2ff-c7ef44bd9e57",
         "Route": "Kuressaare",
         "UnitWeight": 60,
-        "PricePErUnit": "$7.96"
+        "pricePerUnit": "$7.96"
     },
     {
         "id": "fce4c7a9-bebe-4a84-87c7-db988ca1adf9",
@@ -317,7 +317,7 @@
         "RouteId": "c4769e8c-3ee6-4f36-800a-24d9271cb4ed",
         "Route": "Wulong",
         "UnitWeight": 39,
-        "PricePErUnit": "$9.62"
+        "pricePerUnit": "$9.62"
     },
     {
         "id": "682e73bd-c028-44a8-a282-034aefb62a70",
@@ -325,7 +325,7 @@
         "RouteId": "b41265c8-74be-4d73-b103-050567617037",
         "Route": "Parabcan",
         "UnitWeight": 59,
-        "PricePErUnit": "$9.28"
+        "pricePerUnit": "$9.28"
     },
     {
         "id": "90edb725-2ed7-4222-ab97-e04a36335c1f",
@@ -333,7 +333,7 @@
         "RouteId": "5c73f63e-449a-46aa-b829-df208d476afc",
         "Route": "Longquan",
         "UnitWeight": 11,
-        "PricePErUnit": "$8.60"
+        "pricePerUnit": "$8.60"
     },
     {
         "id": "26d4f4b9-1529-42b7-ac3f-f5b356827f72",
@@ -341,7 +341,7 @@
         "RouteId": "20903a40-261f-485c-b692-6c214c49729b",
         "Route": "Yanglang",
         "UnitWeight": 25,
-        "PricePErUnit": "$1.99"
+        "pricePerUnit": "$1.99"
     },
     {
         "id": "659c4f87-b12b-4359-9cb0-a7ca24138cb3",
@@ -349,7 +349,7 @@
         "RouteId": "c3d50870-a1be-42a2-8da9-fc12f0d43b1d",
         "Route": "Tahoua",
         "UnitWeight": 90,
-        "PricePErUnit": "$0.50"
+        "pricePerUnit": "$0.50"
     },
     {
         "id": "1d260dbc-a705-470a-a464-71f9dde5a9e9",
@@ -357,7 +357,7 @@
         "RouteId": "e3f844b0-2164-4568-bb95-d281f28e04f6",
         "Route": "Calapan",
         "UnitWeight": 41,
-        "PricePErUnit": "$3.79"
+        "pricePerUnit": "$3.79"
     },
     {
         "id": "5b8c7418-5e8d-4d85-90e5-a0ff2d984785",
@@ -365,7 +365,7 @@
         "RouteId": "3d640046-949a-43b5-b79c-b253d5e988ed",
         "Route": "Radiměř",
         "UnitWeight": 89,
-        "PricePErUnit": "$1.51"
+        "pricePerUnit": "$1.51"
     },
     {
         "id": "f0196954-e0e2-4412-bda4-74ad9fb19ebc",
@@ -373,7 +373,7 @@
         "RouteId": "7b4de8f2-7d25-47bc-8ae7-a61799b92ce1",
         "Route": "Trà My",
         "UnitWeight": 15,
-        "PricePErUnit": "$5.62"
+        "pricePerUnit": "$5.62"
     },
     {
         "id": "7efd223e-d92c-4618-a41f-93cb49ea2e99",
@@ -381,7 +381,7 @@
         "RouteId": "d74c91f0-cf21-40e4-b332-7ff7cc4e5a7e",
         "Route": "Chunhua",
         "UnitWeight": 88,
-        "PricePErUnit": "$0.34"
+        "pricePerUnit": "$0.34"
     },
     {
         "id": "1687bd02-68cc-47ae-a67a-f4d97923ba21",
@@ -389,7 +389,7 @@
         "RouteId": "49c94eb3-a123-4e40-8348-de06edc2f7e8",
         "Route": "Klenčí pod Čerchovem",
         "UnitWeight": 9,
-        "PricePErUnit": "$4.11"
+        "pricePerUnit": "$4.11"
     },
     {
         "id": "2c27935e-1e9f-4a33-8ab3-1368885459f5",
@@ -397,7 +397,7 @@
         "RouteId": "e9549937-84a1-4f63-8944-736e6aad4b83",
         "Route": "Áyios Yeóryios",
         "UnitWeight": 46,
-        "PricePErUnit": "$1.18"
+        "pricePerUnit": "$1.18"
     },
     {
         "id": "95565ee7-53f6-414d-ad9b-15f6b9aca94b",
@@ -405,7 +405,7 @@
         "RouteId": "cc6f44e1-ee08-4a4e-ad11-363a49600cce",
         "Route": "Tanrake Village",
         "UnitWeight": 78,
-        "PricePErUnit": "$7.46"
+        "pricePerUnit": "$7.46"
     },
     {
         "id": "947b20a8-5e9a-42b1-8207-ec02b23df7b0",
@@ -413,7 +413,7 @@
         "RouteId": "fce496ec-1f6c-47b4-8f5f-5607604b4ca1",
         "Route": "Fargo",
         "UnitWeight": 94,
-        "PricePErUnit": "$4.79"
+        "pricePerUnit": "$4.79"
     },
     {
         "id": "c855dfd6-f6a4-4c83-84c4-cb655c61bd60",
@@ -421,7 +421,7 @@
         "RouteId": "49d43309-0a88-4cc5-bd13-0e8a3992d80a",
         "Route": "Cô Tô",
         "UnitWeight": 64,
-        "PricePErUnit": "$6.89"
+        "pricePerUnit": "$6.89"
     },
     {
         "id": "3f6e19ff-257b-44b4-b56f-783c1dcdae03",
@@ -429,7 +429,7 @@
         "RouteId": "831b342e-f2c2-460f-bcc6-9bfd0299d5b0",
         "Route": "Raduzhnyy",
         "UnitWeight": 95,
-        "PricePErUnit": "$3.79"
+        "pricePerUnit": "$3.79"
     },
     {
         "id": "97d68e45-b1f4-4443-9216-4eac3770a5e9",
@@ -437,7 +437,7 @@
         "RouteId": "19f07c0d-bba8-468b-9c0b-f6fba62f1f4e",
         "Route": "Chambéry",
         "UnitWeight": 56,
-        "PricePErUnit": "$0.96"
+        "pricePerUnit": "$0.96"
     },
     {
         "id": "d4aee206-08a5-468a-8827-d041617d7bb0",
@@ -445,7 +445,7 @@
         "RouteId": "4bc9252a-04e6-43ae-a161-c0b3bdd9de84",
         "Route": "Bayanhongor",
         "UnitWeight": 12,
-        "PricePErUnit": "$7.07"
+        "pricePerUnit": "$7.07"
     },
     {
         "id": "a726f6b6-8172-4fe3-ac71-de958a178b48",
@@ -453,7 +453,7 @@
         "RouteId": "a1c3e1ef-3104-41e0-a8e3-4375239fa787",
         "Route": "Mohelno",
         "UnitWeight": 92,
-        "PricePErUnit": "$3.87"
+        "pricePerUnit": "$3.87"
     },
     {
         "id": "f28cbc7e-08f1-48c5-ae99-aeb823964bfa",
@@ -461,7 +461,7 @@
         "RouteId": "11f70ac0-a1d0-4344-bd18-6ab9456a4b87",
         "Route": "Straszydle",
         "UnitWeight": 65,
-        "PricePErUnit": "$8.00"
+        "pricePerUnit": "$8.00"
     },
     {
         "id": "27df062f-8ffb-44c4-bafa-bddad753a6cd",
@@ -469,7 +469,7 @@
         "RouteId": "e5579343-ae0e-4496-a056-42cf7c151c7c",
         "Route": "Quảng Ngãi",
         "UnitWeight": 30,
-        "PricePErUnit": "$4.39"
+        "pricePerUnit": "$4.39"
     },
     {
         "id": "44255ede-6f03-4006-b7fb-6f2c24d56886",
@@ -477,7 +477,7 @@
         "RouteId": "7cfd218b-ad19-4bc6-b347-ded14fb1ea90",
         "Route": "Hisings Kärra",
         "UnitWeight": 75,
-        "PricePErUnit": "$3.51"
+        "pricePerUnit": "$3.51"
     },
     {
         "id": "30847dde-5f18-4e63-9116-0aa90388065f",
@@ -485,7 +485,7 @@
         "RouteId": "356ffd11-1ff5-40d9-abbe-2204d5f310ba",
         "Route": "Laidian",
         "UnitWeight": 17,
-        "PricePErUnit": "$3.49"
+        "pricePerUnit": "$3.49"
     },
     {
         "id": "aa981c1d-5394-4979-be9c-e78a6cb1655b",
@@ -493,7 +493,7 @@
         "RouteId": "bd5faf5a-dff6-442f-9b5a-55ae79f24016",
         "Route": "Kozlovice",
         "UnitWeight": 40,
-        "PricePErUnit": "$6.40"
+        "pricePerUnit": "$6.40"
     },
     {
         "id": "582b691f-af99-4ceb-97fd-e0c00bf5de5b",
@@ -501,7 +501,7 @@
         "RouteId": "496b1d8e-4ba8-4615-bd9f-f0038fc4f493",
         "Route": "Bystré",
         "UnitWeight": 68,
-        "PricePErUnit": "$2.81"
+        "pricePerUnit": "$2.81"
     },
     {
         "id": "b8394e2e-0731-4b99-b0b7-53e281ce6f2d",
@@ -509,7 +509,7 @@
         "RouteId": "fe142c2f-94fd-457f-9324-ae1f6eedb9c5",
         "Route": "Issy-les-Moulineaux",
         "UnitWeight": 45,
-        "PricePErUnit": "$0.61"
+        "pricePerUnit": "$0.61"
     },
     {
         "id": "dfb20a8d-895c-4f7e-97d7-c978f29142ab",
@@ -517,7 +517,7 @@
         "RouteId": "f9092e8f-f58e-4c38-9029-c8f1360d6cb0",
         "Route": "Yueyang",
         "UnitWeight": 66,
-        "PricePErUnit": "$6.40"
+        "pricePerUnit": "$6.40"
     },
     {
         "id": "27fdd884-ef03-41c0-aeeb-58c6bd5b2143",
@@ -525,7 +525,7 @@
         "RouteId": "2f7aad67-a232-4128-ba7e-6925d5826618",
         "Route": "Nobres",
         "UnitWeight": 52,
-        "PricePErUnit": "$2.99"
+        "pricePerUnit": "$2.99"
     },
     {
         "id": "5ac760cd-cc3e-4f87-90c6-5c9effad7bab",
@@ -533,7 +533,7 @@
         "RouteId": "02569600-6840-4f41-891c-0099ac3c67a0",
         "Route": "Beselga",
         "UnitWeight": 13,
-        "PricePErUnit": "$1.69"
+        "pricePerUnit": "$1.69"
     },
     {
         "id": "204d2903-2623-4f54-b960-4d53dac3bfd3",
@@ -541,7 +541,7 @@
         "RouteId": "16c987d9-8574-4105-baa6-b629a0efcac8",
         "Route": "Pochinki",
         "UnitWeight": 2,
-        "PricePErUnit": "$5.13"
+        "pricePerUnit": "$5.13"
     },
     {
         "id": "e3c9d95c-9092-41b0-b49c-19ded662caff",
@@ -549,7 +549,7 @@
         "RouteId": "798b3570-aa7c-4cad-94b8-32ff2a05d098",
         "Route": "Itsandzéni",
         "UnitWeight": 44,
-        "PricePErUnit": "$3.48"
+        "pricePerUnit": "$3.48"
     },
     {
         "id": "1cade67a-8e3f-4c75-bd79-a69b50005f96",
@@ -557,7 +557,7 @@
         "RouteId": "e0d72c86-957a-4d95-a683-f867ad09032b",
         "Route": "Āsasa",
         "UnitWeight": 95,
-        "PricePErUnit": "$4.39"
+        "pricePerUnit": "$4.39"
     },
     {
         "id": "e8c84441-b1a1-462c-9e27-e48bfa6927ce",
@@ -565,7 +565,7 @@
         "RouteId": "3de5c39b-ea2c-4ce5-99db-e28973c0380b",
         "Route": "Daşoguz",
         "UnitWeight": 53,
-        "PricePErUnit": "$7.78"
+        "pricePerUnit": "$7.78"
     },
     {
         "id": "e0f225ba-8f6a-4e70-8f66-dccfd65f644e",
@@ -573,7 +573,7 @@
         "RouteId": "6c2afad7-73a7-45c9-a33c-ccc648894b8f",
         "Route": "Korem",
         "UnitWeight": 77,
-        "PricePErUnit": "$1.99"
+        "pricePerUnit": "$1.99"
     },
     {
         "id": "4bb32679-0bc2-4258-8e8b-7ed18ca87fb3",
@@ -581,7 +581,7 @@
         "RouteId": "b27136f9-0b51-4875-b79a-05740585d0ba",
         "Route": "Brakas",
         "UnitWeight": 87,
-        "PricePErUnit": "$6.11"
+        "pricePerUnit": "$6.11"
     },
     {
         "id": "b8a60d93-59ee-4114-9eaf-04c9acea3120",
@@ -589,7 +589,7 @@
         "RouteId": "1344f060-9c15-441e-8049-6060dc6ff25c",
         "Route": "Daogao",
         "UnitWeight": 57,
-        "PricePErUnit": "$7.73"
+        "pricePerUnit": "$7.73"
     },
     {
         "id": "a3a75b69-6d47-4b03-806a-4a411360c2b7",
@@ -597,7 +597,7 @@
         "RouteId": "e3335ecb-bf95-4c2b-85d6-e17c335269d8",
         "Route": "Lopar",
         "UnitWeight": 77,
-        "PricePErUnit": "$3.04"
+        "pricePerUnit": "$3.04"
     },
     {
         "id": "28c19a12-4b23-4c03-a89f-70e4f41be874",
@@ -605,7 +605,7 @@
         "RouteId": "22d0c44f-d33d-4fba-b876-7be05267797f",
         "Route": "Xiali",
         "UnitWeight": 85,
-        "PricePErUnit": "$0.27"
+        "pricePerUnit": "$0.27"
     },
     {
         "id": "95fbcf1a-a132-4936-a546-d37747f00c0f",
@@ -613,7 +613,7 @@
         "RouteId": "740d3b48-abc8-402b-89ee-bc01fedc585a",
         "Route": "Saint-Quentin-en-Yvelines",
         "UnitWeight": 36,
-        "PricePErUnit": "$5.12"
+        "pricePerUnit": "$5.12"
     },
     {
         "id": "69c26b71-f42a-46ea-8cfa-f017d08c1f7e",
@@ -621,7 +621,7 @@
         "RouteId": "fd6d1d89-519d-4dae-b399-dbc560c02f37",
         "Route": "San Vicente Pacaya",
         "UnitWeight": 15,
-        "PricePErUnit": "$0.99"
+        "pricePerUnit": "$0.99"
     },
     {
         "id": "5f7824d4-d65b-4c05-adec-a4bfffba8126",
@@ -629,7 +629,7 @@
         "RouteId": "1e2426dc-2214-4c26-b229-70201a019634",
         "Route": "Rancho Nuevo",
         "UnitWeight": 41,
-        "PricePErUnit": "$2.30"
+        "pricePerUnit": "$2.30"
     },
     {
         "id": "1bc71efc-f337-46e7-a99d-fd26164c613a",
@@ -637,7 +637,7 @@
         "RouteId": "33a448bb-b4ae-4b5a-806b-e3f50e1cdca7",
         "Route": "Xuling",
         "UnitWeight": 72,
-        "PricePErUnit": "$9.73"
+        "pricePerUnit": "$9.73"
     },
     {
         "id": "0eed3cd6-3d41-4920-b755-6d942d65829c",
@@ -645,7 +645,7 @@
         "RouteId": "fb0d0d30-a1f6-4c12-8aa9-7d09f68f0d63",
         "Route": "Talalayivka",
         "UnitWeight": 56,
-        "PricePErUnit": "$1.95"
+        "pricePerUnit": "$1.95"
     },
     {
         "id": "7c9a4086-ff9b-4a5c-930f-d0193c26f4b9",
@@ -653,7 +653,7 @@
         "RouteId": "b51fca64-ddb3-46a0-8c83-76ae804ac043",
         "Route": "Walagar",
         "UnitWeight": 9,
-        "PricePErUnit": "$3.73"
+        "pricePerUnit": "$3.73"
     },
     {
         "id": "51f72919-60b2-4b4b-9e39-f24f892d93ce",
@@ -661,7 +661,7 @@
         "RouteId": "75103f29-9f83-46f1-a356-f7f4f665770f",
         "Route": "Pangpang",
         "UnitWeight": 21,
-        "PricePErUnit": "$3.57"
+        "pricePerUnit": "$3.57"
     },
     {
         "id": "208e9934-6353-4b14-9046-9a35a386e30f",
@@ -669,7 +669,7 @@
         "RouteId": "97f96a0b-7044-4045-8746-ade3e21e80e3",
         "Route": "Si’en",
         "UnitWeight": 76,
-        "PricePErUnit": "$1.24"
+        "pricePerUnit": "$1.24"
     },
     {
         "id": "4b0df516-eab1-48ef-91ae-f761cc890af6",
@@ -677,7 +677,7 @@
         "RouteId": "d6a0338b-37ae-4717-ae02-0696649907f1",
         "Route": "Smokvica",
         "UnitWeight": 52,
-        "PricePErUnit": "$2.15"
+        "pricePerUnit": "$2.15"
     },
     {
         "id": "63d484a9-7c1d-41e8-9e35-5a9bd404f00b",
@@ -685,7 +685,7 @@
         "RouteId": "0534a4a4-47e9-4a71-a854-60f3f12ed117",
         "Route": "Bu‘eina",
         "UnitWeight": 53,
-        "PricePErUnit": "$2.31"
+        "pricePerUnit": "$2.31"
     },
     {
         "id": "089fac37-9530-49e5-b6cd-c7e6609f198a",
@@ -693,7 +693,7 @@
         "RouteId": "96bc112f-d5bd-43b3-a2ef-e725929540c4",
         "Route": "Hatu Buh",
         "UnitWeight": 43,
-        "PricePErUnit": "$0.10"
+        "pricePerUnit": "$0.10"
     },
     {
         "id": "447a4e79-5e82-4b36-85fa-c824f517910b",
@@ -701,7 +701,7 @@
         "RouteId": "1796fc4e-a5a1-4797-b6d1-1c8017362f1a",
         "Route": "Wołomin",
         "UnitWeight": 6,
-        "PricePErUnit": "$2.50"
+        "pricePerUnit": "$2.50"
     },
     {
         "id": "bff67df4-ce8a-4730-8bad-c4aca5d73d82",
@@ -709,7 +709,7 @@
         "RouteId": "1dfef13c-ecbb-427e-827f-a2eade55958c",
         "Route": "Shanghuang",
         "UnitWeight": 37,
-        "PricePErUnit": "$5.39"
+        "pricePerUnit": "$5.39"
     },
     {
         "id": "e1413e4d-b034-4f0f-a609-c0cf684e0f0f",
@@ -717,7 +717,7 @@
         "RouteId": "5b98af9d-91e6-4702-971a-cd8a7f9e569f",
         "Route": "Itaberaí",
         "UnitWeight": 26,
-        "PricePErUnit": "$8.47"
+        "pricePerUnit": "$8.47"
     },
     {
         "id": "a2331839-50ab-4b6f-bf83-4175e61a1dea",
@@ -725,7 +725,7 @@
         "RouteId": "c92bac78-770c-4e2f-8ec7-f44de5e420fc",
         "Route": "Rungis",
         "UnitWeight": 69,
-        "PricePErUnit": "$5.18"
+        "pricePerUnit": "$5.18"
     },
     {
         "id": "8f3eba29-d930-4398-bf2c-4f6695d91274",
@@ -733,7 +733,7 @@
         "RouteId": "ded9ed33-6542-485c-ac28-ea0ded3d1199",
         "Route": "Mamonit",
         "UnitWeight": 28,
-        "PricePErUnit": "$1.31"
+        "pricePerUnit": "$1.31"
     },
     {
         "id": "ef80efda-f010-4cc3-877e-ba2d7c0477a4",
@@ -741,7 +741,7 @@
         "RouteId": "41654b3b-fea6-434a-9d7c-f5620968bf7e",
         "Route": "Koropí",
         "UnitWeight": 77,
-        "PricePErUnit": "$5.95"
+        "pricePerUnit": "$5.95"
     },
     {
         "id": "d60fc9df-4711-4a9d-9ddb-31d2fde57337",
@@ -749,7 +749,7 @@
         "RouteId": "f51d1858-5692-44c1-90e9-8d852d33a8ef",
         "Route": "Petaẖ Tiqwa",
         "UnitWeight": 35,
-        "PricePErUnit": "$3.54"
+        "pricePerUnit": "$3.54"
     },
     {
         "id": "fd1cd998-cdaf-4871-b13a-e062dcb82e49",
@@ -757,7 +757,7 @@
         "RouteId": "dfaf010e-78b0-4715-b8fc-aeb9ede06821",
         "Route": "Sens",
         "UnitWeight": 96,
-        "PricePErUnit": "$3.98"
+        "pricePerUnit": "$3.98"
     },
     {
         "id": "21eae2f3-c63a-4ab1-a40a-2a9f8f66c7fc",
@@ -765,7 +765,7 @@
         "RouteId": "8eb8957e-a38f-4b78-b946-00ce5bb7fae4",
         "Route": "Cametá",
         "UnitWeight": 35,
-        "PricePErUnit": "$0.92"
+        "pricePerUnit": "$0.92"
     },
     {
         "id": "40576b1c-8178-41cd-a053-ecd92dc1a54f",
@@ -773,7 +773,7 @@
         "RouteId": "45581e7e-62e7-4e51-a89a-0d106271fb2d",
         "Route": "Longjie",
         "UnitWeight": 75,
-        "PricePErUnit": "$6.39"
+        "pricePerUnit": "$6.39"
     },
     {
         "id": "2a47dcfe-c342-4599-860d-f9f01a4e4aba",
@@ -781,7 +781,7 @@
         "RouteId": "28efbb94-c96e-4d53-80ee-ecb967905c06",
         "Route": "Menzel Abderhaman",
         "UnitWeight": 39,
-        "PricePErUnit": "$7.75"
+        "pricePerUnit": "$7.75"
     },
     {
         "id": "46e61e03-e1f2-485f-918a-dc949f94cc0a",
@@ -789,7 +789,7 @@
         "RouteId": "e84b6317-d593-49d0-80c6-82dd4ce12635",
         "Route": "Sukojember",
         "UnitWeight": 35,
-        "PricePErUnit": "$8.33"
+        "pricePerUnit": "$8.33"
     },
     {
         "id": "680b8e01-ac15-4001-b3e7-cace0adcb9c5",
@@ -797,7 +797,7 @@
         "RouteId": "ca71f089-fc1b-411b-a7b7-51f8defccab7",
         "Route": "Skawica",
         "UnitWeight": 41,
-        "PricePErUnit": "$7.82"
+        "pricePerUnit": "$7.82"
     },
     {
         "id": "26ea9436-de8d-4f08-b8c8-cbf88923eb93",
@@ -805,7 +805,7 @@
         "RouteId": "a316de8c-86a5-4a72-922c-60f5dc41d380",
         "Route": "Stockholm",
         "UnitWeight": 98,
-        "PricePErUnit": "$5.38"
+        "pricePerUnit": "$5.38"
     },
     {
         "id": "9029bbda-68db-4d1e-8062-20af76f028c6",
@@ -813,7 +813,7 @@
         "RouteId": "180b28c8-defd-42a9-a69c-375f1228be65",
         "Route": "Malārd",
         "UnitWeight": 34,
-        "PricePErUnit": "$9.26"
+        "pricePerUnit": "$9.26"
     },
     {
         "id": "10de88aa-11cb-42d5-b097-dc9c9e2d0a4f",
@@ -821,7 +821,7 @@
         "RouteId": "d9655ba4-2548-4c31-857b-54183d1e91c3",
         "Route": "Rodhítsa",
         "UnitWeight": 72,
-        "PricePErUnit": "$0.32"
+        "pricePerUnit": "$0.32"
     },
     {
         "id": "fc6f4871-3bea-4aa2-9b62-5cd703c92786",
@@ -829,7 +829,7 @@
         "RouteId": "96aeb971-41ea-4459-88b2-e3d41c5f133d",
         "Route": "Changtan",
         "UnitWeight": 91,
-        "PricePErUnit": "$4.43"
+        "pricePerUnit": "$4.43"
     },
     {
         "id": "ebed51a2-f445-49dd-91ea-fe4c8a35e956",
@@ -837,7 +837,7 @@
         "RouteId": "fdc6d958-c12c-4a96-9bd4-34bd6f0bb93b",
         "Route": "Dasht-e Lati",
         "UnitWeight": 19,
-        "PricePErUnit": "$8.07"
+        "pricePerUnit": "$8.07"
     },
     {
         "id": "a7b0f170-6040-4ed5-9b79-731910b6c8da",
@@ -845,7 +845,7 @@
         "RouteId": "086d8713-0c81-4a9e-9079-80a7ee2b7d55",
         "Route": "Quinta dos Frades",
         "UnitWeight": 63,
-        "PricePErUnit": "$3.90"
+        "pricePerUnit": "$3.90"
     },
     {
         "id": "138b92c0-560b-47e6-9bb0-af0e1b3b8640",
@@ -853,7 +853,7 @@
         "RouteId": "ab0415f6-757b-44c0-9803-e1c81a87be30",
         "Route": "Ikryanoye",
         "UnitWeight": 40,
-        "PricePErUnit": "$1.04"
+        "pricePerUnit": "$1.04"
     },
     {
         "id": "3fa0c513-9e11-4134-a566-ce93be8e1af3",
@@ -861,7 +861,7 @@
         "RouteId": "23768200-a896-4ba4-bf8b-1b2e4501f962",
         "Route": "Parajara",
         "UnitWeight": 7,
-        "PricePErUnit": "$0.34"
+        "pricePerUnit": "$0.34"
     },
     {
         "id": "0bc72dc2-9472-4bc8-8a7a-d1443a2a627b",
@@ -869,7 +869,7 @@
         "RouteId": "50540235-898d-489e-9bb0-9e437708d321",
         "Route": "Yancheng",
         "UnitWeight": 5,
-        "PricePErUnit": "$6.50"
+        "pricePerUnit": "$6.50"
     },
     {
         "id": "22b66405-8725-4b28-b360-ae28ff374d9c",
@@ -877,7 +877,7 @@
         "RouteId": "32cf29fd-046a-43a0-98e8-26b11b6cfc29",
         "Route": "Tanggung",
         "UnitWeight": 36,
-        "PricePErUnit": "$4.34"
+        "pricePerUnit": "$4.34"
     },
     {
         "id": "58fe71fe-c629-4b39-bd4e-fb7c4848f7ca",
@@ -885,7 +885,7 @@
         "RouteId": "43a2e4e1-8506-4ad0-92a7-8380a09eb351",
         "Route": "Tisco",
         "UnitWeight": 2,
-        "PricePErUnit": "$0.23"
+        "pricePerUnit": "$0.23"
     },
     {
         "id": "3efc552e-fcf9-4e83-b170-a1a4389b174d",
@@ -893,7 +893,7 @@
         "RouteId": "955a57a2-6008-44cf-a609-2dc2dfa69f5d",
         "Route": "Ninove",
         "UnitWeight": 8,
-        "PricePErUnit": "$5.79"
+        "pricePerUnit": "$5.79"
     },
     {
         "id": "6ed89a5c-9d2a-4290-ba72-9a911b091693",
@@ -901,7 +901,7 @@
         "RouteId": "fea1b72a-02a3-4b13-aa39-6eacc3b3cbce",
         "Route": "Ronglong",
         "UnitWeight": 42,
-        "PricePErUnit": "$2.72"
+        "pricePerUnit": "$2.72"
     },
     {
         "id": "215e6e64-f665-4830-9894-bc07bc8d9061",
@@ -909,7 +909,7 @@
         "RouteId": "12d771fc-0e97-4eae-9a23-2f0f925e1bf0",
         "Route": "Lluka e Eperme",
         "UnitWeight": 28,
-        "PricePErUnit": "$7.09"
+        "pricePerUnit": "$7.09"
     },
     {
         "id": "f2bbce21-7f79-487a-aabe-41f93a27ac45",
@@ -917,7 +917,7 @@
         "RouteId": "2f513531-9845-4260-92fd-8dad0c5a6874",
         "Route": "Nam Sách",
         "UnitWeight": 4,
-        "PricePErUnit": "$8.70"
+        "pricePerUnit": "$8.70"
     },
     {
         "id": "09b3d151-703f-4e93-9e9b-370c9d5fd336",
@@ -925,7 +925,7 @@
         "RouteId": "f24e63ca-d6c7-40fa-874e-0d472d101d22",
         "Route": "Capinzal",
         "UnitWeight": 33,
-        "PricePErUnit": "$6.60"
+        "pricePerUnit": "$6.60"
     },
     {
         "id": "4ba039d3-4e7c-4704-8bfc-2a6384a9cd5c",
@@ -933,7 +933,7 @@
         "RouteId": "ea3c5650-d990-4b1f-8c0b-cf40fdce2bce",
         "Route": "Vallegrande",
         "UnitWeight": 32,
-        "PricePErUnit": "$6.10"
+        "pricePerUnit": "$6.10"
     },
     {
         "id": "1e6a7ab1-1c36-4a70-8c5a-fc2cdced890d",
@@ -941,7 +941,7 @@
         "RouteId": "90442be0-0b7c-4007-85ad-5c09dc5bfabe",
         "Route": "Barroco",
         "UnitWeight": 45,
-        "PricePErUnit": "$0.60"
+        "pricePerUnit": "$0.60"
     },
     {
         "id": "cb183446-043c-49af-b626-fccbb9e7976f",
@@ -949,7 +949,7 @@
         "RouteId": "de5e5a32-fb9e-4cec-8084-b49859ac0c7f",
         "Route": "Bongandanga",
         "UnitWeight": 54,
-        "PricePErUnit": "$5.35"
+        "pricePerUnit": "$5.35"
     },
     {
         "id": "9c947a0f-64fc-4f1e-9c7e-765fe911a7f3",
@@ -957,7 +957,7 @@
         "RouteId": "ffb70381-d503-48f9-bbd9-c834685b721e",
         "Route": "Paraíso",
         "UnitWeight": 66,
-        "PricePErUnit": "$3.51"
+        "pricePerUnit": "$3.51"
     },
     {
         "id": "e3186bfd-03cd-44f0-bca1-3fef1ade2eff",
@@ -965,7 +965,7 @@
         "RouteId": "58e71384-7cb8-454d-bcb9-1cf31d8dedb7",
         "Route": "Hekou",
         "UnitWeight": 61,
-        "PricePErUnit": "$1.25"
+        "pricePerUnit": "$1.25"
     },
     {
         "id": "6cad5c1c-7e6e-465d-baaf-c39adf5fe3fd",
@@ -973,7 +973,7 @@
         "RouteId": "c58066d6-5e4e-4dd5-980b-246b538259b5",
         "Route": "Qīr Moāv",
         "UnitWeight": 29,
-        "PricePErUnit": "$5.54"
+        "pricePerUnit": "$5.54"
     },
     {
         "id": "8fe7119b-d839-4edb-9e1f-52a0ef4d4918",
@@ -981,7 +981,7 @@
         "RouteId": "90f49f65-2a7d-4944-b9e4-0464496a1ec9",
         "Route": "Seredeyskiy",
         "UnitWeight": 64,
-        "PricePErUnit": "$10.00"
+        "pricePerUnit": "$10.00"
     },
     {
         "id": "832a9f08-37c8-42cd-b297-a4d9d540f4ca",
@@ -989,7 +989,7 @@
         "RouteId": "37c4435b-62c1-44e6-ab10-0c308d0bec71",
         "Route": "Nakonde",
         "UnitWeight": 94,
-        "PricePErUnit": "$5.67"
+        "pricePerUnit": "$5.67"
     },
     {
         "id": "984482e2-89c4-4eed-b8e0-09c02a8eed81",
@@ -997,7 +997,7 @@
         "RouteId": "a2ae5a9d-b236-4321-a75b-ee04effd53bb",
         "Route": "Guyam Malaki",
         "UnitWeight": 95,
-        "PricePErUnit": "$4.95"
+        "pricePerUnit": "$4.95"
     },
     {
         "id": "30b616fb-b817-4692-b1d7-01a53cfc2599",
@@ -1005,7 +1005,7 @@
         "RouteId": "00a94d2e-d2ac-47f5-b717-a5707f4ccf50",
         "Route": "Anjozorobe",
         "UnitWeight": 28,
-        "PricePErUnit": "$2.40"
+        "pricePerUnit": "$2.40"
     },
     {
         "id": "d51edce2-7676-4251-a8f0-4a60c7836101",
@@ -1013,7 +1013,7 @@
         "RouteId": "2b750fa3-9a0c-4c91-8f95-9cb2d3074d4a",
         "Route": "Clanwilliam",
         "UnitWeight": 74,
-        "PricePErUnit": "$7.94"
+        "pricePerUnit": "$7.94"
     },
     {
         "id": "06c52d6e-5188-40d0-b33b-68f3f5189e8c",
@@ -1021,7 +1021,7 @@
         "RouteId": "9ae777ed-5ea5-408e-a743-87df752248bd",
         "Route": "Xushan",
         "UnitWeight": 29,
-        "PricePErUnit": "$2.78"
+        "pricePerUnit": "$2.78"
     },
     {
         "id": "3d4f151a-36b1-420e-9665-6cb7d4e22513",
@@ -1029,7 +1029,7 @@
         "RouteId": "1b7c8b42-1da2-49ea-94da-a25095caa877",
         "Route": "Cabusao",
         "UnitWeight": 23,
-        "PricePErUnit": "$6.40"
+        "pricePerUnit": "$6.40"
     },
     {
         "id": "90899284-4fc7-4997-8008-7388b2db56d7",
@@ -1037,7 +1037,7 @@
         "RouteId": "2e3a20a4-7ff6-4095-8f79-1e67ad5ac2f2",
         "Route": "Agriá",
         "UnitWeight": 67,
-        "PricePErUnit": "$3.42"
+        "pricePerUnit": "$3.42"
     },
     {
         "id": "3e0b95f4-d1bc-434a-b80c-786d9d92ba7e",
@@ -1045,7 +1045,7 @@
         "RouteId": "86f52398-3f92-4df0-9e83-fe72e83e81b4",
         "Route": "Timbrangan",
         "UnitWeight": 48,
-        "PricePErUnit": "$2.90"
+        "pricePerUnit": "$2.90"
     },
     {
         "id": "e0824930-a83c-4d21-a9ba-d110bb2c4034",
@@ -1053,7 +1053,7 @@
         "RouteId": "b5d8ad9b-e9a7-40b4-8fbc-4d99249bf0ec",
         "Route": "Bulung’ur",
         "UnitWeight": 46,
-        "PricePErUnit": "$6.37"
+        "pricePerUnit": "$6.37"
     },
     {
         "id": "ad766a42-bcfd-41cb-b64f-2bfa1dae398e",
@@ -1061,7 +1061,7 @@
         "RouteId": "86f7fd2b-6d13-4c5f-b0c7-9ade1a385676",
         "Route": "Terter",
         "UnitWeight": 68,
-        "PricePErUnit": "$4.13"
+        "pricePerUnit": "$4.13"
     },
     {
         "id": "bfda49c9-83a0-41f6-82fb-5bb32ca1d189",
@@ -1069,7 +1069,7 @@
         "RouteId": "b83738df-00e4-49b8-9a36-1ef75330c2b0",
         "Route": "Pringgoboyo",
         "UnitWeight": 26,
-        "PricePErUnit": "$8.94"
+        "pricePerUnit": "$8.94"
     },
     {
         "id": "adcc6061-e818-4132-9028-84a695163682",
@@ -1077,7 +1077,7 @@
         "RouteId": "2985bf4e-9b1c-4eeb-a347-5e369e99fe62",
         "Route": "As Sayyānī",
         "UnitWeight": 45,
-        "PricePErUnit": "$8.39"
+        "pricePerUnit": "$8.39"
     },
     {
         "id": "368ec500-6f14-4d14-a988-bc3b34f82c09",
@@ -1085,7 +1085,7 @@
         "RouteId": "4ed2991a-fddb-4c21-8f8e-8337ac4ef6aa",
         "Route": "Bicesse",
         "UnitWeight": 66,
-        "PricePErUnit": "$8.04"
+        "pricePerUnit": "$8.04"
     },
     {
         "id": "6d275838-641f-4c78-8b2f-7ec30c3c7e55",
@@ -1093,7 +1093,7 @@
         "RouteId": "6027041c-cf6f-4e51-9059-5732c043574e",
         "Route": "Tomaševac",
         "UnitWeight": 77,
-        "PricePErUnit": "$6.82"
+        "pricePerUnit": "$6.82"
     },
     {
         "id": "e645de58-247a-4c43-964c-3d27b5937646",
@@ -1101,7 +1101,7 @@
         "RouteId": "e7aaf223-9c46-4470-8050-d2dca67a7761",
         "Route": "Cortinhas",
         "UnitWeight": 56,
-        "PricePErUnit": "$8.33"
+        "pricePerUnit": "$8.33"
     },
     {
         "id": "5c2991e1-76c3-4c75-bfb0-eac7bfeb3e6c",
@@ -1109,7 +1109,7 @@
         "RouteId": "6324a4c4-bdee-42f2-9458-28ea5abfbe91",
         "Route": "Ziliang",
         "UnitWeight": 10,
-        "PricePErUnit": "$4.39"
+        "pricePerUnit": "$4.39"
     },
     {
         "id": "aeb8d42f-ae1c-4610-b604-31286e9d699c",
@@ -1117,7 +1117,7 @@
         "RouteId": "840273b1-7a81-4894-9f0b-6aeb4e69695d",
         "Route": "Heřmanův Městec",
         "UnitWeight": 77,
-        "PricePErUnit": "$9.91"
+        "pricePerUnit": "$9.91"
     },
     {
         "id": "65716bb1-8956-460d-8ee9-7ddb45657f6c",
@@ -1125,7 +1125,7 @@
         "RouteId": "bbc91cf8-fe01-41c6-93fc-4342994017b5",
         "Route": "Goshogawara",
         "UnitWeight": 1,
-        "PricePErUnit": "$2.30"
+        "pricePerUnit": "$2.30"
     },
     {
         "id": "a57194f9-0056-49d7-ad37-23fee3896ec6",
@@ -1133,7 +1133,7 @@
         "RouteId": "623d1e48-a9e9-4827-b6e9-74dabbf624f8",
         "Route": "Phuket",
         "UnitWeight": 64,
-        "PricePErUnit": "$4.51"
+        "pricePerUnit": "$4.51"
     },
     {
         "id": "ed0255d0-ccea-40b9-a67f-d0689e3bda02",
@@ -1141,7 +1141,7 @@
         "RouteId": "7d8ec439-92a1-448e-99d5-6d02039b1de1",
         "Route": "Yangpu",
         "UnitWeight": 85,
-        "PricePErUnit": "$7.07"
+        "pricePerUnit": "$7.07"
     },
     {
         "id": "5293884b-cb88-44be-af3c-ef5b903831d3",
@@ -1149,7 +1149,7 @@
         "RouteId": "1debfede-f3d1-409c-9933-58983af3f6cf",
         "Route": "Krong Pi Nang",
         "UnitWeight": 51,
-        "PricePErUnit": "$7.97"
+        "pricePerUnit": "$7.97"
     },
     {
         "id": "07c74773-756c-4daa-9e08-a3eeba2f2db4",
@@ -1157,7 +1157,7 @@
         "RouteId": "4065b4b9-81d9-4c92-a8ed-3b37330846be",
         "Route": "Rolante",
         "UnitWeight": 79,
-        "PricePErUnit": "$1.09"
+        "pricePerUnit": "$1.09"
     },
     {
         "id": "b5f3b05c-2b07-42b4-8184-904bc81d1b4d",
@@ -1165,7 +1165,7 @@
         "RouteId": "1ce9cc31-dafd-40c2-b87a-fc7c3c3599fb",
         "Route": "Capâo Bonito",
         "UnitWeight": 88,
-        "PricePErUnit": "$2.64"
+        "pricePerUnit": "$2.64"
     },
     {
         "id": "dee44976-e8d3-4009-b036-101860629757",
@@ -1173,7 +1173,7 @@
         "RouteId": "96cb320d-46dc-4cfd-9c65-68850d4f67c0",
         "Route": "São Bento",
         "UnitWeight": 48,
-        "PricePErUnit": "$4.70"
+        "pricePerUnit": "$4.70"
     },
     {
         "id": "faa38db0-0c57-4782-8ee4-9f039ff4ec3a",
@@ -1181,7 +1181,7 @@
         "RouteId": "e4c0607e-585f-436d-ae0b-dd3c7a54328e",
         "Route": "San José de Mayo",
         "UnitWeight": 80,
-        "PricePErUnit": "$1.28"
+        "pricePerUnit": "$1.28"
     },
     {
         "id": "7ca251f5-da31-440a-9530-febb08052625",
@@ -1189,7 +1189,7 @@
         "RouteId": "cb58ae3c-2006-4a5c-95d6-0bb931458b6d",
         "Route": "Boca Chica",
         "UnitWeight": 43,
-        "PricePErUnit": "$9.31"
+        "pricePerUnit": "$9.31"
     },
     {
         "id": "2f4d1109-e9a0-4a75-8add-64ee400e3f27",
@@ -1197,6 +1197,6 @@
         "RouteId": "a9d3377f-5498-470b-a140-30d66d931027",
         "Route": "Montenegro",
         "UnitWeight": 19,
-        "PricePErUnit": "$4.70"
+        "pricePerUnit": "$4.70"
     }
 ]

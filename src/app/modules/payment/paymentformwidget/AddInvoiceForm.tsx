@@ -22,13 +22,6 @@ interface Props<Values> {
   showForm?: boolean
 }
 
-const options = [
-  {text: 'delivered', value: 'Bag'},
-  {text: 'enroute', value: 'Serial'},
-  {text: 'stop-over', value: 'Turkey'},
-  {text: 'clearing', value: 'Afganistan'},
-]
-
 export default function AddInvoiceForm(props: Props<IInvoiceModel>) {
   const {
     entityValues,

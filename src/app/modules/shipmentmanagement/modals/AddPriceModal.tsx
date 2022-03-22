@@ -44,26 +44,26 @@ const AddPriceModal: React.FC<Props> = ({ handleSelect, SelectedValues }: Props)
 
 
   const onSubmit = (values: IPriceModel) => {
+    values.category = Number(values.category)
+    values.product = Number(values.product)
+    // values.category = Number(values.category)
     setIsSubmitting(true)
-    values.routeId = uuid()
-
-    if (selected?.routeId) {
-      agent.Price.update(values).then((response) => {
-        toast.success('price Update Was Successful!')
+    agent.Price.create(values)
+    .then((response) => {
+      if (response.validationErrors!.length > 0) {
+        toast.error(response.validationErrors?.toString())
+        setErrorMessage(response.validationErrors!.toString())
+        setIsSubmitting(false)
+        setShowError(true)
+      } else {
+        toast.success('Price Creation Was Successful!')
         setInterval(() => {
-          setShowForm(false);
+          setShowForm(false)
         }, 1000)
         setIsSubmitting(false)
-      })
-    } else {
-      agent.Price.create(values).then((response) => {
-        toast.success('price Creation Was Successful!')
-        setInterval(() => {
-          setShowForm(false);
-        }, 1000)
-        setIsSubmitting(false)
-      })
-    }
+        setShowError(false)
+      }
+    })
   }
 
   return (

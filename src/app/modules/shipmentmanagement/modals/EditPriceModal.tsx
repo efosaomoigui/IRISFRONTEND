@@ -38,6 +38,8 @@ const EditPriceModal: React.FC<Props> = ({ handleEdit, SelectedValues }: Props) 
 
 
   const onSubmit = (values: IPriceModel) => {
+    values.category = Number(values.category)
+    values.product = Number(values.product)
     setIsSubmitting(true)
     // values.routeId = uuid()
 

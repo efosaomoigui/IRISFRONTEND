@@ -1,25 +1,33 @@
-import React, {FC, useState} from 'react'
+import React, {ChangeEvent, FC, useState} from 'react'
 import {KTSVG} from '../../../../../_iris/helpers'
 import {Link} from 'react-router-dom'
 
 interface Props {
   values?: any
+  handleChange?: (event: ChangeEvent<HTMLInputElement>) => void
 }
 
-const Step4: FC<Props> = ({values}: Props) => {
-
+const Step4: FC<Props> = ({values, handleChange}: Props) => {
   const [total, setTotal] = useState(0)
   const [grandTotal, setGrandTotal] = useState(0)
 
+  let intitVal = 0
+  let totalVal = values.itemsB.reduce(
+    (accumVariable:number, curValue:any) => accumVariable + curValue.linetotal
+    , intitVal
+    )
+
+  // console.log('Step4: ', values.grandTotalArray)
+
   return (
     <div className='w-100'>
-      <div className='pb-1 pb-lg-4'>
+      {/* <div className='pb-1 pb-lg-4'>
         <h2 className='fw-bolder text-dark'>Shipment Summary!</h2>
 
         <div className='text-gray-400 fw-bold fs-6'>
           Please check the following items for correctness to continue
         </div>
-      </div>
+      </div> */}
 
       <div className='mb-0'>
         <div className='notice d-flex bg-light-warning rounded border-warning border border-dashed p-2 m-1'>
@@ -31,10 +39,10 @@ const Step4: FC<Props> = ({values}: Props) => {
                     <div className='card mb-5 mb-xl-12' id='kt_profile_details_view'>
                       <div className='card-header cursor-pointer'>
                         <div className='card-title m-0'>
-                          <h3 className='fw-bolder m-0'>Grand Total</h3>
+                          <h3 className='fw-bolder m-0'>Shipment Summary</h3>
                         </div>
                         <div className='card-title m-0'>
-                          <h3 className='fw-bolder m-0'>NGN 0.00</h3>
+                          {/* <h3 className='fw-bolder m-0'>NGN {values.grandTotal}</h3> */}
                         </div>
                       </div>
 
@@ -85,7 +93,7 @@ const Step4: FC<Props> = ({values}: Props) => {
                             shipperPhoneNumbery Site
                           </label>
 
-                          <div className='col-lg-8'>{values.shipperPhoneNumber}</div>
+                          <div className='col-lg-8'>0{values.shipperPhoneNumber}</div>
                         </div>
 
                         <div className='row mb-12'>
@@ -119,82 +127,99 @@ const Step4: FC<Props> = ({values}: Props) => {
                           <label className='col-lg-4 fw-bold text-muted'>receiverPhoneNumber</label>
 
                           <div className='col-lg-8'>
-                            <span className='fw-bold fs-6'>{values.receiverPhoneNumber}</span>
+                            <span className='fw-bold fs-6'>0{values.receiverPhoneNumber}</span>
                           </div>
                         </div>
                         <div className='row mb-12'>
                           <div className='col-lg-12'>
                             {values.shipmentCategory === 'TruckLoad' && (
-                              <ul className='list-group'>
-                                <li className='list-group-item active' aria-current='true'>
-                                  <h3>Shipment Items for Truck Load</h3>
-                                </li>
-                                {values.itemsA.map((item: any, index: number) => {
-                                  <div className='card' style={{width: '18rem;'}}>
+                              <div className='card' style={{width: '99%'}}>
                                 <div className='container'>
                                   <div className='mb-3'>
-                                   <h3>Shipment Items</h3>
+                                    <h3>Shipment Items</h3>
                                   </div>
                                   <hr className='bg-success border-1 border-top border-danger'></hr>
-                                  {values.itemsB.map((item: any, index: number) => {
+                                  {values.itemsA.map((item: any, index: number) => {
                                     return (
-                                      <>
+                                      <div key={index}>
                                         <div className='row m-2'>
-                                          <div className='col'><strong>Weight</strong></div>
-                                          <div className='col'>{item.weight}tons</div>
+                                          <div className='col'>
+                                            <strong>Weight</strong>
+                                          </div>
+                                          <div className='col'>{item.ton}tons</div>
                                         </div>
                                         <div className='row m-2'>
-                                          <div className='col'><strong>Description</strong></div>
+                                          <div className='col'>
+                                            <strong>Description</strong>
+                                          </div>
                                           <div className='col'>{item.t_shipmentDescription}</div>
                                         </div>
                                         <div className='row m-2'>
-                                          <div className='col'><strong>Total</strong></div>
-                                          <div className='col mb-5'><h3 className='fw-bolder m-0'>NGN{23*67}</h3></div>
+                                          <div className='col'>
+                                            <strong>Total</strong>
+                                          </div>
+                                          <div className='col mb-5'>
+                                            <h3 className='fw-bolder m-0'>NGN{item.LineTotal}</h3>
+                                          </div>
                                         </div>
-                                      </>
+                                      </div>
                                     )
                                   })}
                                 </div>
                               </div>
-                                })}
-                              </ul>
                             )}
 
                             {values.shipmentCategory === 'mailandparcel' && (
-                              <div className='card' style={{width: '18rem;'}}>
+                              <div className='card' style={{width: '99%'}}>
                                 <div className='container'>
                                   <div className='mb-3'>
-                                   <h3>Shipment Items</h3>
+                                    <h3>Shipment Items</h3>
                                   </div>
                                   <hr className='bg-success border-1 border-top border-danger'></hr>
                                   {values.itemsB.map((item: any, index: number) => {
                                     return (
-                                      <>
+                                      <div key={index}>
                                         <div className='row'>
-                                          <div className='col'><strong>Weight</strong></div>
+                                          <div className='col'>
+                                            <strong>Weight</strong>
+                                          </div>
                                           <div className='col'>{item.weight}kg</div>
                                         </div>
                                         <div className='row'>
-                                          <div className='col'><strong>Length</strong></div>
+                                          <div className='col'>
+                                            <strong>Length</strong>
+                                          </div>
                                           <div className='col'>{item.length}cm</div>
                                         </div>
                                         <div className='row'>
-                                          <div className='col'><strong>Breadth</strong></div>
+                                          <div className='col'>
+                                            <strong>Breadth</strong>
+                                          </div>
                                           <div className='col'>{item.breadth}cm</div>
                                         </div>
                                         <div className='row'>
-                                          <div className='col'><strong>Height</strong></div>
+                                          <div className='col'>
+                                            <strong>Height</strong>
+                                          </div>
                                           <div className='col'>{item.height}cm</div>
                                         </div>
                                         <div className='row'>
-                                          <div className='col'><strong>Description</strong></div>
-                                          <div className='col mb-5'>{item.m_shipmentDescription}cm</div>
+                                          <div className='col'>
+                                            <strong>Description</strong>
+                                          </div>
+                                          <div className='col mb-5'>
+                                            {item.m_shipmentDescription}
+                                          </div>
                                         </div>
                                         <div className='row'>
-                                          <div className='col'><strong>Total</strong></div>
-                                          <div className='col mb-5'><h3 className='fw-bolder m-0'>NGN{23*67}</h3></div>
+                                          <div className='col mt-3'>
+                                            <strong>Total</strong>
+                                          </div>
+                                          <div className='col mb-5'>
+                                            <h3 className='fw-bolder m-0'>NGN{item.LineTotal}</h3>
+                                          </div>
                                         </div>
-                                      </>
+                                      </div>
                                     )
                                   })}
                                 </div>
@@ -206,10 +231,10 @@ const Step4: FC<Props> = ({values}: Props) => {
                       <hr className='bg-success border-1 border-top border-danger'></hr>
                       <div className='card-header cursor-pointer'>
                         <div className='card-title m-0'>
-                          <h3 className='fw-bolder m-0'>Grand Total</h3>
+                          {/* <h3 className='fw-bolder m-0'>Grand Total</h3> */}
                         </div>
                         <div className='card-title m-0'>
-                          <h3 className='fw-bolder m-0'>NGN 0.00</h3>
+                          {/* <h3 className='fw-bolder m-0'>NGN {values.grandTotal}</h3> */}
                         </div>
                       </div>
                     </div>

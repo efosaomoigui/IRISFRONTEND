@@ -52,7 +52,7 @@ const AddUserModal: React.FC<Props> = ({handleSelect, SelectedValues}: Props) =>
     values.gender = parseInt(GenderType[values.gender])
     values.userType = parseInt(UserType[values.userType])
 
-    console.log("values, ", values)
+    // console.log("values, ", values)
 
     agent.Users.create(values)
       .then((response) => {

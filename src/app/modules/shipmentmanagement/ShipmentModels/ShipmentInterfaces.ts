@@ -27,26 +27,41 @@ export interface IRouteModel {
 } 
 
 export interface IShipmentModel {
-    ShipmentId: string
-    Waybill: string
-    Customer: string
-    AddressId: string
-    GrandTotal: string
-    Reciever: string
-    RecieverAddress: string
-    PickUpOptions: string
-    ShipmentItems: string
+    ShipmentId:string
+    Waybill:string
+    Customer:string
+    GrandTotal:string
+    CustomerAddress:[{}]
+    Reciever:string
+    RecieverAddress:[{}]
+    PickupOptions:string
+    ShipmentItems:[{}]
+    ServiceCenterId?:string
 } 
+
 export interface IPriceModel {
-    id: string;
+    id?: string;
     category: number;
     routeId: string;
     unitWeight: number;
-    pricePErUnit: number;
+    pricePerUnit: number;
+    product?:number;
     message?: string
     validationErrors?: string[]
     pricedto?: {}
 } 
+
+export interface ILinePriceModel {
+    weight: number;
+    length: number;
+    breadth: number;
+    height: number;
+    lineTotal:number;
+    ShimentCategory: number;
+    routeId: string;
+    pricedData?:any;
+} 
+
 export interface IManifestModel {
     Id?:string
     manifestCode: string;

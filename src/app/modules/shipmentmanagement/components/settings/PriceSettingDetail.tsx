@@ -82,7 +82,7 @@ export function PriceSettingDetail() {
 
                 <div className='col-lg-8'>
                   <span className='fw-bolder fs-6 text-dark'>
-                    {pricedetails?.pricePErUnit}
+                    {pricedetails?.pricePerUnit}
                   </span>
                 </div>
               </div>

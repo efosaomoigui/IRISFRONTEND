@@ -120,7 +120,7 @@ const HorizontalShipmentCapture: FC = () => {
                 </div>
 
                 <div data-kt-stepper-element='content'>
-                  <Step3 radioState={radioState} values={values} /> 
+                  <Step3 radioState={radioState} values={values} handleChange={handleOnChange} grandTotal={values.grandTotal} /> 
                 </div>
 
                 <div data-kt-stepper-element='content'>
@@ -128,7 +128,7 @@ const HorizontalShipmentCapture: FC = () => {
                 </div>
 
                 <div data-kt-stepper-element='content'>
-                  <Step5 />
+                  <Step5 radioState={radioState} handleChange={handleOnChange} values={values} grandTotal={values.grandTotal}  />
                 </div>
 
                 <div data-kt-stepper-element='content'>
