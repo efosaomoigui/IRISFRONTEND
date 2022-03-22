@@ -33,10 +33,6 @@ export function ViewTrips() {
         accessor: 'routeCode',
       },
       {
-        Header: 'Fleet Id',
-        accessor: 'fleetid',
-      },
-      {
         Header: 'Fleet',
         accessor: 'fleet',
       },

@@ -21,15 +21,13 @@ export function ViewTrackHistory() {
     columns: [
 
       {
+        Header: 'Trip Id',
+        accessor: 'id',
+      },
+      {
         Header: 'Trip Reference',
         accessor: 'tripReference',
       },
-
-      {
-        Header: 'Id',
-        accessor: 'id',
-      },
-      
       {
         Header: 'Action',
         accessor: 'action',
@@ -63,7 +61,7 @@ export function ViewTrackHistory() {
 
   const handleEdit = (event: React.MouseEvent) => {
     const urlParm = event.currentTarget.getAttribute('id')
-    const val = trackhistorymodel.find((x) => x.tripReference === urlParm)
+    const val = trackhistorymodel.find((x) => x.id === urlParm)
     handleSelectValue(val!)
     return val
   }

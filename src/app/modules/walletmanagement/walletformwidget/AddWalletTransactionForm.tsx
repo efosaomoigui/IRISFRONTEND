@@ -37,7 +37,7 @@ const options = [
   { text: 'false', value: 'false' }
 ]
 
-export default function AddWalletForm(props: Props<IWalletTransactionModel>) {
+export default function AddWalletTransactionForm(props: Props<IWalletTransactionModel>) {
   const { entityValues,
     setEntityValues,
     selectUrlParam,
@@ -87,7 +87,7 @@ export default function AddWalletForm(props: Props<IWalletTransactionModel>) {
                 </div>
               </div>
               <div className='modal-body' >
-                {props.showForm && <ErrorAlert type={'danger'} message={props.errorMessage!.toString()} heading={'Oh snap! You got an error!'} />}
+                {props.showError && <ErrorAlert type={'danger'} message={props.errorMessage!.toString()} heading={'Oh snap! You got an error!'} />}
                 {props.showForm && (
                   <Grid container className={classes.root}>
                     <Grid item xs={6}>

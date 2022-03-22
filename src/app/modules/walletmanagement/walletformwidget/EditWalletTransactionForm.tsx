@@ -77,7 +77,8 @@ export default function EditWalletTransactionForm(props: Props<IWalletTransactio
                 </div>
               </div>
               <div className='modal-body' >
-                {props.showForm &&
+                {props.showError && <ErrorAlert type={'danger'} message={props.errorMessage!.toString()} heading={'Oh snap! You got an error!'} />}
+                {props.showForm && (
                   <Grid container className={classes.root}>
                     <Grid item xs={6}>
                       <IrisTextInput
@@ -108,7 +109,7 @@ export default function EditWalletTransactionForm(props: Props<IWalletTransactio
                       />
                     </Grid>
                   </Grid>
-                }
+                )}
                 {!props.showForm && <ErrorAlert type={'success'} message={'Wallet Transaction Created Successfully!'} heading={'Confirmation Message!'} />}
               </div>
               <div className='modal-body py-lg-10 px-lg-10'>
@@ -116,14 +117,16 @@ export default function EditWalletTransactionForm(props: Props<IWalletTransactio
               </div>
 
               <Modal.Footer>
-                <Button
-                  floated='right'
-                  positive
-                  type='submit'
-                  variant='secondary'
-                  loading={props.isSubmitting}
-                  content='Submit'
-                ></Button>
+                {props.showForm &&
+                  (<Button
+                    floated='right'
+                    positive
+                    type='submit'
+                    variant='primary'
+                    loading={props.isSubmitting}
+                    content='Submit'
+                  />
+                  )}
                 <Button
                   floated='right'
                   positive
@@ -132,7 +135,7 @@ export default function EditWalletTransactionForm(props: Props<IWalletTransactio
                   onClick={props.handleClick}
                   data-bs-dismiss='modal'
                   content='Cancel'
-                ></Button>
+                />
               </Modal.Footer>
             </div>
           </div>

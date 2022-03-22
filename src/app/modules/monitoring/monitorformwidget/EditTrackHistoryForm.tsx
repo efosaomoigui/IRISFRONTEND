@@ -58,7 +58,7 @@ export default function EditTrackHistoryForm(props: Props<ITrackHistoryModel>) {
     }
 
     const validationSchema = Yup.object({
-        id: Yup.string().required(),
+        
         tripReference: Yup.string().required(),
         action: Yup.string().required(),
         location: Yup.string().required(),
@@ -100,12 +100,6 @@ export default function EditTrackHistoryForm(props: Props<ITrackHistoryModel>) {
                                                 name='tripReference'
                                                 label='Trip Reference'
                                             />
-                                            <IrisTextInput
-                                                type='text'
-                                                name='id'
-                                                label='Id'
-                                            />
-
                                             <IrisTextInput
                                                 type='text'
                                                 name='action'

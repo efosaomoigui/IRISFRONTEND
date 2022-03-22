@@ -12,7 +12,7 @@ interface Props {
   SelectedValues?: any[]
 }
 
-const AddWalletTransactionModal: React.FC<Props> = ({ handleSelect, SelectedValues }: Props) => {
+const AddWalletTransactionModal: React.FC = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [showForm, setShowForm] = useState(true)
@@ -20,8 +20,8 @@ const AddWalletTransactionModal: React.FC<Props> = ({ handleSelect, SelectedValu
   const [hasError, setHasError] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
   const [showError, setShowError] = useState(false)
-  const { entityValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle } =
-    usePageData()
+  const { entityValues, selectUrlParam, setSelectUrlParam } = usePageData()
+
   // handle logic
   const wallettransactions = entityValues as IWalletTransactionModel[];
 
@@ -42,7 +42,7 @@ const AddWalletTransactionModal: React.FC<Props> = ({ handleSelect, SelectedValu
 
   const onSubmit = (values: IWalletTransactionModel) => {
     setIsSubmitting(true)
-    values.userId = uuid()
+    values.id = uuid()
 
     if (selected?.id) {
       agent.WalletTransaction.update(values).then((response) => {

@@ -160,7 +160,7 @@ const Manifest = {
   list: () => request.get<IManifestModel[]>(`${API_URL}/Manifest/Manifest/all`),
   details: (manifestcode: string) =>
     request.get<IManifestModel>(
-      `${API_URL}/api/Manifest/Manifest/GetManifestByManifestCode/${manifestcode}`
+      `${API_URL}/Manifest/GetManifestByManifestCode/${manifestcode}`
     ),
   create: (manifest: IManifestModel) =>
     request.post<IManifestModel>(`${API_URL}/Manifest/Manifest`, manifest),
@@ -238,15 +238,15 @@ const Trip = {
 
 const TrackHistory = {
   list: () => request.get<ITrackHistoryModel[]>(`${API_URL}/TrackHistory/TrackHistory/all`),
-  details: (tripreference: string) =>
+  details: (trackhistoryid: string) =>
     request.get<ITrackHistoryModel>(
-      `${API_URL}/api/TrackHistory/GetTrackHistoryByTripReference/${tripreference}`
+      `${API_URL}/TrackHistory/GetTrackHistoryById/${trackhistoryid}`
     ),
   create: (trackhistory: ITrackHistoryModel) =>
     request.post<ITrackHistoryModel>(`${API_URL}/TrackHistory/TrackHistory`, trackhistory),
   update: (trackhistory: ITrackHistoryModel) =>
     request.put<ITrackHistoryModel>(
-      `${API_URL}/TrackHistory/TrackHistory/edit/${trackhistory.tripReference}`,
+      `${API_URL}/TrackHistory/TrackHistory/edit/${trackhistory.id}`,
       {}
     ),
   delete: (id: string) => request.del<void>(`${API_URL}/UserManagement/GetUser${id}`),

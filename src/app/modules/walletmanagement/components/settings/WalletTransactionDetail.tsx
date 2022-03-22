@@ -6,7 +6,7 @@ import { IWalletTransactionModel } from '../../Models/WalletInterfaces'
 
 
 export function WalletTransactionDetail() {
-  let {id} = useParams<{id: string}>()
+  let { id } = useParams<{ id: string }>()
   const [wallettranscationdetails, setWalletTransactionDetails] = useState<IWalletTransactionModel>()
   const [loadingData, setLoadingData] = useState(true)
   const {
