@@ -37,26 +37,14 @@ export function ViewTrips() {
         accessor: 'fleet',
       },
       {
-        Header: 'Manifest Id',
-        accessor: 'manifestId',
-      },
-      {
-        Header: 'Manifest',
-        accessor: 'manifest',
-      },
-      {
         Header: 'Driver',
         accessor: 'driver',
       },
-
       {
-        Header: 'Start Time',
-        accessor: 'startTime',
+        Header: 'Dispatcher',
+        accessor: 'dispatcher',
       },
-      {
-        Header: 'End Time',
-        accessor: 'endTime',
-      },
+      
      
     
     ],
