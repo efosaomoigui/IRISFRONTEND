@@ -38,16 +38,30 @@ export interface IShipmentModel {
     ShipmentItems:[{}]
     ServiceCenterId?:string
 } 
+
 export interface IPriceModel {
-    id: string;
+    id?: string;
     category: number;
     routeId: string;
     unitWeight: number;
-    pricePErUnit: number;
+    pricePerUnit: number;
+    product?:number;
     message?: string
     validationErrors?: string[]
     pricedto?: {}
 } 
+
+export interface ILinePriceModel {
+    weight: number;
+    length: number;
+    breadth: number;
+    height: number;
+    lineTotal:number;
+    ShimentCategory: number;
+    routeId: string;
+    pricedData?:any;
+} 
+
 export interface IManifestModel {
     Id?:string
     manifestCode: string;

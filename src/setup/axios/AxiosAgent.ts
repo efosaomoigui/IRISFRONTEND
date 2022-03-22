@@ -16,10 +16,12 @@ import {
 } from '../../app/modules/monitoring/Monitor models/MonitorInterface'
 import {
   IInvoiceModel,
+  IPaymentCriteriaModel,
   IPaymentLogModel,
 } from '../../app/modules/payment/PaymentModels/PaymentmentInterfaces'
 import {
   IFleetModel,
+  ILinePriceModel,
   IManifestModel,
   IPriceModel,
   IRouteModel,
@@ -187,8 +189,16 @@ const Price = {
   create: (price: IPriceModel) =>
     request.post<IPriceModel>(`${API_URL}/ShipmentSettings/Price`, price),
   update: (price: IPriceModel) =>
-    request.put<IPriceModel>(`${API_URL}/ShipmentSettings/Price/${price.routeId}`, {}),
+    request.put<IPriceModel>(`${API_URL}/ShipmentSettings/Price`, price),
   delete: (id: string) => request.del<void>(`${API_URL}/ShipmentSettings/Price${id}`),
+  getLinePrice: (price: ILinePriceModel) =>
+    request.post<ILinePriceModel>(`${API_URL}/ShipmentSettings/PriceSettings`, price),
+}
+
+export function axiosPrice(price: ILinePriceModel) {
+  const promise = axios.post(`${API_URL}/ShipmentSettings/PriceSettings`, price) 
+  const dataPromise = promise.then((response) => response.data)
+  return dataPromise
 }
 
 // Payment Request Starts
@@ -201,6 +211,8 @@ const PaymentLog = {
   update: (payment: IPaymentLogModel) =>
     request.put<IPaymentLogModel>(`${API_URL}/Payment/Payment/edit/${payment.PaymentId}`, {}),
   delete: (id: string) => request.del<void>(`${API_URL}/Payment/Payment/delete${id}`),
+  makePayment: (paymentCriteria: IPaymentCriteriaModel) =>
+    request.post<IPaymentCriteriaModel>(`${API_URL}/Payment/Payment/MakePayment`, paymentCriteria)
 }
 
 const Invoice = {

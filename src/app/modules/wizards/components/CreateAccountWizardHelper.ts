@@ -13,6 +13,7 @@ export interface ICreateAccount {
     ton:string
     t_shipmentDescription:string
     t_shipmentType:string
+    LineTotal:number
   }>
   itemsB: Array<{
     weight:string
@@ -20,7 +21,11 @@ export interface ICreateAccount {
     breadth:string
     height:string
     m_shipmentDescription:string
+    LineTotal:number
   }>
+  grandTotal:number
+  grandTotalArray:number[]
+  paymentMethod:string
   accountPlan: string
   businessName: string
   businessDescriptor: string
@@ -98,17 +103,22 @@ const inits: ICreateAccount = {
   receiverPhoneNumber: '',
   route: '',
   itemsA: [{
-    ton:'',
+    ton:'10',
     t_shipmentDescription:'',
     t_shipmentType:'',
+    LineTotal:0.00
   }] ,
   itemsB: [{
-    weight:'1',
-    length:'1',
-    breadth:'1',
-    height:'1',
+    weight:'',
+    length:'',
+    breadth:'',
+    height:'',
     m_shipmentDescription:'',
-  }] ,
+    LineTotal:0.0
+  }],
+  grandTotal:0,
+  grandTotalArray:[0],
+  paymentMethod: '',
   accountPlan: '1',
   businessName: 'Keenthemes Inc.',
   businessDescriptor: 'KEENTHEMES',

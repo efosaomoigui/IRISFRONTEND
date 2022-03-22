@@ -36,7 +36,7 @@ export function ViewPriceSettings() {
       },
       {
         Header: 'Price Per-Unit',
-        accessor: 'pricePErUnit',
+        accessor: 'pricePerUnit',
       },
     ],
     DetailsPath: '/shipment/pricesettingdetail/',

@@ -27,7 +27,7 @@ const RouteTable = ({ priceData }: Props) => {
                 },
                 {
                     Header: 'Route',
-                    accessor: 'Route',
+                    accessor: 'Route', 
                 },
                 {
                     Header: 'Unit Weight',
@@ -35,13 +35,13 @@ const RouteTable = ({ priceData }: Props) => {
                 },
                 {
                     Header: 'Price Per-Unit',
-                    accessor: 'PricePErUnit',
+                    accessor: 'pricePerUnit',
                 },
             ],
             []
         ),
         data: useMemo(() => PriceData, []),
-    }, useSortBy)
+    }, useSortBy) 
 
     const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = tableInstance
 

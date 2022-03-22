@@ -68,10 +68,11 @@ export function ViewUsers() {
   //USE EFFECT HOOK
   useEffect(() => {
     const callFunc = async () => {
-      await agent.Users.list().then((response) => {
+      const val = await agent.Users.list().then((response) => {
         setModalTarget(ModalTarget)
         setUsersModel(response)
         setLoadingData(false)
+        
       })
     }
     if (loadingData) {

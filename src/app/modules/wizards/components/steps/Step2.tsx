@@ -40,7 +40,7 @@ const Step2: FC<Props> = ({values}: Props) => {
                 {routemodel.length &&
                   routemodel.map((route, index) => {
                     return (
-                      <option  key={index} value={route.routeName}>
+                      <option  key={index} value={route.routeId}>
                         {route.departure + ' ' + route.destination}
                       </option>
                     )
@@ -108,6 +108,7 @@ const Step2: FC<Props> = ({values}: Props) => {
                         <label className='form-label'>Contact Phone</label>
 
                         <Field
+                        type="number"
                           name='shipperPhoneNumber'
                           className='form-control form-control-lg form-control-solid'
                           rows={3}
@@ -170,6 +171,7 @@ const Step2: FC<Props> = ({values}: Props) => {
                         <label className='form-label'>Contact Phone</label>
 
                         <Field
+                        type="number"
                           name='receiverPhoneNumber'
                           className='form-control form-control-lg form-control-solid'
                           rows={3}

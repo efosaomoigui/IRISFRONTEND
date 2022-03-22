@@ -27,7 +27,7 @@ const AddInvoiceModal: React.FC = () => {
     }
 
   const selected = setSelectedValue(invoice);
-  console.log("LOG ", (selected) ? "old invoice" : "new invoice");
+  // console.log("LOG ", (selected) ? "old invoice" : "new invoice");
 
   const onSubmit = (values: IInvoiceModel) => {
     setIsSubmitting(true)

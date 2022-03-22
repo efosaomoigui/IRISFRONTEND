@@ -112,10 +112,10 @@ export default function AddPermissionForm(props: Props<IPermissionModel>) {
                             <div className='col-11'>
                               <Field as='select' name='roleId' className='form-select'>
                                 {rolemodel.length &&
-                                  rolemodel.map((route, index) => {
+                                  rolemodel.map((role, index) => {
                                     return (
-                                      <option key={index} value={route.id}>
-                                        {route.name}
+                                      <option key={index} value={role.id}>
+                                        {role.name}
                                       </option>
                                     )
                                   })}
