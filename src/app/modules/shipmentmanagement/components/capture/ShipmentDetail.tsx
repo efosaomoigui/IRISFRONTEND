@@ -75,7 +75,7 @@ export function ShipmentDetail() {
 
                 <div className='col-lg-8'>
                   <span className='fw-bolder fs-6 text-dark'>
-                    {shipmentdetails?.AddressId}
+                    {shipmentdetails?.CustomerAddress}
                   </span>
                 </div>
               </div>
@@ -102,7 +102,7 @@ export function ShipmentDetail() {
 
                 <div className='col-lg-8'>
                   <span className='fw-bolder fs-6 text-dark'>
-                    {shipmentdetails?.PickUpOptions}
+                    {shipmentdetails?.PickupOptions}
                   </span>
                 </div>
               </div>

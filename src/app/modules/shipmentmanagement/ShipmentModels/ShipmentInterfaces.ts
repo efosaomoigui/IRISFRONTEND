@@ -27,15 +27,16 @@ export interface IRouteModel {
 } 
 
 export interface IShipmentModel {
-    ShipmentId: string
-    Waybill: string
-    Customer: string
-    AddressId: string
-    GrandTotal: string
-    Reciever: string
-    RecieverAddress: string
-    PickUpOptions: string
-    ShipmentItems: string
+    ShipmentId:string
+    Waybill:string
+    Customer:string
+    GrandTotal:string
+    CustomerAddress:[{}]
+    Reciever:string
+    RecieverAddress:[{}]
+    PickupOptions:string
+    ShipmentItems:[{}]
+    ServiceCenterId?:string
 } 
 export interface IPriceModel {
     id: string;
