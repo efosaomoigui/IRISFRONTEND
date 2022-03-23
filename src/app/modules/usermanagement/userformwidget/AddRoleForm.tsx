@@ -1,6 +1,7 @@
 import {Grid} from '@material-ui/core'
 import { Alert } from '@mui/material'
 import {Form, Formik, FormikHelpers} from 'formik'
+import { useState } from 'react'
 import {Modal} from 'react-bootstrap-v5'
 import {Button} from 'semantic-ui-react'
 import * as Yup from 'yup'
@@ -19,11 +20,22 @@ interface Props<Values> {
   isSubmitting: boolean
   showForm?:boolean
   role?: IRoleModel
+  formTitle?: string
+  showError?: boolean
+  errorMessage?: string
+  handleClick?: () => void
 }
 
 export default function AddRoleForm(props: Props<IRoleModel>) {
 
-  const {entityValues, setEntityValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle} = usePageData()
+  const {entityValues, 
+    setEntityValues, 
+    selectUrlParam, 
+    setSelectUrlParam, 
+    formTitle, setFormTitle} = usePageData()
+
+  const [errorMessage, setErrorMessage] = useState('')
+  const [showError, setShowError] = useState(true) 
 
   const initialFormValue: IRoleModel = {
     id: props.role ? props.role!.id : '',
@@ -48,7 +60,7 @@ export default function AddRoleForm(props: Props<IRoleModel>) {
           <div className='modal-dialog modal-dialog-centered mw-900px'>
             <div className='modal-content'>
               <div className='modal-header'>
-                <h2>{formTitle+" User Role"}</h2>
+                <h2>{" Add Role"}</h2>
                 <div
                   className='btn btn-sm btn-icon btn-active-color-primary'
                   data-bs-dismiss='modal' 
@@ -70,21 +82,25 @@ export default function AddRoleForm(props: Props<IRoleModel>) {
               </div>
 
               <Modal.Footer>
+                {props.showForm &&
+                  (<Button
+                    floated='right'
+                    positive
+                    type='submit'
+                    variant='primary'
+                    loading={props.isSubmitting}
+                    content='Submit'
+                  />
+                  )}
                 <Button
                   floated='right'
                   positive
-                  type='submit'
-                  variant='secondary'
-                  loading={props.isSubmitting}
-                  content='Submit'
-                ></Button>
-                <Button
-                  floated='right'
-                  positive
-                  type='button'
+                  type='reset'
+                  variant='primary'
+                  onClick={props.handleClick}
                   data-bs-dismiss='modal'
                   content='Cancel'
-                ></Button>
+                />
               </Modal.Footer>
             </div>
           </div>

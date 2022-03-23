@@ -27,7 +27,7 @@ const options = [
 export default function GenericForm(props: Props<IUserModel>) {
   const initialFormValue: IUserModel = {
     userId: '2',
-    userName: 'hh',
+    username: 'hh',
     firstName: 'hgg',
     lastName: 'jj',
     email: 'kkk@h.com',
