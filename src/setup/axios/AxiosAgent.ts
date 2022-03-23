@@ -203,9 +203,9 @@ export function axiosPrice(price: ILinePriceModel) {
 
 // Payment Request Starts
 const PaymentLog = {
-  list: () => request.get<IPaymentLogModel[]>(`${API_URL}/Payment/Payment/all`),
+  list: () => request.get<IPaymentLogModel[]>(`${API_URL}/Payment/Invoice/all`),
   details: (paymentid: string) =>
-    request.get<IPaymentLogModel>(`${API_URL}/Payment/Payment/all/${paymentid}`),
+    request.get<IPaymentLogModel>(`${API_URL}/Payment/Invoice/all${paymentid}`),
   create: (payment: IPaymentLogModel) =>
     request.post<IPaymentLogModel>(`${API_URL}/Payment/Payment`, payment),
   update: (payment: IPaymentLogModel) =>
