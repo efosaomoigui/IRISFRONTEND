@@ -19,6 +19,7 @@ const Step5: FC<Props> = ({values, handleChange, radioState}: Props) => {
   const [showError, setShowError] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [showForm, setShowForm] = useState(true)
+  const [paidstatus, setPaidStatus] = useState(false)
 
   const handleClick = () => {
     var total = 0
@@ -41,23 +42,25 @@ const Step5: FC<Props> = ({values, handleChange, radioState}: Props) => {
 
     values.grandTotal = total
     showPaymentSummary(true)
-    // console.log('total val ', total)
   }
 
   const handleWalletPayment = () => {
+    const walletCode = '00000'
     const invoiceCode = '00000'
     const userCode = uuid()
 
     const paymentCriteria: IPaymentCriteriaModel = {
       Amount: values.grandTotal,
-      CustomerPhoneNumber:values.shipperPhoneNumber.toString(),
+      CustomerPhoneNumber: values.shipperPhoneNumber.toString(),
       UserId: userCode,
       InvoiceNumber: invoiceCode,
+      WalletNumber: walletCode,
       ShimentCategory: 1,
       RouteId: values.route,
       PaymentStatus: false,
-      PaymentMethod:1,
+      PaymentMethod: 1,
       Description: 'Wallet Debit Transaction',
+      Values: values,
     }
 
     if (radioState === 'mailandparcel') {
@@ -71,6 +74,7 @@ const Step5: FC<Props> = ({values, handleChange, radioState}: Props) => {
     agent.PaymentLog.makePayment(paymentCriteria).then((response) => {
       if (response.validationErrors!.length > 0) {
         toast.error(response.validationErrors?.toString())
+        setPaidStatus(response.PaymentStatus)
         setErrorMessage(response.validationErrors!.toString())
         setIsSubmitting(false)
         setShowError(true)
@@ -88,15 +92,9 @@ const Step5: FC<Props> = ({values, handleChange, radioState}: Props) => {
   return (
     <div className='w-100'>
       <div className='pb-2 pb-lg-15'>
-        <h2 className='fw-bolder text-dark'>Billing Details</h2>
+        <h2 className='fw-bolder text-dark'>Payment Options</h2>
 
         <div className='text-gray-400 fw-bold fs-6'>
-          If you need more info, please check out
-          <a href='/dashboard' className='text-primary fw-bolder'>
-            {' '}
-            Help Page
-          </a>
-          .
         </div>
       </div>
 
@@ -191,17 +189,19 @@ const Step5: FC<Props> = ({values, handleChange, radioState}: Props) => {
                                 <h3 className='fw-bolder m-0'>Pay Now</h3>
                               </div>
                               <div className='card-title m-2'>
-                                <button
-                                  type='button'
-                                  style={{width: '88%'}}
-                                  className='btn btn-primary btn-lg ml-3'
-                                  onClick={handleWalletPayment}
-                                >
-                                  {isSubmitting && (
-                                    <span className='spinner-grow spinner-grow-sm'></span>
-                                  )}
-                                  Pay NGN {values.grandTotal} with wallet
-                                </button>
+                                {!paidstatus && (
+                                  <button
+                                    type='button'
+                                    style={{width: '88%'}}
+                                    className='btn btn-primary btn-lg ml-3'
+                                    onClick={handleWalletPayment}
+                                  >
+                                    {isSubmitting && (
+                                      <span className='spinner-grow spinner-grow-sm'></span>
+                                    )}
+                                    Pay NGN {values.grandTotal} with wallet
+                                  </button>
+                                )}
                               </div>
                             </div>
                           )}
@@ -212,17 +212,19 @@ const Step5: FC<Props> = ({values, handleChange, radioState}: Props) => {
                                 <h3 className='fw-bolder m-0'>Pay Now</h3>
                               </div>
                               <div className='card-title m-2'>
-                                <button
-                                  type='button'
-                                  style={{width: '88%'}}
-                                  className='btn btn-primary btn-lg ml-3'
-                                  onClick={handleWalletPayment}
-                                >
-                                  {isSubmitting && (
-                                    <span className='spinner-grow spinner-grow-sm'></span>
-                                  )}
-                                  Pay NGN {values.grandTotal} with Credit/Debit Card
-                                </button>
+                                {!paidstatus && (
+                                  <button
+                                    type='button'
+                                    style={{width: '88%'}}
+                                    className='btn btn-primary btn-lg ml-3'
+                                    onClick={handleWalletPayment}
+                                  >
+                                    {isSubmitting && (
+                                      <span className='spinner-grow spinner-grow-sm'></span>
+                                    )}
+                                    Pay NGN {values.grandTotal} with Credit/Debit Card
+                                  </button>
+                                )}
                               </div>
                             </div>
                           )}
@@ -233,12 +235,31 @@ const Step5: FC<Props> = ({values, handleChange, radioState}: Props) => {
                                 <h3 className='fw-bolder m-0'>Pay Later</h3>
                               </div>
                               <div className='card-title m-2'>
+                                {!paidstatus && (
+                                  <button
+                                    type='button'
+                                    style={{width: '88%'}}
+                                    className='btn btn-primary btn-lg ml-3'
+                                  >
+                                    Pay NGN {values.grandTotal} with Post Paid
+                                  </button>
+                                )}
+                              </div>
+                            </div>
+                          )}
+
+                          {paidstatus && (
+                            <div className='card-header cursor-pointer'>
+                              <div className='card-title m-0'>
+                                <h3 className='fw-bolder m-0'>Pay Later</h3>
+                              </div>
+                              <div className='card-title m-2'>
                                 <button
                                   type='button'
                                   style={{width: '88%'}}
-                                  className='btn btn-primary btn-lg ml-3'
+                                  className='btn btn-secondary btn-lg ml-3'
                                 >
-                                  Pay NGN {values.grandTotal} with Post Paid
+                                  PAID
                                 </button>
                               </div>
                             </div>

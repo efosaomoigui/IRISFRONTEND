@@ -132,7 +132,7 @@ const HorizontalShipmentCapture: FC = () => {
                 </div>
 
                 <div data-kt-stepper-element='content'>
-                  <Step6 />
+                  <Step6 waybill='' invoice='' />
                 </div>
 
                 <div className='d-flex flex-stack pt-2'>
@@ -160,7 +160,7 @@ const HorizontalShipmentCapture: FC = () => {
                     >
                       <span className='indicator-label'>
                         {!isSubmitButton && 'Continue'}
-                        {isSubmitButton && 'Submit'}
+                        {isSubmitButton && 'Start Another Transaction'}
                         <KTSVG
                           path='/media/icons/duotune/arrows/arr064.svg'
                           className='svg-icon-3 ms-2 me-0'
