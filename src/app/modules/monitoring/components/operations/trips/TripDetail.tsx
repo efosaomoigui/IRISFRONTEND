@@ -90,20 +90,11 @@ export function TripDetail() {
               </div>
             </div>
             <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>Manifest Id</label>
+                  <label className='col-lg-4 fw-bold text-muted'>dispatcher</label>
 
               <div className='col-lg-8'>
                 <span className='fw-bolder fs-6 text-dark'>
-                  {tripdetails?.manifestId}
-                </span>
-              </div>
-            </div>
-            <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>EndTime</label>
-
-              <div className='col-lg-8'>
-                <span className='fw-bolder fs-6 text-dark'>
-                  {tripdetails?.endTime}
+                      {tripdetails?.dispatcher}
                 </span>
               </div>
             </div>
@@ -118,30 +109,11 @@ export function TripDetail() {
               </div>
             </div>
             <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>Fleet Id</label>
-
-              <div className='col-lg-8'>
-                <span className='fw-bolder fs-6 text-dark'>
-                  {tripdetails?.fleetid}
-                </span>
-              </div>
-            </div>
-
-            <div className='row mb-7'>
               <label className='col-lg-4 fw-bold text-muted'>Fleet</label>
 
               <div className='col-lg-8'>
                 <span className='fw-bolder fs-6 text-dark'>
                   {tripdetails?.fleet}
-                </span>
-              </div>
-            </div>
-            <div className='row mb-7'>
-              <label className='col-lg-4 fw-bold text-muted'>Start Time</label>
-
-              <div className='col-lg-8'>
-                <span className='fw-bolder fs-6 text-dark'>
-                  {tripdetails?.startTime}
                 </span>
               </div>
             </div>

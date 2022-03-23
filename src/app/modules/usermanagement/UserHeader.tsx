@@ -58,7 +58,7 @@ const UserHeader: React.FC = () => {
               </div>
 
               <div className='d-flex my-4'>
-                <a href='#' className='btn btn-sm btn-light me-2' id='kt_user_follow_button'>
+                <a href='' className='btn btn-sm btn-light me-2' id='kt_user_follow_button'>
                   <KTSVG
                     path='/media/icons/duotune/arrows/arr012.svg'
                     className='svg-icon-3 d-none'
@@ -71,7 +71,7 @@ const UserHeader: React.FC = () => {
                   </span>
                 </a>
                 <a
-                  href='#'
+                  href='src/app/modules/pageheader/MyIris'
                   className='btn btn-sm btn-primary me-3'
                   data-bs-toggle='modal'
                   data-bs-target='#kt_modal_offer_a_deal'

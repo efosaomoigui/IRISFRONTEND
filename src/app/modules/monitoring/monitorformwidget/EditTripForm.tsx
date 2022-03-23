@@ -58,26 +58,19 @@ export default function EditTripForm(props: Props<ITripModel>) {
         id: props.trip ? props.trip!.id : '',
         tripReference: props.trip ? props.trip!.tripReference : '',
         routeCode: props.trip ? props.trip!.routeCode : '',
-        fleetid: props.trip ? props.trip!.fleetid : '',
+        groupWayBillManifestMap: props.trip ? props.trip!.groupWayBillManifestMap : [],
         fleet: props.trip ? props.trip!.fleet : '',
-        manifestId: props.trip ? props.trip!.manifestId : '',
-        manifest: props.trip ? props.trip!.manifest : '',
+        dispatcher: props.trip ? props.trip!.dispatcher : '',
         driver: props.trip ? props.trip!.driver : '',
-        startTime: props.trip ? props.trip!.startTime : '',
-        endTime: props.trip ? props.trip!.endTime : '',
     }
 
     const validationSchema = Yup.object({
         id: Yup.string().required(),
         tripReference: Yup.string().required(),
         routeCode: Yup.string().required(),
-        fleetid: Yup.string().required(),
         fleet: Yup.string().required(),
-        manifestId: Yup.string().required(),
-        manifest: Yup.string().required(),
+        dispatcher: Yup.string().required(),
         driver: Yup.string().required(),
-        startTime: Yup.string().required(),
-        endTime: Yup.string().required(),
     })
 
     const classes = useStyles()
@@ -94,7 +87,7 @@ export default function EditTripForm(props: Props<ITripModel>) {
                     <div className='modal-dialog modal-dialog-centered mw-900px'>
                         <div className='modal-content'>
                             <div className='modal-header'>
-                                <h2>{formTitle + ' Trip Dispatch'}</h2>
+                                <h2>{'Edit Trip Dispatch'}</h2>
                                 <div
                                     className='btn btn-sm btn-icon btn-active-color-primary'
                                     data-bs-dismiss='modal'
@@ -119,13 +112,6 @@ export default function EditTripForm(props: Props<ITripModel>) {
                                                 placeholder='Trip Reference'
                                                 label='Trip Reference'
                                             />
-                                            <IrisTextInput
-                                                type='text'
-                                                placeholder='fleetid'
-                                                name='fleetid'
-                                                label='fleetid'
-                                            />
-
                                         </Grid>
                                         <Grid item xs={3}>
                                             <IrisTextInput
@@ -140,39 +126,19 @@ export default function EditTripForm(props: Props<ITripModel>) {
                                                 name='routeCode'
                                                 label='RouteCode'
                                             />
+                                        </Grid>
+                                        <Grid item xs={3}>
                                             <IrisTextInput
                                                 type='text'
                                                 placeholder='fleet'
                                                 name='fleet'
                                                 label='fleet'
                                             />
-                                        </Grid>
-                                        <Grid item xs={3}>
                                             <IrisTextInput
                                                 type='text'
-                                                placeholder='ManifestId'
-                                                name='manifestId'
-                                                label='ManifestId'
-                                            />
-                                            <IrisTextInput
-                                                type='text'
-                                                placeholder='manifest'
-                                                name='manifest'
-                                                label='manifest'
-                                            />
-                                            <IrisDatePicker
-                                                placeholderText='StartTime'
-                                                name='startTime'
-                                                showTimeSelect
-                                                timeCaption='StartTime'
-                                                dateFormat='MMM d, yyyy h:mm: aa'
-                                            />
-                                            <IrisDatePicker
-                                                placeholderText='EndTime'
-                                                name='endTime'
-                                                showTimeSelect
-                                                timeCaption='EndTime'
-                                                dateFormat='MMM d, yyyy h:mm: aa'
+                                                placeholder='dispatcher'
+                                                name='dispatcher'
+                                                label='dispatcher'
                                             />
                                         </Grid>
                                     </Grid>

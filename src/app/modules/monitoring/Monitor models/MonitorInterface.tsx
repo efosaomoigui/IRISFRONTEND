@@ -3,13 +3,10 @@ export interface ITripModel {
     id: string
     tripReference: string
     routeCode: string
-    fleetid: string
     fleet: string
-    manifestId: string
-    manifest: string
     driver: string
-    startTime: string
-    endTime: string
+    groupWayBillManifestMap: []
+    dispatcher: string 
     message?: string
     validationErrors?: string[]
     tripdto?: {}
