@@ -23,6 +23,7 @@ export interface IPaymentCriteriaModel {
     UserId:string
     WalletTransactionType?:number
     InvoiceNumber:string
+    WalletNumber:string
     ShimentCategory:number
     RouteId:null
     PaymentStatus:boolean
@@ -30,5 +31,6 @@ export interface IPaymentCriteriaModel {
     message?: string
     validationErrors?: string[]
     pricedto?: {}
+    Values?:[{}]
 } 
 

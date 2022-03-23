@@ -1,0 +1,13 @@
+<svg width="269" height="56" xmlns="http://www.w3.org/2000/svg">
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="58" width="271" y="-1" x="-1"/>
+ </g>
+
+ <g>
+  <title>Layer 1</title>
+  <path stroke="null" id="svg_6" fill="#EF305E" d="m105.21246,19.06921l8.44567,0c2.06813,0 3.54347,1.44765 2.92822,2.87326l-11.41031,26.43957c-0.39934,0.92538 -1.58576,1.55573 -2.92822,1.55573l-8.44562,0c-2.06812,0 -3.54346,-1.44766 -2.92822,-2.87329l11.41026,-26.43957c0.39941,-0.92537 1.58583,-1.5557 2.92822,-1.5557z"/>
+  <text font-weight="bold" font-style="normal" xml:space="preserve" text-anchor="start" font-family="Oswald, sans-serif" font-size="45" id="svg_8" y="44.441642" x="119.151612" stroke-opacity="null" stroke-width="0" stroke="null" fill="none">iris</text>
+  <path stroke="null" id="svg_9" fill="#EF305E" d="m92.65469,7.44164l8.44567,0c2.06813,0 3.54347,1.44766 2.92822,2.87327l-11.41031,26.43957c-0.39934,0.92537 -1.58576,1.55573 -2.92822,1.55573l-8.44562,0c-2.06812,0 -3.54346,-1.44767 -2.92822,-2.8733l11.41026,-26.43957c0.39941,-0.92537 1.58583,-1.5557 2.92822,-1.5557z"/>
+ </g>
+</svg>
