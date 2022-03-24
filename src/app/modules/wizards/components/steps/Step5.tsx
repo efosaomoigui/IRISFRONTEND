@@ -42,7 +42,7 @@ const Step5: FC<Props> = ({values, handleChange, radioState}: Props) => {
     }
 
     values.grandTotal = total
-    // showPaymentSummary(true)
+    showPaymentSummary(true)
   }
 
   const handleWalletPayment = () => {
@@ -175,7 +175,7 @@ const Step5: FC<Props> = ({values, handleChange, radioState}: Props) => {
             name='paymentMethod'
             value='creditdebitcard'
             id='kt_create_payment_creditdebit'
-            // onClick={handleClick}
+            onClick={handleClick}
           />
           <label
             className='btn btn-outline btn-outline-dashed btn-outline-default p-7 d-flex align-items-center'
@@ -197,7 +197,7 @@ const Step5: FC<Props> = ({values, handleChange, radioState}: Props) => {
             name='paymentMethod'
             value='postpaid'
             id='kt_create_payment_postpaid'
-            // onClick={handleClick}
+            onClick={handleClick}
           />
           <label
             className='btn btn-outline btn-outline-dashed btn-outline-default p-7 d-flex align-items-center'
