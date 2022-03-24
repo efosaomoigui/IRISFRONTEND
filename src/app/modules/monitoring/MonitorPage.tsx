@@ -15,24 +15,14 @@ const userBreadCrumbs: Array<PageLink> = [
     isSeparator: false,
     isActive: false,
   },
-  {
-    title: 'Add Track',
-    path: '/monitor/addtrip',
-    isSeparator: false,
-    isActive: false,
-  },
+ 
   {
     title: 'Track History',
     path: '/monitor/trackhistory',
     isSeparator: false,
     isActive: false,
   },
-  {
-    title: 'Search Trip',
-    path: '/monitor/addtrip',
-    isSeparator: false,
-    isActive: false,
-  }
+ 
 ]
 
 const MonitorPage: React.FC = () => {

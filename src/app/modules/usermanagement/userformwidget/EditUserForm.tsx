@@ -40,7 +40,7 @@ export default function EditUserForm(props: Props<IUserModel>) {
 
   const initialFormValue: IUserModel = {
     // userId: props.user ? props.user!.userId : '',
-    userName: props.user ? props.user!.userName : '',
+    username: props.user ? props.user!.username : '',
     password: props.user ? props.user!.password : '',
     firstName: props.user ? props.user!.firstName : '',
     lastName: props.user ? props.user!.lastName : '',
@@ -51,7 +51,7 @@ export default function EditUserForm(props: Props<IUserModel>) {
   }
 
   const validationSchema = Yup.object({
-    userName: Yup.string().required(),
+    username: Yup.string().required(),
     firstName: Yup.string().required(),
     password: Yup.string().required(),
     passwordConfirmation: Yup.string().oneOf([Yup.ref('password'), null], 'Passwords must match'),

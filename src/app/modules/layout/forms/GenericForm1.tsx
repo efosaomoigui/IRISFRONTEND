@@ -21,7 +21,7 @@ export default function GenericForm1({userVal}: Props) {
 
   const initialState: IUserModel = {
     userId: '',
-    userName: '',
+    username: '',
     firstName: '',
     lastName: '',
     email: '',
@@ -74,7 +74,7 @@ export default function GenericForm1({userVal}: Props) {
                 <div className='modal-body py-lg-10 px-lg-10'>
                   <Form.Input
                     placeholder='firstName'
-                    value={user.userName}
+                    value={user.username}
                     name='userName'
                     onChange={handleChange}
                   />
