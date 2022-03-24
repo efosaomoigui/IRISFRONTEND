@@ -72,10 +72,7 @@ const UserHeader: React.FC = () => {
                   </span>
                 </Link> */}
                 <Link
-                  href='src/app/modules/pageheader/MyIris'
                   className='btn btn-sm btn-primary me-3'
-                  data-bs-toggle='modal'
-                  data-bs-target='#kt_modal_offer_a_deal' 
                   to={`/wallet/wtransactions/${user.userId}`}                >
                   My Wallet
                 </Link>

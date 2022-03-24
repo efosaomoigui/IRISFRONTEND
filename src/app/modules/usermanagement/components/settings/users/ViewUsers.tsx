@@ -25,7 +25,7 @@ export function ViewUsers() {
       },
       {
         Header: 'User Name',
-        accessor: 'userName',
+        accessor: 'username',
       },
       {
         Header: 'First Name',
