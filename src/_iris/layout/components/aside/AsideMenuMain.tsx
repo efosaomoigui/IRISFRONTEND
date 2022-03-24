@@ -35,7 +35,7 @@ export function AsideMenuMain() {
       >
         <AsideMenuItem to='/admin/Users' title='Users' hasBullet={true} />
         <AsideMenuItem to='/admin/roles' title='Roles' hasBullet={true} />
-        <AsideMenuItem to='/admin/permissions' title='Permissions' hasBullet={true} />
+        {/* <AsideMenuItem to='/admin/permissions' title='Permissions' hasBullet={true} /> */}
         {/* <AsideMenuItem to='/adminSettings/userDetails' title='User Profile' hasBullet={true} /> */}
       </AsideMenuItemWithSub>
 
@@ -53,7 +53,7 @@ export function AsideMenuMain() {
         title='Wallets'
         fontIcon='bi-layers'
       >
-        <AsideMenuItem to='/wallet/Users' title='Wallets' hasBullet={true} />
+        {/* <AsideMenuItem to='/wallet/Users' title='Wallets' hasBullet={true} /> */}
         <AsideMenuItem to='/wallet/transactions' title='Wallet Transactions' hasBullet={true} />
         {/* <AsideMenuItem to='/settings/Fleets' title='Fleets' hasBullet={true} />
         <AsideMenuItem to='/settings/Routes' title='Routes' hasBullet={true} />
@@ -163,9 +163,9 @@ export function AsideMenuMain() {
         title='Monitoring'
         fontIcon='bi-layers'
       >
-        <AsideMenuItem to='/monitor/trips' title='Trips' hasBullet={true} />
+        {/* <AsideMenuItem to='/monitor/trips' title='Trips' hasBullet={true} /> */}
         {/* <AsideMenuItem to='/monitor/addtrack' title='Add Track' hasBullet={true} /> */}
-        <AsideMenuItem to='/monitor/trackhistory' title='Track History' hasBullet={true} />
+        {/* <AsideMenuItem to='/monitor/trackhistory' title='Track History' hasBullet={true} /> */}
         {/* <AsideMenuItem to='/monitor/searchtrip' title='Search Trip' hasBullet={true} /> */}
       </AsideMenuItemWithSub>
       {/* <AsideMenuItemWithSub
@@ -206,11 +206,11 @@ export function AsideMenuMain() {
         title='Fulfillment'
         fontIcon='bi-layers'
       >
-        <AsideMenuItem
+        {/* <AsideMenuItem
           to='/fulfillment/collectioncenter'
           title='Collection Center'
           hasBullet={true}
-        />
+        /> */}
       </AsideMenuItemWithSub>
 
       {/* <div className='menu-item'>
