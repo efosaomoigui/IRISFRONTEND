@@ -104,7 +104,7 @@ export default function EditUserForm(props: Props<IUserModel>) {
                   {props.showForm && (
                     <Grid container className={classes.root}>
                       <Grid item xs={6}>
-                        <IrisTextInput type='text' name='userName' label='User Name' />
+                        <IrisTextInput type='text' name='username' label='User Name' />
                         <IrisTextInput type='text' name='firstName' label='First Name' />
                         <IrisTextInput type='text' name='lastName' label='Last Name' />
                         <IrisTextInput type='email' name='email' label='Email' />
