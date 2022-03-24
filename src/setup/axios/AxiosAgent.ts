@@ -122,6 +122,10 @@ const WalletTransaction = {
     request.get<IWalletTransactionModel>(
       `${API_URL}/Wallet/WalletTransaction/GetWalletTransactionById/${transactionid}`
     ),
+    userWallet: (userid: string) =>
+    request.get<IWalletTransactionModel[]>(
+      `${API_URL}/Wallet/GetWalletTransactionByUserId/${userid}`
+    ),
   create: (wallettransaction: IWalletTransactionModel) =>
     request.post<IWalletTransactionModel>(`${API_URL}/Wallet/WalletTransaction`, wallettransaction),
   update: (wallettransaction: IWalletTransactionModel) =>

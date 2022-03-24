@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, {useEffect, useState} from 'react'
 import {Col, Container, Row} from 'react-bootstrap-v5'
-import {Link, useParams} from 'react-router-dom'
+import {Link, useHistory, useParams} from 'react-router-dom'
 import {toast} from 'react-toastify'
 import agent from '../../../../setup/axios/AxiosAgent'
 import {KTSVG} from '../../../../_iris/helpers'
@@ -33,6 +33,8 @@ export function Overview() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [rolemodel, setRoleModel] = useState<IRoleModel[]>([])
   const [loadingData, setLoadingData] = useState(true)
+  const [selectedValue, setSelectedValue] = React.useState(''); 
+  const history = useHistory();
 
   function getUser(userid: string) {
     agent.Users.details(userid).then((response) => {
@@ -52,8 +54,9 @@ export function Overview() {
     }
   }, [])
 
+
   const onSubmit1 = (values: IUserRole) => {
-    alert(JSON.stringify(values))
+    // alert(JSON.stringify(values))
     agent.Roles.AddRole(values).then((response) => {
       if (response.validationErrors!.length > 0) {
         toast.error(response.validationErrors?.toString())
@@ -65,6 +68,10 @@ export function Overview() {
         setInterval(() => {}, 1000)
         setIsSubmitting(false)
         setShowError(false)
+        history.push('/');
+        history.push("/adminSettings/userDetails/"+userdetails?.userId); 
+        // history.push("/admin/users");
+        console.log('user, ', `/adminSettings/userDetails`);
       }
     })
   }
@@ -134,7 +141,6 @@ export function Overview() {
 
                 <div className='col-lg-8 d-flex align-items-center'>
                   <span className='fw-bolder fs-6 me-2'>{userdetails?.phoneNumber}</span>
-
                   <span className='badge badge-success'>Verified</span>
                 </div>
               </div>

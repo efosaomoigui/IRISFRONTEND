@@ -50,7 +50,7 @@ export function ViewShipment() {
   //Buttons on the table page
   const ModalTarget = [
     {
-      linkTitle: 'View Shipment',
+      linkTitle: 'Capture Shipment',
       linkTarget: '#kt_modal_viewshipment',
     },
   ]
@@ -84,7 +84,7 @@ export function ViewShipment() {
             DeletePath={tableProvider.DeletePath}
             UseFakeData={false}
             FakeData={tableProvider.FakeData}
-            TableTitle={'View Shipment'}
+            TableTitle={'Shipments'}
             Count={'Over 300 Users'}
             ModalTarget={modalTarger}
           />

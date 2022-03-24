@@ -1,5 +1,6 @@
 import {useState, createContext, useContext, useEffect} from 'react'
 import {Container} from 'react-bootstrap-v5'
+import { useHistory } from 'react-router-dom'
 import {toast} from 'react-toastify'
 import {v4 as uuid} from 'uuid'
 import agent from '../../../../setup/axios/AxiosAgent'
@@ -20,6 +21,7 @@ const AddUserModal: React.FC<Props> = ({handleSelect, SelectedValues}: Props) =>
   const [hasError, setHasError] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
   const [showError, setShowError] = useState(false)
+  const history = useHistory();
 
   const {entityValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle} =
     usePageData()
@@ -37,22 +39,17 @@ const AddUserModal: React.FC<Props> = ({handleSelect, SelectedValues}: Props) =>
   const handleClick = () => {
     setShowError(false);
     setShowForm(true);
-    // window.location.reload();
+    history.push('/');
+    history.push("/admin/users");
   }
 
   useEffect(() =>{
   }, [showForm])
 
 
-
   const onSubmit = (values: IUserModel) => {
     setIsSubmitting(true)
     values.userId = uuid()
-    const sex = parseInt(GenderType[values.gender])
-    values.gender = parseInt(GenderType[values.gender])
-    values.userType = parseInt(UserType[values.userType])
-
-    // console.log("values, ", values)
 
     agent.Users.create(values)
       .then((response) => {

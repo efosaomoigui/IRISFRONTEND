@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import clsx from 'clsx'
 import React, {FC} from 'react'
+import { Link } from 'react-router-dom'
 import {KTSVG} from '../../../helpers'
 import {useLayout} from '../../core'
 import {DefaultTitle} from '../header/page-title/DefaultTitle'
@@ -22,7 +23,7 @@ const Toolbar1: FC = () => {
           {/* begin::Wrapper */}
           <div className='me-4'>
             {/* begin::Menu */}
-            <a
+            {/* <a
               href='#'
               className='btn btn-sm btn-flex btn-light btn-active-primary fw-bolder'
               data-kt-menu-trigger='click'
@@ -34,7 +35,7 @@ const Toolbar1: FC = () => {
                 className='svg-icon-5 svg-icon-gray-500 me-1'
               />
               Filter
-            </a>
+            </a> */}
 
             {/* end::Menu */}
           </div>
@@ -42,16 +43,13 @@ const Toolbar1: FC = () => {
 
           {/* begin::Button */}
 
-          <a
+          <Link
             href='#'
             className='btn btn-sm btn-primary'
-            data-bs-toggle='modal'
-            data-bs-target='#kt_modal_create_app'
-            id='kt_toolbar_primary_button'
-          >
-            Create
-          </a>
-          {/* end::Button */}
+            id='kt_toolbar_primary_button' to={'/shipment/CaptureShipment'}          >
+            Capture Shipment
+          </Link>
+          {/* end::Button */} 
         </div>
         {/* end::Actions */}
       </div>

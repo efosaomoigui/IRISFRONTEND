@@ -26,7 +26,7 @@ const Step5: FC<Props> = ({values, handleChange, radioState}: Props) => {
 
     if (radioState === 'mailandparcel') {
       for (var i = 0; i < values.itemsB.length; i++) {
-        let nValue = parseInt(values.itemsB[i].LineTotal)
+        let nValue = parseInt(values.itemsB[i].LineTotal) 
         if (!isNaN(nValue)) {
           total += nValue
         }

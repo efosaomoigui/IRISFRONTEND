@@ -1,4 +1,4 @@
-import {FormLabel, Modal} from 'react-bootstrap-v5'
+import {FormLabel, InputGroup, Modal} from 'react-bootstrap-v5'
 import {Button, Radio} from 'semantic-ui-react'
 import {Formik, Form, FormikHelpers} from 'formik'
 import * as Yup from 'yup'
@@ -46,8 +46,8 @@ export default function AddUserForm(props: Props<IUserModel>) {
     lastName: props.user ? props.user!.lastName : '',
     email: props.user ? props.user!.email : '',
     phoneNumber: props.user ? props.user!.phoneNumber : '',
-    gender: props.user ? props.user!.gender : GenderType['Male'],
-    userType: props.user ? props.user!.userType : UserType['Individual'],
+    gender: props.user ? props.user!.gender : '1',
+    userType: props.user ? props.user!.userType : 1,
   }
 
   const validationSchema = Yup.object({
@@ -58,18 +58,24 @@ export default function AddUserForm(props: Props<IUserModel>) {
     lastName: Yup.string().required(),
     email: Yup.string().required(),
     phoneNumber: Yup.string().required(),
-    gender: Yup.string().required(),
-    userType: Yup.string().required(),
+    gender: Yup.number().required(),
+    userType: Yup.number().required(),
   })
 
   const classes = useStyles()
-  const optionsArray1 = ['Male', 'Female']
-  const optionsArray2 = ['Corporate', 'Individual']
+  const optionsArray1 = [
+    {label: 'Male', value: '1'},
+    {label: 'Female', value: '2'},
+  ]
+  const optionsArray2 = [
+    {label: 'Corporate', value: '1'},
+    {label: 'Individual', value: '2'},
+  ]
 
   return (
     <>
       <Formik
-        validationSchema={validationSchema} 
+        validationSchema={validationSchema}
         initialValues={initialFormValue}
         enableReinitialize
         onSubmit={props.onSubmit}
@@ -109,29 +115,24 @@ export default function AddUserForm(props: Props<IUserModel>) {
                       <Grid item xs={6}>
                         <IrisTextInput type='text' name='phoneNumber' label='Phone Number' />
 
-                        <IrisTextRadio
-                          name='gender'
-                          options={optionsArray1} 
-                        />
+                        <IrisTextRadio name='gender' options={optionsArray1} />
 
                         <IrisTextInput type='password' name='password' label='Password' />
+
                         <IrisTextInput
                           type='password'
                           name='passwordConfirmation'
                           label='Confirm Password'
                         />
 
-                        <IrisTextRadio
-                          name='userType'
-                          options={optionsArray2}
-                        />
+                        <IrisTextRadio name='userType' options={optionsArray2} />
                       </Grid>
                     </Grid>
                   )}
                   {!props.showForm && (
                     <ErrorAlert
                       type={'success'}
-                      message={'Role Created Successfully!'}
+                      message={'User Creation Was Successful!'}
                       heading={'Confirmation Message!'}
                     />
                   )}

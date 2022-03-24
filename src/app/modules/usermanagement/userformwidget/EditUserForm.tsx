@@ -46,8 +46,8 @@ export default function EditUserForm(props: Props<IUserModel>) {
     lastName: props.user ? props.user!.lastName : '',
     email: props.user ? props.user!.email : '',
     phoneNumber: props.user ? props.user!.phoneNumber : '',
-    gender: props.user ? props.user!.gender : GenderType['Male'],
-    userType: props.user ? props.user!.userType : UserType['Individual'],
+    gender: props.user ? props.user!.gender : "1",
+    userType: props.user ? props.user!.userType : "1",
   }
 
   const validationSchema = Yup.object({
@@ -63,9 +63,14 @@ export default function EditUserForm(props: Props<IUserModel>) {
   })
 
   const classes = useStyles()
-  const optionsArray1 = ['Male', 'Female']
-  const optionsArray2 = ['Corporate', 'Individual']
-
+  const optionsArray1 = [
+    {label: 'Male', value: "1"},
+    {label: 'Female', value: "2"}
+  ]
+  const optionsArray2 = [
+    {label: 'Corporate', value: "1"},
+    {label: 'Individual', value: "2"} 
+  ]
   return (
     <>
       <Formik

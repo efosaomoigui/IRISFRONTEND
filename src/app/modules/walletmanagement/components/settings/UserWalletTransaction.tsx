@@ -6,19 +6,22 @@ import { IrisTablesWidget } from '../../../layout/tables/IrisTablesWidget';
 import { modalprops } from '../../../layout/tables/IrisTableTitle';
 import { IWalletModel, IWalletTransactionModel } from '../../Models/WalletInterfaces'
 import WalletTransaction_Data from './WalletTransaction_Data.json'
+import { useParams } from 'react-router-dom';
 // import {format} from 'date-fns' 
 
-export function WalletTransaction() {
+export function UserWalletTransaction() {
   const [loading, setLoading] = useState(true)
   const [modalTarger, setModalTarget] = useState<modalprops[]>([]);
   const [wallettransactionmodel, setWalletRansactionModel] = useState<IWalletTransactionModel[]>([])
   const [loadingData, setLoadingData] = useState(true)
   const { selectValue, handleSelectValue, selectUrlParam, setSelectUrlParam } = usePageData() //global data
+
+  let {userId} = useParams<{userId: string}>() 
   
   
   //all the data for the table
   const tableProvider = {
-    columns: [ 
+    columns: [
       {
         Header: 'Transaction Id',
         accessor: 'id',
@@ -41,7 +44,7 @@ export function WalletTransaction() {
       },
      
     ],
-    DetailsPath: '/wallet/wallettransactiondetails/',
+    DetailsPath: '/wallet/wallettransactiondetails/', 
     EditPath: '#kt_modal_editwallettransaction',
     DeletePath: '/adminSettings/userDetails/',
     FakeData: WalletTransaction_Data,
@@ -57,15 +60,15 @@ export function WalletTransaction() {
   ]
 
   const handleEdit = (event: React.MouseEvent) => {
-    const urlParm = event.currentTarget.getAttribute('id')
-    const val = wallettransactionmodel.find((x) => x.id === urlParm)
+    const urlParm = event.currentTarget.getAttribute('userId')
+    const val = wallettransactionmodel.find((x) => x.id === urlParm) 
     handleSelectValue(val!)
     return val
   }
     // //USE EFFECT HOOK
     useEffect(() => {
       const callFunc = async () => {
-        await agent.WalletTransaction.list().then((response) => {
+        await agent.WalletTransaction.userWallet(userId).then((response) => { 
           setWalletRansactionModel(response)
           setModalTarget(ModalTarget);
           setLoadingData(false)
@@ -96,7 +99,7 @@ export function WalletTransaction() {
           DeletePath={tableProvider.DeletePath}
           UseFakeData={false}
           FakeData={tableProvider.FakeData}
-          TableTitle={'Wallet Transaction'}
+          TableTitle={'My Wallet History'}
           Count={'Over 300 Users'}
           ModalTarget={
             modalTarger

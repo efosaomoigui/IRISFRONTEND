@@ -6,7 +6,7 @@ export interface IUserModel {
   lastName: string
   email?: string 
   phoneNumber: string
-  gender: number
+  gender: string
   age?: string
   userType: number
   pictureUrl?: string 
@@ -30,6 +30,7 @@ export interface IUserRole{
   message?:string
   validationErrors?: string[] 
   userdto?: {}
+  check?: boolean 
 }
 
 export enum UserType{
