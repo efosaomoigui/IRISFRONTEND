@@ -60,3 +60,8 @@ export interface IPermissionModel {
   validationErrors?: string[]
   permissiondto?: {}
 }
+
+export interface IPermissionTypesModel {
+  claimType: string 
+  claimValue: string
+}

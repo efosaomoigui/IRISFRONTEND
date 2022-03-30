@@ -37,6 +37,7 @@ const Step2: FC<Props> = ({values}: Props) => {
             <div className='col-6'>
               {}
               <Field as='select' name='route' className='form-select'>
+              <option>Select A Route</option>
                 {routemodel.length &&
                   routemodel.map((route, index) => {
                     return (

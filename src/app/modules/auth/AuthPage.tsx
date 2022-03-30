@@ -5,6 +5,7 @@ import {Registration} from './components/Registration'
 import {ForgotPassword} from './components/ForgotPassword'
 import {Login} from './components/Login'
 import {toAbsoluteUrl} from '../../../_iris/helpers'
+import { ShipmentRequest } from './components/ShipmentRequest'
 
 export function AuthPage() {
   useEffect(() => {
@@ -30,10 +31,11 @@ export function AuthPage() {
         </a>
         {/* end::Logo */}
         {/* begin::Wrapper */}
-        <div className='w-lg-500px bg-white rounded shadow-sm p-10 p-lg-15 mx-auto'>
+        <div className='w-lg-700px bg-white rounded shadow-sm p-10 p-lg-15 mx-auto'>
           <Switch>
             <Route path='/auth/login' component={Login} />
             <Route path='/auth/registration' component={Registration} />
+            <Route path='/auth/ShipmentRequest' component={ShipmentRequest} />
             <Route path='/auth/forgot-password' component={ForgotPassword} />
             <Redirect from='/auth' exact={true} to='/auth/login' />
             <Redirect to='/auth/login' />

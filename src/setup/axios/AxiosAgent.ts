@@ -4,6 +4,7 @@ import {useDispatch} from 'react-redux'
 import {toast} from 'react-toastify'
 import {
   IPermissionModel,
+  IPermissionTypesModel,
   IRoleModel,
   IUserModel,
   IUserRole,
@@ -99,8 +100,9 @@ const Permissions = {
   create: (permission: IPermissionModel) =>
     request.post<IPermissionModel>(`${API_URL}/UserManagement/AddPermissionToRole`, permission),
   update: (permission: IPermissionModel) =>
-    request.put<IPermissionModel>(`${API_URL}/UserManagement/GetUser/${permission.roleId}`, {}),
+    request.put<IPermissionModel>(`${API_URL}/UserManagement/GetUser/${permission.roleId}`, {}), 
   delete: (id: string) => request.del<void>(`${API_URL}/UserManagement/GetUser${id}`),
+  permissionTypes: () => request.get<IPermissionTypesModel[]>(`${API_URL}/UserManagement/GetPermissionTypes`),
 }
 
 // wallet Starts here
@@ -112,7 +114,7 @@ const Wallet = {
     request.post<IWalletModel>(`${API_URL}/Wallet/WalletNumber`, wallet),
   update: (wallet: IWalletModel) =>
     request.put<IWalletModel>(`${API_URL}/Wallet/WalletNumber/${wallet.id}`, {}),
-  delete: (id: string) => request.del<void>(`${API_URL}/Wallet/WalletNumber${id}`),
+  delete: (id: string) => request.del<void>(`${API_URL}/Wallet/WalletNumber${id}`), 
 }
 
 // wallet transaction Starts here

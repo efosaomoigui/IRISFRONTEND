@@ -8,7 +8,7 @@ import * as Yup from 'yup'
 import agent from '../../../../setup/axios/AxiosAgent'
 import {KTSVG} from '../../../../_iris/helpers'
 import {usePageData} from '../../../../_iris/layout/core'
-import {IPermissionModel, IRoleModel} from '../../auth/models/AuthInterfaces'
+import {IPermissionModel, IPermissionTypesModel, IRoleModel} from '../../auth/models/AuthInterfaces'
 import ErrorAlert from '../../common/ErrorAlert'
 import IrisSelectInput from '../../layout/forms/IrisSelectInput'
 import {dataType, IrisSelectInput2} from '../../layout/forms/IrisSelectInput2'
@@ -38,6 +38,7 @@ export default function AddPermissionForm(props: Props<IPermissionModel>) {
   } = usePageData()
 
   const [rolemodel, setRoleModel] = useState<IRoleModel[]>([])
+  const [permissionTypeModel, setPermissionTypeModel] = useState<IPermissionTypesModel[]>([])
   const [loadingData, setLoadingData] = useState(true)
 
   //USE EFFECT HOOK
@@ -45,6 +46,11 @@ export default function AddPermissionForm(props: Props<IPermissionModel>) {
     const callFunc = async () => {
       await agent.Roles.list().then((response) => {
         setRoleModel(response)
+        setLoadingData(false)
+      })
+
+      await agent.Permissions.permissionTypes().then((response) => {
+        setPermissionTypeModel(response)
         setLoadingData(false)
       })
     }
@@ -64,7 +70,7 @@ export default function AddPermissionForm(props: Props<IPermissionModel>) {
 
   const validationSchema = Yup.object({
     roleId: Yup.string().required(),
-    claimType: Yup.string().required(),
+    // claimType: Yup.string().required(),
     claimValue: Yup.string().required(),
   })
 
@@ -111,6 +117,7 @@ export default function AddPermissionForm(props: Props<IPermissionModel>) {
                           <div className='row'>
                             <div className='col-11'>
                               <Field as='select' name='roleId' className='form-select'>
+                              <option>Select A Role</option>
                                 {rolemodel.length &&
                                   rolemodel.map((role, index) => {
                                     return (
@@ -128,8 +135,53 @@ export default function AddPermissionForm(props: Props<IPermissionModel>) {
                         </div>
                       </div>
 
-                      <IrisTextInput type='text' name='claimType' label='Permission Type' />
-                      <IrisTextInput type='text' name='claimValue' label='Permission' />
+                      {/* <div className=' fv-row'>
+                        <div className=''>
+                          <div className='row'>
+                            <div className='col-11'>
+                              <Field as='select' name='claimType' className='form-select'>
+                                {permissionTypeModel.length &&
+                                  permissionTypeModel.map((type, index) => {
+                                    return (
+                                      <option key={index} value={type.claimType}>
+                                        {type.claimType}
+                                      </option>
+                                    )
+                                  })}
+                              </Field>
+                              <div className='text-danger mt-2'>
+                                <ErrorMessage name='claimType' />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div> */}
+
+                      <div className=' fv-row'>
+                        <div className=''>
+                          <div className='row'>
+                            <div className='col-11'>
+                              <Field as='select' name='claimValue' className='form-select'>
+                                <option>Select A Claim</option>
+                              {permissionTypeModel.length &&
+                                  permissionTypeModel.map((type, index) => {
+                                    return (
+                                      <option key={index} value={type.claimValue}>
+                                        {type.claimValue}
+                                      </option>
+                                    )
+                                  })}
+                              </Field>
+                              <div className='text-danger mt-2'>
+                                <ErrorMessage name='claimValue' />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* <IrisTextInput type='text' name='claimType' label='Permission Type' /> */}
+                      {/* <IrisTextInput type='text' name='claimValue' label='Permission' /> */}
                     </Grid>
                   </Grid>
                 )}
