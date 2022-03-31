@@ -115,6 +115,25 @@ export function AsideMenuMain() {
         </AsideMenuItemWithSub>
       </AsideMenuItemWithSub>
 
+
+      {/* MONITORING */}
+      <div className='menu-item'>
+        <div className='menu-content pt-8 pb-2'>
+          <span className='menu-section text-muted text-uppercase fs-8 ls-1'>SHIPMENT REQUEST</span>
+        </div>
+      </div>
+      <AsideMenuItemWithSub
+        to='/shipmentrequest/request'
+        icon='/media/icons/duotune/general/gen025.svg'
+        title='shipment request'
+        fontIcon='bi-layers'
+      >
+        <AsideMenuItem to='/shipmentrequest/request' title='request' hasBullet={true} />
+        {/* <AsideMenuItem to='/monitor/addtrack' title='Add Track' hasBullet={true} /> */}
+        {/* <AsideMenuItem to='/monitor/trackhistory' title='Track History' hasBullet={true} /> */}
+        {/* <AsideMenuItem to='/monitor/searchtrip' title='Search Trip' hasBullet={true} /> */}
+      </AsideMenuItemWithSub>
+
       {/* PAYMENT MODULE */}
       <div className='menu-item'>
         <div className='menu-content pt-8 pb-2'>

@@ -37,6 +37,8 @@ import { EditTrackHistoryModal } from '../../app/modules/monitoring/monitor moda
 import { EditCollectionCenterModal } from '../../app/modules/fulfillment/modals/EditCollectionCenterModal'
 import { EditPaymentLogModal } from '../../app/modules/payment/paymentmodals/EditPaymentLogModal'
 import { EditInvoiceModal } from '../../app/modules/payment/paymentmodals/EditInvoiceModal'
+import { EditShipmentRequestModal } from '../../app/modules/shipmentrequest/modals/EditShipmentRequestModal'
+import { AddShipmentRequestModal } from '../../app/modules/shipmentrequest/modals/AddShipmentRequestModal'
 
 
 const MasterLayout: React.FC = ({children}) => {
@@ -82,6 +84,9 @@ const MasterLayout: React.FC = ({children}) => {
       <AddUserModal />
       <EditUserModal />
 
+      <AddShipmentRequestModal/>
+      <EditShipmentRequestModal/>
+      
       <AddWalletModal />
       <EditWalletModal />
 
