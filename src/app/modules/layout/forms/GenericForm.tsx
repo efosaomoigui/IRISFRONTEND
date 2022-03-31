@@ -32,8 +32,8 @@ export default function GenericForm(props: Props<IUserModel>) {
     lastName: 'jj',
     email: 'kkk@h.com',
     phoneNumber: '55657757',
-    gender: GenderType['Male'],
-    userType: UserType['Individual'],  
+    gender: "1",
+    userType: 1,  
   }
 
   const validationSchema = Yup.object({ 

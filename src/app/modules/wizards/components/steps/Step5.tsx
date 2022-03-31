@@ -22,11 +22,12 @@ const Step5: FC<Props> = ({values, handleChange, radioState}: Props) => {
   const [paidstatus, setPaidStatus] = useState(false)
 
   const handleClick = () => {
+    alert()
     var total = 0
 
     if (radioState === 'mailandparcel') {
       for (var i = 0; i < values.itemsB.length; i++) {
-        let nValue = parseInt(values.itemsB[i].LineTotal)
+        let nValue = parseInt(values.itemsB[i].LineTotal) 
         if (!isNaN(nValue)) {
           total += nValue
         }
@@ -70,7 +71,50 @@ const Step5: FC<Props> = ({values, handleChange, radioState}: Props) => {
     }
 
     // console.log("Payment Log", paymentCriteria )
+    agent.PaymentLog.makePayment(paymentCriteria).then((response) => {
+      if (response.validationErrors!.length > 0) {
+        toast.error(response.validationErrors?.toString())
+        setPaidStatus(response.PaymentStatus)
+        setErrorMessage(response.validationErrors!.toString())
+        setIsSubmitting(false)
+        setShowError(true)
+      } else {
+        toast.success('User Creation Was Successful!')
+        setInterval(() => {
+          setShowForm(false)
+        }, 1000)
+        setIsSubmitting(false)
+        setShowError(false)
+      }
+    })
+  }
 
+  const handlePostPaidPayment = () => {
+    const walletCode = '00000'
+    const invoiceCode = '00000'
+    const userCode = uuid()
+
+    const paymentCriteria: IPaymentCriteriaModel = {
+      Amount: values.grandTotal,
+      CustomerPhoneNumber: values.shipperPhoneNumber.toString(),
+      UserId: userCode,
+      InvoiceNumber: invoiceCode,
+      WalletNumber: walletCode,
+      ShimentCategory: 1,
+      RouteId: values.route,
+      PaymentStatus: false,
+      PaymentMethod: 3,
+      Description: 'Pay Later Debit Transaction',
+      Values: values,
+    }
+
+    if (radioState === 'mailandparcel') {
+      paymentCriteria.ShimentCategory = 1
+    } else if (radioState === 'TruckLoad') {
+      paymentCriteria.ShimentCategory = 2
+    }
+
+    // console.log("Payment Log", paymentCriteria )
     agent.PaymentLog.makePayment(paymentCriteria).then((response) => {
       if (response.validationErrors!.length > 0) {
         toast.error(response.validationErrors?.toString())
@@ -131,7 +175,7 @@ const Step5: FC<Props> = ({values, handleChange, radioState}: Props) => {
             name='paymentMethod'
             value='creditdebitcard'
             id='kt_create_payment_creditdebit'
-            // onClick={handleClick}
+            onClick={handleClick}
           />
           <label
             className='btn btn-outline btn-outline-dashed btn-outline-default p-7 d-flex align-items-center'
@@ -153,7 +197,7 @@ const Step5: FC<Props> = ({values, handleChange, radioState}: Props) => {
             name='paymentMethod'
             value='postpaid'
             id='kt_create_payment_postpaid'
-            // onClick={handleClick}
+            onClick={handleClick}
           />
           <label
             className='btn btn-outline btn-outline-dashed btn-outline-default p-7 d-flex align-items-center'
@@ -217,7 +261,7 @@ const Step5: FC<Props> = ({values, handleChange, radioState}: Props) => {
                                     type='button'
                                     style={{width: '88%'}}
                                     className='btn btn-primary btn-lg ml-3'
-                                    onClick={handleWalletPayment}
+                                    onClick={handlePostPaidPayment}
                                   >
                                     {isSubmitting && (
                                       <span className='spinner-grow spinner-grow-sm'></span>

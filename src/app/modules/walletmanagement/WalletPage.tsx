@@ -6,7 +6,7 @@ import { ViewWallet } from './components/settings/ViewWallet'
 import { WalletTransaction } from './components/settings/WalletTransaction'
 import { WalletDetail } from './components/settings/WalletDetail'
 import { WalletTransactionDetail } from './components/settings/WalletTransactionDetail'
-
+import { UserWalletTransaction } from './components/settings/UserWalletTransaction'
 
 
 const userBreadCrumbs: Array<PageLink> = [
@@ -49,12 +49,18 @@ const WalletPage: React.FC = () => {
         <Route path='/wallet/walletdetails/:walletId'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Wallet Details</PageTitle>
           <WalletDetail />
-        </Route>
+        </Route> 
 
         <Route path='/wallet/wallettransactiondetails/:id'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Wallet Transaction Details</PageTitle>
           <WalletTransactionDetail />
         </Route>
+
+        <Route path='/wallet/wtransactions/:userId'>
+          <PageTitle breadcrumbs={userBreadCrumbs}>Wallet Transaction Details</PageTitle>
+          <UserWalletTransaction />
+        </Route>
+
         <Redirect from='/wallet/' exact={true} to='/wallet/wallets' />
         <Redirect to='/wallet/wallets' />
       </Switch>

@@ -1,5 +1,6 @@
 import {useState, createContext, useContext, useEffect} from 'react'
 import {Container} from 'react-bootstrap-v5'
+import { useHistory } from 'react-router-dom'
 import {toast} from 'react-toastify'
 import {v4 as uuid} from 'uuid'
 import agent from '../../../../setup/axios/AxiosAgent'
@@ -22,9 +23,10 @@ const EditUserModal: React.FC<Props> = ({handleEdit, SelectedValues}: Props) => 
   const [showForm, setShowForm] = useState(true)
   const [hasError, setHasError] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
-  const [showError, setShowError] = useState(false)
+  const [showError, setShowError] = useState(false) 
 
   const {entityValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle, selectValue, handleSelectValue} = usePageData()
+  const history = useHistory();
 
   // handle logic
   const users = entityValues as IUserModel[] 
@@ -54,6 +56,8 @@ const EditUserModal: React.FC<Props> = ({handleEdit, SelectedValues}: Props) => 
         }, 1000)
         setIsSubmitting(false)
         setShowError(false)
+        history.push('/');
+        history.push("/admin/users");
       }
     })
   }  

@@ -1,3 +1,4 @@
+import {Checkbox, FormControlLabel} from '@material-ui/core'
 import {Field, Form, Formik, FormikHelpers} from 'formik'
 import React, {useEffect, useState} from 'react'
 import agent from '../../../../../../setup/axios/AxiosAgent'
@@ -14,10 +15,15 @@ export default function ManageRole(props: Props<IUserRole>) {
   const [data, setData] = useState<IRoleModel>()
   const [rolemodel, setRoleModel] = useState<IRoleModel[]>([])
   const [loadingData, setLoadingData] = useState(true)
+  const [selectedValue, setSelectedValue] = React.useState(true)
 
   const updateData = (fieldsToUpdate: Partial<IRoleModel>) => {
     const updatedData = {...data, ...fieldsToUpdate}
     // setData(updatedData)
+  }
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSelectedValue(event.target.checked)
   }
 
   useEffect(() => {
@@ -44,6 +50,7 @@ export default function ManageRole(props: Props<IUserRole>) {
   const initialFormValue: IUserRole = {
     userId: props.userId,
     roleId: [],
+    check: false,
   }
 
   return (
@@ -66,16 +73,27 @@ export default function ManageRole(props: Props<IUserRole>) {
                       <label className='form-check form-check-custom form-check-solid align-items-start'>
                         <Field
                           type='checkbox'
+                          onClick={handleChange}
                           name='roleId'
                           value={role.name}
-                          checked={(props.user!.roles!.indexOf(role.name)) > 0 && true}
+                          // checked={selectedValue === role.name}
+                          // checked={!!(props.user!.roles![props.user!.roles!.indexOf(role.name)] === role.name)}
+                          // checked={props.user!.roles!.indexOf(role.name) >= 0 ? true : false}
                           className='form-check-input me-3'
+                          // disabled={(props.user!.roles!.indexOf(role.name)) >= 0 ? true : false}
                         />
+
                         {/* {route.name} */}
                         <span className='form-check-label d-flex flex-column align-items-start'>
-                          <span className='fw-bolder fs-5 mb-0'>{role.name}</span>
+                          <span className='col-lg-8 d-flex align-items-center'>
+                            <span className='fw-bolder fs-5 mb-0 mr-10'>{role.name}</span>
+                            {props.user!.roles!.indexOf(role.name) >= 0 && (
+                              <span className='badge badge-success ml-14'>A</span>
+                            )}
+                          </span>
                           <span className='text-muted fs-6'>
-                            The role allow you to have access to {role.name} 's previlleges'.
+                            The role allow you to have access to {role.name} 's previlleges'.{' '}
+                            {props.user!.roles!.indexOf(role.name)}
                           </span>
                         </span>
                       </label>

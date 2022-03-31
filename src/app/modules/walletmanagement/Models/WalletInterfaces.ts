@@ -4,6 +4,7 @@ export interface IWalletModel {
   isActive: string
   userId: string
   walletBalance: number
+  walletTransactions?: IWalletTransactionModel[]
   message?: string
   validationErrors?: string[]
   walletdto?: {}

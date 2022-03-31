@@ -12,23 +12,23 @@ export const usersmodel: IUserModel[] = [
     email: 'efeomoigui@gmail.com',
     phoneNumber: '000',
     age: '70',
-    gender: GenderType['Male'],
-    userType: UserType['Individual'],  
+    gender: "1",
+    userType: 1,  
     pictureUrl: 'Efosa',
     organisation: 'Efosa',
     status: 1,
     dateCreated: 'Efosa',
     dateModified: 'Efosa',
     passwordExpireDate: 'Efosa',
-    identificationImage: 'Efosa',
+    identificationImage: 'Efosa', 
     walletNumber: 'Efosa'
   },
 ]
 
 export class User implements IUserModel { 
   password?: string | undefined
-  gender: number = GenderType['Male']
-  userType: number = UserType['Individual']
+  gender: string = "1"
+  userType: number = 1
   message?: string | undefined
   validationErrors?: string[] | undefined
   userdto?: {} | undefined
@@ -47,7 +47,7 @@ export class User implements IUserModel {
   walletNumber: string = 'Efosa'
   dateCreated: string = 'Efosa'
   dateModified: string = 'Efosa'
-  passwordExpireDate: string = 'Efosa'
+  passwordExpireDate: string = 'Efosa' 
 }
 
 export class UserFormValues {
@@ -66,6 +66,6 @@ export class UserFormValues {
   dateModified: string = 'Efosa'
   passwordExpireDate: string = 'Efosa'
   identificationImage: string = 'Efosa'
-  walletNumber: string = 'Efosa'
+  walletNumber: string = 'Efosa' 
 
   }

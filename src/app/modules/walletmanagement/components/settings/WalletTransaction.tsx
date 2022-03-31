@@ -18,7 +18,7 @@ export function WalletTransaction() {
   
   //all the data for the table
   const tableProvider = {
-    columns: [
+    columns: [ 
       {
         Header: 'Transaction Id',
         accessor: 'id',

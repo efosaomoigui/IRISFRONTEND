@@ -44,6 +44,7 @@ const AddPermissionModal: React.FC<Props> = ({ handleSelect, SelectedValues }: P
   const onSubmit = (values: IPermissionModel) => {
     setIsSubmitting(true)
     // values.roleId = uuid()
+    values.claimType = values.claimValue
 
     agent.Permissions.create(values)
       .then((response) => {

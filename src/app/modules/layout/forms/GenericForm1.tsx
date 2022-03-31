@@ -30,11 +30,11 @@ export default function GenericForm1({userVal}: Props) {
     pictureUrl: '',
     organisation: '',
     status: 1,
-    gender: GenderType['Male'],
-    userType: UserType['Individual'],  
+    gender: "1",
+    userType: 1,  
   }
 
-  const [user, setUser] = useState(initialState) 
+  const [user, setUser] = useState(initialState)  
 
 //   function handleSubmit() {
 //     if (user.userId.length === 0) {
