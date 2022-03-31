@@ -65,12 +65,12 @@ export default function AddManifestForm(props: Props<IManifestModel>) {
     return (
         <>
             <Formik
-                validationSchema={validationSchema}
-                initialValues={initialFormValue}
-                enableReinitialize
-                onSubmit={props.onSubmit}
+            validationSchema={validationSchema}
+            initialValues={initialFormValue}
+            enableReinitialize
+            onSubmit={props.onSubmit}
             >
-                <Form className='ui form' autoComplete='off'>
+               <Form className='ui form' autoComplete='off'>
                     <div className='modal-dialog modal-dialog-centered mw-900px'>
                         <div className='modal-content'>
                             <div className='modal-header'>

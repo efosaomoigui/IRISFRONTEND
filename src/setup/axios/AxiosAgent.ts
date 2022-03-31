@@ -29,6 +29,7 @@ import {
   IShipmentModel,
 } from '../../app/modules/shipmentmanagement/ShipmentModels/ShipmentInterfaces'
 import {ShipmentModel} from '../../app/modules/shipmentmanagement/ShipmentModels/ShipmentModel'
+import { IShipmentRequestModel } from '../../app/modules/shipmentrequest/models/ShipmentRequestInterface'
 import {
   IWalletModel,
   IWalletTransactionModel,
@@ -272,6 +273,20 @@ const CollectionCenter = {
   delete: (id: string) => request.del<void>(`${API_URL}/Shipment/CollectionCenter/delete${id}`),
 }
 
+const ShipmentRequest = {
+  list: () => request.get<IShipmentRequestModel[]>(`${API_URL}/Shipment/CollectionCenter/all`),
+  details: (ownerId: string) =>
+    request.get<IShipmentRequestModel>(`${API_URL}/UserManagement/GetUser/${ownerId}`),
+  create: (shipmentrequest: IShipmentRequestModel) =>
+    request.post<IShipmentRequestModel>(`${API_URL}/Shipment/CollectionCenter`, CollectionCenter),
+  update: (shipmentrequest: IShipmentRequestModel) =>
+    request.put<IShipmentRequestModel>(
+      `${API_URL}/Shipment/CollectionCenter/edit/${shipmentrequest.ownerId}`,
+      {}
+    ),
+  delete: (id: string) => request.del<void>(`${API_URL}/Shipment/CollectionCenter/delete${id}`),
+}
+
 const agent = {
   Users,
   Roles,
@@ -288,6 +303,7 @@ const agent = {
   TrackHistory,
   Manifest,
   Invoice,
+  ShipmentRequest
 }
 
 export default agent
