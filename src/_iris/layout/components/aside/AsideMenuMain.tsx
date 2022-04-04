@@ -109,29 +109,26 @@ export function AsideMenuMain() {
           title='Settings'
           fontIcon='bi-layers'
         >
-          <AsideMenuItem to='/shipment/routes' title='Routes' hasBullet={true} />
-          <AsideMenuItem to='/shipment/viewfleet' title='View Fleets' hasBullet={true} />
-          <AsideMenuItem to='/shipment/ViewPriceSettings' title='Price Settings' hasBullet={true} />
+          <AsideMenuItem to='/shipment/routes' title='Route' hasBullet={true} />
+          <AsideMenuItem to='/shipment/viewfleet' title='Fleet' hasBullet={true} />
+          <AsideMenuItem to='/shipment/ViewPriceSettings' title='Price Setting' hasBullet={true} />
         </AsideMenuItemWithSub>
       </AsideMenuItemWithSub>
 
 
-      {/* MONITORING */}
+      {/* SHIPMENT REQUEST */}
       <div className='menu-item'>
         <div className='menu-content pt-8 pb-2'>
           <span className='menu-section text-muted text-uppercase fs-8 ls-1'>SHIPMENT REQUEST</span>
         </div>
       </div>
       <AsideMenuItemWithSub
-        to='/shipmentrequest/request'
+        to='/shipmentrequest/'
         icon='/media/icons/duotune/general/gen025.svg'
         title='shipment request'
         fontIcon='bi-layers'
       >
         <AsideMenuItem to='/shipmentrequest/request' title='request' hasBullet={true} />
-        {/* <AsideMenuItem to='/monitor/addtrack' title='Add Track' hasBullet={true} /> */}
-        {/* <AsideMenuItem to='/monitor/trackhistory' title='Track History' hasBullet={true} /> */}
-        {/* <AsideMenuItem to='/monitor/searchtrip' title='Search Trip' hasBullet={true} /> */}
       </AsideMenuItemWithSub>
 
       {/* PAYMENT MODULE */}
@@ -182,9 +179,9 @@ export function AsideMenuMain() {
         title='Monitoring'
         fontIcon='bi-layers'
       >
-        {/* <AsideMenuItem to='/monitor/trips' title='Trips' hasBullet={true} /> */}
+        <AsideMenuItem to='/monitor/trips' title='Trip' hasBullet={true} />
         {/* <AsideMenuItem to='/monitor/addtrack' title='Add Track' hasBullet={true} /> */}
-        {/* <AsideMenuItem to='/monitor/trackhistory' title='Track History' hasBullet={true} /> */}
+        <AsideMenuItem to='/monitor/trackhistory' title='Track History' hasBullet={true} />
         {/* <AsideMenuItem to='/monitor/searchtrip' title='Search Trip' hasBullet={true} /> */}
       </AsideMenuItemWithSub>
       {/* <AsideMenuItemWithSub
@@ -225,11 +222,11 @@ export function AsideMenuMain() {
         title='Fulfillment'
         fontIcon='bi-layers'
       >
-        {/* <AsideMenuItem
+        <AsideMenuItem
           to='/fulfillment/collectioncenter'
           title='Collection Center'
           hasBullet={true}
-        /> */}
+        />
       </AsideMenuItemWithSub>
 
       {/* <div className='menu-item'>

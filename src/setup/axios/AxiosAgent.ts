@@ -274,14 +274,14 @@ const CollectionCenter = {
 }
 
 const ShipmentRequest = {
-  list: () => request.get<IShipmentRequestModel[]>(`${API_URL}/Shipment/CollectionCenter/all`),
+  list: () => request.get<IShipmentRequestModel[]>(`${API_URL}/ShipmentRequest/ShipmentRequest/all`),
   details: (ownerId: string) =>
     request.get<IShipmentRequestModel>(`${API_URL}/UserManagement/GetUser/${ownerId}`),
   create: (shipmentrequest: IShipmentRequestModel) =>
-    request.post<IShipmentRequestModel>(`${API_URL}/Shipment/CollectionCenter`, CollectionCenter),
+    request.post<IShipmentRequestModel>(`${API_URL}/ShipmentRequest/ShipmentRequest`, shipmentrequest),
   update: (shipmentrequest: IShipmentRequestModel) =>
     request.put<IShipmentRequestModel>(
-      `${API_URL}/Shipment/CollectionCenter/edit/${shipmentrequest.ownerId}`,
+      `${API_URL}/Shipment/CollectionCenter/edit/${shipmentrequest.shipmentId}`,
       {}
     ),
   delete: (id: string) => request.del<void>(`${API_URL}/Shipment/CollectionCenter/delete${id}`),

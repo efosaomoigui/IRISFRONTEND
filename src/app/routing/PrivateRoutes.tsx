@@ -1,6 +1,8 @@
 import React, {Suspense, lazy} from 'react'
 import {Redirect, Route, Switch} from 'react-router-dom'
 import {FallbackView} from '../../_iris/partials'
+import { ShipmentRequest } from '../modules/shipmentrequest/components/ShipmentRequest'
+import ShipmentRequestPage from '../modules/shipmentrequest/ShipmentRequestPage'
 import {DashboardWrapper} from '../pages/dashboard/DashboardWrapper'
 import {MenuTestPage} from '../pages/MenuTestPage'
 
@@ -39,6 +41,10 @@ export function PrivateRoutes() {
         {/* shipment module routes */}
         <Route path='/shipment/' component={ShipmentPage} />
         {/* end shipment module routes */}
+
+        {/* shipment request module routes */}
+        <Route path='/shipmentrequest/' component={ShipmentRequestPage} />
+        {/* end shipment request module routes */}
 
         {/* payment module routes */}
         <Route path='/payment/' component={PaymentPage} />

@@ -1,17 +1,18 @@
 [
     {
-        "FirstName": "8d65bcc7-0be9-4d78-9585-51a11877b990",
-        "LastName": "Al Jawf",
+        "firstName": "8d65bcc7-0be9-4d78-9585-51a11877b990",
+        "lastName": "Al Jawf",
         "email": "Baishi",
-        "PhoneNumber": "Carlos Casares",
-        "Description": "Describe it how you want",
-        "DispatchFee": "$7.74",
-        "Waybill": "$1.66",
-        "Customer": "$3.96",
-        "GrandTotal": "0093-6301",
+        "phoneNumber": "Carlos Casares",
+        "description": "Describe it how you want",
+        "dispatchFee": "$7.74",
+        "waybill": "$1.66",
+        "customer": "$3.96",
+        "serviceCenterId": "0093-6301",
         "Reciever": "true",
-        "pickUpOptions": "true",
-        "ownerId": "Tresom"
+        "pickupOptions": "true",
+        "customerAddress": "Tresom",
+        "recieverAddress": "Tresom"
     }
 
 ]

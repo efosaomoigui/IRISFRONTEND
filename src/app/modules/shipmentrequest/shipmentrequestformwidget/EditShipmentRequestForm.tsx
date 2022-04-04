@@ -50,31 +50,35 @@ export default function EditShipmentRequestForm(props: Props<IShipmentRequestMod
 
 
     const initialFormValue: IShipmentRequestModel = {
-        FirstName: props.shipmentrequest ? props.shipmentrequest!.FirstName : '',
-        LastName: props.shipmentrequest ? props.shipmentrequest!.LastName : '',
+        firstName: props.shipmentrequest ? props.shipmentrequest!.firstName : '',
+        lastName: props.shipmentrequest ? props.shipmentrequest!.lastName : '',
         email: props.shipmentrequest ? props.shipmentrequest!.email : '',
-        PhoneNumber: props.shipmentrequest ? props.shipmentrequest!.PhoneNumber : '',
-        Description: props.shipmentrequest ? props.shipmentrequest!.Description : '',
-        Waybill: props.shipmentrequest ? props.shipmentrequest!.Waybill : '',
-        Customer: props.shipmentrequest ? props.shipmentrequest!.Customer : '',
-        GrandTotal: props.shipmentrequest ? props.shipmentrequest!.GrandTotal : '',
-        Reciever: props.shipmentrequest ? props.shipmentrequest!.Reciever : '',
-        pickUpOptions: props.shipmentrequest ? props.shipmentrequest!.pickUpOptions : '',
-        ownerId: props.shipmentrequest ? props.shipmentrequest!.ownerId : '',
+        phoneNumber: props.shipmentrequest ? props.shipmentrequest!.phoneNumber : '',
+        description: props.shipmentrequest ? props.shipmentrequest!.description : '',
+        waybill: props.shipmentrequest ? props.shipmentrequest!.waybill : '',
+        customer: props.shipmentrequest ? props.shipmentrequest!.customer : '',
+        reciever: props.shipmentrequest ? props.shipmentrequest!.reciever : '',
+        pickupOptions: props.shipmentrequest ? props.shipmentrequest!.pickupOptions : '',
+        shipmentId: props.shipmentrequest ? props.shipmentrequest!.shipmentId : '',
+        serviceCenterId: props.shipmentrequest ? props.shipmentrequest!.serviceCenterId : '',
+        customerAddress: props.shipmentrequest ? props.shipmentrequest!.customerAddress : '',
+        recieverAddress: props.shipmentrequest ? props.shipmentrequest!.recieverAddress : '',
     }
 
     const validationSchema = Yup.object({
-        FirstName: Yup.string().required(),
-        LastName: Yup.string().required(),
+        firstName: Yup.string().required(),
+        lastName: Yup.string().required(),
         email: Yup.string().required(),
-        PhoneNumber: Yup.string().required(),
-        Description: Yup.string().required(),
-        Waybill: Yup.string().required(),
-        Customer: Yup.string().required(),
-        GrandTotal: Yup.string().required(),
-        Reciever: Yup.string().required(),
-        pickUpOptions: Yup.string().required(),
-        ownerId: Yup.string().required(),
+        phoneNumber: Yup.string().required(),
+        description: Yup.string().required(),
+        waybill: Yup.string().required(),
+        customer: Yup.string().required(),
+        shipmentId: Yup.string().required(),
+        reciever: Yup.string().required(),
+        pickupOptions: Yup.string().required(),
+        serviceCenterId: Yup.string().required(),
+        customerAddress: Yup.string().required(),
+        recieverAddress: Yup.string().required()
     })
 
     const classes = useStyles()
@@ -107,21 +111,21 @@ export default function EditShipmentRequestForm(props: Props<IShipmentRequestMod
 
                                             <IrisTextInput
                                                 type='text'
-                                                placeholder='Owner Id'
-                                                name='ownerId'
-                                                label='Owner Id'
+                                                placeholder='shipmentId'
+                                                name='shipmentId'
+                                                label='shipmentId'
                                             />
                                             <IrisTextInput
                                                 type='text'
-                                                name='FirstName'
-                                                placeholder='FirstName'
-                                                label='First Name'
+                                                name='firstName'
+                                                placeholder='first Name'
+                                                label='first Name'
                                             />
                                             <IrisTextInput
                                                 type='text'
-                                                placeholder='LastName'
-                                                name='LastName'
-                                                label='Last Name'
+                                                placeholder='lastName'
+                                                name='lastName'
+                                                label='last Name'
                                             />
                                             <IrisTextInput
                                                 type='text'
@@ -134,50 +138,64 @@ export default function EditShipmentRequestForm(props: Props<IShipmentRequestMod
                                         <Grid item xs={3}>
                                             <IrisTextInput
                                                 type='text'
-                                                placeholder='Description'
-                                                name='Description'
-                                                label='Description'
+                                                placeholder='description'
+                                                name='description'
+                                                label='description'
                                             />
 
                                             <IrisTextInput
                                                 type='text'
-                                                placeholder='Waybill'
-                                                name='Waybill'
-                                                label='Waybill'
+                                                placeholder='waybill'
+                                                name='waybill'
+                                                label='waybill'
                                             />
                                             <IrisTextInput
                                                 type='text'
-                                                placeholder='Customer'
-                                                name='Customer'
-                                                label='Customer'
+                                                placeholder='customer'
+                                                name='customer'
+                                                label='customer'
                                             />
                                             <IrisTextInput
                                                 type='text'
-                                                placeholder='GrandTotal'
-                                                name='GrandTotal'
-                                                label='GrandTotal'
+                                                placeholder='recieverAddress'
+                                                name='recieverAddress'
+                                                label='recieverAddress'
                                             />
                                         </Grid>
                                         <Grid item xs={3}>
                                             <IrisTextInput
                                                 type='text'
-                                                placeholder='Reciever'
-                                                name='Reciever'
-                                                label='Reciever'
+                                                placeholder='reciever'
+                                                name='reciever'
+                                                label='reciever'
                                             />
 
                                             <IrisTextInput
                                                 type='text'
-                                                placeholder='pickUpOptions'
-                                                name='pickUpOptions'
-                                                label='pickUpOptions'
+                                                placeholder='pickupOptions'
+                                                name='pickupOptions'
+                                                label='pickupOptions'
                                             />
 
                                             <IrisTextInput
                                                 type='text'
-                                                placeholder='PhoneNumber'
-                                                name='PhoneNumber'
-                                                label='PhoneNumber'
+                                                placeholder='phoneNumber'
+                                                name='phoneNumber'
+                                                label='phoneNumber'
+                                            />
+
+                                            <IrisTextInput
+                                                type='text'
+                                                placeholder='serviceCenterId'
+                                                name='serviceCenterId'
+                                                label='serviceCenterId'
+                                            />
+
+                                            <IrisTextInput
+                                                type='text'
+                                                placeholder='customerAddress'
+                                                name='customerAddress'
+                                                label='customerAddress'
                                             />
                                         </Grid>
                                     </Grid>
