@@ -159,6 +159,18 @@ const Step3: FC<Props> = ({radioState, values, handleChange, grandTotal}: Props)
                                             className='btn-check'
                                             name={`itemsA.${index}.ton`}
                                             value='20'
+                                            onClick={(e: React.ChangeEvent<HTMLInputElement>) =>
+                                              handleOnChange2(
+                                                e,
+                                                values.itemsA[index].ton,
+                                                values.itemsA[index].length,
+                                                values.itemsA[index].breadth,
+                                                values.itemsA[index].height,
+                                                index,
+                                                values.route,
+                                                2
+                                              )
+                                            }
                                             id={`kt_tons_select_${index + 2}`}
                                           />
                                           <label
@@ -175,6 +187,18 @@ const Step3: FC<Props> = ({radioState, values, handleChange, grandTotal}: Props)
                                             className='btn-check'
                                             name={`itemsA.${index}.ton`}
                                             value='30'
+                                            onClick={(e: React.ChangeEvent<HTMLInputElement>) =>
+                                              handleOnChange2(
+                                                e,
+                                                values.itemsA[index].ton,
+                                                values.itemsA[index].length,
+                                                values.itemsA[index].breadth,
+                                                values.itemsA[index].height,
+                                                index,
+                                                values.route,
+                                                2
+                                              )
+                                            }
                                             id={`kt_tons_select_${index + 3}`}
                                           />
                                           <label
