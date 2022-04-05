@@ -2,7 +2,7 @@ import {FormLabel, Modal} from 'react-bootstrap-v5'
 import {Button, Radio} from 'semantic-ui-react'
 import {Formik, Form, FormikHelpers} from 'formik'
 import * as Yup from 'yup'
-import {GenderType, IUserModel, UserType} from '../../auth/models/AuthInterfaces'
+import {Category, Gender, GenderType, IUserModel, UserType} from '../../auth/models/AuthInterfaces'
 import {KTSVG} from '../../../../_iris/helpers'
 import IrisTextInput from '../../layout/forms/IrisTextInput'
 import IrisSelectInput from '../../layout/forms/IrisSelectInput'
@@ -39,38 +39,38 @@ export default function EditUserForm(props: Props<IUserModel>) {
   const [showError, setShowError] = useState(true)
 
   const initialFormValue: IUserModel = {
-    // userId: props.user ? props.user!.userId : '',
+    userId: props.user ? props.user!.userId : '',
     username: props.user ? props.user!.username : '',
     password: props.user ? props.user!.password : '',
     firstName: props.user ? props.user!.firstName : '',
     lastName: props.user ? props.user!.lastName : '',
     email: props.user ? props.user!.email : '',
     phoneNumber: props.user ? props.user!.phoneNumber : '',
-    gender: props.user ? props.user!.gender : "1",
-    userType: props.user ? props.user!.userType : "1",
+    // gender: props.user ? props.user!.gender : Gender.Male,
+    // userType: props.user ? props.user!.userType : Category.Corporate,  
   }
 
   const validationSchema = Yup.object({
     username: Yup.string().required(),
     firstName: Yup.string().required(),
     password: Yup.string().required(),
-    passwordConfirmation: Yup.string().oneOf([Yup.ref('password'), null], 'Passwords must match'),
     lastName: Yup.string().required(),
     email: Yup.string().required(),
     phoneNumber: Yup.string().required(),
-    gender: Yup.string().required(),
-    userType: Yup.string().required(),
+    // gender: Yup.string().required(),
+    // userType: Yup.string().required(),
   })
 
   const classes = useStyles()
-  const optionsArray1 = [
-    {label: 'Male', value: "1"},
-    {label: 'Female', value: "2"}
-  ]
-  const optionsArray2 = [
-    {label: 'Corporate', value: "1"},
-    {label: 'Individual', value: "2"} 
-  ]
+  // const optionsArray1 = [
+  //   {label: 'Male', value: "1"},
+  //   {label: 'Female', value: "2"}
+  // ]
+  // const optionsArray2 = [
+  //   {label: 'Corporate', value: "1"},
+  //   {label: 'Individual', value: "2"} 
+  // ]
+
   return (
     <>
       <Formik
@@ -91,6 +91,7 @@ export default function EditUserForm(props: Props<IUserModel>) {
                   >
                     <KTSVG path='/media/icons/duotune/arrows/arr061.svg' className='svg-icon-1' />
                   </div>
+                  {console.log("IT", initialFormValue)}
                 </div>
 
                 <div className='modal-body'>
@@ -104,6 +105,7 @@ export default function EditUserForm(props: Props<IUserModel>) {
                   {props.showForm && (
                     <Grid container className={classes.root}>
                       <Grid item xs={6}>
+                      <input type='hidden' name='userId' />
                         <IrisTextInput type='text' name='username' label='User Name' />
                         <IrisTextInput type='text' name='firstName' label='First Name' />
                         <IrisTextInput type='text' name='lastName' label='Last Name' />
@@ -113,24 +115,20 @@ export default function EditUserForm(props: Props<IUserModel>) {
                       <Grid item xs={6}>
                         <IrisTextInput type='text' name='phoneNumber' label='Phone Number' />
 
-                        <IrisTextRadio
+                        {/* <IrisTextRadio
                           name='gender'
                           value={values.gender?.toString()}
                           options={optionsArray1}
-                        />
+                        /> */}
 
                         <IrisTextInput type='password' name='password' label='Password' />
-                        <IrisTextInput
-                          type='password'
-                          name='passwordConfirmation'
-                          label='Confirm Password'
-                        />
 
-                        <IrisTextRadio
+                        {/* <IrisTextRadio
                           name='userType'
                           value={values.userType?.toString()}
                           options={optionsArray2}
-                        />
+                        /> */}
+
                       </Grid>
                       
                       <Grid item xs={12}>

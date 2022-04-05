@@ -1,7 +1,7 @@
 import {useEffect, useRef, useState} from 'react'
 import {shallowEqual, useDispatch, useSelector} from 'react-redux'
 import {RootState} from '../../../../setup'
-import {GenderType, IUserModel, UserType} from '../../auth/models/AuthInterfaces'
+import {Category, Gender, GenderType, IUserModel, UserType} from '../../auth/models/AuthInterfaces'
 import {getUsers} from '../UserManagementCRUD'
 
 export const usersmodel: IUserModel[] = [
@@ -12,8 +12,8 @@ export const usersmodel: IUserModel[] = [
     email: 'efeomoigui@gmail.com',
     phoneNumber: '000',
     age: '70',
-    gender: "1",
-    userType: 1,  
+    gender: Gender.Male,
+    userType: Category.Inidvidual,  
     pictureUrl: 'Efosa',
     organisation: 'Efosa',
     status: 1,
@@ -27,8 +27,8 @@ export const usersmodel: IUserModel[] = [
 
 export class User implements IUserModel { 
   password?: string | undefined
-  gender: string = "1"
-  userType: number = 1
+  gender: Gender = Gender.Male
+  userType: Category = Category.Inidvidual
   message?: string | undefined
   validationErrors?: string[] | undefined
   userdto?: {} | undefined
@@ -47,7 +47,7 @@ export class User implements IUserModel {
   walletNumber: string = 'Efosa'
   dateCreated: string = 'Efosa'
   dateModified: string = 'Efosa'
-  passwordExpireDate: string = 'Efosa' 
+  passwordExpireDate: string = 'Efosa'    
 }
 
 export class UserFormValues {

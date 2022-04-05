@@ -22,7 +22,6 @@ const Step5: FC<Props> = ({values, handleChange, radioState}: Props) => {
   const [paidstatus, setPaidStatus] = useState(false)
 
   const handleClick = () => {
-    alert()
     var total = 0
 
     if (radioState === 'mailandparcel') {
@@ -79,6 +78,7 @@ const Step5: FC<Props> = ({values, handleChange, radioState}: Props) => {
         setIsSubmitting(false)
         setShowError(true)
       } else {
+        alert(response.PaymentStatus)
         toast.success('User Creation Was Successful!')
         setInterval(() => {
           setShowForm(false)

@@ -77,7 +77,7 @@ const Users = {
   create: (users: IUserModel) =>
     request.post<IUserModel>(`${API_URL}/UserManagement/Register`, users),
   update: (users: IUserModel) =>
-    request.put<IUserModel>(`${API_URL}/UserManagement/GetUser/${users.userId}`, {}),
+    request.put<IUserModel>(`${API_URL}/UserManagement/UpdateUser`, users),
   delete: (id: string) => request.del<void>(`${API_URL}/UserManagement/GetUser${id}`),
 }
 const Roles = {

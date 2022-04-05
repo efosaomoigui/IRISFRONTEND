@@ -1,4 +1,14 @@
+export enum Gender{
+  Male, Female
+}
+
+export enum Category{
+  Corporate, Inidvidual 
+}
+
+
 export interface IUserModel {
+  id?:string
   userId?: string
   username?: string
   password?: string
@@ -6,9 +16,9 @@ export interface IUserModel {
   lastName: string
   email?: string 
   phoneNumber: string
-  gender: string
+  gender?: Gender
   age?: string
-  userType: number
+  userType?: Category
   pictureUrl?: string 
   organisation?: string 
   status?: number
@@ -24,8 +34,8 @@ export interface IUserModel {
   //Error:  {"userdto":null,"success":true,"message":null,"validationErrors":["Unable to create user, User already exist!"],"accessToken":null,"expireAt":"0001-01-01T00:00:00"}
 }
 
-export interface IUserRole{
-  userId?:string
+export interface IUserRole{ 
+  userId?:string 
   roleId:string[]
   message?:string
   validationErrors?: string[] 

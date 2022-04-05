@@ -20,12 +20,12 @@ export function WalletTransaction() {
   const tableProvider = {
     columns: [ 
       {
-        Header: 'Transaction Id',
-        accessor: 'id',
+        Header: 'Wallet Number',
+        accessor: 'walletNumber',
       },
       {
-        Header: 'user Id',
-        accessor: 'userId',
+        Header: 'Wallet Name',
+        accessor: 'name',
       },
       {
         Header: 'Amount',

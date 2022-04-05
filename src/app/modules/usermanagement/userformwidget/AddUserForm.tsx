@@ -1,8 +1,8 @@
 import {FormLabel, InputGroup, Modal} from 'react-bootstrap-v5'
 import {Button, Radio} from 'semantic-ui-react'
-import {Formik, Form, FormikHelpers} from 'formik'
+import {Formik, Form, FormikHelpers, Field} from 'formik'
 import * as Yup from 'yup'
-import {GenderType, IUserModel, UserType} from '../../auth/models/AuthInterfaces'
+import {Category, Gender, GenderType, IUserModel, UserType} from '../../auth/models/AuthInterfaces'
 import {KTSVG} from '../../../../_iris/helpers'
 import IrisTextInput from '../../layout/forms/IrisTextInput'
 import IrisSelectInput from '../../layout/forms/IrisSelectInput'
@@ -35,19 +35,19 @@ export default function AddUserForm(props: Props<IUserModel>) {
     setFormTitle,
   } = usePageData()
 
-  const [errorMessage, setErrorMessage] = useState('')
+  const [errorMessage, setErrorMessage] = useState('') 
   const [showError, setShowError] = useState(true)
 
   const initialFormValue: IUserModel = {
-    userId: props.user ? props.user!.userId : '',
+    userId: props.user ? props.user!.userId : '', 
     username: props.user ? props.user!.username : '',
-    password: props.user ? props.user!.password : '',
+    password: props.user ? props.user!.password : '', 
     firstName: props.user ? props.user!.firstName : '',
     lastName: props.user ? props.user!.lastName : '',
     email: props.user ? props.user!.email : '',
-    phoneNumber: props.user ? props.user!.phoneNumber : '',
-    gender: props.user ? props.user!.gender : '1',
-    userType: props.user ? props.user!.userType : 1,
+    phoneNumber: props.user ? props.user!.phoneNumber : '', 
+    gender: props.user ? props.user!.gender : Gender.Male,
+    userType: props.user ? props.user!.userType : Category.Corporate,  
   }
 
   const validationSchema = Yup.object({
@@ -58,19 +58,19 @@ export default function AddUserForm(props: Props<IUserModel>) {
     lastName: Yup.string().required(),
     email: Yup.string().required(),
     phoneNumber: Yup.string().required(),
-    gender: Yup.number().required(),
-    userType: Yup.number().required(),
-  })
+    gender: Yup.string().required(),
+    userType: Yup.string().required(), 
+  }) 
 
   const classes = useStyles()
-  const optionsArray1 = [
-    {label: 'Male', value: '1'},
-    {label: 'Female', value: '2'},
-  ]
-  const optionsArray2 = [
-    {label: 'Corporate', value: '1'},
-    {label: 'Individual', value: '2'},
-  ]
+  // const optionsArray1 = [
+  //   {label: 'Male', value: '1'},
+  //   {label: 'Female', value: '2'},
+  // ]
+  // const optionsArray2 = [
+  //   {label: 'Corporate', value: '1'},
+  //   {label: 'Individual', value: '2'},
+  // ]
 
   return (
     <>
@@ -114,18 +114,38 @@ export default function AddUserForm(props: Props<IUserModel>) {
 
                       <Grid item xs={6}>
                         <IrisTextInput type='text' name='phoneNumber' label='Phone Number' />
+                        <div id='my-radio-group' className="mt-3" >Gender </div>
+                        <div role='group' aria-labelledby='my-radio-group' className="m-2">
+                          
+                            <Field  className="form-check-input m-1" type='radio' name='gender' value='Male'   />
+                            <label className="form-check-label m-1">Male</label>
+                          
+                            <Field className="form-check-input m-1" type='radio' name='gender' value='Female' />
+                            <label className="form-check-label m-1">Female</label>
+                        </div>
 
-                        <IrisTextRadio name='gender' options={optionsArray1} />
+                        {/* <IrisTextRadio name='gender' options={optionsArray1} /> */}
 
                         <IrisTextInput type='password' name='password' label='Password' />
 
                         <IrisTextInput
                           type='password'
-                          name='passwordConfirmation'
-                          label='Confirm Password'
+                          name='passwordConfirmation' 
+                          label='Confirm Password'  
                         />
 
-                        <IrisTextRadio name='userType' options={optionsArray2} />
+                        {/* <IrisTextRadio name='userType' options={optionsArray2} /> */}
+
+                        <div id='my-radio-group' className="mt-3" >Category </div>
+                        <div role='group' aria-labelledby='my-radio-group' className="m-2">
+                          
+                            <Field className="form-check-input m-1" type='radio' name='userType' value='Corporate'  />
+                            <label className="form-check-label m-1">Individual</label>    
+
+                            <Field  className="form-check-input m-1" type='radio' name='userType' value='Individual'/>
+                            <label className="form-check-label m-1">Corporate</label>
+                        </div>
+
                       </Grid>
                     </Grid>
                   )}
