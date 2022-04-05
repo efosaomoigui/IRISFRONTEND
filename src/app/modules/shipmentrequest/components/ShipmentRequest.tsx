@@ -20,16 +20,16 @@ export function ShipmentRequest() {
     const tableProvider = {
         columns: [
             {
-                Header: 'ownerId',
-                accessor: 'ownerId',
+                Header: 'shipmentId',
+                accessor: 'shipmentId',
             },
             {
                 Header: 'First Name',
-                accessor: 'FirstName',
+                accessor: 'firstName',
             },
             {
                 Header: 'Last Name',
-                accessor: 'LastName',
+                accessor: 'lastName',
             },
             {
                 Header: 'email',
@@ -37,31 +37,39 @@ export function ShipmentRequest() {
             },
             {
                 Header: 'Phone Number',
-                accessor: 'PhoneNumber',
+                accessor: 'phoneNumber',
             },
             {
                 Header: 'Description',
-                accessor: 'Description',
+                accessor: 'description',
             },
             {
                 Header: 'Waybill',
-                accessor: 'Waybill',
+                accessor: 'waybill',
             },
             {
                 Header: 'Customer',
-                accessor: 'Customer',
+                accessor: 'customer',
             },
             {
-                Header: 'GrandTotal',
-                accessor: 'GrandTotal',
+                Header: 'reciever Address',
+                accessor: 'recieverAddress',
             },
             {
                 Header: 'Reciever',
-                accessor: 'Reciever',
+                accessor: 'reciever',
             },
             {
                 Header: 'Pick Up Options',
-                accessor: 'pickUpOptions',
+                accessor: 'pickupOptions',
+            },
+            {
+                Header: 'service Center Id',
+                accessor: 'serviceCenterId',
+            },
+            {
+                Header: 'customer Address',
+                accessor: 'customerAddress',
             },
         ],
         DetailsPath: '/shipmentrequest/shipmentrequestdetail/',
@@ -80,7 +88,7 @@ export function ShipmentRequest() {
 
     const handleEdit = (event: React.MouseEvent) => {
         const urlParm = event.currentTarget.getAttribute('id')
-        const val = shipmentrequestmodel.find((x) => x.ownerId === urlParm)
+        const val = shipmentrequestmodel.find((x) => x.shipmentId === urlParm)
         handleSelectValue(val!)
         return val
     }
@@ -114,7 +122,7 @@ export function ShipmentRequest() {
                         DetailsPath={tableProvider.DetailsPath}
                         EditPath={tableProvider.EditPath}
                         DeletePath={tableProvider.DeletePath}
-                        UseFakeData={false}
+                        UseFakeData={true}
                         FakeData={tableProvider.FakeData}
                         TableTitle={'Shipment Request'}
                         Count={'Over 300 Users'}

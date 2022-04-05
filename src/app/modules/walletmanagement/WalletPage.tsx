@@ -11,7 +11,7 @@ import { UserWalletTransaction } from './components/settings/UserWalletTransacti
 
 const userBreadCrumbs: Array<PageLink> = [
   {
-    title: 'View Wallet',
+    title: 'Wallet',
     path: '/wallet/wallets',
     isSeparator: false,
     isActive: false,
@@ -36,7 +36,7 @@ const WalletPage: React.FC = () => {
       <WalletHeader />
       <Switch>
         <Route path='/wallet/wallets'>
-          <PageTitle breadcrumbs={userBreadCrumbs}>Wallets</PageTitle>
+          <PageTitle breadcrumbs={userBreadCrumbs}>Wallet</PageTitle>
           <ViewWallet />
         </Route>
         {/* <Route path='/wallet/addwallet'>

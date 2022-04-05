@@ -18,7 +18,7 @@ import { HorizontalShipmentCapture } from './components/capture/HorizontalShipme
 
 const userBreadCrumbs: Array<PageLink> = [
   {
-    title: 'shipment',
+    title: 'Shipment',
     path: '/shipment/shipment',
     isSeparator: false,
     isActive: false,
@@ -31,21 +31,21 @@ const userBreadCrumbs: Array<PageLink> = [
   },
 
   {
-    title: 'route',
+    title: 'Route',
     path: '/shipment/route',
     isSeparator: false,
     isActive: false,
   },
 
   {
-    title: 'view price settings',
+    title: 'Price Setting',
     path: '/shipment/ViewPriceSettings',
     isSeparator: false,
     isActive: false,
   },
 
   {
-    title: 'view fleet',
+    title: 'Fleet',
     path: '/shipment/viewfleet',
     isSeparator: false,
     isActive: false,
@@ -65,12 +65,12 @@ const ShipmentPage: React.FC = () => {
           <PageTitle breadcrumbs={userBreadCrumbs}>Add Fleet</PageTitle>
         </Route>
         <Route path='/shipment/viewfleet'>
-          <PageTitle breadcrumbs={userBreadCrumbs}>View Fleets</PageTitle>
+          <PageTitle breadcrumbs={userBreadCrumbs}>Fleet</PageTitle>
           <ViewFleets />
         </Route>
 
         <Route path='/shipment/ViewPriceSettings'>
-          <PageTitle breadcrumbs={userBreadCrumbs}>Price Settings</PageTitle>
+          <PageTitle breadcrumbs={userBreadCrumbs}>Price Setting</PageTitle>
           <ViewPriceSettings/>
         </Route>
 

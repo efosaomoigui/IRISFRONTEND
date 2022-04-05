@@ -6,7 +6,7 @@ import { ShipmentRequest } from './components/ShipmentRequest'
 
 const userBreadCrumbs: Array<PageLink> = [
     {
-        title: 'shipment request',
+        title: 'Shipment Request',
         path: '/shipmentrequest/request',
         isSeparator: false,
         isActive: false,

@@ -27,7 +27,7 @@ const AddShipmentRequestModal: React.FC = () => {
     const shipmentrequest = entityValues as IShipmentRequestModel[];
 
     const setSelectedValue = (shipmentrequest: IShipmentRequestModel[]) => {
-        const val = shipmentrequest.find(x => x.ownerId === selectUrlParam)
+        const val = shipmentrequest.find(x => x.shipmentId === selectUrlParam)
         return val;
     }
 
@@ -42,7 +42,7 @@ const AddShipmentRequestModal: React.FC = () => {
 
     const onSubmit = (values: IShipmentRequestModel) => {
         setIsSubmitting(true)
-        values.ownerId = uuid()
+        values.shipmentId = uuid()
 
         agent.ShipmentRequest.create(values)
             .then((response) => {

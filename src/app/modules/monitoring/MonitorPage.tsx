@@ -10,7 +10,7 @@ import { MonitorHeader } from './MonitorHeader'
 
 const userBreadCrumbs: Array<PageLink> = [
   {
-    title: 'Trips',
+    title: 'Trip',
     path: '/monitor/trips',
     isSeparator: false,
     isActive: false,
@@ -31,7 +31,7 @@ const MonitorPage: React.FC = () => {
       <MonitorHeader />
       <Switch>
         <Route path='/monitor/trips'>
-          <PageTitle breadcrumbs={userBreadCrumbs}>Trips</PageTitle>
+          <PageTitle breadcrumbs={userBreadCrumbs}>Trip</PageTitle>
           <ViewTrips />
         </Route>
         <Route path='/monitor/trackhistory'>

@@ -37,7 +37,7 @@ const EditShipmentRequestModal: React.FC<Props> = ({ handleEdit, SelectedValues 
 
     const onSubmit = (values: IShipmentRequestModel) => {
         setIsSubmitting(true)
-        values.ownerId = uuid()
+        values.shipmentId = uuid()
 
         agent.ShipmentRequest.create(values)
             .then((response) => {
