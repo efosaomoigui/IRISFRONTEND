@@ -147,7 +147,7 @@ const Route = {
   create: (route: IRouteModel) =>
     request.post<IRouteModel>(`${API_URL}/ShipmentSettings/Route`, route),
   update: (route: IRouteModel) =>
-    request.put<IRouteModel>(`${API_URL}/ShipmentSettings/Route/${route.routeId}`, {}),
+    request.put<IRouteModel>(`${API_URL}/ShipmentSettings/Route/edit`, route),
   delete: (id: string) => request.del<void>(`${API_URL}/ShipmentSettings/Route/${id}`),
 }
 
@@ -159,7 +159,7 @@ const Shipment = {
   create: (shipment: IShipmentModel) =>
     request.post<IShipmentModel>(`${API_URL}/Shipment/Shipment`, shipment),
   update: (shipment: IShipmentModel) =>
-    request.put<IRouteModel>(`${API_URL}/Shipment/Shipment/edit/${shipment.ShipmentId}`, {}),
+    request.put<IRouteModel>(`${API_URL}/Shipment/Shipment/edit`, shipment),
   delete: (id: string) => request.del<void>(`${API_URL}/Shipment/Shipment/delete/${id}`),
 }
 
@@ -184,7 +184,7 @@ const Fleet = {
   create: (fleet: IFleetModel) =>
     request.post<IFleetModel>(`${API_URL}/ShipmentSettings/Fleet`, fleet),
   update: (fleet: IFleetModel) =>
-    request.put<IFleetModel>(`${API_URL}/ShipmentSettings/Fleet/${fleet.fleetId}`, {}),
+    request.put<IFleetModel>(`${API_URL}/ShipmentSettings/Fleet/edit`, fleet),
   delete: (id: string) => request.del<void>(`${API_URL}/ShipmentSettings/Fleet${id}`),
 }
 
@@ -196,7 +196,7 @@ const Price = {
   create: (price: IPriceModel) =>
     request.post<IPriceModel>(`${API_URL}/ShipmentSettings/Price`, price),
   update: (price: IPriceModel) =>
-    request.put<IPriceModel>(`${API_URL}/ShipmentSettings/Price`, price),
+    request.put<IPriceModel>(`${API_URL}/ShipmentSettings/Price/edit`, price),
   delete: (id: string) => request.del<void>(`${API_URL}/ShipmentSettings/Price${id}`),
   getLinePrice: (price: ILinePriceModel) =>
     request.post<ILinePriceModel>(`${API_URL}/ShipmentSettings/PriceSettings`, price),
@@ -229,7 +229,7 @@ const Invoice = {
   create: (invoice: IInvoiceModel) =>
     request.post<IInvoiceModel>(`${API_URL}/Payment/Payment`, invoice),
   update: (invoice: IInvoiceModel) =>
-    request.put<IInvoiceModel>(`${API_URL}/Payment/Payment/edit/${invoice.Id}`, {}),
+    request.put<IInvoiceModel>(`${API_URL}/Payment/Invoice/edit`, invoice),
   delete: (id: string) => request.del<void>(`${API_URL}/Payment/Payment/delete${id}`),
 }
 
@@ -253,8 +253,7 @@ const TrackHistory = {
     request.post<ITrackHistoryModel>(`${API_URL}/TrackHistory/TrackHistory`, trackhistory),
   update: (trackhistory: ITrackHistoryModel) =>
     request.put<ITrackHistoryModel>(
-      `${API_URL}/TrackHistory/TrackHistory/edit/${trackhistory.id}`,
-      {}
+      `${API_URL}/TrackHistory/TrackHistory/edit`, trackhistory
     ),
   delete: (id: string) => request.del<void>(`${API_URL}/UserManagement/GetUser${id}`),
 }
@@ -267,8 +266,7 @@ const CollectionCenter = {
     request.post<IFulfilmentModel>(`${API_URL}/Shipment/CollectionCenter`, CollectionCenter),
   update: (CollectionCenter: IFulfilmentModel) =>
     request.put<IFulfilmentModel>(
-      `${API_URL}/Shipment/CollectionCenter/edit/${CollectionCenter.shipmentId}`,
-      {}
+      `${API_URL}/Shipment/CollectionCenter/edit`, CollectionCenter
     ),
   delete: (id: string) => request.del<void>(`${API_URL}/Shipment/CollectionCenter/delete${id}`),
 }

@@ -39,7 +39,7 @@ const EditRouteModal: React.FC<Props> = ({ handleEdit, SelectedValues }: Props) 
 
   const onSubmit = (values: IRouteModel) => {
     setIsSubmitting(true)
-    values.routeId = uuid()
+    // values.routeId = uuid()
 
     agent.Route.update(values).then((response) => {
       if (response.validationErrors!.length > 0) {

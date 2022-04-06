@@ -44,7 +44,7 @@ const AddTrackHistoryModal: React.FC = () => {
 
   const onSubmit = (values: ITrackHistoryModel) => {
     setIsSubmitting(true)
-    values.id = uuid()
+    // values.id = uuid()
 
     agent.TrackHistory.create(values)
       .then((response) => {
