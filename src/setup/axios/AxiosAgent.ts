@@ -147,7 +147,7 @@ const Route = {
   create: (route: IRouteModel) =>
     request.post<IRouteModel>(`${API_URL}/ShipmentSettings/Route`, route),
   update: (route: IRouteModel) =>
-    request.put<IRouteModel>(`${API_URL}/ShipmentSettings/Route/${route.routeId}`, {}),
+    request.put<IRouteModel>(`${API_URL}/ShipmentSettings/Route/edit`, route),
   delete: (id: string) => request.del<void>(`${API_URL}/ShipmentSettings/Route/${id}`),
 }
 
