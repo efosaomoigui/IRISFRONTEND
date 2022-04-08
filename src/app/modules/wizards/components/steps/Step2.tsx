@@ -76,6 +76,21 @@ const Step2: FC<Props> = ({values}: Props) => {
                     </label>
 
                     <div className='mb-0'>
+                    <div className='fv-row mb-10'>
+                        <label className='form-label'>Contact Phone</label>
+
+                        <Field
+                        type="number"
+                          name='shipperPhoneNumber'
+                          className='form-control form-control-lg form-control-solid'
+                          rows={3}
+                        ></Field>
+
+                        <div className='text-danger mt-2'>
+                          <ErrorMessage name='shipperPhoneNumber' />
+                        </div>
+                      </div>
+                      
                       <div className='fv-row mb-10'>
                         <label className='form-label'>Full Name</label>
 
@@ -104,21 +119,6 @@ const Step2: FC<Props> = ({values}: Props) => {
                           <ErrorMessage name='shipperAddress' />
                         </div>
                       </div>
-
-                      <div className='fv-row mb-10'>
-                        <label className='form-label'>Contact Phone</label>
-
-                        <Field
-                        type="number"
-                          name='shipperPhoneNumber'
-                          className='form-control form-control-lg form-control-solid'
-                          rows={3}
-                        ></Field>
-
-                        <div className='text-danger mt-2'>
-                          <ErrorMessage name='shipperPhoneNumber' />
-                        </div>
-                      </div>
                     </div>
                   </div>
                 </div>
@@ -139,6 +139,20 @@ const Step2: FC<Props> = ({values}: Props) => {
                     </label>
 
                     <div className='mb-0'>
+                    <div className='fv-row mb-10'>
+                        <label className='form-label'>Contact Phone</label>
+
+                        <Field
+                        type="number"
+                          name='receiverPhoneNumber'
+                          className='form-control form-control-lg form-control-solid'
+                          rows={3}
+                        ></Field>
+                        <div className='text-danger mt-2'>
+                          <ErrorMessage name='receiverPhoneNumber' />
+                        </div>
+                      </div>
+
                       <div className='fv-row mb-10'>
                         <label className='form-label'>Full Name</label>
 
@@ -165,20 +179,6 @@ const Step2: FC<Props> = ({values}: Props) => {
 
                         <div className='text-danger mt-2'>
                           <ErrorMessage name='receiverAddress' />
-                        </div>
-                      </div>
-
-                      <div className='fv-row mb-10'>
-                        <label className='form-label'>Contact Phone</label>
-
-                        <Field
-                        type="number"
-                          name='receiverPhoneNumber'
-                          className='form-control form-control-lg form-control-solid'
-                          rows={3}
-                        ></Field>
-                        <div className='text-danger mt-2'>
-                          <ErrorMessage name='receiverPhoneNumber' />
                         </div>
                       </div>
                     </div>

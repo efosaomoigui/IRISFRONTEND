@@ -3,7 +3,7 @@ import {Field, ErrorMessage, FieldArray} from 'formik'
 import {Label} from 'semantic-ui-react'
 import {number} from 'yup/lib/locale'
 import agent, {axiosPrice} from '../../../../../setup/axios/AxiosAgent'
-import {ILinePriceModel} from '../../../shipmentmanagement/ShipmentModels/ShipmentInterfaces'
+import {ILinePriceModel, IShipmentWayBillAndInvoiceModel} from '../../../shipmentmanagement/ShipmentModels/ShipmentInterfaces'
 import axios from 'axios'
 
 interface Props {
@@ -13,12 +13,14 @@ interface Props {
   grandTotal?: number
 }
 
+
 const Step3: FC<Props> = ({radioState, values, handleChange, grandTotal}: Props) => {
   const [hideAndShowMailAndParcel, setHideAndShowMailAndParcel] = useState('')
   const [hideTruck, setHideTruck] = useState(false)
   const [loadingData, setLoadingData] = useState(true)
   const [total, setTotal] = useState(0)
   const [lineTotal, setLineTotal] = useState<ILinePriceModel>()
+  const [newWayBillAndInvoice, setNewWayBillAndInvoice] = useState<IShipmentWayBillAndInvoiceModel>() 
 
   const product = [
     {optionValue: '', optionLabel: 'Select Product Type'},
@@ -31,6 +33,20 @@ const Step3: FC<Props> = ({radioState, values, handleChange, grandTotal}: Props)
     {optionValue: 7, optionLabel: 'Nestle'},
     {optionValue: 8, optionLabel: 'Bigi'},
   ]
+
+  //USE EFFECT HOOK
+  useEffect(() => {
+    const callFunc = async () => {
+      const val = await agent.Shipment.NewWayBillNumber().then((response) => {
+        setLoadingData(false)
+        values.waybillNumber = response.waybill
+        values.invoiceNumber = response.invoice  
+      })
+    }
+    if (loadingData) {
+      callFunc()
+    }
+  }, [])
 
   // console.log('form values : ', values)
   const handleOnChange2 = (

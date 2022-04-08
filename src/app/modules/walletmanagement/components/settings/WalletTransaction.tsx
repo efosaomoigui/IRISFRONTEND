@@ -39,6 +39,10 @@ export function WalletTransaction() {
         Header: 'Description',
         accessor: 'description',
       },
+      {
+        Header: 'Balance', 
+        accessor: 'lineBalance',
+      },
      
     ],
     DetailsPath: '/wallet/wallettransactiondetails/',

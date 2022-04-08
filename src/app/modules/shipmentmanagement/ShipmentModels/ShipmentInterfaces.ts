@@ -39,6 +39,15 @@ export interface IShipmentModel {
     ServiceCenterId?:string
 } 
 
+export interface IShipmentWayBillAndInvoiceModel {
+    waybill:string
+    invoice:string
+}
+
+export interface IShipmentInvoiceModel {
+    Invoice:string
+}
+
 export interface IPriceModel {
     id?: string;
     category: number;

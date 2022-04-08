@@ -26,6 +26,8 @@ export interface ICreateAccount {
   grandTotal:number
   grandTotalArray:number[]
   paymentMethod:string
+  waybillNumber?:string,
+  invoiceNumber?:string,
 }
 
 const createAccountSchemas = [
@@ -95,7 +97,9 @@ const inits: ICreateAccount = {
   }],
   grandTotal:0,
   grandTotalArray:[0],
-  paymentMethod: ''
+  paymentMethod: '',
+  waybillNumber:'',
+  invoiceNumber:'',
 }
 
 export {createAccountSchemas, inits}

@@ -5,6 +5,8 @@ import {IPaymentCriteriaModel} from '../../../payment/PaymentModels/PaymentmentI
 import agent from '../../../../../setup/axios/AxiosAgent'
 import {toast} from 'react-toastify'
 import {v4 as uuid} from 'uuid'
+import paid from './paid.png'
+import unpaid from './unpaid.png'
 
 interface Props {
   radioState?: string
@@ -26,7 +28,7 @@ const Step5: FC<Props> = ({values, handleChange, radioState}: Props) => {
 
     if (radioState === 'mailandparcel') {
       for (var i = 0; i < values.itemsB.length; i++) {
-        let nValue = parseInt(values.itemsB[i].LineTotal) 
+        let nValue = parseInt(values.itemsB[i].LineTotal)
         if (!isNaN(nValue)) {
           total += nValue
         }
@@ -50,39 +52,45 @@ const Step5: FC<Props> = ({values, handleChange, radioState}: Props) => {
     const userCode = uuid()
 
     const paymentCriteria: IPaymentCriteriaModel = {
-      Amount: values.grandTotal,
-      CustomerPhoneNumber: values.shipperPhoneNumber.toString(),
-      UserId: userCode,
-      InvoiceNumber: invoiceCode,
-      WalletNumber: walletCode,
-      ShimentCategory: 1,
-      RouteId: values.route,
-      PaymentStatus: false,
-      PaymentMethod: 1,
-      Description: 'Wallet Debit Transaction',
-      Values: values,
+      amount: values.grandTotal,
+      customerPhoneNumber: values.shipperPhoneNumber.toString(),
+      userId: userCode,
+      invoiceNumber: invoiceCode,
+      walletNumber: walletCode,
+      shimentCategory: 1,
+      routeId: values.route,
+      paymentStatus: false,
+      paymentMethod: 1,
+      description: 'Wallet Debit Transaction',
+      values: values,
     }
 
     if (radioState === 'mailandparcel') {
-      paymentCriteria.ShimentCategory = 1
+      paymentCriteria.shimentCategory = 1
     } else if (radioState === 'TruckLoad') {
-      paymentCriteria.ShimentCategory = 2
+      paymentCriteria.shimentCategory = 2
     }
 
     // console.log("Payment Log", paymentCriteria )
     agent.PaymentLog.makePayment(paymentCriteria).then((response) => {
       if (response.validationErrors!.length > 0) {
         toast.error(response.validationErrors?.toString())
-        setPaidStatus(response.PaymentStatus)
+
         setErrorMessage(response.validationErrors!.toString())
+
         setIsSubmitting(false)
         setShowError(true)
       } else {
-        alert(response.PaymentStatus)
-        toast.success('User Creation Was Successful!')
+        setPaidStatus(response.paymentStatus)
+        if (response.paymentStatus) {
+          toast.success('Shipment Creation Was Successful!')
+        } else {
+          toast.error('Payment processing failed!')
+        }
         setInterval(() => {
           setShowForm(false)
         }, 1000)
+
         setIsSubmitting(false)
         setShowError(false)
       }
@@ -95,31 +103,32 @@ const Step5: FC<Props> = ({values, handleChange, radioState}: Props) => {
     const userCode = uuid()
 
     const paymentCriteria: IPaymentCriteriaModel = {
-      Amount: values.grandTotal,
-      CustomerPhoneNumber: values.shipperPhoneNumber.toString(),
-      UserId: userCode,
-      InvoiceNumber: invoiceCode,
-      WalletNumber: walletCode,
-      ShimentCategory: 1,
-      RouteId: values.route,
-      PaymentStatus: false,
-      PaymentMethod: 3,
-      Description: 'Pay Later Debit Transaction',
-      Values: values,
+      amount: values.grandTotal,
+      customerPhoneNumber: values.shipperPhoneNumber.toString(),
+      userId: userCode,
+      invoiceNumber: invoiceCode,
+      walletNumber: walletCode,
+      shimentCategory: 1,
+      routeId: values.route,
+      paymentStatus: false,
+      paymentMethod: 3,
+      description: 'Pay Later Debit Transaction',
+      values: values,
     }
 
     if (radioState === 'mailandparcel') {
-      paymentCriteria.ShimentCategory = 1
+      paymentCriteria.shimentCategory = 1
     } else if (radioState === 'TruckLoad') {
-      paymentCriteria.ShimentCategory = 2
+      paymentCriteria.shimentCategory = 2
     }
 
     // console.log("Payment Log", paymentCriteria )
     agent.PaymentLog.makePayment(paymentCriteria).then((response) => {
       if (response.validationErrors!.length > 0) {
         toast.error(response.validationErrors?.toString())
-        setPaidStatus(response.PaymentStatus)
+        setPaidStatus(response.paymentStatus)
         setErrorMessage(response.validationErrors!.toString())
+        console.log("ERR: ", errorMessage)
         setIsSubmitting(false)
         setShowError(true)
       } else {
@@ -138,8 +147,7 @@ const Step5: FC<Props> = ({values, handleChange, radioState}: Props) => {
       <div className='pb-2 pb-lg-15'>
         <h2 className='fw-bolder text-dark'>Payment Options</h2>
 
-        <div className='text-gray-400 fw-bold fs-6'>
-        </div>
+        <div className='text-gray-400 fw-bold fs-6'></div>
       </div>
 
       <div className='row'>
@@ -222,15 +230,23 @@ const Step5: FC<Props> = ({values, handleChange, radioState}: Props) => {
           <div className='notice d-flex bg-light-warning rounded border-warning border border-dashed p-2 m-1'>
             <div className='' style={{width: '100%'}}>
               <div className='fw-bold'>
-                <div className='fs-6 text-gray-700'>
+                <div className='fs-6 text-gray-700'> 
                   <div className='row g-5 g-xxl-12'>
                     <div className='col-xl-12'>
+                    {(errorMessage !=="") && (
+                      <div className='alert alert-danger' role='alert'>
+                        {errorMessage}
+                      </div>
+                    )}
                       {paymentSummary && (
                         <div className='card mb-5 mb-xl-12' id='kt_profile_details_view'>
                           {values.paymentMethod === 'wallet' && (
                             <div className='card-header cursor-pointer'>
                               <div className='card-title m-0'>
-                                <h3 className='fw-bolder m-0'>Pay Now</h3>
+                                {!paidstatus && <h3 className='fw-bolder m-0'>Pay Now</h3>}
+                                {paidstatus && (
+                                  <h3 className='fw-bolder m-0'>Order Confirmation</h3>
+                                )}
                               </div>
                               <div className='card-title m-2'>
                                 {!paidstatus && (
@@ -246,6 +262,7 @@ const Step5: FC<Props> = ({values, handleChange, radioState}: Props) => {
                                     Pay NGN {values.grandTotal} with wallet
                                   </button>
                                 )}
+                                {paidstatus && <img src={paid} alt='Logo' />}
                               </div>
                             </div>
                           )}
@@ -253,7 +270,10 @@ const Step5: FC<Props> = ({values, handleChange, radioState}: Props) => {
                           {values.paymentMethod === 'creditdebitcard' && (
                             <div className='card-header cursor-pointer'>
                               <div className='card-title m-0'>
-                                <h3 className='fw-bolder m-0'>Pay Now</h3>
+                                {!paidstatus && <h3 className='fw-bolder m-0'>Pay Now</h3>}
+                                {paidstatus && (
+                                  <h3 className='fw-bolder m-0'>Order Confirmation</h3>
+                                )}
                               </div>
                               <div className='card-title m-2'>
                                 {!paidstatus && (
@@ -269,6 +289,8 @@ const Step5: FC<Props> = ({values, handleChange, radioState}: Props) => {
                                     Pay NGN {values.grandTotal} with Credit/Debit Card
                                   </button>
                                 )}
+
+                                {paidstatus && <img src={paid} alt='Logo' />}
                               </div>
                             </div>
                           )}
@@ -276,7 +298,10 @@ const Step5: FC<Props> = ({values, handleChange, radioState}: Props) => {
                           {values.paymentMethod === 'postpaid' && (
                             <div className='card-header cursor-pointer'>
                               <div className='card-title m-0'>
-                                <h3 className='fw-bolder m-0'>Pay Later</h3>
+                                {!paidstatus && <h3 className='fw-bolder m-0'>Pay Later</h3>}
+                                {paidstatus && (
+                                  <h3 className='fw-bolder m-0'>Order Confirmation</h3>
+                                )}
                               </div>
                               <div className='card-title m-2'>
                                 {!paidstatus && (
@@ -288,28 +313,32 @@ const Step5: FC<Props> = ({values, handleChange, radioState}: Props) => {
                                     Pay NGN {values.grandTotal} with Post Paid
                                   </button>
                                 )}
-                              </div>
-                            </div>
-                          )}
-
-                          {paidstatus && (
-                            <div className='card-header cursor-pointer'>
-                              <div className='card-title m-0'>
-                                <h3 className='fw-bolder m-0'>Pay Later</h3>
-                              </div>
-                              <div className='card-title m-2'>
-                                <button
-                                  type='button'
-                                  style={{width: '88%'}}
-                                  className='btn btn-secondary btn-lg ml-3'
-                                >
-                                  PAID
-                                </button>
+                                {paidstatus && <img src={paid} alt='Logo' />}
                               </div>
                             </div>
                           )}
 
                           <div className='card-body p-12'>
+                            <div className='row mb-12'>
+                              <label className='col-lg-4 fw-bold text-muted'>WayBill #</label>
+
+                              <div className='col-lg-8'>
+                                <span className='fw-bolder fs-6 text-dark'>
+                                  {values.waybillNumber}
+                                </span>
+                              </div>
+                            </div>
+
+                            <div className='row mb-12'>
+                              <label className='col-lg-4 fw-bold text-muted'>Invoice #</label>
+
+                              <div className='col-lg-8'>
+                                <span className='fw-bolder fs-6 text-dark'>
+                                  {values.invoiceNumber}
+                                </span>
+                              </div>
+                            </div>
+
                             <div className='row mb-12'>
                               <label className='col-lg-4 fw-bold text-muted'>
                                 Shipment Category

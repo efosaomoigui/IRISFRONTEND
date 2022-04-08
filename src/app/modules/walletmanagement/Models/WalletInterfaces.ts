@@ -16,6 +16,9 @@ export interface IWalletTransactionModel {
   transactionType: number
   description: string
   userId: string
+  lineBalance?:string
+  walletBalance?:string
+  walletNumber?:string
   message?: string
   validationErrors?: string[]
   wallettransactionto?: {}
@@ -28,3 +31,9 @@ export interface IAddWalletModel {
   UserId: string
   walletBalance: number
 }
+
+export const numberFormat = (value:number) =>
+  new Intl.NumberFormat('en-NG', {
+    style: 'currency',
+    currency: 'NGN'
+  }).format(value);

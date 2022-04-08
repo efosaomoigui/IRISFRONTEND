@@ -13,9 +13,9 @@ const Step4: FC<Props> = ({values, handleChange}: Props) => {
 
   let intitVal = 0
   let totalVal = values.itemsB.reduce(
-    (accumVariable:number, curValue:any) => accumVariable + curValue.linetotal
-    , intitVal
-    )
+    (accumVariable: number, curValue: any) => accumVariable + curValue.linetotal,
+    intitVal
+  )
 
   // console.log('Step4: ', values.grandTotalArray)
 
@@ -47,6 +47,22 @@ const Step4: FC<Props> = ({values, handleChange}: Props) => {
                       </div>
 
                       <div className='card-body p-12'>
+                        <div className='row mb-12'>
+                          <label className='col-lg-4 fw-bold text-muted'>WayBill #</label>
+
+                          <div className='col-lg-8'>
+                            <span className='fw-bolder fs-6 text-dark'>{values.waybillNumber}</span>
+                          </div>
+                        </div>
+
+                        <div className='row mb-12'>
+                          <label className='col-lg-4 fw-bold text-muted'>Invoice #</label>
+
+                          <div className='col-lg-8'>
+                            <span className='fw-bolder fs-6 text-dark'>{values.invoiceNumber}</span>
+                          </div>
+                        </div>
+
                         <div className='row mb-12'>
                           <label className='col-lg-4 fw-bold text-muted'>Shipment Category</label>
 
