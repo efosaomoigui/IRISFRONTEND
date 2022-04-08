@@ -87,7 +87,7 @@ export function AsideMenuMain() {
             hasBullet={true}
           />
           <AsideMenuItem
-            to='/shipment/viewshipment'
+            to='/shipment/shipment'
             title='View Shipment'
             hasBullet={true}
           />
