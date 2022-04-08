@@ -26,7 +26,9 @@ import {
   IManifestModel,
   IPriceModel,
   IRouteModel,
+  IShipmentInvoiceModel,
   IShipmentModel,
+  IShipmentWayBillAndInvoiceModel,
 } from '../../app/modules/shipmentmanagement/ShipmentModels/ShipmentInterfaces'
 import {ShipmentModel} from '../../app/modules/shipmentmanagement/ShipmentModels/ShipmentModel'
 import { IShipmentRequestModel } from '../../app/modules/shipmentrequest/models/ShipmentRequestInterface'
@@ -161,6 +163,7 @@ const Shipment = {
   update: (shipment: IShipmentModel) =>
     request.put<IRouteModel>(`${API_URL}/Shipment/Shipment/edit/${shipment.ShipmentId}`, {}),
   delete: (id: string) => request.del<void>(`${API_URL}/Shipment/Shipment/delete/${id}`),
+  NewWayBillNumber: () => request.get<IShipmentWayBillAndInvoiceModel>(`${API_URL}/Shipment/Shipment/WaybillAndInvoiceNumber`), 
 }
 
 const Manifest = {
@@ -196,7 +199,7 @@ const Price = {
   create: (price: IPriceModel) =>
     request.post<IPriceModel>(`${API_URL}/ShipmentSettings/Price`, price),
   update: (price: IPriceModel) =>
-    request.put<IPriceModel>(`${API_URL}/ShipmentSettings/Price`, price),
+    request.put<IPriceModel>(`${API_URL}/ShipmentSettings/Price/edit`, price),
   delete: (id: string) => request.del<void>(`${API_URL}/ShipmentSettings/Price${id}`),
   getLinePrice: (price: ILinePriceModel) =>
     request.post<ILinePriceModel>(`${API_URL}/ShipmentSettings/PriceSettings`, price),

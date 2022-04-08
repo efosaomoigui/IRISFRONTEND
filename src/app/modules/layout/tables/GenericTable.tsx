@@ -21,8 +21,14 @@ interface Props {
   handleEdit?: (event: React.MouseEvent) => void
 }
 
-const GenericTable = ({irisData, columnsMap, DetailsPath, EditPath, DeletePath, handleEdit}: Props) => {
-
+const GenericTable = ({
+  irisData,
+  columnsMap,
+  DetailsPath,
+  EditPath,
+  DeletePath,
+  handleEdit,
+}: Props) => {
   // console.log("realdata==>", irisData)
   const tableInstance = useTable(
     {
@@ -55,12 +61,11 @@ const GenericTable = ({irisData, columnsMap, DetailsPath, EditPath, DeletePath, 
   } = tableInstance
 
   const {globalFilter, pageIndex, pageSize} = state
-  const {entityValues, setEntityValues, selectUrlParam, setSelectUrlParam} =
-    usePageData()
+  const {entityValues, setEntityValues, selectUrlParam, setSelectUrlParam} = usePageData()
 
   useEffect(() => {
     setEntityValues!(irisData)
-  },[entityValues])
+  }, [entityValues])
 
   return (
     <div>
@@ -69,6 +74,7 @@ const GenericTable = ({irisData, columnsMap, DetailsPath, EditPath, DeletePath, 
         <thead>
           {headerGroups.map((headerGroup) => (
             <tr {...headerGroup.getFooterGroupProps()}>
+              <th>#</th>
               {headerGroup.headers.map((column) => (
                 <th {...column.getHeaderProps(column.getSortByToggleProps())}>
                   {column.render('Header')}
@@ -86,6 +92,7 @@ const GenericTable = ({irisData, columnsMap, DetailsPath, EditPath, DeletePath, 
             // {console.log("Row: ",row.index, row.cells[0])}
             return (
               <tr {...row.getRowProps()}>
+                <td>{i + 1}</td>
                 {row.cells.map((cell) => {
                   return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
                 })}
@@ -93,7 +100,7 @@ const GenericTable = ({irisData, columnsMap, DetailsPath, EditPath, DeletePath, 
                 <td>
                   <TableActionLinks
                     DetailsPath={`${DetailsPath + row.cells[0].value}`}
-                    EditPath={`${[EditPath,row.cells[0].value]}`} 
+                    EditPath={`${[EditPath, row.cells[0].value]}`}
                     DeletePath={'#'}
                     handleEdit={handleEdit}
                   />

@@ -4,7 +4,7 @@ import agent from '../../../../../setup/axios/AxiosAgent';
 import { usePageData } from '../../../../../_iris/layout/core';
 import { IrisTablesWidget } from '../../../layout/tables/IrisTablesWidget';
 import { modalprops } from '../../../layout/tables/IrisTableTitle';
-import { IWalletModel, IWalletTransactionModel } from '../../Models/WalletInterfaces'
+import { IWalletModel, IWalletTransactionModel, numberFormat } from '../../Models/WalletInterfaces'
 import WalletTransaction_Data from './WalletTransaction_Data.json'
 import { useParams } from 'react-router-dom';
 // import {format} from 'date-fns' 
@@ -28,7 +28,7 @@ export function UserWalletTransaction() {
       },
       {
         Header: 'user Id',
-        accessor: 'userId',
+        accessor: 'name',
       },
       {
         Header: 'Amount',
@@ -41,6 +41,10 @@ export function UserWalletTransaction() {
       {
         Header: 'Description',
         accessor: 'description',
+      },
+      {
+        Header: 'Balance', 
+        accessor: 'lineBalance',
       },
      
     ],
@@ -100,7 +104,7 @@ export function UserWalletTransaction() {
           UseFakeData={false}
           FakeData={tableProvider.FakeData}
           TableTitle={'My Wallet History'}
-          Count={'Over 300 Users'}
+          Count={'Number: '+wallettransactionmodel[0].walletNumber+",  Current Balance: "+ numberFormat(Number(wallettransactionmodel[0].walletBalance))+")"}
           ModalTarget={
             modalTarger
           }
