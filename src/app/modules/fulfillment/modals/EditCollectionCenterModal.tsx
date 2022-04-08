@@ -37,7 +37,7 @@ const EditCollectionCenterModal: React.FC = () => {
 
   const onSubmit = (values: IFulfilmentModel) => {
     setIsSubmitting(true)
-    values.shipmentId = uuid()
+    // values.shipmentId = uuid()
 
     agent.CollectionCenter.update(values).then((response) => {
       if (response.validationErrors!.length > 0) {

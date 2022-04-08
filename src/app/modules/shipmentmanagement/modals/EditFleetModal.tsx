@@ -40,7 +40,7 @@ const EditFleetModal: React.FC<Props> = ({ handleEdit, SelectedValues }: Props) 
 
   const onSubmit = (values: IFleetModel) => {
     setIsSubmitting(true)
-    values.fleetId = uuid()
+    // values.fleetId = uuid()
 
     agent.Fleet.update(values).then((response) => {
       if (response.validationErrors!.length > 0) {

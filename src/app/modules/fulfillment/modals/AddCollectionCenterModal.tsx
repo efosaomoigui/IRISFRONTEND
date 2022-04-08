@@ -42,7 +42,7 @@ const AddCollectionCenterModal: React.FC = () => {
 
   const onSubmit = (values: IFulfilmentModel) => {
     setIsSubmitting(true)
-    values.shipmentId = uuid() 
+    // values.shipmentId = uuid() 
 
     agent.CollectionCenter.create(values)
       .then((response) => {

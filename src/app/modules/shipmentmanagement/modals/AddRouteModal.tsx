@@ -43,7 +43,7 @@ const AddRouteModal: React.FC<Props> = ({ handleSelect, SelectedValues }: Props)
 
   const onSubmit = (values: IRouteModel) => {
     setIsSubmitting(true)
-    values.routeId = uuid()
+    // values.routeId = uuid()
 
     agent.Route.create(values)
       .then((response) => {
