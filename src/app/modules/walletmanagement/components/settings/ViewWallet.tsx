@@ -28,12 +28,17 @@ export function ViewWallet() {
         accessor: 'number',
       },
       {
-        Header: 'User Id',
-        accessor: 'userId',
+        Header: 'Name',
+        accessor: 'user',
       },
       {
         Header: 'Active',
         accessor: 'isActive',
+      },
+      {
+        Header: 'Balance',
+        accessor: 'walletBalance',
+        // Cell: (props:IWalletModel) => new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'USD' }).format(props.value)
       },
     ],
     DetailsPath: '/wallet/walletdetails/',
@@ -41,6 +46,7 @@ export function ViewWallet() {
     DeletePath: '/adminSettings/userDetails/',
     FakeData: Wallet_Data,
   }
+
 
   //Buttons on the table page
   const ModalTarget = [
@@ -69,7 +75,7 @@ export function ViewWallet() {
     const val = walletmodel.find((x) => x.id === urlParm) 
     handleSelectValue(val!)
     return val
-  }
+  } 
 
 
   return (

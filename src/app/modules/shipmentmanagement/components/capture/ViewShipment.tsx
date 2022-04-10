@@ -21,8 +21,12 @@ export function ViewShipment() {
         accessor: 'waybill',
       },
       {
+        Header: 'Date',
+        accessor: 'createdDate',
+      },
+      {
         Header: 'Customer',
-        accessor: 'customer',
+        accessor: 'customerName',
       },
       {
         Header: 'GrandTotal',
@@ -30,16 +34,12 @@ export function ViewShipment() {
       },
       {
         Header: 'Reciever',
-        accessor: 'reciever',
+        accessor: 'recieverName',
       },
       {
         Header: 'Pick Up Options',
         accessor: 'pickUpOptions',
-      },
-      {
-        Header: 'Shipment Items',
-        accessor: 'shipmentItems',
-      },
+      }
     ],
     DetailsPath: '/shipment/shipmentdetail/',
     EditPath: '#kt_modal_viewshipment',
@@ -51,7 +51,7 @@ export function ViewShipment() {
   const ModalTarget = [
     {
       linkTitle: 'Capture Shipment',
-      linkTarget: '#kt_modal_viewshipment',
+      linkTarget: '#',
     },
   ]
 

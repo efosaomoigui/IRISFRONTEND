@@ -29,9 +29,12 @@ export interface IRouteModel {
 export interface IShipmentModel {
     ShipmentId:string
     Waybill:string
+    CreatedDate?:string
+    CustomerNaame?:string
     Customer:string
     GrandTotal:string
     CustomerAddress:[{}]
+    RecieverName?:string
     Reciever:string
     RecieverAddress:[{}]
     PickupOptions:string

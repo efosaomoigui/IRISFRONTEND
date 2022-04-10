@@ -3,6 +3,7 @@ export interface IWalletModel {
   number: string
   isActive: string
   userId: string
+  user?: string
   walletBalance: number
   walletTransactions?: IWalletTransactionModel[]
   message?: string

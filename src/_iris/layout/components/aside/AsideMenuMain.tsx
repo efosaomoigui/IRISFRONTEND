@@ -75,22 +75,14 @@ export function AsideMenuMain() {
         title='Shipments'
         fontIcon='bi-layers'
       >
+        <AsideMenuItem to='/shipment/shipment' title='View Shipment' hasBullet={true} />
         <AsideMenuItemWithSub
           to='/shipment/CaptureShipment'
           icon='/media/icons/duotune/general/gen019.svg'
           title='Capture'
           fontIcon='bi-layers'
         >
-          <AsideMenuItem
-            to='/shipment/CaptureShipment'
-            title='Capture Shipment'
-            hasBullet={true}
-          />
-          <AsideMenuItem
-            to='/shipment/shipment'
-            title='View Shipment'
-            hasBullet={true}
-          />
+          <AsideMenuItem to='/shipment/CaptureShipment' title='Capture Shipment' hasBullet={true} />
         </AsideMenuItemWithSub>
         <AsideMenuItemWithSub
           to='/shipment'
@@ -114,7 +106,6 @@ export function AsideMenuMain() {
           <AsideMenuItem to='/shipment/ViewPriceSettings' title='Price Setting' hasBullet={true} />
         </AsideMenuItemWithSub>
       </AsideMenuItemWithSub>
-
 
       {/* SHIPMENT REQUEST */}
       <div className='menu-item'>

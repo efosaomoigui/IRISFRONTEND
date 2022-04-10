@@ -23,8 +23,16 @@ export function ViewPriceSettings() {
         accessor: 'id',
       },
       {
-        Header: 'Route Identification',
-        accessor: 'routeId',
+        Header: 'Route',
+        accessor: 'routeName',
+      },
+      {
+        Header: 'Departure',
+        accessor: 'departure',
+      },
+      {
+        Header: 'Destination',
+        accessor: 'destination',
       },
       {
         Header: 'Category List',

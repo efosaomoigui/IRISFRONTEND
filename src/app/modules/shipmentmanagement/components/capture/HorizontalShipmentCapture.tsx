@@ -82,8 +82,8 @@ const HorizontalShipmentCapture: FC = () => {
               <h3 className='stepper-title'>General Information</h3>
             </div>
 
-            <div className='stepper-item' data-kt-stepper-element='nav'>
-              <h3 className='stepper-title'>Shipper Details</h3>
+            <div className='stepper-item ' data-kt-stepper-element='nav'>
+              <h3 className='stepper-title '>Shipper Details</h3>
             </div>
 
             <div className='stepper-item' data-kt-stepper-element='nav'>
