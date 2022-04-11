@@ -7,6 +7,7 @@ import {toast} from 'react-toastify'
 import {v4 as uuid} from 'uuid'
 import paid from './paid.png'
 import unpaid from './unpaid.png'
+import { numberFormat } from '../../../walletmanagement/Models/WalletInterfaces'
 
 interface Props {
   radioState?: string
@@ -18,6 +19,7 @@ interface Props {
 const Step5: FC<Props> = ({values, handleChange, radioState}: Props) => {
   const [paymentSummary, showPaymentSummary] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
+  const [successMessage, setSuccessMessage] = useState('')
   const [showError, setShowError] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [showForm, setShowForm] = useState(true)
@@ -75,17 +77,18 @@ const Step5: FC<Props> = ({values, handleChange, radioState}: Props) => {
     agent.PaymentLog.makePayment(paymentCriteria).then((response) => {
       if (response.validationErrors!.length > 0) {
         toast.error(response.validationErrors?.toString())
-
         setErrorMessage(response.validationErrors!.toString())
-
         setIsSubmitting(false)
         setShowError(true)
       } else {
         setPaidStatus(response.paymentStatus)
         if (response.paymentStatus) {
           toast.success('Shipment Creation Was Successful!')
+          setSuccessMessage('Shipment Creation Was Successful!')
         } else {
-          toast.error('Payment processing failed!')
+          toast.error('Payment processing failed, Please try again or use another payment method!')
+          setErrorMessage('Payment processing failed, Please try again or use another payment method!')
+          console.log('Error: ', errorMessage)
         }
         setInterval(() => {
           setShowForm(false)
@@ -128,7 +131,7 @@ const Step5: FC<Props> = ({values, handleChange, radioState}: Props) => {
         toast.error(response.validationErrors?.toString())
         setPaidStatus(response.paymentStatus)
         setErrorMessage(response.validationErrors!.toString())
-        console.log("ERR: ", errorMessage)
+        console.log('ERR: ', errorMessage)
         setIsSubmitting(false)
         setShowError(true)
       } else {
@@ -230,14 +233,19 @@ const Step5: FC<Props> = ({values, handleChange, radioState}: Props) => {
           <div className='notice d-flex bg-light-warning rounded border-warning border border-dashed p-2 m-1'>
             <div className='' style={{width: '100%'}}>
               <div className='fw-bold'>
-                <div className='fs-6 text-gray-700'> 
+                <div className='fs-6 text-gray-700'>
                   <div className='row g-5 g-xxl-12'>
                     <div className='col-xl-12'>
-                    {(errorMessage !=="") && (
-                      <div className='alert alert-danger' role='alert'>
-                        {errorMessage}
-                      </div>
-                    )}
+                    {successMessage && (
+                        <div className='alert alert-success' role='alert'>
+                          {successMessage}
+                        </div>
+                      )}
+                      {errorMessage && (
+                        <div className='alert alert-danger' role='alert'>
+                          {errorMessage}
+                        </div>
+                      )}
                       {paymentSummary && (
                         <div className='card mb-5 mb-xl-12' id='kt_profile_details_view'>
                           {values.paymentMethod === 'wallet' && (
@@ -259,7 +267,7 @@ const Step5: FC<Props> = ({values, handleChange, radioState}: Props) => {
                                     {isSubmitting && (
                                       <span className='spinner-grow spinner-grow-sm'></span>
                                     )}
-                                    Pay NGN {values.grandTotal} with wallet
+                                    Pay NGN {numberFormat(Number(values.grandTotal))} with wallet
                                   </button>
                                 )}
                                 {paidstatus && <img src={paid} alt='Logo' />}
@@ -286,7 +294,7 @@ const Step5: FC<Props> = ({values, handleChange, radioState}: Props) => {
                                     {isSubmitting && (
                                       <span className='spinner-grow spinner-grow-sm'></span>
                                     )}
-                                    Pay NGN {values.grandTotal} with Credit/Debit Card
+                                    Pay NGN {numberFormat(Number(values.grandTotal))} with Credit/Debit Card
                                   </button>
                                 )}
 
@@ -310,7 +318,7 @@ const Step5: FC<Props> = ({values, handleChange, radioState}: Props) => {
                                     style={{width: '88%'}}
                                     className='btn btn-primary btn-lg ml-3'
                                   >
-                                    Pay NGN {values.grandTotal} with Post Paid
+                                    Pay NGN {numberFormat(Number(values.grandTotal))} with Post Paid
                                   </button>
                                 )}
                                 {paidstatus && <img src={paid} alt='Logo' />}
@@ -419,7 +427,7 @@ const Step5: FC<Props> = ({values, handleChange, radioState}: Props) => {
 
                             <div className='row mb-10'>
                               <label className='col-lg-4 fw-bold text-muted'>
-                                receiverPhoneNumber
+                               Receiver Phone Number
                               </label>
 
                               <div className='col-lg-8'>
@@ -458,7 +466,7 @@ const Step5: FC<Props> = ({values, handleChange, radioState}: Props) => {
                                               </div>
                                               <div className='col mb-5'>
                                                 <h3 className='fw-bolder m-0'>
-                                                  NGN{item.LineTotal}
+                                                  {numberFormat(Number(item.LineTotal))}
                                                 </h3>
                                               </div>
                                             </div>
@@ -517,7 +525,7 @@ const Step5: FC<Props> = ({values, handleChange, radioState}: Props) => {
                                               </div>
                                               <div className='col mb-5'>
                                                 <h3 className='fw-bolder m-0'>
-                                                  NGN{item.LineTotal}
+                                                  {numberFormat(Number(item.LineTotal))}
                                                 </h3>
                                               </div>
                                             </div>
@@ -536,7 +544,7 @@ const Step5: FC<Props> = ({values, handleChange, radioState}: Props) => {
                               <h3 className='fw-bolder m-0'>Grand Total</h3>
                             </div>
                             <div className='card-title m-0'>
-                              <h3 className='fw-bolder m-0'>NGN {values.grandTotal}</h3>
+                              <h3 className='fw-bolder m-0'>{numberFormat(Number(values.grandTotal))}</h3>
                             </div>
                           </div>
                         </div>

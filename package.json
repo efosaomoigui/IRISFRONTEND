@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "/",
   "dependencies": {
+    "@createnextapp/react-barcode": "^1.1.1",
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
     "@formatjs/intl-pluralrules": "^4.3.2",

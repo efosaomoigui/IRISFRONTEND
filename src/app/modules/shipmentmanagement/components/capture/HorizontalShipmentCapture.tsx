@@ -132,7 +132,7 @@ const HorizontalShipmentCapture: FC = () => {
                 </div>
 
                 <div data-kt-stepper-element='content'>
-                  <Step6 waybill='' invoice='' />
+                  <Step6 waybill='' invoice='' values={values}  />
                 </div>
 
                 <div className='d-flex flex-stack pt-2'>

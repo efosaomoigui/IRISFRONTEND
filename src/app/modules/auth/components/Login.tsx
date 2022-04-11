@@ -10,11 +10,11 @@ import * as auth from '../redux/AuthRedux';
 
 
 const loginSchema = Yup.object().shape({
-  email: Yup.string()
-    .email('Wrong email format')
+  userName: Yup.string()
+    // .email('Wrong email format')
     .min(3, 'Minimum 3 symbols')
     .max(50, 'Maximum 50 symbols')
-    .required('Email is required'),
+    .required('UserName is required'),
   password: Yup.string()
     .min(3, 'Minimum 3 symbols')
     .max(50, 'Maximum 50 symbols')
@@ -22,7 +22,7 @@ const loginSchema = Yup.object().shape({
 })
 
 const initialValues = {
-  email: 'irisdemo@chiscoiris.com',
+  userName: 'irisdemo@chiscoiris.com',
   password: 'Vchisco200#',
 }
 
@@ -42,7 +42,7 @@ export function Login() {
     onSubmit: (values, {setStatus, setSubmitting}) => {
       setLoading(true)
       setTimeout(() => {
-        login(values.email, values.password)
+        login(values.userName, values.password)
           .then(({data: {accessToken}}) => {
             setLoading(false)
             dispatch(auth.actions.login(accessToken))
@@ -93,22 +93,22 @@ export function Login() {
       <div className='fv-row mb-10'>
         <label className='form-label fs-6 fw-bolder text-dark'>Email</label>
         <input
-          placeholder='Email'
-          {...formik.getFieldProps('email')}
+          placeholder='User Name'
+          {...formik.getFieldProps('userName')}
           className={clsx(
             'form-control form-control-lg form-control-solid',
-            {'is-invalid': formik.touched.email && formik.errors.email},
+            {'is-invalid': formik.touched.userName && formik.errors.userName},
             {
-              'is-valid': formik.touched.email && !formik.errors.email,
+              'is-valid': formik.touched.userName && !formik.errors.userName,
             }
           )}
-          type='email'
-          name='email'
+          type='text'
+          name='userName'
           autoComplete='off'
         />
-        {formik.touched.email && formik.errors.email && (
+        {formik.touched.userName && formik.errors.userName && (
           <div className='fv-plugins-message-container'>
-            <span role='alert'>{formik.errors.email}</span>
+            <span role='alert'>{formik.errors.userName}</span>
           </div>
         )}
       </div>

@@ -1,6 +1,7 @@
 import React, {ChangeEvent, FC, useState} from 'react'
 import {KTSVG} from '../../../../../_iris/helpers'
 import {Link} from 'react-router-dom'
+import { numberFormat } from '../../../walletmanagement/Models/WalletInterfaces'
 
 interface Props {
   values?: any
@@ -91,7 +92,7 @@ const Step4: FC<Props> = ({values, handleChange}: Props) => {
 
                         <div className='row mb-12'>
                           <label className='col-lg-4 fw-bold text-muted'>
-                            shipperAddress
+                            shipper Address
                             <i
                               className='fas fa-exclamation-circle ms-1 fs-7'
                               data-bs-toggle='tooltip'
@@ -106,7 +107,7 @@ const Step4: FC<Props> = ({values, handleChange}: Props) => {
 
                         <div className='row mb-12'>
                           <label className='col-lg-4 fw-bold text-muted'>
-                            shipperPhoneNumbery Site
+                            shipper Phone Number
                           </label>
 
                           <div className='col-lg-8'>0{values.shipperPhoneNumber}</div>
@@ -114,7 +115,7 @@ const Step4: FC<Props> = ({values, handleChange}: Props) => {
 
                         <div className='row mb-12'>
                           <label className='col-lg-4 fw-bold text-muted'>
-                            receiverFullName
+                            Receiver FullName
                             <i
                               className='fas fa-exclamation-circle ms-1 fs-7'
                               data-bs-toggle='tooltip'
@@ -130,7 +131,7 @@ const Step4: FC<Props> = ({values, handleChange}: Props) => {
                         </div>
 
                         <div className='row mb-10'>
-                          <label className='col-lg-4 fw-bold text-muted'>receiverAddress</label>
+                          <label className='col-lg-4 fw-bold text-muted'>Receiver Address</label>
 
                           <div className='col-lg-8'>
                             <span className='fw-bolder fs-6 text-dark'>
@@ -140,7 +141,7 @@ const Step4: FC<Props> = ({values, handleChange}: Props) => {
                         </div>
 
                         <div className='row mb-10'>
-                          <label className='col-lg-4 fw-bold text-muted'>receiverPhoneNumber</label>
+                          <label className='col-lg-4 fw-bold text-muted'>Receiver Phone Number</label>
 
                           <div className='col-lg-8'>
                             <span className='fw-bold fs-6'>0{values.receiverPhoneNumber}</span>
@@ -232,7 +233,7 @@ const Step4: FC<Props> = ({values, handleChange}: Props) => {
                                             <strong>Total</strong>
                                           </div>
                                           <div className='col mb-5'>
-                                            <h3 className='fw-bolder m-0'>NGN{item.LineTotal}</h3>
+                                            <h3 className='fw-bolder m-0'>{numberFormat(Number(item.LineTotal))}</h3>
                                           </div>
                                         </div>
                                       </div>
@@ -245,14 +246,14 @@ const Step4: FC<Props> = ({values, handleChange}: Props) => {
                         </div>
                       </div>
                       <hr className='bg-success border-1 border-top border-danger'></hr>
-                      <div className='card-header cursor-pointer'>
+                      {/* <div className='card-header cursor-pointer'>
                         <div className='card-title m-0'>
-                          {/* <h3 className='fw-bolder m-0'>Grand Total</h3> */}
+                          <h3 className='fw-bolder m-0'>Grand Total</h3>
                         </div>
                         <div className='card-title m-0'>
-                          {/* <h3 className='fw-bolder m-0'>NGN {values.grandTotal}</h3> */}
+                          <h3 className='fw-bolder m-0'>NGN {values.grandTotal}</h3>
                         </div>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 </div>
