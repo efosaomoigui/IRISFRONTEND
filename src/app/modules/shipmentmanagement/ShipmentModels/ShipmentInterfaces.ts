@@ -55,6 +55,9 @@ export interface IPriceModel {
     id?: string;
     category: number;
     routeId: string;
+    departure?: string;
+    destination?: string;
+    routeName?: string;
     unitWeight: number;
     pricePerUnit: number;
     product?:number;
