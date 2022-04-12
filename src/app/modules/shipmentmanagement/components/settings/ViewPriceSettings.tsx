@@ -36,7 +36,7 @@ export function ViewPriceSettings() {
       },
       {
         Header: 'Category List',
-        accessor: 'category',
+        accessor: 'shipmentCategory',
       },
       {
         Header: 'Unit Weight',
