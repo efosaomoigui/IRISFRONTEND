@@ -52,7 +52,7 @@ export interface IShipmentInvoiceModel {
 }
 
 export interface IPriceModel {
-    id?: string;
+    id?: string; 
     category: number;
     routeId: string;
     departure?: string;
