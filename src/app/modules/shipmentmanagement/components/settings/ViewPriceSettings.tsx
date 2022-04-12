@@ -64,7 +64,7 @@ export function ViewPriceSettings() {
   const handleEdit = (event: React.MouseEvent) => {
     const urlParm = event.currentTarget.getAttribute('id')
     const val = pricemodel.find((x) => x.id === urlParm)
-    handleSelectValue(val!)
+    handleSelectValue(val!)   
     return val
   }
 
