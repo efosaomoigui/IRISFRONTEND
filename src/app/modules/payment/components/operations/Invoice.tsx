@@ -19,7 +19,7 @@ export function Invoice() {
     columns: [
       {
         Header: 'Id',
-        accessor: 'Id',
+        accessor: 'routeId',
         // cell:({ value }) => {return format(new Date(value), 'dd/MM/YYYY')}
       },
       {
@@ -28,12 +28,12 @@ export function Invoice() {
         // cell:({ value }) => {return format(new Date(value), 'dd/MM/YYYY')}
       },
       {
-        Header: 'Shipment Id ',
-        accessor: 'shipmentId',
+        Header: 'Waybill Number',
+        accessor: 'waybilNumber',
       },
       {
-        Header: 'Shipment',
-        accessor: 'shipment',
+        Header: 'Amount',
+        accessor: 'amount',
       },
       {
         Header: 'PaymentMethod',

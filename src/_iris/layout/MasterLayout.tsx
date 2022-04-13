@@ -39,6 +39,7 @@ import { EditPaymentLogModal } from '../../app/modules/payment/paymentmodals/Edi
 import { EditInvoiceModal } from '../../app/modules/payment/paymentmodals/EditInvoiceModal'
 import { EditShipmentRequestModal } from '../../app/modules/shipmentrequest/modals/EditShipmentRequestModal'
 import { AddShipmentRequestModal } from '../../app/modules/shipmentrequest/modals/AddShipmentRequestModal'
+import './print.css'
 
 
 const MasterLayout: React.FC = ({children}) => {

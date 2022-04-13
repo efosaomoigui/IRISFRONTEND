@@ -4,7 +4,7 @@ import {MenuInner} from './MenuInner'
 const Header: FC = () => {
   return (
     <div
-      className='header-menu align-items-stretch'
+      className='header-menu align-items-stretch no-printme'
       data-kt-drawer='true'
       data-kt-drawer-name='header-menu'
       data-kt-drawer-activate='{default: true, lg: false}'

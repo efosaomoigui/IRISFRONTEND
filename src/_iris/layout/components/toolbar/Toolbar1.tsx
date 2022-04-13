@@ -10,7 +10,7 @@ const Toolbar1: FC = () => {
   const {classes} = useLayout()
 
   return (
-    <div className='toolbar' id='kt_toolbar'>
+    <div className='toolbar no-printme' id='kt_toolbar'>
       {/* begin::Container */}
       <div
         id='kt_toolbar_container'

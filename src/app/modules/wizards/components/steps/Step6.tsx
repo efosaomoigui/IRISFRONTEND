@@ -3,6 +3,7 @@ import {KTSVG} from '../../../../../_iris/helpers'
 import {Link} from 'react-router-dom'
 import {numberFormat} from '../../../walletmanagement/Models/WalletInterfaces'
 import { useBarcode } from '@createnextapp/react-barcode';
+import './print.css'
 
 interface Props {
   waybill?: string 
@@ -13,7 +14,7 @@ interface Props {
   grandTotal?: number
 }
 
-function BarcodeRender(value:string) 
+function BarcodeRender(value:string)  
 {
   const { inputRef } = useBarcode(
   {
@@ -36,6 +37,8 @@ const Step6: FC<Props> = ({waybill, invoice, values, radioState}: Props) => {
   const [showForm, setShowForm] = useState(true)
   const [paidstatus, setPaidStatus] = useState(false)
 
+  const printDocument = () =>{window.print()} 
+
   return (
     <div className='w-100'>
       <div className='pb-8 pb-lg-10'>
@@ -51,6 +54,7 @@ const Step6: FC<Props> = ({waybill, invoice, values, radioState}: Props) => {
                 <div className='card-header cursor-pointer'>
                   <div className='card-title m-0'>
                     <h3 className='fw-bolder m-0'>   Invoice #: {BarcodeRender(values.invoiceNumber)}  </h3>
+                    
                   </div>
                   {/* <Barcode value={values.invoiceNumber} /> */}
                   <div className='card-title m-0'>
@@ -260,6 +264,7 @@ const Step6: FC<Props> = ({waybill, invoice, values, radioState}: Props) => {
                   </div>
                 </div>
               </div>
+              <button onClick={printDocument}>Print</button>
             </div>
           </div>
         </div>
