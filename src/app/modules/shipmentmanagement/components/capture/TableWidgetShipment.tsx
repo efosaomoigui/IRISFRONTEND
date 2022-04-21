@@ -73,7 +73,7 @@ const TablesWidgetShipment: React.FC<Props> = ({ shipment,className}) => {
             {/* begin::Table body */}
             <tbody>
                 {shipment.map((shipment) => (
-                <tr key={shipment.ShipmentId}>
+                <tr key={shipment.shipmentId}>
                   <td>
                     <div className='form-check form-check-sm form-check-custom form-check-solid'>
                       <input
@@ -90,12 +90,12 @@ const TablesWidgetShipment: React.FC<Props> = ({ shipment,className}) => {
                       </div>
                       <div className='d-flex justify-content-start flex-column'>
                         <a href='#' className='text-dark fw-bolder text-hover-primary fs-6'>
-                            {shipment.ShipmentId} 
+                            {shipment.shipmentId} 
                           {/* Fleet Manager */}
                         </a>
                         <span className='text-muted fw-bold text-muted d-block fs-7'>
                           {/* HTML, JS, ReactJS */}
-                            {shipment.Waybill}
+                            {shipment.waybill}
                         </span>
                       </div>
                     </div>
@@ -106,7 +106,7 @@ const TablesWidgetShipment: React.FC<Props> = ({ shipment,className}) => {
                     </a>
                     <span className='text-muted fw-bold text-muted d-block fs-7'>
                       {/* Web, UI/UX Design */}
-                        {shipment.Customer}
+                        {shipment.customer}
                     </span>
                   </td>
                   <td>
@@ -115,7 +115,7 @@ const TablesWidgetShipment: React.FC<Props> = ({ shipment,className}) => {
                     </a>
                     <span className='text-muted fw-bold text-muted d-block fs-7'>
                       {/* Web, UI/UX Design */}
-                        {shipment.GrandTotal}
+                        {shipment.grandTotal}
                     </span>
                   </td>
                     <td>
@@ -124,7 +124,7 @@ const TablesWidgetShipment: React.FC<Props> = ({ shipment,className}) => {
                       </a>
                       <span className='text-muted fw-bold text-muted d-block fs-7'>
                         {/* Web, UI/UX Design */}
-                        {shipment.Reciever}
+                        {shipment.recieverName}
                       </span>
                     </td>
                   <td>

@@ -27,20 +27,47 @@ export interface IRouteModel {
 } 
 
 export interface IShipmentModel {
-    ShipmentId:string
-    Waybill:string
-    CreatedDate?:string
-    CustomerNaame?:string
-    Customer:string
-    GrandTotal:string
-    CustomerAddress:[{}]
-    RecieverName?:string
-    Reciever:string
-    RecieverAddress:[{}]
-    PickupOptions:string
-    ShipmentItems:[{}]
-    ServiceCenterId?:string
+    shipmentId?:string
+    waybill?:string
+    invoice?:string
+    departure?:string
+    shipmentCategory?:string
+    shipmentRouteId?:string
+    destination?:string
+    createdDate?:string
+    customerName?:string
+    customer?:string
+    customerPhoneNumber?:string
+    recieverPhoneNumber?:string
+    grandTotal?:string
+    customerAddress?:[{}]
+    recieverName?:string
+    Reciever?:string
+    recieverAddress?:[{}]
+    pickupOptions?:string
+    shipmentItems?:IShipmentItems[]
+    serviceCenterId?:string
 } 
+
+export interface IBaseShipmentModel {
+    waybill?:string
+    destination?:string
+    routeId?:string
+} 
+
+
+export interface IShipmentItems {
+    ShipmentItemId?:string 
+    Weight ?:string
+    length?:string
+    breadth?:string
+    Height ?:string
+    DimensionUnit?:string
+    ShipmentDescription?:string
+    ShipmentProduct?:string
+    Shipment ?:string
+    LineTotal?:string
+}
 
 export interface IShipmentWayBillAndInvoiceModel {
     waybill:string
@@ -85,4 +112,16 @@ export interface IManifestModel {
     message?: string
     validationErrors?: string[]
     manifestdto?: {}
+} 
+
+export interface IGroupWayBillModel {
+    Id? : string
+    GroupCode? : string
+    Shipment? : string
+    Waybill? : IBaseShipmentModel[]
+    RId?   : string
+    GroupRId?  : string      
+    ServiceCenterId? : string
+    message?: string
+    validationErrors?: string[]
 } 

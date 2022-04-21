@@ -25,6 +25,14 @@ export function ViewShipment() {
         accessor: 'createdDate',
       },
       {
+        Header: 'Departure',
+        accessor: 'departure',
+      },
+      {
+        Header: 'Destination',
+        accessor: 'destination',
+      },
+      {
         Header: 'Customer',
         accessor: 'customerName',
       },
@@ -38,7 +46,7 @@ export function ViewShipment() {
       },
       {
         Header: 'Pick Up Options',
-        accessor: 'pickUpOptions',
+        accessor: 'pickupOptions',
       }
     ],
     DetailsPath: '/shipment/shipmentdetail/',

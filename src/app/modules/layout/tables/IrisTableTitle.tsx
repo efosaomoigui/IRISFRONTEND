@@ -25,8 +25,8 @@ const IrisTableHeading = ({tableTitle, count, modelTarget}: Props) => {
   return (
       <div className='card-header border-0 pt-5'>
         <h3 className='card-title align-items-start flex-column'>
-          <span className='card-label fw-bolder fs-3 mb-1'>{tableTitle}</span>
-          <span className='text-muted mt-1 fw-bold fs-7'>{count}</span>
+          <span className='card-label fw-bolder fs-1 mb-1'>{tableTitle}</span>
+          {/* <span className='text-muted mt-1 fw-bold fs-7'>{count}</span> */}
         </h3>
         <div
           className='card-toolbar'

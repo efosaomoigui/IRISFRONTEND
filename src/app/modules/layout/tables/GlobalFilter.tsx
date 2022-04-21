@@ -14,6 +14,7 @@ const GlobalFilter = ({filter, setFilter}: Props): JSX.Element => {
         value={filter || ''}
         onChange={(e) => setFilter(e.target.value)}
         placeholder="Search: "
+        style={{ border: '#cccccc solid 1px' }}
       />
       <br />
     </span>

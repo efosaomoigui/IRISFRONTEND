@@ -18,13 +18,23 @@ export function Invoice() {
   const tableProvider = {
     columns: [
       {
-        Header: 'Id',
-        accessor: 'routeId',
+        Header: 'Invoice Code',
+        accessor: 'invoiceCode',
         // cell:({ value }) => {return format(new Date(value), 'dd/MM/YYYY')}
       },
       {
-        Header: 'Invoice Code',
-        accessor: 'invoiceCode',
+        Header: 'Date',
+        accessor: 'createdDate',
+        // cell:({ value }) => {return format(new Date(value), 'dd/MM/YYYY')}
+      },
+      {
+        Header: 'Customer',
+        accessor: 'customerName',
+        // cell:({ value }) => {return format(new Date(value), 'dd/MM/YYYY')}
+      },
+      {
+        Header: 'Amount',
+        accessor: 'amount',
         // cell:({ value }) => {return format(new Date(value), 'dd/MM/YYYY')}
       },
       {
@@ -32,12 +42,12 @@ export function Invoice() {
         accessor: 'waybilNumber',
       },
       {
-        Header: 'Amount',
-        accessor: 'amount',
-      },
-      {
         Header: 'PaymentMethod',
         accessor: 'paymentMethod',
+      },
+      {
+        Header: 'Payment Status',
+        accessor: 'status',
       },
     ],
     DetailsPath: '/payment/invoiceDetail/',

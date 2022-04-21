@@ -55,7 +55,7 @@ const userBreadCrumbs: Array<PageLink> = [
 const ShipmentPage: React.FC = () => {
   return (
     <>
-      <ShipmentHeader />
+      {/* <ShipmentHeader /> */}
       <Switch>
         <Route path='/shipment/routes'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Routes</PageTitle>
@@ -108,7 +108,7 @@ const ShipmentPage: React.FC = () => {
           <Manifest />
         </Route>
         
-        <Route path='/shipment/shipmentdetail/:ShipmentId'>
+        <Route path='/shipment/shipmentdetail/:waybill'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Manifest</PageTitle>
           <ShipmentDetail />
         </Route>

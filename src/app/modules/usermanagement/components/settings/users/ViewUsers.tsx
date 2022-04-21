@@ -43,6 +43,10 @@ export function ViewUsers() {
         Header: 'Phone Number',
         accessor: 'phoneNumber',
       },
+      {
+        Header: 'Wallet Number',
+        accessor: 'walletNumber',
+      },
     ],
     DetailsPath: '/adminSettings/userDetails/',
     EditPath: '#kt_modal_edituser',

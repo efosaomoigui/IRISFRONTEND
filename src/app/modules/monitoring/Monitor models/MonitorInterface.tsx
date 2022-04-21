@@ -17,6 +17,7 @@ export interface ITrackHistoryModel {
     tripReference: string
     action  : string
     location : string
+    createdDate? : string
     timeStamp : string
     status : string
     message?: string

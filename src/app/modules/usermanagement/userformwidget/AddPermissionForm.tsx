@@ -157,7 +157,7 @@ export default function AddPermissionForm(props: Props<IPermissionModel>) {
                         </div>
                       </div> */}
 
-                      <div className=' fv-row'>
+                      <div className=' fv-row'> 
                         <div className=''>
                           <div className='row'>
                             <div className='col-11'>

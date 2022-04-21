@@ -1,14 +1,24 @@
 export interface IWalletModel {
-  id: string
-  number: string
-  isActive: string
-  userId: string
+  id?: string
+  number?: string
+  isActive?: string
+  userId?: string
   user?: string
-  walletBalance: number
+  name?: string
+  amount?: string
+  walletNumber?: string
+  description?: string
+  walletBalance?: number
+  transactionType?: number
   walletTransactions?: IWalletTransactionModel[]
   message?: string
   validationErrors?: string[]
   walletdto?: {}
+}
+
+export enum TransactionType{
+  Credit = 2,
+  Debit = 1
 }
 
 export interface IWalletTransactionModel {
@@ -25,7 +35,7 @@ export interface IWalletTransactionModel {
   wallettransactionto?: {}
 }
 
-export interface IAddWalletModel {
+export interface IAddWalletModel { 
   id: string
   WalletNumber: string
   IsActive?: boolean

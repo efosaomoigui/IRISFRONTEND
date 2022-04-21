@@ -38,7 +38,7 @@ export default function AddInvoiceForm(props: Props<IInvoiceModel>) {
     ShipmentId: props.invoice ? props.invoice!.ShipmentId : '',
     Shipment: props.invoice ? props.invoice!.Shipment : '',
     PaymentMethod: props.invoice ? props.invoice!.PaymentMethod : '',
-    ShipStatus: props.invoice ? props.invoice!.ShipStatus : '',
+    Status: props.invoice ? props.invoice!.Status : '', 
   }
 
   const validationSchema = Yup.object({

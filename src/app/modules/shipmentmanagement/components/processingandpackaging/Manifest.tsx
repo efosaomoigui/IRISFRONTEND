@@ -1,25 +1,33 @@
-import { useEffect, useState } from 'react'
-import { Spinner } from 'react-bootstrap-v5';
-import agent from '../../../../../setup/axios/AxiosAgent';
-import { usePageData } from '../../../../../_iris/layout/core';
-import LoadingComponent from '../../../../LoadingComponent';
-import { IrisTablesWidget } from '../../../layout/tables/IrisTablesWidget';
-import { modalprops } from '../../../layout/tables/IrisTableTitle';
-import { IManifestModel } from '../../ShipmentModels/ShipmentInterfaces';
+import {useEffect, useState} from 'react'
+import {Form, Modal, Spinner} from 'react-bootstrap-v5'
+import {Button, Grid} from 'semantic-ui-react'
+import agent from '../../../../../setup/axios/AxiosAgent'
+import {KTSVG} from '../../../../../_iris/helpers'
+import {usePageData} from '../../../../../_iris/layout/core'
+import {ListsWidget3, TablesWidget10} from '../../../../../_iris/partials/widgets'
+import { ListItems } from './ListItems'
+import LoadingComponent from '../../../../LoadingComponent'
+import useStyles from '../../../layout/formstyles/FormStyle'
+import {IrisTablesWidget} from '../../../layout/tables/IrisTablesWidget'
+import {modalprops} from '../../../layout/tables/IrisTableTitle'
+import {IManifestModel, IRouteModel} from '../../ShipmentModels/ShipmentInterfaces'
 import Manifest_Data from './Manifest_Data.json'
-// import {format} from 'date-fns' 
+import listdata from './listdata.json'
+import { IShipmentModel } from '../../ShipmentModels/ShipmentInterfaces'
+// import {format} from 'date-fns'
 
 export function Manifest() {
   const [loading, setLoading] = useState(true)
-  const [modalTarger, setModalTarget] = useState<modalprops[]>([]);
+  const [modalTarger, setModalTarget] = useState<modalprops[]>([])
   const [manifestmodel, setUsersModel] = useState<IManifestModel[]>([])
   const [loadingData, setLoadingData] = useState(true)
-  const { selectValue, handleSelectValue, selectUrlParam, setSelectUrlParam } = usePageData() //global data
+  const {selectValue, handleSelectValue, selectUrlParam, setSelectUrlParam} = usePageData() //global data
+  const [routemodel, setRouteModel] = useState<IRouteModel[]>([])
+  const [listDataValue, setListDataVal] = useState<IShipmentModel[]>([])
 
   //all the data for the table
-  const tableProvider = { 
+  const tableProvider = {
     columns: [
-
       {
         Header: 'Manifest Code',
         accessor: 'manifestCode',
@@ -44,8 +52,25 @@ export function Manifest() {
     {
       linkTitle: 'Add Manifest',
       linkTarget: '#kt_modal_addmanifest',
-    }
+    },
   ]
+
+  const listDataVal:IShipmentModel[]  = []
+
+  const fillListItems = () =>{
+    // eslint-disable-next-line array-callback-return
+    listdata.map((item)=>{
+      let itemObj:IShipmentModel = {
+        waybill: item.waybill,
+        destination:item.destination
+      }
+      listDataVal.push(itemObj)
+    })
+    setListDataVal(listDataVal)
+    console.log("AAR: ", listDataValue)
+  }
+
+  // fillListItems()
 
   const handleEdit = (event: React.MouseEvent) => {
     const urlParm = event.currentTarget.getAttribute('id')
@@ -53,45 +78,13 @@ export function Manifest() {
     handleSelectValue(val!)
     return val
   }
-    // //USE EFFECT HOOK
-    useEffect(() => {
-      const callFunc = async () => {
-        await agent.Manifest.list().then((response) => {
-          setUsersModel(response)
-          setModalTarget(ModalTarget);
-          setLoadingData(false)
-        })
-      }
-      if (loadingData) {
-        callFunc()
-      }
-    }, [])
-
+  const classes = useStyles()
 
   return (
-    <div className='row g-5 g-xxl-8'>
-      <div className='col-xl-12'>
-      {loadingData ? (
-          <div><Spinner animation="border" /></div>
-        ) : (
-        <IrisTablesWidget
-          tableData={manifestmodel}
-          className='mb-5 mb-xl-8'
-          columnsMap={tableProvider.columns}
-          DetailsPath={tableProvider.DetailsPath}
-          EditPath={tableProvider.EditPath}
-          DeletePath={tableProvider.DeletePath}
-          UseFakeData={false}
-          FakeData={tableProvider.FakeData}
-          TableTitle={'Manifest'}
-          Count={'Over 300 Users'}
-          ModalTarget={
-            modalTarger
-          }
-          handleEdit={handleEdit}
-        />
-        )}
+    // <div className='row col-xl-12'>
+      <div className='row gy-2 gx-xl-8'>
+        <ListItems className='card-xxl-stretch mb-xl-3' listItems={listDataVal} />
       </div>
-    </div>
+    // </div>
   )
 }

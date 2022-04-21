@@ -1,21 +1,18 @@
-import { Grid } from '@material-ui/core'
-import { Alert } from '@mui/material'
-import { Form, Formik, FormikHelpers } from 'formik'
-import { Modal } from 'react-bootstrap-v5'
-import { Button } from 'semantic-ui-react'
+import {Grid} from '@material-ui/core'
+import {Alert} from '@mui/material'
+import {Field, Form, Formik, FormikHelpers} from 'formik'
+import {Modal} from 'react-bootstrap-v5'
+import {Button} from 'semantic-ui-react'
 import * as Yup from 'yup'
-import { boolean } from 'yup/lib/locale'
-import { KTSVG } from '../../../../_iris/helpers'
-import { usePageData } from '../../../../_iris/layout/core'
+import {boolean} from 'yup/lib/locale'
+import {KTSVG} from '../../../../_iris/helpers'
+import {usePageData} from '../../../../_iris/layout/core'
 import ErrorAlert from '../../common/ErrorAlert'
 import IrisDatePicker from '../../layout/forms/IrisDatePicker'
 import IrisSelectInput from '../../layout/forms/IrisSelectInput'
 import IrisTextInput from '../../layout/forms/IrisTextInput'
 import useStyles from '../../layout/formstyles/FormStyle'
-import { IWalletModel } from '../Models/WalletInterfaces'
-
-
-
+import {IWalletModel} from '../Models/WalletInterfaces'
 
 // interface Props {
 //   userVal: IUserModel
@@ -24,7 +21,7 @@ import { IWalletModel } from '../Models/WalletInterfaces'
 interface Props<Values> {
   onSubmit: (values: Values, formikHelpers: FormikHelpers<Values>) => void | Promise<any>
   isSubmitting: boolean
-  wallet?: IWalletModel  //change here by Mr Efe
+  wallet?: IWalletModel //change here by Mr Efe
   showForm?: boolean
   formTitle?: string
   showError?: boolean
@@ -32,27 +29,29 @@ interface Props<Values> {
   handleClick?: () => void
 }
 
-const options = [
-  { text: 'true', value: 'true' },
-  { text: 'false', value: 'false' }
-]
-
 export default function AddWalletForm(props: Props<IWalletModel>) {
-  const {entityValues, setEntityValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle} = usePageData()
+  const {
+    entityValues,
+    setEntityValues,
+    selectUrlParam,
+    setSelectUrlParam,
+    formTitle,
+    setFormTitle,
+    walletNumber,
+  } = usePageData()
 
   const initialFormValue: IWalletModel = {
-    id: props.wallet ? props.wallet!.id : '',
-    number: props.wallet ? props.wallet!.number : '',
-    isActive: props.wallet ? props.wallet!.isActive : '',
-    walletBalance: props.wallet ? props.wallet!.walletBalance : 0,
-    userId: props.wallet ? props.wallet!.userId : ''
+    walletNumber: props.wallet ? props.wallet!.walletNumber : walletNumber,
+    amount: props.wallet ? props.wallet!.amount : '',
+    transactionType: props.wallet ? props.wallet!.transactionType : 0,
   }
 
+  console.log("\INTVALUE: ", initialFormValue);
+
   const validationSchema = Yup.object({
-    WalletId: Yup.string().required(),
-    WalletNumber: Yup.string().required(),
-    IsActive: Yup.string().required(),
-    walletBalance: Yup.number().required(),  
+    walletNumber: Yup.string().required(),
+    amount: Yup.string().required(),
+    transactionType: Yup.string().required(),
   })
 
   const classes = useStyles()
@@ -69,7 +68,7 @@ export default function AddWalletForm(props: Props<IWalletModel>) {
           <div className='modal-dialog modal-dialog-centered mw-900px'>
             <div className='modal-content'>
               <div className='modal-header'>
-                <h2>{formTitle+" Wallet"}</h2>
+                <h2>{'Update Wallet Balance'}</h2>
                 <div
                   className='btn btn-sm btn-icon btn-active-color-primary'
                   data-bs-dismiss='modal'
@@ -78,48 +77,55 @@ export default function AddWalletForm(props: Props<IWalletModel>) {
                 </div>
               </div>
 
-              <div className='modal-body' >
-                {props.showError && <ErrorAlert type={'danger'} message={props.errorMessage!.toString()} heading={'Oh snap! You got an error!'} />}
-                {props.showForm &&(
+              <div className='modal-body'>
+                {props.showError && (
+                  <ErrorAlert
+                    type={'danger'}
+                    message={props.errorMessage!.toString()}
+                    heading={'Oh snap! You got an error!'}
+                  />
+                )}
+                {props.showForm && (
                   <Grid container className={classes.root}>
-                    <Grid item xs={6}>
+                    <Grid item xs={12}>
+                      <h4>
+                        Update the following field with amount to credit or debit wallet holder
+                      </h4>
+                    </Grid>
+                    <Grid item xs={8}>
+                      <input type='hidden' name='walletNumber' value={walletNumber} />
                       <IrisTextInput
                         type='text'
-                        name='WalletId'
-                        placeholder='WalletId'
-                        label='WalletId'
-                      />
-                      <IrisTextInput
-                        type='text'
-                        placeholder='Wallet Number'
-                        name='WalletNumber'
-                        label='Wallet Number'
+                        name='amount'
+                        placeholder='amount'
+                        label='amount'
                       />
                     </Grid>
-                    <Grid item xs={6}>
-                      <IrisTextInput
-                        type='boolean'
-                        placeholder='Active'
-                        name='IsActive'
-                        label='Active'
-                      />
-                      <IrisTextInput
-                        type='text'
-                        placeholder='walletBalance'
-                        name='walletBalance'
-                        label='wallet Balance'
-                      />
+                    <Grid item xs={3}>
+                      <div className='col-11'>
+                        <h4>Transaction Type</h4>
+                        <Field as='select' name='transactionType' className='form-select'>
+                          <option>Transaction Type</option>
+                          <option value={'2'}>Credit</option>
+                          <option value={'1'}>Debit</option>
+                        </Field>
+                      </div>
                     </Grid>
                   </Grid>
                 )}
-                {!props.showForm && <ErrorAlert type={'success'} message={'Wallet Created Successfully!'} heading={'Confirmation Message!'} />}
+                {!props.showForm && (
+                  <ErrorAlert
+                    type={'success'}
+                    message={'Wallet Transaction Completed Successfully!'}
+                    heading={'Confirmation Message!'}
+                  />
+                )}
               </div>
-              <div className='modal-body py-lg-10 px-lg-10'>
-              </div>
+              <div className='modal-body py-lg-10 px-lg-10'></div>
 
               <Modal.Footer>
-                {props.showForm &&
-                  (<Button
+                {props.showForm && (
+                  <Button
                     floated='right'
                     positive
                     type='submit'
@@ -127,7 +133,7 @@ export default function AddWalletForm(props: Props<IWalletModel>) {
                     loading={props.isSubmitting}
                     content='Submit'
                   />
-                  )}
+                )}
                 <Button
                   floated='right'
                   positive

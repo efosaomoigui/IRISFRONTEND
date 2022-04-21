@@ -1,13 +1,17 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import clsx from 'clsx'
 import React, {FC} from 'react'
-import { Link } from 'react-router-dom'
+import { shallowEqual, useSelector } from 'react-redux'
+import {Link} from 'react-router-dom'
+import { IUserModel } from '../../../../app/modules/auth/models/AuthInterfaces'
+import { RootState } from '../../../../setup'
 import {KTSVG} from '../../../helpers'
 import {useLayout} from '../../core'
 import {DefaultTitle} from '../header/page-title/DefaultTitle'
 
 const Toolbar1: FC = () => {
   const {classes} = useLayout()
+  const user: IUserModel = useSelector<RootState>(({auth}) => auth.user, shallowEqual) as IUserModel
 
   return (
     <div className='toolbar no-printme' id='kt_toolbar'>
@@ -45,11 +49,22 @@ const Toolbar1: FC = () => {
 
           <Link
             href='#'
-            className='btn btn-sm btn-primary'
-            id='kt_toolbar_primary_button' to={'/shipment/CaptureShipment'}          >
+            className='btn btn-sm btn-secondary mr-4 gap-2'
+            style={{ marginRight:"5px" }}
+            id='kt_toolbar_primary_button'
+            to={`/wallet/wtransactions/${user.userId}`}  
+          >
+            My Wallett
+          </Link>
+          <Link
+            href='#'
+            className='ml-2 btn btn-sm btn-primary'
+            id='kt_toolbar_primary_button'
+            to={'/shipment/CaptureShipment'}
+          >
             Capture Shipment
           </Link>
-          {/* end::Button */} 
+          {/* end::Button */}
         </div>
         {/* end::Actions */}
       </div>

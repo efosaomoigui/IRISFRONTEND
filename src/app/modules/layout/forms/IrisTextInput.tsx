@@ -24,7 +24,8 @@ export default function IrisTextInput(props: Props) {
     <>
         <TextField  {...field} {...props} fullWidth variant='outlined' 
         error={meta.touched && Boolean(meta.error)}
-        helperText={meta.touched && meta.error} />
+                        className="form-control"
+        helperText={meta.touched && meta.error}  />
     </>
   );
 

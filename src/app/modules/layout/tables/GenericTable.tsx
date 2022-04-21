@@ -127,27 +127,27 @@ const GenericTable = ({
               const pagenumber = e.target.value ? Number(e.target.value) - 1 : 0
               gotoPage(pagenumber)
             }}
-            style={{width: '50px'}}
+            style={{width: '50px', height:'34px'}}
             // className='form-control'
           />
         </span>
-        <select value={pageSize} onChange={(e) => setPageSize(Number(e.target.value))}>
+        <select style={{height:'34px'}} value={pageSize} onChange={(e) => setPageSize(Number(e.target.value))}>
           {[10, 25, 50, 100].map((pageSize) => (
             <option key={pageSize} value={pageSize}>
               Show {pageSize}
             </option>
           ))}
         </select>
-        <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
+        <button className='p-2' onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
           {'<<'}
         </button>
-        <button className='' onClick={() => previousPage()} disabled={!canPreviousPage}>
+        <button className='p-2' onClick={() => previousPage()} disabled={!canPreviousPage}>
           Previous
         </button>{' '}
-        <button className='' onClick={() => nextPage()} disabled={!canNextPage}>
+        <button className='p-2' onClick={() => nextPage()} disabled={!canNextPage}>
           Next
         </button>
-        <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
+        <button className='p-2' onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
           {'>>'}
         </button>
       </div>

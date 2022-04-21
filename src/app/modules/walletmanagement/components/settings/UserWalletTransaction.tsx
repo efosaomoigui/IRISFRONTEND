@@ -27,6 +27,10 @@ export function UserWalletTransaction() {
         accessor: 'id',
       },
       {
+        Header: 'Date',
+        accessor: 'createdDate',
+      },
+      {
         Header: 'user Id',
         accessor: 'name',
       },

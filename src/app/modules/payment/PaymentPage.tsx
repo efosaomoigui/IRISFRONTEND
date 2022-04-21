@@ -29,7 +29,7 @@ const userBreadCrumbs: Array<PageLink> = [
 const UserPage: React.FC = () => {
   return (
     <>
-      <PaymentHeader />
+      {/* <PaymentHeader /> */}
       <Switch>
         {/* <Route path='/payment/wallet'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Wallet</PageTitle>

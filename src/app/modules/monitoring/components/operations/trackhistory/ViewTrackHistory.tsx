@@ -25,6 +25,10 @@ export function ViewTrackHistory() {
         accessor: 'id',
       },
       {
+        Header: 'Date',
+        accessor: 'createdDate',
+      },
+      {
         Header: 'Trip Reference',
         accessor: 'tripReference',
       },

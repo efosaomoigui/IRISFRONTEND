@@ -1,12 +1,16 @@
 import clsx from 'clsx'
 import React, {FC} from 'react'
+import { shallowEqual, useSelector } from 'react-redux'
 import {Link} from 'react-router-dom'
+import { IUserModel } from '../../../../../app/modules/auth/models/AuthInterfaces'
+import { RootState } from '../../../../../setup'
 import {useLayout} from '../../../core/LayoutProvider'
 import {usePageData} from '../../../core/PageData'
 
 const DefaultTitle: FC = () => {
   const {pageTitle, pageDescription, pageBreadcrumbs} = usePageData()
   const {config, classes} = useLayout()
+  const user: IUserModel = useSelector<RootState>(({auth}) => auth.user, shallowEqual) as IUserModel
   return (
     <div
       id='kt_page_title'
@@ -15,6 +19,9 @@ const DefaultTitle: FC = () => {
       data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}"
       className={clsx('page-title d-flex', classes.pageTitle.join(' '))}
     >
+      <h2 style={{ color:'#009ce9' }} className={clsx('page-title d-flex', classes.pageTitle.join('  '))}>Hi, {user.firstName}!</h2> 
+      <div className="vr"></div>
+      <span className={clsx('page-title d-flex', classes.pageTitle.join('  '))}></span>
       {/* begin::Title */}
       {pageTitle && (
         <h1 className='d-flex align-items-center text-dark fw-bolder my-1 fs-3'>

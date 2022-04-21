@@ -53,7 +53,7 @@ export function AsideMenuMain() {
         title='Wallets'
         fontIcon='bi-layers'
       >
-        {/* <AsideMenuItem to='/wallet/Users' title='Wallets' hasBullet={true} /> */}
+        <AsideMenuItem to='/wallet/wallets' title='Wallets' hasBullet={true} />
         <AsideMenuItem to='/wallet/transactions' title='Wallet Transactions' hasBullet={true} />
         {/* <AsideMenuItem to='/settings/Fleets' title='Fleets' hasBullet={true} />
         <AsideMenuItem to='/settings/Routes' title='Routes' hasBullet={true} />

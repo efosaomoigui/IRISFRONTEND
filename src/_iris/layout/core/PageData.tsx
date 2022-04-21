@@ -26,6 +26,9 @@ export interface PageDataContextModel {
   setSelectUrlParam?:(urlparam: string) =>void
   formTitle?: string
   setFormTitle: (_title: string) => void
+
+  walletNumber?: string
+  setWalletNumber: (_number: string) => void
 }
 
 const PageDataContext = createContext<PageDataContextModel>({
@@ -36,6 +39,7 @@ const PageDataContext = createContext<PageDataContextModel>({
   handleSelectValue:(_entityDetailValues:IUserModel | IWalletModel)=>{},
   setSelectUrlParam:(urlparam: string) =>{},
   setFormTitle:(_title: string) =>{},
+  setWalletNumber:(_number: string) =>{},
 }) 
 
 const PageDataProvider: React.FC = ({children}) => {
@@ -45,6 +49,7 @@ const PageDataProvider: React.FC = ({children}) => {
   const [entityValues, setEntityValues] = useState<any[]>([])
   const [selectUrlParam, setSelectUrlParam] = useState<string>('')
   const [formTitle, setFormTitle] = useState<string>('')
+  const [walletNumber, setWalletNumber] = useState<string>('') 
   const [selectValue, handleSelectValue] = useState<IUserModel | IWalletModel>()
 
   const value: PageDataContextModel = {
@@ -61,7 +66,9 @@ const PageDataProvider: React.FC = ({children}) => {
     selectValue,
     handleSelectValue, 
     formTitle,
-    setFormTitle
+    setFormTitle,
+    walletNumber,
+    setWalletNumber,
   }
 
   return <PageDataContext.Provider value={value}>{children}</PageDataContext.Provider>

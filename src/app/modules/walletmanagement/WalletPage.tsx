@@ -16,12 +16,12 @@ const userBreadCrumbs: Array<PageLink> = [
     isSeparator: false,
     isActive: false,
   },
-  {
-    title: 'Add Wallet',
-    path: '/wallet/addwallet',
-    isSeparator: false,
-    isActive: false,
-  },
+  // {
+  //   title: 'Add Wallet',
+  //   path: '/wallet/addwallet',
+  //   isSeparator: false,
+  //   isActive: false,
+  // },
   {
     title: 'Wallet Transaction',
     path: '/wallet/transactions',
@@ -33,7 +33,7 @@ const userBreadCrumbs: Array<PageLink> = [
 const WalletPage: React.FC = () => {
   return (
     <>
-      <WalletHeader />
+      {/* <WalletHeader /> */}
       <Switch>
         <Route path='/wallet/wallets'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Wallet</PageTitle>
@@ -46,18 +46,24 @@ const WalletPage: React.FC = () => {
           <PageTitle breadcrumbs={userBreadCrumbs}>Wallet Transactions</PageTitle>
           <WalletTransaction />
         </Route>
+{/* 
+        <Route path='/wallet/walletops'>
+          <PageTitle breadcrumbs={userBreadCrumbs}>Wallet Transactions</PageTitle>
+          <WalletOps />
+        </Route> */}
+
         <Route path='/wallet/walletdetails/:walletId'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Wallet Details</PageTitle>
           <WalletDetail />
         </Route> 
 
         <Route path='/wallet/wallettransactiondetails/:id'>
-          <PageTitle breadcrumbs={userBreadCrumbs}>Wallet Transaction Details</PageTitle>
+          <PageTitle breadcrumbs={userBreadCrumbs}>Wallet Transactions</PageTitle>
           <WalletTransactionDetail />
         </Route>
 
         <Route path='/wallet/wtransactions/:userId'>
-          <PageTitle breadcrumbs={userBreadCrumbs}>Wallet Transaction Details</PageTitle>
+          <PageTitle breadcrumbs={userBreadCrumbs}>Wallet Transactions</PageTitle>
           <UserWalletTransaction />
         </Route>
 

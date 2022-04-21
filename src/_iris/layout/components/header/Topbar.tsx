@@ -16,7 +16,7 @@ const Topbar: FC = () => {
     <div className='d-flex align-items-stretch flex-shrink-0'>
       {/* Search */}
       <div className={clsx('d-flex align-items-stretch', toolbarButtonMarginClass)}>
-        <Search />
+        {/* <Search /> */}
       </div>
       {/* Activities */}
 
@@ -33,10 +33,10 @@ const Topbar: FC = () => {
                 data-kt-menu-placement='bottom-end'
                 data-kt-menu-flip='bottom'
             >
-                <KTSVG
+                {/* <KTSVG
                     path='/media/icons/duotune/general/gen022.svg'
                     className={toolbarButtonIconSizeClass}
-                />
+                /> */}
             </div>
             {/* <HeaderNotificationsMenu /> */}
             {/* end::Menu wrapper */}
@@ -57,7 +57,7 @@ const Topbar: FC = () => {
                     className={toolbarButtonIconSizeClass}
                 />
             </div>
-            <QuickLinks />
+            {/* <QuickLinks /> */}
             {/* end::Menu wrapper */}
         </div>
 

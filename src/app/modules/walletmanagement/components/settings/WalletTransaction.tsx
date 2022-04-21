@@ -24,6 +24,10 @@ export function WalletTransaction() {
         accessor: 'walletNumber',
       },
       {
+        Header: 'Date',
+        accessor: 'createdDate',
+      },
+      {
         Header: 'Wallet Name',
         accessor: 'name',
       },
@@ -100,7 +104,7 @@ export function WalletTransaction() {
           DeletePath={tableProvider.DeletePath}
           UseFakeData={false}
           FakeData={tableProvider.FakeData}
-          TableTitle={'Wallet Transaction'}
+          TableTitle={'Wallet Transactions'}
           Count={'Over 300 Users'}
           ModalTarget={
             modalTarger

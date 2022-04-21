@@ -27,7 +27,7 @@ const userBreadCrumbs: Array<PageLink> = [
 const UserPage: React.FC = () => {
   return (
     <>
-      <UserHeader />
+      {/* <UserHeader /> */}
       <Switch>
         
         <Route path='/admin/users'>

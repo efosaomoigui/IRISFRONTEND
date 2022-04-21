@@ -9,13 +9,16 @@ export interface IPaymentLogModel {
 export interface IInvoiceModel {
   Id: string
   InvoiceCode: string
+  Waybill?: string
+  amount?: string
+  customerName?: string
   ShipmentId: string
-  Shipment: string
+  Shipment?: string
   PaymentMethod: string
-  ShipStatus: string
+  Status: string
 }
 
-export interface IPaymentCriteriaModel {
+export interface IPaymentCriteriaModel { 
   paymentMethod?: number
   customerPhoneNumber: string
   amount: number

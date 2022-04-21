@@ -6,10 +6,10 @@
 @each $name, $value in $theme-colors {
 	// Base
 	.btn.btn-#{$name} {
-		$color: theme-inverse-color($name);
+		$color: #ffffff;
 		$icon-color: theme-inverse-color($name);
-		$border-color: $value;
-		$bg-color: $value;
+		$border-color: #21ba45;
+		$bg-color: #21ba45;
 
 		$color-active: theme-inverse-color($name);
 		$icon-color-active: theme-inverse-color($name);
@@ -22,10 +22,10 @@
 	// Light
 	@if (theme-light-color($name)) {
 		.btn.btn-light-#{$name} {
-			$color: $value;
+			$color:  #ffffff;
 			$icon-color: $value;
 			$border-color: theme-light-color($name);
-			$bg-color: theme-light-color($name);
+			$bg-color:  #41be40;
 	
 			$color-active: theme-inverse-color($name);
 			$icon-color-active: theme-inverse-color($name);

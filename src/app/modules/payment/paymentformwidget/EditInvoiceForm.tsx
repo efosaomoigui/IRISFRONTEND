@@ -41,7 +41,7 @@ export default function EditInvoiceForm(props: Props<IInvoiceModel>) {
     setSelectUrlParam,
     formTitle,
     setFormTitle,
-  } = usePageData()
+  } = usePageData() 
 
   const initialFormValue: IInvoiceModel = {
     Id: props.invoice ? props.invoice!.Id : '',
@@ -49,7 +49,7 @@ export default function EditInvoiceForm(props: Props<IInvoiceModel>) {
     ShipmentId: props.invoice ? props.invoice!.ShipmentId : '',
     Shipment: props.invoice ? props.invoice!.Shipment : '',
     PaymentMethod: props.invoice ? props.invoice!.PaymentMethod : '',
-    ShipStatus: props.invoice ? props.invoice!.ShipStatus : '',
+    Status: props.invoice ? props.invoice!.Status : '',
   }
 
   const validationSchema = Yup.object({
