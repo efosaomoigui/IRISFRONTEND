@@ -108,9 +108,12 @@ export interface IManifestModel {
     Id?:string
     manifestCode: string;
     groupWayBillId: string;
+    departure?: string;
+    destination?: string;
+    UserId?: string; 
     serviceCenterId: string;
     message?: string
-    validationErrors?: string[]
+    validationErrors?: string[] 
     manifestdto?: {}
 } 
 
@@ -118,10 +121,13 @@ export interface IGroupWayBillModel {
     Id? : string
     GroupCode? : string
     Shipment? : string
-    Waybill? : IBaseShipmentModel[]
+    Waybills? : IBaseShipmentModel[]
+    departure?: string;
+    destination?: string;
+    UserId?: string; 
     RId?   : string
     GroupRId?  : string      
     ServiceCenterId? : string
-    message?: string
+    message?: string 
     validationErrors?: string[]
 } 

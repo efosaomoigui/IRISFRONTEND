@@ -190,17 +190,16 @@ const Manifest = {
   GetManifestCode: () => request.get<string>(`${API_URL}/Manifest/Manifest/ManifestNumber/`),
 }
 
-
 const GroupWayBill = { 
-  list: () => request.get<IManifestModel[]>(`${API_URL}/Manifest/Manifest/all`),
-  details: (manifestcode: string) =>
-    request.get<IManifestModel>(
-      `${API_URL}/Manifest/GetManifestByManifestCode/${manifestcode}`
+  list: () => request.get<IGroupWayBillModel[]>(`${API_URL}/GroupWayBill/GroupWayBill/Getall`),
+  details: (groupwaybill: string) =>
+    request.get<IGroupWayBillModel>(
+      `${API_URL}/Manifest/GetManifestByManifestCode/${groupwaybill}`
     ),
   create: (groupwaybill: IGroupWayBillModel) =>
-    request.post<IGroupWayBillModel>(`${API_URL}/Manifest/Manifest`, groupwaybill),
-  update: (manifest: IManifestModel) =>
-    request.put<IManifestModel>(`${API_URL}/Manifest/Manifest/edit/${manifest.Id}`, {}),
+    request.post<IGroupWayBillModel>(`${API_URL}/GroupWayBill/CreateGroupWayBill`, groupwaybill),
+  update: (manifest: IGroupWayBillModel) =>
+    request.put<IGroupWayBillModel>(`${API_URL}/Manifest/Manifest/edit/${manifest.Id}`, {}),
   delete: (id: string) => request.del<void>(`${API_URL}/Manifest/Manifest/delete/${id}`),
   GetGroupWayBillCode: () => request.get<string>(`${API_URL}/GroupWayBill/GroupWayBill/GroupWaybillNumber/`),
 }

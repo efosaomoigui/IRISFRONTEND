@@ -114,11 +114,13 @@ const ListItems: React.FC<Props> = ({className, listItems}) => {
 
     const values: IGroupWayBillModel = {
       GroupCode : groupWayBillCode,
-      Waybill : listBag,
+      Waybills : listBag,
       RId   : routeId,
       GroupRId  : routeId,   
-      ServiceCenterId : "101",
+      ServiceCenterId : routeId,
     }
+
+    console.log("OLCL: ", values)
 
     agent.GroupWayBill.create(values)
       .then((response) => {
@@ -132,6 +134,7 @@ const ListItems: React.FC<Props> = ({className, listItems}) => {
           setInterval(() => {
             setShowForm(false)
           }, 1000)
+          setListBag([]) 
           setIsSubmitting(false)
           setShowError(false)
         }

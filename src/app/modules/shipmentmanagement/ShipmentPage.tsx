@@ -15,41 +15,55 @@ import { RouteDetail } from './components/settings/RouteDetail'
 import { FleetDetail } from './components/settings/FleetDetail'
 import { PriceSettingDetail } from './components/settings/PriceSettingDetail'
 import { HorizontalShipmentCapture } from './components/capture/HorizontalShipmentCapture'
+import { ViewGroupWaybills } from './components/processingandpackaging/ViewGroupwaybills'
+import { GroupWayBill } from './components/processingandpackaging/Groupwaybills'
+import { ViewManifests } from './components/processingandpackaging/ViewManifests'
+import { ViewTrips } from '../monitoring/components/operations/trips/ViewTrips'
 
 const userBreadCrumbs: Array<PageLink> = [
   {
-    title: 'Shipment',
+    title: 'Shipments',
     path: '/shipment/shipment',
     isSeparator: false,
     isActive: false,
   },
   {
-    title: 'Manifest',
-    path: '/shipment/Manifest',
-    isSeparator: false,
-    isActive: false,
-  },
-
-  {
-    title: 'Route',
+    title: 'Routes',
     path: '/shipment/route',
     isSeparator: false,
     isActive: false,
   },
-
   {
-    title: 'Price Setting',
+    title: 'Price Settings',
     path: '/shipment/ViewPriceSettings',
     isSeparator: false,
     isActive: false,
   },
-
+  {
+    title: 'Group Waybills',
+    path: '/shipment/groupwaybill',
+    isSeparator: false,
+    isActive: false,
+  },
+  {
+    title: 'Manifests',
+    path: '/shipment/Manifest',
+    isSeparator: false,
+    isActive: false,
+  },
   {
     title: 'Fleet',
     path: '/shipment/viewfleet',
     isSeparator: false,
     isActive: false,
   },
+  {
+    title: 'Trips',
+    path: '/monitor/trips',
+    isSeparator: false,
+    isActive: false,
+  },
+ 
 ]
 
 const ShipmentPage: React.FC = () => {
@@ -75,7 +89,7 @@ const ShipmentPage: React.FC = () => {
         </Route>
 
         <Route path='/shipment/shipment'>
-          <PageTitle breadcrumbs={userBreadCrumbs}>View Shipment</PageTitle>
+          <PageTitle breadcrumbs={userBreadCrumbs}>Shipments</PageTitle>
           <ViewShipment/>
         </Route>
 
@@ -103,9 +117,23 @@ const ShipmentPage: React.FC = () => {
           <PageTitle breadcrumbs={userBreadCrumbs}>Capture Freight Shipment</PageTitle>
           <CaptureFreightShipment />
         </Route> */}
-        <Route path='/shipment/Manifest'>
+        <Route path='/shipment/manifest'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Manifest</PageTitle>
+          <ViewManifests />
+        </Route>
+        
+        <Route path='/shipment/groupwaybill'>
+          <PageTitle breadcrumbs={userBreadCrumbs}>Group Waybill</PageTitle>
+          <ViewGroupWaybills />
+        </Route>
+        
+        <Route path='/shipment/processmanifest'>
+          {/* <PageTitle breadcrumbs={userBreadCrumbs}>Manifest</PageTitle> */}
           <Manifest />
+        </Route>
+        <Route path='/shipment/processgroupwaybill'>
+          {/* <PageTitle breadcrumbs={userBreadCrumbs}>Manifest</PageTitle> */}
+          <GroupWayBill />
         </Route>
         
         <Route path='/shipment/shipmentdetail/:waybill'>
@@ -116,6 +144,11 @@ const ShipmentPage: React.FC = () => {
         <Route path='/shipment/manifestdetail/:manifestCode'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Manifest Detail</PageTitle>
           <ManifestDetail />
+        </Route>
+
+        <Route path='/shipment/trips'>
+          <PageTitle breadcrumbs={userBreadCrumbs}>Trip</PageTitle>
+          <ViewTrips />
         </Route>
 
         <Redirect from='/shipment/' exact={true} to='/shipment/users' />
