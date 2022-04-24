@@ -10,10 +10,11 @@ import LoadingComponent from '../../../../LoadingComponent'
 import useStyles from '../../../layout/formstyles/FormStyle'
 import {IrisTablesWidget} from '../../../layout/tables/IrisTablesWidget'
 import {modalprops} from '../../../layout/tables/IrisTableTitle'
-import {IManifestModel, IRouteModel} from '../../ShipmentModels/ShipmentInterfaces'
+import {IGroupWayBillModel, IManifestModel, IRouteModel} from '../../ShipmentModels/ShipmentInterfaces'
 import Manifest_Data from './Manifest_Data.json'
 import listdata from './listdata.json'
 import { IShipmentModel } from '../../ShipmentModels/ShipmentInterfaces'
+import { ListManifests } from './ListManifests'
 // import {format} from 'date-fns'
 
 export function Manifest() {
@@ -60,8 +61,8 @@ export function Manifest() {
   const fillListItems = () =>{
     // eslint-disable-next-line array-callback-return
     listdata.map((item)=>{
-      let itemObj:IShipmentModel = {
-        waybill: item.waybill,
+      let itemObj:IGroupWayBillModel = {
+        groupCode: item.waybill,
         destination:item.destination
       }
       listDataVal.push(itemObj)
@@ -83,7 +84,7 @@ export function Manifest() {
   return (
     // <div className='row col-xl-12'>
       <div className='row gy-2 gx-xl-8'>
-        <ListItems className='card-xxl-stretch mb-xl-3' listItems={listDataVal} />
+        <ListManifests className='card-xxl-stretch mb-xl-3' listItems={listDataVal} />
       </div>
     // </div>
   )

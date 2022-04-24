@@ -54,6 +54,11 @@ export interface IBaseShipmentModel {
     destination?:string
     routeId?:string
 } 
+export interface IBaseGroupWayBillModel {
+    groupCode?:string
+    destination?:string
+    routeId?:string
+} 
 
 
 export interface IShipmentItems {
@@ -104,14 +109,18 @@ export interface ILinePriceModel {
     pricedData?:any;
 } 
 
+
 export interface IManifestModel {
     Id?:string
-    manifestCode: string;
-    groupWayBillId: string;
+    manifestCode?: string;
+    GroupCode? : IBaseGroupWayBillModel[]
+    GroupWayBillCode?: string;
+    groupWayBillId?: string;
+    RouteId?: string
     departure?: string;
     destination?: string;
     UserId?: string; 
-    serviceCenterId: string;
+    serviceCenterId?: string;
     message?: string
     validationErrors?: string[] 
     manifestdto?: {}
@@ -119,7 +128,7 @@ export interface IManifestModel {
 
 export interface IGroupWayBillModel {
     Id? : string
-    GroupCode? : string
+    groupCode? : string
     Shipment? : string
     Waybills? : IBaseShipmentModel[]
     departure?: string;

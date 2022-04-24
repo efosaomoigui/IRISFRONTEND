@@ -5,21 +5,21 @@ import {Button} from 'semantic-ui-react'
 import agent from '../../../../../setup/axios/AxiosAgent'
 import {KTSVG} from '../../../../../_iris/helpers'
 import {Dropdown1} from '../../../../../_iris/partials/content/dropdown/Dropdown1'
-import {IBaseShipmentModel, IGroupWayBillModel, IRouteModel, IShipmentModel} from '../../ShipmentModels/ShipmentInterfaces'
+import { IBaseGroupWayBillModel, IGroupWayBillModel, IManifestModel, IRouteModel } from '../../ShipmentModels/ShipmentInterfaces'
 import listdata from './listdata.json'
 
 type Props = {
   className: string
-  listItems: IShipmentModel[]
+  listItems: IGroupWayBillModel[]
 }
 
-const ListItems: React.FC<Props> = ({className, listItems}) => {
-  const [list, setList] = useState(listItems)
-  const [listBag, setListBag] = useState<IBaseShipmentModel[]>([])
-  const [listDataValue, setListDataVal] = useState<IShipmentModel[]>([])
+const ListManifests: React.FC<Props> = ({className, listItems}) => {
+  const [list, setList] = useState(listItems) 
+  const [listBag, setListBag] = useState<IBaseGroupWayBillModel[]>([])
+  const [listDataValue, setListDataVal] = useState<IGroupWayBillModel[]>([])
   const [routemodel, setRouteModel] = useState<IRouteModel[]>([])
   const [loadingData, setLoadingData] = useState(true)
-  const [groupWayBillCode, setGroupWayBillCode] = useState('')
+  const [manifestCode, setManifestCode] = useState('')
   const [routeId, setRouteId] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [showForm, setShowForm] = useState(true)
@@ -27,11 +27,11 @@ const ListItems: React.FC<Props> = ({className, listItems}) => {
   const [errorMessage, setErrorMessage] = useState('')
   const [showError, setShowError] = useState(false)
 
-  const add = (waybill: string) => {
-    const newList = list.filter((item) => item.waybill !== waybill)
-    const itemAdded = list.filter((item) => item.waybill === waybill)
+  const add = (groupWayBillCode: string) => {
+    const newList = list.filter((item) => item.groupCode !== groupWayBillCode)
+    const itemAdded = list.filter((item) => item.groupCode === groupWayBillCode)
     setList(newList)
-    if (checkListDuplicate(waybill) === false) listBag.push(itemAdded[0])
+    if (checkListDuplicate(groupWayBillCode) === false) listBag.push(itemAdded[0])
     setListBag(listBag)
   }
 
@@ -44,16 +44,16 @@ const ListItems: React.FC<Props> = ({className, listItems}) => {
     setList([])
   }
 
-  const removeItem = (waybill: string) => {
-    const newList = listBag.filter((item) => item.waybill !== waybill)
-    const itemRemoved = listBag.filter((item) => item.waybill === waybill)
+  const removeItem = (groupWayBillCode: string) => {
+    const newList = listBag.filter((item) => item.groupCode !== groupWayBillCode)
+    const itemRemoved = listBag.filter((item) => item.groupCode === groupWayBillCode)
     setListBag(newList)
-    if (checkListDuplicate(waybill) === false) list.push(itemRemoved[0])
+    if (checkListDuplicate(groupWayBillCode) === false) list.push(itemRemoved[0])
     setList(list)
   }
 
-  const checkListDuplicate = (waybill: string) => {
-    const newList = listBag.filter((item) => item.waybill === waybill)
+  const checkListDuplicate = (groupWayBillCode: string) => {
+    const newList = listBag.filter((item) => item.groupCode === groupWayBillCode)
     if (Object.keys(newList).length > 0) {
       return true
     }
@@ -70,22 +70,22 @@ const ListItems: React.FC<Props> = ({className, listItems}) => {
   }
 
   const getGroupCode = async () => {
-    await agent.GroupWayBill.GetGroupWayBillCode().then((response) => {
-      setGroupWayBillCode(response)
+    await agent.Manifest.GetManifestCode().then((response) => {
+      setManifestCode(response)
     })
   }
 
-  const listDataVal: IShipmentModel[] = []
+  const listDataVal: IBaseGroupWayBillModel[] = []
   const destinationCheckArray: string[] = []
 
   const fillListItems = async (event: React.ChangeEvent<HTMLSelectElement>) => {
     var routeid = event.target.value
     setRouteId(routeid)
     // eslint-disable-next-line array-callback-return
-    await agent.Shipment.shipmentByRoute(routeid).then((response) => {
+    await agent.GroupWayBill.GetGroupWaybillByRouteId(routeid).then((response) => {
       response.map((item) => {
-        let itemObj: IShipmentModel = {
-          waybill: item.waybill,
+        let itemObj: IGroupWayBillModel = { 
+          groupCode: item.groupCode,
           destination: item.destination,
         }
         listDataVal.push(itemObj)
@@ -93,8 +93,6 @@ const ListItems: React.FC<Props> = ({className, listItems}) => {
       })
       setList(listDataVal)
     })
-
-    // console.log('AAR: ', listDataValue)
   }
 
   // //USE EFFECT HOOK
@@ -112,17 +110,15 @@ const ListItems: React.FC<Props> = ({className, listItems}) => {
 
   const Save = () => {
 
-    const values: IGroupWayBillModel = {
-      groupCode : groupWayBillCode,
-      Waybills : listBag,
-      RId   : routeId,
-      GroupRId  : routeId,   
-      ServiceCenterId : routeId,
+    const values: IManifestModel = { 
+      manifestCode : manifestCode,
+      GroupCode : listBag,
+      RouteId  : routeId,   
     }
 
-    console.log("OLCL: ", values)
+    // console.log("OLCL: ", values)
 
-    agent.GroupWayBill.create(values)
+    agent.Manifest.create(values)
       .then((response) => {
         if (response.validationErrors!.length > 0) {
           toast.error(response.validationErrors?.toString())
@@ -164,7 +160,7 @@ const ListItems: React.FC<Props> = ({className, listItems}) => {
         </div>
         <div className='col'>
           <a className='btn btn-primary' onClick={getGroupCode}>
-            Generate GroupWay Code
+            Generate Manifest Code
           </a>
         </div>
       </div>
@@ -206,12 +202,12 @@ const ListItems: React.FC<Props> = ({className, listItems}) => {
                 {/* begin::Description */}
                 <div className='flex-grow-1'>
                   <a href='#' className='text-gray-800 text-hover-primary fw-bolder fs-6'>
-                    {item.waybill}
+                    {item.groupCode}
                   </a>
                   <span className='text-muted fw-bold d-block'>{item.destination}</span>
                 </div>
                 {/* end::Description */}
-                <button className='btn btn-default' onClick={() => add(item.waybill!)}>
+                <button className='btn btn-default' onClick={() => add(item.groupCode!)}>
                   Add
                 </button>
               </div>
@@ -239,7 +235,7 @@ const ListItems: React.FC<Props> = ({className, listItems}) => {
         <div className={`card ${className}`}>
           {/* begin::Header */}
           <div className='card-header border-0'>
-            <h3 className='card-title fw-bolder text-dark'>List Bag {`( ${groupWayBillCode} )`}</h3>
+            <h3 className='card-title fw-bolder text-dark'>List Bag {`( ${manifestCode} )`}</h3>
             <div className='card-toolbar'>
               {/* begin::Menu */}
               <button
@@ -273,7 +269,7 @@ const ListItems: React.FC<Props> = ({className, listItems}) => {
                 {/* begin::Description */}
                 <div className='flex-grow-1'>
                   <a href='#' className='text-gray-800 text-hover-primary fw-bolder fs-6'>
-                    {item.waybill}
+                    {item.groupCode}
                   </a>
                   <span className='text-muted fw-bold d-block'>{item.destination}</span>
                 </div>
@@ -281,7 +277,7 @@ const ListItems: React.FC<Props> = ({className, listItems}) => {
                 {/* <button className='btn btn-default' onClick={() => removeItem(item.waybill!)}>
                   Remove
                 </button> */}
-                <a onClick={() => removeItem(item.waybill!)} className='btn'>
+                <a onClick={() => removeItem(item.groupCode!)} className='btn'>
                   Remove
                 </a>
               </div>
@@ -312,4 +308,4 @@ const ListItems: React.FC<Props> = ({className, listItems}) => {
   )
 }
 
-export {ListItems}
+export {ListManifests}

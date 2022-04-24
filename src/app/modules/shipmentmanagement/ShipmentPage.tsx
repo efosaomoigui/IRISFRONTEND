@@ -41,13 +41,13 @@ const userBreadCrumbs: Array<PageLink> = [
   },
   {
     title: 'Group Waybills',
-    path: '/shipment/groupwaybill',
+    path: '/shipment/processgroupwaybill',
     isSeparator: false,
     isActive: false,
   },
   {
     title: 'Manifests',
-    path: '/shipment/Manifest',
+    path: '/shipment/processmanifest',
     isSeparator: false,
     isActive: false,
   },
@@ -126,13 +126,13 @@ const ShipmentPage: React.FC = () => {
           <PageTitle breadcrumbs={userBreadCrumbs}>Group Waybill</PageTitle>
           <ViewGroupWaybills />
         </Route>
-        
+
         <Route path='/shipment/processmanifest'>
-          {/* <PageTitle breadcrumbs={userBreadCrumbs}>Manifest</PageTitle> */}
+        <PageTitle breadcrumbs={userBreadCrumbs}>Process Manifest</PageTitle>
           <Manifest />
         </Route>
         <Route path='/shipment/processgroupwaybill'>
-          {/* <PageTitle breadcrumbs={userBreadCrumbs}>Manifest</PageTitle> */}
+        <PageTitle breadcrumbs={userBreadCrumbs}>Process Group Waybill</PageTitle>
           <GroupWayBill />
         </Route>
         

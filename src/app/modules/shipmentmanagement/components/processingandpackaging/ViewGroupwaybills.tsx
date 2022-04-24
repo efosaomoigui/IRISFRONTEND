@@ -23,6 +23,10 @@ export function ViewGroupWaybills() {
         accessor: 'id',
       },
       {
+        Header: 'Date',
+        accessor: 'createdDate',
+      },
+      {
         Header: 'Group Waybill Code',
         accessor: 'groupCode',
       },
@@ -34,22 +38,18 @@ export function ViewGroupWaybills() {
         Header: 'Destination',
         accessor: 'destination',
       },
+      // {
+      //   Header: 'Route Code',
+      //   accessor: 'routeCode',
+      // },
       {
-        Header: 'Route Code',
-        accessor: 'routeCode',
+        Header: 'Waybill',
+        accessor: 'waybill',
       },
-      {
-        Header: 'Fleet',
-        accessor: 'fleet',
-      },
-      {
-        Header: 'Driver',
-        accessor: 'driver',
-      },
-      {
-        Header: 'Dispatcher',
-        accessor: 'dispatcher',
-      },
+      // {
+      //   Header: 'Dispatcher',
+      //   accessor: 'dispatcher',
+      // },
     ],
     DetailsPath: '/monitor/tripDetails/',
     EditPath: '#kt_modal_edittrip',
