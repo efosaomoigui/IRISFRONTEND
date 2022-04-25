@@ -2,7 +2,7 @@ import React, {ChangeEvent, FC, useState} from 'react'
 import {KTSVG} from '../../../../../_iris/helpers'
 import {Link} from 'react-router-dom'
 import {numberFormat} from '../../../walletmanagement/Models/WalletInterfaces'
-import { useBarcode } from '@createnextapp/react-barcode';
+// import { useBarcode } from '@createnextapp/react-barcode';
 import './print.css'
 
 interface Props {
@@ -16,15 +16,15 @@ interface Props {
 
 function BarcodeRender(value:string)  
 {
-  const { inputRef } = useBarcode(
-  {
-    value:"q",
-    options: {
-      background: '#ccffff',
-    }
-  });
+  // const { inputRef } = useBarcode(
+  // {
+  //   value:"q",
+  //   options: {
+  //     background: '#ccffff',
+  //   }
+  // });
 
-  return <svg ref={inputRef} />;
+  // return <svg ref={inputRef} />;
 };
 
 export default BarcodeRender;
@@ -53,7 +53,7 @@ const Step6: FC<Props> = ({waybill, invoice, values, radioState}: Props) => {
               <div className='card mb-5 mb-xl-12' id='kt_profile_details_view'>
                 <div className='card-header cursor-pointer'>
                   <div className='card-title m-0'>
-                    <h3 className='fw-bolder m-0'>   Invoice #: {BarcodeRender(values.invoiceNumber)}  </h3>
+                    {/* <h3 className='fw-bolder m-0'>   Invoice #: {BarcodeRender(values.invoiceNumber)}  </h3> */}
                     
                   </div>
                   {/* <Barcode value={values.invoiceNumber} /> */}
