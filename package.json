@@ -4,7 +4,6 @@
   "private": true,
   "homepage": "/",
   "dependencies": {
-    "@createnextapp/react-barcode": "^1.1.1",
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
     "@formatjs/intl-pluralrules": "^4.3.2",
@@ -119,8 +118,6 @@
     "@types/react-router-dom": "5.1.7",
     "@types/styled-components": "^5.1.22",
     "@types/uuid": "^8.3.4",
-    "eslint": "^7.32.0",
-    "eslint-plugin-unused-imports": "^2.0.0",
     "uuid": "^8.3.2",
     "v": "^0.3.0",
     "webpack-cli": "^4.9.2"
