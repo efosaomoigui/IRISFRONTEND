@@ -7,6 +7,9 @@ import { modalprops } from '../../../layout/tables/IrisTableTitle';
 import { IWalletModel, IWalletTransactionModel, numberFormat } from '../../Models/WalletInterfaces'
 import WalletTransaction_Data from './WalletTransaction_Data.json'
 import { useParams } from 'react-router-dom';
+import { shallowEqual, useSelector } from 'react-redux';
+import { RootState } from '../../../../../setup';
+import { IUserModel } from '../../../auth/models/AuthInterfaces';
 // import {format} from 'date-fns' 
 
 export function UserWalletTransaction() {
@@ -17,6 +20,7 @@ export function UserWalletTransaction() {
   const { selectValue, handleSelectValue, selectUrlParam, setSelectUrlParam } = usePageData() //global data
 
   let {userId} = useParams<{userId: string}>() 
+  const user: IUserModel = useSelector<RootState>(({auth}) => auth.user, shallowEqual) as IUserModel 
   
   
   //all the data for the table
@@ -107,12 +111,13 @@ export function UserWalletTransaction() {
           DeletePath={tableProvider.DeletePath}
           UseFakeData={false}
           FakeData={tableProvider.FakeData}
-          TableTitle={'My Wallet History'}
-          Count={'Number: '+wallettransactionmodel[0].walletNumber+",  Current Balance: "+ numberFormat(Number(wallettransactionmodel[0].walletBalance))+")"}
+          TableTitle={'My Wallet History ('+user.walletNumber+')'}
+          Count={'Wallet Transactions History'}
           ModalTarget={
             modalTarger
           }
           handleEdit={handleEdit}
+          showButton={true}
         />
         )}
       </div>

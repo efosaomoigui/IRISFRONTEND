@@ -21,7 +21,7 @@ const ViewFleetModal: FC = () => {
   // ]
 
   return (
-    <div className='modal fade' id='kt_modal_addfleet' aria-hidden='true'>
+    <div className='modal fade' id='kt_modal_addfleetf' aria-hidden='true'>
       <div className='modal-dialog mw-650px'>
         <div className='modal-content'>
           <div className='modal-header pb-0 border-0 justify-content-end'>

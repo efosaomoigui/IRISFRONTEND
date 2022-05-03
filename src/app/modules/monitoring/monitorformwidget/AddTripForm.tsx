@@ -58,7 +58,7 @@ export default function AddTripForm(props: Props<ITripModel>) {
         id: props.trip ? props.trip!.id : '',
         tripReference: props.trip ? props.trip!.tripReference :'',
         routeCode: props.trip ? props.trip!.routeCode :'',
-        groupWayBillManifestMap: props.trip ? props.trip!.groupWayBillManifestMap :[],
+        manifestList: props.trip ? props.trip!.manifestList :[],
         fleet: props.trip ? props.trip!.fleet :'',
         dispatcher: props.trip ? props.trip!.dispatcher : '',
         driver: props.trip ? props.trip!.driver :'',
@@ -68,7 +68,7 @@ export default function AddTripForm(props: Props<ITripModel>) {
         id: Yup.string().required(),
         tripReference: Yup.string().required(),
         routeCode: Yup.string().required(),
-        fleet: Yup.string().required(),
+        fleet: Yup.string().required(), 
         dispatcher: Yup.string().required(),
         driver: Yup.string().required(),
     })

@@ -30,6 +30,8 @@ import {
   IShipmentInvoiceModel,
   IShipmentModel,
   IShipmentWayBillAndInvoiceModel,
+  OptionValue,
+  TripActionAndStatusVm,
 } from '../../app/modules/shipmentmanagement/ShipmentModels/ShipmentInterfaces'
 import {ShipmentModel} from '../../app/modules/shipmentmanagement/ShipmentModels/ShipmentModel'
 import {IShipmentRequestModel} from '../../app/modules/shipmentrequest/models/ShipmentRequestInterface'
@@ -182,6 +184,8 @@ const Shipment = {
 
 const Manifest = {
   list: () => request.get<IManifestModel[]>(`${API_URL}/Manifest/Manifest/all`),
+  
+  Routelist: () => request.get<IRouteModel[]>(`${API_URL}/Manifest/GroupWayBill/RouteForManifest`),
   details: (manifestcode: string) =>
     request.get<IManifestModel>(`${API_URL}/Manifest/GetManifestByManifestCode/${manifestcode}`),
   create: (manifest: IManifestModel) =>
@@ -190,10 +194,15 @@ const Manifest = {
     request.put<IManifestModel>(`${API_URL}/Manifest/Manifest/edit/${manifest.Id}`, {}),
   delete: (id: string) => request.del<void>(`${API_URL}/Manifest/Manifest/delete/${id}`),
   GetManifestCode: () => request.get<string>(`${API_URL}/Manifest/Manifest/ManifestNumber/`),
+  GetManifestByRouteId: (routeid: string) => 
+  request.get<IManifestModel[]>(
+    `${API_URL}/Manifest/GetManifestByRouteId/${routeid}`
+  ),
 }
 
 const GroupWayBill = {
   list: () => request.get<IGroupWayBillModel[]>(`${API_URL}/GroupWayBill/GroupWayBill/Getall`),
+  Routelist: () => request.get<IRouteModel[]>(`${API_URL}/GroupWayBill/GroupWayBill/RouteForGroupWaybill`),
   details: (groupwaybill: string) =>
     request.get<IGroupWayBillModel>(
       `${API_URL}/Manifest/GetManifestByManifestCode/${groupwaybill}`
@@ -276,6 +285,10 @@ const Trip = {
   create: (trip: ITripModel) => request.post<ITripModel>(`${API_URL}/Trip/Trip/Add`, trip),
   update: (trip: ITripModel) => request.put<ITripModel>(`${API_URL}/Trip/Trip/edit/${trip.id}`, {}),
   delete: (id: string) => request.del<void>(`${API_URL}/Trip/Trip/delete${id}`),
+  GetDispatchCode: () => request.get<string>(`${API_URL}/Trip/Trip/TripNumber/`),
+  GetActionAndStatus: () => request.get<TripActionAndStatusVm>(`${API_URL}/Trip/Trip/ActionAndStatus/`),
+  searchTripByRef: (tripRef: string) =>
+  request.get<ITripModel[]>(`${API_URL}/Trip/Trip/GetTripByreferencCode/${tripRef}`),
 }
 
 const TrackHistory = {
@@ -289,6 +302,8 @@ const TrackHistory = {
   update: (trackhistory: ITrackHistoryModel) =>
     request.put<ITrackHistoryModel>(`${API_URL}/TrackHistory/TrackHistory/edit`, trackhistory),
   delete: (id: string) => request.del<void>(`${API_URL}/UserManagement/GetUser${id}`),
+  searrchTrack: (waybill: string) =>
+  request.get<ITrackHistoryModel[]>(`${API_URL}/TrackHistory/TrackHistory/GetTrackHistoryByCode/${waybill}`),
 }
 // Fulfilment Request Starts
 const CollectionCenter = {

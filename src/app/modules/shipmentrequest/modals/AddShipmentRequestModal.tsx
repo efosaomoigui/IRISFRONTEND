@@ -63,7 +63,7 @@ const AddShipmentRequestModal: React.FC = () => {
     }
     return (
         <>
-            <Container className='modal fade' id='kt_modal_addfleet' aria-hidden='true'>
+            <Container className='modal fade' id='kt_modal_addrequest' aria-hidden='true'>
                 <AddShipmentRequestForm
                     isSubmitting={isSubmitting}
                     onSubmit={onSubmit}

@@ -5,6 +5,8 @@ import {usePageData} from '../../../../../../_iris/layout/core'
 import {IUserModel} from '../../../../auth/models/AuthInterfaces'
 import {IrisTablesWidget} from '../../../../layout/tables/IrisTablesWidget'
 import {modalprops} from '../../../../layout/tables/IrisTableTitle'
+import { AddUserModal } from '../../../modals/AddUserModal'
+import { EditUserModal } from '../../../modals/EditUserModal'
 import User_Data from './User_Data.json'
 // import {format} from 'date-fns'
 
@@ -106,6 +108,9 @@ export function ViewUsers() {
           />
         )}
       </div>
+
+      <AddUserModal />
+      <EditUserModal />
     </div>
   )
 }

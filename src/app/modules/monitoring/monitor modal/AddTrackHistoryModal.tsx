@@ -43,6 +43,8 @@ const AddTrackHistoryModal: React.FC = () => {
   }
 
   const onSubmit = (values: ITrackHistoryModel) => {
+
+    console.log("Val: ", values);
     setIsSubmitting(true)
     // values.id = uuid()
 

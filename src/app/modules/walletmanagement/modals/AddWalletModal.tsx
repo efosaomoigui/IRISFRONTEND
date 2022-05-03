@@ -26,7 +26,7 @@ const AddWalletModal: React.FC = () => {
 
   const onSubmit = (values: IWalletModel) => {
     setIsSubmitting(true)
-    alert(values.transactionType)
+    // alert(values.transactionType)
 
     if (Number(values.transactionType) === 2) {
       values.description = 'Wallet Credit Transaction'

@@ -5,6 +5,8 @@ import {usePageData} from '../../../../../../_iris/layout/core'
 import {IRoleModel, IUserModel} from '../../../../auth/models/AuthInterfaces'
 import {IrisTablesWidget} from '../../../../layout/tables/IrisTablesWidget'
 import {modalprops} from '../../../../layout/tables/IrisTableTitle'
+import { AddRoleModal } from '../../../modals/AddRoleModal'
+import { EditRoleModal } from '../../../modals/EditRoleModal'
 import Role_Data from './Role_Data.json'
 
 export function ViewRoles() {
@@ -92,6 +94,9 @@ export function ViewRoles() {
           />
         )}
       </div>
+
+      <AddRoleModal />
+      <EditRoleModal />
     </div>
   )
 }

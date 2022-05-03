@@ -104,7 +104,8 @@ export function ViewGroupWaybills() {
             UseFakeData={false}
             FakeData={tableProvider.FakeData}
             TableTitle={'Group Waybills'}
-            Count={'Over 300 Users'}
+            Count={''}
+            showButton={true}
             ModalTarget={modalTarger}
             handleEdit={handleEdit}
           />

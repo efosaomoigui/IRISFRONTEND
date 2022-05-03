@@ -6,6 +6,18 @@ export enum Category{
   Corporate, Inidvidual 
 }
 
+export enum FleetType{
+  Truck = 1,
+  Van = 2,
+  Vessel = 3,
+  Airplane = 4,
+  SalonCar = 5,
+  MiniTruck = 6,
+  Motorcycle = 6,
+  Vehicle = 8,
+  Boat = 9
+}
+
 
 export interface IUserModel {
   id?:string
@@ -31,7 +43,32 @@ export interface IUserModel {
   message?:string
   validationErrors?: string[] 
   userdto?: {}
+  requirePasswordChanged?:string
   //Error:  {"userdto":null,"success":true,"message":null,"validationErrors":["Unable to create user, User already exist!"],"accessToken":null,"expireAt":"0001-01-01T00:00:00"}
+}
+
+export interface IUserModel2 {
+  id?:string
+  label?:string
+  userId?: string
+  username?: string
+  password?: string
+  firstName: string
+  lastName: string
+  email?: string 
+  phoneNumber: string
+}
+
+export interface IFleetModel2 {
+  id?:string
+  label?:string
+  userId?: string
+  username?: string
+  password?: string
+  firstName: string
+  lastName: string
+  email?: string 
+  phoneNumber: string
 }
 
 export interface IUserRole{ 
@@ -52,6 +89,11 @@ export enum UserType{
 export enum GenderType{
   Male,
   Female
+}
+
+export enum requirePasswordChanged{
+  Yes,
+  No
 }
 
 export interface IRoleModel {

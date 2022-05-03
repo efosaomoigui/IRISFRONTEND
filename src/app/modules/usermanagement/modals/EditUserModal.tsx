@@ -5,7 +5,7 @@ import {toast} from 'react-toastify'
 import {v4 as uuid} from 'uuid'
 import agent from '../../../../setup/axios/AxiosAgent'
 import {usePageData} from '../../../../_iris/layout/core'
-import {Category, Gender, IUserModel, IUserRole} from '../../auth/models/AuthInterfaces'
+import {Category, Gender, IUserModel, IUserRole, requirePasswordChanged} from '../../auth/models/AuthInterfaces'
 import ErrorAlert from '../../common/ErrorAlert'
 import { AddUserRole } from '../components/settings/roles/AddUserRole'
 import AddUserForm from '../userformwidget/AddUserForm'
@@ -46,8 +46,12 @@ const EditUserModal: React.FC<Props> = ({handleEdit, SelectedValues}: Props) => 
     
     // const Gend = (values.gender == Gender['Female']) ? Gender.Female : Gender.Male  
     // const Cate = (values.userType == Category['Corporate']) ?  Category.Corporate :  Category.Inidvidual
+    
+    // const PasswordChanged = (values.requirePasswordChanged == requirePasswordChanged['Yes']) ? requirePasswordChanged.Yes : requirePasswordChanged.No  
+    // values.requirePasswordChanged = PasswordChanged
 
     agent.Users.update(values).then((response) => {
+
       if (response.validationErrors!.length > 0) {
         toast.error(response.validationErrors?.toString())
         setErrorMessage(response.validationErrors!.toString())

@@ -92,8 +92,7 @@ export default function ManageRole(props: Props<IUserRole>) {
                             )}
                           </span>
                           <span className='text-muted fs-6'>
-                            The role allow you to have access to {role.name} 's previlleges'.{' '}
-                            {props.user!.roles!.indexOf(role.name)}
+                            This role allows you access to {role.name}'s previlleges
                           </span>
                         </span>
                       </label>

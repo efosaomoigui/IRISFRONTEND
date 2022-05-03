@@ -1,8 +1,15 @@
 import {FormLabel, Modal} from 'react-bootstrap-v5'
 import {Button, Radio} from 'semantic-ui-react'
-import {Formik, Form, FormikHelpers} from 'formik'
+import {Formik, Form, FormikHelpers, Field} from 'formik'
 import * as Yup from 'yup'
-import {Category, Gender, GenderType, IUserModel, UserType} from '../../auth/models/AuthInterfaces'
+import {
+  Category,
+  Gender,
+  GenderType,
+  IUserModel,
+  requirePasswordChanged,
+  UserType,
+} from '../../auth/models/AuthInterfaces'
 import {KTSVG} from '../../../../_iris/helpers'
 import IrisTextInput from '../../layout/forms/IrisTextInput'
 import IrisSelectInput from '../../layout/forms/IrisSelectInput'
@@ -23,6 +30,7 @@ interface Props<Values> {
   showError?: boolean
   errorMessage?: string
   handleClick?: () => void
+  requirePasswordChanged?: requirePasswordChanged
 }
 
 export default function EditUserForm(props: Props<IUserModel>) {
@@ -46,8 +54,9 @@ export default function EditUserForm(props: Props<IUserModel>) {
     lastName: props.user ? props.user!.lastName : '',
     email: props.user ? props.user!.email : '',
     phoneNumber: props.user ? props.user!.phoneNumber : '',
+    requirePasswordChanged: 'No',
     // gender: props.user ? props.user!.gender : Gender.Male,
-    // userType: props.user ? props.user!.userType : Category.Corporate,  
+    // userType: props.user ? props.user!.userType : Category.Corporate,
   }
 
   const validationSchema = Yup.object({
@@ -59,6 +68,7 @@ export default function EditUserForm(props: Props<IUserModel>) {
     phoneNumber: Yup.string().required(),
     // gender: Yup.string().required(),
     // userType: Yup.string().required(),
+    requirePasswordChanged: Yup.string().required(),
   })
 
   const classes = useStyles()
@@ -68,7 +78,7 @@ export default function EditUserForm(props: Props<IUserModel>) {
   // ]
   // const optionsArray2 = [
   //   {label: 'Corporate', value: "1"},
-  //   {label: 'Individual', value: "2"} 
+  //   {label: 'Individual', value: "2"}
   // ]
 
   return (
@@ -91,7 +101,7 @@ export default function EditUserForm(props: Props<IUserModel>) {
                   >
                     <KTSVG path='/media/icons/duotune/arrows/arr061.svg' className='svg-icon-1' />
                   </div>
-                  {console.log("IT", initialFormValue)}
+                  {console.log('IT', initialFormValue)}
                 </div>
 
                 <div className='modal-body'>
@@ -105,7 +115,7 @@ export default function EditUserForm(props: Props<IUserModel>) {
                   {props.showForm && (
                     <Grid container className={classes.root}>
                       <Grid item xs={6}>
-                      <input type='hidden' name='userId' />
+                        <input type='hidden' name='userId' />
                         <IrisTextInput type='text' name='username' label='User Name' />
                         <IrisTextInput type='text' name='firstName' label='First Name' />
                         <IrisTextInput type='text' name='lastName' label='Last Name' />
@@ -120,6 +130,26 @@ export default function EditUserForm(props: Props<IUserModel>) {
                           value={values.gender?.toString()}
                           options={optionsArray1}
                         /> */}
+                        <label className='mt-3'>Require Password Changed?</label>
+                        <div role='group' aria-labelledby='my-radio-group' className='m-2'>
+                          <Field
+                            className='form-check-input m-1'
+                            type='radio'
+                            name='requirePasswordChanged'
+                            value='No'
+                          />
+                          <label className='form-check-label m-1'>No</label>
+
+                          <Field
+                            className='form-check-input m-1'
+                            type='radio'
+                            name='requirePasswordChanged'
+                            value='Yes'
+                          />
+                          <label className='form-check-label m-1'>Yes</label>
+
+                          <div>Picked: {values.requirePasswordChanged}</div>
+                        </div>
 
                         <IrisTextInput type='password' name='password' label='Password' />
 
@@ -128,12 +158,9 @@ export default function EditUserForm(props: Props<IUserModel>) {
                           value={values.userType?.toString()}
                           options={optionsArray2}
                         /> */}
-
                       </Grid>
-                      
-                      <Grid item xs={12}>
 
-                      </Grid>
+                      <Grid item xs={12}></Grid>
                     </Grid>
                   )}
                   {!props.showForm && (

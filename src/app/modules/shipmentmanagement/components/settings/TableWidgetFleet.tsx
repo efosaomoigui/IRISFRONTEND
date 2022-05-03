@@ -89,12 +89,10 @@ const TablesWidgetFleet: React.FC<Props> = ({ fleet,className}) => {
                       </div>
                       <div className='d-flex justify-content-start flex-column'>
                         <a href='#' className='text-dark fw-bolder text-hover-primary fs-6'>
-                            {fleet.registrationNumber} 
-                          {/* Fleet Manager */}
                         </a>
                         <span className='text-muted fw-bold text-muted d-block fs-7'>
                           {/* HTML, JS, ReactJS */}
-                            {fleet.capacity}
+                            {fleet.capacity}  
                         </span>
                       </div>
                     </div>
@@ -139,7 +137,7 @@ const TablesWidgetFleet: React.FC<Props> = ({ fleet,className}) => {
                       >
                         <KTSVG
                           path='/media/icons/duotune/general/gen019.svg'
-                          className='svg-icon-3'
+                          className='svg-icon-3' 
                         />
                       </a>
                       <a

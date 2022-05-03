@@ -40,6 +40,8 @@ import { EditInvoiceModal } from '../../app/modules/payment/paymentmodals/EditIn
 import { EditShipmentRequestModal } from '../../app/modules/shipmentrequest/modals/EditShipmentRequestModal'
 import { AddShipmentRequestModal } from '../../app/modules/shipmentrequest/modals/AddShipmentRequestModal'
 import './print.css'
+import { AddUserModal2 } from '../../app/modules/usermanagement/modals/AddUserModal2'
+import { AddFleetModal1 } from '../../app/modules/shipmentmanagement/modals/AddFleetModal1'
 
 
 const MasterLayout: React.FC = ({children}) => {
@@ -78,12 +80,10 @@ const MasterLayout: React.FC = ({children}) => {
       </div>
 
       {/* begin:: Modals */}
-      <Main />
+      {/* <Main /> */}
       {/* <InviteUsers /> */}
 
       {/* custom modals for iris */}
-      <AddUserModal />
-      <EditUserModal />
 
       <AddShipmentRequestModal/>
       <EditShipmentRequestModal/>
@@ -96,12 +96,6 @@ const MasterLayout: React.FC = ({children}) => {
 
       <AddPermissionModal />
       <EditPermissionModal />
-
-      <AddRoleModal />
-      <EditRoleModal />
-
-      <AddFleetModal />
-      <EditFleetModal />
 
       <AddTripModal />
       <EditTripModal />
@@ -124,8 +118,6 @@ const MasterLayout: React.FC = ({children}) => {
       <AddInvoiceModal />
       <EditInvoiceModal />
 
-      <AddTrackHistoryModal />
-      <EditTrackHistoryModal />
       {/* scrolltop */}
       <ScrollTop />
     </PageDataProvider>

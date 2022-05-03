@@ -16,34 +16,44 @@ export function ViewManifests() {
   const [loadingData, setLoadingData] = useState(true)
   const { selectValue, handleSelectValue, selectUrlParam, setSelectUrlParam } = usePageData() //global data
 
+//   createdDate: "2022-03-04T09:06:10.2462197"
+// departure: "LAGOS"
+// destination: "AKWA-IBOM"
+// groupWayBillCode: "2101000001"
+// groupWayBillId: "00000000-0000-0000-0000-000000000000"
+// id: "ca5188c5-749a-4350-e880-08da2751c27c"
+// manifestCode: null
+// routeId: "00000000-0000-0000-0000-000000000000"
+// serviceCenterId: "00000000-0000-0000-0000-000000000000"
+// userId: "00000000-0000-0000-0000-000000000000"
 
   //all the data for the table
   const tableProvider = {
     columns: [
       {
-        Header: 'Trip Id',
+        Header: 'Manifest Id',
         accessor: 'id',
       },
       {
-        Header: 'Trip Reference',
-        accessor: 'tripReference',
+        Header: 'Manifest Code',
+        accessor: 'manifestCode',
       },
       {
-        Header: 'Route Code',
-        accessor: 'routeCode',
+        Header: 'Departure',
+        accessor: 'departure',
       },
       {
-        Header: 'Fleet',
-        accessor: 'fleet',
+        Header: 'Destination',
+        accessor: 'destination',
       },
       {
-        Header: 'Driver',
-        accessor: 'driver',
+        Header: 'Group Waybill Code',
+        accessor: 'groupWayBillCode',
       },
-      {
-        Header: 'Dispatcher',
-        accessor: 'dispatcher',
-      },
+      // {
+      //   Header: 'Dispatcher',
+      //   accessor: 'dispatcher',
+      // },
     
     ],
     DetailsPath: '/monitor/tripDetails/',
@@ -100,11 +110,12 @@ export function ViewManifests() {
           DeletePath={tableProvider.DeletePath}
           UseFakeData={false}
           FakeData={tableProvider.FakeData}
-          TableTitle={'Trips'}
-          Count={'Over 300 Users'}
+          TableTitle={'Manifests'}
+          Count={''}
           ModalTarget={
             modalTarger
           }
+          showButton={true}
           handleEdit={handleEdit}
         />
         )}

@@ -74,7 +74,6 @@ export function FleetDetail() {
 
                 <div className='col-lg-8'>
                   <span className='fw-bolder fs-6 text-dark'>
-                    {fleetdetails?.registrationNumber}
                   </span>
                 </div>
               </div>
@@ -114,7 +113,6 @@ export function FleetDetail() {
 
                 <div className='col-lg-8'>
                   <span className='fw-bolder fs-6 text-dark'>
-                    {fleetdetails?.description}
                   </span>
                 </div>
               </div>

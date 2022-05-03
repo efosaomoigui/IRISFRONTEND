@@ -16,37 +16,49 @@ export function ViewTrips() {
   const [loadingData, setLoadingData] = useState(true)
   const { selectValue, handleSelectValue, selectUrlParam, setSelectUrlParam } = usePageData() //global data
 
-
+  // createdDate: "2022-03-04T09:06:10.2462197"
+  // departure: "LAGOS"
+  // destination: "AKWA-IBOM"
+  // dispatcher: "00000000-0000-0000-0000-000000000000"
+  // driver: "00000000-0000-0000-0000-000000000000"
+  // driverName: "Soji Oluwaseyi (07030874575)"
+  // driverPhone: null
+  // fleetChasis: "AQ12456TY"
+  // fleetFullDetails: "Hyundai SanTe (AQ12456TY)"
+  // id: "541378f3-27e3-4ae4-d25f-08da293141f8"
+  // manifestCode: "3101000008"
+  // routeCode: "7556ea85-f83b-4c83-7c4c-08d9fdb8f1f2"
+  // routeName: "LOS-ABK"
+  // tripReference: "11101000009"
+  // userId: "00000000-0000-0000-0000-000000000000"
   //all the data for the table
   const tableProvider = {
     columns: [
-      {
-        Header: 'Trip Id',
-        accessor: 'id',
-      },
       {
         Header: 'Trip Reference',
         accessor: 'tripReference',
       },
       {
-        Header: 'Route Code',
-        accessor: 'routeCode',
+        Header: 'Date',
+        accessor: 'createdDate',
+      },
+      {
+        Header: 'Route',
+        accessor: 'routeName',
       },
       {
         Header: 'Fleet',
-        accessor: 'fleet',
+        accessor: 'fleetFullDetails',
       },
       {
         Header: 'Driver',
-        accessor: 'driver',
+        accessor: 'driverName',
       },
       {
-        Header: 'Dispatcher',
-        accessor: 'dispatcher',
+        Header: 'Current Status',
+        accessor: 'dispatche',
       },
-      
-     
-    
+
     ],
     DetailsPath: '/monitor/tripDetails/',
     EditPath: '#kt_modal_edittrip',
@@ -109,6 +121,7 @@ export function ViewTrips() {
             modalTarger
           }
           handleEdit={handleEdit}
+          showButton = {true}
         />
         )}
       </div>

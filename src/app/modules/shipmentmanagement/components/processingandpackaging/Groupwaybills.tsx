@@ -67,7 +67,7 @@ export function GroupWayBill() {
       listDataVal.push(itemObj)
     })
     setListDataVal(listDataVal)
-    console.log("AAR: ", listDataValue) 
+    // console.log("AAR: ", listDataValue) 
   }
 
   // fillListItems()

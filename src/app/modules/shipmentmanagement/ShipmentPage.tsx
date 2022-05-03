@@ -2,23 +2,24 @@ import React from 'react'
 import {Redirect, Route, Switch} from 'react-router-dom'
 import {PageLink, PageTitle} from '../../../_iris/layout/core'
 import {ShipmentHeader} from './ShipmentHeader'
-import { ViewRoutes } from './components/settings/ViewRoutes'
-import { ViewFleets} from './components/settings/ViewFleets'
-import { CaptureShipment } from './components/capture/CaptureShipment'
+import {ViewRoutes} from './components/settings/ViewRoutes'
+import {ViewFleets} from './components/settings/ViewFleets'
+import {CaptureShipment} from './components/capture/CaptureShipment'
 
-import { ViewPriceSettings } from './components/settings/ViewPriceSettings'
-import { Manifest } from './components/processingandpackaging/Manifest'
-import { ViewShipment } from './components/capture/ViewShipment'
-import { ShipmentDetail } from './components/capture/ShipmentDetail'
-import { ManifestDetail } from './components/processingandpackaging/ManifestDetail'
-import { RouteDetail } from './components/settings/RouteDetail'
-import { FleetDetail } from './components/settings/FleetDetail'
-import { PriceSettingDetail } from './components/settings/PriceSettingDetail'
-import { HorizontalShipmentCapture } from './components/capture/HorizontalShipmentCapture'
-import { ViewGroupWaybills } from './components/processingandpackaging/ViewGroupwaybills'
-import { GroupWayBill } from './components/processingandpackaging/Groupwaybills'
-import { ViewManifests } from './components/processingandpackaging/ViewManifests'
-import { ViewTrips } from '../monitoring/components/operations/trips/ViewTrips'
+import {ViewPriceSettings} from './components/settings/ViewPriceSettings'
+import {Manifest} from './components/processingandpackaging/Manifest'
+import {ViewShipment} from './components/capture/ViewShipment'
+import {ShipmentDetail} from './components/capture/ShipmentDetail'
+import {ManifestDetail} from './components/processingandpackaging/ManifestDetail'
+import {RouteDetail} from './components/settings/RouteDetail'
+import {FleetDetail} from './components/settings/FleetDetail'
+import {PriceSettingDetail} from './components/settings/PriceSettingDetail'
+import {HorizontalShipmentCapture} from './components/capture/HorizontalShipmentCapture'
+import {ViewGroupWaybills} from './components/processingandpackaging/ViewGroupwaybills'
+import {GroupWayBill} from './components/processingandpackaging/Groupwaybills'
+import {ViewManifests} from './components/processingandpackaging/ViewManifests'
+import {ViewTrips} from '../monitoring/components/operations/trips/ViewTrips'
+import { ProcessDispatch } from './components/processingandpackaging/ProcessDispatch'
 
 const userBreadCrumbs: Array<PageLink> = [
   {
@@ -58,12 +59,11 @@ const userBreadCrumbs: Array<PageLink> = [
     isActive: false,
   },
   {
-    title: 'Trips',
-    path: '/monitor/trips',
+    title: 'Trips Dispatch',
+    path: '/shipment/processdispatch',
     isSeparator: false,
     isActive: false,
   },
- 
 ]
 
 const ShipmentPage: React.FC = () => {
@@ -85,12 +85,12 @@ const ShipmentPage: React.FC = () => {
 
         <Route path='/shipment/ViewPriceSettings'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Price Setting</PageTitle>
-          <ViewPriceSettings/>
+          <ViewPriceSettings />
         </Route>
 
         <Route path='/shipment/shipment'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Shipments</PageTitle>
-          <ViewShipment/>
+          <ViewShipment />
         </Route>
 
         <Route path='/shipment/CaptureShipment'>
@@ -121,21 +121,27 @@ const ShipmentPage: React.FC = () => {
           <PageTitle breadcrumbs={userBreadCrumbs}>Manifest</PageTitle>
           <ViewManifests />
         </Route>
-        
+
         <Route path='/shipment/groupwaybill'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Group Waybill</PageTitle>
           <ViewGroupWaybills />
         </Route>
 
         <Route path='/shipment/processmanifest'>
-        <PageTitle breadcrumbs={userBreadCrumbs}>Process Manifest</PageTitle>
+          <PageTitle breadcrumbs={userBreadCrumbs}>Process Manifest</PageTitle>
           <Manifest />
         </Route>
+
+        <Route path='/shipment/processdispatch'>
+          <PageTitle breadcrumbs={userBreadCrumbs}>Process Dispatch</PageTitle>
+          <ProcessDispatch />
+        </Route>
+
         <Route path='/shipment/processgroupwaybill'>
-        <PageTitle breadcrumbs={userBreadCrumbs}>Process Group Waybill</PageTitle>
+          <PageTitle breadcrumbs={userBreadCrumbs}>Process Group Waybill</PageTitle>
           <GroupWayBill />
         </Route>
-        
+
         <Route path='/shipment/shipmentdetail/:waybill'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Manifest</PageTitle>
           <ShipmentDetail />

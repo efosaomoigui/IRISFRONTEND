@@ -35,7 +35,7 @@ GetStates()
 
         {!isAuthorized ? (
           /*Redirect to `/auth` when user is not authorized*/
-          <Redirect to='/auth/login' />
+          <Redirect to='/login' />
         ) : (
           <>
             <MasterLayout>

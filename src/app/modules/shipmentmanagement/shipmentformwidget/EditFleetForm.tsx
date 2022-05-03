@@ -42,12 +42,9 @@ export default function EditFleetForm(props: Props<IFleetModel>) {
   const initialFormValue: IFleetModel = {
     fleetId: props.fleet ? props.fleet!.fleetId : '',
     fleetType: props.fleet ? props.fleet!.fleetType : 48,
-    registrationNumber: props.fleet ? props.fleet!.registrationNumber : '',
     chassisNumber: props.fleet ? props.fleet!.chassisNumber : '',
-    engineNumber: props.fleet ? props.fleet!.engineNumber : '',
     status: props.fleet ? props.fleet!.status : true,
     capacity: props.fleet ? props.fleet!.capacity : 200,
-    description: props.fleet ? props.fleet!.description : '',
     fleetModel: props.fleet ? props.fleet!.fleetModel : '',
     fleetMake: props.fleet ? props.fleet!.fleetMake : '',
     ownerId: props.fleet ? props.fleet!.ownerId : '',
@@ -55,13 +52,10 @@ export default function EditFleetForm(props: Props<IFleetModel>) {
 
   const validationSchema = Yup.object({
     fleetId: Yup.string().required(),
-    registrationNumber: Yup.string().required(),
     chassisNumber: Yup.string().required(),
-    engineNumber: Yup.string().required(),
     status: Yup.boolean().required(),
     fleetType: Yup.number().required(),
     capacity: Yup.number().required(),
-    description: Yup.string().required(),
     fleetModel: Yup.string().required(),
     fleetMake: Yup.string().required(),
     ownerId: Yup.string().required(),

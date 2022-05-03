@@ -1,20 +1,21 @@
 import {useEffect, useState} from 'react'
-import { Spinner } from 'react-bootstrap-v5'
+import {Spinner} from 'react-bootstrap-v5'
 import agent from '../../../../../setup/axios/AxiosAgent'
-import { usePageData } from '../../../../../_iris/layout/core'
-import { IrisTablesWidget } from '../../../layout/tables/IrisTablesWidget'
-import { modalprops } from '../../../layout/tables/IrisTableTitle'
+import {usePageData} from '../../../../../_iris/layout/core'
+import {IrisTablesWidget} from '../../../layout/tables/IrisTablesWidget'
+import {modalprops} from '../../../layout/tables/IrisTableTitle'
 import FleetData from '../../FleetData.json'
-import { IFleetModel } from '../../ShipmentModels/ShipmentInterfaces'
-// import {format} from 'date-fns' 
+import { AddFleetModal } from '../../modals/AddFleetModal'
+import { EditFleetModal } from '../../modals/EditFleetModal'
+import {IFleetModel} from '../../ShipmentModels/ShipmentInterfaces'
+// import {format} from 'date-fns'
 
 export function ViewFleets() {
   const [loading, setLoading] = useState(true)
-  const [modalTarger, setModalTarget] = useState<modalprops[]>([]);
+  const [modalTarger, setModalTarget] = useState<modalprops[]>([])
   const [fleetmodel, setFleetModel] = useState<IFleetModel[]>([])
   const [loadingData, setLoadingData] = useState(true)
-  const { selectValue, handleSelectValue, selectUrlParam, setSelectUrlParam } = usePageData() //global data
-
+  const {selectValue, handleSelectValue, selectUrlParam, setSelectUrlParam} = usePageData() //global data
 
   //all the data for the table
   const tableProvider = {
@@ -22,10 +23,6 @@ export function ViewFleets() {
       {
         Header: 'FleetId',
         accessor: 'fleetId',
-      },
-      {
-        Header: 'Registration Number',
-        accessor: 'registrationNumber',
       },
       {
         Header: 'Chassis Number',
@@ -36,30 +33,26 @@ export function ViewFleets() {
         accessor: 'status',
       },
       {
+        Header: 'FleetMake',
+        accessor: 'fleetMake',
+      },
+      {
+        Header: 'FleetModel',
+        accessor: 'fleetModel',
+      },
+      {
         Header: 'FleetType',
         accessor: 'fleetType',
       },
       {
-          Header: 'Capacity',
-          accessor: 'capacity',
+        Header: 'Capacity',
+        accessor: 'capacity',
       },
       {
-          Header: 'Description',
-          accessor: 'description',
+        Header: 'Owner',
+        accessor: 'ownerName',
       },
-      {
-          Header: 'FleetModel',
-          accessor: 'fleetModel',
-      },
-      {
-          Header: 'FleetMake',
-          accessor: 'fleetMake',
-      },
-      {
-          Header: 'Owner Id',
-          accessor: 'ownerId',
-      },
-        ],
+    ],
     DetailsPath: '/shipment/fleetdetail/',
     EditPath: '#kt_modal_editfleet',
     DeletePath: '/adminSettings/userDetails/',
@@ -69,8 +62,8 @@ export function ViewFleets() {
   //Buttons on the table page
   const ModalTarget = [
     {
-      linkTitle:'Add Fleet',
-      linkTarget : '#kt_modal_addfleet'
+      linkTitle: 'Add Fleet',
+      linkTarget: '#kt_modal_addfleet',
     },
   ]
 
@@ -81,12 +74,12 @@ export function ViewFleets() {
     return val
   }
 
-   // //USE EFFECT HOOK
-   useEffect(() => {
+  // //USE EFFECT HOOK
+  useEffect(() => {
     const callFunc = async () => {
       await agent.Fleet.list().then((response) => {
         setFleetModel(response)
-        setModalTarget(ModalTarget);
+        setModalTarget(ModalTarget)
         setLoadingData(false)
       })
     }
@@ -98,29 +91,30 @@ export function ViewFleets() {
   return (
     <div className='row g-5 g-xxl-8'>
       <div className='col-xl-12'>
-      {loadingData ? (
+        {loadingData ? (
           <div>
             <Spinner animation='border' />
           </div>
         ) : (
-        <IrisTablesWidget
-          tableData={fleetmodel}
-          className='mb-5 mb-xl-8'
-          columnsMap={tableProvider.columns}
-          DetailsPath={tableProvider.DetailsPath}
-          EditPath={tableProvider.EditPath}
-          DeletePath={tableProvider.DeletePath}
-          UseFakeData={false}
-          FakeData={tableProvider.FakeData}
-          TableTitle={'Fleet Profile'}
-          Count={'Over 300 Users'}
-          ModalTarget={
-            modalTarger
-          }
-          handleEdit={handleEdit}
-        />
+          <IrisTablesWidget
+            tableData={fleetmodel}
+            className='mb-5 mb-xl-8'
+            columnsMap={tableProvider.columns}
+            DetailsPath={tableProvider.DetailsPath}
+            EditPath={tableProvider.EditPath}
+            DeletePath={tableProvider.DeletePath}
+            UseFakeData={false}
+            FakeData={tableProvider.FakeData}
+            TableTitle={'Fleet Profile'}
+            Count={'Over 300 Users'}
+            ModalTarget={modalTarger}
+            handleEdit={handleEdit}
+          />
         )}
       </div>
+      
+      <AddFleetModal />
+      <EditFleetModal />
     </div>
   )
 }

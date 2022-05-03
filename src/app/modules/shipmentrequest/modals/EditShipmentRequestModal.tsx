@@ -58,7 +58,7 @@ const EditShipmentRequestModal: React.FC<Props> = ({ handleEdit, SelectedValues 
     }
     return (
         <>
-            <Container className='modal fade' id='kt_modal_addfleet' aria-hidden='true'>
+            <Container className='modal fade' id='kt_modal_addfleetf' aria-hidden='true'>
                 <EditShipmentRequestForm
                     isSubmitting={isSubmitting}
                     onSubmit={onSubmit}

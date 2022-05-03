@@ -5,6 +5,7 @@ import { TrackHistoryDetail } from './components/operations/trackhistory/TrackHi
 import { ViewTrackHistory } from './components/operations/trackhistory/ViewTrackHistory'
 import { TripDetail } from './components/operations/trips/TripDetail'
 import { ViewTrips } from './components/operations/trips/ViewTrips'
+import { RegisterTrack } from './monitorformwidget/RegisterTrack'
 import { MonitorHeader } from './MonitorHeader'
 
 
@@ -15,6 +16,12 @@ const userBreadCrumbs: Array<PageLink> = [
     isSeparator: false,
     isActive: false,
   },
+  {
+    title: 'Register Track',
+    path: '/monitor/registerTrack',
+    isSeparator: false,
+    isActive: false,
+  },
 ]
 
 const MonitorPage: React.FC = () => {
@@ -22,10 +29,16 @@ const MonitorPage: React.FC = () => {
     <>
       {/* <MonitorHeader /> */}
       <Switch>
+        <Route path='/monitor/registerTrack'>
+          <PageTitle breadcrumbs={userBreadCrumbs}>Register Track</PageTitle>
+          <RegisterTrack className={''} />
+        </Route>
+
         <Route path='/monitor/trackhistory'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Track History</PageTitle>
           <ViewTrackHistory />
         </Route>
+        
         <Route path='/monitor/tripDetails/:id'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Trip Detail</PageTitle>
           <TripDetail />

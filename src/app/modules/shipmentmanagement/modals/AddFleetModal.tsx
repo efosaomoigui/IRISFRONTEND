@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import { v4 as uuid } from 'uuid';
 import agent from '../../../../setup/axios/AxiosAgent';
 import { usePageData } from '../../../../_iris/layout/core';
+import { FleetType } from '../../auth/models/AuthInterfaces';
 import AddFleetForm from '../shipmentformwidget/AddFleetForm';
 import { IFleetModel } from '../ShipmentModels/ShipmentInterfaces';
 
@@ -41,7 +42,11 @@ const AddFleetModal: React.FC = () => {
 
   const onSubmit = (values: IFleetModel) => {
     setIsSubmitting(true)
-    // values.fleetId = uuid()
+    values.fleetId = uuid() 
+    values.status = true 
+    values.fleetType = Number(values.fleetType)
+    // values.ownerId = Number(values.fleetType)
+    console.log("values.owner ", values.ownerId)
 
     agent.Fleet.create(values)
       .then((response) => {

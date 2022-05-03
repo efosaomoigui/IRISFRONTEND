@@ -33,12 +33,12 @@ export function AuthPage() {
         {/* begin::Wrapper */}
         <div className='w-lg-500px bg-white rounded shadow-sm p-10 p-lg-15 mx-auto'>
           <Switch>
-            <Route path='/auth/login' component={Login} />
-            <Route path='/auth/registration' component={Registration} />
-            <Route path='/auth/ShipmentRequest' component={ShipmentRequest} />
-            <Route path='/auth/forgot-password' component={ForgotPassword} />
-            <Redirect from='/auth' exact={true} to='/auth/login' />
-            <Redirect to='/auth/login' />
+            <Route path='/login' component={Login} />
+            <Route path='/registration' component={Registration} />
+            <Route path='/ShipmentRequest' component={ShipmentRequest} />
+            <Route path='/forgot-password' component={ForgotPassword} />
+            <Redirect from='/auth' exact={true} to='/login' />
+            <Redirect to='/login' />
           </Switch>
         </div>
         {/* end::Wrapper */}

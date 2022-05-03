@@ -95,6 +95,7 @@ export function ViewShipment() {
             TableTitle={'Shipments'}
             Count={'Over 300 Users'}
             ModalTarget={modalTarger}
+            showButton={true}
           />
         )}
       </div>

@@ -8,6 +8,7 @@ interface Props {
   type?:string
   label?: string
   value?:string
+  onChange?:(event: React.ChangeEvent<HTMLInputElement>)=>void
 }
 
 export default function IrisTextInput(props: Props) {
@@ -23,9 +24,7 @@ export default function IrisTextInput(props: Props) {
   return (
     <>
         <TextField  {...field} {...props} fullWidth variant='outlined' 
-        error={meta.touched && Boolean(meta.error)}
-                        className="form-control"
-        helperText={meta.touched && meta.error}  />
+        error={meta.touched && Boolean(meta.error)} className='form-control' helperText={meta.touched && meta.error}  />
     </>
   );
 
