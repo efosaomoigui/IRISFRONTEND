@@ -62,6 +62,9 @@ function mainConfig() {
         },
       },
     ],
+    devServer: {
+      historyApiFallback: true,
+    },
     module: {
       rules: [
         {
