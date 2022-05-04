@@ -40,6 +40,7 @@ function mainConfig() {
       path: distPath,
       // output path based on the entries' filename
       filename: '[name].js',
+      publicPath:'/'
     },
     resolve: {
       extensions: ['.scss'],

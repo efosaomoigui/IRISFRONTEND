@@ -1,10 +1,11 @@
+import { format } from 'date-fns';
 import { useEffect, useState } from 'react'
 import { Spinner } from 'react-bootstrap-v5';
 import agent from '../../../../../setup/axios/AxiosAgent';
 import { usePageData } from '../../../../../_iris/layout/core';
 import { IrisTablesWidget } from '../../../layout/tables/IrisTablesWidget';
 import { modalprops } from '../../../layout/tables/IrisTableTitle';
-import { IWalletModel, IWalletTransactionModel } from '../../Models/WalletInterfaces'
+import { IWalletModel, IWalletTransactionModel, numberFormat } from '../../Models/WalletInterfaces'
 import WalletTransaction_Data from './WalletTransaction_Data.json'
 // import {format} from 'date-fns' 
 
@@ -26,6 +27,7 @@ export function WalletTransaction() {
       {
         Header: 'Date',
         accessor: 'createdDate',
+        Cell: ({value}:any) => format(new Date(value), 'dd/mm/yyyy HH:mm:ss') 
       },
       {
         Header: 'Wallet Name',
@@ -34,6 +36,7 @@ export function WalletTransaction() {
       {
         Header: 'Amount',
         accessor: 'amount',
+        Cell: ({value}:any) => numberFormat(Number(value)) 
       },
       {
         Header: 'Transaction Type',
@@ -46,6 +49,7 @@ export function WalletTransaction() {
       {
         Header: 'Balance', 
         accessor: 'lineBalance',
+        Cell: ({value}:any) => numberFormat(Number(value)) 
       },
      
     ],

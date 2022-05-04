@@ -1,3 +1,4 @@
+import { format } from 'date-fns'
 import {useEffect, useState} from 'react'
 import {Button, Form, Spinner} from 'react-bootstrap-v5'
 import agent from '../../../../../../setup/axios/AxiosAgent'
@@ -29,6 +30,7 @@ export function ViewTrackHistory() {
       {
         Header: 'Date',
         accessor: 'createDate',
+        Cell: ({value}:any) => format(new Date(value), 'dd/mm/yyyy HH:mm:ss')
       },
 
       {

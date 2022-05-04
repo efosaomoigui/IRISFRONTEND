@@ -54,21 +54,21 @@ export default function EditUserForm(props: Props<IUserModel>) {
     lastName: props.user ? props.user!.lastName : '',
     email: props.user ? props.user!.email : '',
     phoneNumber: props.user ? props.user!.phoneNumber : '',
-    requirePasswordChanged: 'No',
+    requirePasswordChanged: 'Yes',
     // gender: props.user ? props.user!.gender : Gender.Male,
     // userType: props.user ? props.user!.userType : Category.Corporate,
   }
 
   const validationSchema = Yup.object({
-    username: Yup.string().required(),
-    firstName: Yup.string().required(),
+    // username: Yup.string().required(),
+    // firstName: Yup.string().required(),
     password: Yup.string().required(),
-    lastName: Yup.string().required(),
-    email: Yup.string().required(),
-    phoneNumber: Yup.string().required(),
+    // lastName: Yup.string().required(),
+    // email: Yup.string().required(),
+    // phoneNumber: Yup.string().required(),
     // gender: Yup.string().required(),
     // userType: Yup.string().required(),
-    requirePasswordChanged: Yup.string().required(),
+    // requirePasswordChanged: Yup.string().required(),
   })
 
   const classes = useStyles()
@@ -94,14 +94,13 @@ export default function EditUserForm(props: Props<IUserModel>) {
             <div className='modal-dialog modal-dialog-centered mw-900px'>
               <div className='modal-content'>
                 <div className='modal-header'>
-                  <h2>{'Edit User'}</h2>
+                  <h2>{'Edit User (Password)'}</h2>
                   <div
                     className='btn btn-sm btn-icon btn-active-color-primary'
                     data-bs-dismiss='modal'
                   >
                     <KTSVG path='/media/icons/duotune/arrows/arr061.svg' className='svg-icon-1' />
                   </div>
-                  {console.log('IT', initialFormValue)}
                 </div>
 
                 <div className='modal-body'>
@@ -114,42 +113,42 @@ export default function EditUserForm(props: Props<IUserModel>) {
                   )}
                   {props.showForm && (
                     <Grid container className={classes.root}>
-                      <Grid item xs={6}>
+                      {/* <Grid item xs={6}>
                         <input type='hidden' name='userId' />
                         <IrisTextInput type='text' name='username' label='User Name' />
                         <IrisTextInput type='text' name='firstName' label='First Name' />
                         <IrisTextInput type='text' name='lastName' label='Last Name' />
                         <IrisTextInput type='email' name='email' label='Email' />
-                      </Grid>
+                      </Grid> */}
 
-                      <Grid item xs={6}>
-                        <IrisTextInput type='text' name='phoneNumber' label='Phone Number' />
+                      <Grid item xs={12}>
+                        {/* <IrisTextInput type='text' name='phoneNumber' label='Phone Number' /> */}
 
                         {/* <IrisTextRadio
                           name='gender'
                           value={values.gender?.toString()}
                           options={optionsArray1}
                         /> */}
-                        <label className='mt-3'>Require Password Changed?</label>
-                        <div role='group' aria-labelledby='my-radio-group' className='m-2'>
-                          <Field
+                        {/* <label className='mt-3'>Require Password Changed?</label> */}
+                        {/* <div role='group' aria-labelledby='my-radio-group' className='m-2'> */}
+                          {/* <Field
                             className='form-check-input m-1'
                             type='radio'
                             name='requirePasswordChanged'
                             value='No'
                           />
-                          <label className='form-check-label m-1'>No</label>
+                          <label className='form-check-label m-1'>No</label> */}
 
-                          <Field
+                          {/* <Field
                             className='form-check-input m-1'
                             type='radio'
                             name='requirePasswordChanged'
                             value='Yes'
                           />
-                          <label className='form-check-label m-1'>Yes</label>
+                          <label className='form-check-label m-1'>Yes</label> */}
 
-                          <div>Picked: {values.requirePasswordChanged}</div>
-                        </div>
+                          {/* <div>Picked: {values.requirePasswordChanged}</div> */}
+                        {/* </div> */}
 
                         <IrisTextInput type='password' name='password' label='Password' />
 

@@ -40,7 +40,6 @@ const EditUserModal: React.FC<Props> = ({handleEdit, SelectedValues}: Props) => 
 
 
   const onSubmit = (values: IUserModel) => {
-    console.log("VALs ", values)
     setIsSubmitting(true)
     values.id = values.userId
     
@@ -64,8 +63,8 @@ const EditUserModal: React.FC<Props> = ({handleEdit, SelectedValues}: Props) => 
         }, 1000)
         setIsSubmitting(false)
         setShowError(false)
-        history.push('/');
-        history.push("/admin/users");
+        // history.push('/');
+        // history.push("/admin/users");
       }
     })
   }  

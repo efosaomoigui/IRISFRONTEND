@@ -1,3 +1,4 @@
+import { format } from 'date-fns'
 import {useEffect, useState} from 'react'
 import {Spinner} from 'react-bootstrap-v5'
 import agent from '../../../../../setup/axios/AxiosAgent'
@@ -25,6 +26,7 @@ export function ViewGroupWaybills() {
       {
         Header: 'Date',
         accessor: 'createdDate',
+        Cell: ({value}:any) => format(new Date(value), 'dd/mm/yyyy HH:mm:ss') 
       },
       {
         Header: 'Group Waybill Code',
@@ -36,7 +38,7 @@ export function ViewGroupWaybills() {
       },
       {
         Header: 'Destination',
-        accessor: 'destination',
+        accessor: 'destination', 
       },
       // {
       //   Header: 'Route Code',

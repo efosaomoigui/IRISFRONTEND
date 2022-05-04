@@ -1,3 +1,4 @@
+import { format } from 'date-fns'
 import {useEffect, useState} from 'react'
 import {Button, Form, Spinner} from 'react-bootstrap-v5'
 import {object} from 'yup'
@@ -75,6 +76,8 @@ export function ViewWallet() {
       {
         Header: 'Date',
         accessor: 'createdDate',
+        // cell: ({value}:any)=>format(new Date(value), "dd/MM/yyyy") 
+        Cell: ({value}:any) => format(new Date(value), 'dd/MM/yyyy h:i:s A') 
       },
       {
         Header: 'Name',
@@ -83,6 +86,7 @@ export function ViewWallet() {
       {
         Header: 'Amount',
         accessor: 'amount',
+        Cell: ({value}:any) => numberFormat(Number(value)) 
       },
       {
         Header: 'Transaction Type',
@@ -91,7 +95,8 @@ export function ViewWallet() {
       {
         Header: 'Balance',
         accessor: 'lineBalance',
-        // Cell: (props:IWalletModel) => new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'USD' }).format(props.value)
+        // Cell: ({value}:any) => new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'NGN' }).format(value)
+        Cell: ({value}:any) => numberFormat(Number(value)) 
       },
     ],
     DetailsPath: '/wallet/walletdetails/',
@@ -213,11 +218,11 @@ export function ViewWallet() {
             UseFakeData={false}
             FakeData={tableProvider2.FakeData}
             TableTitle={
-              'Wallet Name: ' +
-              walletName +
-              ' | Wallet Number: ' +
-              walletNumber +
-              ' | Wallet Balance: ' +
+              // 'Wallet Name: ' +
+              // walletName +
+              // ' | Wallet Number: ' +
+              // walletNumber +
+              'Balance: ' +
               numberFormat(Number(walletBalance))
             }
             Count={'Wallet Transactions History Search'}

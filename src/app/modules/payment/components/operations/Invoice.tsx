@@ -1,8 +1,10 @@
+import { format } from 'date-fns'
 import {useEffect, useState} from 'react'
 import { Spinner } from 'react-bootstrap-v5'
 import agent from '../../../../../setup/axios/AxiosAgent'
 import {IrisTablesWidget} from '../../../layout/tables/IrisTablesWidget'
 import {modalprops} from '../../../layout/tables/IrisTableTitle'
+import { numberFormat } from '../../../walletmanagement/Models/WalletInterfaces'
 import {IInvoiceModel} from '../../PaymentModels/PaymentmentInterfaces'
 
 import Invoice_Data from './Invoice_Data.json'
@@ -25,17 +27,16 @@ export function Invoice() {
       {
         Header: 'Date',
         accessor: 'createdDate',
-        // cell:({ value }) => {return format(new Date(value), 'dd/MM/YYYY')}
+        Cell: ({value}:any) => format(new Date(value), 'dd/mm/yyyy HH:mm:ss') 
       },
       {
         Header: 'Customer',
         accessor: 'customerName',
-        // cell:({ value }) => {return format(new Date(value), 'dd/MM/YYYY')}
       },
       {
         Header: 'Amount',
         accessor: 'amount',
-        // cell:({ value }) => {return format(new Date(value), 'dd/MM/YYYY')}
+        Cell: ({value}:any) => numberFormat(Number(value))
       },
       {
         Header: 'Waybill Number',

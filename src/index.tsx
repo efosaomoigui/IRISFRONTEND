@@ -51,6 +51,7 @@ Chart.register(...registerables)
 ReactDOM.render(
   <MetronicI18nProvider>
     <Provider store={store}>
+      {console.log("PUBLIC_URL ", PUBLIC_URL)}
       {/* Asynchronously persist redux stores and show `SplashScreen` while it's loading. */}
       <PersistGate persistor={persistor} loading={<div>Loading...</div>}>
         <App basename={PUBLIC_URL} />

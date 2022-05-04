@@ -1,3 +1,4 @@
+import { format } from 'date-fns'
 import { useEffect, useState } from 'react'
 import { Spinner } from 'react-bootstrap-v5'
 import agent from '../../../../../../setup/axios/AxiosAgent'
@@ -41,6 +42,7 @@ export function ViewTrips() {
       {
         Header: 'Date',
         accessor: 'createdDate',
+        Cell: ({value}:any) => format(new Date(value), 'dd/mm/yyyy HH:mm:ss') 
       },
       {
         Header: 'Route',

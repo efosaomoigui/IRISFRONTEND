@@ -5,6 +5,8 @@ import {modalprops} from '../../../layout/tables/IrisTableTitle'
 import Shipment_Data from './Shipment_Data.json'
 import {IShipmentModel} from '../../ShipmentModels/ShipmentInterfaces'
 import { Spinner } from 'react-bootstrap-v5'
+import { numberFormat } from '../../../walletmanagement/Models/WalletInterfaces'
+import { format } from 'date-fns'
 // import {format} from 'date-fns'
 
 export function ViewShipment() {
@@ -23,6 +25,7 @@ export function ViewShipment() {
       {
         Header: 'Date',
         accessor: 'createdDate',
+        Cell: ({value}:any) => format(new Date(value), 'dd/mm/yyyy HH:mm:ss') 
       },
       {
         Header: 'Departure',
@@ -39,6 +42,7 @@ export function ViewShipment() {
       {
         Header: 'GrandTotal',
         accessor: 'grandTotal',
+        Cell: ({value}:any) => numberFormat(Number(value)) 
       },
       {
         Header: 'Reciever',

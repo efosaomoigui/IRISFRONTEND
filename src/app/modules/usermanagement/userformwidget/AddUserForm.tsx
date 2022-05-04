@@ -35,32 +35,32 @@ export default function AddUserForm(props: Props<IUserModel>) {
     setFormTitle,
   } = usePageData()
 
-  const [errorMessage, setErrorMessage] = useState('') 
+  const [errorMessage, setErrorMessage] = useState('')
   const [showError, setShowError] = useState(true)
 
   const initialFormValue: IUserModel = {
-    userId: props.user ? props.user!.userId : '', 
+    userId: props.user ? props.user!.userId : '',
     username: props.user ? props.user!.username : '',
-    password: props.user ? props.user!.password : '', 
+    password: props.user ? props.user!.password : '',
     firstName: props.user ? props.user!.firstName : '',
     lastName: props.user ? props.user!.lastName : '',
     email: props.user ? props.user!.email : '',
-    phoneNumber: props.user ? props.user!.phoneNumber : '', 
+    phoneNumber: props.user ? props.user!.phoneNumber : '',
     gender: props.user ? props.user!.gender : Gender.Male,
-    userType: props.user ? props.user!.userType : Category.Corporate,  
+    userType: props.user ? props.user!.userType : Category.Corporate,
   }
 
   const validationSchema = Yup.object({
     username: Yup.string().required(),
     firstName: Yup.string().required(),
-    password: Yup.string().required(),
-    passwordConfirmation: Yup.string().oneOf([Yup.ref('password'), null], 'Passwords must match'),
+    // password: Yup.string().required(),
+    // passwordConfirmation: Yup.string().oneOf([Yup.ref('password'), null], 'Passwords must match'),
     lastName: Yup.string().required(),
     email: Yup.string().required(),
     phoneNumber: Yup.string().required(),
     gender: Yup.string().required(),
-    userType: Yup.string().required(), 
-  }) 
+    userType: Yup.string().required(),
+  })
 
   const classes = useStyles()
   // const optionsArray1 = [
@@ -107,45 +107,66 @@ export default function AddUserForm(props: Props<IUserModel>) {
                     <Grid container className={classes.root}>
                       <Grid item xs={6}>
                         <IrisTextInput type='text' name='username' label='User Name' />
+
                         <IrisTextInput type='text' name='firstName' label='First Name' />
                         <IrisTextInput type='text' name='lastName' label='Last Name' />
-                        <IrisTextInput type='email' name='email' label='Email' />
+                        <div id='my-radio-group' className='mt-3'>
+                          Category{' '}
+                        </div>
+                        <div role='group' aria-labelledby='my-radio-group' className='m-2'>
+                          <Field
+                            className='form-check-input m-1'
+                            type='radio'
+                            name='userType'
+                            value='Corporate'
+                          />
+                          <label className='form-check-label m-1'>Individual</label>
+
+                          <Field
+                            className='form-check-input m-1'
+                            type='radio'
+                            name='userType'
+                            value='Individual'
+                          />
+                          <label className='form-check-label m-1'>Corporate</label>
+                        </div>
                       </Grid>
 
                       <Grid item xs={6}>
+                        <IrisTextInput type='email' name='email' label='Email' />
                         <IrisTextInput type='text' name='phoneNumber' label='Phone Number' />
-                        <div id='my-radio-group' className="mt-3" >Gender </div>
-                        <div role='group' aria-labelledby='my-radio-group' className="m-2">
-                          
-                            <Field  className="form-check-input m-1" type='radio' name='gender' value='Male'   />
-                            <label className="form-check-label m-1">Male</label>
-                          
-                            <Field className="form-check-input m-1" type='radio' name='gender' value='Female' />
-                            <label className="form-check-label m-1">Female</label>
+                        <div id='my-radio-group' className='mt-3'>
+                          Gender{' '}
+                        </div>
+                        <div role='group' aria-labelledby='my-radio-group' className='m-2'>
+                          <Field
+                            className='form-check-input m-1'
+                            type='radio'
+                            name='gender'
+                            value='Male'
+                          />
+                          <label className='form-check-label m-1'>Male</label>
+
+                          <Field
+                            className='form-check-input m-1'
+                            type='radio'
+                            name='gender'
+                            value='Female'
+                          />
+                          <label className='form-check-label m-1'>Female</label>
                         </div>
 
                         {/* <IrisTextRadio name='gender' options={optionsArray1} /> */}
 
-                        <IrisTextInput type='password' name='password' label='Password' />
+                        {/* <IrisTextInput type='password' name='password' label='Password' />
 
                         <IrisTextInput
                           type='password'
                           name='passwordConfirmation' 
                           label='Confirm Password'  
-                        />
+                        /> */}
 
                         {/* <IrisTextRadio name='userType' options={optionsArray2} /> */}
-
-                        <div id='my-radio-group' className="mt-3" >Category </div>
-                        <div role='group' aria-labelledby='my-radio-group' className="m-2">
-                          
-                            <Field className="form-check-input m-1" type='radio' name='userType' value='Corporate'  />
-                            <label className="form-check-label m-1">Individual</label>    
-
-                            <Field  className="form-check-input m-1" type='radio' name='userType' value='Individual'/>
-                            <label className="form-check-label m-1">Corporate</label>
-                        </div>
-
                       </Grid>
                     </Grid>
                   )}

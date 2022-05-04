@@ -14,6 +14,8 @@ import GetStates from '../modules/common/files/GetStates'
 const Routes: FC = () => {
   const isAuthorized = useSelector<RootState>(({auth}) => auth.user, shallowEqual)
 
+  //check for permision here first
+
 GetStates()
 
   return (

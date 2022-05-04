@@ -2,9 +2,18 @@
 import {useIntl} from 'react-intl'
 import {AsideMenuItemWithSub} from './AsideMenuItemWithSub'
 import {AsideMenuItem} from './AsideMenuItem'
+import {isThorized} from '../../../../app/routing/access'
+import {shallowEqual, useSelector} from 'react-redux'
+import {RootState} from '../../../../setup'
+import {IUserModel} from '../../../../app/modules/auth/models/AuthInterfaces'
 
 export function AsideMenuMain() {
   const intl = useIntl()
+  const user: IUserModel = useSelector<RootState>(({auth}) => auth.user, shallowEqual) as IUserModel
+
+  const userRoles = user.roles!
+  // console.log("userRoles: ", userRoles)
+  const {Admin, Finance, Agent, Customer, Driver} = isThorized(userRoles)
 
   return (
     <>
@@ -22,128 +31,166 @@ export function AsideMenuMain() {
       /> */}
 
       {/* ADMIN PANEL */}
-      <div className='menu-item'>
-        <div className='menu-content pt-8 pb-2'>
-          <span className='menu-section text-muted text-uppercase fs-8 ls-1'>USER MANAGEMENT</span>
-        </div>
-      </div>
-      <AsideMenuItemWithSub
-        to='/admin'
-        icon='/media/icons/duotune/art/art002.svg'
-        title='Admin Settings'
-        fontIcon='bi-layers'
-      >
-        <AsideMenuItem to='/admin/Users' title='Users' hasBullet={true} />
-        <AsideMenuItem to='/admin/roles' title='Roles' hasBullet={true} />
-        {/* <AsideMenuItem to='/admin/permissions' title='Permissions' hasBullet={true} /> */}
-        {/* <AsideMenuItem to='/adminSettings/userDetails' title='User Profile' hasBullet={true} /> */}
-      </AsideMenuItemWithSub>
+      {Admin && (
+        <>
+          <div className='menu-item'>
+            <div className='menu-content pt-8 pb-2'>
+              <span className='menu-section text-muted text-uppercase fs-8 ls-1'>
+                USER MANAGEMENT
+              </span>
+            </div>
+          </div>
 
-      {/* SETTINGS */}
-      <div className='menu-item'>
-        <div className='menu-content pt-8 pb-2'>
-          <span className='menu-section text-muted text-uppercase fs-8 ls-1'>
-            Wallet Management
-          </span>
-        </div>
-      </div>
-      <AsideMenuItemWithSub
-        to='/wallet'
-        icon='/media/icons/duotune/general/gen019.svg'
-        title='Wallets'
-        fontIcon='bi-layers'
-      >
-        <AsideMenuItem to='/wallet/wallets' title='Wallets' hasBullet={true} />
-        <AsideMenuItem to='/wallet/transactions' title='Wallet Transactions' hasBullet={true} />
-        {/* <AsideMenuItem to='/settings/Fleets' title='Fleets' hasBullet={true} />
+          <AsideMenuItemWithSub
+            to='/admin'
+            icon='/media/icons/duotune/art/art002.svg'
+            title='Admin Settings'
+            fontIcon='bi-layers'
+          >
+            <AsideMenuItem to='/admin/Users' title='Users' hasBullet={true} />
+            <AsideMenuItem to='/admin/roles' title='Roles' hasBullet={true} />
+            {/* <AsideMenuItem to='/admin/permissions' title='Permissions' hasBullet={true} /> */}
+            {/* <AsideMenuItem to='/adminSettings/userDetails' title='User Profile' hasBullet={true} /> */}
+          </AsideMenuItemWithSub>
+        </>
+      )}
+
+      {(Admin || Finance) && (
+        <>
+          {/* SETTINGS */}
+          <div className='menu-item'>
+            <div className='menu-content pt-8 pb-2'>
+              <span className='menu-section text-muted text-uppercase fs-8 ls-1'>
+                Wallet Management
+              </span>
+            </div>
+          </div>
+          <AsideMenuItemWithSub
+            to='/wallet'
+            icon='/media/icons/duotune/general/gen019.svg'
+            title='Wallets'
+            fontIcon='bi-layers'
+          >
+            <AsideMenuItem to='/wallet/wallets' title='Wallets' hasBullet={true} />
+            <AsideMenuItem to='/wallet/transactions' title='Wallet Transactions' hasBullet={true} />
+            {/* <AsideMenuItem to='/settings/Fleets' title='Fleets' hasBullet={true} />
         <AsideMenuItem to='/settings/Routes' title='Routes' hasBullet={true} />
         <AsideMenuItem to='/settings/Tripsanddispatch' title='Trips & Dispatch' hasBullet={true} />
         <AsideMenuItem to='/settings/Price' title='Price' hasBullet={true} /> */}
-      </AsideMenuItemWithSub>
+          </AsideMenuItemWithSub>
+        </>
+      )}
+      {(Admin || Finance || Agent) && (
+        <>
+          {/* SHIPMENT modules */}
+          <div className='menu-item'>
+            <div className='menu-content pt-8 pb-2'>
+              <span className='menu-section text-muted text-uppercase fs-8 ls-1'>
+                Shipment Management
+              </span>
+            </div>
+          </div>
+          <AsideMenuItemWithSub
+            to='/shipment/Shipment'
+            icon='/media/icons/duotune/general/gen019.svg'
+            title='Shipments'
+            fontIcon='bi-layers'
+          >
+            <AsideMenuItem to='/shipment/shipment' title='View Shipment' hasBullet={true} />
+            {(Admin || Agent) && (
+              <>
+                <AsideMenuItemWithSub
+                  to='/shipment/CaptureShipment'
+                  icon='/media/icons/duotune/general/gen019.svg'
+                  title='Capture'
+                  fontIcon='bi-layers'
+                >
+                  <AsideMenuItem
+                    to='/shipment/CaptureShipment'
+                    title='Capture Shipment'
+                    hasBullet={true}
+                  />
+                </AsideMenuItemWithSub>
+              </>
+            )}
+            {Admin && (
+              <>
+                <AsideMenuItemWithSub
+                  to='/shipment'
+                  icon='/media/icons/duotune/general/gen019.svg'
+                  title='Settings'
+                  fontIcon='bi-layers'
+                >
+                  <AsideMenuItem to='/shipment/routes' title='Route' hasBullet={true} />
+                  <AsideMenuItem to='/shipment/viewfleet' title='Fleet' hasBullet={true} />
+                  <AsideMenuItem
+                    to='/shipment/ViewPriceSettings'
+                    title='Price Setting'
+                    hasBullet={true}
+                  />
+                </AsideMenuItemWithSub>
+              </>
+            )}
+          </AsideMenuItemWithSub>
 
-      {/* SHIPMENT modules */}
-      <div className='menu-item'>
-        <div className='menu-content pt-8 pb-2'>
-          <span className='menu-section text-muted text-uppercase fs-8 ls-1'>
-            Shipment Management
-          </span>
-        </div>
-      </div>
-      <AsideMenuItemWithSub
-        to='/shipment/Shipment'
-        icon='/media/icons/duotune/general/gen019.svg'
-        title='Shipments'
-        fontIcon='bi-layers'
-      >
-        <AsideMenuItem to='/shipment/shipment' title='View Shipment' hasBullet={true} />
-        <AsideMenuItemWithSub
-          to='/shipment/CaptureShipment'
-          icon='/media/icons/duotune/general/gen019.svg'
-          title='Capture'
-          fontIcon='bi-layers'
-        >
-          <AsideMenuItem to='/shipment/CaptureShipment' title='Capture Shipment' hasBullet={true} />
-        </AsideMenuItemWithSub>
-
-        <AsideMenuItemWithSub
-          to='/shipment'
-          icon='/media/icons/duotune/general/gen019.svg'
-          title='Settings'
-          fontIcon='bi-layers'
-        >
-          <AsideMenuItem to='/shipment/routes' title='Route' hasBullet={true} />
-          <AsideMenuItem to='/shipment/viewfleet' title='Fleet' hasBullet={true} />
-          <AsideMenuItem to='/shipment/ViewPriceSettings' title='Price Setting' hasBullet={true} />
-        </AsideMenuItemWithSub>
-      </AsideMenuItemWithSub>
-
-      {/* SHIPMENT PROCESSING */}
-      <AsideMenuItemWithSub
-        to='/shipment'
-        icon='/media/icons/duotune/general/gen019.svg'
-        title='Processing Center'
-        fontIcon='bi-layers'
-      >
-        {/* <AsideMenuItem to='/shipment/SortShipment' title='Sort Shipment' hasBullet={true} /> */}
-        <AsideMenuItem to='/shipment/groupwaybill' title='Groups & Packages' hasBullet={true} />
-        <AsideMenuItem to='/shipment/manifest' title='Manifest' hasBullet={true} />
-        <AsideMenuItem to='/shipment/trips' title='Trip & Dispatch' hasBullet={true} />
-        {/* <AsideMenuItem to='/shipment/Dispatch' title='Dispatch' hasBullet={true} /> */}
-      </AsideMenuItemWithSub>
+          {/* SHIPMENT PROCESSING */}
+          <AsideMenuItemWithSub
+            to='/shipment'
+            icon='/media/icons/duotune/general/gen019.svg'
+            title='Processing Center'
+            fontIcon='bi-layers'
+          >
+            {/* <AsideMenuItem to='/shipment/SortShipment' title='Sort Shipment' hasBullet={true} /> */}
+            <AsideMenuItem to='/shipment/groupwaybill' title='Groups & Packages' hasBullet={true} />
+            <AsideMenuItem to='/shipment/manifest' title='Manifest' hasBullet={true} />
+            <AsideMenuItem to='/shipment/trips' title='Trip & Dispatch' hasBullet={true} />
+            {/* <AsideMenuItem to='/shipment/Dispatch' title='Dispatch' hasBullet={true} /> */}
+          </AsideMenuItemWithSub>
+        </>
+      )}
 
       {/* PAYMENT MODULE */}
-      <div className='menu-item'>
-        <div className='menu-content pt-8 pb-2'>
-          <span className='menu-section text-muted text-uppercase fs-8 ls-1'>PAYMENT</span>
-        </div>
-      </div>
-      <AsideMenuItemWithSub
-        to='/payment/'
-        icon='/media/icons/duotune/communication/com006.svg'
-        title='Payment'
-        fontIcon='bi-layers'
-      >
-        {/* <AsideMenuItem to='/payment/wallet' title='Wallets' hasBullet={true} />
+      {(Admin || Finance || Agent) && (
+        <>
+          <div className='menu-item'>
+            <div className='menu-content pt-8 pb-2'>
+              <span className='menu-section text-muted text-uppercase fs-8 ls-1'>PAYMENT</span>
+            </div>
+          </div>
+          <AsideMenuItemWithSub
+            to='/payment/'
+            icon='/media/icons/duotune/communication/com006.svg'
+            title='Payment'
+            fontIcon='bi-layers'
+          >
+            {/* <AsideMenuItem to='/payment/wallet' title='Wallets' hasBullet={true} />
         <AsideMenuItem to='/payment/transaction' title='Transaction' hasBullet={true} /> */}
-        <AsideMenuItem to='/payment/paymentlog' title='Payment Log' hasBullet={true} />
-        <AsideMenuItem to='/payment/invoice' title='Invoice' hasBullet={true} />
-      </AsideMenuItemWithSub>
+            <AsideMenuItem to='/payment/paymentlog' title='Payment Log' hasBullet={true} />
+            <AsideMenuItem to='/payment/invoice' title='Invoice' hasBullet={true} />
+          </AsideMenuItemWithSub>
+        </>
+      )}
 
-            {/* SHIPMENT REQUEST */}
-            <div className='menu-item'>
-        <div className='menu-content pt-8 pb-2'>
-          <span className='menu-section text-muted text-uppercase fs-8 ls-1'>SHIPMENT REQUEST</span>
-        </div>
-      </div>
-      <AsideMenuItemWithSub
-        to='/shipmentrequest/'
-        icon='/media/icons/duotune/general/gen025.svg'
-        title='shipment request'
-        fontIcon='bi-layers'
-      >
-        <AsideMenuItem to='/shipmentrequest/request' title='request' hasBullet={true} />
-      </AsideMenuItemWithSub>
-
+      {/* SHIPMENT REQUEST */}
+      {(Admin || Finance || Agent) && (
+        <>
+          <div className='menu-item'>
+            <div className='menu-content pt-8 pb-2'>
+              <span className='menu-section text-muted text-uppercase fs-8 ls-1'>
+                SHIPMENT REQUEST
+              </span>
+            </div>
+          </div>
+          <AsideMenuItemWithSub
+            to='/shipmentrequest/'
+            icon='/media/icons/duotune/general/gen025.svg'
+            title='Shipment request'
+            fontIcon='bi-layers'
+          >
+            <AsideMenuItem to='/shipmentrequest/request' title='Request' hasBullet={true} />
+          </AsideMenuItemWithSub>
+        </>
+      )}
 
       {/* <AsideMenuItemWithSub
         to='/finance-and-accounting'
@@ -164,21 +211,25 @@ export function AsideMenuMain() {
       </AsideMenuItemWithSub> */}
 
       {/* MONITORING */}
-      <div className='menu-item'>
-        <div className='menu-content pt-8 pb-2'>
-          <span className='menu-section text-muted text-uppercase fs-8 ls-1'>MONITORING</span>
-        </div>
-      </div>
-      <AsideMenuItemWithSub
-        to='/monitor/trips'
-        icon='/media/icons/duotune/general/gen025.svg'
-        title='Monitoring'
-        fontIcon='bi-layers'
-      >
-        {/* <AsideMenuItem to='/monitor/addtrack' title='Add Track' hasBullet={true} /> */}
-        <AsideMenuItem to='/monitor/trackhistory' title='Track History' hasBullet={true} />
-        {/* <AsideMenuItem to='/monitor/searchtrip' title='Search Trip' hasBullet={true} /> */}
-      </AsideMenuItemWithSub>
+      {(Admin || Finance || Agent || Driver) && (
+        <>
+          <div className='menu-item'>
+            <div className='menu-content pt-8 pb-2'>
+              <span className='menu-section text-muted text-uppercase fs-8 ls-1'>MONITORING</span>
+            </div>
+          </div>
+          <AsideMenuItemWithSub
+            to='/monitor/trips'
+            icon='/media/icons/duotune/general/gen025.svg'
+            title='Monitoring'
+            fontIcon='bi-layers'
+          >
+            {/* <AsideMenuItem to='/monitor/addtrack' title='Add Track' hasBullet={true} /> */}
+            <AsideMenuItem to='/monitor/trackhistory' title='Track History' hasBullet={true} />
+            {/* <AsideMenuItem to='/monitor/searchtrip' title='Search Trip' hasBullet={true} /> */}
+          </AsideMenuItemWithSub>
+        </>
+      )}
       {/* <AsideMenuItemWithSub
         to='/reporting'
         icon='/media/icons/duotune/general/gen019.svg'
@@ -205,25 +256,27 @@ export function AsideMenuMain() {
         title='Price'
         fontIcon='bi-layers'
       /> */}
-
-      <div className='menu-item'>
-        <div className='menu-content pt-8 pb-2'>
-          <span className='menu-section text-muted text-uppercase fs-8 ls-1'>FULFILLMENT</span>
-        </div>
-      </div>
-      <AsideMenuItemWithSub
-        to='/fulfillment/collectioncenter'
-        icon='/media/icons/duotune/general/gen022.svg'
-        title='Fulfillment'
-        fontIcon='bi-layers'
-      >
-        <AsideMenuItem
-          to='/fulfillment/collectioncenter'
-          title='Collection Center'
-          hasBullet={true}
-        />
-      </AsideMenuItemWithSub>
-
+      {(Admin || Agent) && (
+        <>
+          <div className='menu-item'>
+            <div className='menu-content pt-8 pb-2'>
+              <span className='menu-section text-muted text-uppercase fs-8 ls-1'>FULFILLMENT</span>
+            </div>
+          </div>
+          <AsideMenuItemWithSub
+            to='/fulfillment/collectioncenter'
+            icon='/media/icons/duotune/general/gen022.svg'
+            title='Fulfillment'
+            fontIcon='bi-layers'
+          >
+            <AsideMenuItem
+              to='/fulfillment/collectioncenter'
+              title='Collection Center'
+              hasBullet={true}
+            />
+          </AsideMenuItemWithSub>
+        </>
+      )}
       {/* <div className='menu-item'>
         <div className='menu-content pt-8 pb-2'>
           <span className='menu-section text-muted text-uppercase fs-8 ls-1'>Crafted</span>
