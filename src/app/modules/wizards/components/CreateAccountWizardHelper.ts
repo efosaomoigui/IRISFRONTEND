@@ -12,7 +12,8 @@ export interface ICreateAccount {
   itemsA: Array<{
     ton:string 
     t_shipmentDescription:string
-    t_shipmentType:number
+    t_shipmentType:number|string
+    t_clientWaybill:string
     LineTotal:number
   }>
   itemsB: Array<{
@@ -20,6 +21,7 @@ export interface ICreateAccount {
     length:string
     breadth:string
     height:string
+    quantity:string
     m_shipmentDescription:string
     LineTotal:number
   }>
@@ -28,6 +30,7 @@ export interface ICreateAccount {
   paymentMethod:string
   waybillNumber?:string,
   invoiceNumber?:string,
+  paymentMade?:boolean,
 }
 
 const createAccountSchemas = [
@@ -47,29 +50,22 @@ const createAccountSchemas = [
     itemsA: Yup.array()
      .of(
        Yup.object().shape({
-         ton: Yup.string().when("shipmentCategory", {
-          is: "TruckLoad",
-          then: Yup.string().required().label("Weight (ton) is required")
-        }), 
+         ton: Yup.string().required('Weight is required'), 
+         t_clientWaybill: Yup.string().required('Client Waybill is required'), 
+         t_shipmentType: Yup.string().required('Product is required'), 
        })
      ),
     itemsB: Yup.array()
      .of(
        Yup.object().shape({
-        weight: Yup.string().when("shipmentCategory", {
-          is: "mailandparcel",
-          then: Yup.string().required().label("Weight (kg) is required")
-        }), 
+        weight: Yup.string().required('Weight is required'), 
+        length: Yup.string().required('Length is required'), 
+        breadth: Yup.string().required('Breadth is required'), 
+        height: Yup.string().required('Height is required'), 
+        quantity: Yup.string().required('Quantity is required'), 
        })
      )
   }),
-  // Yup.object({
-  //   nameOnCard: Yup.string().required().label('Name On Card'),
-  //   cardNumber: Yup.string().required().label('Card Number'),
-  //   cardExpiryMonth: Yup.string().required().label('Expiration Month'),
-  //   cardExpiryYear: Yup.string().required().label('Expiration Year'),
-  //   cardCvv: Yup.string().required().label('CVV'),
-  // }),
 ]
 
 const inits: ICreateAccount = {
@@ -85,14 +81,16 @@ const inits: ICreateAccount = {
     ton:'10',
     t_shipmentDescription:'',
     t_shipmentType:1,
+    t_clientWaybill:'1',
     LineTotal:0.00
   }] ,
   itemsB: [{
-    weight:'',
-    length:'',
-    breadth:'',
-    height:'',
-    m_shipmentDescription:'',
+    weight:'1',
+    length:'1',
+    breadth:'1',
+    height:'1',
+    quantity:'1',
+    m_shipmentDescription:'1',
     LineTotal:0.0
   }],
   grandTotal:0,
@@ -100,6 +98,7 @@ const inits: ICreateAccount = {
   paymentMethod: '',
   waybillNumber:'',
   invoiceNumber:'',
+  paymentMade:false
 }
 
 export {createAccountSchemas, inits}

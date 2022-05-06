@@ -3,8 +3,12 @@ import {Field, ErrorMessage, FieldArray} from 'formik'
 import {Label} from 'semantic-ui-react'
 import {number} from 'yup/lib/locale'
 import agent, {axiosPrice} from '../../../../../setup/axios/AxiosAgent'
-import {ILinePriceModel, IShipmentWayBillAndInvoiceModel} from '../../../shipmentmanagement/ShipmentModels/ShipmentInterfaces'
+import {
+  ILinePriceModel,
+  IShipmentWayBillAndInvoiceModel,
+} from '../../../shipmentmanagement/ShipmentModels/ShipmentInterfaces'
 import axios from 'axios'
+import {numberFormat} from '../../../walletmanagement/Models/WalletInterfaces'
 
 interface Props {
   radioState?: string
@@ -13,18 +17,17 @@ interface Props {
   grandTotal?: number
 }
 
-
 const Step3: FC<Props> = ({radioState, values, handleChange, grandTotal}: Props) => {
   const [hideAndShowMailAndParcel, setHideAndShowMailAndParcel] = useState('')
   const [hideTruck, setHideTruck] = useState(false)
   const [loadingData, setLoadingData] = useState(true)
   const [total, setTotal] = useState(0)
   const [lineTotal, setLineTotal] = useState<ILinePriceModel>()
-  const [newWayBillAndInvoice, setNewWayBillAndInvoice] = useState<IShipmentWayBillAndInvoiceModel>() 
+  const [newWayBillAndInvoice, setNewWayBillAndInvoice] =
+    useState<IShipmentWayBillAndInvoiceModel>()
 
   const product = [
     {optionValue: '', optionLabel: 'Select Product Type'},
-    {optionValue: 1, optionLabel: 'MailAndParcel'},
     {optionValue: 2, optionLabel: 'Tomatoes'},
     {optionValue: 3, optionLabel: 'Vedan'},
     {optionValue: 4, optionLabel: 'Noodles'},
@@ -40,7 +43,7 @@ const Step3: FC<Props> = ({radioState, values, handleChange, grandTotal}: Props)
       const val = await agent.Shipment.NewWayBillNumber().then((response) => {
         setLoadingData(false)
         values.waybillNumber = response.waybill
-        values.invoiceNumber = response.invoice  
+        values.invoiceNumber = response.invoice
       })
     }
     if (loadingData) {
@@ -48,38 +51,50 @@ const Step3: FC<Props> = ({radioState, values, handleChange, grandTotal}: Props)
     }
   }, [])
 
-  // console.log('form values : ', values)
+  // console.log('form values : ', ErrorMessage)
   const handleOnChange2 = (
     e: ChangeEvent<HTMLInputElement>,
     weight: any,
     length: any,
     breadth: any,
     height: any,
+    quantity: any,
     id: any,
     route: any,
-    ShimentCategory?: any
+    ShimentCategory?: any,
+    ShimentType?: any
   ) => {
     const weightVal = !isNaN(parseInt(weight)) ? parseInt(weight) : 0
-    const lengthVal = !isNaN(parseInt(length)) ? parseInt(length) : ShimentCategory === 2 ? 1 : 0
-    const breadthVal = !isNaN(parseInt(breadth)) ? parseInt(breadth) : ShimentCategory === 2 ? 1 : 0
-    const heightVal = !isNaN(parseInt(height)) ? parseInt(height) : ShimentCategory === 2 ? 1 : 0
+    let lengthVal = !isNaN(parseInt(length)) ? parseInt(length) : ShimentCategory === 2 ? 1 : 1
+    let breadthVal = !isNaN(parseInt(breadth)) ? parseInt(breadth) : ShimentCategory === 2 ? 1 : 1
+    let heightVal = !isNaN(parseInt(height)) ? parseInt(height) : ShimentCategory === 2 ? 1 : 1
+
+    const quantityVal = !isNaN(parseInt(quantity))
+      ? parseInt(quantity)
+      : ShimentCategory === 2
+      ? 1
+      : 0
 
     const objPrice: ILinePriceModel = {
       weight: weightVal,
       length: lengthVal,
       breadth: breadthVal,
       height: heightVal,
+      quantity: quantityVal,
       lineTotal: 0,
       ShimentCategory: Number(ShimentCategory),
+      Product: Number(ShimentType),
       routeId: route,
     }
+
+    // console.log('form values : ', objPrice)
 
     if (objPrice.ShimentCategory === 1) {
       if (
         objPrice.weight > 0 &&
-        objPrice.length > 0 &&
-        objPrice.breadth > 0 &&
-        objPrice.height > 0
+        objPrice.length >= 0 &&
+        objPrice.breadth >= 0 &&
+        objPrice.height >= 0
       ) {
         axiosPrice(objPrice)
           .then((data) => {
@@ -126,7 +141,7 @@ const Step3: FC<Props> = ({radioState, values, handleChange, grandTotal}: Props)
                         <i
                           className='fas fa-exclamation-circle ms-2 fs-7'
                           data-bs-toggle='tooltip'
-                          title='Monthly billing will be based on your account plan'
+                          title=''
                         ></i>
                       </label>
                       <FieldArray
@@ -136,6 +151,28 @@ const Step3: FC<Props> = ({radioState, values, handleChange, grandTotal}: Props)
                             {values.itemsA.map((item: {}, index: number) => (
                               <div key={index} className='mb-10'>
                                 <hr className='bg-success border-2 border-top border-danger'></hr>
+                                <div className='col-11 mt-5 mt-6'>
+                                  <Field
+                                    as='select'
+                                    name={`itemsA.${index}.t_shipmentType`}
+                                    className='form-select'
+                                    label='Product'
+                                  >
+                                    {product.length &&
+                                      product.map((unit, index) => {
+                                        return (
+                                          <option key={index} value={unit.optionValue}>
+                                            {unit.optionLabel}
+                                          </option>
+                                        )
+                                      })}
+                                  </Field>
+
+                                  <div className='text-danger mt-2'>
+                                    <ErrorMessage name={`itemsA.${index}.t_shipmentType`} />
+                                  </div>
+                                </div>
+                                <br />
                                 <div className='mb-10'>
                                   <div className='row mb-2' data-kt-buttons='true'>
                                     <div className='mb-0'>
@@ -154,9 +191,11 @@ const Step3: FC<Props> = ({radioState, values, handleChange, grandTotal}: Props)
                                                 values.itemsA[index].length,
                                                 values.itemsA[index].breadth,
                                                 values.itemsA[index].height,
+                                                values.itemsA[index].quantity,
                                                 index,
                                                 values.route,
-                                                2
+                                                2,
+                                                values.itemsA[index].t_shipmentType
                                               )
                                             }
                                             id={`kt_tons_select_${index + 1}`}
@@ -182,9 +221,11 @@ const Step3: FC<Props> = ({radioState, values, handleChange, grandTotal}: Props)
                                                 values.itemsA[index].length,
                                                 values.itemsA[index].breadth,
                                                 values.itemsA[index].height,
+                                                values.itemsA[index].quantity,
                                                 index,
                                                 values.route,
-                                                2
+                                                2,
+                                                values.itemsA[index].t_shipmentType
                                               )
                                             }
                                             id={`kt_tons_select_${index + 2}`}
@@ -210,9 +251,11 @@ const Step3: FC<Props> = ({radioState, values, handleChange, grandTotal}: Props)
                                                 values.itemsA[index].length,
                                                 values.itemsA[index].breadth,
                                                 values.itemsA[index].height,
+                                                values.itemsA[index].quantity,
                                                 index,
                                                 values.route,
-                                                2
+                                                2,
+                                                values.itemsA[index].t_shipmentType
                                               )
                                             }
                                             id={`kt_tons_select_${index + 3}`}
@@ -226,6 +269,20 @@ const Step3: FC<Props> = ({radioState, values, handleChange, grandTotal}: Props)
                                         </div>
                                         <div className='text-danger mt-1 mb-3'>
                                           <ErrorMessage name={`itemsA.${index}.ton`} />
+                                        </div>
+                                      </div>
+
+                                      <div className='fv-row mb-6'>
+                                        <label className='form-label'>Client's Waybill</label>
+                                        <Field
+                                          type='number'
+                                          name={`itemsA.${index}.t_clientWaybill`}
+                                          className='form-control form-control-lg form-control-solid'
+                                          rows={3}
+                                        ></Field>
+
+                                        <div className='text-danger mt-2'>
+                                          <ErrorMessage name={`itemsA.${index}.t_clientWaybill`} />
                                         </div>
                                       </div>
 
@@ -243,34 +300,7 @@ const Step3: FC<Props> = ({radioState, values, handleChange, grandTotal}: Props)
                                         </div>
                                       </div>
 
-                                      <div className='col-11 mt-5'>
-                                        <Field
-                                          as='select'
-                                          name={`itemsA.${index}.t_shipmentType`}
-                                          className='form-select'
-                                          label='Product'
-                                        >
-                                          {product.length &&
-                                            product.map((unit, index) => {
-                                              return (
-                                                <option key={index} value={unit.optionValue}>
-                                                  {unit.optionLabel}
-                                                </option>
-                                              )
-                                            })}
-                                        </Field>
-
-                                        <div className='text-danger mt-2'>
-                                          <ErrorMessage name={`itemsA.${index}.t_shipmentType`} />
-                                        </div>
-                                      </div>
-
                                       <div className='col mb-10 mt-10'>
-                                        <Field
-                                          type='hidden'
-                                          name={`itemsA.${index}.LineTotal`}
-                                          id={`itemsA.${index}.id`}
-                                        ></Field>
                                         <label className='form-label' style={{fontWeight: 'bold'}}>
                                           Total
                                         </label>
@@ -279,7 +309,14 @@ const Step3: FC<Props> = ({radioState, values, handleChange, grandTotal}: Props)
                                             <strong>₦</strong>
                                           </span>
                                           <span className='input-group-text'>
-                                            <strong>{values.itemsA[index].LineTotal}</strong>
+                                            <strong>
+                                              {numberFormat(Number(values.itemsA[index].LineTotal))}
+                                            </strong>
+                                            <Field
+                                              className='form-control form-control-lg form-control-solid'
+                                              name={`itemsA.${index}.LineTotal`}
+                                              id={`itemsA.${index}.id`}
+                                            ></Field>
                                           </span>
                                         </div>
                                       </div>
@@ -327,7 +364,7 @@ const Step3: FC<Props> = ({radioState, values, handleChange, grandTotal}: Props)
             </div>
 
             <div className='col-12'>
-              {radioState === 'mailandparcel' && (
+              {(radioState === 'mailandparcel' || radioState === 'freight') && (
                 <div className='row mb-2' data-kt-buttons='true'>
                   <div className='col'>
                     <div className='mb-0 fv-row'>
@@ -336,7 +373,7 @@ const Step3: FC<Props> = ({radioState, values, handleChange, grandTotal}: Props)
                         <i
                           className='fas fa-exclamation-circle ms-2 fs-7'
                           data-bs-toggle='tooltip'
-                          title='Monthly billing will be based on your account plan'
+                          title=''
                         ></i>
                       </label>
                       <FieldArray
@@ -354,18 +391,6 @@ const Step3: FC<Props> = ({radioState, values, handleChange, grandTotal}: Props)
                                         name={`itemsB.${index}.weight`}
                                         className='form-control form-control-lg form-control-solid'
                                         rows={3}
-                                        onKeyUp={(e: React.ChangeEvent<HTMLInputElement>) =>
-                                          handleOnChange2(
-                                            e,
-                                            values.itemsB[index].weight,
-                                            values.itemsB[index].length,
-                                            values.itemsB[index].breadth,
-                                            values.itemsB[index].height,
-                                            index,
-                                            values.route,
-                                            1
-                                          )
-                                        }
                                       ></Field>
 
                                       <div className='text-danger mt-2'>
@@ -376,7 +401,7 @@ const Step3: FC<Props> = ({radioState, values, handleChange, grandTotal}: Props)
 
                                   <div className='row mt-5' data-kt-buttons='true'>
                                     <label className='form-label'>
-                                      Volume (cm<sup>3</sup>)
+                                      Volume (cm<sup>3</sup>) - Optional
                                     </label>
                                     <div className='col'>
                                       <Label>
@@ -386,18 +411,6 @@ const Step3: FC<Props> = ({radioState, values, handleChange, grandTotal}: Props)
                                           name={`itemsB.${index}.length`}
                                           className='form-control form-control-lg form-control-solid'
                                           rows={3}
-                                          onKeyUp={(e: React.ChangeEvent<HTMLInputElement>) =>
-                                            handleOnChange2(
-                                              e,
-                                              values.itemsB[index].weight,
-                                              values.itemsB[index].length,
-                                              values.itemsB[index].breadth,
-                                              values.itemsB[index].height,
-                                              index,
-                                              values.route,
-                                              1
-                                            )
-                                          }
                                         ></Field>
                                       </Label>
 
@@ -414,18 +427,6 @@ const Step3: FC<Props> = ({radioState, values, handleChange, grandTotal}: Props)
                                           name={`itemsB.${index}.breadth`}
                                           className='form-control form-control-lg form-control-solid'
                                           rows={3}
-                                          onKeyUp={(e: React.ChangeEvent<HTMLInputElement>) =>
-                                            handleOnChange2(
-                                              e,
-                                              values.itemsB[index].weight,
-                                              values.itemsB[index].length,
-                                              values.itemsB[index].breadth,
-                                              values.itemsB[index].height,
-                                              index,
-                                              values.route,
-                                              1
-                                            )
-                                          }
                                         ></Field>
                                       </Label>
 
@@ -442,24 +443,39 @@ const Step3: FC<Props> = ({radioState, values, handleChange, grandTotal}: Props)
                                           name={`itemsB.${index}.height`}
                                           className='form-control form-control-lg form-control-solid'
                                           rows={3}
-                                          onKeyUp={(e: React.ChangeEvent<HTMLInputElement>) =>
-                                            handleOnChange2(
-                                              e,
-                                              values.itemsB[index].weight,
-                                              values.itemsB[index].length,
-                                              values.itemsB[index].breadth,
-                                              values.itemsB[index].height,
-                                              index,
-                                              values.route,
-                                              1
-                                            )
-                                          }
                                         ></Field>
                                       </Label>
-
                                       <div className='text-danger mt-2'>
                                         <ErrorMessage name={`itemsB.${index}.height`} />
                                       </div>
+                                    </div>
+                                  </div>
+
+                                  <div className='fv-row mb-6'>
+                                    <label className='form-label'>Quantity</label>
+                                    <Field
+                                      type='number'
+                                      name={`itemsB.${index}.quantity`}
+                                      className='form-control form-control-lg form-control-solid'
+                                      rows={3}
+                                      onKeyUp={(e: React.ChangeEvent<HTMLInputElement>) =>
+                                        handleOnChange2(
+                                          e,
+                                          values.itemsB[index].weight,
+                                          values.itemsB[index].length,
+                                          values.itemsB[index].breadth,
+                                          values.itemsB[index].height,
+                                          values.itemsB[index].quantity,
+                                          index,
+                                          values.route,
+                                          1,
+                                          0
+                                        )
+                                      }
+                                    ></Field>
+
+                                    <div className='text-danger mt-2'>
+                                      <ErrorMessage name={`itemsB.${index}.quantity`} />
                                     </div>
                                   </div>
 
@@ -481,11 +497,11 @@ const Step3: FC<Props> = ({radioState, values, handleChange, grandTotal}: Props)
 
                                   <div className='row mb-10'>
                                     <div className='col mb-4'>
-                                      <Field
+                                      {/* <Field
                                         type='hidden'
                                         name={`itemsB.${index}.LineTotal`}
                                         id={`itemsB.${index}.id`}
-                                      ></Field>
+                                      ></Field> */}
                                       <label className='form-label' style={{fontWeight: 'bold'}}>
                                         Total
                                       </label>
@@ -494,7 +510,14 @@ const Step3: FC<Props> = ({radioState, values, handleChange, grandTotal}: Props)
                                           <strong>₦</strong>
                                         </span>
                                         <span className='input-group-text'>
-                                          <strong>{values.itemsB[index].LineTotal}</strong>
+                                          <strong>
+                                            {numberFormat(Number(values.itemsB[index].LineTotal))}
+                                          </strong>
+                                          <Field
+                                            className='form-control form-control-lg form-control-solid'
+                                            name={`itemsB.${index}.LineTotal`}
+                                            id={`itemsA.${index}.id`}
+                                          ></Field>
                                         </span>
                                       </div>
                                     </div>

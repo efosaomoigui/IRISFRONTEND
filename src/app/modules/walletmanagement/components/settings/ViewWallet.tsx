@@ -77,7 +77,7 @@ export function ViewWallet() {
         Header: 'Date',
         accessor: 'createdDate',
         // cell: ({value}:any)=>format(new Date(value), "dd/MM/yyyy") 
-        Cell: ({value}:any) => format(new Date(value), 'dd/MM/yyyy h:i:s A') 
+        Cell: ({value}:any) => format(new Date(value), "dd/MM/yyyy h:i:s") 
       },
       {
         Header: 'Name',

@@ -7,16 +7,24 @@ import {toast} from 'react-toastify'
 import {v4 as uuid} from 'uuid'
 import paid from './paid.png'
 import unpaid from './unpaid.png'
-import { numberFormat } from '../../../walletmanagement/Models/WalletInterfaces'
+import {numberFormat} from '../../../walletmanagement/Models/WalletInterfaces'
 
 interface Props {
   radioState?: string
   values?: any
   handleChange?: (event: ChangeEvent<HTMLInputElement>) => void
   grandTotal?: number
+  handlePaymentStatus: (value: boolean) => void
+  handlePaymentMethod: (value: number) => void
 }
 
-const Step5: FC<Props> = ({values, handleChange, radioState}: Props) => {
+const Step5: FC<Props> = ({
+  values,
+  handleChange,
+  radioState,
+  handlePaymentStatus,
+  handlePaymentMethod,
+}: Props) => {
   const [paymentSummary, showPaymentSummary] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
   const [successMessage, setSuccessMessage] = useState('')
@@ -82,12 +90,17 @@ const Step5: FC<Props> = ({values, handleChange, radioState}: Props) => {
         setShowError(true)
       } else {
         setPaidStatus(response.paymentStatus)
+        values.paymentMade = response.paymentStatus
         if (response.paymentStatus) {
           toast.success('Shipment Creation Was Successful!')
           setSuccessMessage('Shipment Creation Was Successful!')
+          handlePaymentStatus(true)
+          handlePaymentMethod(1)
         } else {
           toast.error('Payment processing failed, Please try again or use another payment method!')
-          setErrorMessage('Payment processing failed, Please try again or use another payment method!')
+          setErrorMessage(
+            'Payment processing failed, Please try again or use another payment method!'
+          )
           console.log('Error: ', errorMessage)
         }
         setInterval(() => {
@@ -114,7 +127,7 @@ const Step5: FC<Props> = ({values, handleChange, radioState}: Props) => {
       shimentCategory: 1,
       routeId: values.route,
       paymentStatus: false,
-      paymentMethod: 3,
+      paymentMethod: 2,
       description: 'Pay Later Debit Transaction',
       values: values,
     }
@@ -124,6 +137,9 @@ const Step5: FC<Props> = ({values, handleChange, radioState}: Props) => {
     } else if (radioState === 'TruckLoad') {
       paymentCriteria.shimentCategory = 2
     }
+    else if (radioState === 'freight') {
+      paymentCriteria.shimentCategory = 3
+    }
 
     // console.log("Payment Log", paymentCriteria )
     agent.PaymentLog.makePayment(paymentCriteria).then((response) => {
@@ -131,11 +147,22 @@ const Step5: FC<Props> = ({values, handleChange, radioState}: Props) => {
         toast.error(response.validationErrors?.toString())
         setPaidStatus(response.paymentStatus)
         setErrorMessage(response.validationErrors!.toString())
-        console.log('ERR: ', errorMessage)
+        // console.log('ERR: ', errorMessage)
         setIsSubmitting(false)
         setShowError(true)
       } else {
-        toast.success('User Creation Was Successful!')
+        setPaidStatus(response.paymentStatus)
+        if(radioState === 'mailandparcel'){
+          toast.success('Shipment payment postponed to Later!')
+        }
+        if(radioState === 'freight'){
+          toast.success('Shipment payment postponed to Later!')
+          setPaidStatus(false)
+        }
+        
+        setSuccessMessage('Shipment Created and registered for Post Paid')
+        handlePaymentMethod(3)
+        handlePaymentStatus(true)
         setInterval(() => {
           setShowForm(false)
         }, 1000)
@@ -236,7 +263,7 @@ const Step5: FC<Props> = ({values, handleChange, radioState}: Props) => {
                 <div className='fs-6 text-gray-700'>
                   <div className='row g-5 g-xxl-12'>
                     <div className='col-xl-12'>
-                    {successMessage && (
+                      {successMessage && (
                         <div className='alert alert-success' role='alert'>
                           {successMessage}
                         </div>
@@ -290,11 +317,13 @@ const Step5: FC<Props> = ({values, handleChange, radioState}: Props) => {
                                     style={{width: '88%'}}
                                     className='btn btn-primary btn-lg ml-3'
                                     onClick={handlePostPaidPayment}
+                                    disabled
                                   >
                                     {isSubmitting && (
                                       <span className='spinner-grow spinner-grow-sm'></span>
                                     )}
-                                    Pay NGN {numberFormat(Number(values.grandTotal))} with Credit/Debit Card
+                                    Pay NGN {numberFormat(Number(values.grandTotal))} with
+                                    Credit/Debit Card
                                   </button>
                                 )}
 
@@ -317,11 +346,12 @@ const Step5: FC<Props> = ({values, handleChange, radioState}: Props) => {
                                     type='button'
                                     style={{width: '88%'}}
                                     className='btn btn-primary btn-lg ml-3'
+                                    onClick={handlePostPaidPayment}
                                   >
                                     Pay NGN {numberFormat(Number(values.grandTotal))} with Post Paid
                                   </button>
                                 )}
-                                {paidstatus && <img src={paid} alt='Logo' />}
+                                {paidstatus && <img src={unpaid} alt='Logo' />}
                               </div>
                             </div>
                           )}
@@ -427,7 +457,7 @@ const Step5: FC<Props> = ({values, handleChange, radioState}: Props) => {
 
                             <div className='row mb-10'>
                               <label className='col-lg-4 fw-bold text-muted'>
-                               Receiver Phone Number
+                                Receiver Phone Number
                               </label>
 
                               <div className='col-lg-8'>
@@ -544,7 +574,9 @@ const Step5: FC<Props> = ({values, handleChange, radioState}: Props) => {
                               <h3 className='fw-bolder m-0'>Grand Total</h3>
                             </div>
                             <div className='card-title m-0'>
-                              <h3 className='fw-bolder m-0'>{numberFormat(Number(values.grandTotal))}</h3>
+                              <h3 className='fw-bolder m-0'>
+                                {numberFormat(Number(values.grandTotal))}
+                              </h3>
                             </div>
                           </div>
                         </div>

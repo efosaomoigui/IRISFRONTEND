@@ -8,7 +8,7 @@ interface Props {
   values?: any
 }
 
-const Step2: FC<Props> = ({values}: Props) => {
+const Step2: FC<Props> = () => {
   const [routemodel, setRouteModel] = useState<IRouteModel[]>([])
   const [loadingData, setLoadingData] = useState(true)
 
@@ -33,16 +33,16 @@ const Step2: FC<Props> = ({values}: Props) => {
 
       <div className='mb-15 fv-row'>
         <div className='container'>
-          <div className='row'> 
+          <div className='row'>
             <div className='col-6'>
               {}
               <Field as='select' name='route' className='form-select'>
-              <option>Select A Route</option>
+                <option>Select A Route</option>
                 {routemodel.length &&
                   routemodel.map((route, index) => {
                     return (
-                      <option  key={index} value={route.routeId}>
-                        {route.departure + ' ' + route.destination}
+                      <option key={index} value={route.routeId}>
+                        {route.departure + ' ==> ' + route.destination}
                       </option>
                     )
                   })}
@@ -76,11 +76,11 @@ const Step2: FC<Props> = ({values}: Props) => {
                     </label>
 
                     <div className='mb-0'>
-                    <div className='fv-row mb-10'>
+                      <div className='fv-row mb-10'>
                         <label className='form-label'>Contact Phone</label>
 
                         <Field
-                        type="number"
+                          type='number'
                           name='shipperPhoneNumber'
                           className='form-control form-control-lg form-control-solid'
                           rows={3}
@@ -90,7 +90,7 @@ const Step2: FC<Props> = ({values}: Props) => {
                           <ErrorMessage name='shipperPhoneNumber' />
                         </div>
                       </div>
-                      
+
                       <div className='fv-row mb-10'>
                         <label className='form-label'>Full Name</label>
 
@@ -139,11 +139,10 @@ const Step2: FC<Props> = ({values}: Props) => {
                     </label>
 
                     <div className='mb-0'>
-                    <div className='fv-row mb-10'>
+                      <div className='fv-row mb-10'>
                         <label className='form-label'>Contact Phone</label>
-
                         <Field
-                        type="number"
+                          type='number'
                           name='receiverPhoneNumber'
                           className='form-control form-control-lg form-control-solid'
                           rows={3}

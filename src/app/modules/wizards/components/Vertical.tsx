@@ -156,7 +156,11 @@ const Vertical: FC = () => {
               </div>
 
               <div data-kt-stepper-element='content'>
-                <Step5 />
+                <Step5 handlePaymentStatus={function (value: boolean): void {
+                  throw new Error('Function not implemented.')
+                } } handlePaymentMethod={function (value: number): void {
+                  throw new Error('Function not implemented.')
+                } } />
               </div>
 
               <div className='d-flex flex-stack pt-10'>

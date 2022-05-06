@@ -72,7 +72,7 @@ const userBreadCrumbs: Array<PageLink> = [
 
 const ShipmentPage: React.FC = () => {
   const user: IUserModel = useSelector<RootState>(({auth}) => auth.user, shallowEqual) as IUserModel
-  const userRoles = ['Admin']
+  const userRoles = user.roles!
   const {Admin, Finance, Agent, Customer, Driver} = isThorized(userRoles)
 
   const history = useHistory()

@@ -1,4 +1,4 @@
-import {ChangeEvent, FC, FormEvent, useEffect, useRef, useState} from 'react'
+import {ChangeEvent, createContext, FC, FormEvent, useEffect, useRef, useState} from 'react'
 
 import {KTSVG} from '../../../../../_iris/helpers'
 import {StepperComponent} from '../../../../../_iris/assets/ts/components'
@@ -14,8 +14,8 @@ import {Step2} from '../../../wizards/components/steps/Step2'
 import {Step1} from '../../../wizards/components/steps/Step1'
 import {Button, Nav} from 'react-bootstrap-v5'
 import {Step6} from '../../../wizards/components/steps/Step6'
-import { Step4 } from '../../../wizards/components/steps/Step4'
-import { Step5 } from '../../../wizards/components/steps/Step5' 
+import {Step4} from '../../../wizards/components/steps/Step4'
+import {Step5} from '../../../wizards/components/steps/Step5'
 
 const HorizontalShipmentCapture: FC = () => {
   const stepperRef = useRef<HTMLDivElement | null>(null)
@@ -23,11 +23,28 @@ const HorizontalShipmentCapture: FC = () => {
   const [currentSchema, setCurrentSchema] = useState(createAccountSchemas[0])
   const [initValues] = useState<ICreateAccount>(inits)
   const [isSubmitButton, setSubmitButton] = useState(false)
-  const [radioState, setRadioState] = useState("mailandparcel");
+  const [radioState, setRadioState] = useState('mailandparcel')
+  const [gPaymentStatus, setGPaymentStatus] = useState(false)
+  const [gCurrentStepState, setGCurrentStepState] = useState(0)
+  const [gPaymentMethod, setGPaymentMethod] = useState(0)
 
   const loadStepper = () => {
     stepper.current = StepperComponent.createInsance(stepperRef.current as HTMLDivElement)
   }
+
+  function handlePaymentStatus(value: boolean) {
+    setGPaymentStatus(value)
+  }
+
+  function handlePaymentMethod(value: number) {
+    setGPaymentMethod(value)
+  }
+
+  function resetStep() {
+    window.location.reload()
+  }
+
+  // if (gPaymentStatus) alert('I told you, payment is made!!!')
 
   const prevStep = () => {
     if (!stepper.current) {
@@ -47,19 +64,22 @@ const HorizontalShipmentCapture: FC = () => {
 
     setSubmitButton(stepper.current.currentStepIndex === stepper.current.totatStepsNumber! - 1)
     setCurrentSchema(createAccountSchemas[stepper.current.currentStepIndex])
+    setGCurrentStepState(stepper.current.currentStepIndex)
+
+    console.log('Current Step: ', stepper.current.currentStepIndex)
 
     if (stepper.current.currentStepIndex !== stepper.current.totatStepsNumber) {
       stepper.current.goNext()
     } else {
-      stepper.current.goto(1) 
+      stepper.current.goto(1)
       actions.resetForm()
     }
   }
 
-  const handleOnChange = (e: ChangeEvent<HTMLInputElement>)=> {
-    const newValue = e.target.value;
+  const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const newValue = e.target.value
     setRadioState(newValue)
- }
+  }
 
   useEffect(() => {
     if (!stepperRef.current) {
@@ -116,11 +136,16 @@ const HorizontalShipmentCapture: FC = () => {
                 </div>
 
                 <div data-kt-stepper-element='content'>
-                  <Step2 values={values}  />
+                  <Step2 values={values} />
                 </div>
 
                 <div data-kt-stepper-element='content'>
-                  <Step3 radioState={radioState} values={values} handleChange={handleOnChange} grandTotal={values.grandTotal} /> 
+                  <Step3
+                    radioState={radioState}
+                    values={values}
+                    handleChange={handleOnChange}
+                    grandTotal={values.grandTotal}
+                  />
                 </div>
 
                 <div data-kt-stepper-element='content'>
@@ -128,13 +153,19 @@ const HorizontalShipmentCapture: FC = () => {
                 </div>
 
                 <div data-kt-stepper-element='content'>
-                  <Step5 radioState={radioState} handleChange={handleOnChange} values={values} grandTotal={values.grandTotal}  />
+                  <Step5
+                    radioState={radioState}
+                    handleChange={handleOnChange}
+                    values={values}
+                    grandTotal={values.grandTotal}
+                    handlePaymentStatus={handlePaymentStatus}
+                    handlePaymentMethod={handlePaymentMethod}
+                  />
                 </div>
 
                 <div data-kt-stepper-element='content'>
-                  <Step6 waybill='' invoice='' values={values}  />
+                  <Step6 waybill='' invoice='' values={values} />
                 </div>
-
                 <div className='d-flex flex-stack pt-2'>
                   <div className='mr-2'>
                     <Button
@@ -153,20 +184,94 @@ const HorizontalShipmentCapture: FC = () => {
                   </div>
 
                   <div>
-                    <Button
-                      type='submit'
-                      style={{width: '100%'}}
-                      className='btn btn-lg btn-primary me-3'
-                    >
-                      <span className='indicator-label'>
-                        {!isSubmitButton && 'Continue'}
-                        {isSubmitButton && 'Start Another Transaction'}
-                        <KTSVG
-                          path='/media/icons/duotune/arrows/arr064.svg'
-                          className='svg-icon-3 ms-2 me-0'
-                        />
-                      </span>
-                    </Button>
+                    <>
+                      {!gPaymentStatus && gCurrentStepState < 4 && (
+                        <Button
+                          type='submit'
+                          style={{width: '100%'}}
+                          className='btn btn-lg btn-primary me-3'
+                        >
+                          <span className='indicator-label'>
+                            {!isSubmitButton && 'Continue'}
+                            {isSubmitButton && 'Start Another Transaction'}
+                            <KTSVG
+                              path='/media/icons/duotune/arrows/arr064.svg'
+                              className='svg-icon-3 ms-2 me-0'
+                            />
+                          </span>
+                        </Button>
+                      )}
+                      {!gPaymentStatus && gCurrentStepState === 4 && gPaymentMethod === 1 && (
+                        <Button
+                          type='submit'
+                          style={{width: '100%'}}
+                          className='btn btn-lg btn-primary me-3'
+                          disabled
+                        >
+                          <span className='indicator-label'>
+                            {!isSubmitButton && 'Continue'}
+                            {isSubmitButton && 'Start Another Transaction'}
+                            <KTSVG
+                              path='/media/icons/duotune/arrows/arr064.svg'
+                              className='svg-icon-3 ms-2 me-0'
+                            />
+                          </span>
+                        </Button>
+                      )}
+                      {gPaymentStatus && gCurrentStepState === 4 && gPaymentMethod === 1 && (
+                        <Button
+                          type='submit'
+                          style={{width: '100%'}}
+                          className='btn btn-lg btn-primary me-3'
+                        >
+                          <span className='indicator-label'>
+                            {!isSubmitButton && 'Continue'}
+                            {isSubmitButton && 'Start Another Transaction'}
+                            <KTSVG
+                              path='/media/icons/duotune/arrows/arr064.svg'
+                              className='svg-icon-3 ms-2 me-0'
+                            />
+                          </span>
+                        </Button>
+                      )}
+                      {console.log(
+                        ' STRT ',
+                        gPaymentStatus, gCurrentStepState, gPaymentMethod
+                      )}
+                      {gPaymentStatus && gCurrentStepState === 4 && gPaymentMethod > 1 && (
+                        <Button
+                          type='submit'
+                          style={{width: '100%'}}
+                          className='btn btn-lg btn-primary me-3'
+                        >
+                          <span className='indicator-label'>
+                            {!isSubmitButton && 'Continue'}
+                            {isSubmitButton && 'Start Another Transaction'}
+                            <KTSVG
+                              path='/media/icons/duotune/arrows/arr064.svg'
+                              className='svg-icon-3 ms-2 me-0'
+                            />
+                          </span>
+                        </Button>
+                      )}
+                      {gPaymentStatus && gCurrentStepState === 5 && gPaymentMethod >= 1 && (
+                        <Button
+                          type='submit'
+                          style={{width: '100%'}}
+                          className='btn btn-lg btn-primary me-3'
+                          onClick={resetStep} 
+                        >
+                          <span className='indicator-label'>
+                            {!isSubmitButton && 'Continue'}
+                            {isSubmitButton && 'Start Another Transaction'}
+                            <KTSVG
+                              path='/media/icons/duotune/arrows/arr064.svg'
+                              className='svg-icon-3 ms-2 me-0'
+                            />
+                          </span>
+                        </Button>
+                      )}
+                    </>
                   </div>
                 </div>
               </Form>

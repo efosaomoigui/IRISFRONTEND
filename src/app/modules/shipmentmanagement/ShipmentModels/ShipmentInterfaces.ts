@@ -111,8 +111,10 @@ export interface ILinePriceModel {
   length: number
   breadth: number
   height: number
+  quantity: number
   lineTotal: number
   ShimentCategory: number
+  Product: number
   routeId: string
   pricedData?: any
 }

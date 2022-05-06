@@ -100,7 +100,7 @@ const Step1: FC<Props> = ({handleClick}:Props) => {
               <span className='d-block fw-bold text-start'>
                 <span className='text-dark fw-bolder d-block fs-4 mb-2'>International Freight</span>
                 <span className='text-gray-400 fw-bold fs-6'>
-                  Create corporate account to mane users
+                  Create international freight shipment
                 </span>
               </span>
             </label>
