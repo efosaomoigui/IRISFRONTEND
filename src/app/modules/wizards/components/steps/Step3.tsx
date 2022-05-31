@@ -8,7 +8,7 @@ import {
   IShipmentWayBillAndInvoiceModel,
 } from '../../../shipmentmanagement/ShipmentModels/ShipmentInterfaces'
 import axios from 'axios'
-import {numberFormat} from '../../../walletmanagement/Models/WalletInterfaces'
+import {numberFormat, numberFormat2} from '../../../walletmanagement/Models/WalletInterfaces'
 
 interface Props {
   radioState?: string
@@ -98,7 +98,12 @@ const Step3: FC<Props> = ({radioState, values, handleChange, grandTotal}: Props)
       ) {
         axiosPrice(objPrice)
           .then((data) => {
+            values.itemsB[id].pricePerUnit = Number(data.pricedData.pricePerUnit)
+            values.itemsB[id].volume = Number(data.pricedData.volume)
+            values.itemsB[id].volumetricWeight = Number(data.pricedData.volumetricWeight)
+            values.itemsB[id].chargeableWeight = Number(data.pricedData.chargeableWeight)
             values.itemsB[id].LineTotal = Number(data.pricedData.lineTotal)
+            console.log('[] ', values)
           })
           .catch((err) => console.log(err))
       }
@@ -108,16 +113,12 @@ const Step3: FC<Props> = ({radioState, values, handleChange, grandTotal}: Props)
           values.itemsA[id].LineTotal = Number(data.pricedData.lineTotal)
         })
         .catch((err) => console.log(err))
-    }
-  }
-
-  function checkForDuplicate(param: Array<{}>, index: number) {
-    for (let x = 0; x < param.length; x++) {
-      if (index in param[x]) {
-        return true
-      }
-
-      return false
+    } else if (objPrice.ShimentCategory === 3) {
+      axiosPrice(objPrice)
+        .then((data) => {
+          values.itemsA[id].LineTotal = Number(data.pricedData.lineTotal)
+        })
+        .catch((err) => console.log(err))
     }
   }
 
@@ -495,6 +496,54 @@ const Step3: FC<Props> = ({radioState, values, handleChange, grandTotal}: Props)
                                     </div>
                                   </div>
 
+                                  <div className='fv-row mb-10'>
+                                    <label className='form-label'>Weight From Dimensions</label>
+                                    <div className='input-group mb-12'>
+                                      <span className='input-group-text'>
+                                        <strong>Volume</strong>
+                                      </span>
+                                      <span
+                                        id={`itemsB.${index}.volume`}
+                                        className='input-group-text'
+                                      >
+                                        {numberFormat2(Number(values.itemsB[index].volume)) + 'cm3'}
+                                      </span>
+                                      {/* <span className='input-group-text'>
+                                        <strong>Volumetric Weight</strong>
+                                      </span>
+                                      <span
+                                        id={`itemsB.${index}.volumetricWeight`}
+                                        className='input-group-text'
+                                      >
+                                        {numberFormat2(
+                                          Number(values.itemsB[index].volumetricWeight)
+                                        ) + 'cm3kg'}
+                                      </span> */}
+
+                                      <span className='input-group-text'>
+                                        <strong>Chargeable Weight</strong>
+                                      </span>
+                                      <span
+                                        id={`itemsB.${index}.chargeableWeight`}
+                                        className='input-group-text'
+                                      >
+                                        {numberFormat2(
+                                          Number(values.itemsB[index].chargeableWeight)
+                                        ) + 'kg'}
+                                      </span>
+
+                                      <span className='input-group-text'>
+                                        <strong>Price/Unit Weight</strong>
+                                      </span>
+                                      <span
+                                        id={`itemsB.${index}.pricePerUnit`}
+                                        className='input-group-text'
+                                      >
+                                        {numberFormat(Number(values.itemsB[index].pricePerUnit))}
+                                      </span>
+                                    </div>
+                                  </div>
+
                                   <div className='row mb-10'>
                                     <div className='col mb-4'>
                                       {/* <Field
@@ -516,7 +565,7 @@ const Step3: FC<Props> = ({radioState, values, handleChange, grandTotal}: Props)
                                           <Field
                                             className='form-control form-control-lg form-control-solid'
                                             name={`itemsB.${index}.LineTotal`}
-                                            id={`itemsA.${index}.id`}
+                                            id={`itemsB.${index}.id`}
                                           ></Field>
                                         </span>
                                       </div>

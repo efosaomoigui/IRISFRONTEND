@@ -32,11 +32,12 @@ const Step5: FC<Props> = ({
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [showForm, setShowForm] = useState(true)
   const [paidstatus, setPaidStatus] = useState(false)
+  const [paidstatus2, setPaidStatus2] = useState(false)
 
   const handleClick = () => {
     var total = 0
 
-    if (radioState === 'mailandparcel') {
+    if (radioState === 'mailandparcel' || radioState === 'freight') {
       for (var i = 0; i < values.itemsB.length; i++) {
         let nValue = parseInt(values.itemsB[i].LineTotal)
         if (!isNaN(nValue)) {
@@ -60,6 +61,8 @@ const Step5: FC<Props> = ({
     const walletCode = '00000'
     const invoiceCode = '00000'
     const userCode = uuid()
+
+    setIsSubmitting(true)
 
     const paymentCriteria: IPaymentCriteriaModel = {
       amount: values.grandTotal,
@@ -103,6 +106,10 @@ const Step5: FC<Props> = ({
           )
           console.log('Error: ', errorMessage)
         }
+
+        if (response.paymentStatus) {
+          setPaidStatus2(false)
+        }
         setInterval(() => {
           setShowForm(false)
         }, 1000)
@@ -117,6 +124,8 @@ const Step5: FC<Props> = ({
     const walletCode = '00000'
     const invoiceCode = '00000'
     const userCode = uuid()
+
+    setIsSubmitting(true)
 
     const paymentCriteria: IPaymentCriteriaModel = {
       amount: values.grandTotal,
@@ -136,8 +145,7 @@ const Step5: FC<Props> = ({
       paymentCriteria.shimentCategory = 1
     } else if (radioState === 'TruckLoad') {
       paymentCriteria.shimentCategory = 2
-    }
-    else if (radioState === 'freight') {
+    } else if (radioState === 'freight') {
       paymentCriteria.shimentCategory = 3
     }
 
@@ -145,22 +153,28 @@ const Step5: FC<Props> = ({
     agent.PaymentLog.makePayment(paymentCriteria).then((response) => {
       if (response.validationErrors!.length > 0) {
         toast.error(response.validationErrors?.toString())
-        setPaidStatus(response.paymentStatus)
+        setPaidStatus2(response.paymentStatus)
         setErrorMessage(response.validationErrors!.toString())
         // console.log('ERR: ', errorMessage)
         setIsSubmitting(false)
         setShowError(true)
       } else {
-        setPaidStatus(response.paymentStatus)
-        if(radioState === 'mailandparcel'){
-          toast.success('Shipment payment postponed to Later!')
+        setPaidStatus2(response.paymentStatus)
+        if (radioState === 'mailandparcel') {
+          toast.success('Shipment payment set to pay Later!')
+          alert(response.paymentStatus)
+          setPaidStatus2(response.paymentStatus)
         }
-        if(radioState === 'freight'){
-          toast.success('Shipment payment postponed to Later!')
+        if (radioState === 'freight') {
+          toast.success('Shipment payment set to pay Later!')
+          setPaidStatus2(response.paymentStatus)
+        }
+
+        if (response.paymentStatus) {
           setPaidStatus(false)
         }
-        
-        setSuccessMessage('Shipment Created and registered for Post Paid')
+
+        setSuccessMessage('Shipment payment set to pay Later')
         handlePaymentMethod(3)
         handlePaymentStatus(true)
         setInterval(() => {
@@ -292,9 +306,14 @@ const Step5: FC<Props> = ({
                                     onClick={handleWalletPayment}
                                   >
                                     {isSubmitting && (
-                                      <span className='spinner-grow spinner-grow-sm'></span>
+                                      <span className='spinner-border text-warning'></span>
                                     )}
-                                    Pay NGN {numberFormat(Number(values.grandTotal))} with wallet
+                                    {!isSubmitting && (
+                                      <span>
+                                        Pay NGN {numberFormat(Number(values.grandTotal))} with
+                                        wallet
+                                      </span>
+                                    )}
                                   </button>
                                 )}
                                 {paidstatus && <img src={paid} alt='Logo' />}
@@ -320,10 +339,14 @@ const Step5: FC<Props> = ({
                                     disabled
                                   >
                                     {isSubmitting && (
-                                      <span className='spinner-grow spinner-grow-sm'></span>
+                                      <span className='spinner-border text-warning'></span>
                                     )}
-                                    Pay NGN {numberFormat(Number(values.grandTotal))} with
-                                    Credit/Debit Card
+                                    {!isSubmitting && (
+                                      <span>
+                                        Pay NGN {numberFormat(Number(values.grandTotal))} with
+                                        Credit/Debit Card
+                                      </span>
+                                    )}
                                   </button>
                                 )}
 
@@ -335,23 +358,31 @@ const Step5: FC<Props> = ({
                           {values.paymentMethod === 'postpaid' && (
                             <div className='card-header cursor-pointer'>
                               <div className='card-title m-0'>
-                                {!paidstatus && <h3 className='fw-bolder m-0'>Pay Later</h3>}
-                                {paidstatus && (
+                                {!paidstatus2 && <h3 className='fw-bolder m-0'>Pay Later</h3>}
+                                {paidstatus2 && (
                                   <h3 className='fw-bolder m-0'>Order Confirmation</h3>
                                 )}
                               </div>
                               <div className='card-title m-2'>
-                                {!paidstatus && (
+                                {!paidstatus2 && (
                                   <button
                                     type='button'
                                     style={{width: '88%'}}
                                     className='btn btn-primary btn-lg ml-3'
                                     onClick={handlePostPaidPayment}
                                   >
-                                    Pay NGN {numberFormat(Number(values.grandTotal))} with Post Paid
+                                    {isSubmitting && (
+                                      <span className='spinner-border text-warning'></span>
+                                    )}
+                                    {!isSubmitting && (
+                                      <span>
+                                        Pay NGN {numberFormat(Number(values.grandTotal))} with Post
+                                        Paid
+                                      </span>
+                                    )}
                                   </button>
                                 )}
-                                {paidstatus && <img src={unpaid} alt='Logo' />}
+                                {paidstatus2 && <img src={unpaid} alt='Logo' />}
                               </div>
                             </div>
                           )}

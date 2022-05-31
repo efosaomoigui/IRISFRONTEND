@@ -95,7 +95,7 @@ const Horizontal: FC = () => {
                 </div>
 
                 <div data-kt-stepper-element='content'>
-                  <Step2 />
+                  {/* <Step2 /> */}
                 </div>
 
                 <div data-kt-stepper-element='content'>

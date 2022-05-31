@@ -3,14 +3,19 @@ import {KTSVG} from '../../../../../_iris/helpers'
 import {Field, ErrorMessage, FieldArray} from 'formik'
 import agent from '../../../../../setup/axios/AxiosAgent'
 import {IRouteModel} from '../../../shipmentmanagement/ShipmentModels/ShipmentInterfaces'
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
 
 interface Props {
   values?: any
+  setFieldValue: (obj: string, value: any) => void
 }
 
-const Step2: FC<Props> = () => {
+const Step2: FC<Props> = ({values, setFieldValue}: Props) => {
   const [routemodel, setRouteModel] = useState<IRouteModel[]>([])
   const [loadingData, setLoadingData] = useState(true)
+  const [shipperPhoneNumber, setShipperPhoneNumber] = useState('')
+  const [receiverPhoneNumber, setReceiverPhoneNumber] = useState('')
 
   //USE EFFECT HOOK
   useEffect(() => {
@@ -77,14 +82,28 @@ const Step2: FC<Props> = () => {
 
                     <div className='mb-0'>
                       <div className='fv-row mb-10'>
+                        {/* <div className='mt-6'></div> */}
                         <label className='form-label'>Contact Phone</label>
+                        <PhoneInput
+                          country={'ng'}
+                          value={shipperPhoneNumber}
+                          inputStyle={{
+                            height: '47px',
+                            fontSize: '20px',
+                            width: '80%',
+                            marginTop: '24px',
+                          }}
+                          onChange={(shipperPhoneNumber) =>
+                            setFieldValue('shipperPhoneNumber', shipperPhoneNumber)
+                          }
+                        />
 
-                        <Field
+                        {/* <Field
                           type='number'
                           name='shipperPhoneNumber'
                           className='form-control form-control-lg form-control-solid'
                           rows={3}
-                        ></Field>
+                        ></Field> */}
 
                         <div className='text-danger mt-2'>
                           <ErrorMessage name='shipperPhoneNumber' />
@@ -141,12 +160,25 @@ const Step2: FC<Props> = () => {
                     <div className='mb-0'>
                       <div className='fv-row mb-10'>
                         <label className='form-label'>Contact Phone</label>
-                        <Field
+                        {/* <Field
                           type='number'
                           name='receiverPhoneNumber'
                           className='form-control form-control-lg form-control-solid'
                           rows={3}
-                        ></Field>
+                        ></Field> */}
+                        <PhoneInput
+                          country={'ng'}
+                          value={receiverPhoneNumber}
+                          inputStyle={{
+                            height: '47px',
+                            fontSize: '20px',
+                            width: '80%',
+                            marginTop: '24px',
+                          }}
+                          onChange={(receiverPhoneNumber) =>
+                            setFieldValue('receiverPhoneNumber', receiverPhoneNumber)
+                          }
+                        />
                         <div className='text-danger mt-2'>
                           <ErrorMessage name='receiverPhoneNumber' />
                         </div>

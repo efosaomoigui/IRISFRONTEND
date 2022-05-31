@@ -1,6 +1,6 @@
 import {useState, createContext, useContext, useEffect} from 'react'
 import {Container} from 'react-bootstrap-v5'
-import { useHistory } from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
 import {toast} from 'react-toastify'
 import {v4 as uuid} from 'uuid'
 import agent from '../../../../setup/axios/AxiosAgent'
@@ -21,10 +21,9 @@ const AddUserModal: React.FC<Props> = ({handleSelect, SelectedValues}: Props) =>
   const [hasError, setHasError] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
   const [showError, setShowError] = useState(false)
-  const history = useHistory();
+  const history = useHistory()
 
-  const {entityValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle} =
-    usePageData()
+  const {entityValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle} = usePageData()
 
   // handle logic
   const users = entityValues as IUserModel[]
@@ -37,42 +36,41 @@ const AddUserModal: React.FC<Props> = ({handleSelect, SelectedValues}: Props) =>
   const selected = setSelectedValue(users)
 
   const handleClick = () => {
-    setShowError(false);
-    setShowForm(true);
-    history.push('/');
-    history.push("/admin/users");
+    setShowError(false)
+    setShowForm(true)
+    history.push('/')
+    history.push('/admin/users')
   }
 
-  useEffect(() =>{
-  }, [showForm])
-
+  useEffect(() => {}, [showForm])
 
   const onSubmit = (values: IUserModel) => {
     setIsSubmitting(true)
     values.userId = uuid()
 
-    const Gend = (values.gender == Gender['Female']) ? Gender.Female : Gender.Male  
-    const Cate = (values.userType == Category['Corporate']) ?  Category.Corporate :  Category.Inidvidual
+    const Gend = values.gender == Gender['Female'] ? Gender.Female : Gender.Male
+    const Cate = values.userType == Category['Corporate'] ? Category.Corporate : Category.Inidvidual
 
     values.gender = Gend
     values.userType = Cate
- 
-    agent.Users.create(values)
-      .then((response) => {
-        if (response.validationErrors!.length > 0) {
-          toast.error(response.validationErrors?.toString())
-          setErrorMessage(response.validationErrors!.toString())
-          setIsSubmitting(false)
-          setShowError(true)
-        } else {
-          toast.success('User Creation Was Successful!')
-          setInterval(() => {
-            setShowForm(false)
-          }, 1000)
-          setIsSubmitting(false)
-          setShowError(false)
-        }
-      })
+
+    console.log('Phone Details: ', values)
+
+    agent.Users.create(values).then((response) => {
+      if (response.validationErrors!.length > 0) {
+        toast.error(response.validationErrors?.toString())
+        setErrorMessage(response.validationErrors!.toString())
+        setIsSubmitting(false)
+        setShowError(true)
+      } else {
+        toast.success('User Creation Was Successful!')
+        setInterval(() => {
+          setShowForm(false)
+        }, 1000)
+        setIsSubmitting(false)
+        setShowError(false)
+      }
+    })
   }
 
   return (
@@ -84,7 +82,7 @@ const AddUserModal: React.FC<Props> = ({handleSelect, SelectedValues}: Props) =>
           user={selected}
           showForm={showForm}
           showError={showError}
-          errorMessage={errorMessage} 
+          errorMessage={errorMessage}
           handleClick={handleClick}
           formTitle={'Add User'}
         />

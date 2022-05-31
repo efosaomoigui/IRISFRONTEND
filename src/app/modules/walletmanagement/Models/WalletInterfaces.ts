@@ -16,26 +16,26 @@ export interface IWalletModel {
   walletdto?: {}
 }
 
-export enum TransactionType{
+export enum TransactionType {
   Credit = 2,
-  Debit = 1
+  Debit = 1,
 }
 
 export interface IWalletTransactionModel {
-  id:string 
+  id: string
   amount: string
   transactionType: number
   description: string
   userId: string
-  lineBalance?:string
-  walletBalance?:string
-  walletNumber?:string
+  lineBalance?: string
+  walletBalance?: string
+  walletNumber?: string
   message?: string
   validationErrors?: string[]
   wallettransactionto?: {}
 }
 
-export interface IAddWalletModel { 
+export interface IAddWalletModel {
   id: string
   WalletNumber: string
   IsActive?: boolean
@@ -43,8 +43,11 @@ export interface IAddWalletModel {
   walletBalance: number
 }
 
-export const numberFormat = (value:number) =>
+export const numberFormat = (value: number) =>
   new Intl.NumberFormat('en-NG', {
     style: 'currency',
-    currency: 'NGN'
-  }).format(value);
+    currency: 'NGN',
+  }).format(value)
+
+export const numberFormat2 = (value: number) =>
+  new Intl.NumberFormat('en-IN', {maximumSignificantDigits: 1}).format(value)

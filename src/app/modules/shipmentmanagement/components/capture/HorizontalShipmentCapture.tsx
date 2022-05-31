@@ -40,12 +40,6 @@ const HorizontalShipmentCapture: FC = () => {
     setGPaymentMethod(value)
   }
 
-  function resetStep() {
-    window.location.reload()
-  }
-
-  // if (gPaymentStatus) alert('I told you, payment is made!!!')
-
   const prevStep = () => {
     if (!stepper.current) {
       return
@@ -66,7 +60,11 @@ const HorizontalShipmentCapture: FC = () => {
     setCurrentSchema(createAccountSchemas[stepper.current.currentStepIndex])
     setGCurrentStepState(stepper.current.currentStepIndex)
 
-    console.log('Current Step: ', stepper.current.currentStepIndex)
+    console.log(
+      'Current and total Step: ',
+      stepper.current.currentStepIndex,
+      stepper.current.totatStepsNumber
+    )
 
     if (stepper.current.currentStepIndex !== stepper.current.totatStepsNumber) {
       stepper.current.goNext()
@@ -129,14 +127,14 @@ const HorizontalShipmentCapture: FC = () => {
             onSubmit={submitStep}
             onChange={handleOnChange}
           >
-            {({values, handleChange}) => (
+            {({values, handleChange, setFieldValue}) => (
               <Form className='mx-auto mw-900px w-100 pt-8 pb-10' id='kt_create_account_form'>
                 <div className='current' data-kt-stepper-element='content'>
                   <Step1 handleClick={handleOnChange} />
                 </div>
 
                 <div data-kt-stepper-element='content'>
-                  <Step2 values={values} />
+                  <Step2 values={values} setFieldValue={setFieldValue} />
                 </div>
 
                 <div data-kt-stepper-element='content'>
@@ -185,92 +183,21 @@ const HorizontalShipmentCapture: FC = () => {
 
                   <div>
                     <>
-                      {!gPaymentStatus && gCurrentStepState < 4 && (
-                        <Button
-                          type='submit'
-                          style={{width: '100%'}}
-                          className='btn btn-lg btn-primary me-3'
-                        >
-                          <span className='indicator-label'>
-                            {!isSubmitButton && 'Continue'}
-                            {isSubmitButton && 'Start Another Transaction'}
-                            <KTSVG
-                              path='/media/icons/duotune/arrows/arr064.svg'
-                              className='svg-icon-3 ms-2 me-0'
-                            />
-                          </span>
-                        </Button>
-                      )}
-                      {!gPaymentStatus && gCurrentStepState === 4 && gPaymentMethod === 1 && (
-                        <Button
-                          type='submit'
-                          style={{width: '100%'}}
-                          className='btn btn-lg btn-primary me-3'
-                          disabled
-                        >
-                          <span className='indicator-label'>
-                            {!isSubmitButton && 'Continue'}
-                            {isSubmitButton && 'Start Another Transaction'}
-                            <KTSVG
-                              path='/media/icons/duotune/arrows/arr064.svg'
-                              className='svg-icon-3 ms-2 me-0'
-                            />
-                          </span>
-                        </Button>
-                      )}
-                      {gPaymentStatus && gCurrentStepState === 4 && gPaymentMethod === 1 && (
-                        <Button
-                          type='submit'
-                          style={{width: '100%'}}
-                          className='btn btn-lg btn-primary me-3'
-                        >
-                          <span className='indicator-label'>
-                            {!isSubmitButton && 'Continue'}
-                            {isSubmitButton && 'Start Another Transaction'}
-                            <KTSVG
-                              path='/media/icons/duotune/arrows/arr064.svg'
-                              className='svg-icon-3 ms-2 me-0'
-                            />
-                          </span>
-                        </Button>
-                      )}
-                      {console.log(
-                        ' STRT ',
-                        gPaymentStatus, gCurrentStepState, gPaymentMethod
-                      )}
-                      {gPaymentStatus && gCurrentStepState === 4 && gPaymentMethod > 1 && (
-                        <Button
-                          type='submit'
-                          style={{width: '100%'}}
-                          className='btn btn-lg btn-primary me-3'
-                        >
-                          <span className='indicator-label'>
-                            {!isSubmitButton && 'Continue'}
-                            {isSubmitButton && 'Start Another Transaction'}
-                            <KTSVG
-                              path='/media/icons/duotune/arrows/arr064.svg'
-                              className='svg-icon-3 ms-2 me-0'
-                            />
-                          </span>
-                        </Button>
-                      )}
-                      {gPaymentStatus && gCurrentStepState === 5 && gPaymentMethod >= 1 && (
-                        <Button
-                          type='submit'
-                          style={{width: '100%'}}
-                          className='btn btn-lg btn-primary me-3'
-                          onClick={resetStep} 
-                        >
-                          <span className='indicator-label'>
-                            {!isSubmitButton && 'Continue'}
-                            {isSubmitButton && 'Start Another Transaction'}
-                            <KTSVG
-                              path='/media/icons/duotune/arrows/arr064.svg'
-                              className='svg-icon-3 ms-2 me-0'
-                            />
-                          </span>
-                        </Button>
-                      )}
+                      <Button
+                        type='submit'
+                        style={{width: '100%'}}
+                        className='btn btn-lg btn-primary me-3'
+                      >
+                        <span className='indicator-label'>
+                          {!isSubmitButton && 'Continue'}
+                          {isSubmitButton && 'Start Another Transaction'}
+                          <KTSVG
+                            path='/media/icons/duotune/arrows/arr064.svg'
+                            className='svg-icon-3 ms-2 me-0'
+                          />
+                        </span>
+                      </Button>
+                      {/* {console.log(' STRT ', gPaymentStatus, gCurrentStepState, gPaymentMethod)} */}
                     </>
                   </div>
                 </div>

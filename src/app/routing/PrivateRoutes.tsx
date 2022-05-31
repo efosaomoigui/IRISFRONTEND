@@ -1,17 +1,16 @@
 import React, {Suspense, lazy} from 'react'
-import { shallowEqual, useSelector } from 'react-redux'
+import {shallowEqual, useSelector} from 'react-redux'
 import {Redirect, Route, Switch, useHistory} from 'react-router-dom'
-import { RootState } from '../../setup'
+import {RootState} from '../../setup'
 import {FallbackView} from '../../_iris/partials'
-import { IUserModel } from '../modules/auth/models/AuthInterfaces'
-import { ShipmentRequest } from '../modules/shipmentrequest/components/ShipmentRequest'
+import {IUserModel} from '../modules/auth/models/AuthInterfaces'
+import {ShipmentRequest} from '../modules/shipmentrequest/components/ShipmentRequest'
 import ShipmentRequestPage from '../modules/shipmentrequest/ShipmentRequestPage'
 import {DashboardWrapper} from '../pages/dashboard/DashboardWrapper'
 import {MenuTestPage} from '../pages/MenuTestPage'
-import { isThorized } from './access'
+import {isThorized} from './access'
 
 export function PrivateRoutes() {
-  
   const BuilderPageWrapper = lazy(() => import('../pages/layout-builder/BuilderPageWrapper'))
   const ProfilePage = lazy(() => import('../modules/profile/ProfilePage'))
   const WizardsPage = lazy(() => import('../modules/wizards/WizardsPage'))
@@ -38,52 +37,41 @@ export function PrivateRoutes() {
         <Route path='/crafted/pages/wizards' component={WizardsPage} />
 
         {/* Users module routes */}
-        <Route path='/admin/' component={UserPage} >
-          {(Admin || Finance) ? <UserPage /> : <DashboardWrapper />}
+        <Route path='/admin/' component={UserPage}>
+          {Admin || Finance ? <UserPage /> : <DashboardWrapper />}
         </Route>
         {/*  EndUsers module routes */}
 
         {/* Wallet module routes */}
-        <Route path='/wallet/'>
-          {(Finance || Admin) ? <WalletPage /> : <DashboardWrapper />}
-        </Route>
+        <Route path='/wallet/'>{Finance || Admin ? <WalletPage /> : <DashboardWrapper />}</Route>
         {/* end wallet module routes */}
 
         {/* shipment module routes */}
-        <Route path='/shipment/'>
-          {(Agent || Admin) ? <ShipmentPage /> : <DashboardWrapper />}
-        </Route>
+        <Route path='/shipment/'>{Agent || Admin ? <ShipmentPage /> : <DashboardWrapper />}</Route>
         {/* end shipment module routes */}
 
         {/* shipment request module routes */}
         <Route path='/shipmentrequest/'>
-          {(Agent || Admin) ? <ShipmentRequestPage /> : <DashboardWrapper />}
+          {Agent || Admin ? <ShipmentRequestPage /> : <DashboardWrapper />}
         </Route>
         {/* end shipment request module routes */}
 
         {/* payment module routes */}
-        <Route path='/payment/'>
-          {(Agent || Admin) ? <PaymentPage /> : <DashboardWrapper />}
-        </Route>
+        <Route path='/payment/'>{Agent || Admin ? <PaymentPage /> : <DashboardWrapper />}</Route>
         {/* end payment module routes */}
 
         {/* monitor module routes */}
-        <Route path='/monitor/'>
-          {(Agent || Admin) ? <MonitorPage /> : <DashboardWrapper />}
-        </Route>
+        <Route path='/monitor/'>{Agent || Admin ? <MonitorPage /> : <DashboardWrapper />}</Route>
         {/* end payment module routes */}
 
         {/* fulfillment module routes */}
-        <Route path='/fulfillment/' >
-          {(Agent || Admin) ? <FulfillmentPage /> : <DashboardWrapper />}
+        <Route path='/fulfillment/'>
+          {Agent || Admin ? <FulfillmentPage /> : <DashboardWrapper />}
         </Route>
         {/* end payment module routes */}
 
-
         {/* <Route path='/crafted/widgets' component={WidgetsPage} /> */}
-        <Route path='/adminSettings/' >
-          {(Admin) ? <AccountPage /> : <DashboardWrapper />}
-        </Route>
+        <Route path='/adminSettings/'>{Admin ? <AccountPage /> : <DashboardWrapper />}</Route>
         {/* <Route path='/apps/chat' component={ChatPage} /> */}
         {/* <Route path='/menu-test' component={MenuTestPage} /> */}
         <Redirect from='/' to='/dashboard' />

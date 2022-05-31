@@ -14,7 +14,7 @@ export interface IFleetModel {
 }
 
 export interface IRouteModel {
-  routeId: string
+  routeId?: string
   routeName: string
   departure: string
   destination: string
@@ -60,8 +60,6 @@ export interface TripActionAndStatusVm {
   actions: OptionValue[]
   status: OptionValue[]
 }
-
-
 
 export interface IBaseGroupWayBillModel {
   groupCode?: string

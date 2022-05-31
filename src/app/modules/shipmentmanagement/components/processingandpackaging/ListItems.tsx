@@ -34,6 +34,7 @@ const ListItems: React.FC<Props> = ({className, listItems}) => {
   const [hasError, setHasError] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
   const [showError, setShowError] = useState(false)
+  const [enableSave, setEnableSave] = useState(false)
 
   const add = (waybill: string) => {
     const newList = list.filter((item) => item.waybill !== waybill)
@@ -81,6 +82,7 @@ const ListItems: React.FC<Props> = ({className, listItems}) => {
   const getGroupCode = async () => {
     await agent.GroupWayBill.GetGroupWayBillCode().then((response) => {
       setGroupWayBillCode(response)
+      setEnableSave(true)
     })
   }
 
@@ -130,6 +132,8 @@ const ListItems: React.FC<Props> = ({className, listItems}) => {
       ServiceCenterId: routeId,
       UserId: user.userId,
     }
+
+    setIsSubmitting(true)
 
     agent.GroupWayBill.create(values).then((response) => {
       if (response.validationErrors!.length > 0) {
@@ -312,9 +316,15 @@ const ListItems: React.FC<Props> = ({className, listItems}) => {
               <a onClick={removeAll} className='btn btn-success'>
                 Remove All
               </a>
-              <a onClick={Save} className='btn btn-primary float-end'>
-                Save
-              </a>
+
+              {enableSave && listBag.length > 0 && (
+                <>
+                  <a onClick={Save} className='btn btn-primary float-end'>
+                    {isSubmitting && <span className='spinner-border text-warning'></span>}
+                    {!isSubmitting && <span>Save</span>}
+                  </a>
+                </>
+              )}
             </div>
             {/* end::Body */}
           </div>

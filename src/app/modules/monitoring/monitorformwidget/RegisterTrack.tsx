@@ -48,6 +48,7 @@ function RegisterTrack(props: Props<ITrackHistoryModel>) {
   const [actionAndStatus, setActionAndStatus] = useState<TripActionAndStatusVm>()
   const [tripDetails, setTripDetails] = useState<ITripModel[]>()
   const [tripReference, setTripReference] = useState<string>('')
+  const [enableSave, setEnableSave] = useState(false)
 
   const user: IUserModel = useSelector<RootState>(({auth}) => auth.user, shallowEqual) as IUserModel
 
@@ -91,6 +92,8 @@ function RegisterTrack(props: Props<ITrackHistoryModel>) {
     values.action = Number(values.action)
     values.status = Number(values.status)
 
+    setIsSubmitting(true)
+
     agent.TrackHistory.create(values).then((response) => {
       if (response.validationErrors!.length > 0) {
         toast.error(response.validationErrors?.toString())
@@ -114,7 +117,7 @@ function RegisterTrack(props: Props<ITrackHistoryModel>) {
     setTimeout(async () => {
       await agent.Trip.searchTripByRef(searchValue).then((response) => {
         setTripDetails(response)
-        if (response) setTripReference(response[0].tripReference!) 
+        if (response) setTripReference(response[0].tripReference!)
       })
     }, 300)
   }
@@ -408,14 +411,18 @@ function RegisterTrack(props: Props<ITrackHistoryModel>) {
 
                         <hr className='bg-default border-1 mb-4 mt-4 border-top border-default'></hr>
                         <Modal.Footer>
-                          <Button
-                            floated='right'
-                            positive
-                            type='submit'
-                            variant='primary'
-                            loading={props.isSubmitting}
-                            content='Save'
-                          />
+                          {values.action && values.status && (
+                            <>
+                              <Button
+                                floated='right'
+                                positive
+                                type='submit'
+                                variant='primary'
+                                loading={props.isSubmitting}
+                                content='Save'
+                              />
+                            </>
+                          )}
                         </Modal.Footer>
                       </div>
                     </>

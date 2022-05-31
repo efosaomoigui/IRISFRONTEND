@@ -46,7 +46,7 @@ export default function AddWalletForm(props: Props<IWalletModel>) {
     transactionType: props.wallet ? props.wallet!.transactionType : 0,
   }
 
-  console.log("\INTVALUE: ", initialFormValue);
+  // console.log("\INTVALUE: ", initialFormValue);
 
   const validationSchema = Yup.object({
     walletNumber: Yup.string().required(),

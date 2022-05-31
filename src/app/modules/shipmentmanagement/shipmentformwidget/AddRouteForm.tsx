@@ -5,18 +5,12 @@ import {Formik, Form, FormikHelpers} from 'formik'
 import * as Yup from 'yup'
 import IrisTextInput from '../../layout/forms/IrisTextInput'
 import IrisSelectInput from '../../layout/forms/IrisSelectInput'
-import { IRouteModel } from '../ShipmentModels/ShipmentInterfaces'
-import { usePageData } from '../../../../_iris/layout/core'
-import { Alert } from '@mui/material'
-import { Grid } from '@material-ui/core'
+import {IRouteModel} from '../ShipmentModels/ShipmentInterfaces'
+import {usePageData} from '../../../../_iris/layout/core'
+import {Alert} from '@mui/material'
+import {Grid} from '@material-ui/core'
 import useStyles from '../../layout/formstyles/FormStyle'
 import ErrorAlert from '../../common/ErrorAlert'
-
-
-
-// interface Props {
-//   userVal: IUserModel
-// }
 
 interface Props<Values> {
   onSubmit: (values: Values, formikHelpers: FormikHelpers<Values>) => void | Promise<any>
@@ -37,17 +31,23 @@ const options = [
 ]
 
 export default function AddRouteForm(props: Props<IRouteModel>) {
-  const {entityValues, setEntityValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle} = usePageData()
+  const {
+    entityValues,
+    setEntityValues,
+    selectUrlParam,
+    setSelectUrlParam,
+    formTitle,
+    setFormTitle,
+  } = usePageData()
 
   const initialFormValue: IRouteModel = {
-    routeId: props.route ? props.route!.routeId : '',
     routeName: props.route ? props.route!.routeName : '',
     departure: props.route ? props.route!.departure : '',
     destination: props.route ? props.route!.destination : '',
   }
 
   const validationSchema = Yup.object({
-    routeId: Yup.string().required(),
+   
     routeName: Yup.string().required(),
     departure: Yup.string().required(),
     destination: Yup.string().required(),
@@ -67,7 +67,7 @@ export default function AddRouteForm(props: Props<IRouteModel>) {
           <div className='modal-dialog modal-dialog-centered mw-900px'>
             <div className='modal-content'>
               <div className='modal-header'>
-                <h2>{"Add Route"}</h2>
+                <h2>{'Add Route'}</h2>
                 <div
                   className='btn btn-sm btn-icon btn-active-color-primary'
                   data-bs-dismiss='modal'
@@ -76,17 +76,17 @@ export default function AddRouteForm(props: Props<IRouteModel>) {
                 </div>
               </div>
 
-              <div className='modal-body' >
-                {props.showError && <ErrorAlert type={'danger'} message={props.errorMessage!.toString()} heading={'Oh snap! You got an error!'} />}
+              <div className='modal-body'>
+                {props.showError && (
+                  <ErrorAlert
+                    type={'danger'}
+                    message={props.errorMessage!.toString()}
+                    heading={'Oh snap! You got an error!'}
+                  />
+                )}
                 {props.showForm && (
                   <Grid container className={classes.root}>
-                    <Grid item xs={3}>
-                      <IrisTextInput
-                        type='text'
-                        name='routeId'
-                        placeholder='Route Id'
-                        label='Route Id'
-                      />
+                    <Grid item xs={6}>
                       <IrisTextInput
                         type='text'
                         placeholder='Route Name'
@@ -99,6 +99,8 @@ export default function AddRouteForm(props: Props<IRouteModel>) {
                         name='departure'
                         label='Depature'
                       />
+                    </Grid>
+                    <Grid item xs={6}>
                       <IrisTextInput
                         type='text'
                         placeholder='Destination'
@@ -107,15 +109,19 @@ export default function AddRouteForm(props: Props<IRouteModel>) {
                       />
                     </Grid>
                   </Grid>
-              
                 )}
-                {!props.showForm && <ErrorAlert type={'success'} message={'Route Created Successfully!'} heading={'Confirmation Message!'} />}
+                {!props.showForm && (
+                  <ErrorAlert
+                    type={'success'}
+                    message={'Route Created Successfully!'}
+                    heading={'Confirmation Message!'}
+                  />
+                )}
               </div>
-              <div className='modal-body py-lg-10 px-lg-10'>
-              </div>
+              <div className='modal-body py-lg-10 px-lg-10'></div>
               <Modal.Footer>
-                {props.showForm &&
-                  (<Button
+                {props.showForm && (
+                  <Button
                     floated='right'
                     positive
                     type='submit'
@@ -123,7 +129,7 @@ export default function AddRouteForm(props: Props<IRouteModel>) {
                     loading={props.isSubmitting}
                     content='Submit'
                   />
-                  )}
+                )}
                 <Button
                   floated='right'
                   positive

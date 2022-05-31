@@ -34,6 +34,7 @@ const ListManifests: React.FC<Props> = ({className, listItems}) => {
   const [hasError, setHasError] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
   const [showError, setShowError] = useState(false)
+  const [enableSave, setEnableSave] = useState(false)
 
   const add = (groupWayBillCode: string) => {
     const newList = list.filter((item) => item.groupCode !== groupWayBillCode)
@@ -81,6 +82,7 @@ const ListManifests: React.FC<Props> = ({className, listItems}) => {
   const getGroupCode = async () => {
     await agent.Manifest.GetManifestCode().then((response) => {
       setManifestCode(response)
+      setEnableSave(true)
     })
   }
 
@@ -127,7 +129,7 @@ const ListManifests: React.FC<Props> = ({className, listItems}) => {
       UserId: user.id,
     }
 
-    console.log('MAN: ', values)
+    setIsSubmitting(true)
 
     agent.Manifest.create(values).then((response) => {
       if (response.validationErrors!.length > 0) {
@@ -308,9 +310,14 @@ const ListManifests: React.FC<Props> = ({className, listItems}) => {
               <a onClick={removeAll} className='btn btn-success'>
                 Remove All
               </a>
-              <a onClick={Save} className='btn btn-primary float-end'>
-                Save
-              </a>
+              {enableSave && listBag.length > 0 && (
+                <>
+                  <a onClick={Save} className='btn btn-primary float-end'>
+                    {isSubmitting && <span className='spinner-border text-warning'></span>}
+                    {!isSubmitting && <span>Save</span>}
+                  </a>
+                </>
+              )}
             </div>
             {/* end::Body */}
           </div>

@@ -1,4 +1,4 @@
-import { format } from 'date-fns'
+import {format} from 'date-fns'
 import {useEffect, useState} from 'react'
 import {Button, Form, Spinner} from 'react-bootstrap-v5'
 import agent from '../../../../../../setup/axios/AxiosAgent'
@@ -30,7 +30,7 @@ export function ViewTrackHistory() {
       {
         Header: 'Date',
         accessor: 'createDate',
-        Cell: ({value}:any) => format(new Date(value), 'dd/mm/yyyy HH:mm:ss')
+        Cell: ({value}: any) => format(new Date(value), 'dd/mm/yyyy HH:mm:ss'),
       },
 
       {
@@ -98,7 +98,6 @@ export function ViewTrackHistory() {
   }
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    alert(event.target.value)
     setWaybill(event.target.value)
   }
 
@@ -108,7 +107,12 @@ export function ViewTrackHistory() {
         <Form>
           <div className='row m-3'>
             <div className='col'>
-              <Form.Control size='lg' placeholder='Wallet Number' style={{width: '100%'}} onChange={handleChange} />
+              <Form.Control
+                size='lg'
+                placeholder='Wallet or Manifest or Trip code'
+                style={{width: '100%'}}
+                onChange={handleChange}
+              />
             </div>
             <div className='col'>
               <Button

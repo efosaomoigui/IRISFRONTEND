@@ -1,10 +1,10 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, {useEffect, useState} from 'react'
 import {Col, Container, Row} from 'react-bootstrap-v5'
-import { shallowEqual, useSelector } from 'react-redux'
+import {shallowEqual, useSelector} from 'react-redux'
 import {Link, useHistory, useParams} from 'react-router-dom'
 import {toast} from 'react-toastify'
-import { RootState } from '../../../../setup'
+import {RootState} from '../../../../setup'
 import agent from '../../../../setup/axios/AxiosAgent'
 import {KTSVG} from '../../../../_iris/helpers'
 import {usePageData} from '../../../../_iris/layout/core'

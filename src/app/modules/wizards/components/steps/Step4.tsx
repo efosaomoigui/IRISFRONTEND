@@ -1,7 +1,7 @@
 import React, {ChangeEvent, FC, useState} from 'react'
 import {KTSVG} from '../../../../../_iris/helpers'
 import {Link} from 'react-router-dom'
-import { numberFormat } from '../../../walletmanagement/Models/WalletInterfaces'
+import {numberFormat} from '../../../walletmanagement/Models/WalletInterfaces'
 
 interface Props {
   values?: any
@@ -18,7 +18,7 @@ const Step4: FC<Props> = ({values, handleChange}: Props) => {
     intitVal
   )
 
-  // console.log('Step4: ', values.grandTotalArray)
+  console.log('Step4: ', values.grandTotalArray)
 
   return (
     <div className='w-100'>
@@ -141,7 +141,9 @@ const Step4: FC<Props> = ({values, handleChange}: Props) => {
                         </div>
 
                         <div className='row mb-10'>
-                          <label className='col-lg-4 fw-bold text-muted'>Receiver Phone Number</label>
+                          <label className='col-lg-4 fw-bold text-muted'>
+                            Receiver Phone Number
+                          </label>
 
                           <div className='col-lg-8'>
                             <span className='fw-bold fs-6'>0{values.receiverPhoneNumber}</span>
@@ -186,7 +188,8 @@ const Step4: FC<Props> = ({values, handleChange}: Props) => {
                               </div>
                             )}
 
-                            {values.shipmentCategory === 'mailandparcel' && (
+                            {(values.shipmentCategory === 'mailandparcel' ||
+                              values.shipmentCategory === 'freight') && (
                               <div className='card' style={{width: '99%'}}>
                                 <div className='container'>
                                   <div className='mb-3'>
@@ -233,7 +236,9 @@ const Step4: FC<Props> = ({values, handleChange}: Props) => {
                                             <strong>Total</strong>
                                           </div>
                                           <div className='col mb-5'>
-                                            <h3 className='fw-bolder m-0'>{numberFormat(Number(item.LineTotal))}</h3>
+                                            <h3 className='fw-bolder m-0'>
+                                              {numberFormat(Number(item.LineTotal))}
+                                            </h3>
                                           </div>
                                         </div>
                                       </div>

@@ -25,7 +25,7 @@ import {MetronicI18nProvider} from './_iris/i18n/Metronici18n'
 // import 'semantic-ui-css/semantic.min.css'
 import './_iris/assets/sass/style.scss'
 import './_iris/assets/sass/style.react.scss'
-import "react-toastify/dist/ReactToastify.min.css"
+import 'react-toastify/dist/ReactToastify.min.css'
 /**
  * Base URL of the website.
  *
@@ -51,7 +51,6 @@ Chart.register(...registerables)
 ReactDOM.render(
   <MetronicI18nProvider>
     <Provider store={store}>
-      {console.log("PUBLIC_URL ", PUBLIC_URL)}
       {/* Asynchronously persist redux stores and show `SplashScreen` while it's loading. */}
       <PersistGate persistor={persistor} loading={<div>Loading...</div>}>
         <App basename={PUBLIC_URL} />

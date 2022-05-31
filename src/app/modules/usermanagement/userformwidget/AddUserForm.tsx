@@ -13,6 +13,8 @@ import {Alert} from '@mui/material'
 import {usePageData} from '../../../../_iris/layout/core'
 import ErrorAlert from '../../common/ErrorAlert'
 import {useEffect, useState} from 'react'
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
 
 interface Props<Values> {
   onSubmit: (values: Values, formikHelpers: FormikHelpers<Values>) => void | Promise<any>
@@ -37,6 +39,7 @@ export default function AddUserForm(props: Props<IUserModel>) {
 
   const [errorMessage, setErrorMessage] = useState('')
   const [showError, setShowError] = useState(true)
+  const [phoneNumber, setPhoneNumber] = useState('')
 
   const initialFormValue: IUserModel = {
     userId: props.user ? props.user!.userId : '',
@@ -134,7 +137,19 @@ export default function AddUserForm(props: Props<IUserModel>) {
 
                       <Grid item xs={6}>
                         <IrisTextInput type='email' name='email' label='Email' />
-                        <IrisTextInput type='text' name='phoneNumber' label='Phone Number' />
+                        <div className='mt-6'></div>
+                        <PhoneInput
+                          country={'ng'}
+                          value={phoneNumber}
+                          inputStyle={{
+                            height: '47px',
+                            fontSize: '20px',
+                            width: '80%',
+                            marginTop: '24px',
+                          }}
+                          onChange={(phoneNumber) => setFieldValue('phoneNumber', phoneNumber)}
+                        />
+                        {/* <IrisTextInput type='hidden' name='phoneNumber' label='Phone Number' /> */}
                         <div id='my-radio-group' className='mt-3'>
                           Gender{' '}
                         </div>

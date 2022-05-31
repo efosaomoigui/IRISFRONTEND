@@ -4,9 +4,9 @@ import {IrisTablesWidget} from '../../../layout/tables/IrisTablesWidget'
 import {modalprops} from '../../../layout/tables/IrisTableTitle'
 import Shipment_Data from './Shipment_Data.json'
 import {IShipmentModel} from '../../ShipmentModels/ShipmentInterfaces'
-import { Spinner } from 'react-bootstrap-v5'
-import { numberFormat } from '../../../walletmanagement/Models/WalletInterfaces'
-import { format } from 'date-fns'
+import {Spinner} from 'react-bootstrap-v5'
+import {numberFormat} from '../../../walletmanagement/Models/WalletInterfaces'
+import {format} from 'date-fns'
 // import {format} from 'date-fns'
 
 export function ViewShipment() {
@@ -25,7 +25,7 @@ export function ViewShipment() {
       {
         Header: 'Date',
         accessor: 'createdDate',
-        Cell: ({value}:any) => format(new Date(value), 'dd/mm/yyyy HH:mm:ss') 
+        Cell: ({value}: any) => format(new Date(value), 'dd/mm/yyyy'),
       },
       {
         Header: 'Departure',
@@ -40,18 +40,26 @@ export function ViewShipment() {
         accessor: 'customerName',
       },
       {
-        Header: 'GrandTotal',
-        accessor: 'grandTotal',
-        Cell: ({value}:any) => numberFormat(Number(value)) 
+        Header: 'Customer Phone',
+        accessor: 'customerPhoneNumber',
       },
       {
-        Header: 'Reciever',
+        Header: 'Grand Total',
+        accessor: 'grandTotal',
+        Cell: ({value}: any) => numberFormat(Number(value)),
+      },
+      {
+        Header: 'Receiver',
         accessor: 'recieverName',
+      },
+      {
+        Header: 'Receiver Phone',
+        accessor: 'recieverPhoneNumber',
       },
       {
         Header: 'Pick Up Options',
         accessor: 'pickupOptions',
-      }
+      },
     ],
     DetailsPath: '/shipment/shipmentdetail/',
     EditPath: '#kt_modal_viewshipment',
@@ -84,8 +92,10 @@ export function ViewShipment() {
   return (
     <div className='row g-5 g-xxl-8'>
       <div className='col-xl-12'>
-      {loadingData ? (
-          <div><Spinner animation="border" /></div>
+        {loadingData ? (
+          <div>
+            <Spinner animation='border' />
+          </div>
         ) : (
           <IrisTablesWidget
             tableData={shipmentmodel}

@@ -1,10 +1,10 @@
-import { format } from 'date-fns'
+import {format} from 'date-fns'
 import {useEffect, useState} from 'react'
-import { Spinner } from 'react-bootstrap-v5'
+import {Spinner} from 'react-bootstrap-v5'
 import agent from '../../../../../setup/axios/AxiosAgent'
 import {IrisTablesWidget} from '../../../layout/tables/IrisTablesWidget'
 import {modalprops} from '../../../layout/tables/IrisTableTitle'
-import { numberFormat } from '../../../walletmanagement/Models/WalletInterfaces'
+import {numberFormat} from '../../../walletmanagement/Models/WalletInterfaces'
 import {IInvoiceModel} from '../../PaymentModels/PaymentmentInterfaces'
 
 import Invoice_Data from './Invoice_Data.json'
@@ -27,7 +27,7 @@ export function Invoice() {
       {
         Header: 'Date',
         accessor: 'createdDate',
-        Cell: ({value}:any) => format(new Date(value), 'dd/mm/yyyy HH:mm:ss') 
+        Cell: ({value}: any) => format(new Date(value), 'dd/mm/yyyy HH:mm:ss'),
       },
       {
         Header: 'Customer',
@@ -36,7 +36,7 @@ export function Invoice() {
       {
         Header: 'Amount',
         accessor: 'amount',
-        Cell: ({value}:any) => numberFormat(Number(value))
+        Cell: ({value}: any) => numberFormat(Number(value)),
       },
       {
         Header: 'Waybill Number',
@@ -99,6 +99,7 @@ export function Invoice() {
             TableTitle={'Invoice'}
             Count={'Over 300 Users'}
             ModalTarget={modalTarger}
+            showButton={true}
           />
         )}
       </div>

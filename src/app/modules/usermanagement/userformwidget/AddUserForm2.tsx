@@ -13,6 +13,8 @@ import {Alert} from '@mui/material'
 import {usePageData} from '../../../../_iris/layout/core'
 import ErrorAlert from '../../common/ErrorAlert'
 import {useEffect, useState} from 'react'
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
 
 interface Props<Values> {
   onSubmit: (values: Values, formikHelpers: FormikHelpers<Values>) => void | Promise<any>
@@ -34,6 +36,7 @@ export default function AddUserForm2(props: Props<IUserModel>) {
     formTitle,
     setFormTitle,
   } = usePageData()
+  const [phoneNumber, setPhoneNumber] = useState('')
 
   const [errorMessage, setErrorMessage] = useState('')
   const [showError, setShowError] = useState(true)
@@ -106,7 +109,19 @@ export default function AddUserForm2(props: Props<IUserModel>) {
                   {props.showForm && (
                     <Grid container className={classes.root}>
                       <Grid item xs={6}>
-                        <IrisTextInput type='text' name='phoneNumber' label='Phone Number' />
+                        {/* <IrisTextInput type='text' name='phoneNumber' label='Phone Number' /> */}
+                        <div className='mt-6'></div>
+                        <PhoneInput
+                          country={'ng'}
+                          value={phoneNumber}
+                          inputStyle={{
+                            height: '47px',
+                            fontSize: '20px',
+                            width: '80%',
+                            marginTop: '24px',
+                          }}
+                          onChange={(phoneNumber) => setFieldValue('phoneNumber', phoneNumber)}
+                        />
                         <IrisTextInput type='text' name='username' label='User Name' />
                         <IrisTextInput type='text' name='firstName' label='First Name' />
                         <IrisTextInput type='text' name='lastName' label='Last Name' />

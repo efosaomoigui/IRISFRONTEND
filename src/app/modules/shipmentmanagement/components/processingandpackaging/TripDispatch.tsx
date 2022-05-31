@@ -50,6 +50,7 @@ const TripDispatch: React.FC<Props> = ({className, listItems}) => {
   const [fleet, setFleet] = useState<IFleetModel | null>(null)
   const [fleets, setFleets] = useState<IFleetModel[]>([])
   const [reloadingUser, setReloadingUser] = useState(false)
+  const [enableSave, setEnableSave] = useState(false)
 
   const add = (manifestCode: string) => {
     const newList = list.filter((item) => item.manifestCode !== manifestCode)
@@ -96,6 +97,7 @@ const TripDispatch: React.FC<Props> = ({className, listItems}) => {
 
   const getDispatchCode = async () => {
     await agent.Trip.GetDispatchCode().then((response) => {
+      setEnableSave(true)
       setDispatchCode(response)
     })
   }
@@ -127,13 +129,13 @@ const TripDispatch: React.FC<Props> = ({className, listItems}) => {
     loadUsers()
   }
 
-    //Reload User
-    const reloadFleet = async () => {
-      loadFleet()
-    }
-  
+  //Reload User
+  const reloadFleet = async () => {
+    loadFleet()
+  }
 
   const loadUsers = async () => {
+    // alert(FleetType)
     const val = await agent.Users.list().then((response) => {
       const autoVals = response.map((option, index) => ({
         id: option.id,
@@ -161,8 +163,9 @@ const TripDispatch: React.FC<Props> = ({className, listItems}) => {
         fleetModel: option.fleetModel,
         fleetMake: option.fleetMake,
         ownerId: option.ownerId,
-        ownerName: option.ownerName, 
+        ownerName: option.ownerName,
       }))
+      alert(autoVals[0].fleetType)
       setFleets(autoVals)
     })
   }
@@ -183,7 +186,7 @@ const TripDispatch: React.FC<Props> = ({className, listItems}) => {
   }, [])
 
   const Save = () => {
-    // alert(FleetType[fleet!.fleetType])
+    console.log('TYPE', fleet!.fleetType)
     fleet!.fleetType = Number(FleetType[fleet!.fleetType])
     fleet!.status = true
     const values: ITripModel = {
@@ -191,12 +194,14 @@ const TripDispatch: React.FC<Props> = ({className, listItems}) => {
       tripReference: dispatchCode,
       // departure:list[0].departure,
       // destination:list[0].destination,
-      fleet:fleet?.fleetId,
-      driver:driver?.userId,
-      fleetObj:fleet!,
-      driverObj:driver!,
-      RouteCode: routeId, 
+      fleet: fleet?.fleetId,
+      driver: driver?.userId,
+      fleetObj: fleet!,
+      driverObj: driver!,
+      RouteCode: routeId,
     }
+
+    setIsSubmitting(true)
 
     agent.Trip.create(values).then((response) => {
       if (response.validationErrors!.length > 0) {
@@ -245,7 +250,7 @@ const TripDispatch: React.FC<Props> = ({className, listItems}) => {
           <a className='btn btn-primary' onClick={getDispatchCode}>
             Generate Dispatch Code
           </a>
-          {console.log("Fleets ",fleets)}
+          {console.log('Fleets ', fleets)}
         </div>
       </div>
       <div className='row'>
@@ -503,9 +508,14 @@ const TripDispatch: React.FC<Props> = ({className, listItems}) => {
               <a onClick={removeAll} className='btn btn-success'>
                 Remove All
               </a>
-              <a onClick={Save} className='btn btn-primary float-end'>
-                Register Dispatch
-              </a>
+              {enableSave && listBag.length > 0 && (
+                <>
+                  <a onClick={Save} className='btn btn-primary float-end'>
+                    {isSubmitting && <span className='spinner-border text-warning'></span>}
+                    {!isSubmitting && <span>Register Dispatch</span>}
+                  </a>
+                </>
+              )}
             </div>
             {/* end::Body */}
           </div>

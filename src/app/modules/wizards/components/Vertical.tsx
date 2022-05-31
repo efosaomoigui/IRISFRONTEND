@@ -6,8 +6,8 @@ import {Step3} from './steps/Step3'
 import {StepperComponent} from '../../../../_iris/assets/ts/components'
 import {Formik, Form, FormikValues} from 'formik'
 import {ICreateAccount, createAccountSchemas, inits} from './CreateAccountWizardHelper'
-import { Step4 } from './steps/Step4'
-import { Step5 } from './steps/Step5'
+import {Step4} from './steps/Step4'
+import {Step5} from './steps/Step5'
 
 const Vertical: FC = () => {
   const stepperRef = useRef<HTMLDivElement | null>(null)
@@ -143,9 +143,7 @@ const Vertical: FC = () => {
                 <Step1 />
               </div>
 
-              <div data-kt-stepper-element='content'>
-                <Step2 />
-              </div>
+              <div data-kt-stepper-element='content'>{/* <Step2 /> */}</div>
 
               <div data-kt-stepper-element='content'>
                 <Step3 />
@@ -156,11 +154,14 @@ const Vertical: FC = () => {
               </div>
 
               <div data-kt-stepper-element='content'>
-                <Step5 handlePaymentStatus={function (value: boolean): void {
-                  throw new Error('Function not implemented.')
-                } } handlePaymentMethod={function (value: number): void {
-                  throw new Error('Function not implemented.')
-                } } />
+                <Step5
+                  handlePaymentStatus={function (value: boolean): void {
+                    throw new Error('Function not implemented.')
+                  }}
+                  handlePaymentMethod={function (value: number): void {
+                    throw new Error('Function not implemented.')
+                  }}
+                />
               </div>
 
               <div className='d-flex flex-stack pt-10'>

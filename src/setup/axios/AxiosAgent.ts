@@ -1,6 +1,7 @@
 import axios, {AxiosResponse} from 'axios'
 import {useEffect} from 'react'
 import {useDispatch} from 'react-redux'
+import {useHistory} from 'react-router-dom'
 import {toast} from 'react-toastify'
 import {
   IPermissionModel,
@@ -45,28 +46,6 @@ import {
 
 const responseBody = <T>(response: AxiosResponse<T>) => response.data
 const API_URL = process.env.REACT_APP_API_URL
-
-axios.interceptors.response.use(
-  function (response) {
-    return response
-  },
-  function (error) {
-    if (401 === error.response.status) {
-      const dispatch = useDispatch()
-      toast.error('Sorry, your session has expired, please relogin')
-      dispatch(actions.logout())
-
-      // const { exp } = jwtDecode(token)
-      // const expirationTime = (exp * 1000) - 60000
-      // if (Date.now() >= expirationTime) {
-      //   localStorage.clear();
-      //   history.push('/login');
-      // }
-    } else {
-      return Promise.reject(error)
-    }
-  }
-)
 
 const request = {
   get: <T>(url: string) => axios.get<T>(url).then(responseBody),
@@ -184,7 +163,7 @@ const Shipment = {
 
 const Manifest = {
   list: () => request.get<IManifestModel[]>(`${API_URL}/Manifest/Manifest/all`),
-  
+
   Routelist: () => request.get<IRouteModel[]>(`${API_URL}/Manifest/GroupWayBill/RouteForManifest`),
   details: (manifestcode: string) =>
     request.get<IManifestModel>(`${API_URL}/Manifest/GetManifestByManifestCode/${manifestcode}`),
@@ -194,15 +173,14 @@ const Manifest = {
     request.put<IManifestModel>(`${API_URL}/Manifest/Manifest/edit/${manifest.Id}`, {}),
   delete: (id: string) => request.del<void>(`${API_URL}/Manifest/Manifest/delete/${id}`),
   GetManifestCode: () => request.get<string>(`${API_URL}/Manifest/Manifest/ManifestNumber/`),
-  GetManifestByRouteId: (routeid: string) => 
-  request.get<IManifestModel[]>(
-    `${API_URL}/Manifest/GetManifestByRouteId/${routeid}`
-  ),
+  GetManifestByRouteId: (routeid: string) =>
+    request.get<IManifestModel[]>(`${API_URL}/Manifest/GetManifestByRouteId/${routeid}`),
 }
 
 const GroupWayBill = {
   list: () => request.get<IGroupWayBillModel[]>(`${API_URL}/GroupWayBill/GroupWayBill/Getall`),
-  Routelist: () => request.get<IRouteModel[]>(`${API_URL}/GroupWayBill/GroupWayBill/RouteForGroupWaybill`),
+  Routelist: () =>
+    request.get<IRouteModel[]>(`${API_URL}/GroupWayBill/GroupWayBill/RouteForGroupWaybill`),
   details: (groupwaybill: string) =>
     request.get<IGroupWayBillModel>(
       `${API_URL}/Manifest/GetManifestByManifestCode/${groupwaybill}`
@@ -286,9 +264,10 @@ const Trip = {
   update: (trip: ITripModel) => request.put<ITripModel>(`${API_URL}/Trip/Trip/edit/${trip.id}`, {}),
   delete: (id: string) => request.del<void>(`${API_URL}/Trip/Trip/delete${id}`),
   GetDispatchCode: () => request.get<string>(`${API_URL}/Trip/Trip/TripNumber/`),
-  GetActionAndStatus: () => request.get<TripActionAndStatusVm>(`${API_URL}/Trip/Trip/ActionAndStatus/`),
+  GetActionAndStatus: () =>
+    request.get<TripActionAndStatusVm>(`${API_URL}/Trip/Trip/ActionAndStatus/`),
   searchTripByRef: (tripRef: string) =>
-  request.get<ITripModel[]>(`${API_URL}/Trip/Trip/GetTripByreferencCode/${tripRef}`),
+    request.get<ITripModel[]>(`${API_URL}/Trip/Trip/GetTripByreferencCode/${tripRef}`),
 }
 
 const TrackHistory = {
@@ -303,7 +282,9 @@ const TrackHistory = {
     request.put<ITrackHistoryModel>(`${API_URL}/TrackHistory/TrackHistory/edit`, trackhistory),
   delete: (id: string) => request.del<void>(`${API_URL}/UserManagement/GetUser${id}`),
   searrchTrack: (waybill: string) =>
-  request.get<ITrackHistoryModel[]>(`${API_URL}/TrackHistory/TrackHistory/GetTrackHistoryByCode/${waybill}`),
+    request.get<ITrackHistoryModel[]>(
+      `${API_URL}/TrackHistory/TrackHistory/GetTrackHistoryByCode/${waybill}`
+    ),
 }
 // Fulfilment Request Starts
 const CollectionCenter = {

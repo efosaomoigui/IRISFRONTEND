@@ -107,7 +107,7 @@ export function ForgotPassword() {
           <button
             type='submit'
             id='kt_password_reset_submit'
-            className='btn btn-lg btn-primary fw-bolder me-4'
+            className='btn btn-lg btn-primary fw-bolder w-100 me-4'
           >
             <span className='indicator-label'>Submit</span>
             {loading && (
@@ -117,16 +117,16 @@ export function ForgotPassword() {
               </span>
             )}
           </button>
-          <Link to='/auth/login'>
+          {/* <Link to='/auth/login'>
             <button
               type='button'
               id='kt_login_password_reset_form_cancel_button'
-              className='btn btn-lg btn-light-primary fw-bolder'
+              className='btn btn-lg btn-light-primary w-100 fw-bolder'
               disabled={formik.isSubmitting || !formik.isValid}
             >
               Cancel
             </button>
-          </Link>{' '}
+          </Link>{' '} */}
         </div>
         {/* end::Form group */}
       </form>
