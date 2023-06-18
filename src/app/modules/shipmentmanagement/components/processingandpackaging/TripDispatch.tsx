@@ -165,7 +165,7 @@ const TripDispatch: React.FC<Props> = ({className, listItems}) => {
         ownerId: option.ownerId,
         ownerName: option.ownerName,
       }))
-      alert(autoVals[0].fleetType)
+      // alert(autoVals[0].fleetType)
       setFleets(autoVals)
     })
   }

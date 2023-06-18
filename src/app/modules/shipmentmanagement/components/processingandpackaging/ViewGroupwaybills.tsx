@@ -1,4 +1,4 @@
-import { format } from 'date-fns'
+import {format} from 'date-fns'
 import {useEffect, useState} from 'react'
 import {Spinner} from 'react-bootstrap-v5'
 import agent from '../../../../../setup/axios/AxiosAgent'
@@ -19,18 +19,18 @@ export function ViewGroupWaybills() {
   //all the data for the table
   const tableProvider = {
     columns: [
+      // {
+      //   Header: 'Group Waybill Id',
+      //   accessor: 'id',
+      // },
       {
-        Header: 'Group Waybill Id',
-        accessor: 'id',
+        Header: 'Group Waybill Code',
+        accessor: 'groupCode',
       },
       {
         Header: 'Date',
         accessor: 'createdDate',
-        Cell: ({value}:any) => format(new Date(value), 'dd/mm/yyyy HH:mm:ss') 
-      },
-      {
-        Header: 'Group Waybill Code',
-        accessor: 'groupCode',
+        Cell: ({value}: any) => format(new Date(value), 'dd/MM/yyyy HH:mm:ss'),
       },
       {
         Header: 'Departure',
@@ -38,26 +38,26 @@ export function ViewGroupWaybills() {
       },
       {
         Header: 'Destination',
-        accessor: 'destination', 
+        accessor: 'destination',
       },
       // {
       //   Header: 'Route Code',
       //   accessor: 'routeCode',
       // },
-      {
-        Header: 'Waybill',
-        accessor: 'waybill',
-      },
+      // {
+      //   Header: 'Waybill',
+      //   accessor: 'waybill',
+      // },
       // {
       //   Header: 'Dispatcher',
       //   accessor: 'dispatcher',
       // },
     ],
-    DetailsPath: '/monitor/tripDetails/',
+    DetailsPath: '/shipment/groupwaybillDetail/',
     EditPath: '#kt_modal_edittrip',
     DeletePath: '/adminSettings/userDetails/',
     FakeData: Manifest_Data,
-  } 
+  }
 
   //Buttons on the table page
   const ModalTarget = [

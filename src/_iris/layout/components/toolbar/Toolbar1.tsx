@@ -52,7 +52,7 @@ const Toolbar1: FC = () => {
             className='btn btn-sm btn-secondary mr-4 gap-2'
             style={{marginRight: '5px'}}
             id='kt_toolbar_primary_button'
-            to={`/wallet/wtransactions/${user.userId}`}
+            to={`/wallet/wtransactions`}
           >
             My Wallet
           </Link>

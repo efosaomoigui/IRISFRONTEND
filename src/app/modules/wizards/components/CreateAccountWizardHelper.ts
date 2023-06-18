@@ -1,40 +1,50 @@
 import * as Yup from 'yup'
+import {IRouteModel} from '../../shipmentmanagement/ShipmentModels/ShipmentInterfaces'
 
 export interface ICreateAccount {
-  shipmentCategory: string
-  shipperFullName: string
-  shipperAddress: string
-  shipperPhoneNumber: string
-  receiverFullName: string
-  receiverAddress: string
-  receiverPhoneNumber: string
-  route: string
+  shipmentCategory?: string
+  shipperFullName?: string
+  shipperAddress?: string
+  shipperEmail?: string
+  shipperPhoneNumber?: string
+  receiverFullName?: string
+  receiverAddress?: string
+  receiverEmail?: string
+  receiverPhoneNumber?: string
+  route?: string
+  shipmentOption?: string
+  estimatedPickUpTime?: string
+  ton?: string
+  t_clientWaybill?: string
   itemsA: Array<{
-    ton: string
-    t_shipmentDescription: string
-    t_shipmentType: number | string
-    t_clientWaybill: string
-    LineTotal: number
+    // ton?: string
+    t_shipmentDescription?: string
+    t_shipmentType?: number | string
+    t_quantity?: string
+    itemsValue?: string
+    LineTotal?: number
   }>
   itemsB: Array<{
-    weight: string
-    length: string
-    breadth: string
-    height: string
-    quantity: string
+    weight?: number
+    length?: number
+    breadth?: number
+    height?: number
+    quantity?: number
     volume?: string
     volumetricWeight?: string
     chargeableWeight?: string
     pricePerUnit?: string
-    m_shipmentDescription: string
-    LineTotal: number
+    m_shipmentDescription?: string
+    itemsValueMail?: string
+    LineTotal?: number
   }>
-  grandTotal: number
-  grandTotalArray: number[]
-  paymentMethod: string
+  grandTotal?: number
+  grandTotalArray?: number[]
+  paymentMethod?: string
   waybillNumber?: string
   invoiceNumber?: string
   paymentMade?: boolean
+  routeVals?: IRouteModel[]
 }
 
 const createAccountSchemas = [
@@ -56,6 +66,7 @@ const createAccountSchemas = [
         ton: Yup.string().required('Weight is required'),
         t_clientWaybill: Yup.string().required('Client Waybill is required'),
         t_shipmentType: Yup.string().required('Product is required'),
+        t_quantity: Yup.string().required('Quantity is required'),
       })
     ),
     itemsB: Yup.array().of(
@@ -74,32 +85,40 @@ const inits: ICreateAccount = {
   shipmentCategory: 'mailandparcel',
   shipperFullName: '',
   shipperAddress: '',
+  shipperEmail: '',
   shipperPhoneNumber: '',
   receiverFullName: '',
   receiverAddress: '',
+  receiverEmail: '',
   receiverPhoneNumber: '',
   route: '',
+  shipmentOption: '',
+  estimatedPickUpTime: '',
+  ton: '10',
+  t_clientWaybill: '1',
   itemsA: [
     {
-      ton: '10',
+      // ton: '10',
       t_shipmentDescription: '',
       t_shipmentType: 1,
-      t_clientWaybill: '1',
+      t_quantity: '1',
+      itemsValue: '1',
       LineTotal: 0.0,
     },
   ],
   itemsB: [
     {
-      weight: '1',
-      length: '1',
-      breadth: '1',
-      height: '1',
-      quantity: '1',
+      weight: 1.0,
+      length: 1.0,
+      breadth: 1.0,
+      height: 1.0,
+      quantity: 1.0,
       volume: '',
       volumetricWeight: '',
       chargeableWeight: '',
       pricePerUnit: '',
-      m_shipmentDescription: '1',
+      m_shipmentDescription: '',
+      itemsValueMail: '1',
       LineTotal: 0.0,
     },
   ],

@@ -51,6 +51,7 @@ export function Login() {
               setSetSuccessStatus(true)
               dispatch(auth.actions.login(accessToken))
             }
+            setSubmitting(false)
           })
           .catch(() => {
             setLoading(false)

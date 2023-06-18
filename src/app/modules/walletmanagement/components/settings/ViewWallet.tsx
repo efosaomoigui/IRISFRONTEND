@@ -1,4 +1,4 @@
-import { format } from 'date-fns'
+import {format} from 'date-fns'
 import {useEffect, useState} from 'react'
 import {Button, Form, Spinner} from 'react-bootstrap-v5'
 import {object} from 'yup'
@@ -76,8 +76,8 @@ export function ViewWallet() {
       {
         Header: 'Date',
         accessor: 'createdDate',
-        // cell: ({value}:any)=>format(new Date(value), "dd/MM/yyyy") 
-        Cell: ({value}:any) => format(new Date(value), "dd/MM/yyyy h:i:s") 
+        // cell: ({value}:any)=>format(new Date(value), "dd/MM/yyyy")
+        Cell: ({value}: any) => format(new Date(value), 'dd/MM/yyyy h:i:s'),
       },
       {
         Header: 'Name',
@@ -86,7 +86,7 @@ export function ViewWallet() {
       {
         Header: 'Amount',
         accessor: 'amount',
-        Cell: ({value}:any) => numberFormat(Number(value)) 
+        Cell: ({value}: any) => numberFormat(Number(value)),
       },
       {
         Header: 'Transaction Type',
@@ -96,7 +96,7 @@ export function ViewWallet() {
         Header: 'Balance',
         accessor: 'lineBalance',
         // Cell: ({value}:any) => new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'NGN' }).format(value)
-        Cell: ({value}:any) => numberFormat(Number(value)) 
+        Cell: ({value}: any) => numberFormat(Number(value)),
       },
     ],
     DetailsPath: '/wallet/walletdetails/',
@@ -149,7 +149,7 @@ export function ViewWallet() {
       } else {
         setWalletNumber(response.walletNumber!)
       }
-      // alert("Search Value"+ walletSearchModel )
+      // alert('Search Value' + walletNumber)
       setLoadingData2(false)
     })
   }
@@ -222,12 +222,12 @@ export function ViewWallet() {
               // walletName +
               // ' | Wallet Number: ' +
               // walletNumber +
-              'Balance: ' +
-              numberFormat(Number(walletBalance))
+              'Balance: ' + numberFormat(Number(walletBalance))
             }
             Count={'Wallet Transactions History Search'}
             ModalTarget={modalTarger}
             handleEdit={handleEdit}
+            showButton={walletNumber === '' ? true : false}
           />
         )}
       </div>

@@ -70,7 +70,7 @@ const Step5: FC<Props> = ({
       userId: userCode,
       invoiceNumber: invoiceCode,
       walletNumber: walletCode,
-      shimentCategory: 1,
+      shipmentCategory: 1,
       routeId: values.route,
       paymentStatus: false,
       paymentMethod: 1,
@@ -79,9 +79,9 @@ const Step5: FC<Props> = ({
     }
 
     if (radioState === 'mailandparcel') {
-      paymentCriteria.shimentCategory = 1
+      paymentCriteria.shipmentCategory = 1
     } else if (radioState === 'TruckLoad') {
-      paymentCriteria.shimentCategory = 2
+      paymentCriteria.shipmentCategory = 2
     }
 
     // console.log("Payment Log", paymentCriteria )
@@ -133,7 +133,7 @@ const Step5: FC<Props> = ({
       userId: userCode,
       invoiceNumber: invoiceCode,
       walletNumber: walletCode,
-      shimentCategory: 1,
+      shipmentCategory: 1,
       routeId: values.route,
       paymentStatus: false,
       paymentMethod: 2,
@@ -142,11 +142,11 @@ const Step5: FC<Props> = ({
     }
 
     if (radioState === 'mailandparcel') {
-      paymentCriteria.shimentCategory = 1
+      paymentCriteria.shipmentCategory = 1
     } else if (radioState === 'TruckLoad') {
-      paymentCriteria.shimentCategory = 2
+      paymentCriteria.shipmentCategory = 2
     } else if (radioState === 'freight') {
-      paymentCriteria.shimentCategory = 3
+      paymentCriteria.shipmentCategory = 3
     }
 
     // console.log("Payment Log", paymentCriteria )

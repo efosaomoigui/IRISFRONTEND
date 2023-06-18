@@ -4,15 +4,26 @@ import ApexCharts, {ApexOptions} from 'apexcharts'
 import {KTSVG} from '../../../helpers'
 import {getCSSVariableValue} from '../../../assets/ts/_utils'
 import {Dropdown1} from '../../content/dropdown/Dropdown1'
+import {Link} from 'react-router-dom'
 
 type Props = {
   className: string
   chartColor: string
   strokeColor: string
   chartHeight: string
+  monthData?: number[]
+  month?: string[]
+  totalSales?: number
 }
 
-const MixedWidget2: React.FC<Props> = ({className, chartColor, chartHeight, strokeColor}) => {
+const MixedWidget2: React.FC<Props> = ({
+  className,
+  chartColor,
+  chartHeight,
+  strokeColor,
+  monthData,
+  month,
+}) => {
   const chartRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
@@ -22,7 +33,7 @@ const MixedWidget2: React.FC<Props> = ({className, chartColor, chartHeight, stro
 
     const chart = new ApexCharts(
       chartRef.current,
-      chartOptions(chartHeight, chartColor, strokeColor)
+      chartOptions(chartHeight, chartColor, strokeColor, monthData!, month!)
     )
     if (chart) {
       chart.render()
@@ -40,7 +51,7 @@ const MixedWidget2: React.FC<Props> = ({className, chartColor, chartHeight, stro
     <div className={`card ${className}`}>
       {/* begin::Header */}
       <div className={`card-header border-0 py-5 bg-${chartColor}`}>
-        <h3 className='card-title fw-bolder text-white'>Performance Statistics</h3>
+        <h3 className='card-title fw-bolder text-white'>Action Panel</h3>
         <div className='card-toolbar'>
           {/* begin::Menu */}
           <button
@@ -75,9 +86,9 @@ const MixedWidget2: React.FC<Props> = ({className, chartColor, chartHeight, stro
                 path='/media/icons/duotune/general/gen032.svg'
                 className='svg-icon-3x svg-icon-warning d-block my-2'
               />
-              <a href='#' className='text-warning fw-bold fs-6'>
-                Weekly Sales
-              </a>
+              <Link to='/shipment/shipment' className='text-warning fw-bold fs-6'>
+                Shipment History
+              </Link>
             </div>
             {/* end::Col */}
             {/* begin::Col */}
@@ -86,9 +97,9 @@ const MixedWidget2: React.FC<Props> = ({className, chartColor, chartHeight, stro
                 path='/media/icons/duotune/arrows/arr075.svg'
                 className='svg-icon-3x svg-icon-primary d-block my-2'
               />
-              <a href='#' className='text-primary fw-bold fs-6'>
-                New Users
-              </a>
+              <Link to='/shipment/CaptureShipment' className='text-primary fw-bold fs-6'>
+                Request Shipment
+              </Link>
             </div>
             {/* end::Col */}
           </div>
@@ -101,9 +112,9 @@ const MixedWidget2: React.FC<Props> = ({className, chartColor, chartHeight, stro
                 path='/media/icons/duotune/abstract/abs027.svg'
                 className='svg-icon-3x svg-icon-danger d-block my-2'
               />
-              <a href='#' className='text-danger fw-bold fs-6 mt-2'>
-                Item Orders
-              </a>
+              <Link to='/payment/invoice' className='text-danger fw-bold fs-6 mt-2'>
+                Order Invoices
+              </Link>
             </div>
             {/* end::Col */}
             {/* begin::Col */}
@@ -112,9 +123,9 @@ const MixedWidget2: React.FC<Props> = ({className, chartColor, chartHeight, stro
                 path='/media/icons/duotune/communication/com010.svg'
                 className='svg-icon-3x svg-icon-success d-block my-2'
               />
-              <a href='#' className='text-success fw-bold fs-6 mt-2'>
-                Bug Reports
-              </a>
+              <Link to='/wallet/wtransactions' className='text-success fw-bold fs-6 mt-2'>
+                My Wallet
+              </Link>
             </div>
             {/* end::Col */}
           </div>
@@ -130,7 +141,9 @@ const MixedWidget2: React.FC<Props> = ({className, chartColor, chartHeight, stro
 const chartOptions = (
   chartHeight: string,
   chartColor: string,
-  strokeColor: string
+  strokeColor: string,
+  monthData: number[],
+  month: string[]
 ): ApexOptions => {
   const labelColor = getCSSVariableValue('--bs-gray-500')
   const borderColor = getCSSVariableValue('--bs-gray-200')
@@ -139,8 +152,8 @@ const chartOptions = (
   return {
     series: [
       {
-        name: 'Net Profit',
-        data: [30, 45, 32, 70, 40, 40, 40],
+        name: '',
+        data: monthData,
       },
     ],
     chart: {
@@ -184,7 +197,7 @@ const chartOptions = (
       colors: [strokeColor],
     },
     xaxis: {
-      categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],
+      categories: month,
       axisBorder: {
         show: false,
       },
@@ -246,7 +259,7 @@ const chartOptions = (
       },
       y: {
         formatter: function (val) {
-          return '$' + val + ' thousands'
+          return 'N' + val + ' thousand'
         },
       },
       marker: {

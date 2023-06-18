@@ -19,6 +19,8 @@ interface Props {
   EditPath: string
   DeletePath: string
   handleEdit?: (event: React.MouseEvent) => void
+  showEdit?: boolean
+  showDel?: boolean
 }
 
 const GenericTable = ({
@@ -28,6 +30,8 @@ const GenericTable = ({
   EditPath,
   DeletePath,
   handleEdit,
+  showEdit,
+  showDel,
 }: Props) => {
   // console.log("realdata==>", irisData)
   const tableInstance = useTable(
@@ -67,6 +71,8 @@ const GenericTable = ({
     setEntityValues!(irisData)
   }, [entityValues])
 
+  const showCol = !showEdit || !showDel
+
   return (
     <div>
       <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
@@ -82,7 +88,7 @@ const GenericTable = ({
                   <span>{column.isSorted ? (column.isSortedDesc ? ' 🔽' : ' 🔼') : ''}</span>
                 </th>
               ))}
-              <th className='min-w-100px text-end'>Actions</th>
+              {showCol && <th className='min-w-100px text-end'>Actions</th>}
             </tr>
           ))}
         </thead>
@@ -97,14 +103,18 @@ const GenericTable = ({
                   return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
                 })}
 
-                <td>
-                  <TableActionLinks
-                    DetailsPath={`${DetailsPath + row.cells[0].value}`}
-                    EditPath={`${[EditPath, row.cells[0].value]}`}
-                    DeletePath={'#'}
-                    handleEdit={handleEdit}
-                  />
-                </td>
+                {showCol && (
+                  <td>
+                    <TableActionLinks
+                      DetailsPath={`${DetailsPath + row.cells[0].value}`}
+                      EditPath={`${[EditPath, row.cells[0].value]}`}
+                      DeletePath={'#'}
+                      handleEdit={handleEdit}
+                      showEdit={showEdit}
+                      showDel={showDel}
+                    />
+                  </td>
+                )}
               </tr>
             )
           })}
@@ -127,11 +137,15 @@ const GenericTable = ({
               const pagenumber = e.target.value ? Number(e.target.value) - 1 : 0
               gotoPage(pagenumber)
             }}
-            style={{width: '50px', height:'34px'}}
+            style={{width: '50px', height: '34px'}}
             // className='form-control'
           />
         </span>
-        <select style={{height:'34px'}} value={pageSize} onChange={(e) => setPageSize(Number(e.target.value))}>
+        <select
+          style={{height: '34px'}}
+          value={pageSize}
+          onChange={(e) => setPageSize(Number(e.target.value))}
+        >
           {[10, 25, 50, 100].map((pageSize) => (
             <option key={pageSize} value={pageSize}>
               Show {pageSize}

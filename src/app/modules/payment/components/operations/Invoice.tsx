@@ -49,6 +49,12 @@ export function Invoice() {
       {
         Header: 'Payment Status',
         accessor: 'status',
+        Cell: ({value}: any) =>
+          value === 'Paid' ? (
+            <span className='badge badge-success'>Paid</span>
+          ) : (
+            <span className='badge badge-danger'>Pending</span>
+          ),
       },
     ],
     DetailsPath: '/payment/invoiceDetail/',
@@ -100,6 +106,7 @@ export function Invoice() {
             Count={'Over 300 Users'}
             ModalTarget={modalTarger}
             showButton={true}
+            showDel={true}
           />
         )}
       </div>

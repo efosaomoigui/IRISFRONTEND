@@ -10,12 +10,17 @@ import Check from '@mui/icons-material/Check'
 import SettingsIcon from '@mui/icons-material/Settings'
 import GroupAddIcon from '@mui/icons-material/GroupAdd'
 import VideoLabelIcon from '@mui/icons-material/VideoLabel'
-import StepConnector, {stepConnectorClasses} from '@mui/material/StepConnector'
+import SummarizeIcon from '@mui/icons-material/Summarize'
+import FactCheckIcon from '@mui/icons-material/FactCheck'
+// import StepConnector, {stepConnectorClasses} from '@mui/material/StepConnector'
 import {StepIconProps} from '@mui/material/StepIcon'
 import {styled} from '@mui/material/styles'
 import Stack from '@mui/material/Stack'
 import {Grid, Typography} from '@material-ui/core'
-import { ColorlibConnector, ColorlibStepIconRoot } from '../../shipmentmanagement/components/capture/CaptureStyles'
+import {
+  ColorlibConnector,
+  ColorlibStepIconRoot,
+} from '../../shipmentmanagement/components/capture/CaptureStyles'
 
 const useStyles = makeStyles({
   rootx: {
@@ -26,7 +31,7 @@ const useStyles = makeStyles({
 })
 
 interface Props extends FormikConfig<FormikValues> {
-  children: React.ReactNode
+  children?: React.ReactNode
 }
 
 const MultiStepForm = ({children, initialValues, onSubmit}: Props) => {
@@ -63,8 +68,6 @@ const MultiStepForm = ({children, initialValues, onSubmit}: Props) => {
     }
   }
 
-
-
   function ColorlibStepIcon(props: StepIconProps) {
     const {active, completed, className} = props
 
@@ -72,6 +75,8 @@ const MultiStepForm = ({children, initialValues, onSubmit}: Props) => {
       1: <SettingsIcon />,
       2: <GroupAddIcon />,
       3: <VideoLabelIcon />,
+      4: <SummarizeIcon />,
+      5: <FactCheckIcon />,
     }
 
     return (
@@ -90,13 +95,13 @@ const MultiStepForm = ({children, initialValues, onSubmit}: Props) => {
       >
         {(formik) => (
           <Form>
-            <Stepper activeStep={stepNumber} connector={<ColorlibConnector />}>
+            <Stepper activeStep={stepNumber} className='table-responsive'>
               {steps.map((currentStep) => {
                 const label = currentStep.props.stepName
                 return (
                   <Step key={label}>
                     <StepLabel StepIconComponent={ColorlibStepIcon}>
-                      <Typography variant='h5' component='h5' >
+                      <Typography variant='h6' component='h6'>
                         {label}
                       </Typography>
                     </StepLabel>

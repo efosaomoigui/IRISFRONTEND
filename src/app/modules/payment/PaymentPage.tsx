@@ -52,11 +52,11 @@ const UserPage: React.FC = () => {
           <PageTitle breadcrumbs={userBreadCrumbs}>Payment Log</PageTitle>
           <PaymentLogDetail />
         </Route>
-        <Route path='/payment/invoiceDetail/:Id'>
+        <Route path='/payment/invoiceDetail/:invoice'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Invoice</PageTitle>
           <InvoiceDetail />
         </Route>
-        
+
         <Redirect from='/admin/' exact={true} to='/admin/users' />
         <Redirect to='/admin/users' />
       </Switch>

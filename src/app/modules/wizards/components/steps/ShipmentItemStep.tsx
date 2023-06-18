@@ -1,5 +1,5 @@
 import React, {ChangeEvent, FC, useEffect, useState} from 'react'
-import {Field, ErrorMessage, FieldArray} from 'formik'
+import {Field, ErrorMessage, FieldArray, useFormikContext} from 'formik'
 import {Label} from 'semantic-ui-react'
 import {number} from 'yup/lib/locale'
 import agent, {axiosPrice} from '../../../../../setup/axios/AxiosAgent'
@@ -9,6 +9,8 @@ import {
 } from '../../../shipmentmanagement/ShipmentModels/ShipmentInterfaces'
 import axios from 'axios'
 import {numberFormat, numberFormat2} from '../../../walletmanagement/Models/WalletInterfaces'
+import {ICreateAccount} from '../CreateAccountWizardHelper'
+import {IPaymentCriteriaModel} from '../../../payment/PaymentModels/PaymentmentInterfaces'
 
 interface Props {
   radioState?: string
@@ -17,7 +19,7 @@ interface Props {
   grandTotal?: number
 }
 
-const Step3: FC<Props> = ({radioState, values, handleChange, grandTotal}: Props) => {
+const ShipmentItemStep: FC<Props> = () => {
   const [hideAndShowMailAndParcel, setHideAndShowMailAndParcel] = useState('')
   const [hideTruck, setHideTruck] = useState(false)
   const [loadingData, setLoadingData] = useState(true)
@@ -25,6 +27,11 @@ const Step3: FC<Props> = ({radioState, values, handleChange, grandTotal}: Props)
   const [lineTotal, setLineTotal] = useState<ILinePriceModel>()
   const [newWayBillAndInvoice, setNewWayBillAndInvoice] =
     useState<IShipmentWayBillAndInvoiceModel>()
+
+  const formikProps = useFormikContext()
+  const values = formikProps.values as any
+
+  // console.log('ValUES; ', values)
 
   const product = [
     {optionValue: '', optionLabel: 'Select Product Type'},
@@ -36,6 +43,19 @@ const Step3: FC<Props> = ({radioState, values, handleChange, grandTotal}: Props)
     {optionValue: 7, optionLabel: 'Nestle'},
     {optionValue: 8, optionLabel: 'Bigi'},
   ]
+
+  const tons = [
+    {optionValue: '', optionLabel: 'Select Truck Capacity'},
+    {optionValue: 10, optionLabel: '10'},
+    {optionValue: 15, optionLabel: '15'},
+    {optionValue: 20, optionLabel: '20'},
+    {optionValue: 30, optionLabel: '30'},
+  ]
+
+  const productLabel = (value: number) => {
+    let productLabel = product.find((item) => item.optionValue === value)
+    return productLabel!.optionLabel
+  }
 
   //USE EFFECT HOOK
   useEffect(() => {
@@ -88,7 +108,6 @@ const Step3: FC<Props> = ({radioState, values, handleChange, grandTotal}: Props)
     }
 
     // console.log('form values : ', objPrice)
-
     if (objPrice.ShimentCategory === 1) {
       if (
         objPrice.weight > 0 &&
@@ -103,7 +122,7 @@ const Step3: FC<Props> = ({radioState, values, handleChange, grandTotal}: Props)
             values.itemsB[id].volumetricWeight = Number(data.pricedData.volumetricWeight)
             values.itemsB[id].chargeableWeight = Number(data.pricedData.chargeableWeight)
             values.itemsB[id].LineTotal = Number(data.pricedData.lineTotal)
-            console.log('[] ', values)
+            // console.log('[] ', values)
           })
           .catch((err) => console.log(err))
       }
@@ -122,28 +141,18 @@ const Step3: FC<Props> = ({radioState, values, handleChange, grandTotal}: Props)
     }
   }
 
-  function checkForDuplicate(param: Array<{}>, index: number) {
-    for (let x = 0; x < param.length; x++) {
-      if (index in param[x]) {
-        return true
-      }
-
-      return false
-    }
-  }
-
   return (
     <div className='w-100'>
       <div className='pb-10 pb-lg-15'>
-        <h2 className='fw-bolder text-dark'>Package/Shipment Items</h2>
-        <input type='hidden' name='grandTotal' value={values.grandTotal} />
+        {/* <h2 className='fw-bolder text-dark'>Package/Shipment Items</h2>
+        <input type='hidden' name='grandTotal' value={values.grandTotal} /> */}
       </div>
 
       <div className='mb-10 fv-row'>
         <div className='container'>
           <div className='row'>
             <div className='col-12'>
-              {radioState === 'TruckLoad' && (
+              {values.shipmentCategory === 'TruckLoad' && (
                 <div className='row mb-2' data-kt-buttons='true'>
                   <div className='col'>
                     <div className='mb-0 fv-row'>
@@ -155,6 +164,43 @@ const Step3: FC<Props> = ({radioState, values, handleChange, grandTotal}: Props)
                           title=''
                         ></i>
                       </label>
+                      <div className='fv-row mb-1'>
+                        <div className='row mb-1' data-kt-buttons='true'>
+                          <label className='form-label'>Truck Capacity(Tons)</label>
+
+                          <div className='fv-row mb-3'>
+                            <Field as='select' name='ton' className='form-select' label='Weight'>
+                              {tons.length &&
+                                tons.map((unit, index) => {
+                                  return (
+                                    <option key={index} value={unit.optionValue}>
+                                      {unit.optionLabel}
+                                    </option>
+                                  )
+                                })}
+                            </Field>
+                          </div>
+
+                          <div className='text-danger mt-1 mb-3'>
+                            <ErrorMessage name='ton' />
+                          </div>
+                        </div>
+
+                        <div className='fv-row mb-6'>
+                          <label className='form-label'>Client's Waybill</label>
+                          <Field
+                            type='text'
+                            name='t_clientWaybill'
+                            className='form-control form-control-lg form-control-solid'
+                            rows={3}
+                          ></Field>
+
+                          <div className='text-danger mt-2'>
+                            <ErrorMessage name='t_clientWaybill' />
+                          </div>
+                        </div>
+                      </div>
+
                       <FieldArray
                         name='itemsA'
                         render={(arrayHelpers) => (
@@ -163,22 +209,6 @@ const Step3: FC<Props> = ({radioState, values, handleChange, grandTotal}: Props)
                               <div key={index} className='mb-10'>
                                 <hr className='bg-success border-2 border-top border-danger'></hr>
                                 <div className='col-11 mt-5 mt-6'>
-                                  <Field
-                                    as='select'
-                                    name={`itemsA.${index}.t_shipmentType`}
-                                    className='form-select'
-                                    label='Product'
-                                  >
-                                    {product.length &&
-                                      product.map((unit, index) => {
-                                        return (
-                                          <option key={index} value={unit.optionValue}>
-                                            {unit.optionLabel}
-                                          </option>
-                                        )
-                                      })}
-                                  </Field>
-
                                   <div className='text-danger mt-2'>
                                     <ErrorMessage name={`itemsA.${index}.t_shipmentType`} />
                                   </div>
@@ -187,113 +217,49 @@ const Step3: FC<Props> = ({radioState, values, handleChange, grandTotal}: Props)
                                 <div className='mb-10'>
                                   <div className='row mb-2' data-kt-buttons='true'>
                                     <div className='mb-0'>
-                                      <div className='row mb-2' data-kt-buttons='true'>
-                                        <label className='form-label'>Weight (Tons)</label>
-                                        <div className='col'>
-                                          <Field
-                                            type='radio'
-                                            className='btn-check'
-                                            name={`itemsA.${index}.ton`}
-                                            value='10'
-                                            onClick={(e: React.ChangeEvent<HTMLInputElement>) =>
-                                              handleOnChange2(
-                                                e,
-                                                values.itemsA[index].ton,
-                                                values.itemsA[index].length,
-                                                values.itemsA[index].breadth,
-                                                values.itemsA[index].height,
-                                                values.itemsA[index].quantity,
-                                                index,
-                                                values.route,
-                                                2,
-                                                values.itemsA[index].t_shipmentType
+                                      <div className='fv-row mb-10'>
+                                        <Field
+                                          as='select'
+                                          name={`itemsA.${index}.t_shipmentType`}
+                                          className='form-select'
+                                          label='Product'
+                                        >
+                                          {product.length &&
+                                            product.map((unit, index) => {
+                                              return (
+                                                <option key={index} value={unit.optionValue}>
+                                                  {unit.optionLabel}
+                                                </option>
                                               )
-                                            }
-                                            id={`kt_tons_select_${index + 1}`}
-                                          />
-                                          <label
-                                            className='btn btn-outline btn-outline-dashed btn-outline-default w-100 p-4'
-                                            htmlFor={`kt_tons_select_${index + 1}`}
-                                          >
-                                            <span className='fw-bolder fs-3'>10 Tons</span>
-                                          </label>
-                                        </div>
-
-                                        <div className='col'>
-                                          <Field
-                                            type='radio'
-                                            className='btn-check'
-                                            name={`itemsA.${index}.ton`}
-                                            value='20'
-                                            onClick={(e: React.ChangeEvent<HTMLInputElement>) =>
-                                              handleOnChange2(
-                                                e,
-                                                values.itemsA[index].ton,
-                                                values.itemsA[index].length,
-                                                values.itemsA[index].breadth,
-                                                values.itemsA[index].height,
-                                                values.itemsA[index].quantity,
-                                                index,
-                                                values.route,
-                                                2,
-                                                values.itemsA[index].t_shipmentType
-                                              )
-                                            }
-                                            id={`kt_tons_select_${index + 2}`}
-                                          />
-                                          <label
-                                            className='btn btn-outline btn-outline-dashed btn-outline-default w-100 p-4'
-                                            htmlFor={`kt_tons_select_${index + 2}`}
-                                          >
-                                            <span className='fw-bolder fs-3'>20 Tons</span>
-                                          </label>
-                                        </div>
-
-                                        <div className='col mb-3'>
-                                          <Field
-                                            type='radio'
-                                            className='btn-check'
-                                            name={`itemsA.${index}.ton`}
-                                            value='30'
-                                            onClick={(e: React.ChangeEvent<HTMLInputElement>) =>
-                                              handleOnChange2(
-                                                e,
-                                                values.itemsA[index].ton,
-                                                values.itemsA[index].length,
-                                                values.itemsA[index].breadth,
-                                                values.itemsA[index].height,
-                                                values.itemsA[index].quantity,
-                                                index,
-                                                values.route,
-                                                2,
-                                                values.itemsA[index].t_shipmentType
-                                              )
-                                            }
-                                            id={`kt_tons_select_${index + 3}`}
-                                          />
-                                          <label
-                                            className='btn btn-outline btn-outline-dashed btn-outline-default w-100 p-4'
-                                            htmlFor={`kt_tons_select_${index + 3}`}
-                                          >
-                                            <span className='fw-bolder fs-3'>30 Tons</span>
-                                          </label>
-                                        </div>
-                                        <div className='text-danger mt-1 mb-3'>
-                                          <ErrorMessage name={`itemsA.${index}.ton`} />
-                                        </div>
+                                            })}
+                                        </Field>
                                       </div>
 
                                       <div className='fv-row mb-6'>
-                                        <label className='form-label'>Client's Waybill</label>
+                                        <label className='form-label'>Quantity</label>
                                         <Field
-                                          type='number'
-                                          name={`itemsA.${index}.t_clientWaybill`}
+                                          type='text'
+                                          name={`itemsA.${index}.t_quantity`}
                                           className='form-control form-control-lg form-control-solid'
                                           rows={3}
+                                          onKeyUp={(e: React.ChangeEvent<HTMLInputElement>) =>
+                                            handleOnChange2(
+                                              e,
+                                              values.ton,
+                                              1,
+                                              1,
+                                              1,
+                                              1,
+                                              index,
+                                              values.route,
+                                              2,
+                                              2
+                                            )
+                                          }
                                         ></Field>
 
                                         <div className='text-danger mt-2'>
-                                          <ErrorMessage name={`itemsA.${index}.t_clientWaybill`} />
+                                          <ErrorMessage name={`itemsA.${index}.t_quantity`} />
                                         </div>
                                       </div>
 
@@ -335,14 +301,14 @@ const Step3: FC<Props> = ({radioState, values, handleChange, grandTotal}: Props)
                                     <div className='col mb-4'>
                                       <label className='form-label mb-12'></label>
                                       <div className='input-group mb-12 d-flex justify-content-end'>
-                                        {/* <button
+                                        <button
                                           type='button'
                                           className='float-end btn btn-lg btn-secondary me-3'
                                           style={{width: '60%', fontWeight: 'bold'}}
                                           onClick={() => arrayHelpers.remove(index)}
                                         >
                                           Remove Item
-                                        </button> */}
+                                        </button>
                                       </div>
                                     </div>
                                   </div>
@@ -350,21 +316,20 @@ const Step3: FC<Props> = ({radioState, values, handleChange, grandTotal}: Props)
                               </div>
                             ))}
                             <hr className='bg-success border-1 border-top border-danger'></hr>
-                            {/* <button
+                            <button
                               type='button'
                               style={{width: '130px', fontWeight: 'bold'}}
                               className='float-start btn btn-lg btn-secondary'
                               onClick={() =>
                                 arrayHelpers.push({
-                                  ton: '',
                                   t_shipmentDescription: '',
-                                  t_shipmentType: '',
+                                  t_quantity: '',
                                   LineTotal: 0.0,
                                 })
                               }
                             >
                               Add Item
-                            </button> */}
+                            </button>
                           </div>
                         )}
                       />
@@ -375,7 +340,8 @@ const Step3: FC<Props> = ({radioState, values, handleChange, grandTotal}: Props)
             </div>
 
             <div className='col-12'>
-              {(radioState === 'mailandparcel' || radioState === 'freight') && (
+              {(values.shipmentCategory === 'mailandparcel' ||
+                values.shipmentCategory === 'freight') && (
                 <div className='row mb-2' data-kt-buttons='true'>
                   <div className='col'>
                     <div className='mb-0 fv-row'>
@@ -506,19 +472,16 @@ const Step3: FC<Props> = ({radioState, values, handleChange, grandTotal}: Props)
                                     </div>
                                   </div>
 
-                                  <div className='fv-row mb-10'>
+                                  {/* <div className='fv-row mb-10'>
                                     <label className='form-label'>Weight From Dimensions</label>
                                     <div className='input-group mb-12'>
                                       <span className='input-group-text'>
                                         <strong>Volume</strong>
                                       </span>
-                                      <span
-                                        id={`itemsB.${index}.volume`}
-                                        className='input-group-text'
-                                      >
+                                      <span id={`itemsB.${index}.volume`} className='input-group-text'>
                                         {numberFormat2(Number(values.itemsB[index].volume)) + 'cm3'}
                                       </span>
-                                      {/* <span className='input-group-text'>
+                                      <span className='input-group-text'>
                                         <strong>Volumetric Weight</strong>
                                       </span>
                                       <span
@@ -528,31 +491,23 @@ const Step3: FC<Props> = ({radioState, values, handleChange, grandTotal}: Props)
                                         {numberFormat2(
                                           Number(values.itemsB[index].volumetricWeight)
                                         ) + 'cm3kg'}
-                                      </span> */}
+                                      </span>
 
                                       <span className='input-group-text'>
                                         <strong>Chargeable Weight</strong>
                                       </span>
-                                      <span
-                                        id={`itemsB.${index}.chargeableWeight`}
-                                        className='input-group-text'
-                                      >
-                                        {numberFormat2(
-                                          Number(values.itemsB[index].chargeableWeight)
-                                        ) + 'kg'}
+                                      <span id={`itemsB.${index}.chargeableWeight`} className='input-group-text'>
+                                        {numberFormat2(Number(values.itemsB[index].chargeableWeight)) + 'kg'}
                                       </span>
 
                                       <span className='input-group-text'>
                                         <strong>Price/Unit Weight</strong>
                                       </span>
-                                      <span
-                                        id={`itemsB.${index}.pricePerUnit`}
-                                        className='input-group-text'
-                                      >
+                                      <span id={`itemsB.${index}.pricePerUnit`} className='input-group-text'>
                                         {numberFormat(Number(values.itemsB[index].pricePerUnit))}
                                       </span>
                                     </div>
-                                  </div>
+                                  </div> */}
 
                                   <div className='row mb-10'>
                                     <div className='col mb-4'>
@@ -572,11 +527,7 @@ const Step3: FC<Props> = ({radioState, values, handleChange, grandTotal}: Props)
                                           <strong>
                                             {numberFormat(Number(values.itemsB[index].LineTotal))}
                                           </strong>
-                                          <Field
-                                            className='form-control form-control-lg form-control-solid'
-                                            name={`itemsB.${index}.LineTotal`}
-                                            id={`itemsB.${index}.id`}
-                                          ></Field>
+                                          {/* <Field className='form-control form-control-lg form-control-solid' name={`itemsB.${index}.LineTotal`} id={`itemsB.${index}.id`}></Field> */}
                                         </span>
                                       </div>
                                     </div>
@@ -630,4 +581,4 @@ const Step3: FC<Props> = ({radioState, values, handleChange, grandTotal}: Props)
   )
 }
 
-export {Step3}
+export {ShipmentItemStep}

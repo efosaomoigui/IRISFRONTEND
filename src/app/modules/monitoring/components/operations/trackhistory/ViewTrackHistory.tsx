@@ -30,7 +30,7 @@ export function ViewTrackHistory() {
       {
         Header: 'Date',
         accessor: 'createDate',
-        Cell: ({value}: any) => format(new Date(value), 'dd/mm/yyyy HH:mm:ss'),
+        Cell: ({value}: any) => format(new Date(value), 'dd/MM/yyyy HH:mm:ss'),
       },
 
       {

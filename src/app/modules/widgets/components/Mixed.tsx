@@ -329,31 +329,23 @@ const Mixed: FC = () => {
       <div className='row g-5 g-xl-8'>
         {/* begin::Col */}
         <div className='col-xl-4'>
-          <MixedWidget10
+          {/* <MixedWidget10
             className='card-xl-stretch mb-xl-8'
             chartColor='info'
             chartHeight='150px'
-          />
+          /> */}
         </div>
         {/* end::Col */}
 
         {/* begin::Col */}
         <div className='col-xl-4'>
-          <MixedWidget10
-            className='card-xl-stretch mb-xl-8'
-            chartColor='warning'
-            chartHeight='150px'
-          />
+          {/* <MixedWidget10 className='card-xl-stretch mb-xl-8' chartColor='warning' chartHeight='150px' /> */}
         </div>
         {/* end::Col */}
 
         {/* begin::Col */}
         <div className='col-xl-4'>
-          <MixedWidget10
-            className='card-xl-stretch mb-5 mb-xl-8'
-            chartColor='primary'
-            chartHeight='150px'
-          />
+          {/* <MixedWidget10 className='card-xl-stretch mb-5 mb-xl-8' chartColor='primary' chartHeight='150px' /> */}
         </div>
         {/* end::Col */}
       </div>
@@ -363,31 +355,19 @@ const Mixed: FC = () => {
       <div className='row g-5 g-xl-8'>
         {/* begin::Col */}
         <div className='col-xl-4'>
-          <MixedWidget11
-            className='card-xl-stretch mb-xl-8'
-            chartColor='info'
-            chartHeight='200px'
-          />
+          {/* <MixedWidget11 className='card-xl-stretch mb-xl-8' chartColor='info' chartHeight='200px' /> */}
         </div>
         {/* end::Col */}
 
         {/* begin::Col */}
         <div className='col-xl-4'>
-          <MixedWidget11
-            className='card-xl-stretch mb-xl-8'
-            chartColor='warning'
-            chartHeight='200px'
-          />
+          {/* <MixedWidget11 className='card-xl-stretch mb-xl-8' chartColor='warning' chartHeight='200px' /> */}
         </div>
         {/* end::Col */}
 
         {/* begin::Col */}
         <div className='col-xl-4'>
-          <MixedWidget11
-            className='card-xl-stretch mb-xl-8'
-            chartColor='primary'
-            chartHeight='200px'
-          />
+          {/* <MixedWidget11 className='card-xl-stretch mb-xl-8' chartColor='primary' chartHeight='200px' /> */}
         </div>
         {/* end::Col */}
       </div>

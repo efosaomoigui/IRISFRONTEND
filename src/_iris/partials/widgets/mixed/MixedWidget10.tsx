@@ -2,14 +2,25 @@
 import React, {useEffect, useRef} from 'react'
 import ApexCharts, {ApexOptions} from 'apexcharts'
 import {getCSSVariableValue} from '../../../assets/ts/_utils'
+import {numberFormat} from '../../../../app/modules/walletmanagement/Models/WalletInterfaces'
 
 type Props = {
   className: string
   chartColor: string
   chartHeight: string
+  monthData: number[]
+  month: string[]
+  totalSales: number
 }
 
-const MixedWidget10: React.FC<Props> = ({className, chartColor, chartHeight}) => {
+const MixedWidget10: React.FC<Props> = ({
+  className,
+  chartColor,
+  chartHeight,
+  monthData,
+  month,
+  totalSales,
+}) => {
   const chartRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
@@ -17,7 +28,10 @@ const MixedWidget10: React.FC<Props> = ({className, chartColor, chartHeight}) =>
       return
     }
 
-    const chart = new ApexCharts(chartRef.current, chartOptions(chartColor, chartHeight))
+    const chart = new ApexCharts(
+      chartRef.current,
+      chartOptions(chartColor, chartHeight, monthData, month)
+    )
     if (chart) {
       chart.render()
     }
@@ -39,13 +53,13 @@ const MixedWidget10: React.FC<Props> = ({className, chartColor, chartHeight}) =>
           <div className='d-flex flex-stack flex-wrap'>
             <div className='me-2'>
               <a href='#' className='text-dark text-hover-primary fw-bolder fs-3'>
-                Fleet Movement Statistics
+                Transaction Statistics
               </a>
 
-              <div className='text-muted fs-7 fw-bold'>Finance and accounting reports</div>
+              <div className='text-muted fs-7 fw-bold'>Financial Transactions by Month</div>
             </div>
 
-            <div className={`fw-bolder fs-3 text-${chartColor}`}>$24,500</div>
+            <div className={`fw-bolder fs-3 text-${chartColor}`}>{numberFormat(totalSales)}</div>
           </div>
         </div>
         {/* end::Stats */}
@@ -59,7 +73,12 @@ const MixedWidget10: React.FC<Props> = ({className, chartColor, chartHeight}) =>
   )
 }
 
-const chartOptions = (chartColor: string, chartHeight: string): ApexOptions => {
+const chartOptions = (
+  chartColor: string,
+  chartHeight: string,
+  monthData: number[],
+  month: string[]
+): ApexOptions => {
   const labelColor = getCSSVariableValue('--bs-gray-800')
   const strokeColor = getCSSVariableValue('--bs-gray-300')
   const baseColor = getCSSVariableValue('--bs-' + chartColor)
@@ -69,7 +88,7 @@ const chartOptions = (chartColor: string, chartHeight: string): ApexOptions => {
     series: [
       {
         name: 'Net Profit',
-        data: [15, 25, 15, 40, 20, 50],
+        data: monthData,
       },
     ],
     chart: {
@@ -104,7 +123,7 @@ const chartOptions = (chartColor: string, chartHeight: string): ApexOptions => {
       colors: [baseColor],
     },
     xaxis: {
-      categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+      categories: month,
       axisBorder: {
         show: false,
       },

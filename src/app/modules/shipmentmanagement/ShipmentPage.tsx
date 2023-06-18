@@ -21,9 +21,11 @@ import {ViewManifests} from './components/processingandpackaging/ViewManifests'
 import {ViewTrips} from '../monitoring/components/operations/trips/ViewTrips'
 import {ProcessDispatch} from './components/processingandpackaging/ProcessDispatch'
 import {isThorized} from '../../routing/access'
-import { IUserModel } from '../auth/models/AuthInterfaces'
-import { shallowEqual, useSelector } from 'react-redux'
-import { RootState } from '../../../setup'
+import {IUserModel} from '../auth/models/AuthInterfaces'
+import {shallowEqual, useSelector} from 'react-redux'
+import {RootState} from '../../../setup'
+import RegisterShipment from './components/capture/RegisterShipment'
+import {GroupDetail} from './components/processingandpackaging/GroupDetail'
 
 const userBreadCrumbs: Array<PageLink> = [
   {
@@ -108,7 +110,7 @@ const ShipmentPage: React.FC = () => {
 
         <Route path='/shipment/CaptureShipment'>
           <PageTitle breadcrumbs={userBreadCrumbs}>Capture Shipment</PageTitle>
-          {Admin || Agent ? <HorizontalShipmentCapture /> : <Redirect to='/shipment/shipment' />}
+          {Admin || Agent ? <RegisterShipment /> : <Redirect to='/shipment/shipment' />}
           {/* <CaptureShipment /> */}
           {/* <HorizontalShipmentCapture /> */}
         </Route>
@@ -144,6 +146,11 @@ const ShipmentPage: React.FC = () => {
           <PageTitle breadcrumbs={userBreadCrumbs}>Group Waybill</PageTitle>
           {Admin || Finance || Agent ? <ViewGroupWaybills /> : <Redirect to='/shipment/shipment' />}
           {/* <ViewGroupWaybills /> */}
+        </Route>
+
+        <Route path='/shipment/groupwaybillDetail/:groupCode'>
+          <PageTitle breadcrumbs={userBreadCrumbs}>Group Waybill Detail</PageTitle>
+          {Admin || Finance || Agent ? <GroupDetail /> : <Redirect to='/shipment/shipment' />}
         </Route>
 
         <Route path='/shipment/processmanifest'>

@@ -25,7 +25,7 @@ export function ViewShipment() {
       {
         Header: 'Date',
         accessor: 'createdDate',
-        Cell: ({value}: any) => format(new Date(value), 'dd/mm/yyyy'),
+        Cell: ({value}: any) => format(new Date(value), 'dd/MM/yyyy'),
       },
       {
         Header: 'Departure',

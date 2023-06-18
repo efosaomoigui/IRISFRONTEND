@@ -1,21 +1,21 @@
-import { format } from 'date-fns'
-import { useEffect, useState } from 'react'
-import { Spinner } from 'react-bootstrap-v5'
+import {format} from 'date-fns'
+import {useEffect, useState} from 'react'
+import {Spinner} from 'react-bootstrap-v5'
 import agent from '../../../../../../setup/axios/AxiosAgent'
-import { usePageData } from '../../../../../../_iris/layout/core'
+import {usePageData} from '../../../../../../_iris/layout/core'
 import LoadingComponent from '../../../../../LoadingComponent'
-import { IrisTablesWidget } from '../../../../layout/tables/IrisTablesWidget'
-import { modalprops } from '../../../../layout/tables/IrisTableTitle'
-import { ITripModel } from '../../../Monitor models/MonitorInterface'
+import {IrisTablesWidget} from '../../../../layout/tables/IrisTablesWidget'
+import {modalprops} from '../../../../layout/tables/IrisTableTitle'
+import {ITripModel} from '../../../Monitor models/MonitorInterface'
 import ViewTrips_Data from './ViewTrips_Data.json'
-// import {format} from 'date-fns' 
+// import {format} from 'date-fns'
 
 export function ViewTrips() {
   const [loading, setLoading] = useState(true)
-  const [modalTarger, setModalTarget] = useState<modalprops[]>([]);
+  const [modalTarger, setModalTarget] = useState<modalprops[]>([])
   const [tripmodel, setUsersModel] = useState<ITripModel[]>([])
   const [loadingData, setLoadingData] = useState(true)
-  const { selectValue, handleSelectValue, selectUrlParam, setSelectUrlParam } = usePageData() //global data
+  const {selectValue, handleSelectValue, selectUrlParam, setSelectUrlParam} = usePageData() //global data
 
   // createdDate: "2022-03-04T09:06:10.2462197"
   // departure: "LAGOS"
@@ -42,7 +42,7 @@ export function ViewTrips() {
       {
         Header: 'Date',
         accessor: 'createdDate',
-        Cell: ({value}:any) => format(new Date(value), 'dd/mm/yyyy HH:mm:ss') 
+        Cell: ({value}: any) => format(new Date(value), 'dd/MM/yyyy HH:mm:ss'),
       },
       {
         Header: 'Route',
@@ -56,11 +56,10 @@ export function ViewTrips() {
         Header: 'Driver',
         accessor: 'driverName',
       },
-      {
-        Header: 'Current Status',
-        accessor: 'dispatche',
-      },
-
+      // {
+      //   Header: 'Current Status',
+      //   accessor: 'dispatche',
+      // },
     ],
     DetailsPath: '/monitor/tripDetails/',
     EditPath: '#kt_modal_edittrip',
@@ -72,10 +71,9 @@ export function ViewTrips() {
   const ModalTarget = [
     {
       linkTitle: 'Add Trip',
-      linkTarget: '#kt_modal_addtrip'
+      linkTarget: '#kt_modal_addtrip',
     },
   ]
-
 
   const handleEdit = (event: React.MouseEvent) => {
     const urlParm = event.currentTarget.getAttribute('id')
@@ -84,47 +82,43 @@ export function ViewTrips() {
     return val
   }
 
-
-    //USE EFFECT HOOK
-    useEffect(() => {
-      const callFunc = async () => {
-        await agent.Trip.list().then((response) => {
-          setUsersModel(response)
-          setModalTarget(ModalTarget);
-          setLoadingData(false)
-        })
-      }
-      if (loadingData) {
-        callFunc()
-      }
-    }, [])
-
+  //USE EFFECT HOOK
+  useEffect(() => {
+    const callFunc = async () => {
+      await agent.Trip.list().then((response) => {
+        setUsersModel(response)
+        setModalTarget(ModalTarget)
+        setLoadingData(false)
+      })
+    }
+    if (loadingData) {
+      callFunc()
+    }
+  }, [])
 
   return (
     <div className='row g-5 g-xxl-8'>
       <div className='col-xl-24'>
-      {loadingData ? (
+        {loadingData ? (
           <div>
             <Spinner animation='border' />
           </div>
         ) : (
-        <IrisTablesWidget
-          tableData={tripmodel}
-          className='mb-5 mb-xl-8'
-          columnsMap={tableProvider.columns}
-          DetailsPath={tableProvider.DetailsPath}
-          EditPath={tableProvider.EditPath}
-          DeletePath={tableProvider.DeletePath}
-          UseFakeData={false}
-          FakeData={tableProvider.FakeData}
-          TableTitle={'Trips'}
-          Count={'Over 300 Users'}
-          ModalTarget={
-            modalTarger
-          }
-          handleEdit={handleEdit}
-          showButton = {true}
-        />
+          <IrisTablesWidget
+            tableData={tripmodel}
+            className='mb-5 mb-xl-8'
+            columnsMap={tableProvider.columns}
+            DetailsPath={tableProvider.DetailsPath}
+            EditPath={tableProvider.EditPath}
+            DeletePath={tableProvider.DeletePath}
+            UseFakeData={false}
+            FakeData={tableProvider.FakeData}
+            TableTitle={'Trips'}
+            Count={'Over 300 Users'}
+            ModalTarget={modalTarger}
+            handleEdit={handleEdit}
+            showButton={true}
+          />
         )}
       </div>
     </div>

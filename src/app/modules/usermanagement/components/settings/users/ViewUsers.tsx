@@ -1,12 +1,12 @@
 import {useEffect, useState, useContext} from 'react'
-import { Spinner } from 'react-bootstrap-v5'
+import {Spinner} from 'react-bootstrap-v5'
 import agent from '../../../../../../setup/axios/AxiosAgent'
 import {usePageData} from '../../../../../../_iris/layout/core'
 import {IUserModel} from '../../../../auth/models/AuthInterfaces'
 import {IrisTablesWidget} from '../../../../layout/tables/IrisTablesWidget'
 import {modalprops} from '../../../../layout/tables/IrisTableTitle'
-import { AddUserModal } from '../../../modals/AddUserModal'
-import { EditUserModal } from '../../../modals/EditUserModal'
+import {AddUserModal} from '../../../modals/AddUserModal'
+import {EditUserModal} from '../../../modals/EditUserModal'
 import User_Data from './User_Data.json'
 // import {format} from 'date-fns'
 
@@ -15,7 +15,7 @@ export function ViewUsers() {
   const [modalTarger, setModalTarget] = useState<modalprops[]>([])
   const [usersmodel, setUsersModel] = useState<IUserModel[]>([])
   const [loadingData, setLoadingData] = useState(true)
-  const {selectValue, handleSelectValue, selectUrlParam, setSelectUrlParam} =usePageData() //global data
+  const {selectValue, handleSelectValue, selectUrlParam, setSelectUrlParam} = usePageData() //global data
 
   //all the data for the table
   const tableProvider = {
@@ -60,13 +60,13 @@ export function ViewUsers() {
   const ModalTarget = [
     {
       linkTitle: 'Add User',
-      linkTarget: '#kt_modal_adduser'
+      linkTarget: '#kt_modal_adduser',
     },
   ]
 
   const handleEdit = (event: React.MouseEvent) => {
     const urlParm = event.currentTarget.getAttribute('id')
-    const val = usersmodel.find((x) => x.userId === urlParm) 
+    const val = usersmodel.find((x) => x.userId === urlParm)
     handleSelectValue(val!)
     return val
   }
@@ -78,7 +78,6 @@ export function ViewUsers() {
         setModalTarget(ModalTarget)
         setUsersModel(response)
         setLoadingData(false)
-        
       })
     }
     if (loadingData) {
@@ -90,7 +89,9 @@ export function ViewUsers() {
     <div className='row g-5 g-xxl-8'>
       <div className='col-xl-12'>
         {loadingData ? (
-          <div><Spinner animation="border" /></div>
+          <div>
+            <Spinner animation='border' />
+          </div>
         ) : (
           <IrisTablesWidget
             tableData={usersmodel}
@@ -104,7 +105,7 @@ export function ViewUsers() {
             TableTitle={'User Profile'}
             Count={'Over 300 Users'}
             ModalTarget={modalTarger}
-            handleEdit = {handleEdit}
+            handleEdit={handleEdit}
           />
         )}
       </div>

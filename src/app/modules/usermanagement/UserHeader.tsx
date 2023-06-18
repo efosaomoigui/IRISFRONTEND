@@ -1,11 +1,10 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react';
-import { shallowEqual, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { RootState } from '../../../setup';
-import { KTSVG } from '../../../_iris/helpers';
-import { IUserModel } from '../auth/models/AuthInterfaces';
-
+import React from 'react'
+import {shallowEqual, useSelector} from 'react-redux'
+import {Link} from 'react-router-dom'
+import {RootState} from '../../../setup'
+import {KTSVG} from '../../../_iris/helpers'
+import {IUserModel} from '../auth/models/AuthInterfaces'
 
 const UserHeader: React.FC = () => {
   // const location = useLocation()
@@ -18,7 +17,6 @@ const UserHeader: React.FC = () => {
     <div className='card mb-5 mb-xl-10'>
       <div className='card-body pt-9 pb-0'>
         <div className='d-flex flex-wrap flex-sm-nowrap mb-3'>
-
           <div className='flex-grow-1'>
             <div className='d-flex justify-content-between align-items-start flex-wrap mb-2'>
               <div className='d-flex flex-column'>
@@ -71,20 +69,16 @@ const UserHeader: React.FC = () => {
                     <span className='spinner-border spinner-border-sm align-middle ms-2'></span>
                   </span>
                 </Link> */}
-                <Link
-                  className='btn btn-sm btn-primary me-3'
-                  to={`/wallet/wtransactions/${user.userId}`}                >
+                <Link className='btn btn-sm btn-primary me-3' to={`/wallet/wtransactions`}>
                   My Wallet
                 </Link>
               </div>
             </div>
           </div>
         </div>
-
       </div>
     </div>
   )
 }
 
-export { UserHeader };
-
+export {UserHeader}

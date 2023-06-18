@@ -1,13 +1,13 @@
 import React from 'react'
 import {KTSVG} from '../../../../_iris/helpers'
-import { usePageData } from '../../../../_iris/layout/core'
-import { IUserModel } from '../../auth/models/AuthInterfaces'
+import {usePageData} from '../../../../_iris/layout/core'
+import {IUserModel} from '../../auth/models/AuthInterfaces'
 import {GenericTable} from './GenericTable'
 import IrisTableHeading from './IrisTableTitle'
 // import IrisTableHeading, {madalprops} from './IrisTableTitle'
 //import styled from 'styled-components'
 
-// const stylecell = styled.td` 
+// const stylecell = styled.td`
 // color:blue;
 // `
 
@@ -20,7 +20,6 @@ export interface modalprops {
   linkTitle: string
   linkTarget: string
 }
-
 
 type Props = {
   className: string
@@ -35,7 +34,9 @@ type Props = {
   Count: string
   ModalTarget: modalprops[]
   handleEdit?: (event: React.MouseEvent) => void
-  showButton? : boolean
+  showButton?: boolean
+  showEdit?: boolean
+  showDel?: boolean
 }
 
 const IrisTablesWidget: React.FC<Props> = ({
@@ -50,18 +51,31 @@ const IrisTablesWidget: React.FC<Props> = ({
   TableTitle,
   Count,
   ModalTarget,
-  handleEdit, 
-  showButton
+  handleEdit,
+  showButton,
+  showEdit,
+  showDel,
 }) => {
   const tabledata = UseFakeData ? FakeData : tableData
-  const {entityValues, setEntityValues, selectUrlParam, setSelectUrlParam, formTitle, setFormTitle} = usePageData()
-
+  const {
+    entityValues,
+    setEntityValues,
+    selectUrlParam,
+    setSelectUrlParam,
+    formTitle,
+    setFormTitle,
+  } = usePageData()
 
   return (
     <div className={`card ${className}`}>
-      {/* begin::Header */} 
-      <IrisTableHeading tableTitle={TableTitle} count={Count} modelTarget={ModalTarget} showButton={showButton} />
-      {/* end::Header */} 
+      {/* begin::Header */}
+      <IrisTableHeading
+        tableTitle={TableTitle}
+        count={Count}
+        modelTarget={ModalTarget}
+        showButton={showButton}
+      />
+      {/* end::Header */}
 
       {/* begin::Body */}
       <div className='card-body py-3'>
@@ -75,6 +89,8 @@ const IrisTablesWidget: React.FC<Props> = ({
             EditPath={EditPath}
             DeletePath={DeletePath}
             handleEdit={handleEdit!}
+            showEdit={showEdit}
+            showDel={showDel}
           />
           {/* end::Table */}
         </div>
@@ -116,7 +132,7 @@ const IrisTablesWidget: React.FC<Props> = ({
         {/*begin::Mobile logo*/}
         <div className='d-flex align-items-center flex-grow-1 flex-lg-grow-0'>
           <a href='../../demo1/dist/index.html' className='d-lg-none'>
-            <img alt='Logo' src='assets/media/logos/logo-2.svg' className='h-30px' />
+            <img alt='Logo' src='assets/media/logos/logo-2.png' className='h-30px' />
           </a>
         </div>
       </div>

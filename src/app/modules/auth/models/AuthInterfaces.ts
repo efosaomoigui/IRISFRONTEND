@@ -1,12 +1,14 @@
-export enum Gender{
-  Male, Female
+export enum Gender {
+  Male,
+  Female,
 }
 
-export enum Category{
-  Corporate, Inidvidual 
+export enum Category {
+  Corporate,
+  Inidvidual,
 }
 
-export enum FleetType{
+export enum FleetType {
   Truck = 1,
   Van = 2,
   Vessel = 3,
@@ -15,24 +17,23 @@ export enum FleetType{
   MiniTruck = 6,
   Motorcycle = 6,
   Vehicle = 8,
-  Boat = 9
+  Boat = 9,
 }
 
-
 export interface IUserModel {
-  id?:string
+  id?: string
   userId?: string
   username?: string
   password?: string
   firstName: string
   lastName: string
-  email?: string 
+  email?: string
   phoneNumber: string
   gender?: Gender
   age?: string
   userType?: Category
-  pictureUrl?: string 
-  organisation?: string 
+  pictureUrl?: string
+  organisation?: string
   status?: number
   dateCreated?: string
   dateModified?: string
@@ -40,60 +41,90 @@ export interface IUserModel {
   identificationImage?: string
   walletNumber?: string
   roles?: string[]
-  message?:string
-  validationErrors?: string[] 
+  serviceCenters?: string[]
+  serviceCenterNames?: string
+  message?: string
+  validationErrors?: string[]
   userdto?: {}
-  requirePasswordChanged?:string
+  requirePasswordChanged?: string
   //Error:  {"userdto":null,"success":true,"message":null,"validationErrors":["Unable to create user, User already exist!"],"accessToken":null,"expireAt":"0001-01-01T00:00:00"}
 }
 
 export interface IUserModel2 {
-  id?:string
-  label?:string
+  id?: string
+  label?: string
   userId?: string
   username?: string
   password?: string
   firstName: string
   lastName: string
-  email?: string 
+  email?: string
   phoneNumber: string
+}
+
+export interface IServiceCenter {
+  userId?: string
+  serviceCenterCode?: string[]
+  message?: string
+  validationErrors?: string[]
+  roledto?: {}
+}
+
+export interface IServiceCenterData {
+  serviceCenterId: string
+  terminals: string
+  code: string
+  type: string
+  phone: string
+  address: string
+  city: string
+  state: string
+  location: string
+  coordinate: string
+  message?: string
+  validationErrors?: string[]
+  roledto?: {}
 }
 
 export interface IFleetModel2 {
-  id?:string
-  label?:string
+  id?: string
+  label?: string
   userId?: string
   username?: string
   password?: string
   firstName: string
   lastName: string
-  email?: string 
+  email?: string
   phoneNumber: string
 }
 
-export interface IUserRole{ 
-  userId?:string 
-  roleId:string[]
-  message?:string
-  validationErrors?: string[] 
+export interface IScCode {
+  code?: string
+}
+
+export interface IUserRole {
+  userId?: string
+  roleId: string[]
+  message?: string
+  validationErrors?: string[]
   userdto?: {}
-  check?: boolean 
+  check?: boolean
 }
 
-export enum UserType{
+export enum UserType {
   Corporate,
-  Individual, 
-  Partner
+  Individual,
+  Partner,
 }
 
-export enum GenderType{
+export enum GenderType {
   Male,
-  Female
+  Female,
 }
 
-export enum requirePasswordChanged{
+export enum requirePasswordChanged {
   Yes,
-  No
+  No,
 }
 
 export interface IRoleModel {
@@ -106,7 +137,7 @@ export interface IRoleModel {
 
 export interface IPermissionModel {
   roleId: string
-  claimType: string 
+  claimType: string
   claimValue: string
   message?: string
   validationErrors?: string[]
@@ -114,6 +145,6 @@ export interface IPermissionModel {
 }
 
 export interface IPermissionTypesModel {
-  claimType: string 
+  claimType: string
   claimValue: string
 }

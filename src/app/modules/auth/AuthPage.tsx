@@ -5,7 +5,7 @@ import {Registration} from './components/Registration'
 import {ForgotPassword} from './components/ForgotPassword'
 import {Login} from './components/Login'
 import {toAbsoluteUrl} from '../../../_iris/helpers'
-import { ShipmentRequest } from './components/ShipmentRequest'
+import {ShipmentRequest} from './components/ShipmentRequest'
 
 export function AuthPage() {
   useEffect(() => {
@@ -20,7 +20,7 @@ export function AuthPage() {
       className='d-flex flex-column flex-column-fluid bgi-position-y-bottom position-x-center bgi-no-repeat bgi-size-contain bgi-attachment-fixed'
       style={{
         // backgroundImage: `url(${toAbsoluteUrl('/media/illustrations/sketchy-1/background.jpg')})`,
-        backgroundColor: `#eeeeee`
+        backgroundColor: `#eeeeee`,
       }}
     >
       {/* begin::Content */}
@@ -37,7 +37,7 @@ export function AuthPage() {
             <Route path='/registration' component={Registration} />
             <Route path='/ShipmentRequest' component={ShipmentRequest} />
             <Route path='/forgot-password' component={ForgotPassword} />
-            <Redirect from='/auth' exact={true} to='/login' />
+            <Redirect from='/auth' exact={true} to='/' />
             <Redirect to='/login' />
           </Switch>
         </div>

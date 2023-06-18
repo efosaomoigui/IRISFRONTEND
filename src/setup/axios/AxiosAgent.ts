@@ -7,6 +7,8 @@ import {
   IPermissionModel,
   IPermissionTypesModel,
   IRoleModel,
+  IServiceCenter,
+  IServiceCenterData,
   IUserModel,
   IUserRole,
 } from '../../app/modules/auth/models/AuthInterfaces'
@@ -20,8 +22,10 @@ import {
   IInvoiceModel,
   IPaymentCriteriaModel,
   IPaymentLogModel,
+  IUpdatePaymentModel,
 } from '../../app/modules/payment/PaymentModels/PaymentmentInterfaces'
 import {
+  IDashBoardModel,
   IFleetModel,
   IGroupWayBillModel,
   ILinePriceModel,
@@ -59,8 +63,15 @@ const Users = {
   list: () => request.get<IUserModel[]>(`${API_URL}/UserManagement/GetUsers`),
   details: (userid: string) =>
     request.get<IUserModel>(`${API_URL}/UserManagement/GetUser/${userid}`),
+  userByPhone: (phone: string) =>
+    request.get<IUserModel>(`${API_URL}/UserManagement/GetUserByPhoneNumber/${phone}`),
   create: (users: IUserModel) =>
     request.post<IUserModel>(`${API_URL}/UserManagement/Register`, users),
+  AddtoServiceCenter: (serviceCenterCodes: IServiceCenter) =>
+    request.post<IServiceCenter>(
+      `${API_URL}/UserManagement/AddUserToServiceCenter`,
+      serviceCenterCodes
+    ),
   update: (users: IUserModel) =>
     request.put<IUserModel>(`${API_URL}/UserManagement/UpdateUser`, users),
   delete: (id: string) => request.del<void>(`${API_URL}/UserManagement/GetUser${id}`),
@@ -117,10 +128,8 @@ const WalletTransaction = {
     request.get<IWalletTransactionModel>(
       `${API_URL}/Wallet/WalletTransaction/GetWalletTransactionById/${transactionid}`
     ),
-  userWallet: (userid: string) =>
-    request.get<IWalletTransactionModel[]>(
-      `${API_URL}/Wallet/GetWalletTransactionByUserId/${userid}`
-    ),
+  userWallet: () =>
+    request.get<IWalletTransactionModel[]>(`${API_URL}/Wallet/GetWalletTransactionByUserId`),
   create: (wallettransaction: IWalletTransactionModel) =>
     request.post<IWalletTransactionModel>(`${API_URL}/Wallet/WalletTransaction`, wallettransaction),
   update: (wallettransaction: IWalletTransactionModel) =>
@@ -129,6 +138,7 @@ const WalletTransaction = {
       {}
     ),
   delete: (id: string) => request.del<void>(`${API_URL}/Shipment/GetUser${id}`),
+  dashboard: () => request.get<IDashBoardModel[]>(`${API_URL}/Wallet/WalletTransaction/dashboard`),
 }
 
 // Route Request Starts
@@ -146,12 +156,17 @@ const Route = {
 // Shipment Request Starts
 const Shipment = {
   list: () => request.get<IShipmentModel[]>(`${API_URL}/Shipment/Shipment/all`),
+  serviceCenterList: () =>
+    request.get<IServiceCenterData[]>(`${API_URL}/Shipment/Shipment/servicecenters`),
   details: (waybill: string) =>
     request.get<IShipmentModel>(`${API_URL}/Shipment/GetShipmentByWayBillNumber/${waybill}`),
   shipmentByRoute: (routeid: string) =>
     request.get<IShipmentModel[]>(`${API_URL}/Shipment/GetShipmentByRouteId/${routeid}`),
   create: (shipment: IShipmentModel) =>
     request.post<IShipmentModel>(`${API_URL}/Shipment/Shipment`, shipment),
+  registerShipment: (shipment: IPaymentCriteriaModel) =>
+    request.post<IPaymentCriteriaModel>(`${API_URL}/Shipment/Shipment/RegisterShipment`, shipment),
+
   update: (shipment: IShipmentModel) =>
     request.put<IRouteModel>(`${API_URL}/Shipment/Shipment/edit`, shipment),
   delete: (id: string) => request.del<void>(`${API_URL}/Shipment/Shipment/delete/${id}`),
@@ -159,6 +174,7 @@ const Shipment = {
     request.get<IShipmentWayBillAndInvoiceModel>(
       `${API_URL}/Shipment/Shipment/WaybillAndInvoiceNumber`
     ),
+  dashboard: () => request.get<IDashBoardModel[]>(`${API_URL}/Shipment/Shipment/dashboard`),
 }
 
 const Manifest = {
@@ -182,8 +198,8 @@ const GroupWayBill = {
   Routelist: () =>
     request.get<IRouteModel[]>(`${API_URL}/GroupWayBill/GroupWayBill/RouteForGroupWaybill`),
   details: (groupwaybill: string) =>
-    request.get<IGroupWayBillModel>(
-      `${API_URL}/Manifest/GetManifestByManifestCode/${groupwaybill}`
+    request.get<IGroupWayBillModel[]>(
+      `${API_URL}/GroupWayBill/GetGroupWaybillByGroupCode/${groupwaybill}`
     ),
   GetGroupWaybillByRouteId: (routeid: string) =>
     request.get<IGroupWayBillModel[]>(
@@ -242,12 +258,21 @@ const PaymentLog = {
   delete: (id: string) => request.del<void>(`${API_URL}/Payment/Payment/delete${id}`),
   makePayment: (paymentCriteria: IPaymentCriteriaModel) =>
     request.post<IPaymentCriteriaModel>(`${API_URL}/Payment/Payment/MakePayment`, paymentCriteria),
+  updatePayment: (paymentCriteria: IUpdatePaymentModel) =>
+    request.post<IUpdatePaymentModel>(
+      `${API_URL}/Payment/Payment/UpdatePendingPayment`,
+      paymentCriteria
+    ),
 }
 
 const Invoice = {
   list: () => request.get<IInvoiceModel[]>(`${API_URL}/Payment/Invoice/all`),
+  userList: () => request.get<IInvoiceModel[]>(`${API_URL}/Payment/Invoice/userInvoice`),
   details: (invoicecode: string) =>
     request.get<IInvoiceModel>(`${API_URL}/Payment/Invoice/GetInvoiceByInvoiceId/${invoicecode}`),
+  detailsByInvoiceCode: (invoicecode: string) =>
+    request.get<IShipmentModel>(`${API_URL}/Payment/GetInvoiceByInvoiceCode/${invoicecode}`),
+
   create: (invoice: IInvoiceModel) =>
     request.post<IInvoiceModel>(`${API_URL}/Payment/Payment`, invoice),
   update: (invoice: IInvoiceModel) =>
@@ -259,7 +284,7 @@ const Invoice = {
 const Trip = {
   list: () => request.get<ITripModel[]>(`${API_URL}/Trip/Trip/all`),
   details: (tripid: string) =>
-    request.get<ITripModel>(`${API_URL}/Trip/Trip/GetTripByTripId/${tripid}`),
+    request.get<ITripModel>(`${API_URL}/Trip/Trip/GetTripByreferencCode/${tripid}`),
   create: (trip: ITripModel) => request.post<ITripModel>(`${API_URL}/Trip/Trip/Add`, trip),
   update: (trip: ITripModel) => request.put<ITripModel>(`${API_URL}/Trip/Trip/edit/${trip.id}`, {}),
   delete: (id: string) => request.del<void>(`${API_URL}/Trip/Trip/delete${id}`),

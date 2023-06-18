@@ -1,8 +1,11 @@
-import clsx from 'clsx';
-import React, { FC } from 'react';
+import clsx from 'clsx'
+import React, {FC} from 'react'
+import {shallowEqual, useSelector} from 'react-redux'
+import {IUserModel} from '../../../../app/modules/auth/models/AuthInterfaces'
+import {RootState} from '../../../../setup'
 
-import { KTSVG, toAbsoluteUrl } from '../../../helpers';
-import { HeaderUserMenu, QuickLinks, Search } from '../../../partials';
+import {KTSVG, toAbsoluteUrl} from '../../../helpers'
+import {HeaderUserMenu, QuickLinks, Search} from '../../../partials'
 
 const toolbarButtonMarginClass = 'ms-1 ms-lg-3',
   toolbarButtonHeightClass = 'w-30px h-30px w-md-40px h-md-40px',
@@ -11,6 +14,7 @@ const toolbarButtonMarginClass = 'ms-1 ms-lg-3',
 
 const Topbar: FC = () => {
   // const {config} = useLayout()
+  const user: IUserModel = useSelector<RootState>(({auth}) => auth.user, shallowEqual) as IUserModel
 
   return (
     <div className='d-flex align-items-stretch flex-shrink-0'>
@@ -20,46 +24,57 @@ const Topbar: FC = () => {
       </div>
       {/* Activities */}
 
-        {/* NOTIFICATIONS */}
-        <div className={clsx('d-flex align-items-center', toolbarButtonMarginClass)}>
-            {/* begin::Menu- wrapper */}
-            <div
-                className={clsx(
-                    'btn btn-icon btn-active-light-primary btn-custom',
-                    toolbarButtonHeightClass
-                )}
-                data-kt-menu-trigger='click'
-                data-kt-menu-attach='parent'
-                data-kt-menu-placement='bottom-end'
-                data-kt-menu-flip='bottom'
-            >
-                {/* <KTSVG
+      {/* NOTIFICATIONS */}
+      <div className={clsx('d-flex align-items-center', toolbarButtonMarginClass)}>
+        {/* begin::Menu- wrapper */}
+        <div
+          className={clsx(
+            'btn btn-icon btn-active-light-primary btn-custom',
+            toolbarButtonHeightClass
+          )}
+          data-kt-menu-trigger='click'
+          data-kt-menu-attach='parent'
+          data-kt-menu-placement='bottom-end'
+          data-kt-menu-flip='bottom'
+        >
+          {/* <KTSVG
                     path='/media/icons/duotune/general/gen022.svg'
                     className={toolbarButtonIconSizeClass}
                 /> */}
-            </div>
-            {/* <HeaderNotificationsMenu /> */}
-            {/* end::Menu wrapper */}
         </div>
+        {/* <HeaderNotificationsMenu /> */}
+        {/* end::Menu wrapper */}
+      </div>
 
-        {/* Quick links */}
-        <div className={clsx('d-flex align-items-center', toolbarButtonMarginClass)}>
-            {/* begin::Menu wrapper */}
-            <div
-                className={clsx('btn btn-icon btn-active-light-primary btn-custom', toolbarButtonHeightClass)}
-                data-kt-menu-trigger='click'
-                data-kt-menu-attach='parent'
-                data-kt-menu-placement='bottom-end'
-                data-kt-menu-flip='bottom'
-            >
-                <KTSVG
+      {/* Quick links */}
+      <div className={clsx('d-flex align-items-center', toolbarButtonMarginClass)}>
+        {/* begin::Menu wrapper */}
+        <div
+          className={clsx(
+            'btn btn-icon btn-active-light-primary btn-custom',
+            toolbarButtonHeightClass
+          )}
+          data-kt-menu-trigger='click'
+          data-kt-menu-attach='parent'
+          data-kt-menu-placement='bottom-end'
+          data-kt-menu-flip='bottom'
+        >
+          {/* <KTSVG
                     path='/media/icons/duotune/general/gen025.svg'
                     className={toolbarButtonIconSizeClass}
-                />
-            </div>
-            {/* <QuickLinks /> */}
-            {/* end::Menu wrapper */}
+                /> */}
         </div>
+
+        <span className='badge bg-primary'>
+          <h3 className='text-light'>Terminal: {user.serviceCenterNames}</h3>
+        </span>
+
+        {/* <strong className='d-sm-inline-block p-2 me-2 mb-2 mb-lg-0 rounded-3 masthead-notice'>
+          User Service Center
+        </strong> */}
+        {/* <QuickLinks /> */}
+        {/* end::Menu wrapper */}
+      </div>
 
       {/* begin::User */}
       <div

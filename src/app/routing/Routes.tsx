@@ -11,27 +11,26 @@ import {toast, ToastContainer} from 'react-toastify'
 import GetStates from '../modules/common/files/GetStates'
 import axios from 'axios'
 
+axios.interceptors.response.use(
+  function (response) {
+    return response
+  },
+  function (error) {
+    if (401 === error.response.status) {
+      toast.error('Sorry, your session has expired, please relogin')
+      // historyObj.push('/login')
+      window.location.href = '/accessdenied'
+      // alert('expired')
+    }
+    return Promise.reject(error)
+  }
+)
+//check for permision here first
+// GetStates()
+
 const Routes: FC = () => {
   const isAuthorized = useSelector<RootState>(({auth}) => auth.user, shallowEqual)
   let historyObj = useHistory()
-
-  axios.interceptors.response.use(
-    function (response) {
-      return response
-    },
-    function (error) {
-      if (401 === error.response.status) {
-        toast.error('Sorry, your session has expired, please relogin')
-        // historyObj.push('/login')
-        window.location.href = '/accessdenied'
-        // alert('expired')
-      }
-      return Promise.reject(error)
-    }
-  )
-  //check for permision here first
-
-  GetStates()
 
   return (
     <>

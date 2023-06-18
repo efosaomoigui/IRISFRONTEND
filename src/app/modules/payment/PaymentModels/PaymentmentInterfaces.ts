@@ -18,22 +18,37 @@ export interface IInvoiceModel {
   Status: string
 }
 
-export interface IPaymentCriteriaModel { 
+export interface IPaymentCriteriaModel {
   paymentMethod?: number
   customerPhoneNumber: string
   amount: number
-  userId: string
+  userId?: string
   walletTransactionType?: number
   invoiceNumber: string
   walletNumber: string
-  shimentCategory: number
+  waybillNumber?: string
+  shipmentCategory: number
   routeId: null
   paymentStatus: boolean
+  isShipmentRegistered?: boolean
   description: string
   pricedto?: {}
   values?: [{}]
   accessToken?: {}
   expireAt?: string
+  message?: {}
+  success?: boolean
+  validationErrors?: []
+}
+
+export interface IUpdatePaymentModel {
+  paymentMethod?: number
+  amount: number
+  userId?: string
+  invoiceNumber: string
+  waybillNumber?: string
+  shipmentCategory: number
+  paymentStatus: boolean
   message?: {}
   success?: boolean
   validationErrors?: []

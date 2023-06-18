@@ -23,6 +23,11 @@ export interface IRouteModel {
   routedto?: {}
 }
 
+export interface IDashBoardModel {
+  monthData: string
+  month: string
+}
+
 export interface IShipmentModel {
   shipmentId?: string
   waybill?: string
@@ -34,6 +39,7 @@ export interface IShipmentModel {
   createdDate?: string
   customerName?: string
   customer?: string
+  paidStatus?: string
   customerPhoneNumber?: string
   recieverPhoneNumber?: string
   grandTotal?: string
@@ -42,8 +48,26 @@ export interface IShipmentModel {
   Reciever?: string
   recieverAddress?: [{}]
   pickupOptions?: string
+  ton?: string
+  clientWaybill?: string
   shipmentItems?: IShipmentItems[]
   serviceCenterId?: string
+}
+
+export const product = [
+  {optionValue: '', optionLabel: 'Select Product Type'},
+  {optionValue: 2, optionLabel: 'Tomatoes'},
+  {optionValue: 3, optionLabel: 'Vedan'},
+  {optionValue: 4, optionLabel: 'Noodles'},
+  {optionValue: 5, optionLabel: 'Flour'},
+  {optionValue: 6, optionLabel: 'Cowbell'},
+  {optionValue: 7, optionLabel: 'Nestle'},
+  {optionValue: 8, optionLabel: 'Bigi'},
+]
+
+const productLabel = (value: number) => {
+  let productLabel = product.find((item) => item.optionValue === value)
+  return productLabel!.optionLabel
 }
 
 export interface IBaseShipmentModel {
@@ -63,8 +87,12 @@ export interface TripActionAndStatusVm {
 
 export interface IBaseGroupWayBillModel {
   groupCode?: string
+  manifestCode?: string
+  groupWayBillCode?: string
   destination?: string
+  departure?: string
   routeId?: string
+  createdDate?: string
 }
 
 export interface IShipmentItems {
@@ -77,6 +105,7 @@ export interface IShipmentItems {
   ShipmentDescription?: string
   ShipmentProduct?: string
   Shipment?: string
+  Quantity?: string
   LineTotal?: string
 }
 
@@ -121,6 +150,7 @@ export interface IManifestModel {
   Id?: string
   manifestCode?: string
   GroupWayBillCode?: IBaseGroupWayBillModel[]
+  groupWaybills?: IBaseGroupWayBillModel[]
   // GroupWayBillCode?: string;
   groupWayBillId?: string
   RouteId?: string
@@ -137,9 +167,11 @@ export interface IGroupWayBillModel {
   Id?: string
   groupCode?: string
   Shipment?: string
+  waybill?: string
   Waybills?: IBaseShipmentModel[]
   departure?: string
   destination?: string
+  createdDate?: string
   UserId?: string
   RId?: string
   GroupRId?: string
